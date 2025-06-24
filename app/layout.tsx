@@ -98,7 +98,7 @@ export default function RootLayout({
         <WebVitals />
         <Navigation 
           statusComponent={<StatusBar variant="navigation" />}
-          weatherComponent={<Weather variant="compact" />}
+          weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}
         />
         {children}
         <Footer />
