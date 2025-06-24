@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getUpcomingEvents, formatEventDate, formatEventTime, formatPrice } from '@/lib/api'
+import { EventSchema } from '@/components/EventSchema'
 
 export async function UpcomingEvents() {
   try {
@@ -24,9 +25,43 @@ export async function UpcomingEvents() {
       return acc
     }, {} as Record<string, typeof events>)
 
+    // Generate ItemList schema for all events
+    const eventListSchema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Upcoming Events at The Anchor",
+      "description": "All upcoming events, entertainment, and special occasions at The Anchor pub in Stanwell Moor",
+      "numberOfItems": events.length,
+      "itemListElement": events.map((event, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Event",
+          "@id": `https://the-anchor.pub/events/${event.id}`,
+          "name": event.name,
+          "startDate": event.startDate,
+          "url": `https://the-anchor.pub/events/${event.id}`
+        }
+      }))
+    }
+
     return (
-      <div className="space-y-8">
-        {Object.entries(eventsByDate).map(([date, dateEvents]) => (
+      <>
+        {/* Generate ItemList schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(eventListSchema)
+          }}
+        />
+        
+        {/* Generate individual schema for each event */}
+        {events.map(event => (
+          <EventSchema key={event.id} event={event} />
+        ))}
+        
+        <div className="space-y-8">
+          {Object.entries(eventsByDate).map(([date, dateEvents]) => (
           <div key={date} className="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="bg-anchor-green text-white px-6 py-4">
               <h3 className="text-xl font-bold">{date}</h3>
@@ -78,7 +113,8 @@ export async function UpcomingEvents() {
             </div>
           </div>
         ))}
-      </div>
+        </div>
+      </>
     )
   } catch (error) {
     console.error('Failed to load upcoming events:', error)

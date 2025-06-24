@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getUpcomingEvents, formatEventDate, formatEventTime, type Event } from '@/lib/api'
+import { EventSchema } from '@/components/EventSchema'
 
 export function NextEvent() {
   const [nextEvent, setNextEvent] = useState<Event | null>(null)
@@ -78,8 +79,10 @@ export function NextEvent() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
-      <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+    <>
+      <EventSchema event={nextEvent} />
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
         <div className="bg-anchor-green text-white p-6">
           <p className="text-lg font-semibold">
             {isToday ? 'TODAY' : isTomorrow ? 'TOMORROW' : eventDate}
@@ -127,6 +130,7 @@ export function NextEvent() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

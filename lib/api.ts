@@ -8,10 +8,11 @@ export interface Event {
   '@type': 'Event'
   id: string
   name: string
-  description: string
+  description: string | null
   startDate: string
-  endDate: string
+  endDate?: string
   eventStatus: string
+  eventAttendanceMode: string
   location: {
     '@type': 'Place'
     name: string
@@ -19,12 +20,13 @@ export interface Event {
       '@type': 'PostalAddress'
       streetAddress: string
       addressLocality: string
+      addressRegion: string
       postalCode: string
       addressCountry: string
     }
   }
   performer?: {
-    '@type': 'MusicGroup' | 'Person'
+    '@type': 'MusicGroup' | 'Person' | 'Organization'
     name: string
   }
   offers?: {
@@ -34,8 +36,18 @@ export interface Event {
     availability: string
     validFrom: string
     url?: string
+    inventoryLevel?: {
+      '@type': 'QuantitativeValue'
+      value: number
+    }
   }
   image?: string[]
+  organizer?: {
+    '@type': 'Organization'
+    name: string
+    url?: string
+  }
+  isAccessibleForFree?: boolean
   remainingAttendeeCapacity?: number
   maximumAttendeeCapacity?: number
   category?: {
@@ -342,4 +354,15 @@ export function formatPrice(price: string | number, currency: string = 'GBP'): s
     currency: currency
   })
   return formatter.format(typeof price === 'string' ? parseFloat(price) : price)
+}
+
+export function isEventSoldOut(event: Event): boolean {
+  return event.remainingAttendeeCapacity === 0 || 
+    event.offers?.availability === 'https://schema.org/SoldOut'
+}
+
+export function isEventFree(event: Event): boolean {
+  return event.isAccessibleForFree === true || 
+    event.offers?.price === '0' || 
+    event.offers?.price === '0.00'
 }
