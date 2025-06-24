@@ -2,7 +2,6 @@
 // Handles all API calls to the management system
 
 const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
-const API_KEY = process.env.ANCHOR_API_KEY || ''
 
 // Types based on API documentation
 export interface Event {
@@ -108,13 +107,13 @@ export interface BusinessHours {
   }>
 }
 
-class AnchorAPI {
+export class AnchorAPI {
   private baseURL: string
   private apiKey: string
 
-  constructor() {
+  constructor(apiKey?: string) {
     this.baseURL = API_BASE_URL
-    this.apiKey = API_KEY
+    this.apiKey = apiKey || process.env.ANCHOR_API_KEY || ''
     
     if (!this.apiKey) {
       console.warn('ANCHOR_API_KEY is not set. API calls will fail.')
@@ -128,30 +127,60 @@ class AnchorAPI {
     const url = `${this.baseURL}${endpoint}`
     
     try {
+      // Try both authentication methods as documented
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+      }
+      
+      // Add both authentication headers
+      if (this.apiKey) {
+        headers['X-API-Key'] = this.apiKey
+        headers['Authorization'] = `Bearer ${this.apiKey}`
+      }
+      
+      // Merge with any provided headers
+      if (options.headers) {
+        Object.assign(headers, options.headers)
+      }
+      
+      
       const response = await fetch(url, {
         ...options,
-        headers: {
-          'X-API-Key': this.apiKey,
-          'Content-Type': 'application/json',
-          ...options.headers,
-        },
+        headers,
         // Next.js specific caching
         next: { revalidate: 300 }, // Cache for 5 minutes
       })
 
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || `API request failed: ${response.status}`)
+        let errorMessage = `API request failed: ${response.status}`
+        
+        try {
+          const errorData = await response.json()
+          if (errorData.error) {
+            errorMessage = errorData.error
+          } else if (errorData.message) {
+            errorMessage = errorData.message
+          }
+        } catch {
+          // If JSON parsing fails, use status text
+          errorMessage = `${response.status} ${response.statusText}`
+        }
+        
+        // Log specific error codes for debugging
+        if (response.status === 401) {
+          console.error('Authentication failed. Check ANCHOR_API_KEY environment variable.')
+        } else if (response.status === 429) {
+          console.error('Rate limit exceeded. Please try again later.')
+        }
+        
+        throw { message: errorMessage, status: response.status }
       }
 
       return response.json()
     } catch (error) {
       console.error('API Error:', error)
-      // Provide more detailed error information
-      if (error instanceof Error) {
-        throw error
-      }
-      throw new Error('API request failed')
+      // Re-throw the error with proper structure
+      throw error
     }
   }
 
