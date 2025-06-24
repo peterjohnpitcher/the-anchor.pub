@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { CallToAction } from '@/components/CallToAction'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
+import { BusinessHours } from '@/components/BusinessHours'
 
 // Dynamic imports for non-critical components
 const OpeningStatus = dynamic(() => import('@/components/OpeningStatus').then(mod => mod.OpeningStatus), {
@@ -279,32 +280,8 @@ export default function HomePage() {
               
               <div className="bg-white/10 rounded-lg p-6">
                 <h3 className="text-2xl font-bold mb-6">🕐 Opening Hours</h3>
-                <div className="space-y-3 text-lg">
-                  <div className="flex justify-between">
-                    <span>Monday</span>
-                    <span>4pm - 10pm (Kitchen closed)</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Tuesday - Thursday</span>
-                    <span>4pm - 10pm (Kitchen 6-9pm)</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Friday</span>
-                    <span>4pm - 12am (Kitchen 6-9pm)</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>12pm - 12am (Kitchen 1-7pm)</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>12pm - 10pm (Kitchen 12-5pm)</span>
-                  </div>
-                </div>
-                
-                <div className="mt-6 p-4 bg-anchor-gold/20 rounded-lg">
-                  <p className="font-semibold">🎄 Holiday Hours</p>
-                  <p className="text-sm mt-1">Check our Facebook for special holiday hours</p>
+                <div className="bg-white/95 text-gray-900 rounded-lg p-4">
+                  <BusinessHours variant="full" showKitchen={true} />
                 </div>
               </div>
             </div>
