@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:crawl": "playwright test",
+    "test:crawl:ui": "playwright test --ui",
+    "test:crawl:report": "playwright show-report"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
@@ -16,6 +19,7 @@
     "typescript": "^5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.53.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -1,0 +1,672 @@
+{
+  "timestamp": "2025-06-24T19:29:15.543Z",
+  "totalPages": 14,
+  "successfulPages": 14,
+  "totalErrors": 0,
+  "totalWarnings": 11,
+  "averageLoadTime": 2145.214285714286,
+  "pages": [
+    {
+      "url": "/",
+      "name": "homepage",
+      "status": "success",
+      "loadTime": 3284,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather?type=forecast",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/events?limit=1",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/weather?type=forecast",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/events?limit=1",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "https://management.orangejelly.co.uk/api/business/hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "https://management.orangejelly.co.uk/api/business/hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 127,
+        "load": 523
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "The Anchor Pub Near Me | Heathrow's Local Pub | Open Now",
+        "description": "The Anchor pub in Stanwell Moor near Heathrow Airport. Traditional British pub with drag shows, tequila tastings, quiz nights & more. Dog-friendly beer garden under the flight path.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/whats-on",
+      "name": "whats-on",
+      "status": "success",
+      "loadTime": 2689,
+      "errors": [],
+      "warnings": [
+        "Image with src \"/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes",
+        "Image with src \"/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg\" was detected as the Largest Contentful Paint (LCP). Please add the \"priority\" property if this image is above the fold.\nRead more: https://nextjs.org/docs/api-reference/next/image#priority"
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 2185,
+        "load": 2185
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "What's On | The Anchor Stanwell Moor | Events, Entertainment & Live Music | The Anchor Stanwell Moor",
+        "description": "Regular events at The Anchor pub including drag shows, tequila tastings, quiz nights, live music and more. Something happening every week!",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/whats-on/drag-shows",
+      "name": "drag-shows",
+      "status": "success",
+      "loadTime": 1456,
+      "errors": [],
+      "warnings": [],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 375,
+        "load": 792
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Drag Shows | The Anchor Stanwell Moor | Saturday Night Entertainment | The Anchor Stanwell Moor",
+        "description": "Spectacular drag shows every Saturday at The Anchor with Nikki Manfadge. Inclusive, fun entertainment near Heathrow. Book your table for an unforgettable night!",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/whats-on/tequila-tasting",
+      "name": "tequila-tasting",
+      "status": "success",
+      "loadTime": 1818,
+      "errors": [],
+      "warnings": [],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 410,
+        "load": 1314
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Tequila Tasting Events | The Anchor Stanwell Moor | Premium Mexican Spirits | The Anchor Stanwell Moor",
+        "description": "Join our quarterly tequila tasting events at The Anchor. Explore Mexico's finest spirits, learn about regions and production, all in a friendly social atmosphere near Heathrow.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/food-menu",
+      "name": "food-menu",
+      "status": "success",
+      "loadTime": 1480,
+      "errors": [],
+      "warnings": [],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 369,
+        "load": 803
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Food Menu | The Anchor Stanwell Moor | Traditional British Pub Food | The Anchor Stanwell Moor",
+        "description": "Enjoy traditional British pub food at The Anchor. Famous Sunday roasts, stone-baked pizzas, burgers, and family-friendly meals. Kitchen open Tuesday-Sunday.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/sunday-lunch",
+      "name": "sunday-lunch",
+      "status": "success",
+      "loadTime": 1764,
+      "errors": [],
+      "warnings": [],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 657,
+        "load": 1061
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow | The Anchor Stanwell Moor",
+        "description": "Award-winning Sunday roasts at The Anchor. Traditional British roast dinners served 12-5pm every Sunday. Book early - very popular with locals and Heathrow travelers.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/drinks",
+      "name": "drinks",
+      "status": "success",
+      "loadTime": 1261,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 131,
+        "load": 585
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Drinks Menu | The Anchor Stanwell Moor | Real Ales & Premium Tequila | The Anchor Stanwell Moor",
+        "description": "Extensive drinks selection at The Anchor. Real ales, craft beers, premium tequilas, wines, and cocktails. Home of Thursday tequila tastings.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/find-us",
+      "name": "find-us",
+      "status": "success",
+      "loadTime": 2857,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 1294,
+        "load": 2064
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Find Us | The Anchor Stanwell Moor | Directions & Parking | The Anchor Stanwell Moor",
+        "description": "Find The Anchor pub in Stanwell Moor. Easy directions from Heathrow, M25, and local areas. Free parking available. Just off Horton Road near the church.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/book-event",
+      "name": "book-event",
+      "status": "success",
+      "loadTime": 1476,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 426,
+        "load": 826
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Book an Event | The Anchor Stanwell Moor | Private Parties & Functions | The Anchor Stanwell Moor",
+        "description": "Book The Anchor for your private event. Birthday parties, corporate events, wakes, and celebrations. Flexible spaces and custom menus available.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/near-heathrow",
+      "name": "near-heathrow",
+      "status": "success",
+      "loadTime": 1334,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "https://management.orangejelly.co.uk/api/business/hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "https://management.orangejelly.co.uk/api/business/hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 112,
+        "load": 500
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Pub Near Heathrow Airport | The Anchor Stanwell Moor | 7 Minutes from All Terminals | The Anchor Stanwell Moor",
+        "description": "The closest traditional British pub to Heathrow Airport. Just 7 minutes from Terminal 5, 10 minutes from T2/T3. Free parking, great food, and a warm welcome for travelers.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/near-heathrow/terminal-2",
+      "name": "terminal-2",
+      "status": "success",
+      "loadTime": 2685,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 430,
+        "load": 933
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Pub Near Heathrow Terminal 2 | The Anchor - 10 Minutes Away | The Anchor Stanwell Moor",
+        "description": "Traditional British pub just 10 minutes from Heathrow Terminal 2. Free parking, great food, and perfect for Star Alliance travelers. Your pre-flight dining destination.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/near-heathrow/terminal-3",
+      "name": "terminal-3",
+      "status": "success",
+      "loadTime": 2783,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 423,
+        "load": 812
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Pub Near Heathrow Terminal 3 | The Anchor - 10 Minutes Away | The Anchor Stanwell Moor",
+        "description": "Family-friendly British pub just 10 minutes from Heathrow Terminal 3. Free parking, traditional food, perfect for Virgin Atlantic and Emirates travelers.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/near-heathrow/terminal-4",
+      "name": "terminal-4",
+      "status": "success",
+      "loadTime": 2326,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 112,
+        "load": 521
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Pub Near Heathrow Terminal 4 | The Anchor - 12 Minutes Away | The Anchor Stanwell Moor",
+        "description": "Traditional British pub just 12 minutes from Heathrow Terminal 4. Free parking, authentic food, perfect for SkyTeam and budget airline travelers.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    },
+    {
+      "url": "/near-heathrow/terminal-5",
+      "name": "terminal-5",
+      "status": "success",
+      "loadTime": 2820,
+      "errors": [],
+      "warnings": [
+        "ANCHOR_API_KEY is not set. API calls will fail."
+      ],
+      "networkFailures": [],
+      "apiCalls": [
+        {
+          "url": "http://localhost:3000/api/weather",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        },
+        {
+          "url": "http://localhost:3000/api/business-hours",
+          "status": 200,
+          "duration": -1
+        }
+      ],
+      "performance": {
+        "domContentLoaded": 463,
+        "load": 1042
+      },
+      "accessibility": {
+        "missingAltTexts": 0,
+        "emptyLinks": 0,
+        "lowContrast": 0
+      },
+      "seo": {
+        "title": "Pub Near Heathrow Terminal 5 | The Anchor - 7 Minutes Away | The Anchor Stanwell Moor",
+        "description": "The closest pub to Heathrow Terminal 5 - just 7 minutes drive. Free parking, traditional British food, and a warm welcome. Perfect for BA travelers.",
+        "h1Count": 1,
+        "canonicalUrl": "https://the-anchor.pub"
+      }
+    }
+  ],
+  "commonIssues": {
+    "jsErrors": [],
+    "networkErrors": [],
+    "consoleErrors": [],
+    "missingAltTexts": [],
+    "seoIssues": []
+  }
+}
