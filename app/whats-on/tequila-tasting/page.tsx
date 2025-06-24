@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Tequila Thursdays | The Anchor Stanwell Moor | Premium Tequila Tasting Events',
@@ -508,6 +509,6 @@ export default function TequilaTastingPage() {
           })
         }}
       />
-    </>
+    <Footer /></>
   )
 }

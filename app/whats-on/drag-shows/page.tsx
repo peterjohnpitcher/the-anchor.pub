@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Drag Shows | The Anchor Stanwell Moor | Saturday Night Entertainment',
@@ -365,6 +366,6 @@ export default function DragShowsPage() {
           })
         }}
       />
-    </>
+    <Footer /></>
   )
 }

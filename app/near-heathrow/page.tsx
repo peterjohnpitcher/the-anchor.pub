@@ -4,6 +4,7 @@ import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { OpeningStatus } from '@/components/OpeningStatus'
 import { Metadata } from 'next'
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Airport | The Anchor Stanwell Moor | 7 Minutes from All Terminals',
@@ -389,6 +390,6 @@ export default function NearHeathrowPage() {
           })
         }}
       />
-    </>
+    <Footer /></>
   )
 }

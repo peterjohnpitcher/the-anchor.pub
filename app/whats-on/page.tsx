@@ -4,6 +4,7 @@ import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { UpcomingEvents } from '@/components/UpcomingEvents'
 import { Metadata } from 'next'
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: "What's On | The Anchor Stanwell Moor | Events, Entertainment & Live Music",
@@ -466,6 +467,6 @@ export default function WhatsOnPage() {
           })
         }}
       />
-    </>
+    <Footer /></>
   )
 }

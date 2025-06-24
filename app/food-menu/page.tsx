@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Food Menu | The Anchor Stanwell Moor | Traditional British Pub Food',
@@ -444,6 +445,6 @@ export default function FoodMenuPage() {
           })
         }}
       />
-    </>
+    <Footer /></>
   )
 }

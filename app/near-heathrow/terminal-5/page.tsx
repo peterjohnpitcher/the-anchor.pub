@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 5 | The Anchor - 7 Minutes Away',
@@ -344,6 +345,6 @@ export default function Terminal5Page() {
           })
         }}
       />
-    </>
+    <Footer /></>
   )
 }
