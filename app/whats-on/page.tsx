@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
+import { StatusBar } from '@/components/StatusBar'
 import { UpcomingEvents } from '@/components/UpcomingEvents'
 import { Metadata } from 'next'
 
@@ -18,6 +19,10 @@ export const metadata: Metadata = {
 export default function WhatsOnPage() {
   return (
     <>
+      {/* Status Bar */}
+      <div className="flex justify-center py-4 bg-gray-50">
+        <StatusBar />
+      </div>
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center">

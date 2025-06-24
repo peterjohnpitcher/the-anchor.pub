@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
+import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -17,6 +18,10 @@ export const metadata: Metadata = {
 export default function DrinksMenuPage() {
   return (
     <>
+      {/* Status Bar */}
+      <div className="flex justify-center py-4 bg-gray-50">
+        <StatusBar />
+      </div>
       
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center">
@@ -413,57 +418,75 @@ export default function DrinksMenuPage() {
               {/* Whisky Selection */}
               <div className="bg-white rounded-2xl p-8 mb-8 shadow-sm">
                 <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Whisky Selection</h3>
-                <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Baileys</p>
+                <p className="text-center text-gray-600 mb-8">From smooth Irish to peaty Scotch</p>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Baileys</h4>
+                    <p className="text-sm text-gray-700">Irish cream liqueur. Smooth blend of Irish whiskey, cream, and cocoa.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Bells</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Bells</h4>
+                    <p className="text-sm text-gray-700">Scotland's favourite blend. Smooth and fruity with a spicy finish.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Famous Grouse</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Famous Grouse</h4>
+                    <p className="text-sm text-gray-700">Smooth blended Scotch. Full-flavoured with hints of sherry oak.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Jack Daniels</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Jack Daniels</h4>
+                    <p className="text-sm text-gray-700">Tennessee whiskey. Charcoal mellowed for smoothness. Sweet vanilla notes.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Jack Daniels Fire</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Jack Daniels Fire</h4>
+                    <p className="text-sm text-gray-700">Cinnamon liqueur. Fiery red hot cinnamon taste with smooth finish.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Jack Daniels Honey</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Jack Daniels Honey</h4>
+                    <p className="text-sm text-gray-700">Honey liqueur. Natural honey sweetness with whiskey smoothness.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Jack Daniel's Apple</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Jack Daniel's Apple</h4>
+                    <p className="text-sm text-gray-700">Crisp green apple liqueur. Fresh orchard taste with whiskey warmth.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Jameson</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Jameson</h4>
+                    <p className="text-sm text-gray-700">Triple-distilled Irish whiskey. Smooth, sweet with subtle wood notes.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Bushmills</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Bushmills</h4>
+                    <p className="text-sm text-gray-700">Original Irish whiskey since 1608. Light, fruity with vanilla sweetness.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Glenfiddich</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Glenfiddich</h4>
+                    <p className="text-sm text-gray-700">World's most awarded single malt. Fresh pear, subtle oak, soft vanilla.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Johnnie Walker Black Label</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Johnnie Walker Black Label</h4>
+                    <p className="text-sm text-gray-700">12-year blend. Deep, complex with smoky finish. True icon.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Monkey Shoulder</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Monkey Shoulder</h4>
+                    <p className="text-sm text-gray-700">Triple malt blend. Smooth, rich and mellow. Vanilla, honey, spiced oak.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Southern Comfort</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Southern Comfort</h4>
+                    <p className="text-sm text-gray-700">Whiskey liqueur with fruits and spices. Sweet, smooth, one-of-a-kind.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Makers Mark</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Makers Mark</h4>
+                    <p className="text-sm text-gray-700">Kentucky bourbon. Hand-dipped red wax seal. Sweet caramel and vanilla.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Talisker</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Talisker</h4>
+                    <p className="text-sm text-gray-700">Island single malt. Powerful peat smoke, sea salt, spicy pepper finish.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Glenmorangie</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Glenmorangie</h4>
+                    <p className="text-sm text-gray-700">Highland single malt. Delicate, floral with vanilla and peach notes.</p>
                   </div>
-                  <div className="text-center p-3 bg-anchor-cream rounded">
-                    <p className="font-semibold">Shanky's Whip</p>
+                  <div className="p-4 bg-anchor-cream rounded-lg">
+                    <h4 className="font-bold text-anchor-green mb-2">Shanky's Whip</h4>
+                    <p className="text-sm text-gray-700">Black Irish whiskey liqueur. Smooth blend with vanilla and caramel.</p>
                   </div>
                 </div>
               </div>

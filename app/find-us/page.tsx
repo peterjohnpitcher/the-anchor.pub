@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
+import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 import { BusinessHours } from '@/components/BusinessHours'
 
@@ -18,6 +19,10 @@ export const metadata: Metadata = {
 export default function FindUsPage() {
   return (
     <>
+      {/* Status Bar */}
+      <div className="flex justify-center py-4 bg-gray-50">
+        <StatusBar />
+      </div>
       
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark">
