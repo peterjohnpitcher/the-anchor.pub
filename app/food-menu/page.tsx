@@ -234,6 +234,44 @@ export default function FoodMenuPage() {
                 <p className="text-gray-700">Creamy macaroni in a rich cheese sauce, topped with crispy onions. Served with garlic bread and fresh salad for extra indulgence.</p>
               </div>
             </div>
+            
+            {/* Chip Shop Favourites */}
+            <div className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-6">
+              <h3 className="font-bold text-lg text-anchor-green mb-2 text-center">🐟 Classic Chip Shop Favourites</h3>
+              <p className="text-center text-anchor-gold font-semibold mb-4">50% Off for Over 65s Every Friday!</p>
+              <p className="text-gray-700 text-center mb-6">All served with mushy peas, tartar sauce, and fresh lemon</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mt-6">
+              <div className="bg-white rounded-2xl p-8 shadow-md">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-xl text-anchor-green">Fish & Chips</h3>
+                  <span className="text-xl font-bold text-anchor-gold">£14.99</span>
+                </div>
+                <p className="text-gray-700">Beer-battered fish, crispy golden chips, mushy peas, tartar sauce, and a fresh lemon wedge for a classic taste.</p>
+              </div>
+              <div className="bg-white rounded-2xl p-8 shadow-md">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-xl text-anchor-green">Half Fish & Chips</h3>
+                  <span className="text-xl font-bold text-anchor-gold">£11.99</span>
+                </div>
+                <p className="text-gray-700">Half-sized battered fish with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge—light but satisfying.</p>
+              </div>
+              <div className="bg-white rounded-2xl p-8 shadow-md">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-xl text-anchor-green">Scampi & Chips</h3>
+                  <span className="text-xl font-bold text-anchor-gold">£12.99</span>
+                </div>
+                <p className="text-gray-700">Golden, crispy scampi served with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge for balance.</p>
+              </div>
+              <div className="bg-white rounded-2xl p-8 shadow-md">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-xl text-anchor-green">Jumbo Sausage & Chips</h3>
+                  <span className="text-xl font-bold text-anchor-gold">£12.99</span>
+                </div>
+                <p className="text-gray-700">Jumbo sausage with chunky chips, mushy peas, and your choice of sauce—perfect for a hearty, no-fuss meal.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -412,52 +450,6 @@ export default function FoodMenuPage() {
         </div>
       </section>
 
-      {/* Chip Shop */}
-      <section className="py-16 md:py-20 bg-anchor-cream">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              🐟 Chip Shop
-            </h2>
-            <div className="bg-white rounded-2xl p-8 shadow-md">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-anchor-gold mb-2">50% Off for Over 65s Every Friday!</h3>
-                <p className="text-gray-700">Enjoy a classic chip supper with 50% off for seniors every Friday! All served with mushy peas, tartar sauce, and fresh lemon—truly British!</p>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="border-t pt-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-bold text-xl text-anchor-green">Fish & Chips</h3>
-                    <span className="text-xl font-bold text-anchor-gold">£14.99</span>
-                  </div>
-                  <p className="text-gray-700">Beer-battered fish, crispy golden chips, mushy peas, tartar sauce, and a fresh lemon wedge for a classic taste.</p>
-                </div>
-                <div className="border-t pt-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-bold text-xl text-anchor-green">Half Fish & Chips</h3>
-                    <span className="text-xl font-bold text-anchor-gold">£11.99</span>
-                  </div>
-                  <p className="text-gray-700">Half-sized battered fish with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge—light but satisfying.</p>
-                </div>
-                <div className="border-t pt-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-bold text-xl text-anchor-green">Scampi & Chips</h3>
-                    <span className="text-xl font-bold text-anchor-gold">£12.99</span>
-                  </div>
-                  <p className="text-gray-700">Golden, crispy scampi served with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge for balance.</p>
-                </div>
-                <div className="border-t pt-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="font-bold text-xl text-anchor-green">Jumbo Sausage & Chips</h3>
-                    <span className="text-xl font-bold text-anchor-gold">£12.99</span>
-                  </div>
-                  <p className="text-gray-700">Jumbo sausage with chunky chips, mushy peas, and your choice of sauce—perfect for a hearty, no-fuss meal.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Desserts & Hot Drinks */}
       <section className="py-16 md:py-20 bg-white">
@@ -610,6 +602,10 @@ export default function FoodMenuPage() {
                       "@type": "Offer",
                       "price": "14.99",
                       "priceCurrency": "GBP"
+                    },
+                    "nutrition": {
+                      "@type": "NutritionInformation",
+                      "description": "50% off for over 65s on Fridays"
                     }
                   },
                   {
