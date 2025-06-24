@@ -16,23 +16,23 @@ interface WeatherProps {
   variant?: 'compact' | 'full'
 }
 
-// Stanwell Moor coordinates
-const LATITUDE = 51.4546
-const LONGITUDE = -0.5156
 
 export function Weather({ variant = 'compact' }: WeatherProps) {
   const [weather, setWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+
     async function fetchWeather() {
       try {
-        // Using OpenWeatherMap free API
-        const API_KEY = '8d6454a89dff871786a0307b0dbebbee' // Free tier key
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${API_KEY}&units=metric`
-        )
+        const response = await fetch('/api/weather')
         
         if (!response.ok) {
           throw new Error('Weather data unavailable')
@@ -40,14 +40,11 @@ export function Weather({ variant = 'compact' }: WeatherProps) {
         
         const data = await response.json()
         
-        setWeather({
-          temp: Math.round(data.main.temp),
-          feels_like: Math.round(data.main.feels_like),
-          description: data.weather[0].description,
-          icon: data.weather[0].icon,
-          humidity: data.main.humidity,
-          wind_speed: Math.round(data.wind.speed * 3.6) // Convert m/s to km/h
-        })
+        if (data.error) {
+          throw new Error(data.error)
+        }
+        
+        setWeather(data)
       } catch (err) {
         console.error('Failed to fetch weather:', err)
         setError('Unable to load weather')
@@ -60,18 +57,36 @@ export function Weather({ variant = 'compact' }: WeatherProps) {
     // Refresh every 30 minutes
     const interval = setInterval(fetchWeather, 30 * 60 * 1000)
     return () => clearInterval(interval)
-  }, [])
+  }, [mounted])
 
   if (loading) {
+    if (variant === 'compact') {
+      return (
+        <div className="animate-pulse">
+          <div className="h-6 bg-white/30 rounded w-24"></div>
+        </div>
+      )
+    }
     return (
-      <div className="animate-pulse">
-        <div className="h-6 bg-gray-300 rounded w-24"></div>
+      <div className="bg-white rounded-lg shadow-sm p-4 animate-pulse">
+        <div className="h-32"></div>
       </div>
     )
   }
 
   if (error || !weather) {
-    return null
+    console.error('Weather component error:', error)
+    // Show a minimal fallback instead of hiding completely
+    if (variant === 'compact') {
+      return <div className="text-sm opacity-70">Weather unavailable</div>
+    }
+    return (
+      <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="text-center text-gray-500">
+          <p className="text-sm">Weather data unavailable</p>
+        </div>
+      </div>
+    )
   }
 
   // Compact variant - for header

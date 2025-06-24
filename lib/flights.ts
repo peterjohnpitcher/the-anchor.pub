@@ -1,7 +1,7 @@
 // Heathrow Flight Data Service using AviationStack API
 // Provides real-time flight information for terminal pages
 
-const AVIATIONSTACK_API_KEY = process.env.AVIATIONSTACK_API_KEY
+const AVIATIONSTACK_API_KEY = process.env.NEXT_PUBLIC_AVIATIONSTACK_API_KEY
 const API_BASE_URL = 'http://api.aviationstack.com/v1'
 
 // Cache duration: 10 minutes (to minimize API calls)
@@ -80,7 +80,7 @@ export class FlightAPI {
     this.apiKey = AVIATIONSTACK_API_KEY || ''
     
     if (!this.apiKey) {
-      console.warn('AVIATIONSTACK_API_KEY is not set. Flight data will not be available.')
+      console.warn('NEXT_PUBLIC_AVIATIONSTACK_API_KEY is not set. Flight data will not be available.')
     }
   }
 
@@ -112,12 +112,21 @@ export class FlightAPI {
       const data = await response.json()
       
       if (data.error) {
-        throw new Error(data.error.message || 'API error occurred')
+        console.error('AviationStack API error:', data.error)
+        throw new Error(data.error.message || data.error.type || 'API error occurred')
       }
+
+      console.log('AviationStack API response:', {
+        endpoint,
+        params,
+        dataLength: data.data?.length || 0,
+        pagination: data.pagination
+      })
 
       return data
     } catch (error) {
       console.error('Flight API error:', error)
+      console.error('Failed URL:', url)
       throw error
     }
   }
@@ -125,14 +134,14 @@ export class FlightAPI {
   async getDepartures(terminal?: string, limit: number = 10): Promise<FlightResponse> {
     const params: Record<string, string> = {
       dep_iata: 'LHR', // Heathrow IATA code
-      limit: limit.toString()
+      limit: limit.toString(),
     }
 
-    // Filter by terminal if specified
-    if (terminal) {
-      const terminalCode = TERMINAL_CODES[terminal] || terminal
-      params.dep_terminal = terminalCode
-    }
+    // Note: Free tier might not support terminal filtering
+    // if (terminal) {
+    //   const terminalCode = TERMINAL_CODES[terminal] || terminal
+    //   params.dep_terminal = terminalCode
+    // }
 
     // Check cache first
     const cacheKey = this.getCacheKey({ ...params, type: 'departures' })
@@ -165,14 +174,14 @@ export class FlightAPI {
   async getArrivals(terminal?: string, limit: number = 10): Promise<FlightResponse> {
     const params: Record<string, string> = {
       arr_iata: 'LHR', // Heathrow IATA code
-      limit: limit.toString()
+      limit: limit.toString(),
     }
 
-    // Filter by terminal if specified
-    if (terminal) {
-      const terminalCode = TERMINAL_CODES[terminal] || terminal
-      params.arr_terminal = terminalCode
-    }
+    // Note: Free tier might not support terminal filtering
+    // if (terminal) {
+    //   const terminalCode = TERMINAL_CODES[terminal] || terminal
+    //   params.arr_terminal = terminalCode
+    // }
 
     // Check cache first
     const cacheKey = this.getCacheKey({ ...params, type: 'arrivals' })

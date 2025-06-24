@@ -22,13 +22,27 @@ export function FlightStatus({ terminal, type = 'both', limit = 5 }: FlightStatu
         setError(null)
 
         if (type === 'departures' || type === 'both') {
-          const deps = await flightAPI.getDepartures(terminal, limit)
-          setDepartures(deps.flights)
+          const deps = await flightAPI.getDepartures(terminal, limit * 2) // Get more to filter
+          // Filter by terminal if we got all flights
+          const filtered = deps.flights.filter(flight => 
+            !terminal || 
+            flight.departure.terminal === terminal || 
+            flight.departure.terminal === `T${terminal}` ||
+            flight.departure.terminal === `Terminal ${terminal}`
+          ).slice(0, limit)
+          setDepartures(filtered)
         }
 
         if (type === 'arrivals' || type === 'both') {
-          const arrs = await flightAPI.getArrivals(terminal, limit)
-          setArrivals(arrs.flights)
+          const arrs = await flightAPI.getArrivals(terminal, limit * 2) // Get more to filter
+          // Filter by terminal if we got all flights
+          const filtered = arrs.flights.filter(flight => 
+            !terminal || 
+            flight.arrival.terminal === terminal || 
+            flight.arrival.terminal === `T${terminal}` ||
+            flight.arrival.terminal === `Terminal ${terminal}`
+          ).slice(0, limit)
+          setArrivals(filtered)
         }
       } catch (err) {
         console.error('Failed to fetch flight data:', err)
@@ -153,6 +167,9 @@ export function FlightStatus({ terminal, type = 'both', limit = 5 }: FlightStatu
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <p className="text-gray-500 text-center">
             No flight information available for Terminal {terminal} at this time.
+          </p>
+          <p className="text-xs text-gray-400 text-center mt-2">
+            Flight data may be limited on free API tier. Check console for details.
           </p>
         </div>
       )}

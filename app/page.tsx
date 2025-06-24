@@ -169,6 +169,79 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Heathrow Travelers Section */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
+                ✈️ Perfect for Heathrow Travelers
+              </h2>
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                Just 7-12 minutes from all terminals • Free parking • Real British experience
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Why Choose Us */}
+              <div className="bg-white rounded-2xl p-8 shadow-sm">
+                <h3 className="text-2xl font-bold text-anchor-green mb-6">Why Stop at The Anchor?</h3>
+                <ul className="space-y-4">
+                  <li className="flex gap-3">
+                    <span className="text-2xl">💰</span>
+                    <div>
+                      <strong>Save Money:</strong> Airport food costs 3x more. Enjoy a proper meal for less.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-2xl">🚗</span>
+                    <div>
+                      <strong>Free Parking:</strong> No hourly charges, no stress. Stay as long as you like.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-2xl">🇬🇧</span>
+                    <div>
+                      <strong>Real Experience:</strong> Authentic British pub, not an airport chain.
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-2xl">⏰</span>
+                    <div>
+                      <strong>Kill Time Comfortably:</strong> Much nicer than terminal seating.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Terminal Times */}
+              <div className="bg-white rounded-2xl p-8 shadow-sm">
+                <h3 className="text-2xl font-bold text-anchor-green mb-6">Journey Times by Car</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                    <span className="font-semibold">Terminal 2 & 3</span>
+                    <span className="text-anchor-gold font-bold">11 minutes</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                    <span className="font-semibold">Terminal 4</span>
+                    <span className="text-anchor-gold font-bold">12 minutes</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                    <span className="font-semibold">Terminal 5</span>
+                    <span className="text-anchor-gold font-bold">7 minutes</span>
+                  </div>
+                </div>
+                <div className="mt-6 text-center">
+                  <CallToAction href="/near-heathrow" variant="primary" size="large">
+                    Get Directions From Your Terminal
+                  </CallToAction>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Photo Gallery */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
