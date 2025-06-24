@@ -147,7 +147,11 @@ class AnchorAPI {
       return response.json()
     } catch (error) {
       console.error('API Error:', error)
-      throw error
+      // Provide more detailed error information
+      if (error instanceof Error) {
+        throw error
+      }
+      throw new Error('API request failed')
     }
   }
 
