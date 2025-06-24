@@ -37,135 +37,123 @@ export default function FoodMenuPage() {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Honest Food, Great Value
+              Good Food, Good Company
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              Traditional British pub food made with care
+              Great memories start with great food
             </p>
             
             <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="tag bg-white/90 backdrop-blur-sm">🍖 Famous Sunday Roasts</span>
+              <span className="tag bg-white/90 backdrop-blur-sm">🍖 Sunday Roasts</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🍕 Stone-Baked Pizzas</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">👨‍👩‍👧‍👦 Kids Menu</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🌱 Vegetarian Options</span>
+              <span className="tag bg-white/90 backdrop-blur-sm">🍔 Burgers & Stacks</span>
+              <span className="tag bg-white/90 backdrop-blur-sm">🌱 Veggie Options</span>
             </div>
-            
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="large"
-            >
-              📞 Book a Table: 01753 682707
-            </CallToAction>
           </div>
         </div>
       </section>
 
       {/* Kitchen Hours */}
-      <section className="py-8 bg-anchor-cream">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-anchor-green mb-4">🍽️ Kitchen Hours</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white rounded-lg p-4">
-                <p className="font-semibold text-anchor-green">Tuesday - Thursday</p>
-                <p className="text-gray-700">6:00 PM - 9:00 PM</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="font-semibold text-anchor-green">Friday</p>
-                <p className="text-gray-700">6:00 PM - 9:00 PM</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="font-semibold text-anchor-green">Saturday</p>
-                <p className="text-gray-700">1:00 PM - 7:00 PM</p>
-              </div>
-              <div className="bg-white rounded-lg p-4 md:col-span-3">
-                <p className="font-semibold text-anchor-green">Sunday</p>
-                <p className="text-gray-700">12:00 PM - 5:00 PM (Roast only)</p>
-              </div>
-            </div>
-            <p className="mt-4 text-gray-600 italic">Kitchen closed Mondays</p>
-          </div>
+      <section className="py-8 bg-anchor-gold/10">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-lg text-anchor-green font-semibold">
+            Kitchen Hours: Tuesday to Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
+          </p>
+          <p className="text-sm text-gray-600 mt-2">
+            Please order at the bar when you're ready
+          </p>
         </div>
       </section>
 
-      {/* Menu Categories */}
-      <section className="py-16 md:py-20 bg-white">
+      {/* Main Menu Section */}
+      <section className="py-16 md:py-20 bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Sunday Roasts */}
+            
+            {/* Sunday Roasts Special Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-8 text-center">
+                🥘 Sunday Roasts
+              </h2>
+              <div className="bg-white rounded-2xl p-8 shadow-md text-center mb-8">
+                <p className="text-lg text-gray-700 mb-4">
+                  Our famous Sunday roasts are available every Sunday from 12pm to 5pm
+                </p>
+                <CallToAction 
+                  href="/sunday-lunch"
+                  variant="primary" 
+                  size="large"
+                >
+                  View Full Sunday Menu
+                </CallToAction>
+              </div>
+            </div>
+
+            {/* Light Bites */}
             <div className="mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-                🍖 Sunday Roasts
+                🥪 Light Bites
               </h2>
-              <div className="bg-anchor-sand/20 rounded-2xl p-8">
-                <p className="text-center text-lg text-gray-700 mb-8">
-                  Our famous Sunday roasts are served from 12pm to 5pm every Sunday. 
-                  All roasts come with roast potatoes, Yorkshire pudding, seasonal vegetables, and gravy.
-                </p>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-white rounded-xl p-6">
-                    <h3 className="font-bold text-xl text-anchor-green mb-2">Roast Beef</h3>
-                    <p className="text-anchor-gold font-semibold mb-2">£14.95</p>
-                    <p className="text-gray-700">Tender British beef, perfectly pink, with horseradish sauce</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6">
-                    <h3 className="font-bold text-xl text-anchor-green mb-2">Roast Chicken</h3>
-                    <p className="text-anchor-gold font-semibold mb-2">£13.95</p>
-                    <p className="text-gray-700">Half a succulent roast chicken with sage & onion stuffing</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6">
-                    <h3 className="font-bold text-xl text-anchor-green mb-2">Roast Pork</h3>
-                    <p className="text-anchor-gold font-semibold mb-2">£13.95</p>
-                    <p className="text-gray-700">Slow-roasted pork loin with crispy crackling & apple sauce</p>
-                  </div>
-                  <div className="bg-white rounded-xl p-6">
-                    <h3 className="font-bold text-xl text-anchor-green mb-2">Vegetarian Roast</h3>
-                    <p className="text-anchor-gold font-semibold mb-2">£11.95</p>
-                    <p className="text-gray-700">Butternut squash Wellington with all the trimmings</p>
-                  </div>
+              <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Chicken Goujon Wrap with Chips</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£9.99</p>
+                  <p className="text-gray-700">Crispy chicken goujons in a wrap with salad & chips.</p>
                 </div>
-                <div className="mt-6 p-4 bg-anchor-gold/10 rounded-lg text-center">
-                  <p className="font-semibold text-anchor-green">Book early - Sunday roasts are very popular!</p>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Fish Finger Wrap with Chips</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£9.99</p>
+                  <p className="text-gray-700">Golden fish fingers in a soft wrap with salad & chips.</p>
+                </div>
+              </div>
+              
+              <div className="mt-8 bg-white rounded-xl p-6 shadow-md">
+                <h4 className="font-bold text-lg text-anchor-green mb-4">Sides & Extras</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex justify-between">
+                    <span>Chips</span>
+                    <span className="text-anchor-gold font-semibold">£3.49 (V)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Chunky Chips</span>
+                    <span className="text-anchor-gold font-semibold">£4.49</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Cheesy Chips</span>
+                    <span className="text-anchor-gold font-semibold">£4.99</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Sweet Potato Fries</span>
+                    <span className="text-anchor-gold font-semibold">£4.49 (V)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>6 Onion Rings</span>
+                    <span className="text-anchor-gold font-semibold">£3.49 (V)</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Starters */}
+            {/* Snack Pots */}
             <div className="mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-                🥗 Starters & Sharers
+                🍟 Snack Pots
               </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="card-warm bg-white border-2 border-anchor-sand p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Loaded Nachos</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£8.95</p>
-                  <p className="text-gray-700 text-sm">Tortilla chips, cheese, jalapeños, salsa, guacamole & sour cream</p>
+              <p className="text-center text-lg text-gray-700 mb-8">
+                Enjoy our snack pots with chips and your choice of dip. Perfect for a cosy snack or a quick bite.
+              </p>
+              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">4 Chicken Goujons with Chips</h3>
+                  <p className="text-anchor-gold font-semibold">£7.49</p>
                 </div>
-                <div className="card-warm bg-white border-2 border-anchor-sand p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Garlic Bread</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£4.95</p>
-                  <p className="text-gray-700 text-sm">Stone-baked ciabatta with garlic butter (add cheese +£1)</p>
+                <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">5 Salt & Chilli Squid with Chips</h3>
+                  <p className="text-anchor-gold font-semibold">£7.49</p>
                 </div>
-                <div className="card-warm bg-white border-2 border-anchor-sand p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Soup of the Day</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£5.95</p>
-                  <p className="text-gray-700 text-sm">Homemade soup served with crusty bread</p>
-                </div>
-                <div className="card-warm bg-white border-2 border-anchor-sand p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Chicken Wings</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£7.95</p>
-                  <p className="text-gray-700 text-sm">BBQ or buffalo wings with blue cheese dip</p>
-                </div>
-                <div className="card-warm bg-white border-2 border-anchor-sand p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Halloumi Fries</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£6.95</p>
-                  <p className="text-gray-700 text-sm">Crispy halloumi sticks with sweet chilli dip</p>
-                </div>
-                <div className="card-warm bg-white border-2 border-anchor-sand p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Sharing Platter</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£15.95</p>
-                  <p className="text-gray-700 text-sm">Wings, onion rings, garlic bread, nachos & dips</p>
+                <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">3 Fish Fingers with Chips</h3>
+                  <p className="text-anchor-gold font-semibold">£7.49</p>
                 </div>
               </div>
             </div>
@@ -173,119 +161,224 @@ export default function FoodMenuPage() {
             {/* Mains */}
             <div className="mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-                🍔 Pub Classics
+                🍽️ Mains
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">The Anchor Burger</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£12.95</p>
-                  <p className="text-gray-700 mb-2">8oz beef patty, bacon, cheese, lettuce, tomato, burger sauce</p>
-                  <p className="text-sm text-gray-600 italic">Served with chips and coleslaw</p>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Beef & Ale Pie</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£14.99</p>
+                  <p className="text-gray-700">Tender slow-cooked beef in a hearty ale gravy, wrapped in golden pastry. Served with buttery mash and seasonal vegetables.</p>
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Fish & Chips</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£13.95</p>
-                  <p className="text-gray-700 mb-2">Beer-battered cod, mushy peas, tartare sauce</p>
-                  <p className="text-sm text-gray-600 italic">Our Friday night favourite!</p>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Chicken Katsu Curry</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£13.99</p>
+                  <p className="text-gray-700">Crispy breaded chicken served on fluffy rice, smothered in aromatic katsu curry sauce. A fusion of British and Japanese flavours.</p>
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Steak & Kidney Pie</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£12.95</p>
-                  <p className="text-gray-700 mb-2">Traditional pie with mash, vegetables & gravy</p>
-                  <p className="text-sm text-gray-600 italic">Proper British comfort food</p>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Chicken & Wild Mushroom Pie</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£14.99</p>
+                  <p className="text-gray-700">Succulent chicken and wild mushrooms in a creamy sauce, encased in flaky pastry. Served with smooth mash and fresh seasonal veg.</p>
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Chicken Tikka Masala</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£11.95</p>
-                  <p className="text-gray-700 mb-2">Britain's favourite curry with rice, naan & poppadoms</p>
-                  <p className="text-sm text-gray-600 italic">Medium spice</p>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Sausage & Mash</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£13.99</p>
+                  <p className="text-gray-700">Three juicy sausages on creamy mash, topped with crispy onions and rich gravy. A comforting British classic, full of flavour.</p>
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Bangers & Mash</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£10.95</p>
-                  <p className="text-gray-700 mb-2">Three pork sausages, creamy mash, onion gravy</p>
-                  <p className="text-sm text-gray-600 italic">Simple and delicious</p>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Lamb Shank</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£14.99</p>
+                  <p className="text-gray-700">Slow-cooked lamb shank, served with smooth mash and seasonal veg. Finished with a rich mint-infused gravy for a perfect balance.</p>
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Vegetable Lasagne</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£10.95</p>
-                  <p className="text-gray-700 mb-2">Layers of roasted vegetables, béchamel, served with salad</p>
-                  <p className="text-sm text-gray-600 italic">Vegetarian favourite</p>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Spinach & Ricotta Cannelloni</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£13.99 (V)</p>
+                  <p className="text-gray-700">Pasta tubes filled with creamy ricotta and spinach, baked in rich tomato sauce. Served with garlic bread and crisp mixed salad.</p>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Lasagne</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£14.99</p>
+                  <p className="text-gray-700">Layers of pasta, rich meat sauce, and creamy béchamel, baked until golden. Served with crisp salad and warm garlic bread.</p>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Mac 'N Cheese</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£13.99 (V)</p>
+                  <p className="text-gray-700">Creamy macaroni in a rich cheese sauce, topped with crispy onions. Served with garlic bread and fresh salad for extra indulgence.</p>
                 </div>
               </div>
             </div>
 
-            {/* Pizzas */}
+            {/* Burgers */}
             <div className="mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-                🍕 Stone-Baked Pizzas
+                🍔 Burgers
               </h2>
               <p className="text-center text-lg text-gray-700 mb-8">
-                All our pizzas are hand-stretched and stone-baked to order
+                Our burgers are all served with salad, chips and the sauce of your choice.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Beef Burger</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£9.99</p>
+                  <p className="text-gray-700">Classic beef patty with all the trimmings</p>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Spicy Chicken Burger</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£9.99</p>
+                  <p className="text-gray-700">Crispy coated chicken with a spicy kick</p>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Chicken Burger</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£9.99</p>
+                  <p className="text-gray-700">Juicy grilled chicken breast</p>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Vegetable Burger</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£9.99 (V)</p>
+                  <p className="text-gray-700">Plant-based patty packed with flavour</p>
+                </div>
+              </div>
+              <p className="text-center text-sm text-gray-600 mt-4 italic">
+                Why not upgrade your fries, add double cheese slices, add crispy bacon or a hashed brown?
+              </p>
+            </div>
+
+            {/* Burger Specials */}
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+                🍔 Burger Specials
+              </h2>
+              <p className="text-center text-lg text-gray-700 mb-8">
+                All of our special burgers are served with chips as standard. Why not upgrade your fries, add double cheese slices, add crispy bacon or a hashed brown?
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-anchor-sand/20 rounded-xl p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Katsu Chicken Burger</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£12.99</p>
+                  <p className="text-gray-700">Crispy chicken fillet topped with rich katsu curry sauce, fresh cucumber, and golden chips. A bold twist!</p>
+                </div>
+                <div className="bg-anchor-sand/20 rounded-xl p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Beef Stack</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£12.99</p>
+                  <p className="text-gray-700">Double beef patties, fresh salad, crispy onion ring, and golden chips. Customise with cheese or bacon!</p>
+                </div>
+                <div className="bg-anchor-sand/20 rounded-xl p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Spicy Chicken Stack</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£12.99</p>
+                  <p className="text-gray-700">Crispy, spicy chicken with fresh salad, a crunchy hash brown, and golden chips. Add your favourite sauce!</p>
+                </div>
+                <div className="bg-anchor-sand/20 rounded-xl p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Chicken Stack</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£12.99</p>
+                  <p className="text-gray-700">Breaded chicken fillet, crisp salad, hash brown, and golden chips. A hearty choice—perfect with sauce!</p>
+                </div>
+                <div className="bg-anchor-sand/20 rounded-xl p-6">
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Veggie Stack</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£12.99 (V)</p>
+                  <p className="text-gray-700">A tasty veggie patty with fresh salad, a crispy onion ring, and golden chips. A satisfying meat-free treat!</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Stone Baked Pizza */}
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+                🍕 Stone Baked Pizza
+              </h2>
+              <p className="text-center text-lg text-gray-700 mb-8">
+                Enjoy the comforting taste of our stone-baked pizzas, crafted to order with authentic Italian ingredients.
+                <br /><span className="text-sm italic">We offer 12" gluten-free pizzas on request.</span>
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="bg-anchor-cream rounded-xl p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Margherita</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£9.95</p>
-                  <p className="text-gray-700 text-sm">Tomato, mozzarella, fresh basil</p>
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Rustic Classic (V)</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">7.49 / 10.49</p>
+                  <p className="text-gray-700 text-sm">Rich tomato sauce, creamy mozzarella, crisp stone-baked crust—a timeless favourite.</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Pepperoni</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£11.95</p>
-                  <p className="text-gray-700 text-sm">Tomato, mozzarella, pepperoni</p>
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Simply Salami</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">8.49 / 12.99</p>
+                  <p className="text-gray-700 text-sm">Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection.</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Hawaiian</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£11.95</p>
-                  <p className="text-gray-700 text-sm">Tomato, mozzarella, ham, pineapple</p>
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Fully Loaded</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">9.49 / 13.99</p>
+                  <p className="text-gray-700 text-sm">Napoli salami, speck ham, fennel salami, mozzarella on a bold stone-baked base.</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Meat Feast</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£13.95</p>
-                  <p className="text-gray-700 text-sm">Pepperoni, ham, chicken, beef, sausage</p>
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Nice & Spicy</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">8.49 / 13.49</p>
+                  <p className="text-gray-700 text-sm">'Nduja, Ventricina, roquito peppers, mozzarella—fiery flavours on a crisp crust.</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Vegetarian</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£10.95</p>
-                  <p className="text-gray-700 text-sm">Mushrooms, peppers, onions, sweetcorn, olives</p>
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">The Garden Club (V)</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">8.99 / 12.99</p>
+                  <p className="text-gray-700 text-sm">Roasted courgettes, caramelised onions, rocket, and mozzarella on a rich tomato base.</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">BBQ Chicken</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£12.95</p>
-                  <p className="text-gray-700 text-sm">BBQ base, chicken, bacon, red onion</p>
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Smoked Chilli Chicken</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">8.99 / 13.49</p>
+                  <p className="text-gray-700 text-sm">Smoky paprika base with chicken, mozzarella, and roquito peppers for a spicy-savoury bite.</p>
+                </div>
+                <div className="bg-anchor-cream rounded-xl p-6">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Chicken & Pesto</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">9.49 / 13.49</p>
+                  <p className="text-gray-700 text-sm">Tender chicken, basil pesto, and melted mozzarella on a crisp, stone-baked crust.</p>
+                </div>
+                <div className="bg-anchor-cream rounded-xl p-6">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Barbecue Chicken</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">9.99 / 13.99</p>
+                  <p className="text-gray-700 text-sm">Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust.</p>
+                </div>
+                <div className="bg-anchor-cream rounded-xl p-6">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Speck Ham & Parmesan</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">9.99 / 13.99</p>
+                  <p className="text-gray-700 text-sm">Thinly sliced speck ham, shaved parmesan, and mozzarella on rich tomato sauce.</p>
+                </div>
+              </div>
+              <div className="mt-8 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Garlic Bread (V)</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">7.49 / 9.49</p>
+                  <p className="text-gray-700 text-sm">Stone-baked bread brushed with garlic butter, warm and crispy every time.</p>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Garlic Bread with Mozzarella (V)</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">9.49 / 11.49</p>
+                  <p className="text-gray-700 text-sm">Warm garlic bread crowned with melted mozzarella for pure indulgence.</p>
                 </div>
               </div>
             </div>
 
-            {/* Kids Menu */}
+            {/* Chip Shop */}
             <div className="mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-                👶 Little Anchors Menu
+                🐟 Chip Shop
               </h2>
-              <div className="bg-anchor-sand/30 rounded-2xl p-8">
-                <p className="text-center text-lg text-gray-700 mb-8">
-                  All kids meals £5.95 - includes a drink and ice cream dessert!
-                </p>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="bg-white rounded-lg p-4 text-center">
-                    <div className="text-3xl mb-2">🍔</div>
-                    <h3 className="font-semibold text-anchor-green">Mini Burger</h3>
-                    <p className="text-sm text-gray-600">With chips</p>
+              <div className="bg-white rounded-2xl p-8 shadow-md">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-anchor-gold mb-2">50% Off for Over 65s Every Friday!</h3>
+                  <p className="text-gray-700">Enjoy a classic chip supper with 50% off for seniors every Friday! All served with mushy peas, tartar sauce, and fresh lemon—truly British!</p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="border-t pt-6">
+                    <h3 className="font-bold text-xl text-anchor-green mb-2">Fish & Chips</h3>
+                    <p className="text-anchor-gold font-semibold mb-2">£14.99</p>
+                    <p className="text-gray-700">Beer-battered fish, crispy golden chips, mushy peas, tartar sauce, and a fresh lemon wedge for a classic taste.</p>
                   </div>
-                  <div className="bg-white rounded-lg p-4 text-center">
-                    <div className="text-3xl mb-2">🐟</div>
-                    <h3 className="font-semibold text-anchor-green">Fish Fingers</h3>
-                    <p className="text-sm text-gray-600">With chips & peas</p>
+                  <div className="border-t pt-6">
+                    <h3 className="font-bold text-xl text-anchor-green mb-2">Half Fish & Chips</h3>
+                    <p className="text-anchor-gold font-semibold mb-2">£11.99</p>
+                    <p className="text-gray-700">Half-sized battered fish with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge—light but satisfying.</p>
                   </div>
-                  <div className="bg-white rounded-lg p-4 text-center">
-                    <div className="text-3xl mb-2">🍕</div>
-                    <h3 className="font-semibold text-anchor-green">Mini Pizza</h3>
-                    <p className="text-sm text-gray-600">Cheese & tomato</p>
+                  <div className="border-t pt-6">
+                    <h3 className="font-bold text-xl text-anchor-green mb-2">Scampi & Chips</h3>
+                    <p className="text-anchor-gold font-semibold mb-2">£12.99</p>
+                    <p className="text-gray-700">Golden, crispy scampi served with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge for balance.</p>
                   </div>
-                  <div className="bg-white rounded-lg p-4 text-center">
-                    <div className="text-3xl mb-2">🌭</div>
-                    <h3 className="font-semibold text-anchor-green">Sausage & Mash</h3>
-                    <p className="text-sm text-gray-600">With gravy</p>
+                  <div className="border-t pt-6">
+                    <h3 className="font-bold text-xl text-anchor-green mb-2">Jumbo Sausage & Chips</h3>
+                    <p className="text-anchor-gold font-semibold mb-2">£12.99</p>
+                    <p className="text-gray-700">Jumbo sausage with chunky chips, mushy peas, and your choice of sauce—perfect for a hearty, no-fuss meal.</p>
                   </div>
                 </div>
               </div>
@@ -296,55 +389,97 @@ export default function FoodMenuPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
                 🍰 Desserts
               </h2>
-              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Apple Crumble</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£5.99</p>
+                  <p className="text-gray-700 text-sm">Spiced apple crumble served warm with custard or ice cream.</p>
+                </div>
+                <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Chocolat Fudge Brownie</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£5.99</p>
+                  <p className="text-gray-700 text-sm">Gooey chocolate brownie, ideal with custard or ice cream.</p>
+                </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
                   <h3 className="font-bold text-lg text-anchor-green mb-2">Sticky Toffee Pudding</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£5.95</p>
-                  <p className="text-gray-700 text-sm">With vanilla ice cream</p>
+                  <p className="text-anchor-gold font-semibold mb-2">£5.99</p>
+                  <p className="text-gray-700 text-sm">Rich sponge pudding in toffee sauce, perfect with custard.</p>
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Chocolate Brownie</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£5.95</p>
-                  <p className="text-gray-700 text-sm">Warm, with chocolate sauce</p>
+                  <h3 className="font-bold text-lg text-anchor-green mb-2">Ice Cream Sundae</h3>
+                  <p className="text-anchor-gold font-semibold mb-2">£4.99</p>
+                  <p className="text-gray-700 text-sm">Three scoops of ice cream with chocolate or strawberry sauce.</p>
                 </div>
-                <div className="bg-white rounded-xl border border-gray-200 p-6 text-center">
-                  <h3 className="font-bold text-lg text-anchor-green mb-2">Ice Cream Selection</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£4.95</p>
-                  <p className="text-gray-700 text-sm">Three scoops - ask for flavours</p>
+              </div>
+            </div>
+
+            {/* Hot Drinks */}
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+                ☕ Hot Drinks
+              </h2>
+              <div className="bg-white rounded-2xl p-8 shadow-md max-w-2xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex justify-between">
+                    <span>Americano</span>
+                    <span className="text-anchor-gold font-semibold">£2.10</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Latte</span>
+                    <span className="text-anchor-gold font-semibold">£2.50</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Cappuccino</span>
+                    <span className="text-anchor-gold font-semibold">£2.50</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Hot Chocolate</span>
+                    <span className="text-anchor-gold font-semibold">£2.40</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Individual Pot of Tea</span>
+                    <span className="text-anchor-gold font-semibold">£2.20</span>
+                  </div>
                 </div>
+                <p className="text-sm text-gray-600 italic text-center mt-4">
+                  Tetley Tea, Decaffeinated, Earl Grey, Green Tea, Green Tea with Lemon, Min Fusion, Raspberry Pomegranate.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Dietary Information */}
+      {/* Additional Information */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              Dietary Information
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-lg p-6">
-                <div className="text-4xl mb-4">🌱</div>
-                <h3 className="font-bold text-lg text-anchor-green mb-2">Vegetarian Options</h3>
-                <p className="text-gray-700 text-sm">Clearly marked on menu. Just ask if you need help!</p>
-              </div>
-              <div className="bg-white rounded-lg p-6">
-                <div className="text-4xl mb-4">🌾</div>
-                <h3 className="font-bold text-lg text-anchor-green mb-2">Gluten Free</h3>
-                <p className="text-gray-700 text-sm">Several options available. Please inform staff of requirements.</p>
-              </div>
-              <div className="bg-white rounded-lg p-6">
-                <div className="text-4xl mb-4">🥜</div>
-                <h3 className="font-bold text-lg text-anchor-green mb-2">Allergies</h3>
-                <p className="text-gray-700 text-sm">Full allergen menu available. Please speak to our team.</p>
-              </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-8">
+              <h3 className="font-bold text-lg text-anchor-green mb-2">Allergen Information</h3>
+              <p className="text-gray-700">
+                All our dishes are prepared in a single kitchen where allergens are present. While we take every 
+                precaution, we cannot guarantee dishes are free from cross-contamination. If you have allergies or 
+                dietary requirements, please speak to a member of our team before ordering. We use vegetable oil 
+                where necessary to keep dishes light yet warming during colder months.
+              </p>
             </div>
-            <p className="mt-8 text-gray-600 italic">
-              We take dietary requirements seriously. Please inform us when booking or ordering.
-            </p>
+            
+            <div className="text-center">
+              <p className="text-lg text-gray-700 mb-2">
+                Sauce options include Ketchup, Mayonnaise, BBQ, Sweet Chilli, Burger Sauce, Garlic Mayonnaise, or Tartar.
+              </p>
+              <p className="text-sm text-gray-600 italic">
+                Available Tuesday to Friday 6pm to 9pm | Saturday 1pm to 7pm | Sunday 12pm to 5pm. 
+                Please order at the bar when you're ready.
+              </p>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <p className="text-gray-600 italic">
+                (V) Vegetarian, (VE) Vegan. Items are prepared in a single kitchen, and while we take great care, we cannot guarantee 
+                allergen cross-contamination. For full allergen details, please ask at the bar.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -389,25 +524,35 @@ export default function FoodMenuPage() {
             "hasMenuSection": [
               {
                 "@type": "MenuSection",
-                "name": "Sunday Roasts",
+                "name": "Mains",
                 "hasMenuItem": [
                   {
                     "@type": "MenuItem",
-                    "name": "Roast Beef",
-                    "description": "Tender British beef with Yorkshire pudding and vegetables",
+                    "name": "Fish & Chips",
+                    "description": "Beer-battered fish, crispy golden chips, mushy peas",
                     "offers": {
                       "@type": "Offer",
-                      "price": "14.95",
+                      "price": "14.99",
                       "priceCurrency": "GBP"
                     }
                   },
                   {
                     "@type": "MenuItem",
-                    "name": "Roast Chicken",
-                    "description": "Half roast chicken with sage & onion stuffing",
+                    "name": "Beef & Ale Pie",
+                    "description": "Tender slow-cooked beef in hearty ale gravy",
                     "offers": {
                       "@type": "Offer",
-                      "price": "13.95",
+                      "price": "14.99",
+                      "priceCurrency": "GBP"
+                    }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Chicken Katsu Curry",
+                    "description": "Crispy breaded chicken with katsu curry sauce",
+                    "offers": {
+                      "@type": "Offer",
+                      "price": "13.99",
                       "priceCurrency": "GBP"
                     }
                   }
@@ -415,17 +560,18 @@ export default function FoodMenuPage() {
               },
               {
                 "@type": "MenuSection",
-                "name": "Pub Classics",
+                "name": "Stone Baked Pizza",
                 "hasMenuItem": [
                   {
                     "@type": "MenuItem",
-                    "name": "Fish & Chips",
-                    "description": "Beer-battered cod with mushy peas",
+                    "name": "Rustic Classic",
+                    "description": "Rich tomato sauce, creamy mozzarella",
                     "offers": {
                       "@type": "Offer",
-                      "price": "13.95",
+                      "price": "7.49",
                       "priceCurrency": "GBP"
-                    }
+                    },
+                    "suitableForDiet": ["https://schema.org/VegetarianDiet"]
                   }
                 ]
               }

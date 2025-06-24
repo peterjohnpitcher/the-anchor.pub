@@ -63,7 +63,7 @@ export default function SundayLunchPage() {
             </div>
             
             <p className="mt-6 text-white/80 text-sm drop-shadow">
-              ⚠️ Booking essential - we're usually fully booked by Saturday evening
+              ⚠️ Pre-order at the bar by 1pm on Saturday for Sunday lunch
             </p>
           </div>
         </div>
@@ -117,109 +117,117 @@ export default function SundayLunchPage() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4 text-center">
               Sunday Roast Menu
             </h2>
-            <p className="text-center text-lg text-gray-700 mb-12">
-              All roasts served with roast potatoes, Yorkshire pudding, seasonal vegetables, 
-              cauliflower cheese, and proper gravy
+            <p className="text-center text-lg text-gray-700 mb-8">
+              Our Sunday dinners are made from scratch and to order. As of 2025, we are now taking pre-orders 
+              up until 1pm on Saturday for a Sunday lunch. Doing so means we can prepare your meal fresh to 
+              order, a delicious 'like home' Sunday lunch.
+            </p>
+            <p className="text-center text-sm text-gray-600 italic mb-12">
+              All dishes served with herb and garlic-crusted roast potatoes, seasonal vegetables, 
+              Yorkshire pudding, and red wine gravy. Vegetarian gravy available on request.
             </p>
             
-            {/* Roast Options */}
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {/* Main Roasts */}
+            <div className="space-y-6 mb-12">
+              {/* Roasted Chicken */}
               <div className="bg-white rounded-2xl p-8 shadow-md">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Roast Beef</h3>
-                  <span className="text-2xl font-bold text-anchor-gold">£14.95</span>
+                  <h3 className="text-2xl font-bold text-anchor-green">Roasted Chicken</h3>
+                  <span className="text-2xl font-bold text-anchor-gold">£14.99</span>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  28-day aged British beef, slow-roasted and served pink (or well-done on request)
+                  Oven-roasted chicken breast with sage & onion stuffing balls, herb and garlic-crusted roast potatoes, 
+                  seasonal vegetables, Yorkshire pudding, and red wine gravy. Vegetarian gravy available on request.
                 </p>
                 <p className="text-sm text-gray-600 italic">
-                  Served with horseradish sauce and mustard
+                  Pair with: El Pico Sauvignon Blanc – crisp and refreshing | Pint of Birra Moretti – smooth and well-rounded.
                 </p>
               </div>
               
+              {/* Slow-Cooked Lamb Shank */}
               <div className="bg-white rounded-2xl p-8 shadow-md">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Roast Chicken</h3>
-                  <span className="text-2xl font-bold text-anchor-gold">£13.95</span>
+                  <h3 className="text-2xl font-bold text-anchor-green">Slow-Cooked Lamb Shank</h3>
+                  <span className="text-2xl font-bold text-anchor-gold">£15.49</span>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Half a succulent free-range chicken, roasted with herbs
+                  Tender slow-braised lamb shank in rich red wine gravy, served with herb and garlic-crusted roast 
+                  potatoes, seasonal vegetables, and a Yorkshire pudding. Vegetarian gravy available on request.
                 </p>
                 <p className="text-sm text-gray-600 italic">
-                  Served with sage & onion stuffing and bread sauce
+                  Pair with: Rocoso Malbec – bold and velvety | Pint of Guinness Draught – smooth and malty.
                 </p>
               </div>
               
+              {/* Crispy Pork Belly */}
               <div className="bg-white rounded-2xl p-8 shadow-md">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Roast Pork</h3>
-                  <span className="text-2xl font-bold text-anchor-gold">£13.95</span>
+                  <h3 className="text-2xl font-bold text-anchor-green">Crispy Pork Belly</h3>
+                  <span className="text-2xl font-bold text-anchor-gold">£15.99</span>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Slow-roasted pork loin with perfect crackling
+                  Crispy crackling and tender slow-roasted pork belly with Bramley apple sauce, herb and garlic-crusted 
+                  roast potatoes, seasonal vegetables, Yorkshire pudding, and red wine gravy. Vegetarian gravy available on request.
                 </p>
                 <p className="text-sm text-gray-600 italic">
-                  Served with apple sauce and stuffing
+                  Pair with: Counterpoint Shiraz – rich and full-bodied | Pint of Orchard Thieves Cider – crisp and fruity.
                 </p>
               </div>
               
+              {/* Beetroot & Butternut Squash Wellington */}
               <div className="bg-white rounded-2xl p-8 shadow-md">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Roast Lamb</h3>
-                  <span className="text-2xl font-bold text-anchor-gold">£15.95</span>
+                  <h3 className="text-2xl font-bold text-anchor-green">Beetroot & Butternut Squash Wellington</h3>
+                  <span className="text-anchor-gold text-sm font-bold bg-green-100 px-2 py-1 rounded ml-2">(VG)</span>
+                  <span className="text-2xl font-bold text-anchor-gold">£15.49</span>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Tender leg of lamb with rosemary and garlic
+                  Golden puff pastry filled with beetroot & butternut squash, served with herb and garlic-crusted roast 
+                  potatoes, seasonal vegetables, and vegetarian gravy.
                 </p>
                 <p className="text-sm text-gray-600 italic">
-                  Served with mint sauce and redcurrant jelly
+                  Pair with: Giotto Pinot Grigio – light and fresh | Pint of Pravha – clean and crisp.
                 </p>
               </div>
               
+              {/* Kids Roasted Chicken */}
               <div className="bg-white rounded-2xl p-8 shadow-md">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Vegetarian Wellington</h3>
-                  <span className="text-2xl font-bold text-anchor-gold">£11.95</span>
+                  <h3 className="text-2xl font-bold text-anchor-green">Kids Roasted Chicken</h3>
+                  <span className="text-2xl font-bold text-anchor-gold">£9.99</span>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Butternut squash, spinach & feta in puff pastry
-                </p>
-                <p className="text-sm text-gray-600 italic">
-                  Served with vegetarian gravy
+                  A smaller portion of our roasted chicken with herb and garlic-crusted roast potatoes, seasonal 
+                  vegetables, Yorkshire pudding, and red wine gravy. Vegetarian gravy available on request.
                 </p>
               </div>
               
-              <div className="bg-white rounded-2xl p-8 shadow-md">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Kids Roast</h3>
-                  <span className="text-2xl font-bold text-anchor-gold">£6.95</span>
+            </div>
+            
+            {/* Optional Extras */}
+            <div className="bg-white rounded-2xl p-8 shadow-md mb-12">
+              <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Optional Extras</h3>
+              <div className="text-center">
+                <div className="inline-block">
+                  <div className="flex justify-between items-center gap-8">
+                    <p className="font-semibold text-lg text-anchor-green">Cauliflower Cheese</p>
+                    <span className="text-lg font-bold text-anchor-gold">£3.99</span>
+                  </div>
+                  <p className="text-gray-700 mt-2">
+                    Creamy mature cheddar sauce, baked until golden and bubbling.
+                  </p>
                 </div>
-                <p className="text-gray-700 mb-4">
-                  Smaller portion of any roast for under 12s
-                </p>
-                <p className="text-sm text-gray-600 italic">
-                  Includes ice cream dessert
-                </p>
               </div>
             </div>
             
-            {/* Extras */}
-            <div className="bg-white rounded-2xl p-8 shadow-md">
-              <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Fancy Something Extra?</h3>
-              <div className="grid md:grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="font-semibold text-anchor-green">Extra Yorkshire Pudding</p>
-                  <p className="text-anchor-gold">£1.50</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-anchor-green">Pigs in Blankets (3)</p>
-                  <p className="text-anchor-gold">£3.50</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-anchor-green">Extra Gravy</p>
-                  <p className="text-anchor-gold">£1.00</p>
-                </div>
-              </div>
+            {/* Allergen Notice */}
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 text-center">
+              <p className="text-sm text-gray-700">
+                All our dishes are prepared in a single kitchen where allergens are present. While we take every 
+                precaution, we cannot guarantee dishes are free from cross-contamination. If you have allergies or 
+                dietary requirements, please speak to a member of our team before ordering. We use vegetable oil 
+                where necessary to keep dishes light yet warming during colder months.
+              </p>
             </div>
           </div>
         </div>
@@ -399,23 +407,44 @@ export default function SundayLunchPage() {
                 "hasMenuItem": [
                   {
                     "@type": "MenuItem",
-                    "name": "Roast Beef",
-                    "description": "28-day aged British beef with horseradish",
+                    "name": "Roasted Chicken",
+                    "description": "Oven-roasted chicken breast with sage & onion stuffing balls",
                     "offers": {
                       "@type": "Offer",
-                      "price": "14.95",
+                      "price": "14.99",
                       "priceCurrency": "GBP"
                     }
                   },
                   {
                     "@type": "MenuItem",
-                    "name": "Roast Chicken",
-                    "description": "Half free-range chicken with stuffing",
+                    "name": "Slow-Cooked Lamb Shank",
+                    "description": "Tender slow-braised lamb shank in rich red wine gravy",
                     "offers": {
                       "@type": "Offer",
-                      "price": "13.95",
+                      "price": "15.49",
                       "priceCurrency": "GBP"
                     }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Crispy Pork Belly",
+                    "description": "Crispy crackling and tender slow-roasted pork belly with Bramley apple sauce",
+                    "offers": {
+                      "@type": "Offer",
+                      "price": "15.99",
+                      "priceCurrency": "GBP"
+                    }
+                  },
+                  {
+                    "@type": "MenuItem",
+                    "name": "Beetroot & Butternut Squash Wellington",
+                    "description": "Golden puff pastry filled with beetroot & butternut squash (Vegan)",
+                    "offers": {
+                      "@type": "Offer",
+                      "price": "15.49",
+                      "priceCurrency": "GBP"
+                    },
+                    "suitableForDiet": ["https://schema.org/VeganDiet", "https://schema.org/VegetarianDiet"]
                   }
                 ]
               },
