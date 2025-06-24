@@ -46,14 +46,11 @@ export interface Event {
 }
 
 export interface EventsResponse {
-  '@context': string
-  '@type': string
-  itemListElement: Event[]
+  events: Event[]
   meta: {
     total: number
-    page: number
-    per_page: number
-    last_page: number
+    limit: number
+    offset: number
   }
 }
 
@@ -132,10 +129,9 @@ export class AnchorAPI {
         'Content-Type': 'application/json',
       }
       
-      // Add both authentication headers
+      // Add authentication header (using X-API-Key as recommended)
       if (this.apiKey) {
         headers['X-API-Key'] = this.apiKey
-        headers['Authorization'] = `Bearer ${this.apiKey}`
       }
       
       // Merge with any provided headers
@@ -186,15 +182,11 @@ export class AnchorAPI {
 
   // Events
   async getEvents(params: {
-    page?: number
-    per_page?: number
-    status?: 'scheduled' | 'cancelled' | 'postponed'
-    category?: string
     from_date?: string
     to_date?: string
-    performer?: string
-    sort?: 'date' | 'name' | 'created_at'
-    order?: 'asc' | 'desc'
+    category_id?: string
+    limit?: number
+    offset?: number
   } = {}): Promise<EventsResponse> {
     const query = new URLSearchParams()
     Object.entries(params).forEach(([key, value]) => {
@@ -214,20 +206,10 @@ export class AnchorAPI {
     return this.request<EventsResponse>('/events/today')
   }
 
-  async getRecurringEvents(parentId?: string): Promise<EventsResponse> {
-    const query = parentId ? `?parent_id=${parentId}` : ''
-    return this.request<EventsResponse>(`/events/recurring${query}`)
+  async getEventCategories(): Promise<any> {
+    return this.request('/event-categories')
   }
 
-  async checkEventAvailability(id: string): Promise<{
-    event_id: string
-    available: boolean
-    remaining_capacity: number
-    total_capacity: number
-    bookings_count: number
-  }> {
-    return this.request(`/events/${id}/check-availability`)
-  }
 
   // Menu
   async getMenu(): Promise<MenuResponse> {
@@ -297,13 +279,10 @@ export const anchorAPI = new AnchorAPI()
 export async function getUpcomingEvents(limit: number = 10): Promise<Event[]> {
   try {
     const response = await anchorAPI.getEvents({
-      status: 'scheduled',
       from_date: new Date().toISOString().split('T')[0],
-      per_page: limit,
-      sort: 'date',
-      order: 'asc'
+      limit,
     })
-    return response.itemListElement
+    return response.events || []
   } catch (error) {
     console.error('Failed to fetch upcoming events:', error)
     return []
@@ -313,7 +292,7 @@ export async function getUpcomingEvents(limit: number = 10): Promise<Event[]> {
 export async function getTodaysEvents(): Promise<Event[]> {
   try {
     const response = await anchorAPI.getTodaysEvents()
-    return response.itemListElement
+    return response.events || []
   } catch (error) {
     console.error('Failed to fetch today\'s events:', error)
     return []
@@ -323,13 +302,10 @@ export async function getTodaysEvents(): Promise<Event[]> {
 export async function getEventsByCategory(category: string, limit: number = 20): Promise<Event[]> {
   try {
     const response = await anchorAPI.getEvents({
-      category,
-      status: 'scheduled',
-      per_page: limit,
-      sort: 'date',
-      order: 'asc'
+      category_id: category,
+      limit,
     })
-    return response.itemListElement
+    return response.events || []
   } catch (error) {
     console.error(`Failed to fetch events for category ${category}:`, error)
     return []
