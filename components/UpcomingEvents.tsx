@@ -34,13 +34,11 @@ export async function UpcomingEvents() {
             <div className="p-6 space-y-6">
               {dateEvents.map((event) => {
                 const startTime = formatEventTime(event.startDate)
-                const endTime = formatEventTime(event.endDate)
                 
                 return (
                   <div key={event.id} className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-20 text-center">
                       <p className="text-anchor-gold font-bold text-lg">{startTime}</p>
-                      <p className="text-gray-500 text-sm">to {endTime}</p>
                     </div>
                     <div className="flex-1">
                       <h4 className="text-xl font-bold text-anchor-green mb-2">{event.name}</h4>
@@ -51,16 +49,9 @@ export async function UpcomingEvents() {
                             {formatPrice(event.offers.price, event.offers.priceCurrency)}
                           </span>
                         )}
-                        {event.remainingAttendeeCapacity !== undefined && (
-                          <span className={`${
-                            event.remainingAttendeeCapacity < 10 
-                              ? 'text-red-600 font-semibold' 
-                              : 'text-gray-600'
-                          }`}>
-                            {event.remainingAttendeeCapacity < 10
-                              ? `Only ${event.remainingAttendeeCapacity} spaces left!`
-                              : `${event.remainingAttendeeCapacity} spaces available`
-                            }
+                        {event.remainingAttendeeCapacity === 0 && (
+                          <span className="text-red-600 font-semibold">
+                            SOLD OUT
                           </span>
                         )}
                         {event.performer && (

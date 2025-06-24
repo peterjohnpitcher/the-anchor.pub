@@ -17,113 +17,6 @@ export const metadata: Metadata = {
   },
 }
 
-// Event types for better organization
-type EventSchedule = {
-  day: string
-  events: {
-    name: string
-    time: string
-    description: string
-    icon: string
-    link?: string
-    featured?: boolean
-  }[]
-}
-
-const weeklySchedule: EventSchedule[] = [
-  {
-    day: 'Monday',
-    events: [
-      {
-        name: 'Quiet Night',
-        time: '4pm - 10pm',
-        description: 'Perfect for a relaxed drink. Kitchen closed but bar snacks available.',
-        icon: '🍺'
-      }
-    ]
-  },
-  {
-    day: 'Tuesday',
-    events: [
-      {
-        name: 'Quiz Night',
-        time: '8pm start',
-        description: 'Test your knowledge! Teams up to 6 people. Great prizes to be won.',
-        icon: '🧠',
-        link: '/whats-on/quiz-night'
-      }
-    ]
-  },
-  {
-    day: 'Wednesday',
-    events: [
-      {
-        name: 'Wine Wednesday',
-        time: 'All day',
-        description: 'House wine bottles just £15. Perfect midweek treat.',
-        icon: '🍷'
-      }
-    ]
-  },
-  {
-    day: 'Thursday',
-    events: [
-      {
-        name: 'Tequila Tasting',
-        time: '7pm - 10pm',
-        description: 'Premium tequila selection with expert guidance. Book your spot!',
-        icon: '🥃',
-        link: '/whats-on/tequila-tasting',
-        featured: true
-      }
-    ]
-  },
-  {
-    day: 'Friday',
-    events: [
-      {
-        name: 'Live Music',
-        time: '8pm - 11pm',
-        description: 'Local bands and acoustic sets. Check our Facebook for this week\'s act.',
-        icon: '🎸',
-        link: '/whats-on/live-music'
-      }
-    ]
-  },
-  {
-    day: 'Saturday',
-    events: [
-      {
-        name: 'Cash Bingo',
-        time: '3pm start',
-        description: 'Monthly cash bingo with jackpot prizes. First Saturday of the month.',
-        icon: '🎱',
-        link: '/whats-on/cash-bingo'
-      },
-      {
-        name: 'Drag Shows',
-        time: '9pm start',
-        description: 'Spectacular performances with Nikki Manfadge and special guests.',
-        icon: '👑',
-        link: '/whats-on/drag-shows',
-        featured: true
-      }
-    ]
-  },
-  {
-    day: 'Sunday',
-    events: [
-      {
-        name: 'Sunday Roast',
-        time: '12pm - 5pm',
-        description: 'Our famous traditional roast dinners. Booking essential!',
-        icon: '🍖',
-        link: '/sunday-lunch'
-      }
-    ]
-  }
-]
-
 export default function WhatsOnPage() {
   return (
     <>
@@ -153,18 +46,18 @@ export default function WhatsOnPage() {
             
             <div className="flex flex-wrap justify-center gap-3 mb-8">
               <span className="tag bg-white/90 backdrop-blur-sm">👑 Drag Shows</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🥃 Tequila Thursdays</span>
+              <span className="tag bg-white/90 backdrop-blur-sm">🥃 Tasting Events</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🧠 Quiz Nights</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🎸 Live Music</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🎱 Cash Bingo</span>
             </div>
             
             <CallToAction 
-              href="#weekly-schedule"
+              href="#upcoming-events"
               variant="primary"
               size="large"
             >
-              View Weekly Schedule
+              View All Events
             </CallToAction>
           </div>
         </div>
@@ -214,82 +107,25 @@ export default function WhatsOnPage() {
                   <span className="text-8xl">🥃</span>
                 </div>
                 <div className="absolute bottom-4 left-4">
-                  <p className="text-white font-bold text-2xl drop-shadow">Tequila Thursdays</p>
+                  <p className="text-white font-bold text-2xl drop-shadow">Tequila Tasting Nights</p>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-2">Premium Tequila Tastings</h3>
+              <h3 className="text-2xl font-bold text-anchor-green mb-2">Quarterly Tequila Events</h3>
               <p className="text-gray-700 mb-4">
-                Every Thursday, explore Mexico's finest tequilas with expert guidance. 
-                Learn about production, regions, and flavor profiles in a fun, social setting.
+                Join our special quarterly tequila tasting events. Explore Mexico's finest 
+                spirits with expert guidance in an intimate, educational setting.
               </p>
               <p className="text-anchor-gold font-semibold group-hover:underline">
-                Discover our tequila collection →
+                Learn more about our tasting events →
               </p>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Weekly Schedule */}
-      <section id="weekly-schedule" className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Weekly Schedule
-            </h2>
-            <p className="text-xl text-gray-700">
-              Something for everyone, every day of the week
-            </p>
-          </div>
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="grid gap-6">
-              {weeklySchedule.map((day) => (
-                <div key={day.day} className="bg-white rounded-xl shadow-md overflow-hidden">
-                  <div className="bg-anchor-green text-white px-6 py-4">
-                    <h3 className="text-xl font-bold">{day.day}</h3>
-                  </div>
-                  <div className="p-6">
-                    {day.events.map((event, index) => (
-                      <div key={index} className={`${index > 0 ? 'mt-6 pt-6 border-t border-gray-200' : ''}`}>
-                        <div className="flex items-start gap-4">
-                          <span className="text-4xl">{event.icon}</span>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-4 mb-2">
-                              <h4 className="text-xl font-bold text-anchor-green">{event.name}</h4>
-                              {event.featured && (
-                                <span className="bg-anchor-gold text-white text-xs px-2 py-1 rounded-full">
-                                  POPULAR
-                                </span>
-                              )}
-                            </div>
-                            <p className="text-anchor-gold font-semibold mb-2">{event.time}</p>
-                            <p className="text-gray-700 mb-3">{event.description}</p>
-                            {event.link && (
-                              <Link 
-                                href={event.link}
-                                className="inline-flex items-center text-anchor-gold font-semibold hover:text-anchor-gold-light transition-colors"
-                              >
-                                More details
-                                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                              </Link>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Upcoming Events from API */}
-      <section className="py-16 md:py-20 bg-white">
+      <section id="upcoming-events" className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">

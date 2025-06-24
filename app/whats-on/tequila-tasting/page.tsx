@@ -6,12 +6,12 @@ import { Metadata } from 'next'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Tequila Thursdays | The Anchor Stanwell Moor | Premium Tequila Tasting Events',
-  description: 'Join us every Thursday for premium tequila tastings at The Anchor. Explore Mexico\'s finest spirits, learn about regions and production, all in a friendly social atmosphere near Heathrow.',
-  keywords: 'tequila tasting stanwell moor, tequila thursday heathrow, premium tequila surrey, mexican spirits tasting, agave spirits uk',
+  title: 'Tequila Tasting Events | The Anchor Stanwell Moor | Premium Mexican Spirits',
+  description: 'Join our quarterly tequila tasting events at The Anchor. Explore Mexico\'s finest spirits, learn about regions and production, all in a friendly social atmosphere near Heathrow.',
+  keywords: 'tequila tasting stanwell moor, tequila events heathrow, premium tequila surrey, mexican spirits tasting, agave spirits uk',
   openGraph: {
-    title: 'Tequila Thursdays at The Anchor',
-    description: 'Every Thursday evening - Premium tequila tastings with expert guidance in a social atmosphere',
+    title: 'Tequila Tasting Events at The Anchor',
+    description: 'Quarterly tequila tasting events with expert guidance in a social atmosphere',
     images: ['/images/events/tequila-tasting/the-anchor-tequila-tasting-event.jpg'],
   },
 }
@@ -99,9 +99,9 @@ export default function TequilaTastingPage() {
         
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <p className="text-amber-200 text-lg mb-4 drop-shadow">Every Thursday Evening</p>
+            <p className="text-amber-200 text-lg mb-4 drop-shadow">Quarterly Tasting Events</p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Tequila Thursdays
+              Tequila Tasting Nights
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
               Discover the art and soul of Mexico's national spirit
@@ -257,7 +257,7 @@ export default function TequilaTastingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              Join Us This Thursday
+              Join Our Next Tasting Event
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -265,12 +265,12 @@ export default function TequilaTastingPage() {
                 <h3 className="text-2xl font-bold text-anchor-green mb-6">Event Details</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-3 border-b border-gray-300">
-                    <span className="font-semibold">Day</span>
-                    <span>Every Thursday</span>
+                    <span className="font-semibold">Frequency</span>
+                    <span>Quarterly Events</span>
                   </div>
                   <div className="flex justify-between items-center pb-3 border-b border-gray-300">
-                    <span className="font-semibold">Time</span>
-                    <span>7:00 PM - 10:00 PM</span>
+                    <span className="font-semibold">Next Event</span>
+                    <span>Check our calendar</span>
                   </div>
                   <div className="flex justify-between items-center pb-3 border-b border-gray-300">
                     <span className="font-semibold">Format</span>
@@ -278,7 +278,7 @@ export default function TequilaTastingPage() {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold">Duration</span>
-                    <span>Drop in anytime</span>
+                    <span>2-3 hours</span>
                   </div>
                 </div>
               </div>
@@ -288,15 +288,15 @@ export default function TequilaTastingPage() {
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">💰</span>
-                    <span>Tasting flights from £15 per person</span>
+                    <span>Tickets £25-35 per person</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">📞</span>
                     <span>Reserve your spot: 01753 682707</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">🚶</span>
-                    <span>Walk-ins welcome (subject to availability)</span>
+                    <span className="text-anchor-gold">🎟️</span>
+                    <span>Advance booking essential</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">👥</span>
@@ -308,7 +308,7 @@ export default function TequilaTastingPage() {
             
             {/* Special Features */}
             <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Why Choose Our Tequila Thursdays?</h3>
+              <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Why Choose Our Tasting Events?</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div>
                   <div className="text-4xl mb-2">🏆</div>

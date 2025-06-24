@@ -325,10 +325,15 @@ export function formatEventDate(dateString: string): string {
 
 export function formatEventTime(dateString: string): string {
   const date = new Date(dateString)
-  return date.toLocaleTimeString('en-GB', {
-    hour: '2-digit',
-    minute: '2-digit'
-  })
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const period = hours >= 12 ? 'pm' : 'am'
+  const displayHours = hours % 12 || 12
+  
+  if (minutes === 0) {
+    return `${displayHours}${period}`
+  }
+  return `${displayHours}:${minutes.toString().padStart(2, '0')}${period}`
 }
 
 export function formatPrice(price: string | number, currency: string = 'GBP'): string {

@@ -7,7 +7,6 @@ import { getTodaysEvents, formatEventTime, type Event } from '@/lib/api'
 // Map API event data to our display format
 function mapEventToDisplay(event: Event) {
   const startTime = formatEventTime(event.startDate)
-  const endTime = formatEventTime(event.endDate)
   
   // Determine the link based on event category or name
   let link = '/whats-on'
@@ -15,14 +14,14 @@ function mapEventToDisplay(event: Event) {
   
   if (name.includes('drag') || name.includes('nikki')) {
     link = '/whats-on/drag-shows'
-  } else if (name.includes('tequila')) {
-    link = '/whats-on/tequila-tasting'
+  } else if (name.includes('tasting')) {
+    link = '/whats-on'
   } else if (name.includes('quiz')) {
-    link = '/whats-on/quiz-night'
+    link = '/whats-on'
   } else if (name.includes('bingo')) {
-    link = '/whats-on/cash-bingo'
+    link = '/whats-on'
   } else if (name.includes('music') || name.includes('band') || name.includes('acoustic')) {
-    link = '/whats-on/live-music'
+    link = '/whats-on'
   } else if (name.includes('roast')) {
     link = '/sunday-lunch'
   }
@@ -30,11 +29,11 @@ function mapEventToDisplay(event: Event) {
   return {
     id: event.id,
     name: event.name,
-    time: `${startTime} - ${endTime}`,
+    time: startTime,
     description: event.description || 'Join us for a great time!',
     link,
     price: event.offers?.price,
-    availability: event.remainingAttendeeCapacity
+    soldOut: event.remainingAttendeeCapacity === 0
   }
 }
 
@@ -122,11 +121,11 @@ export function EventsToday() {
       ],
       4: [ // Thursday
         {
-          id: 'tequila-tasting',
-          name: 'Tequila Tasting',
-          time: '7:00 PM',
-          description: 'Premium tequila selection with expert guidance',
-          link: '/whats-on/tequila-tasting'
+          id: 'thursday-specials',
+          name: 'Thursday Specials',
+          time: '6:00 PM - 9:00 PM',
+          description: 'Great deals on drinks and food',
+          link: '/whats-on'
         }
       ],
       5: [ // Friday
@@ -213,8 +212,8 @@ export function EventsToday() {
             )}
           </div>
           <p className="text-gray-700 mb-6 leading-relaxed">{event.description}</p>
-          {event.availability !== undefined && event.availability < 20 && (
-            <p className="text-sm text-red-600 mb-3">Only {event.availability} spaces left!</p>
+          {event.soldOut && (
+            <p className="text-sm text-red-600 font-semibold mb-3">SOLD OUT</p>
           )}
           <Link 
             href={event.link}
