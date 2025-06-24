@@ -43,8 +43,8 @@ npm install
 
 3. Set up environment variables:
 ```bash
-cp .env.local.example .env.local
-# Edit .env.local and add your API key
+cp .env.example .env.local
+# Edit .env.local and add your API key: ANCHOR_API_KEY=your_api_key_here
 ```
 
 4. Run the development server:

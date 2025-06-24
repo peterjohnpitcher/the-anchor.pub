@@ -2,7 +2,7 @@
 // Handles all API calls to the management system
 
 const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
-const API_KEY = process.env.ANCHOR_API_KEY || 'anch_wzjjWLuMd5osCBUZA7YTAyIKagxI_oboVSXRyYiIHmg'
+const API_KEY = process.env.ANCHOR_API_KEY || ''
 
 // Types based on API documentation
 export interface Event {
@@ -115,6 +115,10 @@ class AnchorAPI {
   constructor() {
     this.baseURL = API_BASE_URL
     this.apiKey = API_KEY
+    
+    if (!this.apiKey) {
+      console.warn('ANCHOR_API_KEY is not set. API calls will fail.')
+    }
   }
 
   private async request<T>(
