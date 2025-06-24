@@ -19,7 +19,7 @@ export default function DrinksMenuPage() {
   return (
     <>
       {/* Status Bar */}
-      <div className="flex justify-center py-4 bg-gray-50">
+      <div className="flex justify-center py-4 bg-gray-50 mt-20">
         <StatusBar />
       </div>
       
@@ -101,45 +101,45 @@ export default function DrinksMenuPage() {
                 🍺 On Tap
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-anchor-cream rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Birra Moretti</h3>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.6% ABV</p>
-                  <p className="text-gray-700">Premium Italian lager with a smooth, balanced taste and subtle hop character. Light golden colour with a crisp, refreshing finish.</p>
+                  <p className="text-gray-700 text-sm">Premium Italian lager with a smooth, balanced taste and subtle hop character. Light golden colour with a crisp, refreshing finish.</p>
                 </div>
-                <div className="bg-anchor-cream rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Carling</h3>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.0% ABV</p>
-                  <p className="text-gray-700">Britain's favourite lager. Clean, crisp taste with a perfect balance of sweetness and bitterness. Easy-drinking session beer.</p>
+                  <p className="text-gray-700 text-sm">Britain's favourite lager. Clean, crisp taste with a perfect balance of sweetness and bitterness. Easy-drinking session beer.</p>
                 </div>
-                <div className="bg-anchor-cream rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Guinness</h3>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.2% ABV</p>
-                  <p className="text-gray-700">Ireland's iconic stout. Rich, creamy head with distinctive roasted barley flavours, hints of coffee and chocolate. Perfectly poured every time.</p>
+                  <p className="text-gray-700 text-sm">Ireland's iconic stout. Rich, creamy head with distinctive roasted barley flavours, hints of coffee and chocolate. Perfectly poured every time.</p>
                 </div>
-                <div className="bg-anchor-cream rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Stella Artois</h3>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.8% ABV</p>
-                  <p className="text-gray-700">Belgian premium lager since 1366. Full-flavoured with a hoppy bitterness and crisp finish. The gold standard of European lagers.</p>
+                  <p className="text-gray-700 text-sm">Belgian premium lager since 1366. Full-flavoured with a hoppy bitterness and crisp finish. The gold standard of European lagers.</p>
                 </div>
-                <div className="bg-anchor-cream rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Inch's Apple Cider</h3>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.5% ABV</p>
-                  <p className="text-gray-700">Traditional medium-dry apple cider. Made from carefully selected apples for a crisp, refreshing taste with natural fruit sweetness.</p>
+                  <p className="text-gray-700 text-sm">Traditional medium-dry apple cider. Made from carefully selected apples for a crisp, refreshing taste with natural fruit sweetness.</p>
                 </div>
-                <div className="bg-anchor-cream rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Fosters</h3>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.0% ABV</p>
-                  <p className="text-gray-700">Australian-style lager that's bright and golden. Light, refreshing taste with subtle fruity notes. Perfect for sunny beer garden sessions.</p>
+                  <p className="text-gray-700 text-sm">Australian-style lager that's bright and golden. Light, refreshing taste with subtle fruity notes. Perfect for sunny beer garden sessions.</p>
                 </div>
-                <div className="bg-anchor-cream rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Pravha</h3>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.0% ABV</p>
-                  <p className="text-gray-700">Premium Czech pilsner with authentic Saaz hops. Light, crisp and refreshing with a delicate floral aroma and clean finish.</p>
+                  <p className="text-gray-700 text-sm">Premium Czech pilsner with authentic Saaz hops. Light, crisp and refreshing with a delicate floral aroma and clean finish.</p>
                 </div>
-                <div className="bg-anchor-cream rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Carlsberg</h3>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">3.8% ABV</p>
-                  <p className="text-gray-700">Danish pilsner that's probably the best beer in the world. Light, refreshing with a balanced hop character and smooth finish.</p>
+                  <p className="text-gray-700 text-sm">Danish pilsner that's probably the best beer in the world. Light, refreshing with a balanced hop character and smooth finish.</p>
                 </div>
               </div>
             </div>
@@ -151,84 +151,84 @@ export default function DrinksMenuPage() {
               </h2>
               
               <h3 className="text-2xl font-bold text-anchor-green mb-4">Bottled Ales</h3>
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Abbot Ale</h4>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Abbot Ale</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">5.0% ABV</p>
-                  <p className="text-gray-700">Full-bodied, distinctive premium bitter. Smooth, mature flavour with masses of fruit character and a malty richness.</p>
+                  <p className="text-gray-700 text-sm">Full-bodied, distinctive premium bitter. Smooth, mature flavour with masses of fruit character and a malty richness.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Greene King IPA</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Greene King IPA</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">3.6% ABV</p>
-                  <p className="text-gray-700">Fresh, dry hop flavour with herbal notes and citrus. Clean, refreshing bitter finish. A classic English IPA since 1799.</p>
+                  <p className="text-gray-700 text-sm">Fresh, dry hop flavour with herbal notes and citrus. Clean, refreshing bitter finish. A classic English IPA since 1799.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Old Speckled Hen</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Old Speckled Hen</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">5.2% ABV</p>
-                  <p className="text-gray-700">Smooth, malty and fruity premium ale. Rich amber colour with a distinctive toffee and malt character, perfectly balanced finish.</p>
+                  <p className="text-gray-700 text-sm">Smooth, malty and fruity premium ale. Rich amber colour with a distinctive toffee and malt character, perfectly balanced finish.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Newcastle Brown Ale</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Newcastle Brown Ale</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.7% ABV</p>
-                  <p className="text-gray-700">The one and only. Sweet caramel notes with a nutty, dry finish. Full-bodied with a smooth, creamy texture.</p>
+                  <p className="text-gray-700 text-sm">The one and only. Sweet caramel notes with a nutty, dry finish. Full-bodied with a smooth, creamy texture.</p>
                 </div>
               </div>
 
               <h3 className="text-2xl font-bold text-anchor-green mb-4">Bottled Beers</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Budweiser</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Budweiser</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">5.0% ABV</p>
-                  <p className="text-gray-700">King of Beers. Crisp American lager with a clean, smooth taste. Brewed with rice for exceptional drinkability.</p>
+                  <p className="text-gray-700 text-sm">King of Beers. Crisp American lager with a clean, smooth taste. Brewed with rice for exceptional drinkability.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Corona Extra</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Corona Extra</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.5% ABV</p>
-                  <p className="text-gray-700">Mexico's favourite beer. Light, refreshing pilsner-style lager. Best served with a wedge of lime.</p>
+                  <p className="text-gray-700 text-sm">Mexico's favourite beer. Light, refreshing pilsner-style lager. Best served with a wedge of lime.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Desperados</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Desperados</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">5.9% ABV</p>
-                  <p className="text-gray-700">Tequila-flavoured beer with a kick. Bold combination of beer with tequila flavour and a hint of citrus.</p>
+                  <p className="text-gray-700 text-sm">Tequila-flavoured beer with a kick. Bold combination of beer with tequila flavour and a hint of citrus.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Peroni</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Peroni</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">5.1% ABV</p>
-                  <p className="text-gray-700">Italy's number one premium lager. Crisp and refreshing with a clean, dry finish. Effortlessly stylish.</p>
+                  <p className="text-gray-700 text-sm">Italy's number one premium lager. Crisp and refreshing with a clean, dry finish. Effortlessly stylish.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Peroni 0%</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Peroni 0%</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">0.0% ABV</p>
-                  <p className="text-gray-700">All the Italian style, none of the alcohol. Same crisp taste and refreshing character as the original.</p>
+                  <p className="text-gray-700 text-sm">All the Italian style, none of the alcohol. Same crisp taste and refreshing character as the original.</p>
                 </div>
               </div>
 
               <h3 className="text-2xl font-bold text-anchor-green mb-4">Bottled Ciders</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Magners</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Magners</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.5% ABV</p>
-                  <p className="text-gray-700">Original Irish cider. Made from 17 varieties of apples for a unique crisp, refreshing taste. Best served over ice.</p>
+                  <p className="text-gray-700 text-sm">Original Irish cider. Made from 17 varieties of apples for a unique crisp, refreshing taste. Best served over ice.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Old Mout Berries & Cherries</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Old Mout Berries & Cherries</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.0% ABV</p>
-                  <p className="text-gray-700">Fruity cider from New Zealand. Blend of strawberries and raspberries with juicy cherries. Sweet and refreshing.</p>
+                  <p className="text-gray-700 text-sm">Fruity cider from New Zealand. Blend of strawberries and raspberries with juicy cherries. Sweet and refreshing.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Old Mout Kiwi & Lime</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Old Mout Kiwi & Lime</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.0% ABV</p>
-                  <p className="text-gray-700">Exotic fruit cider with zingy kiwi and zesty lime. Light, crisp apple base with tropical twist.</p>
+                  <p className="text-gray-700 text-sm">Exotic fruit cider with zingy kiwi and zesty lime. Light, crisp apple base with tropical twist.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Old Mout Strawberry & Apple</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Old Mout Strawberry & Apple</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">4.0% ABV</p>
-                  <p className="text-gray-700">Sweet strawberries blended with crisp apples. Refreshingly fruity with a light, summery taste.</p>
+                  <p className="text-gray-700 text-sm">Sweet strawberries blended with crisp apples. Refreshingly fruity with a light, summery taste.</p>
                 </div>
-                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <h4 className="font-bold text-lg text-anchor-green mb-2">Aspall</h4>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Aspall</h4>
                   <p className="text-sm font-semibold text-anchor-gold mb-2">5.5% ABV</p>
-                  <p className="text-gray-700">Suffolk's finest cyder since 1728. Medium dry with champagne-like sparkle. Complex apple flavours with a crisp finish.</p>
+                  <p className="text-gray-700 text-sm">Suffolk's finest cyder since 1728. Medium dry with champagne-like sparkle. Complex apple flavours with a crisp finish.</p>
                 </div>
               </div>
             </div>
@@ -238,85 +238,70 @@ export default function DrinksMenuPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
                 🍹 Cocktails
               </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-anchor-sand/20 rounded-xl p-8">
-                  <h3 className="font-bold text-xl text-anchor-green mb-6">Classic Cocktails</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Aperol Spritz</h4>
-                      <p className="text-sm text-gray-700">Aperol, prosecco, soda water. Light, refreshing Italian classic.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Espresso Martini</h4>
-                      <p className="text-sm text-gray-700">Vodka, coffee liqueur, fresh espresso. The perfect pick-me-up.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Passion Fruit Martini</h4>
-                      <p className="text-sm text-gray-700">Vodka, passoa, passion fruit, lime. Served with prosecco shot.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Classic Margarita</h4>
-                      <p className="text-sm text-gray-700">Tequila, triple sec, lime juice. Salt or sugar rim optional.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Vodka Margarita</h4>
-                      <p className="text-sm text-gray-700">Our twist on the classic. Vodka, triple sec, lime juice.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Sex on the Beach</h4>
-                      <p className="text-sm text-gray-700">Vodka, peach schnapps, orange and cranberry juice.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Woo Woo</h4>
-                      <p className="text-sm text-gray-700">Vodka, peach schnapps, cranberry juice. Simple and delicious.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Pimms</h4>
-                      <p className="text-sm text-gray-700">Pimm's No.1, lemonade, fresh fruit and mint. Summer in a glass.</p>
-                    </div>
-                  </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Aperol Spritz</h4>
+                  <p className="text-gray-700 text-sm">Aperol, prosecco, soda water. Light, refreshing Italian classic.</p>
                 </div>
-                <div className="bg-anchor-sand/20 rounded-xl p-8">
-                  <h3 className="font-bold text-xl text-anchor-green mb-6">Specialty Cocktails</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Margarita Spritz</h4>
-                      <p className="text-sm text-gray-700">Tequila, triple sec, prosecco. A bubbly twist on the classic.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Apple and Blackberry Pie</h4>
-                      <p className="text-sm text-gray-700">Vodka, apple juice, blackberry liqueur. Autumn comfort in a glass.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Crimbo Colada</h4>
-                      <p className="text-sm text-gray-700">Festive twist on piña colada. Rum, coconut, cranberry.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Bailey's Hot Chocolate</h4>
-                      <p className="text-sm text-gray-700">Rich hot chocolate with Baileys. Topped with whipped cream.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-anchor-green">Hot Toddy</h4>
-                      <p className="text-sm text-gray-700">Whisky, honey, lemon, hot water. Winter warmer.</p>
-                    </div>
-                  </div>
-                  <div className="mt-8">
-                    <h3 className="font-bold text-xl text-anchor-green mb-4">Shots & Bombs</h3>
-                    <div className="space-y-2">
-                      <div>
-                        <h4 className="font-semibold text-anchor-green">Baby Guinness</h4>
-                        <p className="text-sm text-gray-700">Kahlúa and Baileys layered shot.</p>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-anchor-green">Jager Bomb</h4>
-                        <p className="text-sm text-gray-700">Jägermeister dropped in Red Bull.</p>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-anchor-green">Kick Bomb</h4>
-                        <p className="text-sm text-gray-700">Vodka shot in Kick energy drink.</p>
-                      </div>
-                    </div>
-                  </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Espresso Martini</h4>
+                  <p className="text-gray-700 text-sm">Vodka, coffee liqueur, fresh espresso. The perfect pick-me-up.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Passion Fruit Martini</h4>
+                  <p className="text-gray-700 text-sm">Vodka, passoa, passion fruit, lime. Served with prosecco shot.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Classic Margarita</h4>
+                  <p className="text-gray-700 text-sm">Tequila, triple sec, lime juice. Salt or sugar rim optional.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Vodka Margarita</h4>
+                  <p className="text-gray-700 text-sm">Our twist on the classic. Vodka, triple sec, lime juice.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Sex on the Beach</h4>
+                  <p className="text-gray-700 text-sm">Vodka, peach schnapps, orange and cranberry juice.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Woo Woo</h4>
+                  <p className="text-gray-700 text-sm">Vodka, peach schnapps, cranberry juice. Simple and delicious.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Pimms</h4>
+                  <p className="text-gray-700 text-sm">Pimm's No.1, lemonade, fresh fruit and mint. Summer in a glass.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Margarita Spritz</h4>
+                  <p className="text-gray-700 text-sm">Tequila, triple sec, prosecco. A bubbly twist on the classic.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Apple and Blackberry Pie</h4>
+                  <p className="text-gray-700 text-sm">Vodka, apple juice, blackberry liqueur. Autumn comfort in a glass.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Crimbo Colada</h4>
+                  <p className="text-gray-700 text-sm">Festive twist on piña colada. Rum, coconut, cranberry.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Bailey's Hot Chocolate</h4>
+                  <p className="text-gray-700 text-sm">Rich hot chocolate with Baileys. Topped with whipped cream.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Hot Toddy</h4>
+                  <p className="text-gray-700 text-sm">Whisky, honey, lemon, hot water. Winter warmer.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Baby Guinness</h4>
+                  <p className="text-gray-700 text-sm">Kahlúa and Baileys layered shot. Looks like a mini pint.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Jager Bomb</h4>
+                  <p className="text-gray-700 text-sm">Jägermeister dropped in Red Bull. Party starter.</p>
+                </div>
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-xl text-anchor-green mb-2">Kick Bomb</h4>
+                  <p className="text-gray-700 text-sm">Vodka shot in Kick energy drink. Local favourite.</p>
                 </div>
               </div>
             </div>
@@ -332,85 +317,85 @@ export default function DrinksMenuPage() {
                 <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Gin Collection</h3>
                 <p className="text-center text-gray-600 mb-8">All served with premium tonic and garnish</p>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Bombay Sapphire</h4>
-                    <p className="text-sm text-gray-700">Aromatic with bright citrus notes. Ten hand-selected botanicals from around the world.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Bombay Sapphire</h4>
+                    <p className="text-gray-700 text-sm">Aromatic with bright citrus notes. Ten hand-selected botanicals from around the world.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Gordons</h4>
-                    <p className="text-sm text-gray-700">The world's best-selling London Dry. Triple-distilled with juniper, coriander and citrus.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Gordons</h4>
+                    <p className="text-gray-700 text-sm">The world's best-selling London Dry. Triple-distilled with juniper, coriander and citrus.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Gordons Pink</h4>
-                    <p className="text-sm text-gray-700">Inspired by Gordon's 1880s recipe. Natural strawberry and raspberry flavours.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Gordons Pink</h4>
+                    <p className="text-gray-700 text-sm">Inspired by Gordon's 1880s recipe. Natural strawberry and raspberry flavours.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Gordons Lemon</h4>
-                    <p className="text-sm text-gray-700">Zesty Mediterranean lemons. Fresh citrus taste perfect for G&T.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Gordons Lemon</h4>
+                    <p className="text-gray-700 text-sm">Zesty Mediterranean lemons. Fresh citrus taste perfect for G&T.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Gordons White Peach</h4>
-                    <p className="text-sm text-gray-700">Juicy white peach distilled gin. Sweet and refreshing.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Gordons White Peach</h4>
+                    <p className="text-gray-700 text-sm">Juicy white peach distilled gin. Sweet and refreshing.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Gordons Tropical Passionfruit</h4>
-                    <p className="text-sm text-gray-700">Exotic passion fruit flavour. Vibrant tropical taste.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Gordons Tropical Passionfruit</h4>
+                    <p className="text-gray-700 text-sm">Exotic passion fruit flavour. Vibrant tropical taste.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Hendricks</h4>
-                    <p className="text-sm text-gray-700">Infused with cucumber and rose petals. Delightfully peculiar.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Hendricks</h4>
+                    <p className="text-gray-700 text-sm">Infused with cucumber and rose petals. Delightfully peculiar.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Hendrick's Flora Adora</h4>
-                    <p className="text-sm text-gray-700">Limited release with floral botanicals. Garden party in a glass.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Hendrick's Flora Adora</h4>
+                    <p className="text-gray-700 text-sm">Limited release with floral botanicals. Garden party in a glass.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Tanqueray</h4>
-                    <p className="text-sm text-gray-700">Four botanicals perfection. Bold juniper with citrus and spice.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Tanqueray</h4>
+                    <p className="text-gray-700 text-sm">Four botanicals perfection. Bold juniper with citrus and spice.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Tanqueray 10</h4>
-                    <p className="text-sm text-gray-700">Small batch with fresh citrus fruits. Ultra-smooth premium gin.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Tanqueray 10</h4>
+                    <p className="text-gray-700 text-sm">Small batch with fresh citrus fruits. Ultra-smooth premium gin.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Tanqueray Flor de Sevilla</h4>
-                    <p className="text-sm text-gray-700">Seville orange essence. Uniquely bittersweet citrus taste.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Tanqueray Flor de Sevilla</h4>
+                    <p className="text-gray-700 text-sm">Seville orange essence. Uniquely bittersweet citrus taste.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Tanqueray Blackcurrant Royale</h4>
-                    <p className="text-sm text-gray-700">French blackcurrants and vanilla. Rich, fruity and sophisticated.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Tanqueray Blackcurrant Royale</h4>
+                    <p className="text-gray-700 text-sm">French blackcurrants and vanilla. Rich, fruity and sophisticated.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Whitley Neill Rhubarb</h4>
-                    <p className="text-sm text-gray-700">Yorkshire rhubarb with crisp citrus. Tart and refreshing.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Whitley Neill Rhubarb</h4>
+                    <p className="text-gray-700 text-sm">Yorkshire rhubarb with crisp citrus. Tart and refreshing.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Williams Chase Pink Grapefruit</h4>
-                    <p className="text-sm text-gray-700">Potato-based gin with pink grapefruit. Zesty and aromatic.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Williams Chase Pink Grapefruit</h4>
+                    <p className="text-gray-700 text-sm">Potato-based gin with pink grapefruit. Zesty and aromatic.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Kopparberg Strawberry & Lime</h4>
-                    <p className="text-sm text-gray-700">Swedish gin with strawberry and lime. Light and fruity.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Kopparberg Strawberry & Lime</h4>
+                    <p className="text-gray-700 text-sm">Swedish gin with strawberry and lime. Light and fruity.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Botanist</h4>
-                    <p className="text-sm text-gray-700">22 hand-foraged Islay botanicals. Complex and smooth.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Botanist</h4>
+                    <p className="text-gray-700 text-sm">22 hand-foraged Islay botanicals. Complex and smooth.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Gordons Sloe Gin</h4>
-                    <p className="text-sm text-gray-700">Wild sloe berries steeped in gin. Sweet and warming.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Gordons Sloe Gin</h4>
+                    <p className="text-gray-700 text-sm">Wild sloe berries steeped in gin. Sweet and warming.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Chase Sloe Gin</h4>
-                    <p className="text-sm text-gray-700">Herefordshire sloes and mulberries. Rich, jammy flavour.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Chase Sloe Gin</h4>
+                    <p className="text-gray-700 text-sm">Herefordshire sloes and mulberries. Rich, jammy flavour.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Warner's Elderflower</h4>
-                    <p className="text-sm text-gray-700">Farm-grown elderflower. Delicate floral sweetness.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Warner's Elderflower</h4>
+                    <p className="text-gray-700 text-sm">Farm-grown elderflower. Delicate floral sweetness.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Warner's Honeybee</h4>
-                    <p className="text-sm text-gray-700">Local honey and lemon verbena. Smooth and naturally sweet.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Warner's Honeybee</h4>
+                    <p className="text-gray-700 text-sm">Local honey and lemon verbena. Smooth and naturally sweet.</p>
                   </div>
                 </div>
               </div>
@@ -420,73 +405,73 @@ export default function DrinksMenuPage() {
                 <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Whisky Selection</h3>
                 <p className="text-center text-gray-600 mb-8">From smooth Irish to peaty Scotch</p>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Baileys</h4>
-                    <p className="text-sm text-gray-700">Irish cream liqueur. Smooth blend of Irish whiskey, cream, and cocoa.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Baileys</h4>
+                    <p className="text-gray-700 text-sm">Irish cream liqueur. Smooth blend of Irish whiskey, cream, and cocoa.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Bells</h4>
-                    <p className="text-sm text-gray-700">Scotland's favourite blend. Smooth and fruity with a spicy finish.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Bells</h4>
+                    <p className="text-gray-700 text-sm">Scotland's favourite blend. Smooth and fruity with a spicy finish.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Famous Grouse</h4>
-                    <p className="text-sm text-gray-700">Smooth blended Scotch. Full-flavoured with hints of sherry oak.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Famous Grouse</h4>
+                    <p className="text-gray-700 text-sm">Smooth blended Scotch. Full-flavoured with hints of sherry oak.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Jack Daniels</h4>
-                    <p className="text-sm text-gray-700">Tennessee whiskey. Charcoal mellowed for smoothness. Sweet vanilla notes.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Jack Daniels</h4>
+                    <p className="text-gray-700 text-sm">Tennessee whiskey. Charcoal mellowed for smoothness. Sweet vanilla notes.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Jack Daniels Fire</h4>
-                    <p className="text-sm text-gray-700">Cinnamon liqueur. Fiery red hot cinnamon taste with smooth finish.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Jack Daniels Fire</h4>
+                    <p className="text-gray-700 text-sm">Cinnamon liqueur. Fiery red hot cinnamon taste with smooth finish.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Jack Daniels Honey</h4>
-                    <p className="text-sm text-gray-700">Honey liqueur. Natural honey sweetness with whiskey smoothness.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Jack Daniels Honey</h4>
+                    <p className="text-gray-700 text-sm">Honey liqueur. Natural honey sweetness with whiskey smoothness.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Jack Daniel's Apple</h4>
-                    <p className="text-sm text-gray-700">Crisp green apple liqueur. Fresh orchard taste with whiskey warmth.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Jack Daniel's Apple</h4>
+                    <p className="text-gray-700 text-sm">Crisp green apple liqueur. Fresh orchard taste with whiskey warmth.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Jameson</h4>
-                    <p className="text-sm text-gray-700">Triple-distilled Irish whiskey. Smooth, sweet with subtle wood notes.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Jameson</h4>
+                    <p className="text-gray-700 text-sm">Triple-distilled Irish whiskey. Smooth, sweet with subtle wood notes.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Bushmills</h4>
-                    <p className="text-sm text-gray-700">Original Irish whiskey since 1608. Light, fruity with vanilla sweetness.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Bushmills</h4>
+                    <p className="text-gray-700 text-sm">Original Irish whiskey since 1608. Light, fruity with vanilla sweetness.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Glenfiddich</h4>
-                    <p className="text-sm text-gray-700">World's most awarded single malt. Fresh pear, subtle oak, soft vanilla.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Glenfiddich</h4>
+                    <p className="text-gray-700 text-sm">World's most awarded single malt. Fresh pear, subtle oak, soft vanilla.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Johnnie Walker Black Label</h4>
-                    <p className="text-sm text-gray-700">12-year blend. Deep, complex with smoky finish. True icon.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Johnnie Walker Black Label</h4>
+                    <p className="text-gray-700 text-sm">12-year blend. Deep, complex with smoky finish. True icon.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Monkey Shoulder</h4>
-                    <p className="text-sm text-gray-700">Triple malt blend. Smooth, rich and mellow. Vanilla, honey, spiced oak.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Monkey Shoulder</h4>
+                    <p className="text-gray-700 text-sm">Triple malt blend. Smooth, rich and mellow. Vanilla, honey, spiced oak.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Southern Comfort</h4>
-                    <p className="text-sm text-gray-700">Whiskey liqueur with fruits and spices. Sweet, smooth, one-of-a-kind.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Southern Comfort</h4>
+                    <p className="text-gray-700 text-sm">Whiskey liqueur with fruits and spices. Sweet, smooth, one-of-a-kind.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Makers Mark</h4>
-                    <p className="text-sm text-gray-700">Kentucky bourbon. Hand-dipped red wax seal. Sweet caramel and vanilla.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Makers Mark</h4>
+                    <p className="text-gray-700 text-sm">Kentucky bourbon. Hand-dipped red wax seal. Sweet caramel and vanilla.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Talisker</h4>
-                    <p className="text-sm text-gray-700">Island single malt. Powerful peat smoke, sea salt, spicy pepper finish.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Talisker</h4>
+                    <p className="text-gray-700 text-sm">Island single malt. Powerful peat smoke, sea salt, spicy pepper finish.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Glenmorangie</h4>
-                    <p className="text-sm text-gray-700">Highland single malt. Delicate, floral with vanilla and peach notes.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Glenmorangie</h4>
+                    <p className="text-gray-700 text-sm">Highland single malt. Delicate, floral with vanilla and peach notes.</p>
                   </div>
-                  <div className="p-4 bg-anchor-cream rounded-lg">
-                    <h4 className="font-bold text-anchor-green mb-2">Shanky's Whip</h4>
-                    <p className="text-sm text-gray-700">Black Irish whiskey liqueur. Smooth blend with vanilla and caramel.</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="font-bold text-xl text-anchor-green mb-2">Shanky's Whip</h4>
+                    <p className="text-gray-700 text-sm">Black Irish whiskey liqueur. Smooth blend with vanilla and caramel.</p>
                   </div>
                 </div>
               </div>
@@ -579,7 +564,7 @@ export default function DrinksMenuPage() {
                 🍷 Wine Selection
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Red Wines</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>Counterpoint Shiraz</li>
@@ -590,7 +575,7 @@ export default function DrinksMenuPage() {
                     <li>Rocosa Malbec</li>
                   </ul>
                 </div>
-                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">White Wines</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>Counterpoint Chardonnay</li>
@@ -603,7 +588,7 @@ export default function DrinksMenuPage() {
                     <li>Montford Estate Sauvignon Blanc</li>
                   </ul>
                 </div>
-                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Rosé & Sparkling</h3>
                   <ul className="space-y-2 text-gray-700">
                     <li>Gris des Signeurs</li>
@@ -627,7 +612,7 @@ export default function DrinksMenuPage() {
                 🥤 Soft Drinks & Mixers
               </h2>
               <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div className="bg-anchor-cream rounded-xl p-6">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Soft Drinks</h3>
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>Harrogate Still Water</div>
@@ -643,7 +628,7 @@ export default function DrinksMenuPage() {
                     <div>Appletiser (can)</div>
                   </div>
                 </div>
-                <div className="bg-anchor-cream rounded-xl p-6">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Mixers</h3>
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>Coca Cola</div>
@@ -679,7 +664,7 @@ export default function DrinksMenuPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
                 ☕ Hot Drinks
               </h2>
-              <div className="bg-white rounded-xl border border-gray-200 p-6 max-w-2xl mx-auto">
+              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow max-w-2xl mx-auto">
                 <p className="text-center text-gray-700 mb-4">
                   Available with cold milk, sugar, or sweetener
                 </p>

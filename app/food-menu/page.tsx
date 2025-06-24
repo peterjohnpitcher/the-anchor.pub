@@ -19,7 +19,7 @@ export default function FoodMenuPage() {
   return (
     <>
       {/* Status Bar */}
-      <div className="flex justify-center py-4 bg-gray-50">
+      <div className="flex justify-center py-4 bg-gray-50 mt-20">
         <StatusBar />
       </div>
       
