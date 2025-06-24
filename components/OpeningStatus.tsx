@@ -7,7 +7,7 @@ export function OpeningStatus() {
     isOpen: boolean
     message: string
     kitchenOpen: boolean
-  }>({ isOpen: false, message: 'Loading...', kitchenOpen: false })
+  }>({ isOpen: false, message: '🔴 Checking hours...', kitchenOpen: false })
 
   useEffect(() => {
     const checkStatus = () => {
@@ -94,7 +94,7 @@ export function OpeningStatus() {
   }, [])
 
   return (
-    <div className="inline-block bg-white/90 backdrop-blur-sm rounded-full border-2 border-anchor-gold/20 px-6 py-3 shadow-sm">
+    <div className="inline-block bg-white/90 backdrop-blur-sm rounded-full border-2 border-anchor-gold/20 px-6 py-3 shadow-sm min-h-[44px] flex items-center">
       <p className="text-base font-medium text-anchor-green">{status.message}</p>
     </div>
   )

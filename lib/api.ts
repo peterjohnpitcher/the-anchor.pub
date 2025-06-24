@@ -150,23 +150,32 @@ export interface MenuResponse {
 }
 
 export interface BusinessHours {
-  '@context': string
-  '@type': 'FoodEstablishment'
-  name: string
-  openingHoursSpecification: Array<{
-    '@type': 'OpeningHoursSpecification'
-    dayOfWeek: string | string[]
-    opens: string
-    closes: string
+  regularHours: {
+    [key: string]: {
+      opens: string
+      closes: string
+      kitchen?: {
+        opens: string
+        closes: string
+      } | null
+      is_closed: boolean
+    }
+  }
+  specialHours: Array<{
+    date: string
+    opens?: string
+    closes?: string
+    is_closed: boolean
+    reason?: string
   }>
-  specialOpeningHoursSpecification?: Array<{
-    '@type': 'OpeningHoursSpecification'
-    validFrom: string
-    validThrough: string
-    opens: string
-    closes: string
-    description: string
-  }>
+  currentStatus: {
+    isOpen: boolean
+    kitchenOpen: boolean
+    closesIn: string | null
+    opensIn: string | null
+  }
+  timezone: string
+  lastUpdated: string
 }
 
 export class AnchorAPI {

@@ -1,9 +1,22 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Outfit, Merriweather } from 'next/font/google'
 import './globals.css'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
+import { WebVitals } from './web-vitals'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const outfit = Outfit({ 
+  subsets: ['latin'], 
+  variable: '--font-outfit',
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+})
+
+const merriweather = Merriweather({ 
+  subsets: ['latin'], 
+  variable: '--font-merriweather',
+  weight: ['400', '700'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://the-anchor.pub'),
@@ -65,9 +78,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${outfit.variable} ${merriweather.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="preconnect" href="https://management.orangejelly.co.uk" />
+        <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -76,6 +91,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <WebVitals />
         {children}
       </body>
     </html>

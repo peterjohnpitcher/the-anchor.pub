@@ -33,13 +33,25 @@ export function NextEvent() {
 
   if (loading) {
     return (
-      <div className="text-center py-8">
-        <div className="loading-dots">
-          <span></span>
-          <span></span>
-          <span></span>
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden animate-pulse">
+          <div className="bg-gray-300 h-[72px]"></div>
+          <div className="p-8">
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div className="h-9 bg-gray-300 rounded w-64 mb-2"></div>
+                <div className="h-7 bg-gray-300 rounded w-32"></div>
+              </div>
+              <div className="h-7 bg-gray-300 rounded w-24"></div>
+            </div>
+            <div className="h-6 bg-gray-300 rounded w-full mb-2"></div>
+            <div className="h-6 bg-gray-300 rounded w-3/4 mb-6"></div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="h-12 bg-gray-300 rounded-full w-36"></div>
+              <div className="h-12 bg-gray-300 rounded-full w-36"></div>
+            </div>
+          </div>
         </div>
-        <p className="text-gray-600 mt-2">Loading next event...</p>
       </div>
     )
   }

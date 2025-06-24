@@ -20,8 +20,8 @@ const config: Config = {
         'anchor-sand': '#f5e6d3',
       },
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
+        sans: ['var(--font-outfit)', 'sans-serif'],
+        serif: ['var(--font-merriweather)', 'serif'],
       },
       animation: {
         'fade-up': 'fadeUp 0.6s ease-out',

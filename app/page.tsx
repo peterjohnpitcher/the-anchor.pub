@@ -1,10 +1,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { OpeningStatus } from '@/components/OpeningStatus'
-import { NextEvent } from '@/components/NextEvent'
+import dynamic from 'next/dynamic'
 import { CallToAction } from '@/components/CallToAction'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
+
+// Dynamic imports for non-critical components
+const OpeningStatus = dynamic(() => import('@/components/OpeningStatus').then(mod => mod.OpeningStatus), {
+  loading: () => <div className="inline-block bg-white/90 backdrop-blur-sm rounded-full border-2 border-anchor-gold/20 px-6 py-3 shadow-sm min-h-[44px]"></div>,
+  ssr: true
+})
+
+const NextEvent = dynamic(() => import('@/components/NextEvent').then(mod => mod.NextEvent), {
+  loading: () => <div className="max-w-3xl mx-auto"><div className="bg-white rounded-2xl shadow-xl overflow-hidden h-[300px] animate-pulse bg-gray-200"></div></div>,
+  ssr: true
+})
 
 export default function HomePage() {
   return (
@@ -21,6 +31,8 @@ export default function HomePage() {
             fill
             className="object-cover"
             priority
+            sizes="100vw"
+            quality={90}
           />
           {/* Warm overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-anchor-green/70 via-anchor-green/50 to-anchor-green/70" />
@@ -167,7 +179,9 @@ export default function HomePage() {
                 src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
                 alt="Entertainment at The Anchor - everyone welcome"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-0 p-6">
@@ -182,7 +196,9 @@ export default function HomePage() {
                 src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"
                 alt="Traditional Sunday roast at The Anchor"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-0 p-6">
@@ -197,7 +213,9 @@ export default function HomePage() {
                 src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
                 alt="Beer garden at The Anchor - family and dog friendly"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-0 p-6">
