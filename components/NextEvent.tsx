@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getUpcomingEvents, formatEventDate, formatEventTime, type Event } from '@/lib/api'
+import { formatEventDate, formatEventTime, type Event } from '@/lib/api'
 import { EventSchema } from '@/components/EventSchema'
 
 export function NextEvent() {
@@ -13,7 +13,14 @@ export function NextEvent() {
   useEffect(() => {
     async function fetchNextEvent() {
       try {
-        const events = await getUpcomingEvents(1)
+        const response = await fetch('/api/events?limit=1')
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch events')
+        }
+        
+        const data = await response.json()
+        const events = data.events || []
         
         if (events.length > 0) {
           setNextEvent(events[0])

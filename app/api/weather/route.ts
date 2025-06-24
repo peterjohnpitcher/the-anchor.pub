@@ -1,61 +1,82 @@
 import { NextResponse } from 'next/server'
 
-// Stanwell Moor coordinates
-const LATITUDE = 51.4546
-const LONGITUDE = -0.5156
+// The Anchor pub, Stanwell Moor coordinates
+const LATITUDE = 51.462482
+const LONGITUDE = -0.502187
+const API_KEY = process.env.OPENWEATHER_API_KEY
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const type = searchParams.get('type') || 'current'
   
   try {
-    // TODO: Replace with actual OpenWeatherMap API call
-    // You'll need to:
-    // 1. Sign up at https://openweathermap.org/api
-    // 2. Get a free API key
-    // 3. Replace the mock data below with:
-    // const API_KEY = process.env.OPENWEATHER_API_KEY
-    // For current: /weather endpoint
-    // For forecast: /forecast endpoint (5 day forecast with 3-hour intervals)
-    
+    if (!API_KEY) {
+      console.error('OpenWeatherMap API key not found')
+      throw new Error('Weather API configuration error')
+    }
+
     if (type === 'forecast') {
-      // Generate 5-day forecast mock data
-      const forecast = []
-      const conditions = ['clear sky', 'partly cloudy', 'cloudy', 'light rain', 'overcast']
-      const icons = ['01d', '02d', '03d', '09d', '04d']
+      // Fetch 5-day forecast from OpenWeatherMap
+      const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${API_KEY}&units=metric`
+      const forecastResponse = await fetch(forecastUrl)
       
-      for (let i = 0; i < 5; i++) {
-        const date = new Date()
-        date.setDate(date.getDate() + i)
-        const conditionIndex = Math.floor(Math.random() * conditions.length)
-        
-        forecast.push({
-          date: date.toISOString().split('T')[0],
-          day: date.toLocaleDateString('en-GB', { weekday: 'short' }),
-          temp_max: Math.round(10 + Math.random() * 8), // 10-18°C
-          temp_min: Math.round(4 + Math.random() * 6), // 4-10°C
-          description: conditions[conditionIndex],
-          icon: icons[conditionIndex]
-        })
+      if (!forecastResponse.ok) {
+        console.error('OpenWeatherMap forecast API error:', forecastResponse.status, forecastResponse.statusText)
+        throw new Error(`Weather API error: ${forecastResponse.status}`)
       }
+      
+      const forecastData = await forecastResponse.json()
+      
+      // Group forecast by day and get daily summary
+      const dailyForecasts = new Map()
+      
+      forecastData.list.forEach((item: any) => {
+        const date = new Date(item.dt * 1000)
+        const dateStr = date.toISOString().split('T')[0]
+        
+        if (!dailyForecasts.has(dateStr)) {
+          dailyForecasts.set(dateStr, {
+            date: dateStr,
+            day: date.toLocaleDateString('en-GB', { weekday: 'short' }),
+            temp_max: item.main.temp_max,
+            temp_min: item.main.temp_min,
+            description: item.weather[0].description,
+            icon: item.weather[0].icon.replace('n', 'd') // Use day icon
+          })
+        } else {
+          const existing = dailyForecasts.get(dateStr)
+          existing.temp_max = Math.max(existing.temp_max, item.main.temp_max)
+          existing.temp_min = Math.min(existing.temp_min, item.main.temp_min)
+        }
+      })
+      
+      // Convert to array and take first 5 days
+      const forecast = Array.from(dailyForecasts.values()).slice(0, 5)
       
       return NextResponse.json({ forecast })
     }
     
-    // Current weather (existing logic)
-    const hour = new Date().getHours()
-    const isNight = hour < 6 || hour > 20
+    // Current weather
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${API_KEY}&units=metric`
+    const weatherResponse = await fetch(weatherUrl)
     
-    const mockWeather = {
-      temp: Math.round(8 + Math.random() * 6), // 8-14°C typical UK temp
-      feels_like: Math.round(6 + Math.random() * 6), // Slightly cooler feel
-      description: isNight ? 'clear sky' : 'partly cloudy',
-      icon: isNight ? '01n' : '02d',
-      humidity: Math.round(65 + Math.random() * 20), // 65-85% humidity
-      wind_speed: Math.round(10 + Math.random() * 15) // 10-25 km/h wind
+    if (!weatherResponse.ok) {
+      console.error('OpenWeatherMap current weather API error:', weatherResponse.status, weatherResponse.statusText)
+      throw new Error(`Weather API error: ${weatherResponse.status}`)
     }
     
-    return NextResponse.json(mockWeather)
+    const weatherData = await weatherResponse.json()
+    
+    const currentWeather = {
+      temp: Math.round(weatherData.main.temp),
+      feels_like: Math.round(weatherData.main.feels_like),
+      description: weatherData.weather[0].description,
+      icon: weatherData.weather[0].icon,
+      humidity: weatherData.main.humidity,
+      wind_speed: Math.round(weatherData.wind.speed * 3.6) // Convert m/s to km/h
+    }
+    
+    return NextResponse.json(currentWeather)
   } catch (error) {
     console.error('Weather API error:', error)
     return NextResponse.json({ error: 'Unable to load weather' }, { status: 500 })
