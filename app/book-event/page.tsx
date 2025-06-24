@@ -29,7 +29,7 @@ export default function BookEventPage() {
           <CallToAction 
             href="tel:01753682707"
             variant="primary"
-            size="large"
+            size="lg"
           >
             📞 Call to Discuss: 01753 682707
           </CallToAction>
@@ -323,14 +323,14 @@ export default function BookEventPage() {
             <CallToAction 
               href="tel:01753682707"
               variant="white"
-              size="large"
+              size="lg"
             >
               📞 Call: 01753 682707
             </CallToAction>
             <CallToAction 
               href="mailto:manager@the-anchor.pub?subject=Event Enquiry"
               variant="white"
-              size="large"
+              size="lg"
             >
               ✉️ Email Us
             </CallToAction>

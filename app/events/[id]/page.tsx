@@ -129,7 +129,7 @@ export default async function EventPage({ params }: Props) {
                   <CallToAction 
                     href="tel:01753682707"
                     variant="primary"
-                    size="large"
+                    size="lg"
                   >
                     📞 Book Now
                   </CallToAction>
@@ -137,7 +137,7 @@ export default async function EventPage({ params }: Props) {
                     <CallToAction 
                       href={event.offers.url}
                       variant="white"
-                      size="large"
+                      size="lg"
                     >
                       Book Online
                     </CallToAction>
@@ -293,7 +293,7 @@ export default async function EventPage({ params }: Props) {
             <CallToAction 
               href="tel:01753682707"
               variant="white"
-              size="large"
+              size="lg"
             >
               📞 Call: 01753 682707
             </CallToAction>
@@ -301,7 +301,7 @@ export default async function EventPage({ params }: Props) {
             <CallToAction 
               href="/whats-on"
               variant="white"
-              size="large"
+              size="lg"
             >
               View All Events
             </CallToAction>

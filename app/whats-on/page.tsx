@@ -52,7 +52,7 @@ export default function WhatsOnPage() {
             <CallToAction 
               href="#upcoming-events"
               variant="primary"
-              size="large"
+              size="lg"
             >
               View All Events
             </CallToAction>
@@ -207,7 +207,7 @@ export default function WhatsOnPage() {
                 <p className="text-gray-600 text-sm">Engagements, anniversaries, and more</p>
               </div>
             </div>
-            <CallToAction href="/book-event" variant="primary" size="large">
+            <CallToAction href="/book-event" variant="primary" size="lg">
               Enquire About Private Events
             </CallToAction>
           </div>

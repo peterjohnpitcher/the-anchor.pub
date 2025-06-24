@@ -76,7 +76,7 @@ export default function FoodMenuPage() {
               <CallToAction 
                 href="/sunday-lunch"
                 variant="primary" 
-                size="large"
+                size="lg"
               >
                 View Full Sunday Menu
               </CallToAction>
@@ -573,14 +573,14 @@ export default function FoodMenuPage() {
             <CallToAction 
               href="tel:01753682707"
               variant="white"
-              size="large"
+              size="lg"
             >
               📞 Call: 01753 682707
             </CallToAction>
             <CallToAction 
               href="/drinks"
               variant="white"
-              size="large"
+              size="lg"
             >
               🍺 View Drinks Menu
             </CallToAction>

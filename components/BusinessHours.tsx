@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { type BusinessHours } from '@/lib/api'
+import { StatusBar } from './StatusBar'
 
 interface WeatherForecast {
   date: string
@@ -14,7 +15,7 @@ interface WeatherForecast {
 }
 
 interface BusinessHoursProps {
-  variant?: 'compact' | 'full' | 'status' | 'dark'
+  variant?: 'compact' | 'full' | 'status' | 'dark' | 'condensed'
   showKitchen?: boolean
   showWeather?: boolean
 }
@@ -30,7 +31,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
       try {
         const [hoursResponse, weatherData] = await Promise.all([
           fetch('/api/business-hours'),
-          showWeather && variant === 'dark' ? fetch('/api/weather?type=forecast').then(r => r.json()) : Promise.resolve(null)
+          showWeather && (variant === 'dark' || variant === 'condensed') ? fetch('/api/weather?type=forecast').then(r => r.json()) : Promise.resolve(null)
         ])
         
         const hoursData = await hoursResponse.json()
@@ -203,10 +204,88 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                   ) : (
                     <>
                       <span className="text-white">{formatTime(dayHours.opens)} - {formatTime(dayHours.closes)}</span>
-                      {showKitchen && dayHours.kitchen && (
+                      {showKitchen && (
                         <p className="text-xs text-gray-400 mt-1">
-                          Kitchen: {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
+                          {dayHours.kitchen ? (
+                            `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
+                          ) : (
+                            'Kitchen closed'
+                          )}
                         </p>
+                      )}
+                    </>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    )
+  }
+
+  // Condensed variant - compact vertical layout
+  if (variant === 'condensed') {
+    return (
+      <div className="space-y-3">
+        {/* Status Bar */}
+        <div className="flex justify-center">
+          <StatusBar showKitchen={showKitchen} />
+        </div>
+
+        {/* All Days Vertical List - Compact */}
+        <div className="space-y-1">
+          {upcomingDays.map((day, index) => {
+            const dayHours = hours.regularHours[day]
+            const isToday = day === today
+            const dayForecast = showWeather ? forecast[index] : null
+            
+            return (
+              <div 
+                key={day} 
+                className={`flex items-center justify-between px-3 py-1.5 rounded ${
+                  isToday ? 'bg-white/10 ring-1 ring-anchor-gold/30' : 'hover:bg-white/5'
+                }`}
+              >
+                {/* Left: Day & Weather */}
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className={`text-sm font-medium capitalize w-16 ${isToday ? 'text-anchor-gold' : 'text-white'}`}>
+                    {day.slice(0, 3)}
+                    {isToday && <span className="text-xs"> •</span>}
+                  </span>
+                  {showWeather && dayForecast && (
+                    <div className="flex items-center gap-1">
+                      <Image 
+                        src={`https://openweathermap.org/img/wn/${dayForecast.icon}.png`}
+                        alt={dayForecast.description}
+                        width={20}
+                        height={20}
+                        className="w-5 h-5"
+                      />
+                      <span className="text-xs text-gray-400">
+                        {dayForecast.temp_max}°/{dayForecast.temp_min}°
+                      </span>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Right: Hours */}
+                <div className="flex items-center gap-4 text-sm">
+                  {dayHours.is_closed ? (
+                    <span className="text-gray-400">Closed</span>
+                  ) : (
+                    <>
+                      <span className="text-gray-200">
+                        {formatTime(dayHours.opens)} - {formatTime(dayHours.closes)}
+                      </span>
+                      {showKitchen && (
+                        <span className="text-xs text-gray-400">
+                          {dayHours.kitchen ? (
+                            `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
+                          ) : (
+                            'Kitchen closed'
+                          )}
+                        </span>
                       )}
                     </>
                   )}
@@ -273,9 +352,13 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                   ) : (
                     <>
                       <span>{formatTime(dayHours.opens)} - {formatTime(dayHours.closes)}</span>
-                      {showKitchen && dayHours.kitchen && (
+                      {showKitchen && (
                         <p className="text-xs text-gray-600 mt-1">
-                          Kitchen: {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
+                          {dayHours.kitchen ? (
+                            `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
+                          ) : (
+                            'Kitchen closed'
+                          )}
                         </p>
                       )}
                     </>

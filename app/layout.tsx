@@ -5,6 +5,8 @@ import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/sc
 import { WebVitals } from './web-vitals'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
+import { StatusBar } from '@/components/StatusBar'
+import { Weather } from '@/components/Weather'
 
 const outfit = Outfit({ 
   subsets: ['latin'], 
@@ -94,7 +96,10 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <WebVitals />
-        <Navigation />
+        <Navigation 
+          statusComponent={<StatusBar variant="navigation" />}
+          weatherComponent={<Weather variant="compact" />}
+        />
         {children}
         <Footer />
       </body>

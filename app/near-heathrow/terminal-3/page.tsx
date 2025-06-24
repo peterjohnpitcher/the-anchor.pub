@@ -37,7 +37,7 @@ export default function Terminal3Page() {
               <CallToAction 
                 href="tel:01753682707"
                 variant="primary"
-                size="large"
+                size="lg"
               >
                 📞 Book a Table
               </CallToAction>
@@ -45,7 +45,7 @@ export default function Terminal3Page() {
               <CallToAction 
                 href="#directions"
                 variant="white"
-                size="large"
+                size="lg"
               >
                 📍 Get Directions
               </CallToAction>
@@ -155,7 +155,7 @@ export default function Terminal3Page() {
               <CallToAction
                 href="https://maps.google.com/maps?saddr=Heathrow+Terminal+3&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
                 variant="primary"
-                size="large"
+                size="lg"
                 external
               >
                 Open in Google Maps
@@ -308,14 +308,14 @@ export default function Terminal3Page() {
             <CallToAction 
               href="tel:01753682707"
               variant="white"
-              size="large"
+              size="lg"
             >
               📞 01753 682707
             </CallToAction>
             <CallToAction 
               href="/near-heathrow"
               variant="white"
-              size="large"
+              size="lg"
             >
               ← Back to All Terminals
             </CallToAction>

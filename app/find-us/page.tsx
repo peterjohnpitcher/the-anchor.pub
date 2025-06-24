@@ -268,7 +268,7 @@ export default function FindUsPage() {
             <CallToAction 
               href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
               variant="white"
-              size="large"
+              size="lg"
               external
             >
               📍 Google Maps
@@ -276,7 +276,7 @@ export default function FindUsPage() {
             <CallToAction 
               href="https://maps.apple.com/?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
               variant="white"
-              size="large"
+              size="lg"
               external
             >
               📍 Apple Maps
@@ -284,7 +284,7 @@ export default function FindUsPage() {
             <CallToAction 
               href="https://www.waze.com/ul?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
               variant="white"
-              size="large"
+              size="lg"
               external
             >
               📍 Waze

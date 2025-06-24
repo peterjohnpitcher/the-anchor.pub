@@ -51,7 +51,7 @@ export default function DragShowsPage() {
             <CallToAction 
               href="tel:01753682707"
               variant="primary"
-              size="large"
+              size="lg"
             >
               📞 Book Your Table Now
             </CallToAction>
@@ -299,14 +299,14 @@ export default function DragShowsPage() {
             <CallToAction 
               href="tel:01753682707"
               variant="white"
-              size="large"
+              size="lg"
             >
               📞 Book Your Table: 01753 682707
             </CallToAction>
             <CallToAction 
               href="/whats-on"
               variant="white"
-              size="large"
+              size="lg"
             >
               View All Events
             </CallToAction>

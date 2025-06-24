@@ -2,93 +2,215 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { BusinessHours } from './BusinessHours'
-import { Weather } from './Weather'
+import { useState, useEffect, ReactNode } from 'react'
+import { cn } from '@/lib/utils'
+import type { NavigationItem, BusinessInfo } from '@/lib/types'
 
-export function Navigation() {
+interface NavigationProps {
+  logo?: {
+    src: string
+    alt: string
+    width?: number
+    height?: number
+  }
+  items?: NavigationItem[]
+  ctaButton?: {
+    label: string
+    href: string
+    icon?: string
+    external?: boolean
+  }
+  theme?: {
+    background?: string
+    text?: string
+    hoverText?: string
+    ctaBackground?: string
+    ctaText?: string
+    ctaHoverBackground?: string
+  }
+  sticky?: boolean
+  className?: string
+  showStatus?: boolean
+  statusComponent?: ReactNode
+  showWeather?: boolean
+  weatherComponent?: ReactNode
+  mobileBreakpoint?: 'sm' | 'md' | 'lg'
+}
+
+const defaultTheme = {
+  background: 'bg-anchor-green',
+  text: 'text-white',
+  hoverText: 'hover:text-anchor-gold',
+  ctaBackground: 'bg-anchor-gold',
+  ctaText: 'text-white',
+  ctaHoverBackground: 'hover:bg-anchor-gold-light'
+}
+
+const defaultItems: NavigationItem[] = [
+  { label: "What's On", href: '/whats-on' },
+  { label: 'Food', href: '/food-menu' },
+  { label: 'Drinks', href: '/drinks' },
+  { label: 'Find Us', href: '/find-us' },
+  { label: 'Near Heathrow', href: '/near-heathrow' }
+]
+
+const defaultLogo = {
+  src: '/images/branding/the-anchor-pub-logo-white-transparent.png',
+  alt: 'The Anchor pub logo',
+  width: 150,
+  height: 60
+}
+
+export function Navigation({
+  logo = defaultLogo,
+  items = defaultItems,
+  ctaButton = {
+    label: '📅 Book a Table',
+    href: 'https://ordertab.menu/theanchor/bookings',
+    external: true
+  },
+  theme = defaultTheme,
+  sticky = true,
+  className,
+  showStatus = true,
+  statusComponent,
+  showWeather = true,
+  weatherComponent,
+  mobileBreakpoint = 'md'
+}: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  const mergedTheme = { ...defaultTheme, ...theme }
+  const breakpointClass = {
+    sm: 'sm:hidden',
+    md: 'md:hidden',
+    lg: 'lg:hidden'
+  }[mobileBreakpoint]
+
   useEffect(() => {
+    if (!sticky) return
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [sticky])
+
+  const renderLink = (item: NavigationItem, isMobile = false) => {
+    const linkClass = cn(
+      'font-medium transition-colors',
+      mergedTheme.text,
+      mergedTheme.hoverText,
+      isMobile && 'block text-lg py-2'
+    )
+
+    if (item.external) {
+      return (
+        <a
+          key={item.href}
+          href={item.href}
+          className={linkClass}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+        >
+          {item.label}
+        </a>
+      )
+    }
+
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        className={linkClass}
+        onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+      >
+        {item.label}
+      </Link>
+    )
+  }
+
+  const renderCTA = (isMobile = false) => {
+    if (!ctaButton) return null
+
+    const ctaClass = cn(
+      'font-semibold transition-all px-6 py-2 rounded-full',
+      mergedTheme.ctaBackground,
+      mergedTheme.ctaText,
+      mergedTheme.ctaHoverBackground,
+      isMobile && 'block text-center py-3 mt-4'
+    )
+
+    if (ctaButton.external) {
+      return (
+        <a
+          href={ctaButton.href}
+          className={ctaClass}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+        >
+          {ctaButton.icon} {ctaButton.label}
+        </a>
+      )
+    }
+
+    return (
+      <Link
+        href={ctaButton.href}
+        className={ctaClass}
+        onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+      >
+        {ctaButton.icon} {ctaButton.label}
+      </Link>
+    )
+  }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-anchor-green shadow-md">
+    <nav className={cn(
+      'transition-all duration-300 shadow-md',
+      sticky && 'fixed top-0 left-0 right-0 z-50',
+      mergedTheme.background,
+      className
+    )}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo and Hours */}
+          {/* Logo and Status */}
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center">
               <Image
-                src="/images/branding/the-anchor-pub-logo-white-transparent.png"
-                alt="The Anchor pub logo"
-                width={150}
-                height={60}
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
                 className="h-12 w-auto"
                 priority
               />
             </Link>
-            <div className="hidden lg:flex items-center gap-6 text-white">
-              <BusinessHours variant="status" />
-              <div className="border-l border-white/20 pl-6">
-                <Weather variant="compact" />
-              </div>
+            <div className={cn('hidden lg:flex items-center gap-6', mergedTheme.text)}>
+              {showStatus && statusComponent}
+              {showWeather && (
+                <div className="border-l border-white/20 pl-6">
+                  {weatherComponent}
+                </div>
+              )}
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/whats-on" 
-              className="font-medium transition-colors hover:text-anchor-gold text-white"
-            >
-              What&apos;s On
-            </Link>
-            <Link 
-              href="/food-menu" 
-              className="font-medium transition-colors hover:text-anchor-gold text-white"
-            >
-              Food
-            </Link>
-            <Link 
-              href="/drinks" 
-              className="font-medium transition-colors hover:text-anchor-gold text-white"
-            >
-              Drinks
-            </Link>
-            <Link 
-              href="/find-us" 
-              className="font-medium transition-colors hover:text-anchor-gold text-white"
-            >
-              Find Us
-            </Link>
-            <Link 
-              href="/near-heathrow" 
-              className="font-medium transition-colors hover:text-anchor-gold text-white"
-            >
-              Near Heathrow
-            </Link>
-            <a 
-              href="https://ordertab.menu/theanchor/bookings" 
-              className="font-semibold transition-all px-6 py-2 rounded-full bg-anchor-gold text-white hover:bg-anchor-gold-light"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              📅 Book a Table
-            </a>
+          <div className={cn('hidden items-center space-x-8', breakpointClass === 'md:hidden' ? 'md:flex' : breakpointClass === 'lg:hidden' ? 'lg:flex' : 'sm:flex')}>
+            {items.map(item => renderLink(item))}
+            {renderCTA()}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white"
+            className={cn(breakpointClass, mergedTheme.text)}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
@@ -103,52 +225,13 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-anchor-green-dark border-t border-anchor-green-light shadow-lg">
+        <div className={cn(
+          'bg-anchor-green-dark border-t border-anchor-green-light shadow-lg',
+          breakpointClass
+        )}>
           <div className="container mx-auto px-4 py-6 space-y-4">
-            <Link 
-              href="/whats-on" 
-              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              What&apos;s On
-            </Link>
-            <Link 
-              href="/food-menu" 
-              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Food
-            </Link>
-            <Link 
-              href="/drinks" 
-              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Drinks
-            </Link>
-            <Link 
-              href="/find-us" 
-              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Find Us
-            </Link>
-            <Link 
-              href="/near-heathrow" 
-              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Near Heathrow
-            </Link>
-            <a 
-              href="https://ordertab.menu/theanchor/bookings" 
-              className="block text-center bg-anchor-gold text-white py-3 font-semibold rounded-full mt-4"
-              onClick={() => setIsMobileMenuOpen(false)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              📅 Book a Table
-            </a>
+            {items.map(item => renderLink(item, true))}
+            {renderCTA(true)}
           </div>
         </div>
       )}

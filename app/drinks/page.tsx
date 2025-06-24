@@ -41,7 +41,7 @@ export default function DrinksMenuPage() {
             <CallToAction 
               href="#tequila-thursdays"
               variant="primary"
-              size="large"
+              size="lg"
             >
               🌮 Thursday Tequila Tastings
             </CallToAction>
@@ -98,32 +98,26 @@ export default function DrinksMenuPage() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">London Pride</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£4.80 pint</p>
                   <p className="text-gray-700">Fuller's classic premium ale - 4.1%</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Guinness</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£5.20 pint</p>
                   <p className="text-gray-700 text-sm">The black stuff, perfectly poured - 4.2%</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Stella Artois</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£4.60 pint</p>
                   <p className="text-gray-700 text-sm">Belgian premium lager - 4.8%</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Guest Ale</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">From £4.50</p>
                   <p className="text-gray-700 text-sm">Ask about this week's selection</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Peroni</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£4.90 pint</p>
                   <p className="text-gray-700 text-sm">Italian lager - 5.1%</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Strongbow</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">£4.40 pint</p>
                   <p className="text-gray-700 text-sm">Classic apple cider - 4.5%</p>
                 </div>
               </div>
@@ -137,31 +131,24 @@ export default function DrinksMenuPage() {
               <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Corona</h3>
-                  <p className="text-anchor-gold">£4.20</p>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Budweiser</h3>
-                  <p className="text-anchor-gold">£3.80</p>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Desperados</h3>
-                  <p className="text-anchor-gold">£4.50</p>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Becks Blue (0%)</h3>
-                  <p className="text-anchor-gold">£3.20</p>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Old Mout Cider</h3>
-                  <p className="text-anchor-gold">£4.80</p>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Kopparberg</h3>
-                  <p className="text-anchor-gold">£4.80</p>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Magners</h3>
-                  <p className="text-anchor-gold">£4.50</p>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Selection varies</h3>
@@ -182,19 +169,15 @@ export default function DrinksMenuPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-white rounded-lg p-4">
                     <h4 className="font-bold text-anchor-green">Patrón Silver</h4>
-                    <p className="text-anchor-gold">£6.50</p>
                   </div>
                   <div className="bg-white rounded-lg p-4">
                     <h4 className="font-bold text-anchor-green">Don Julio Reposado</h4>
-                    <p className="text-anchor-gold">£7.00</p>
                   </div>
                   <div className="bg-white rounded-lg p-4">
                     <h4 className="font-bold text-anchor-green">Casamigos Blanco</h4>
-                    <p className="text-anchor-gold">£6.00</p>
                   </div>
                   <div className="bg-white rounded-lg p-4">
                     <h4 className="font-bold text-anchor-green">Herradura Añejo</h4>
-                    <p className="text-anchor-gold">£8.00</p>
                   </div>
                 </div>
                 <p className="text-center mt-4 text-gray-600 italic">Ask about our full tequila menu - over 20 varieties!</p>
@@ -204,17 +187,14 @@ export default function DrinksMenuPage() {
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">House Spirits</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">Single £3.50 | Double £5.50</p>
                   <p className="text-gray-700">Smirnoff, Gordon's, Bacardi, Bell's, Jack Daniel's</p>
                 </div>
                 <div className="text-center">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Premium Spirits</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">From £4.50</p>
                   <p className="text-gray-700">Grey Goose, Hendrick's, Kraken, Jameson</p>
                 </div>
                 <div className="text-center">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Cocktails</h3>
-                  <p className="text-anchor-gold font-semibold mb-2">From £7.95</p>
                   <p className="text-gray-700">Mojito, Margarita, Long Island, Espresso Martini</p>
                 </div>
               </div>
@@ -228,49 +208,38 @@ export default function DrinksMenuPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">House Wines</h3>
-                  <p className="text-gray-700 mb-4">175ml / 250ml / Bottle</p>
                   <div className="space-y-3">
-                    <div className="flex justify-between">
+                    <div>
                       <span>Sauvignon Blanc</span>
-                      <span className="text-anchor-gold">£4.50 / £6.00 / £18.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Pinot Grigio</span>
-                      <span className="text-anchor-gold">£4.50 / £6.00 / £18.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Merlot</span>
-                      <span className="text-anchor-gold">£4.50 / £6.00 / £18.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Shiraz</span>
-                      <span className="text-anchor-gold">£4.50 / £6.00 / £18.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Rosé</span>
-                      <span className="text-anchor-gold">£4.50 / £6.00 / £18.00</span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Premium Selection</h3>
-                  <p className="text-gray-700 mb-4">By the bottle</p>
                   <div className="space-y-3">
-                    <div className="flex justify-between">
+                    <div>
                       <span>Chablis</span>
-                      <span className="text-anchor-gold">£32.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Rioja Reserva</span>
-                      <span className="text-anchor-gold">£28.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Prosecco</span>
-                      <span className="text-anchor-gold">£25.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Champagne</span>
-                      <span className="text-anchor-gold">£45.00</span>
                     </div>
                   </div>
                 </div>
@@ -286,50 +255,40 @@ export default function DrinksMenuPage() {
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Soft Drinks</h3>
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
+                    <div>
                       <span>Coca-Cola / Diet Coke</span>
-                      <span className="text-anchor-gold">£2.80</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Lemonade / Tonic</span>
-                      <span className="text-anchor-gold">£2.50</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Orange / Apple Juice</span>
-                      <span className="text-anchor-gold">£2.80</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>J2O</span>
-                      <span className="text-anchor-gold">£3.20</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Red Bull</span>
-                      <span className="text-anchor-gold">£3.50</span>
                     </div>
                   </div>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Hot Drinks</h3>
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
+                    <div>
                       <span>Americano</span>
-                      <span className="text-anchor-gold">£2.50</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Cappuccino / Latte</span>
-                      <span className="text-anchor-gold">£3.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Espresso</span>
-                      <span className="text-anchor-gold">£2.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Tea</span>
-                      <span className="text-anchor-gold">£2.00</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Hot Chocolate</span>
-                      <span className="text-anchor-gold">£3.00</span>
                     </div>
                   </div>
                 </div>
@@ -350,12 +309,12 @@ export default function DrinksMenuPage() {
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <h3 className="font-bold text-xl text-anchor-green mb-3">Happy Hour</h3>
                 <p className="text-anchor-gold font-semibold mb-2">Tuesday - Thursday 5-7pm</p>
-                <p className="text-gray-700">Selected drinks £1 off</p>
+                <p className="text-gray-700">Selected drinks with special offers</p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <h3 className="font-bold text-xl text-anchor-green mb-3">Wine Wednesday</h3>
                 <p className="text-anchor-gold font-semibold mb-2">All day Wednesday</p>
-                <p className="text-gray-700">House wine bottles £15</p>
+                <p className="text-gray-700">Special offers on house wine bottles</p>
               </div>
             </div>
           </div>
@@ -375,14 +334,14 @@ export default function DrinksMenuPage() {
             <CallToAction 
               href="tel:01753682707"
               variant="white"
-              size="large"
+              size="lg"
             >
               📞 Book Your Visit
             </CallToAction>
             <CallToAction 
               href="/food-menu"
               variant="white"
-              size="large"
+              size="lg"
             >
               🍔 View Food Menu
             </CallToAction>

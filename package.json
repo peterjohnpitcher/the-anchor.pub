@@ -12,10 +12,12 @@
     "test:crawl:report": "playwright show-report"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "tailwind-merge": "^3.3.1",
     "typescript": "^5"
   },
   "devDependencies": {

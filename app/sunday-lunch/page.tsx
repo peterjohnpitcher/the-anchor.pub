@@ -45,7 +45,7 @@ export default function SundayLunchPage() {
               <CallToAction 
                 href="tel:01753682707"
                 variant="primary"
-                size="large"
+                size="lg"
               >
                 📞 Book Your Table Now
               </CallToAction>
@@ -53,7 +53,7 @@ export default function SundayLunchPage() {
               <CallToAction 
                 href="#menu"
                 variant="white"
-                size="large"
+                size="lg"
               >
                 View Sunday Menu
               </CallToAction>
@@ -369,7 +369,7 @@ export default function SundayLunchPage() {
           <CallToAction 
             href="tel:01753682707"
             variant="white"
-            size="large"
+            size="lg"
             className="mb-8"
           >
             📞 Book Now: 01753 682707

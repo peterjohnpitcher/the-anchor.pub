@@ -1,0 +1,154 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - link "The Anchor pub logo":
+    - /url: /
+    - img "The Anchor pub logo"
+  - text: Open now Weather unavailable
+  - link "What's On":
+    - /url: /whats-on
+  - link "Food":
+    - /url: /food-menu
+  - link "Drinks":
+    - /url: /drinks
+  - link "Find Us":
+    - /url: /find-us
+  - link "Near Heathrow":
+    - /url: /near-heathrow
+  - link "📅 Book a Table":
+    - /url: https://ordertab.menu/theanchor/bookings
+- paragraph: Just 7 minutes away
+- heading "The Closest Pub to Heathrow Terminal 5" [level=1]
+- paragraph: Perfect for British Airways travelers • Free parking • Traditional British pub
+- link "📞 Book a Table":
+  - /url: tel:01753682707
+- link "📍 Get Directions":
+  - /url: "#directions"
+- text: 🚗
+- paragraph: 7 mins
+- paragraph: by car
+- text: 🅿️
+- paragraph: Free
+- paragraph: parking
+- text: 🍺
+- paragraph: Real
+- paragraph: British pub
+- text: ✈️
+- paragraph: BA Hub
+- paragraph: Terminal 5
+- heading "How to Get Here from Terminal 5" [level=2]
+- heading "🚗 By Car (7 minutes)" [level=3]
+- list:
+  - listitem: 1. Exit Terminal 5 following signs for M25/A30
+  - listitem: 2. At roundabout, take A3044 towards Staines
+  - listitem: 3. Continue straight for 1.5 miles
+  - listitem: 4. Turn right onto Horton Road (at the church)
+  - listitem: 5. The Anchor is 200m on your right
+- paragraph: "Sat Nav:"
+- paragraph: TW19 6AQ
+- heading "🚕 By Taxi" [level=3]
+- paragraph: "Cost: £10-12"
+- paragraph: "Tell your driver: \"The Anchor pub, Horton Road, Stanwell Moor\""
+- paragraph: "Taxi Ranks:"
+- list:
+  - listitem: Arrivals level (Ground floor)
+  - listitem: Departures level (First floor)
+  - listitem: Short stay car park
+- paragraph: "Pre-book Return:"
+- paragraph: We can arrange your return taxi - just ask at the bar!
+- heading "Interactive Map" [level=3]
+- paragraph: Click below for turn-by-turn directions from Terminal 5
+- link "Open in Google Maps":
+  - /url: https://maps.google.com/maps?saddr=Heathrow+Terminal+5&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ
+- heading "Why Terminal 5 Travelers Choose The Anchor" [level=2]
+- heading "✈️ Perfect for BA Travelers" [level=3]
+- paragraph: Terminal 5 is British Airways' exclusive hub. Whether you're flying Club World or Euro Traveller, enjoy a proper British welcome just minutes away.
+- heading "⏰ Beat the Airport Prices" [level=3]
+- paragraph: Why pay £15 for a sandwich at T5? Enjoy a full meal with us for the same price. Plus a pint costs half what you'd pay airside!
+- heading "🅿️ Free Parking Advantage" [level=3]
+- paragraph: Meeting someone? Save on T5's expensive short-stay parking. Park free with us and track their flight on our WiFi.
+- heading "🍽️ Pre-Flight Dining" [level=3]
+- paragraph: Start your holiday right. Relax in our beer garden, enjoy a proper meal, then head to T5 refreshed and ready - not rushed and hungry.
+- heading "Live Terminal 5 Flight Information" [level=2]
+- paragraph: Check flight times while you enjoy your meal or drink
+- heading "✈️ Departures from Terminal 5" [level=3]
+- text: QR 5944 In Flight 0 To Glasgow International• Gate A17 08:05 BA 1472 In Flight 0 To Glasgow International• Gate A17 08:05 QR 6224 In Flight 0 To Charles De Gaulle• Gate A22 08:20 BA 1410 In Flight 0 To George Best Belfast City• Gate A4 09:00
+- heading "Terminal 5 Travel Tips" [level=2]
+- text: ✈️
+- heading "Terminal 5 Flight Status" [level=4]
+- paragraph: All flights running on schedule
+- heading "Travel Tips" [level=3]
+- paragraph: "Check-in Times:"
+- list:
+  - listitem: "• Short-haul: 2 hours before"
+  - listitem: "• Long-haul: 3 hours before"
+  - listitem: • Allow 15 mins to reach T5 from here
+- paragraph: "Popular Routes:"
+- list:
+  - listitem: • New York JFK
+  - listitem: • Dubai
+  - listitem: • Barcelona
+  - listitem: • Edinburgh
+- heading "Local Knowledge" [level=3]
+- list:
+  - listitem: 💡 T5 security is typically quieter before 6am and after 8pm
+  - listitem: 💡 The Anchor is popular with BA cabin crew - we know the flight schedules!
+  - listitem: 💡 We can store luggage for short periods if you're between flights
+  - listitem: 💡 Our Sunday roast is famous among T5 staff - book ahead!
+- heading "See You Soon at The Anchor!" [level=2]
+- paragraph: Just 7 minutes from Terminal 5 • Free Parking • Great British Food
+- link "📞 01753 682707":
+  - /url: tel:01753682707
+- link "← Back to All Terminals":
+  - /url: /near-heathrow
+- paragraph: The Anchor
+- paragraph: Horton Road, Stanwell Moor
+- paragraph: Surrey TW19 6AQ
+- contentinfo:
+  - img "The Anchor pub logo"
+  - paragraph: Your local pub in Stanwell Moor, serving the community with great food, drinks, and entertainment since the 19th century.
+  - heading "Quick Links" [level=4]
+  - list:
+    - listitem:
+      - link "What's On":
+        - /url: /whats-on
+    - listitem:
+      - link "Food Menu":
+        - /url: /food-menu
+    - listitem:
+      - link "Sunday Roast":
+        - /url: /sunday-lunch
+    - listitem:
+      - link "Drinks Menu":
+        - /url: /drinks
+    - listitem:
+      - link "Book an Event":
+        - /url: /book-event
+  - heading "Get in Touch" [level=4]
+  - list:
+    - listitem:
+      - text: 📞
+      - link "01753 682707":
+        - /url: tel:01753682707
+    - listitem:
+      - text: ✉️
+      - link "manager@the-anchor.pub":
+        - /url: mailto:manager@the-anchor.pub
+    - listitem: 📍 Horton Road, Stanwell Moor
+    - listitem:
+      - link "Facebook":
+        - /url: https://www.facebook.com/theanchorpubsm/
+      - link "Instagram":
+        - /url: https://www.instagram.com/theanchor.pub/
+  - heading "For Everyone" [level=4]
+  - list:
+    - listitem: ♿ Step-Free Access
+    - listitem: 🐕 Dog Friendly
+    - listitem: 👨‍👩‍👧‍👦 Family Welcome
+    - listitem: 🏳️‍🌈 LGBTQ+ Friendly
+    - listitem: 🚗 Free Parking
+  - paragraph: © 2024 The Anchor, Stanwell Moor. All rights reserved.
+  - paragraph: Proud to be your local independent pub • Part of the community since the 1800s
+- alert
+```

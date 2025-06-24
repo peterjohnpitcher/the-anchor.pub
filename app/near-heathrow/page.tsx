@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
-import { OpeningStatus } from '@/components/OpeningStatus'
+import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export default function NearHeathrowPage() {
             </p>
             
             <div className="mb-8">
-              <OpeningStatus />
+              <StatusBar />
             </div>
             
             <div className="flex flex-wrap justify-center gap-3 mb-10">
@@ -57,7 +57,7 @@ export default function NearHeathrowPage() {
               <CallToAction 
                 href="tel:01753682707"
                 variant="primary"
-                size="large"
+                size="lg"
               >
                 📞 Book a Table: 01753 682707
               </CallToAction>
@@ -65,7 +65,7 @@ export default function NearHeathrowPage() {
               <CallToAction 
                 href="#terminals"
                 variant="secondary"
-                size="large"
+                size="lg"
               >
                 📍 Get Directions
               </CallToAction>
@@ -330,14 +330,14 @@ export default function NearHeathrowPage() {
             <CallToAction 
               href="tel:01753682707"
               variant="white"
-              size="large"
+              size="lg"
             >
               📞 Call: 01753 682707
             </CallToAction>
             <CallToAction 
               href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
               variant="white"
-              size="large"
+              size="lg"
               external
             >
               📍 Get Directions

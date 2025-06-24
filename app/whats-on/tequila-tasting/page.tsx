@@ -114,7 +114,7 @@ export default function TequilaTastingPage() {
             <CallToAction 
               href="tel:01753682707"
               variant="primary"
-              size="large"
+              size="lg"
             >
               📞 Book Your Tasting Experience
             </CallToAction>
@@ -437,14 +437,14 @@ export default function TequilaTastingPage() {
             <CallToAction 
               href="tel:01753682707"
               variant="white"
-              size="large"
+              size="lg"
             >
               📞 Book Now: 01753 682707
             </CallToAction>
             <CallToAction 
               href="/whats-on"
               variant="white"
-              size="large"
+              size="lg"
             >
               View All Events
             </CallToAction>

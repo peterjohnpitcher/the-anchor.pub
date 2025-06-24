@@ -6,8 +6,8 @@ import { BusinessHours } from '@/components/BusinessHours'
 import { Weather } from '@/components/Weather'
 
 // Dynamic imports for non-critical components
-const OpeningStatus = dynamic(() => import('@/components/OpeningStatus').then(mod => mod.OpeningStatus), {
-  loading: () => <div className="inline-block bg-white/90 backdrop-blur-sm rounded-full border-2 border-anchor-gold/20 px-6 py-3 shadow-sm min-h-[44px]"></div>,
+const StatusBar = dynamic(() => import('@/components/StatusBar').then(mod => mod.StatusBar), {
+  loading: () => <div className="inline-block bg-anchor-green rounded-full border-2 border-anchor-gold px-6 py-3 shadow-md min-h-[44px]"></div>,
   ssr: true
 })
 
@@ -53,9 +53,7 @@ export default function HomePage() {
             </p>
             
             <div className="mb-8 flex justify-center">
-              <div className="max-w-md">
-                <OpeningStatus />
-              </div>
+              <StatusBar />
             </div>
             
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow">
@@ -77,7 +75,7 @@ export default function HomePage() {
               <CallToAction 
                 href="https://ordertab.menu/theanchor/bookings"
                 variant="primary"
-                size="large"
+                size="lg"
                 external
               >
                 📅 Book a Table
@@ -86,7 +84,7 @@ export default function HomePage() {
               <CallToAction 
                 href="tel:01753682707"
                 variant="secondary"
-                size="large"
+                size="lg"
               >
                 📞 Call: 01753 682707
               </CallToAction>
@@ -94,7 +92,7 @@ export default function HomePage() {
               <CallToAction 
                 href="#visit-us"
                 variant="secondary"
-                size="large"
+                size="lg"
               >
                 📍 Find Us
               </CallToAction>
@@ -237,7 +235,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="mt-6 text-center">
-                  <CallToAction href="/near-heathrow" variant="primary" size="large">
+                  <CallToAction href="/near-heathrow" variant="primary" size="lg">
                     Get Directions From Your Terminal
                   </CallToAction>
                 </div>
@@ -329,7 +327,7 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="bg-white/10 rounded-lg p-6 mb-6">
-                  <h3 className="text-2xl font-bold mb-4">📍 Find Us Here</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-white">📍 Find Us Here</h3>
                   <address className="not-italic text-lg leading-relaxed">
                     The Anchor<br />
                     Horton Road<br />
@@ -339,7 +337,7 @@ export default function HomePage() {
                 </div>
                 
                 <div className="bg-white/10 rounded-lg p-6 mb-6">
-                  <h3 className="text-2xl font-bold mb-4">🚗 Getting Here</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-white">🚗 Getting Here</h3>
                   <ul className="space-y-2">
                     <li>✈️ Just 7 minutes from Heathrow Terminal 5</li>
                     <li>🚌 Bus routes 441 & 442 stop nearby</li>
@@ -351,7 +349,7 @@ export default function HomePage() {
                 <CallToAction 
                   href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
                   variant="white"
-                  size="large"
+                  size="lg"
                   external
                   className="w-full sm:w-auto"
                 >
@@ -359,9 +357,9 @@ export default function HomePage() {
                 </CallToAction>
               </div>
               
-              <div className="bg-white/10 rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-6">🕐 Opening Hours & Weather</h3>
-                <BusinessHours variant="dark" showKitchen={true} showWeather={true} />
+              <div className="bg-white/10 rounded-lg p-4">
+                <h3 className="text-xl font-bold mb-4 text-white">🕐 Hours & Weather</h3>
+                <BusinessHours variant="condensed" showKitchen={true} showWeather={true} />
               </div>
             </div>
           </div>
