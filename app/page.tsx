@@ -55,8 +55,10 @@ export default function HomePage() {
               Where Everyone&apos;s Welcome
             </p>
             
-            <div className="mb-8">
-              <OpeningStatus />
+            <div className="mb-8 flex justify-center">
+              <div className="max-w-md">
+                <OpeningStatus />
+              </div>
             </div>
             
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow">
@@ -280,9 +282,7 @@ export default function HomePage() {
               
               <div className="bg-white/10 rounded-lg p-6">
                 <h3 className="text-2xl font-bold mb-6">🕐 Opening Hours</h3>
-                <div className="bg-white/95 text-gray-900 rounded-lg p-4">
-                  <BusinessHours variant="full" showKitchen={true} />
-                </div>
+                <BusinessHours variant="dark" showKitchen={true} />
               </div>
             </div>
           </div>

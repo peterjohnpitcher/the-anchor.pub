@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { anchorAPI, type BusinessHours } from '@/lib/api'
 
 interface BusinessHoursProps {
-  variant?: 'compact' | 'full' | 'status'
+  variant?: 'compact' | 'full' | 'status' | 'dark'
   showKitchen?: boolean
 }
 
@@ -95,6 +95,75 @@ export function BusinessHours({ variant = 'full', showKitchen = true }: Business
         {hours.currentStatus.isOpen && hours.currentStatus.closesIn && (
           <p className="text-xs text-gray-600 mt-1">Closes in {hours.currentStatus.closesIn}</p>
         )}
+      </div>
+    )
+  }
+
+  // Dark variant - for dark backgrounds
+  if (variant === 'dark') {
+    return (
+      <div className="space-y-4">
+        {/* Current Status */}
+        <div className={`p-4 rounded-lg ${hours.currentStatus.isOpen ? 'bg-green-500/20 border border-green-400/30' : 'bg-red-500/20 border border-red-400/30'}`}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className={`inline-block w-3 h-3 rounded-full ${hours.currentStatus.isOpen ? 'bg-green-400' : 'bg-red-400'}`} />
+              <span className="font-semibold text-lg text-white">
+                {hours.currentStatus.isOpen ? 'We\'re Open!' : 'We\'re Closed'}
+              </span>
+            </div>
+            {hours.currentStatus.isOpen && hours.currentStatus.closesIn && (
+              <span className="text-sm text-gray-300">Closes in {hours.currentStatus.closesIn}</span>
+            )}
+            {!hours.currentStatus.isOpen && hours.currentStatus.opensIn && (
+              <span className="text-sm text-gray-300">Opens in {hours.currentStatus.opensIn}</span>
+            )}
+          </div>
+          {showKitchen && (
+            <p className="text-sm mt-2 text-gray-200">
+              Kitchen: {hours.currentStatus.kitchenOpen ? 
+                <span className="text-green-400 font-medium">Open for food orders</span> : 
+                <span className="text-red-400 font-medium">Closed</span>
+              }
+            </p>
+          )}
+        </div>
+
+        {/* Regular Hours */}
+        <div className="space-y-2">
+          {dayOrder.map(day => {
+            const dayHours = hours.regularHours[day]
+            const isToday = day === today
+            
+            return (
+              <div 
+                key={day} 
+                className={`flex justify-between items-start py-2 px-3 rounded ${
+                  isToday ? 'bg-white/10' : ''
+                }`}
+              >
+                <span className={`font-medium capitalize ${isToday ? 'text-anchor-gold' : 'text-white'}`}>
+                  {day}
+                  {isToday && <span className="text-xs ml-2 text-anchor-gold">(Today)</span>}
+                </span>
+                <div className="text-right">
+                  {dayHours.is_closed ? (
+                    <span className="text-gray-400">Closed</span>
+                  ) : (
+                    <>
+                      <span className="text-white">{formatTime(dayHours.opens)} - {formatTime(dayHours.closes)}</span>
+                      {showKitchen && dayHours.kitchen && (
+                        <p className="text-xs text-gray-400 mt-1">
+                          Kitchen: {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
+                        </p>
+                      )}
+                    </>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     )
   }
