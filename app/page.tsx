@@ -5,6 +5,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { BusinessHours } from '@/components/BusinessHours'
+import { Weather } from '@/components/Weather'
 
 // Dynamic imports for non-critical components
 const OpeningStatus = dynamic(() => import('@/components/OpeningStatus').then(mod => mod.OpeningStatus), {
@@ -243,9 +244,14 @@ export default function HomePage() {
       <section id="visit-us" className="py-16 md:py-20 bg-anchor-green text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">
               Come Visit Us!
             </h2>
+            
+            {/* Weather Widget */}
+            <div className="mb-12 max-w-md mx-auto">
+              <Weather variant="full" />
+            </div>
             
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>

@@ -4,6 +4,7 @@ import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
 import { Footer } from '@/components/Footer'
+import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 4 | The Anchor - 12 Minutes Away',
@@ -220,6 +221,21 @@ export default function Terminal4Page() {
         </div>
       </section>
 
+      {/* Live Flight Information */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+              Live Terminal 4 Flight Information
+            </h2>
+            <p className="text-lg text-gray-700 text-center mb-8">
+              Check flight times while you enjoy your meal or drink
+            </p>
+            <FlightStatus terminal="4" type="both" limit={5} />
+          </div>
+        </div>
+      </section>
+
       {/* Terminal 4 Specific Info */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -227,6 +243,10 @@ export default function Terminal4Page() {
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
               Terminal 4 Travel Tips
             </h2>
+            
+            <div className="mb-8">
+              <FlightDelayWidget terminal="4" />
+            </div>
             
             <div className="bg-anchor-sand/30 rounded-2xl p-8 mb-8">
               <h3 className="text-2xl font-bold text-anchor-green mb-4">Airlines & Destinations</h3>

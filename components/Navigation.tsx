@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { BusinessHours } from './BusinessHours'
+import { Weather } from './Weather'
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -34,8 +35,11 @@ export function Navigation() {
                 priority
               />
             </Link>
-            <div className="hidden lg:block text-white">
+            <div className="hidden lg:flex items-center gap-6 text-white">
               <BusinessHours variant="status" />
+              <div className="border-l border-white/20 pl-6">
+                <Weather variant="compact" />
+              </div>
             </div>
           </div>
 

@@ -4,6 +4,7 @@ import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
 import { Footer } from '@/components/Footer'
+import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 5 | The Anchor - 7 Minutes Away',
@@ -220,6 +221,21 @@ export default function Terminal5Page() {
         </div>
       </section>
 
+      {/* Live Flight Information */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+              Live Terminal 5 Flight Information
+            </h2>
+            <p className="text-lg text-gray-700 text-center mb-8">
+              Check flight times while you enjoy your meal or drink
+            </p>
+            <FlightStatus terminal="5" type="both" limit={5} />
+          </div>
+        </div>
+      </section>
+
       {/* Terminal 5 Specific Info */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -228,8 +244,12 @@ export default function Terminal5Page() {
               Terminal 5 Travel Tips
             </h2>
             
+            <div className="mb-8">
+              <FlightDelayWidget terminal="5" />
+            </div>
+
             <div className="bg-anchor-sand/30 rounded-2xl p-8 mb-8">
-              <h3 className="text-2xl font-bold text-anchor-green mb-4">Flight Information</h3>
+              <h3 className="text-2xl font-bold text-anchor-green mb-4">Travel Tips</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <p className="font-semibold mb-2">Check-in Times:</p>
