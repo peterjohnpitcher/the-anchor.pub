@@ -366,3 +366,31 @@ export function isEventFree(event: Event): boolean {
     event.offers?.price === '0' || 
     event.offers?.price === '0.00'
 }
+
+export function getEventShortDescription(event: Event, maxLength: number = 150): string {
+  if (!event.description) {
+    // Generate a default description based on event type
+    const name = event.name.toLowerCase()
+    if (name.includes('drag')) {
+      return 'Join us for a spectacular drag performance featuring amazing costumes, comedy, and entertainment.'
+    } else if (name.includes('quiz')) {
+      return 'Test your knowledge at our popular quiz night. Great prizes to be won!'
+    } else if (name.includes('bingo')) {
+      return 'Eyes down for a fun-filled bingo session with cash prizes.'
+    } else if (name.includes('music') || name.includes('band')) {
+      return 'Live music performance featuring talented local artists.'
+    } else if (name.includes('tasting')) {
+      return 'Join us for an exclusive tasting event with expert guidance.'
+    } else if (name.includes('roast')) {
+      return 'Traditional British Sunday roast with all the trimmings.'
+    }
+    return `Join us for ${event.name} at The Anchor.`
+  }
+  
+  // Truncate long descriptions
+  if (event.description.length > maxLength) {
+    return event.description.substring(0, maxLength).trim() + '...'
+  }
+  
+  return event.description
+}

@@ -68,15 +68,8 @@ export function NextEvent() {
   const isTomorrow = new Date(nextEvent.startDate).toDateString() === 
     new Date(Date.now() + 24 * 60 * 60 * 1000).toDateString()
 
-  // Determine the link based on event name
-  let link = '/whats-on'
-  const name = nextEvent.name.toLowerCase()
-  
-  if (name.includes('drag') || name.includes('nikki')) {
-    link = '/whats-on/drag-shows'
-  } else if (name.includes('roast')) {
-    link = '/sunday-lunch'
-  }
+  // Link to individual event page
+  const link = `/events/${nextEvent.id}`
 
   return (
     <>

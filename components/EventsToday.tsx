@@ -8,23 +8,8 @@ import { getTodaysEvents, formatEventTime, type Event } from '@/lib/api'
 function mapEventToDisplay(event: Event) {
   const startTime = formatEventTime(event.startDate)
   
-  // Determine the link based on event category or name
-  let link = '/whats-on'
-  const name = event.name.toLowerCase()
-  
-  if (name.includes('drag') || name.includes('nikki')) {
-    link = '/whats-on/drag-shows'
-  } else if (name.includes('tasting')) {
-    link = '/whats-on'
-  } else if (name.includes('quiz')) {
-    link = '/whats-on'
-  } else if (name.includes('bingo')) {
-    link = '/whats-on'
-  } else if (name.includes('music') || name.includes('band') || name.includes('acoustic')) {
-    link = '/whats-on'
-  } else if (name.includes('roast')) {
-    link = '/sunday-lunch'
-  }
+  // Link to individual event page
+  const link = `/events/${event.id}`
   
   return {
     id: event.id,

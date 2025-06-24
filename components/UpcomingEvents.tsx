@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getUpcomingEvents, formatEventDate, formatEventTime, formatPrice } from '@/lib/api'
+import { getUpcomingEvents, formatEventDate, formatEventTime, formatPrice, getEventShortDescription } from '@/lib/api'
 import { EventSchema } from '@/components/EventSchema'
 
 export async function UpcomingEvents() {
@@ -76,8 +76,14 @@ export async function UpcomingEvents() {
                       <p className="text-anchor-gold font-bold text-lg">{startTime}</p>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xl font-bold text-anchor-green mb-2">{event.name}</h4>
-                      <p className="text-gray-700 mb-3">{event.description}</p>
+                      <Link href={`/events/${event.id}`}>
+                        <h4 className="text-xl font-bold text-anchor-green mb-2 hover:text-anchor-gold transition-colors">
+                          {event.name}
+                        </h4>
+                      </Link>
+                      <p className="text-gray-700 mb-3 line-clamp-2">
+                        {getEventShortDescription(event)}
+                      </p>
                       <div className="flex items-center gap-4 text-sm">
                         {event.offers && (
                           <span className={event.offers.price === "0" ? "text-green-600 font-semibold" : "text-anchor-gold font-semibold"}>
@@ -95,17 +101,28 @@ export async function UpcomingEvents() {
                           </span>
                         )}
                       </div>
-                      {event.category && (
-                        <span 
-                          className="inline-block mt-3 px-3 py-1 text-xs font-semibold rounded-full"
-                          style={{
-                            backgroundColor: `${event.category.color}20`,
-                            color: event.category.color
-                          }}
+                      <div className="flex items-center justify-between mt-3">
+                        {event.category && (
+                          <span 
+                            className="inline-block px-3 py-1 text-xs font-semibold rounded-full"
+                            style={{
+                              backgroundColor: `${event.category.color}20`,
+                              color: event.category.color
+                            }}
+                          >
+                            {event.category.name}
+                          </span>
+                        )}
+                        <Link 
+                          href={`/events/${event.id}`}
+                          className="inline-flex items-center text-anchor-gold hover:text-anchor-gold-light font-semibold text-sm"
                         >
-                          {event.category.name}
-                        </span>
-                      )}
+                          View Details
+                          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 )
