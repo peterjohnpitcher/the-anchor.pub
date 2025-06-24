@@ -208,7 +208,9 @@ export function EventsToday() {
             <h3 className="font-bold text-2xl text-anchor-green mb-2">{event.name}</h3>
             <p className="text-anchor-gold font-medium text-sm">{event.time}</p>
             {event.price && (
-              <p className="text-sm text-gray-600 mt-1">From £{event.price}</p>
+              <p className={`text-sm mt-1 ${event.price === "0" ? "text-green-600 font-semibold" : "text-gray-600"}`}>
+                {event.price === "0" ? "FREE EVENT" : `From £${event.price}`}
+              </p>
             )}
           </div>
           <p className="text-gray-700 mb-6 leading-relaxed">{event.description}</p>

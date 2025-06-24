@@ -26,10 +26,10 @@ export const organizationSchema = {
   "email": "manager@the-anchor.pub"
 }
 
-export const restaurantSchema = {
+export const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "@id": "https://the-anchor.pub/#restaurant",
+  "@type": ["Restaurant", "BarOrPub"],
+  "@id": "https://the-anchor.pub/#business",
   "name": "The Anchor",
   "image": [
     "https://the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
@@ -103,5 +103,52 @@ export const restaurantSchema = {
     "@type": "Menu",
     "name": "The Anchor Menu",
     "url": "https://the-anchor.pub/food-menu"
+  },
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free Parking",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification", 
+      "name": "Wheelchair Accessible",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Beer Garden",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Dog Friendly",
+      "value": true
+    }
+  ],
+  "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+  "currenciesAccepted": "GBP",
+  "publicAccess": true
+}
+
+export const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://the-anchor.pub/#website",
+  "url": "https://the-anchor.pub",
+  "name": "The Anchor Stanwell Moor",
+  "description": "Traditional British pub near Heathrow with drag shows, tequila tastings, and famous Sunday roasts",
+  "publisher": {
+    "@id": "https://the-anchor.pub/#organization"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://the-anchor.pub/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
   }
 }
+
+export const restaurantSchema = localBusinessSchema

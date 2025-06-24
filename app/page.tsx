@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { OpeningStatus } from '@/components/OpeningStatus'
-import { EventsToday } from '@/components/EventsToday'
+import { NextEvent } from '@/components/NextEvent'
 import { CallToAction } from '@/components/CallToAction'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
@@ -138,18 +138,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Today's Events */}
+      {/* Next Event */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              What&apos;s On Today
+              Next Event at The Anchor
             </h2>
             <p className="text-xl text-gray-700">
-              There&apos;s always something happening at The Anchor
+              Don&apos;t miss out on what&apos;s coming up
             </p>
           </div>
-          <EventsToday />
+          <NextEvent />
         </div>
       </section>
 
