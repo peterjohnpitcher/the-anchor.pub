@@ -4,6 +4,7 @@ import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
 import { Footer } from '@/components/Footer'
+import { BusinessHours } from '@/components/BusinessHours'
 
 export const metadata: Metadata = {
   title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
@@ -124,6 +125,14 @@ export default function FindUsPage() {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+            
+            {/* Business Hours */}
+            <div className="mt-12">
+              <h2 className="text-3xl font-bold text-anchor-green mb-6 text-center">Opening Hours</h2>
+              <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
+                <BusinessHours variant="full" showKitchen={true} />
               </div>
             </div>
           </div>

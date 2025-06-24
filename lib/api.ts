@@ -363,6 +363,16 @@ export class AnchorAPI {
 // Export singleton instance
 export const anchorAPI = new AnchorAPI()
 
+// Helper function for business hours
+export async function getBusinessHours(): Promise<BusinessHours | null> {
+  try {
+    return await anchorAPI.getBusinessHours()
+  } catch (error) {
+    console.error('Failed to fetch business hours:', error)
+    return null
+  }
+}
+
 // Helper functions for common use cases
 export async function getUpcomingEvents(limit: number = 10): Promise<Event[]> {
   try {
