@@ -532,22 +532,6 @@ export default function FoodMenuPage() {
               </p>
             </div>
             
-            <div className="text-center">
-              <p className="text-lg text-gray-700 mb-2">
-                Sauce options include Ketchup, Mayonnaise, BBQ, Sweet Chilli, Burger Sauce, Garlic Mayonnaise, or Tartar.
-              </p>
-              <p className="text-sm text-gray-600 italic">
-                Available Tuesday to Friday 6pm to 9pm | Saturday 1pm to 7pm | Sunday 12pm to 5pm. 
-                Please order at the bar when you're ready.
-              </p>
-            </div>
-            
-            <div className="mt-8 text-center">
-              <p className="text-gray-600 italic">
-                (V) Vegetarian, (VG) Vegan. Items are prepared in a single kitchen, and while we take great care, we cannot guarantee 
-                allergen cross-contamination. For full allergen details, please ask at the bar.
-              </p>
-            </div>
           </div>
         </div>
       </section>
