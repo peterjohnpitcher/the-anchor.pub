@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 import { BusinessHours } from '@/components/BusinessHours'
 
 export const metadata: Metadata = {
@@ -20,7 +18,6 @@ export const metadata: Metadata = {
 export default function FindUsPage() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark">
@@ -236,13 +233,13 @@ export default function FindUsPage() {
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
                   <div className="text-4xl mb-3">🚗</div>
-                  <h3 className="font-bold text-anchor-green mb-2">50+ Spaces</h3>
-                  <p className="text-gray-700">Large car park with plenty of room</p>
+                  <h3 className="font-bold text-anchor-green mb-2">20 Spaces</h3>
+                  <p className="text-gray-700">On-site parking for all guests</p>
                 </div>
                 <div>
                   <div className="text-4xl mb-3">♿</div>
-                  <h3 className="font-bold text-anchor-green mb-2">Accessible</h3>
-                  <p className="text-gray-700">Disabled parking bays near entrance</p>
+                  <h3 className="font-bold text-anchor-green mb-2">Close to Building</h3>
+                  <p className="text-gray-700">All spaces are near the entrance</p>
                 </div>
                 <div>
                   <div className="text-4xl mb-3">🔒</div>
@@ -251,7 +248,7 @@ export default function FindUsPage() {
                 </div>
               </div>
               <p className="mt-6 text-gray-600 italic">
-                No time limits, no charges - just park and enjoy!
+                Free parking while you visit. Extended parking available - ask staff for details.
               </p>
             </div>
           </div>
@@ -300,6 +297,6 @@ export default function FindUsPage() {
           </div>
         </div>
       </section>
-    <Footer /></>
+    </>
   )
 }

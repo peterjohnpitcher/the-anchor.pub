@@ -316,7 +316,10 @@ export class AnchorAPI {
 
   // Business Information
   async getBusinessHours(): Promise<BusinessHours> {
-    return this.request<BusinessHours>('/business/hours')
+    // Use shorter cache for business hours to ensure current status is accurate
+    return this.request<BusinessHours>('/business/hours', {
+      next: { revalidate: 60 } // Cache for only 1 minute
+    })
   }
 
   async getAmenities(): Promise<{

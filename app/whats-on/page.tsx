@@ -1,10 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { UpcomingEvents } from '@/components/UpcomingEvents'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: "What's On | The Anchor Stanwell Moor | Events, Entertainment & Live Music",
@@ -20,7 +18,6 @@ export const metadata: Metadata = {
 export default function WhatsOnPage() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center">
@@ -303,6 +300,6 @@ export default function WhatsOnPage() {
           })
         }}
       />
-    <Footer /></>
+    </>
   )
 }

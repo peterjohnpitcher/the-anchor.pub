@@ -76,10 +76,12 @@ export function Navigation() {
               Near Heathrow
             </Link>
             <a 
-              href="tel:01753682707" 
+              href="https://ordertab.menu/theanchor/bookings" 
               className="font-semibold transition-all px-6 py-2 rounded-full bg-anchor-gold text-white hover:bg-anchor-gold-light"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              📞 Book a Table
+              📅 Book a Table
             </a>
           </div>
 
@@ -139,11 +141,13 @@ export function Navigation() {
               Near Heathrow
             </Link>
             <a 
-              href="tel:01753682707" 
+              href="https://ordertab.menu/theanchor/bookings" 
               className="block text-center bg-anchor-gold text-white py-3 font-semibold rounded-full mt-4"
               onClick={() => setIsMobileMenuOpen(false)}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              📞 Book a Table
+              📅 Book a Table
             </a>
           </div>
         </div>

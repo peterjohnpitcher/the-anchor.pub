@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
 export default function SundayLunchPage() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center">
@@ -460,6 +457,6 @@ export default function SundayLunchPage() {
           })
         }}
       />
-    <Footer /></>
+    </>
   )
 }

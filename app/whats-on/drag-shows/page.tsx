@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Drag Shows | The Anchor Stanwell Moor | Saturday Night Entertainment',
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
 export default function DragShowsPage() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center">
@@ -366,6 +363,6 @@ export default function DragShowsPage() {
           })
         }}
       />
-    <Footer /></>
+    </>
   )
 }

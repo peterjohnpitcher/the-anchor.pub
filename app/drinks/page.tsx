@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Drinks Menu | The Anchor Stanwell Moor | Real Ales & Premium Tequila',
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
 export default function DrinksMenuPage() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center">
@@ -392,6 +389,6 @@ export default function DrinksMenuPage() {
           </div>
         </div>
       </section>
-    <Footer /></>
+    </>
   )
 }

@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Tequila Tasting Events | The Anchor Stanwell Moor | Premium Mexican Spirits',
@@ -82,7 +80,6 @@ const tequilaTypes: TequilaType[] = [
 export default function TequilaTastingPage() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center">
@@ -509,6 +506,6 @@ export default function TequilaTastingPage() {
           })
         }}
       />
-    <Footer /></>
+    </>
   )
 }

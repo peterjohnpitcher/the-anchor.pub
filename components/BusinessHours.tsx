@@ -1,36 +1,66 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { anchorAPI, type BusinessHours } from '@/lib/api'
+import Image from 'next/image'
+import { type BusinessHours } from '@/lib/api'
+
+interface WeatherForecast {
+  date: string
+  day: string
+  temp_max: number
+  temp_min: number
+  description: string
+  icon: string
+}
 
 interface BusinessHoursProps {
   variant?: 'compact' | 'full' | 'status' | 'dark'
   showKitchen?: boolean
+  showWeather?: boolean
 }
 
-export function BusinessHours({ variant = 'full', showKitchen = true }: BusinessHoursProps) {
+export function BusinessHours({ variant = 'full', showKitchen = true, showWeather = false }: BusinessHoursProps) {
   const [hours, setHours] = useState<BusinessHours | null>(null)
+  const [forecast, setForecast] = useState<WeatherForecast[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    async function fetchHours() {
+    async function fetchData() {
       try {
-        const data = await anchorAPI.getBusinessHours()
-        setHours(data)
+        const [hoursResponse, weatherData] = await Promise.all([
+          fetch('/api/business-hours'),
+          showWeather && variant === 'dark' ? fetch('/api/weather?type=forecast').then(r => r.json()) : Promise.resolve(null)
+        ])
+        
+        const hoursData = await hoursResponse.json()
+        
+        if (hoursData.error) {
+          throw new Error(hoursData.error)
+        }
+        
+        // Debug logging
+        console.log('Business hours fetched at:', hoursData.fetchedAt)
+        console.log('Kitchen open status:', hoursData.currentStatus?.kitchenOpen)
+        
+        setHours(hoursData)
+        
+        if (weatherData && weatherData.forecast) {
+          setForecast(weatherData.forecast)
+        }
       } catch (err) {
-        console.error('Failed to fetch business hours:', err)
+        console.error('Failed to fetch data:', err)
         setError('Unable to load business hours')
       } finally {
         setLoading(false)
       }
     }
 
-    fetchHours()
+    fetchData()
     // Refresh every 5 minutes
-    const interval = setInterval(fetchHours, 5 * 60 * 1000)
+    const interval = setInterval(fetchData, 5 * 60 * 1000)
     return () => clearInterval(interval)
-  }, [])
+  }, [showWeather, variant])
 
   if (loading) {
     if (variant === 'status') {
@@ -50,6 +80,10 @@ export function BusinessHours({ variant = 'full', showKitchen = true }: Business
 
   const dayOrder = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
   const today = new Date().toLocaleDateString('en-GB', { weekday: 'long' }).toLowerCase()
+  
+  // Get upcoming days order starting from today
+  const todayIndex = dayOrder.indexOf(today)
+  const upcomingDays = [...dayOrder.slice(todayIndex), ...dayOrder.slice(0, todayIndex)]
 
   // Format time from 24h to 12h
   const formatTime = (time: string) => {
@@ -129,11 +163,12 @@ export function BusinessHours({ variant = 'full', showKitchen = true }: Business
           )}
         </div>
 
-        {/* Regular Hours */}
+        {/* Regular Hours with Weather */}
         <div className="space-y-2">
-          {dayOrder.map(day => {
+          {upcomingDays.slice(0, 7).map((day, index) => {
             const dayHours = hours.regularHours[day]
             const isToday = day === today
+            const dayForecast = forecast[index]
             
             return (
               <div 
@@ -142,10 +177,26 @@ export function BusinessHours({ variant = 'full', showKitchen = true }: Business
                   isToday ? 'bg-white/10' : ''
                 }`}
               >
-                <span className={`font-medium capitalize ${isToday ? 'text-anchor-gold' : 'text-white'}`}>
-                  {day}
-                  {isToday && <span className="text-xs ml-2 text-anchor-gold">(Today)</span>}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className={`font-medium capitalize ${isToday ? 'text-anchor-gold' : 'text-white'}`}>
+                    {day}
+                    {isToday && <span className="text-xs ml-2 text-anchor-gold">(Today)</span>}
+                  </span>
+                  {showWeather && dayForecast && (
+                    <div className="flex items-center gap-2">
+                      <Image 
+                        src={`https://openweathermap.org/img/wn/${dayForecast.icon}.png`}
+                        alt={dayForecast.description}
+                        width={24}
+                        height={24}
+                        className="w-6 h-6"
+                      />
+                      <span className="text-xs text-gray-300">
+                        {dayForecast.temp_max}°/{dayForecast.temp_min}°
+                      </span>
+                    </div>
+                  )}
+                </div>
                 <div className="text-right">
                   {dayHours.is_closed ? (
                     <span className="text-gray-400">Closed</span>

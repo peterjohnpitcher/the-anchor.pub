@@ -2,8 +2,6 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Navigation } from '@/components/Navigation'
-import { Footer } from '@/components/Footer'
 import { CallToAction } from '@/components/CallToAction'
 import { EventSchema } from '@/components/EventSchema'
 import { anchorAPI, formatEventDate, formatEventTime, formatPrice, isEventFree, isEventSoldOut } from '@/lib/api'
@@ -58,15 +56,14 @@ export default async function EventPage({ params }: Props) {
   
   return (
     <>
-      <Navigation />
       <EventSchema event={event} />
       
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center">
-        {event.image?.[0] ? (
+        {(event.heroImageUrl || event.image?.[0]) ? (
           <div className="absolute inset-0">
             <Image
-              src={event.image[0]}
+              src={event.heroImageUrl || event.image![0]}
               alt={event.name}
               fill
               className="object-cover"
@@ -312,7 +309,6 @@ export default async function EventPage({ params }: Props) {
         </div>
       </section>
       
-      <Footer />
     </>
   )
 }

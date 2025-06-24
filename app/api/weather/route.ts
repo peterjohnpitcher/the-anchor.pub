@@ -4,7 +4,10 @@ import { NextResponse } from 'next/server'
 const LATITUDE = 51.4546
 const LONGITUDE = -0.5156
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url)
+  const type = searchParams.get('type') || 'current'
+  
   try {
     // TODO: Replace with actual OpenWeatherMap API call
     // You'll need to:
@@ -12,11 +15,34 @@ export async function GET() {
     // 2. Get a free API key
     // 3. Replace the mock data below with:
     // const API_KEY = process.env.OPENWEATHER_API_KEY
-    // const response = await fetch(
-    //   `https://api.openweathermap.org/data/2.5/weather?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${API_KEY}&units=metric`
-    // )
+    // For current: /weather endpoint
+    // For forecast: /forecast endpoint (5 day forecast with 3-hour intervals)
     
-    // Mock weather data based on typical UK weather
+    if (type === 'forecast') {
+      // Generate 5-day forecast mock data
+      const forecast = []
+      const conditions = ['clear sky', 'partly cloudy', 'cloudy', 'light rain', 'overcast']
+      const icons = ['01d', '02d', '03d', '09d', '04d']
+      
+      for (let i = 0; i < 5; i++) {
+        const date = new Date()
+        date.setDate(date.getDate() + i)
+        const conditionIndex = Math.floor(Math.random() * conditions.length)
+        
+        forecast.push({
+          date: date.toISOString().split('T')[0],
+          day: date.toLocaleDateString('en-GB', { weekday: 'short' }),
+          temp_max: Math.round(10 + Math.random() * 8), // 10-18°C
+          temp_min: Math.round(4 + Math.random() * 6), // 4-10°C
+          description: conditions[conditionIndex],
+          icon: icons[conditionIndex]
+        })
+      }
+      
+      return NextResponse.json({ forecast })
+    }
+    
+    // Current weather (existing logic)
     const hour = new Date().getHours()
     const isNight = hour < 6 || hour > 20
     

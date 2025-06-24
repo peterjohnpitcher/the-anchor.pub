@@ -2,8 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { CallToAction } from '@/components/CallToAction'
-import { Navigation } from '@/components/Navigation'
-import { Footer } from '@/components/Footer'
 import { BusinessHours } from '@/components/BusinessHours'
 import { Weather } from '@/components/Weather'
 
@@ -21,8 +19,6 @@ const NextEvent = dynamic(() => import('@/components/NextEvent').then(mod => mod
 export default function HomePage() {
   return (
     <>
-      <Navigation />
-      
       {/* Warm Welcome Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center">
         {/* Hero Image */}
@@ -73,17 +69,26 @@ export default function HomePage() {
               <span className="tag bg-white/90 backdrop-blur-sm">🚗 Free Parking</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🐕 Dog Friendly</span>
               <span className="tag bg-white/90 backdrop-blur-sm">👨‍👩‍👧‍👦 Family Welcome</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">♿ Accessible</span>
+              <span className="tag bg-white/90 backdrop-blur-sm">♿ Step-Free Access</span>
               <span className="tag bg-white/90 backdrop-blur-sm">✈️ 7 mins from Heathrow</span>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <CallToAction 
-                href="tel:01753682707"
+                href="https://ordertab.menu/theanchor/bookings"
                 variant="primary"
                 size="large"
+                external
               >
-                📞 Call Us: 01753 682707
+                📅 Book a Table
+              </CallToAction>
+              
+              <CallToAction 
+                href="tel:01753682707"
+                variant="secondary"
+                size="large"
+              >
+                📞 Call: 01753 682707
               </CallToAction>
               
               <CallToAction 
@@ -146,7 +151,7 @@ export default function HomePage() {
               <div className="text-5xl mb-4">🎉</div>
               <h3 className="text-2xl font-bold text-anchor-green mb-3">Fun for Everyone</h3>
               <p className="text-gray-700">
-                From family quiz nights to spectacular drag shows, there&apos;s 
+                From monthly quiz nights to spectacular drag shows, there&apos;s 
                 always something happening at The Anchor.
               </p>
             </div>
@@ -317,14 +322,9 @@ export default function HomePage() {
       <section id="visit-us" className="py-16 md:py-20 bg-anchor-green text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">
               Come Visit Us!
             </h2>
-            
-            {/* Weather Widget */}
-            <div className="mb-12 max-w-md mx-auto">
-              <Weather variant="full" />
-            </div>
             
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -343,8 +343,8 @@ export default function HomePage() {
                   <ul className="space-y-2">
                     <li>✈️ Just 7 minutes from Heathrow Terminal 5</li>
                     <li>🚌 Bus routes 441 & 442 stop nearby</li>
-                    <li>🚗 Free parking for 50+ cars</li>
-                    <li>♿ Full wheelchair access throughout</li>
+                    <li>🚗 Free parking for all guests</li>
+                    <li>♿ Step-free access to most areas</li>
                   </ul>
                 </div>
                 
@@ -360,15 +360,14 @@ export default function HomePage() {
               </div>
               
               <div className="bg-white/10 rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-6">🕐 Opening Hours</h3>
-                <BusinessHours variant="dark" showKitchen={true} />
+                <h3 className="text-2xl font-bold mb-6">🕐 Opening Hours & Weather</h3>
+                <BusinessHours variant="dark" showKitchen={true} showWeather={true} />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <Footer />
     </>
   )
 }

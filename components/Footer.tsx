@@ -53,7 +53,7 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-4 text-anchor-gold">For Everyone</h4>
             <ul className="space-y-2 text-gray-200">
-              <li>♿ Wheelchair Accessible</li>
+              <li>♿ Step-Free Access</li>
               <li>🐕 Dog Friendly</li>
               <li>👨‍👩‍👧‍👦 Family Welcome</li>
               <li>🏳️‍🌈 LGBTQ+ Friendly</li>

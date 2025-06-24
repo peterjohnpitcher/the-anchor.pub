@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Food Menu | The Anchor Stanwell Moor | Traditional British Pub Food',
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
 export default function FoodMenuPage() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center">
@@ -149,7 +146,8 @@ export default function FoodMenuPage() {
               🍟 Snack Pots
             </h2>
             <p className="text-center text-lg text-gray-700 mb-8">
-              Enjoy our snack pots with chips and your choice of dip. Perfect for a cosy snack or a quick bite.
+              Enjoy our snack pots with chips and your choice of dip. Perfect for a cosy snack, quick bite, 
+              or smaller appetites including children.
             </p>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="bg-anchor-sand/30 rounded-2xl p-6 shadow-sm text-center">
@@ -345,7 +343,7 @@ export default function FoodMenuPage() {
             </h2>
             <p className="text-center text-lg text-gray-700 mb-8">
               Enjoy the comforting taste of our stone-baked pizzas, crafted to order with authentic Italian ingredients.
-              <br /><span className="text-sm italic">We offer 12" gluten-free pizzas on request.</span>
+              <br /><span className="text-sm italic">We offer 12" gluten-free pizzas on request. Small pizzas perfect for children!</span>
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-2xl p-6 shadow-md">
@@ -669,6 +667,6 @@ export default function FoodMenuPage() {
           })
         }}
       />
-    <Footer /></>
+    </>
   )
 }

@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
 
 export const metadata: Metadata = {
@@ -20,7 +18,6 @@ export const metadata: Metadata = {
 export default function Terminal5Page() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center">
@@ -365,6 +362,6 @@ export default function Terminal5Page() {
           })
         }}
       />
-    <Footer /></>
+    </>
   )
 }

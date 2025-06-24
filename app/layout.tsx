@@ -3,6 +3,8 @@ import { Outfit, Merriweather } from 'next/font/google'
 import './globals.css'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
 import { WebVitals } from './web-vitals'
+import { Navigation } from '@/components/Navigation'
+import { Footer } from '@/components/Footer'
 
 const outfit = Outfit({ 
   subsets: ['latin'], 
@@ -92,7 +94,9 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <WebVitals />
+        <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   )

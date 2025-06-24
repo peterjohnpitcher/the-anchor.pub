@@ -1,7 +1,5 @@
-import { Navigation } from '@/components/Navigation'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Book an Event | The Anchor Stanwell Moor | Private Parties & Functions',
@@ -17,7 +15,6 @@ export const metadata: Metadata = {
 export default function BookEventPage() {
   return (
     <>
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark">
@@ -346,6 +343,6 @@ export default function BookEventPage() {
           </div>
         </div>
       </section>
-    <Footer /></>
+    </>
   )
 }
