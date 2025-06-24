@@ -18,15 +18,13 @@ export function Navigation() {
   }, [])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-transparent'
-    }`}>
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-anchor-green shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src={isScrolled ? "/images/branding/the-anchor-pub-logo-black-transparent.png" : "/images/branding/the-anchor-pub-logo-white-transparent.png"}
+              src="/images/branding/the-anchor-pub-logo-white-transparent.png"
               alt="The Anchor pub logo"
               width={150}
               height={60}
@@ -39,51 +37,37 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               href="/whats-on" 
-              className={`font-medium transition-colors hover:text-anchor-gold ${
-                isScrolled ? 'text-anchor-charcoal' : 'text-white'
-              }`}
+              className="font-medium transition-colors hover:text-anchor-gold text-white"
             >
               What&apos;s On
             </Link>
             <Link 
               href="/food-menu" 
-              className={`font-medium transition-colors hover:text-anchor-gold ${
-                isScrolled ? 'text-anchor-charcoal' : 'text-white'
-              }`}
+              className="font-medium transition-colors hover:text-anchor-gold text-white"
             >
               Food
             </Link>
             <Link 
               href="/drinks" 
-              className={`font-medium transition-colors hover:text-anchor-gold ${
-                isScrolled ? 'text-anchor-charcoal' : 'text-white'
-              }`}
+              className="font-medium transition-colors hover:text-anchor-gold text-white"
             >
               Drinks
             </Link>
             <Link 
               href="/find-us" 
-              className={`font-medium transition-colors hover:text-anchor-gold ${
-                isScrolled ? 'text-anchor-charcoal' : 'text-white'
-              }`}
+              className="font-medium transition-colors hover:text-anchor-gold text-white"
             >
               Find Us
             </Link>
             <Link 
               href="/near-heathrow" 
-              className={`font-medium transition-colors hover:text-anchor-gold ${
-                isScrolled ? 'text-anchor-charcoal' : 'text-white'
-              }`}
+              className="font-medium transition-colors hover:text-anchor-gold text-white"
             >
               Near Heathrow
             </Link>
             <a 
               href="tel:01753682707" 
-              className={`font-semibold transition-all px-6 py-2 rounded-full ${
-                isScrolled 
-                  ? 'bg-anchor-gold text-white hover:bg-anchor-gold-light' 
-                  : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/40'
-              }`}
+              className="font-semibold transition-all px-6 py-2 rounded-full bg-anchor-gold text-white hover:bg-anchor-gold-light"
             >
               📞 Book a Table
             </a>
@@ -92,7 +76,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden ${isScrolled ? 'text-anchor-green' : 'text-white'}`}
+            className="md:hidden text-white"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
@@ -107,48 +91,39 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+        <div className="md:hidden bg-anchor-green-dark border-t border-anchor-green-light shadow-lg">
           <div className="container mx-auto px-4 py-6 space-y-4">
-            <div className="pb-4 border-b border-gray-100">
-              <Image
-                src="/images/branding/the-anchor-pub-logo-black-transparent.png"
-                alt="The Anchor pub logo"
-                width={120}
-                height={48}
-                className="h-10 w-auto"
-              />
-            </div>
             <Link 
               href="/whats-on" 
-              className="block text-anchor-charcoal hover:text-anchor-gold transition-colors text-lg font-medium py-2"
+              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               What&apos;s On
             </Link>
             <Link 
               href="/food-menu" 
-              className="block text-anchor-charcoal hover:text-anchor-gold transition-colors text-lg font-medium py-2"
+              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Food
             </Link>
             <Link 
               href="/drinks" 
-              className="block text-anchor-charcoal hover:text-anchor-gold transition-colors text-lg font-medium py-2"
+              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Drinks
             </Link>
             <Link 
               href="/find-us" 
-              className="block text-anchor-charcoal hover:text-anchor-gold transition-colors text-lg font-medium py-2"
+              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Find Us
             </Link>
             <Link 
               href="/near-heathrow" 
-              className="block text-anchor-charcoal hover:text-anchor-gold transition-colors text-lg font-medium py-2"
+              className="block text-white hover:text-anchor-gold transition-colors text-lg font-medium py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Near Heathrow

@@ -247,8 +247,8 @@ export default function NearHeathrowPage() {
               <p className="text-gray-600 text-sm mb-4">
                 Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;
               </p>
-              <p className="text-sm text-gray-500">
-                Postcode: <strong>TW19 6AQ</strong>
+              <p className="text-sm text-gray-700">
+                Postcode: <strong className="text-gray-900">TW19 6AQ</strong>
               </p>
             </div>
 

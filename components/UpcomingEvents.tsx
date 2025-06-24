@@ -37,10 +37,10 @@ export async function UpcomingEvents() {
         "position": index + 1,
         "item": {
           "@type": "Event",
-          "@id": `https://the-anchor.pub/events/${event.id}`,
+          "@id": event.slug ? `https://the-anchor.pub/events/${event.slug}` : `https://the-anchor.pub/events/${event.id}`,
           "name": event.name,
           "startDate": event.startDate,
-          "url": `https://the-anchor.pub/events/${event.id}`
+          "url": event.slug ? `https://the-anchor.pub/events/${event.slug}` : `https://the-anchor.pub/events/${event.id}`
         }
       }))
     }
@@ -76,7 +76,7 @@ export async function UpcomingEvents() {
                       <p className="text-anchor-gold font-bold text-lg">{startTime}</p>
                     </div>
                     <div className="flex-1">
-                      <Link href={`/events/${event.id}`}>
+                      <Link href={`/events/${event.slug || event.id}`}>
                         <h4 className="text-xl font-bold text-anchor-green mb-2 hover:text-anchor-gold transition-colors">
                           {event.name}
                         </h4>
@@ -114,7 +114,7 @@ export async function UpcomingEvents() {
                           </span>
                         )}
                         <Link 
-                          href={`/events/${event.id}`}
+                          href={`/events/${event.slug || event.id}`}
                           className="inline-flex items-center text-anchor-gold hover:text-anchor-gold-light font-semibold text-sm"
                         >
                           View Details

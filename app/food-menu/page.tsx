@@ -59,7 +59,7 @@ export default function FoodMenuPage() {
           <p className="text-lg text-anchor-green font-semibold">
             Kitchen Hours: Tuesday to Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
           </p>
-          <p className="text-sm text-gray-600 mt-2">
+          <p className="text-gray-700 mt-2">
             Please order at the bar when you're ready
           </p>
         </div>

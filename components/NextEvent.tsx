@@ -69,7 +69,7 @@ export function NextEvent() {
     new Date(Date.now() + 24 * 60 * 60 * 1000).toDateString()
 
   // Link to individual event page
-  const link = `/events/${nextEvent.id}`
+  const link = `/events/${nextEvent.slug || nextEvent.id}`
 
   return (
     <>

@@ -9,7 +9,7 @@ function mapEventToDisplay(event: Event) {
   const startTime = formatEventTime(event.startDate)
   
   // Link to individual event page
-  const link = `/events/${event.id}`
+  const link = `/events/${event.slug || event.id}`
   
   return {
     id: event.id,

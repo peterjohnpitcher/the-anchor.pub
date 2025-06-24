@@ -17,12 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const event = await anchorAPI.getEvent(params.id)
     
     return {
-      title: `${event.name} | The Anchor Stanwell Moor`,
-      description: event.description || `Join us for ${event.name} at The Anchor pub in Stanwell Moor. ${formatEventDate(event.startDate)} at ${formatEventTime(event.startDate)}.`,
+      title: event.metaTitle || `${event.name} | The Anchor Stanwell Moor`,
+      description: event.metaDescription || event.shortDescription || event.description || `Join us for ${event.name} at The Anchor pub in Stanwell Moor. ${formatEventDate(event.startDate)} at ${formatEventTime(event.startDate)}.`,
+      keywords: event.keywords?.join(', '),
       openGraph: {
         title: event.name,
-        description: event.description || `Event at The Anchor - ${formatEventDate(event.startDate)}`,
-        images: event.image?.[0] ? [event.image[0]] : ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
+        description: event.shortDescription || event.description || `Event at The Anchor - ${formatEventDate(event.startDate)}`,
+        images: event.heroImageUrl ? [event.heroImageUrl] : event.image?.[0] ? [event.image[0]] : ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
         type: 'website',
       },
     }
@@ -197,10 +198,27 @@ export default async function EventPage({ params }: Props) {
             </div>
             
             {/* Description */}
-            {event.description && (
+            {(event.longDescription || event.description) && (
               <div className="prose prose-lg max-w-none mb-12">
                 <h2 className="text-3xl font-bold text-anchor-green mb-6">About This Event</h2>
-                <p className="text-gray-700 whitespace-pre-wrap">{event.description}</p>
+                <p className="text-gray-700 whitespace-pre-wrap">{event.longDescription || event.description}</p>
+              </div>
+            )}
+            
+            {/* Highlights */}
+            {event.highlights && event.highlights.length > 0 && (
+              <div className="mb-12">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">Event Highlights</h3>
+                <ul className="space-y-2">
+                  {event.highlights.map((highlight, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-anchor-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
             
@@ -225,18 +243,33 @@ export default async function EventPage({ params }: Props) {
             </div>
             
             {/* Additional Images */}
-            {event.image && event.image.length > 1 && (
+            {((event.galleryImages && event.galleryImages.length > 0) || (event.image && event.image.length > 1)) && (
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-anchor-green mb-6">Event Photos</h2>
                 <div className="grid md:grid-cols-2 gap-4">
-                  {event.image.slice(1).map((img, index) => (
+                  {(event.galleryImages || event.image?.slice(1) || []).map((img, index) => (
                     <div key={index} className="relative aspect-video rounded-xl overflow-hidden">
                       <Image
                         src={img}
-                        alt={`${event.name} - Photo ${index + 2}`}
+                        alt={`${event.name} - Photo ${index + 1}`}
                         fill
                         className="object-cover"
                       />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {/* FAQs */}
+            {event.faqPage && event.faqPage.mainEntity.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold text-anchor-green mb-6">Frequently Asked Questions</h2>
+                <div className="space-y-4">
+                  {event.faqPage.mainEntity.map((faq, index) => (
+                    <div key={index} className="bg-gray-50 rounded-xl p-6">
+                      <h3 className="font-semibold text-lg text-anchor-green mb-2">{faq.name}</h3>
+                      <p className="text-gray-700">{faq.acceptedAnswer.text}</p>
                     </div>
                   ))}
                 </div>

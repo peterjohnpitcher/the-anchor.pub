@@ -7,10 +7,16 @@ const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
 export interface Event {
   '@type': 'Event'
   id: string
+  slug: string
   name: string
   description: string | null
+  shortDescription?: string | null
+  longDescription?: string | null
+  highlights?: string[]
+  keywords?: string[]
   startDate: string
-  endDate?: string
+  endDate?: string | null
+  lastEntryTime?: string | null
   eventStatus: string
   eventAttendanceMode: string
   location: {
@@ -42,6 +48,12 @@ export interface Event {
     }
   }
   image?: string[]
+  heroImageUrl?: string | null
+  thumbnailImageUrl?: string | null
+  posterImageUrl?: string | null
+  galleryImages?: string[]
+  promoVideoUrl?: string | null
+  highlightVideos?: string[]
   organizer?: {
     '@type': 'Organization'
     name: string
@@ -50,10 +62,51 @@ export interface Event {
   isAccessibleForFree?: boolean
   remainingAttendeeCapacity?: number
   maximumAttendeeCapacity?: number
+  metaTitle?: string | null
+  metaDescription?: string | null
   category?: {
     id: string
     name: string
+    slug: string
     color: string
+    icon?: string
+  }
+  booking_rules?: {
+    max_seats_per_booking: number
+    requires_customer_details: boolean
+    allows_notes: boolean
+    sms_confirmation_enabled: boolean
+  }
+  custom_messages?: {
+    confirmation?: string
+    reminder?: string
+  }
+  mainEntityOfPage?: {
+    '@type': 'WebPage'
+    '@id': string
+  }
+  potentialAction?: {
+    '@type': 'ReserveAction'
+    target: {
+      '@type': 'EntryPoint'
+      urlTemplate: string
+      inLanguage: string
+    }
+    result: {
+      '@type': 'Reservation'
+      name: string
+    }
+  }
+  faqPage?: {
+    '@type': 'FAQPage'
+    mainEntity: Array<{
+      '@type': 'Question'
+      name: string
+      acceptedAnswer: {
+        '@type': 'Answer'
+        text: string
+      }
+    }>
   }
 }
 
@@ -210,8 +263,22 @@ export class AnchorAPI {
     return this.request<EventsResponse>(`/events?${query.toString()}`)
   }
 
-  async getEvent(id: string): Promise<Event> {
-    return this.request<Event>(`/events/${id}`)
+  async getEvent(idOrSlug: string): Promise<Event> {
+    try {
+      // Try the individual event endpoint first (supports both ID and slug)
+      return await this.request<Event>(`/events/${idOrSlug}`)
+    } catch (error: any) {
+      // If individual endpoint fails, fallback to searching in events list
+      if (error?.status === 404 || error?.message?.includes('NOT_FOUND')) {
+        console.log('Individual event endpoint failed, trying events list fallback')
+        const eventsResponse = await this.getEvents({ limit: 100 })
+        const event = eventsResponse.events.find(e => e.id === idOrSlug || e.slug === idOrSlug)
+        if (event) {
+          return event
+        }
+      }
+      throw error
+    }
   }
 
   async getTodaysEvents(): Promise<EventsResponse> {
@@ -326,26 +393,31 @@ export async function getEventsByCategory(category: string, limit: number = 20):
 
 // Format helpers
 export function formatEventDate(dateString: string): string {
+  // Parse the date string and display in UK timezone
   const date = new Date(dateString)
   return date.toLocaleDateString('en-GB', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    timeZone: 'Europe/London'
   })
 }
 
 export function formatEventTime(dateString: string): string {
+  // Parse the date and extract time in UK timezone
   const date = new Date(dateString)
-  const hours = date.getHours()
-  const minutes = date.getMinutes()
-  const period = hours >= 12 ? 'pm' : 'am'
-  const displayHours = hours % 12 || 12
   
-  if (minutes === 0) {
-    return `${displayHours}${period}`
-  }
-  return `${displayHours}:${minutes.toString().padStart(2, '0')}${period}`
+  // Use Intl.DateTimeFormat to get the time in UK timezone
+  const timeString = date.toLocaleTimeString('en-GB', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: 'Europe/London'
+  })
+  
+  // Convert to the desired format (8pm instead of 8:00 pm)
+  return timeString.replace(':00 ', '').replace(' ', '')
 }
 
 export function formatPrice(price: string | number, currency: string = 'GBP'): string {
@@ -368,6 +440,12 @@ export function isEventFree(event: Event): boolean {
 }
 
 export function getEventShortDescription(event: Event, maxLength: number = 150): string {
+  // Use shortDescription if available
+  if (event.shortDescription) {
+    return event.shortDescription
+  }
+  
+  // Otherwise use description
   if (!event.description) {
     // Generate a default description based on event type
     const name = event.name.toLowerCase()

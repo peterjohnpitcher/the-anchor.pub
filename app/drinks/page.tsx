@@ -67,17 +67,17 @@ export default function DrinksMenuPage() {
                 <div className="text-center">
                   <div className="text-4xl mb-2">🌮</div>
                   <h3 className="font-bold text-anchor-green mb-2">Expert Selection</h3>
-                  <p className="text-gray-600 text-sm">Premium tequilas from Mexico's finest distilleries</p>
+                  <p className="text-gray-700">Premium tequilas from Mexico's finest distilleries</p>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl mb-2">👨‍🏫</div>
                   <h3 className="font-bold text-anchor-green mb-2">Guided Tasting</h3>
-                  <p className="text-gray-600 text-sm">Learn about production, regions, and flavor profiles</p>
+                  <p className="text-gray-700">Learn about production, regions, and flavor profiles</p>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl mb-2">🎉</div>
                   <h3 className="font-bold text-anchor-green mb-2">Great Atmosphere</h3>
-                  <p className="text-gray-600 text-sm">Meet fellow tequila enthusiasts in a fun setting</p>
+                  <p className="text-gray-700">Meet fellow tequila enthusiasts in a fun setting</p>
                 </div>
               </div>
               <CallToAction href="/whats-on/tequila-tasting" variant="primary">
@@ -102,7 +102,7 @@ export default function DrinksMenuPage() {
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">London Pride</h3>
                   <p className="text-anchor-gold font-semibold mb-2">£4.80 pint</p>
-                  <p className="text-gray-700 text-sm">Fuller's classic premium ale - 4.1%</p>
+                  <p className="text-gray-700">Fuller's classic premium ale - 4.1%</p>
                 </div>
                 <div className="bg-anchor-cream rounded-xl p-6">
                   <h3 className="font-bold text-xl text-anchor-green mb-2">Guinness</h3>
@@ -168,7 +168,7 @@ export default function DrinksMenuPage() {
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-anchor-green">Selection varies</h3>
-                  <p className="text-gray-600 text-sm">Ask staff</p>
+                  <p className="text-gray-700">Ask staff</p>
                 </div>
               </div>
             </div>
@@ -208,17 +208,17 @@ export default function DrinksMenuPage() {
                 <div className="text-center">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">House Spirits</h3>
                   <p className="text-anchor-gold font-semibold mb-2">Single £3.50 | Double £5.50</p>
-                  <p className="text-gray-600 text-sm">Smirnoff, Gordon's, Bacardi, Bell's, Jack Daniel's</p>
+                  <p className="text-gray-700">Smirnoff, Gordon's, Bacardi, Bell's, Jack Daniel's</p>
                 </div>
                 <div className="text-center">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Premium Spirits</h3>
                   <p className="text-anchor-gold font-semibold mb-2">From £4.50</p>
-                  <p className="text-gray-600 text-sm">Grey Goose, Hendrick's, Kraken, Jameson</p>
+                  <p className="text-gray-700">Grey Goose, Hendrick's, Kraken, Jameson</p>
                 </div>
                 <div className="text-center">
                   <h3 className="font-bold text-xl text-anchor-green mb-4">Cocktails</h3>
                   <p className="text-anchor-gold font-semibold mb-2">From £7.95</p>
-                  <p className="text-gray-600 text-sm">Mojito, Margarita, Long Island, Espresso Martini</p>
+                  <p className="text-gray-700">Mojito, Margarita, Long Island, Espresso Martini</p>
                 </div>
               </div>
             </div>

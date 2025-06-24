@@ -14,7 +14,7 @@ export function Footer() {
               height={72}
               className="h-16 w-auto mb-4"
             />
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               Your local pub in Stanwell Moor, serving the community 
               with great food, drinks, and entertainment since the 19th century.
             </p>
@@ -22,7 +22,7 @@ export function Footer() {
           
           <div>
             <h4 className="font-bold text-lg mb-4 text-anchor-gold">Quick Links</h4>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-gray-200">
               <li><Link href="/whats-on" className="hover:text-white">What&apos;s On</Link></li>
               <li><Link href="/food-menu" className="hover:text-white">Food Menu</Link></li>
               <li><Link href="/sunday-lunch" className="hover:text-white">Sunday Roast</Link></li>
@@ -33,7 +33,7 @@ export function Footer() {
           
           <div>
             <h4 className="font-bold text-lg mb-4 text-anchor-gold">Get in Touch</h4>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-gray-200">
               <li>📞 <a href="tel:01753682707" className="hover:text-white">01753 682707</a></li>
               <li>✉️ <a href="mailto:manager@the-anchor.pub" className="hover:text-white">manager@the-anchor.pub</a></li>
               <li>📍 Horton Road, Stanwell Moor</li>
@@ -52,7 +52,7 @@ export function Footer() {
           
           <div>
             <h4 className="font-bold text-lg mb-4 text-anchor-gold">For Everyone</h4>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-gray-200">
               <li>♿ Wheelchair Accessible</li>
               <li>🐕 Dog Friendly</li>
               <li>👨‍👩‍👧‍👦 Family Welcome</li>
@@ -62,9 +62,9 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-700 pt-8 text-center text-gray-300">
           <p>&copy; 2024 The Anchor, Stanwell Moor. All rights reserved.</p>
-          <p className="mt-2 text-sm">
+          <p className="mt-2 text-sm text-gray-400">
             Proud to be your local independent pub • Part of the community since the 1800s
           </p>
         </div>
