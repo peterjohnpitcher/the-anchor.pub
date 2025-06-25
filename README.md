@@ -78,7 +78,7 @@ website/
 
 - **Homepage** (`/`) - Local SEO optimized landing
 - **Food Menu** (`/food-menu`) - Complete menu with prices
-- **Drinks** (`/drinks`) - Bar menu and tequila collection
+- **Drinks** (`/drinks`) - Bar menu and cocktail collection
 - **Sunday Lunch** (`/sunday-lunch`) - Dedicated Sunday roast page
 - **What's On** (`/whats-on`) - Events calendar
 - **Near Heathrow** (`/near-heathrow/*`) - Terminal-specific pages

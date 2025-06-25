@@ -137,7 +137,7 @@ export const webSiteSchema = {
   "@id": "https://the-anchor.pub/#website",
   "url": "https://the-anchor.pub",
   "name": "The Anchor Stanwell Moor",
-  "description": "Traditional British pub near Heathrow with drag shows, tequila tastings, and famous Sunday roasts",
+  "description": "Traditional British pub near Heathrow with drag shows, quiz nights, and famous Sunday roasts",
   "publisher": {
     "@id": "https://the-anchor.pub/#organization"
   },

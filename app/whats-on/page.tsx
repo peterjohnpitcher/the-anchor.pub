@@ -7,11 +7,11 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: "What's On | The Anchor Stanwell Moor | Events, Entertainment & Live Music",
-  description: 'Regular events at The Anchor pub including drag shows, tequila tastings, quiz nights, live music and more. Something happening every week!',
+  description: 'Regular events at The Anchor pub including drag shows, quiz nights, live music and more. Something happening every week!',
   keywords: 'events stanwell moor, drag shows near heathrow, quiz night stanwell, live music pub surrey',
   openGraph: {
     title: "What's On at The Anchor",
-    description: 'Drag shows, tequila tastings, quiz nights and more. Your local entertainment hub.',
+    description: 'Drag shows, quiz nights and more. Your local entertainment hub.',
     images: ['/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg'],
   },
 }
@@ -48,7 +48,7 @@ export default function WhatsOnPage() {
             
             <div className="flex flex-wrap justify-center gap-3 mb-8">
               <span className="tag bg-white/90 backdrop-blur-sm">👑 Drag Shows</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🥃 Tasting Events</span>
+              <span className="tag bg-white/90 backdrop-blur-sm">🎉 Special Events</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🧠 Quiz Nights</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🎸 Live Music</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🎱 Cash Bingo</span>
@@ -104,25 +104,6 @@ export default function WhatsOnPage() {
               </p>
             </Link>
 
-            {/* Tequila Tasting */}
-            <Link href="/whats-on/tequila-tasting" className="block group">
-              <div className="relative aspect-video rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-anchor-gold to-amber-600">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-8xl">🥃</span>
-                </div>
-                <div className="absolute bottom-4 left-4">
-                  <p className="text-white font-bold text-2xl drop-shadow">Tequila Tasting Nights</p>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-2">Quarterly Tequila Events</h3>
-              <p className="text-gray-700 mb-4">
-                Join our special quarterly tequila tasting events. Explore Mexico's finest 
-                spirits with expert guidance in an intimate, educational setting.
-              </p>
-              <p className="text-anchor-gold font-semibold group-hover:underline">
-                Learn more about our tasting events →
-              </p>
-            </Link>
           </div>
         </div>
       </section>
@@ -289,17 +270,6 @@ export default function WhatsOnPage() {
                 "eventSchedule": {
                   "@type": "Schedule",
                   "byDay": "Saturday",
-                  "repeatFrequency": "P1W"
-                }
-              },
-              {
-                "@type": "Event",
-                "name": "Tequila Thursday",
-                "startDate": "2024-01-04T19:00",
-                "endDate": "2024-01-04T22:00",
-                "eventSchedule": {
-                  "@type": "Schedule",
-                  "byDay": "Thursday",
                   "repeatFrequency": "P1W"
                 }
               }

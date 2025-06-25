@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     default: 'The Anchor Pub Near Me | Heathrow\'s Local Pub | Open Now',
     template: '%s | The Anchor Stanwell Moor'
   },
-  description: 'The Anchor pub in Stanwell Moor near Heathrow Airport. Traditional British pub with drag shows, tequila tastings, quiz nights & more. Dog-friendly beer garden under the flight path.',
-  keywords: ['pub near me', 'pub near Heathrow', 'Stanwell Moor pub', 'drag shows near me', 'tequila tasting', 'pub quiz', 'dog friendly pub', 'beer garden', 'TW19 pub'],
+  description: 'The Anchor pub in Stanwell Moor near Heathrow Airport. Traditional British pub with drag shows, quiz nights & more. Dog-friendly beer garden under the flight path.',
+  keywords: ['pub near me', 'pub near Heathrow', 'Stanwell Moor pub', 'drag shows near me', 'pub quiz', 'dog friendly pub', 'beer garden', 'TW19 pub'],
   authors: [{ name: 'The Anchor' }],
   creator: 'The Anchor',
   publisher: 'The Anchor',

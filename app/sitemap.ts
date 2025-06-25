@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/sunday-lunch',
     '/whats-on',
     '/whats-on/drag-shows',
-    '/whats-on/tequila-tasting',
     '/whats-on/quiz-night',
     '/whats-on/live-music',
     '/whats-on/cash-bingo',
