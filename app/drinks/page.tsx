@@ -18,13 +18,8 @@ export const metadata: Metadata = {
 export default function DrinksMenuPage() {
   return (
     <>
-      {/* Status Bar */}
-      <div className="flex justify-center py-4 bg-gray-50 mt-20">
-        <StatusBar />
-      </div>
-      
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center">
+      <section className="relative min-h-[50vh] flex items-center justify-center mt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-anchor-green to-anchor-green-dark" />
         
         <div className="relative z-10 container mx-auto px-4 text-center">
@@ -32,6 +27,19 @@ export default function DrinksMenuPage() {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
               Drinks at The Anchor
             </h1>
+            
+            {/* Status Bar */}
+            <div className="flex justify-center mb-6">
+              <StatusBar 
+                theme={{
+                  background: 'bg-white/10 backdrop-blur-md',
+                  border: 'border-2 border-white/20',
+                  text: 'text-white',
+                  accentText: 'text-white/60'
+                }}
+              />
+            </div>
+            
             <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
               From real ales to premium spirits - something for everyone
             </p>

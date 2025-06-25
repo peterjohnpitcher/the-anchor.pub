@@ -34,6 +34,10 @@ export default function WhatsOnPage() {
         
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+              What's On at The Anchor
+            </h1>
+            
             {/* Status Bar */}
             <div className="flex justify-center mb-6">
               <StatusBar 
@@ -46,9 +50,6 @@ export default function WhatsOnPage() {
               />
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              What's On at The Anchor
-            </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
               From drag shows to quiz nights - there's always something happening!
             </p>

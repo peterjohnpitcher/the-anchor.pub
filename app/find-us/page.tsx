@@ -19,17 +19,25 @@ export const metadata: Metadata = {
 export default function FindUsPage() {
   return (
     <>
-      {/* Status Bar */}
-      <div className="flex justify-center py-4 bg-gray-50 mt-20">
-        <StatusBar />
-      </div>
-      
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark">
+      <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark mt-20">
         <div className="relative z-10 container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             Find The Anchor
           </h1>
+          
+          {/* Status Bar */}
+          <div className="flex justify-center mb-6">
+            <StatusBar 
+              theme={{
+                background: 'bg-white/10 backdrop-blur-md',
+                border: 'border-2 border-white/20',
+                text: 'text-white',
+                accentText: 'text-white/60'
+              }}
+            />
+          </div>
+          
           <p className="text-xl md:text-2xl text-white/90">
             Easy to find, hard to leave!
           </p>

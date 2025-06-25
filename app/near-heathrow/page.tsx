@@ -18,13 +18,8 @@ export const metadata: Metadata = {
 export default function NearHeathrowPage() {
   return (
     <>
-      {/* Status Bar */}
-      <div className="flex justify-center py-4 bg-gray-50 mt-20">
-        <StatusBar />
-      </div>
-      
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center">
+      <section className="relative min-h-[70vh] flex items-center justify-center mt-20">
         <div className="absolute inset-0">
           <Image
             src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
@@ -45,8 +40,16 @@ export default function NearHeathrowPage() {
               Just 7 minutes from Terminal 5 • 10 minutes from Terminals 2 & 3
             </p>
             
-            <div className="mb-8">
-              <StatusBar />
+            {/* Status Bar */}
+            <div className="flex justify-center mb-8">
+              <StatusBar 
+                theme={{
+                  background: 'bg-white/10 backdrop-blur-md',
+                  border: 'border-2 border-white/20',
+                  text: 'text-white',
+                  accentText: 'text-white/60'
+                }}
+              />
             </div>
             
             <div className="flex flex-wrap justify-center gap-3 mb-10">
