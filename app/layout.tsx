@@ -6,9 +6,7 @@ import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
-import { GoogleAnalytics } from './google-analytics'
-import { SchemaScript } from './schema-script'
-import { ServiceWorkerRegistration } from './service-worker-registration'
+import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
 /* Critical CSS for above-the-fold content */
@@ -173,25 +171,20 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-        <meta name="theme-color" content="#005131" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="The Anchor" />
         <link rel="preconnect" href="https://management.orangejelly.co.uk" />
         <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
         <link rel="preload" href="/images/hero/the-anchor-pub-interior-atmosphere.jpg" as="image" fetchPriority="high" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <SchemaScript />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([organizationSchema, localBusinessSchema, webSiteSchema])
+          }}
+          defer
+        />
       </head>
       <body className="font-sans antialiased">
         <WebVitals />
-        <ServiceWorkerRegistration />
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-        )}
         <Navigation 
           statusComponent={<StatusBar variant="navigation" />}
           weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}

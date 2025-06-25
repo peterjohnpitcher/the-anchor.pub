@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
-import { trackPhoneClick, trackDirectionsClick, trackBookingClick } from '@/app/google-analytics'
 
 interface CallToActionProps {
   href: string
@@ -78,16 +77,6 @@ export function CallToAction({
   )
   
   const handleClick = () => {
-    // Track analytics events based on href pattern
-    if (href.startsWith('tel:')) {
-      trackPhoneClick()
-    } else if (href.includes('maps') || href.includes('directions') || href === '#directions') {
-      trackDirectionsClick(trackingLabel)
-    } else if (href.includes('book')) {
-      const bookingType = href.includes('event') ? 'event' : 'table'
-      trackBookingClick(bookingType)
-    }
-    
     // Call custom onClick if provided
     if (onClick) {
       onClick()
