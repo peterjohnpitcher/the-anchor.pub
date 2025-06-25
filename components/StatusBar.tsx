@@ -246,22 +246,22 @@ export function StatusBar({
 
   return (
     <div className={cn(
-      'inline-block rounded-full px-6 py-3 shadow-md min-h-[44px] flex items-center',
+      'inline-flex rounded-full px-6 py-3 shadow-md min-h-[44px] items-center',
       mergedTheme.background,
       mergedTheme.border,
       className
     )}>
-      <div className={cn('flex items-center gap-4 text-base font-medium', mergedTheme.text)}>
-        <div className="flex items-center gap-2">
+      <div className={cn('flex items-center gap-4 text-base font-medium whitespace-nowrap', mergedTheme.text)}>
+        <div className="flex items-center gap-2 whitespace-nowrap">
           <StatusIndicator status={isOpen ? 'open' : 'closed'} />
-          <span>{barMessage}</span>
+          <span className="whitespace-nowrap">{barMessage}</span>
         </div>
         {showKitchen && (
           <>
-            <span className={mergedTheme.accentText}>•</span>
-            <div className="flex items-center gap-2">
+            <span className={cn(mergedTheme.accentText, 'whitespace-nowrap')}>•</span>
+            <div className="flex items-center gap-2 whitespace-nowrap">
               <StatusIndicator status={kitchenInfo?.isOpen ? 'open' : 'closed'} />
-              <span>{mergedLabels.kitchenOpen} {kitchenInfo ? kitchenInfo.message : 'closed'}</span>
+              <span className="whitespace-nowrap">{mergedLabels.kitchenOpen} {kitchenInfo ? kitchenInfo.message : 'closed'}</span>
             </div>
           </>
         )}

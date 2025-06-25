@@ -213,7 +213,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         className="w-6 h-6"
                       />
                       <span className="text-xs text-gray-300">
-                        {dayForecast.temp_max}°/{dayForecast.temp_min}°
+                        {Math.round(dayForecast.temp_max)}°/{Math.round(dayForecast.temp_min)}°C
                       </span>
                     </div>
                   )}
@@ -296,7 +296,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         className="w-5 h-5"
                       />
                       <span className="text-xs text-gray-400">
-                        {dayForecast.temp_max}°/{dayForecast.temp_min}°
+                        {Math.round(dayForecast.temp_max)}°/{Math.round(dayForecast.temp_min)}°C
                       </span>
                     </div>
                   )}

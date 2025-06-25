@@ -6,9 +6,9 @@ import { UpcomingEvents } from '@/components/UpcomingEvents'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "What's On | The Anchor Stanwell Moor | Events, Entertainment & Live Music",
-  description: 'Regular events at The Anchor pub including drag shows, quiz nights, live music and more. Something happening every week!',
-  keywords: 'events stanwell moor, drag shows near heathrow, quiz night stanwell, live music pub surrey',
+  title: "What's On | The Anchor Stanwell Moor | Events & Entertainment",
+  description: 'Regular events at The Anchor pub including drag shows, quiz nights, bingo and more. Something happening every week!',
+  keywords: 'events stanwell moor, drag shows near heathrow, quiz night stanwell, pub entertainment surrey',
   openGraph: {
     title: "What's On at The Anchor",
     description: 'Drag shows, quiz nights and more. Your local entertainment hub.',
@@ -50,7 +50,6 @@ export default function WhatsOnPage() {
               <span className="tag bg-white/90 backdrop-blur-sm">👑 Drag Shows</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🎉 Special Events</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🧠 Quiz Nights</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🎸 Live Music</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🎱 Cash Bingo</span>
             </div>
             
@@ -243,7 +242,7 @@ export default function WhatsOnPage() {
             "@context": "https://schema.org",
             "@type": "EventSeries",
             "name": "Events at The Anchor",
-            "description": "Regular weekly events including drag shows, quiz nights, and live music",
+            "description": "Regular weekly events including drag shows, quiz nights, and cash bingo",
             "organizer": {
               "@type": "Organization",
               "name": "The Anchor",

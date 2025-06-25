@@ -114,13 +114,7 @@ export function EventsToday() {
         }
       ],
       5: [ // Friday
-        {
-          id: 'live-music',
-          name: 'Live Music',
-          time: '8:00 PM',
-          description: 'Local bands and artists performing',
-          link: '/whats-on/live-music'
-        }
+        // No regular events on Friday
       ],
       6: [ // Saturday
         {

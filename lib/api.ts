@@ -336,7 +336,6 @@ export class AnchorAPI {
         parking: boolean
         outdoorSeating: boolean
         privateRooms: boolean
-        liveMusic: boolean
         sportsTv: boolean
       }
       services: {
@@ -478,8 +477,8 @@ export function getEventShortDescription(event: Event, maxLength: number = 150):
       return 'Test your knowledge at our popular quiz night. Great prizes to be won!'
     } else if (name.includes('bingo')) {
       return 'Eyes down for a fun-filled bingo session with cash prizes.'
-    } else if (name.includes('music') || name.includes('band')) {
-      return 'Live music performance featuring talented local artists.'
+    } else if (name.includes('celebration') || name.includes('party')) {
+      return 'Special celebration event - join us for a great time!'
     } else if (name.includes('tasting')) {
       return 'Join us for an exclusive tasting event with expert guidance.'
     } else if (name.includes('roast')) {

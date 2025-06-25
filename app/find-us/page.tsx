@@ -130,11 +130,11 @@ export default function FindUsPage() {
               </div>
             </div>
             
-            {/* Business Hours */}
+            {/* Business Hours & Weather */}
             <div className="mt-12">
-              <h2 className="text-3xl font-bold text-anchor-green mb-6 text-center">Opening Hours</h2>
-              <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
-                <BusinessHours variant="full" showKitchen={true} />
+              <h2 className="text-3xl font-bold text-anchor-green mb-6 text-center">Hours & Weather</h2>
+              <div className="bg-anchor-green/95 rounded-2xl shadow-lg p-6 max-w-2xl mx-auto">
+                <BusinessHours variant="condensed" showKitchen={true} showWeather={true} />
               </div>
             </div>
           </div>

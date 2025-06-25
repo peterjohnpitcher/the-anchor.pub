@@ -51,7 +51,7 @@ export default async function EventPage({ params }: Props) {
   const eventType = event.name.toLowerCase()
   const isDragShow = eventType.includes('drag')
   const isQuiz = eventType.includes('quiz')
-  const isMusic = eventType.includes('music') || eventType.includes('band')
+  const isSpecialEvent = eventType.includes('special') || eventType.includes('celebration')
   const isBingo = eventType.includes('bingo')
   
   return (

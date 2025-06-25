@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/whats-on',
     '/whats-on/drag-shows',
     '/whats-on/quiz-night',
-    '/whats-on/live-music',
     '/whats-on/cash-bingo',
     '/near-heathrow',
     '/near-heathrow/terminal-2',
