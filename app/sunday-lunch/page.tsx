@@ -5,11 +5,11 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
-  description: 'Award-winning Sunday roasts at The Anchor. Traditional British roast dinners served 12-5pm every Sunday. Book early - very popular with locals and Heathrow travelers.',
+  description: 'Award-winning Sunday roasts at The Anchor. Traditional British roast dinners served 12-5pm every Sunday. Pre-order and payment required by 1pm Saturday. Regular menu also available.',
   keywords: 'sunday roast stanwell moor, sunday lunch near heathrow, best roast dinner surrey, traditional sunday lunch',
   openGraph: {
     title: 'Famous Sunday Roasts at The Anchor',
-    description: 'Traditional British Sunday roast dinners. Book early to avoid disappointment!',
+    description: 'Traditional British Sunday roast dinners. Pre-order by 1pm Saturday required. Regular menu also available.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
 }
@@ -59,9 +59,17 @@ export default function SundayLunchPage() {
               </CallToAction>
             </div>
             
-            <p className="mt-6 text-white/80 text-sm drop-shadow">
-              ⚠️ Pre-order at the bar by 1pm on Saturday for Sunday lunch
-            </p>
+            <div className="mt-6 bg-red-600/90 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
+              <p className="text-white font-bold text-lg mb-1">
+                ⚠️ IMPORTANT: Pre-order & Payment Required
+              </p>
+              <p className="text-white text-sm">
+                Sunday roasts must be pre-ordered and paid for by 1pm on Saturday
+              </p>
+              <p className="text-white/90 text-xs mt-2">
+                Regular menu also available on Sundays without pre-order
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -114,11 +122,22 @@ export default function SundayLunchPage() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4 text-center">
               Sunday Roast Menu
             </h2>
-            <p className="text-center text-lg text-gray-700 mb-8">
-              Our Sunday dinners are made from scratch and to order. As of 2025, we are now taking pre-orders 
-              up until 1pm on Saturday for a Sunday lunch. Doing so means we can prepare your meal fresh to 
-              order, a delicious 'like home' Sunday lunch.
-            </p>
+            <div className="bg-amber-50 border-2 border-amber-400 rounded-xl p-6 mb-8 max-w-3xl mx-auto">
+              <h3 className="text-xl font-bold text-anchor-green mb-3 text-center">
+                📝 Pre-Order System (New for 2025)
+              </h3>
+              <p className="text-gray-700 mb-4">
+                Our Sunday dinners are made from scratch and to order. <strong>All Sunday roasts must be 
+                pre-ordered and paid for by 1pm on Saturday.</strong> This ensures we can prepare your meal 
+                fresh to order - a delicious 'like home' Sunday lunch.
+              </p>
+              <div className="bg-white rounded-lg p-4 mt-4">
+                <p className="text-sm text-gray-600 text-center">
+                  <strong>Can't pre-order?</strong> No problem! Our regular menu is also available on 
+                  Sundays without pre-order requirement.
+                </p>
+              </div>
+            </div>
             <p className="text-center text-sm text-gray-600 italic mb-12">
               All dishes served with herb and garlic-crusted roast potatoes, seasonal vegetables, 
               Yorkshire pudding, and red wine gravy. Vegetarian gravy available on request.
@@ -362,8 +381,11 @@ export default function SundayLunchPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Don't Miss Out on Sunday Roast
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            We're usually fully booked by Saturday evening. Call now to reserve your table.
+          <p className="text-xl mb-2 max-w-2xl mx-auto">
+            Sunday roasts must be pre-ordered and paid for by 1pm on Saturday.
+          </p>
+          <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
+            Can't pre-order? Our regular menu is available on Sundays too!
           </p>
           
           <CallToAction 

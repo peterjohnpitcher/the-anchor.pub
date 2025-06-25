@@ -103,9 +103,19 @@ export function StatusBar({
   // Use dynamic API data
   const { isOpen, kitchenOpen, closesIn, opensIn } = hours.currentStatus
   
+  // Check if there's a special hours entry for today
+  const today = new Date().toISOString().split('T')[0]
+  const todaySpecialHours = hours.specialHours?.find(sh => sh.date === today)
+  
   // Navigation variant - simple text
   if (variant === 'navigation') {
     let navMessage = isOpen ? 'Open now' : 'Closed'
+    
+    // Add special hours reason if available
+    if (todaySpecialHours?.reason) {
+      navMessage += ` (${todaySpecialHours.reason})`
+    }
+    
     if (isOpen && closesIn) {
       navMessage += ` • Closes ${closesIn}`
     } else if (!isOpen && opensIn) {
@@ -125,11 +135,17 @@ export function StatusBar({
     let message = ''
     if (isOpen) {
       message = mergedLabels.barOpen
+      if (todaySpecialHours?.reason) {
+        message += ` (${todaySpecialHours.reason})`
+      }
       if (closesIn) {
         message += ` • ${closesIn}`
       }
     } else {
       message = mergedLabels.barClosed
+      if (todaySpecialHours?.reason) {
+        message += ` (${todaySpecialHours.reason})`
+      }
       if (opensIn) {
         message += ` • ${opensIn}`
       }
@@ -157,7 +173,7 @@ export function StatusBar({
     const todayHours = hours.regularHours[today]
     
     if (!todayHours || !todayHours.kitchen) {
-      return null
+      return { isOpen: false, message: 'closed' }
     }
     
     // Calculate kitchen closes in / opens at
@@ -203,11 +219,17 @@ export function StatusBar({
   let barMessage = ''
   if (isOpen) {
     barMessage = mergedLabels.barOpen
+    if (todaySpecialHours?.reason) {
+      barMessage += ` (${todaySpecialHours.reason})`
+    }
     if (closesIn) {
       barMessage += ` ${mergedLabels.closes} ${closesIn}`
     }
   } else {
     barMessage = mergedLabels.barClosed
+    if (todaySpecialHours?.reason) {
+      barMessage += ` (${todaySpecialHours.reason})`
+    }
     if (opensIn) {
       barMessage += ` ${mergedLabels.opens} ${opensIn}`
     }
@@ -225,12 +247,12 @@ export function StatusBar({
           <StatusIndicator status={isOpen ? 'open' : 'closed'} />
           <span>{barMessage}</span>
         </div>
-        {showKitchen && kitchenInfo && (
+        {showKitchen && (
           <>
             <span className={mergedTheme.accentText}>•</span>
             <div className="flex items-center gap-2">
-              <StatusIndicator status={kitchenInfo.isOpen ? 'open' : 'closed'} />
-              <span>{mergedLabels.kitchenOpen} {kitchenInfo.message}</span>
+              <StatusIndicator status={kitchenInfo?.isOpen ? 'open' : 'closed'} />
+              <span>{mergedLabels.kitchenOpen} {kitchenInfo ? kitchenInfo.message : 'closed'}</span>
             </div>
           </>
         )}

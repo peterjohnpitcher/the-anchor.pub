@@ -75,8 +75,11 @@ export default function FoodMenuPage() {
               🥘 Sunday Roasts
             </h2>
             <div className="bg-anchor-sand/30 rounded-2xl p-8 shadow-sm text-center mb-8">
-              <p className="text-lg text-gray-700 mb-4">
+              <p className="text-lg text-gray-700 mb-2">
                 Our famous Sunday roasts are available every Sunday from 12pm to 5pm
+              </p>
+              <p className="text-sm text-gray-600 mb-4">
+                <strong>Pre-order required by 1pm Saturday</strong> • Regular menu also available
               </p>
               <CallToAction 
                 href="/sunday-lunch"

@@ -286,7 +286,6 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                     {day.slice(0, 3)}
                     {isToday && <span className="text-xs"> •</span>}
                   </span>
-                  {hasSpecialHours && <span className="text-xs text-yellow-400">🎉</span>}
                   {showWeather && dayForecast && (
                     <div className="flex items-center gap-1">
                       <Image 
@@ -304,24 +303,34 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                 </div>
                 
                 {/* Right: Hours */}
-                <div className="flex items-center gap-4 text-sm">
+                <div className="text-right text-sm">
                   {displayHours.is_closed ? (
-                    <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-400'}>Closed</span>
+                    <div>
+                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-400'}>
+                        Closed{hasSpecialHours && specialHours.reason ? ` (${specialHours.reason})` : ''}
+                      </span>
+                      {showKitchen && (
+                        <div className="text-xs text-gray-400">Kitchen closed</div>
+                      )}
+                    </div>
                   ) : (
-                    <>
+                    <div>
                       <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-200'}>
                         {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
+                        {hasSpecialHours && specialHours.reason ? ` (${specialHours.reason})` : ''}
                       </span>
-                      {showKitchen && !hasSpecialHours && (
-                        <span className="text-xs text-gray-400">
-                          {dayHours.kitchen ? (
+                      {showKitchen && (
+                        <div className="text-xs text-gray-400 mt-0.5">
+                          {hasSpecialHours ? (
+                            'Kitchen: Check special hours'
+                          ) : dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
                           ) : (
                             'Kitchen closed'
                           )}
-                        </span>
+                        </div>
                       )}
-                    </>
+                    </div>
                   )}
                 </div>
               </div>
