@@ -260,6 +260,18 @@ export default function FindUsPage() {
         </div>
       </section>
 
+      {/* Opening Hours */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+              Opening Hours
+            </h2>
+            <BusinessHours variant="full" showKitchen={true} />
+          </div>
+        </div>
+      </section>
+
       {/* Map CTA */}
       <section className="py-16 md:py-20 bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
