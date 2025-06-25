@@ -4,24 +4,26 @@ import dynamic from 'next/dynamic'
 import { CallToAction } from '@/components/CallToAction'
 import { BusinessHours } from '@/components/BusinessHours'
 import { Weather } from '@/components/Weather'
+import { StatusBarWrapper } from '@/components/StatusBarWrapper'
+import { GalleryImage } from '@/components/GalleryImage'
+import { NextEventServer } from '@/components/NextEventServer'
+import { Suspense } from 'react'
 
-// Dynamic imports for non-critical components
-const StatusBar = dynamic(() => import('@/components/StatusBar').then(mod => mod.StatusBar), {
-  loading: () => <div className="inline-block bg-anchor-green rounded-full border-2 border-anchor-gold px-6 py-3 shadow-md min-h-[44px]"></div>,
-  ssr: true
-})
-
-const NextEvent = dynamic(() => import('@/components/NextEvent').then(mod => mod.NextEvent), {
-  loading: () => <div className="max-w-3xl mx-auto"><div className="bg-white rounded-2xl shadow-xl overflow-hidden h-[300px] animate-pulse bg-gray-200"></div></div>,
-  ssr: true
-})
+// Loading skeleton for NextEvent
+function NextEventSkeleton() {
+  return (
+    <div className="max-w-3xl mx-auto">
+      <div className="bg-gray-100 rounded-2xl shadow-xl overflow-hidden h-[300px] animate-pulse"></div>
+    </div>
+  )
+}
 
 export default function HomePage() {
   return (
     <>
       {/* Warm Welcome Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center">
-        {/* Hero Image */}
+        {/* Hero Image with optimized loading */}
         <div className="absolute inset-0">
           <Image
             src="/images/hero/the-anchor-pub-interior-atmosphere.jpg"
@@ -30,7 +32,9 @@ export default function HomePage() {
             className="object-cover"
             priority
             sizes="100vw"
-            quality={90}
+            quality={75}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
           {/* Warm overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-anchor-green/70 via-anchor-green/50 to-anchor-green/70" />
@@ -41,7 +45,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto">
             {/* Welcome message with wave */}
             <p className="text-lg md:text-xl text-anchor-gold mb-4 font-medium drop-shadow-lg">
-              Welcome to your local <span className="wave inline-block">👋</span>
+              Welcome to your local <span className="inline-block motion-safe:wave">👋</span>
             </p>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
@@ -53,7 +57,7 @@ export default function HomePage() {
             </p>
             
             <div className="mb-8 flex justify-center">
-              <StatusBar />
+              <StatusBarWrapper />
             </div>
             
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow">
@@ -233,7 +237,9 @@ export default function HomePage() {
               Don&apos;t miss out on what&apos;s coming up
             </p>
           </div>
-          <NextEvent />
+          <Suspense fallback={<NextEventSkeleton />}>
+            <NextEventServer />
+          </Suspense>
         </div>
       </section>
 
@@ -319,55 +325,25 @@ export default function HomePage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Event Photo */}
-            <div className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer card-warm">
-              <Image
-                src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
-                alt="Entertainment at The Anchor - everyone welcome"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute bottom-0 p-6">
-                  <p className="text-white font-semibold text-lg">Saturday Night Entertainment</p>
-                </div>
-              </div>
-            </div>
+            <GalleryImage
+              src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
+              alt="Entertainment at The Anchor - everyone welcome"
+              caption="Saturday Night Entertainment"
+            />
             
             {/* Food Photo */}
-            <div className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer card-warm">
-              <Image
-                src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"
-                alt="Traditional Sunday roast at The Anchor"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute bottom-0 p-6">
-                  <p className="text-white font-semibold text-lg">Famous Sunday Roasts</p>
-                </div>
-              </div>
-            </div>
+            <GalleryImage
+              src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"
+              alt="Traditional Sunday roast at The Anchor"
+              caption="Famous Sunday Roasts"
+            />
             
             {/* Garden Photo */}
-            <div className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer card-warm">
-              <Image
-                src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
-                alt="Beer garden at The Anchor - family and dog friendly"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute bottom-0 p-6">
-                  <p className="text-white font-semibold text-lg">Unique Beer Garden</p>
-                </div>
-              </div>
-            </div>
+            <GalleryImage
+              src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
+              alt="Beer garden at The Anchor - family and dog friendly"
+              caption="Unique Beer Garden"
+            />
           </div>
           
           <div className="text-center mt-8">

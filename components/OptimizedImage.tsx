@@ -6,14 +6,16 @@ interface OptimizedImageProps extends Omit<ImageProps, 'alt'> {
   loading?: 'lazy' | 'eager'
 }
 
+const DEFAULT_BLUR_DATA_URL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+
 export function OptimizedImage({ 
   alt, 
   priority = false, 
   loading = 'lazy',
   sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+  quality = 75,
   ...props 
-}: OptimizedImageProps) {
-  // Ensure alt text is SEO-friendly
+}: OptimizedImageProps & { quality?: number }) {
   const seoAlt = alt || 'The Anchor pub Stanwell Moor'
   
   return (
@@ -21,26 +23,29 @@ export function OptimizedImage({
       alt={seoAlt}
       priority={priority}
       loading={priority ? 'eager' : loading}
-      quality={85}
-      placeholder="blur"
-      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+      quality={quality}
+      placeholder={props.blurDataURL ? "blur" : "empty"}
+      blurDataURL={props.blurDataURL || DEFAULT_BLUR_DATA_URL}
       sizes={sizes}
       {...props}
     />
   )
 }
 
-// Export a wrapper for background images with optimization
 export function BackgroundImage({ 
   src, 
   alt, 
   className = '',
-  children 
+  children,
+  priority = false,
+  quality = 75 
 }: {
   src: string
   alt: string
   className?: string
   children?: React.ReactNode
+  priority?: boolean
+  quality?: number
 }) {
   return (
     <div className={`relative ${className}`}>
@@ -49,8 +54,9 @@ export function BackgroundImage({
         alt={alt}
         fill
         className="object-cover"
-        quality={85}
-        priority
+        quality={quality}
+        priority={priority}
+        sizes="100vw"
       />
       {children}
     </div>

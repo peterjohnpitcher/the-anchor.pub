@@ -7,19 +7,31 @@ import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
+import fs from 'fs'
+import path from 'path'
+
+// Read critical CSS at build time
+const criticalCSS = fs.readFileSync(
+  path.join(process.cwd(), 'app', 'critical.css'),
+  'utf8'
+)
 
 const outfit = Outfit({ 
   subsets: ['latin'], 
   variable: '--font-outfit',
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
+  weight: ['400', '600', '700'],
+  display: 'optional',
+  preload: true,
+  fallback: ['system-ui', '-apple-system', 'sans-serif'],
 })
 
 const merriweather = Merriweather({ 
   subsets: ['latin'], 
   variable: '--font-merriweather',
-  weight: ['400', '700'],
-  display: 'swap',
+  weight: ['400'],
+  display: 'optional',
+  preload: false,
+  fallback: ['Georgia', 'serif'],
 })
 
 export const metadata: Metadata = {
@@ -84,14 +96,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${merriweather.variable}`}>
       <head>
+        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://management.orangejelly.co.uk" />
         <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
+        <link rel="preload" href="/images/hero/the-anchor-pub-interior-atmosphere.jpg" as="image" fetchPriority="high" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([organizationSchema, localBusinessSchema, webSiteSchema])
           }}
+          defer
         />
       </head>
       <body className="font-sans antialiased">
