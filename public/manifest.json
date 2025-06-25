@@ -1,0 +1,113 @@
+{
+  "name": "The Anchor Pub - Stanwell Moor",
+  "short_name": "The Anchor",
+  "description": "Traditional British pub near Heathrow Airport with great food, entertainment, and a warm welcome",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#005131",
+  "theme_color": "#005131",
+  "orientation": "portrait",
+  "categories": ["food", "restaurant", "entertainment"],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/homepage.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "The Anchor Homepage"
+    },
+    {
+      "src": "/screenshots/menu.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Our Food Menu"
+    },
+    {
+      "src": "/screenshots/events.png",
+      "sizes": "1280x720", 
+      "type": "image/png",
+      "label": "Upcoming Events"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book a Table",
+      "short_name": "Book",
+      "description": "Reserve your table at The Anchor",
+      "url": "/book-event",
+      "icons": [{ "src": "/icons/book-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Food Menu",
+      "short_name": "Menu",
+      "description": "View our delicious menu",
+      "url": "/food-menu",
+      "icons": [{ "src": "/icons/menu-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "What's On",
+      "short_name": "Events",
+      "description": "See upcoming events",
+      "url": "/whats-on",
+      "icons": [{ "src": "/icons/events-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Find Us",
+      "short_name": "Directions",
+      "description": "Get directions to The Anchor",
+      "url": "/find-us",
+      "icons": [{ "src": "/icons/location-icon.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

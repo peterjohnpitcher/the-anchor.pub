@@ -18,6 +18,8 @@ function NextEventSkeleton() {
   )
 }
 
+import { mainPageFAQSchema } from '@/lib/faq-schema'
+
 export default function HomePage() {
   return (
     <>
@@ -31,6 +33,7 @@ export default function HomePage() {
             fill
             className="object-cover"
             priority
+            loading="eager"
             sizes="100vw"
             quality={75}
             placeholder="blur"
@@ -407,6 +410,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* FAQ Schema for Voice Search */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(mainPageFAQSchema)
+        }}
+      />
     </>
   )
 }

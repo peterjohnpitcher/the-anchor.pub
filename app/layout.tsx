@@ -1,20 +1,93 @@
 import type { Metadata } from 'next'
 import { Outfit, Merriweather } from 'next/font/google'
 import './globals.css'
-import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
 import { WebVitals } from './web-vitals'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
-import fs from 'fs'
-import path from 'path'
+import { GoogleAnalytics } from './google-analytics'
+import { SchemaScript } from './schema-script'
+import { ServiceWorkerRegistration } from './service-worker-registration'
+// Critical CSS for above-the-fold content
+const criticalCSS = `
+/* Critical CSS for above-the-fold content */
+:root {
+  --anchor-green: #005131;
+  --anchor-gold: #a57626;
+  --anchor-cream: #faf8f3;
+  --anchor-charcoal: #1a1a1a;
+  --anchor-gold-light: #d4a574;
+  --anchor-green-dark: #003d25;
+  --anchor-warm-white: #ffffff;
+  --anchor-sage: #7a8b7f;
+  --anchor-sand: #f5e6d3;
+}
 
-// Read critical CSS at build time
-const criticalCSS = fs.readFileSync(
-  path.join(process.cwd(), 'app', 'critical.css'),
-  'utf8'
-)
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--anchor-warm-white);
+}
+
+body {
+  color: var(--anchor-charcoal);
+  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Critical hero section styles */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { inset: 0; }
+.z-10 { z-index: 10; }
+.min-h-\[90vh\] { min-height: 90vh; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.text-center { text-align: center; }
+.object-cover { object-fit: cover; }
+
+/* Critical text styles */
+.text-white { color: white; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+
+@media (min-width: 768px) {
+  .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-7xl { font-size: 4.5rem; line-height: 1; }
+}
+
+/* Prevent layout shift */
+.min-h-\[44px\] { min-height: 44px; }
+.h-\[44px\] { height: 44px; }
+.w-\[280px\] { width: 280px; }
+.h-\[300px\] { height: 300px; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+`
 
 const outfit = Outfit({ 
   subsets: ['latin'], 
@@ -97,20 +170,28 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} ${merriweather.variable}`}>
       <head>
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <meta name="theme-color" content="#005131" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="The Anchor" />
         <link rel="preconnect" href="https://management.orangejelly.co.uk" />
         <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
         <link rel="preload" href="/images/hero/the-anchor-pub-interior-atmosphere.jpg" as="image" fetchPriority="high" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationSchema, localBusinessSchema, webSiteSchema])
-          }}
-          defer
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <SchemaScript />
       </head>
       <body className="font-sans antialiased">
         <WebVitals />
+        <ServiceWorkerRegistration />
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
         <Navigation 
           statusComponent={<StatusBar variant="navigation" />}
           weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}

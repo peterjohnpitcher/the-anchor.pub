@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
+import { trackPhoneClick, trackDirectionsClick, trackBookingClick } from '@/app/google-analytics'
 
 interface CallToActionProps {
   href: string
@@ -22,6 +25,7 @@ interface CallToActionProps {
     outline?: string
     ghost?: string
   }
+  trackingLabel?: string
 }
 
 const defaultTheme = {
@@ -53,7 +57,8 @@ export function CallToAction({
   disabled = false,
   loading = false,
   onClick,
-  theme = defaultTheme
+  theme = defaultTheme,
+  trackingLabel
 }: CallToActionProps) {
   const mergedTheme = { ...defaultTheme, ...theme }
   
@@ -72,6 +77,23 @@ export function CallToAction({
     className
   )
   
+  const handleClick = () => {
+    // Track analytics events based on href pattern
+    if (href.startsWith('tel:')) {
+      trackPhoneClick()
+    } else if (href.includes('maps') || href.includes('directions') || href === '#directions') {
+      trackDirectionsClick(trackingLabel)
+    } else if (href.includes('book')) {
+      const bookingType = href.includes('event') ? 'event' : 'table'
+      trackBookingClick(bookingType)
+    }
+    
+    // Call custom onClick if provided
+    if (onClick) {
+      onClick()
+    }
+  }
+
   const content = (
     <>
       {loading && (
@@ -107,7 +129,7 @@ export function CallToAction({
         className={combinedClassName}
         target={external && !href.startsWith('tel:') && !href.startsWith('mailto:') ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
-        onClick={onClick}
+        onClick={handleClick}
       >
         {content}
       </a>
@@ -119,7 +141,7 @@ export function CallToAction({
     <Link 
       href={href} 
       className={combinedClassName}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {content}
     </Link>

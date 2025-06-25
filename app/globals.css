@@ -126,6 +126,16 @@ select:focus {
   display: inline-block;
 }
 
+/* Only animate if user has no motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-safe\:wave {
+    animation: wave 2.5s ease-in-out;
+    animation-iteration-count: 1;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+}
+
 /* Friendly loading states */
 .loading-dots {
   display: inline-flex;
