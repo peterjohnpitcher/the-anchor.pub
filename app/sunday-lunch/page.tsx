@@ -19,7 +19,7 @@ export default function SundayLunchPage() {
     <>
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center mt-20">
         <div className="absolute inset-0">
           <Image
             src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"

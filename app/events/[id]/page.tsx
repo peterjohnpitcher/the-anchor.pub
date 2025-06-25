@@ -59,7 +59,7 @@ export default async function EventPage({ params }: Props) {
       <EventSchema event={event} />
       
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center">
+      <section className="relative min-h-[50vh] flex items-center justify-center mt-20">
         {(event.heroImageUrl || event.image?.[0]) ? (
           <div className="absolute inset-0">
             <Image

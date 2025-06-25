@@ -19,7 +19,7 @@ export default function DragShowsPage() {
     <>
       
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center">
+      <section className="relative min-h-[70vh] flex items-center justify-center mt-20">
         <div className="absolute inset-0">
           <Image
             src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"

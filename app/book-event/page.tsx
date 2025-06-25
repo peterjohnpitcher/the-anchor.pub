@@ -17,7 +17,7 @@ export default function BookEventPage() {
     <>
       
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark">
+      <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark mt-20">
         <div className="relative z-10 container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             Host Your Event at The Anchor
