@@ -46,15 +46,15 @@ export default function HomePage() {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             {/* Welcome message with wave */}
-            <p className="text-lg md:text-xl text-anchor-gold mb-4 font-medium drop-shadow-lg">
+            <p className="text-lg md:text-xl text-white mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Welcome to your local <span className="inline-block motion-safe:wave">👋</span>
             </p>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
               The Anchor
             </h1>
             
-            <p className="text-xl md:text-2xl lg:text-3xl text-anchor-gold mb-8 font-serif drop-shadow-lg">
+            <p className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Where Everyone&apos;s Welcome
             </p>
             
