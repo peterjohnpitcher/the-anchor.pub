@@ -45,7 +45,7 @@ export default function FindUsPage() {
       </section>
 
       {/* Quick Info */}
-      <section className="py-8 bg-anchor-cream">
+      <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="bg-white p-4 rounded-lg text-center">
@@ -73,7 +73,7 @@ export default function FindUsPage() {
       </section>
 
       {/* Address & Contact */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
@@ -150,7 +150,7 @@ export default function FindUsPage() {
       </section>
 
       {/* Directions */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
             Directions from Popular Locations
@@ -236,7 +236,7 @@ export default function FindUsPage() {
       </section>
 
       {/* Parking Information */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
@@ -269,7 +269,7 @@ export default function FindUsPage() {
       </section>
 
       {/* Opening Hours */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -281,7 +281,7 @@ export default function FindUsPage() {
       </section>
 
       {/* Map CTA */}
-      <section className="py-16 md:py-20 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Get Directions

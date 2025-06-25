@@ -60,7 +60,7 @@ export default function DragShowsPage() {
       </section>
 
       {/* About Our Drag Shows */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -124,7 +124,7 @@ export default function DragShowsPage() {
       </section>
 
       {/* Meet the Queens */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-pink-50 to-purple-50">
+      <section className="section-spacing bg-gradient-to-br from-pink-50 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
@@ -156,7 +156,7 @@ export default function DragShowsPage() {
       </section>
 
       {/* Event Details */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
@@ -236,7 +236,7 @@ export default function DragShowsPage() {
       </section>
 
       {/* What to Expect */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
@@ -284,8 +284,87 @@ export default function DragShowsPage() {
         </div>
       </section>
 
+      {/* Why The Anchor's Drag Shows Are Special */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+              Surrey's Most Fabulous Saturday Night
+            </h2>
+            
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <p className="text-xl text-center mb-8">
+                The Anchor has become the go-to destination for drag entertainment in the Stanwell Moor 
+                and Heathrow area, attracting guests from across Surrey and West London.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">A Night Like No Other</h3>
+                  <p className="mb-4">
+                    Every Saturday, our traditional British pub transforms into a glittering cabaret venue. 
+                    The magic begins the moment you walk through our doors - rainbow flags flying proud, 
+                    disco lights twinkling, and an atmosphere of pure celebration. Our drag shows have 
+                    become legendary in the local area, with people traveling from Staines, Ashford, 
+                    Heathrow, and beyond for a night they won't forget.
+                  </p>
+                  <p>
+                    What sets The Anchor apart is the perfect blend of traditional pub warmth and 
+                    spectacular entertainment. You can enjoy a proper home-cooked meal before the show, 
+                    then stay for the performances without the pretension of city venues.
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">Community & Celebration</h3>
+                  <p className="mb-4">
+                    Our drag nights are more than just entertainment - they're a celebration of diversity 
+                    and inclusion in the heart of Surrey. We've hosted countless hen parties, birthday 
+                    celebrations, and even a few wedding receptions. The energy is electric, with audiences 
+                    ranging from drag first-timers to devoted fans who wouldn't miss a show.
+                  </p>
+                  <p>
+                    Local LGBTQ+ community members tell us The Anchor feels like home - a safe, 
+                    welcoming space where everyone can be themselves. That's exactly the atmosphere 
+                    we've worked hard to create.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 mb-12">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
+                  What Makes Saturday Special
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Saturday nights at The Anchor are an institution. The excitement builds throughout 
+                  the day - our kitchen prepares special pre-show dinners, the bar stocks up on 
+                  prosecco and cocktails, and by 8pm, the venue is buzzing with anticipation. Tables 
+                  fill with groups of friends, couples on date nights, and solo guests who've become 
+                  part of our extended family.
+                </p>
+                <p className="text-gray-700">
+                  When Nikki Manfadge takes the stage at 9pm sharp, the transformation is complete. 
+                  For the next two and a half hours, you're transported to a world of glamour, 
+                  laughter, and jaw-dropping performances. It's not just a drag show - it's the 
+                  highlight of Stanwell Moor's social calendar.
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-lg text-gray-700">
+                  Whether you're a drag enthusiast or curious first-timer, whether you're celebrating 
+                  a special occasion or just want a fantastic night out, The Anchor's Saturday drag 
+                  shows offer something truly special. In a world of generic entertainment, we're 
+                  proud to bring world-class drag performances to our village pub.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+      <section className="section-spacing bg-gradient-to-r from-purple-600 to-pink-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready for a Fabulous Night Out?

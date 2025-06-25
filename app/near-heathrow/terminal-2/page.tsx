@@ -55,7 +55,7 @@ export default function Terminal2Page() {
       </section>
 
       {/* Quick Info Cards */}
-      <section className="py-12 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="bg-white p-4 rounded-lg text-center">
@@ -83,7 +83,7 @@ export default function Terminal2Page() {
       </section>
 
       {/* Detailed Directions */}
-      <section id="directions" className="py-16 md:py-20 bg-white">
+      <section id="directions" className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -166,7 +166,7 @@ export default function Terminal2Page() {
       </section>
 
       {/* Why Visit */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -219,7 +219,7 @@ export default function Terminal2Page() {
       </section>
 
       {/* Live Flight Information */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -234,7 +234,7 @@ export default function Terminal2Page() {
       </section>
 
       {/* Terminal 2 Specific Info */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -295,8 +295,74 @@ export default function Terminal2Page() {
         </div>
       </section>
 
+      {/* Perfect for Terminal 2 Travelers */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+              Your Perfect Stop Near Terminal 2
+            </h2>
+            
+            <div className="prose prose-lg max-w-none text-gray-700 mb-12">
+              <p className="text-xl text-center mb-8">
+                Whether you're flying with Lufthansa, United Airlines, Air Canada, or any of the 23 airlines 
+                operating from Terminal 2, The Anchor provides the perfect escape from airport prices and crowds.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">Before Your Flight</h3>
+                  <p className="mb-4">
+                    Instead of paying premium prices for average food at the terminal, enjoy a proper meal 
+                    at The Anchor. Our traditional British menu offers everything from hearty full English 
+                    breakfasts to classic fish and chips, all at local pub prices. With Terminal 2's 
+                    recommendation to arrive 3 hours early for international flights, you'll have plenty 
+                    of time to relax in our beer garden or cozy interior before heading to the gate.
+                  </p>
+                  <p>
+                    Many of our regulars are business travelers who've discovered that a calm meal at 
+                    The Anchor beats the stress of airport dining. Park free with us, enjoy your meal, 
+                    then take a quick 10-minute drive to T2's drop-off zone.
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">Meeting Arrivals</h3>
+                  <p className="mb-4">
+                    Terminal 2's short-stay car park charges £6.90 for just 30 minutes - that's more 
+                    than a pint costs at The Anchor! When collecting passengers, wait comfortably with 
+                    us instead. Use our free WiFi to track their flight, enjoy a drink or meal, and 
+                    only head to the terminal when they've cleared customs.
+                  </p>
+                  <p>
+                    We're particularly popular with families meeting international arrivals. Kids can 
+                    play in our garden while adults relax, making those flight delays much more bearable 
+                    than sitting in expensive terminal cafes.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-anchor-cream rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">Local Knowledge</h3>
+              <p className="text-gray-700 mb-4">
+                As Stanwell Moor's village pub, we've been serving Terminal 2 travelers since the 
+                Queen opened it in 2014. Our staff know the flight patterns, the best times to 
+                travel to avoid traffic, and can even recommend the quickest security lanes based 
+                on the time of day. We're not just a pub - we're part of your journey.
+              </p>
+              <p className="text-gray-700">
+                Regular Terminal 2 flight crews choose The Anchor as their local when staying at 
+                nearby hotels. If it's good enough for the professionals who fly every day, you 
+                know you're in good hands.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             See You Soon at The Anchor!

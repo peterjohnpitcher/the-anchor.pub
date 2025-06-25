@@ -73,7 +73,7 @@ export default function WhatsOnPage() {
       </section>
 
       {/* Featured Events */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -117,7 +117,7 @@ export default function WhatsOnPage() {
 
 
       {/* Upcoming Events from API */}
-      <section id="upcoming-events" className="py-16 md:py-20 bg-white">
+      <section id="upcoming-events" className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -135,7 +135,7 @@ export default function WhatsOnPage() {
       </section>
 
       {/* Special Events */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -173,7 +173,7 @@ export default function WhatsOnPage() {
       </section>
 
       {/* Private Events */}
-      <section className="py-16 md:py-20 bg-anchor-cream">
+      <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
@@ -208,7 +208,7 @@ export default function WhatsOnPage() {
       </section>
 
       {/* Stay Updated */}
-      <section className="py-16 md:py-20 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Never Miss an Event

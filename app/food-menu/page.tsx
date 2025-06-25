@@ -64,7 +64,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* Kitchen Hours */}
-      <section className="py-8 bg-anchor-gold/10">
+      <section className="section-spacing bg-anchor-gold/10">
         <div className="container mx-auto px-4 text-center">
           <p className="text-lg text-anchor-green font-semibold">
             Kitchen Hours: Tuesday to Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
@@ -76,7 +76,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* Sunday Roasts Special Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-8 text-center">
@@ -102,7 +102,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* Light Bites */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -155,7 +155,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* Snack Pots */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -184,7 +184,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* Mains */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -293,7 +293,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* Burgers */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -389,7 +389,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* Stone Baked Pizza */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -468,7 +468,7 @@ export default function FoodMenuPage() {
 
 
       {/* Desserts & Hot Drinks */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -535,7 +535,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* Additional Information */}
-      <section className="py-16 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-8">
@@ -553,7 +553,7 @@ export default function FoodMenuPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Hungry? Book Your Table Now

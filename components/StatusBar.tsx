@@ -153,12 +153,12 @@ export function StatusBar({
     
     return (
       <div className={cn(
-        'inline-block rounded-full px-4 py-2 shadow-md',
+        'inline-block rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-md',
         mergedTheme.background,
         mergedTheme.border,
         className
       )}>
-        <div className={cn('flex items-center gap-2 text-sm font-medium', mergedTheme.text)}>
+        <div className={cn('flex items-center gap-2 text-xs sm:text-sm font-medium', mergedTheme.text)}>
           <StatusIndicator status={isOpen ? 'open' : 'closed'} size="sm" />
           <span>{message}</span>
         </div>
@@ -246,22 +246,22 @@ export function StatusBar({
 
   return (
     <div className={cn(
-      'inline-flex rounded-full px-6 py-3 shadow-md min-h-[44px] items-center',
+      'inline-flex rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-md min-h-[40px] sm:min-h-[44px] items-center',
       mergedTheme.background,
       mergedTheme.border,
       className
     )}>
-      <div className={cn('flex items-center gap-4 text-base font-medium whitespace-nowrap', mergedTheme.text)}>
-        <div className="flex items-center gap-2 whitespace-nowrap">
+      <div className={cn('flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-sm sm:text-base font-medium', mergedTheme.text)}>
+        <div className="flex items-center gap-2">
           <StatusIndicator status={isOpen ? 'open' : 'closed'} />
-          <span className="whitespace-nowrap">{barMessage}</span>
+          <span>{barMessage}</span>
         </div>
         {showKitchen && (
           <>
-            <span className={cn(mergedTheme.accentText, 'whitespace-nowrap')}>•</span>
-            <div className="flex items-center gap-2 whitespace-nowrap">
+            <span className={cn(mergedTheme.accentText, 'hidden sm:inline')}>•</span>
+            <div className="flex items-center gap-2">
               <StatusIndicator status={kitchenInfo?.isOpen ? 'open' : 'closed'} />
-              <span className="whitespace-nowrap">{mergedLabels.kitchenOpen} {kitchenInfo ? kitchenInfo.message : 'closed'}</span>
+              <span>{mergedLabels.kitchenOpen} {kitchenInfo ? kitchenInfo.message : 'closed'}</span>
             </div>
           </>
         )}

@@ -82,7 +82,7 @@ export default function NearHeathrowPage() {
       </section>
 
       {/* Why Choose The Anchor */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -153,7 +153,7 @@ export default function NearHeathrowPage() {
       </section>
 
       {/* Terminal-Specific Directions */}
-      <section id="terminals" className="py-16 md:py-20 bg-gray-50">
+      <section id="terminals" className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -272,7 +272,7 @@ export default function NearHeathrowPage() {
       </section>
 
       {/* Popular with Travelers */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -322,8 +322,97 @@ export default function NearHeathrowPage() {
         </div>
       </section>
 
+      {/* The Heathrow Local Experience */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+              More Than Just a Pub Near the Airport
+            </h2>
+            
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <p className="text-xl text-center mb-8">
+                While millions pass through Heathrow's terminals each year, The Anchor offers 
+                something the airport can't - authentic British hospitality at local prices.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">The Airport Alternative</h3>
+                  <p className="mb-4">
+                    Heathrow Airport serves over 80 million passengers annually, making it one of the 
+                    world's busiest airports. But with that comes crowds, queues, and eye-watering 
+                    prices. Just 7 minutes from Terminal 5, The Anchor provides a refreshing alternative. 
+                    Here, a pint costs what a pint should cost. A meal is freshly prepared, not 
+                    pre-packaged. And you can actually hear yourself think.
+                  </p>
+                  <p>
+                    Whether you're starting your journey, ending it, or somewhere in between, we offer 
+                    what every traveler needs: good food, fair prices, and a warm welcome. No boarding 
+                    passes required.
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">A Hub for Everyone</h3>
+                  <p className="mb-4">
+                    Our unique location makes us a natural meeting point. Business travelers conducting 
+                    meetings over lunch. Families reuniting after months apart. Flight crews unwinding 
+                    after long-haul flights. Tour groups getting their first taste of British pub culture. 
+                    Each brings their own story, but all find the same thing: a proper local pub that 
+                    happens to be perfectly placed for airport access.
+                  </p>
+                  <p>
+                    We've become part of countless travel stories. Marriage proposals after arrivals. 
+                    Tearful goodbyes before departures. Celebrations and commiserations. The Anchor 
+                    isn't just near Heathrow - we're part of the journey.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-8 shadow-md mb-12">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
+                  Why Smart Travelers Choose The Anchor
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Let's be honest - nobody enjoys airport prices. A sandwich that costs £12 at 
+                  Heathrow costs £6 here. A pint that's £7 in the terminal is £4.50 at our bar. 
+                  But it's not just about the money. It's about the experience. Real ales on tap, 
+                  not just commercial lagers. Food cooked to order, not reheated. Staff who remember 
+                  your name, not just your order number.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  Our free parking alone can save you £20-30 compared to airport rates. Spend an 
+                  hour with us before your flight and you've effectively paid for your meal in 
+                  parking savings alone. That's what we call Heathrow economics.
+                </p>
+                <p className="text-gray-700">
+                  From Terminal 5, we're closer than most of the airport hotels. From Terminal 2 
+                  and 3, we're a straight shot down the A3044. Even Terminal 4, the furthest away, 
+                  is only 12 minutes by car. Close enough to be convenient, far enough to escape 
+                  the airport bubble.
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-lg text-gray-700 mb-4">
+                  The Anchor has been Stanwell Moor's village pub for generations. Long before 
+                  Heathrow grew into the giant it is today, we were here serving the local 
+                  community. Now we serve a global community too, but our values remain the same: 
+                  good food, proper drinks, and a warm welcome for all.
+                </p>
+                <p className="text-lg text-gray-700 italic">
+                  "Your local near Heathrow" isn't just a tagline - it's a promise. However far 
+                  you've traveled, you'll always find a home at The Anchor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
             Visit The Anchor - Heathrow&apos;s Local

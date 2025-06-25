@@ -37,7 +37,7 @@ export default function BookEventPage() {
       </section>
 
       {/* Event Types */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-4">
@@ -107,7 +107,7 @@ export default function BookEventPage() {
       </section>
 
       {/* What We Offer */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
@@ -192,7 +192,7 @@ export default function BookEventPage() {
       </section>
 
       {/* Menu Options */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
@@ -244,8 +244,142 @@ export default function BookEventPage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
+              What Our Event Guests Say
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-anchor-gold">★</span>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4 italic">
+                  "Held my 50th birthday here - absolutely perfect! The team went above and beyond 
+                  to make it special. The buffet was delicious and plenty of it. Would highly recommend."
+                </p>
+                <p className="font-semibold text-anchor-green">- Sarah Thompson</p>
+                <p className="text-sm text-gray-600">Birthday Party, 80 guests</p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-anchor-gold">★</span>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4 italic">
+                  "Organised our company Christmas party here. Great venue, fantastic food, and 
+                  the staff handled everything professionally. Easy parking was a big plus for our team."
+                </p>
+                <p className="font-semibold text-anchor-green">- Mark Davies</p>
+                <p className="text-sm text-gray-600">Corporate Event, 45 guests</p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-anchor-gold">★</span>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4 italic">
+                  "Beautiful celebration of life for my father. The Anchor team were so understanding 
+                  and helpful during a difficult time. The private area was perfect for our family."
+                </p>
+                <p className="font-semibold text-anchor-green">- Jennifer Williams</p>
+                <p className="text-sm text-gray-600">Memorial Service, 60 guests</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Frequently Asked Questions */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
+              Event Booking FAQs
+            </h2>
+            
+            <div className="space-y-6">
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">
+                  How far in advance should I book?
+                </h3>
+                <p className="text-gray-700">
+                  We recommend booking at least 2-3 weeks in advance for small gatherings and 
+                  4-6 weeks for larger events. December books up particularly quickly, so plan 
+                  ahead for Christmas parties.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">
+                  Is there a minimum number of guests?
+                </h3>
+                <p className="text-gray-700">
+                  We welcome events from 10 people upwards. For smaller groups, you're welcome 
+                  to reserve a table in our main dining area. For exclusive use of a space, 
+                  we typically require a minimum of 30 guests.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">
+                  Do you offer drinks packages?
+                </h3>
+                <p className="text-gray-700">
+                  Yes! We can arrange drinks packages including arrival drinks, wine with meals, 
+                  and bar tabs. We'll work within your budget to create the perfect package. 
+                  Cash bars are also available for guests to purchase their own drinks.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">
+                  Can you accommodate special dietary requirements?
+                </h3>
+                <p className="text-gray-700">
+                  Absolutely. Our kitchen can cater for vegetarian, vegan, gluten-free, and 
+                  most other dietary requirements. Just let us know when booking and we'll 
+                  ensure everyone is well looked after.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">
+                  Is there parking available for all my guests?
+                </h3>
+                <p className="text-gray-700">
+                  We have 20 free parking spaces on-site. For larger events, there's additional 
+                  street parking nearby. We're also just a short taxi ride from Heathrow hotels 
+                  and Staines station.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">
+                  What's your cancellation policy?
+                </h3>
+                <p className="text-gray-700">
+                  We understand plans can change. Cancellations made more than 14 days before 
+                  your event incur no charge. For cancellations within 14 days, we may retain 
+                  any deposit paid. We're always happy to discuss rescheduling options.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Booking Process */}
-      <section className="py-16 md:py-20 bg-anchor-cream">
+      <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
@@ -310,7 +444,7 @@ export default function BookEventPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Let's Plan Your Perfect Event

@@ -75,7 +75,7 @@ export default function SundayLunchPage() {
       </section>
 
       {/* Why Our Roasts Are Special */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -116,7 +116,7 @@ export default function SundayLunchPage() {
       </section>
 
       {/* Sunday Menu */}
-      <section id="menu" className="py-16 md:py-20 bg-anchor-cream">
+      <section id="menu" className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4 text-center">
@@ -250,7 +250,7 @@ export default function SundayLunchPage() {
       </section>
 
       {/* Sunday Experience */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
@@ -311,7 +311,7 @@ export default function SundayLunchPage() {
       </section>
 
       {/* Reviews */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
@@ -375,8 +375,94 @@ export default function SundayLunchPage() {
         </div>
       </section>
 
+      {/* The Sunday Roast Tradition */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+              Why Sunday Roast at The Anchor is Special
+            </h2>
+            
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <p className="text-xl text-center mb-8">
+                In a world of chain restaurants and microwave meals, The Anchor keeps the great 
+                British tradition of Sunday roast alive and thriving in Stanwell Moor.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">The Village Tradition</h3>
+                  <p className="mb-4">
+                    For generations, Sunday lunch at the village pub has been a cornerstone of British 
+                    life. At The Anchor, we honor this tradition with pride. Every Sunday, our kitchen 
+                    starts early, filling the pub with the comforting aromas of roasting meat and fresh 
+                    Yorkshire puddings rising in the oven. It's the smell that draws locals from their 
+                    Sunday papers and brings families together around our tables.
+                  </p>
+                  <p>
+                    Our Sunday roast isn't just a meal - it's a weekly ritual for many Stanwell Moor 
+                    families. Grandparents, parents, and children gather here, creating memories over 
+                    generous plates of perfectly roasted meat and all the trimmings. It's these moments 
+                    that make a pub truly part of the community.
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">Cooked with Care</h3>
+                  <p className="mb-4">
+                    Our head chef takes Sunday roast seriously - perhaps too seriously, his wife might 
+                    say! Each cut of meat is carefully selected from local suppliers, seasoned with 
+                    herbs from our own garden when in season, and roasted to perfection. The vegetables 
+                    are fresh, not frozen. The roast potatoes are par-boiled then roasted in goose fat 
+                    until golden and crispy. The Yorkshire puddings? Made from scratch, naturally.
+                  </p>
+                  <p>
+                    This attention to detail is why we introduced our pre-order system. By knowing 
+                    exactly how many roasts we're serving, we can prepare each one fresh to order, 
+                    ensuring every plate meets our exacting standards. It's more work for us, but 
+                    the results speak for themselves.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-anchor-cream rounded-2xl p-8 mb-12">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
+                  A Sunday Roast Near Heathrow
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Being the closest traditional pub to Heathrow Airport brings us guests from around 
+                  the world, and nothing delights us more than introducing international visitors to 
+                  a proper British Sunday roast. Flight crews staying at nearby hotels have made The 
+                  Anchor their Sunday tradition, and we regularly see business travelers extending 
+                  their trips just to experience Sunday lunch before flying home.
+                </p>
+                <p className="text-gray-700">
+                  "You haven't truly visited England until you've had a proper Sunday roast," one 
+                  American guest told us. We couldn't agree more. It's not just about the food - 
+                  it's about the experience of a leisurely Sunday afternoon in a real British pub, 
+                  where time slows down and the outside world can wait.
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-lg text-gray-700 mb-4">
+                  Whether you're a local looking for your regular Sunday spot, a visitor wanting to 
+                  experience authentic British culture, or someone who simply appreciates a properly 
+                  cooked roast dinner, you'll find what you're looking for at The Anchor. Just 
+                  remember to book ahead - Sundays are our busiest day for a reason.
+                </p>
+                <p className="text-lg text-gray-700 italic">
+                  "The best Sunday roast in the area" isn't just our claim - it's what our regulars 
+                  tell their friends. Come and discover why.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Booking CTA */}
-      <section className="py-16 md:py-20 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Don't Miss Out on Sunday Roast

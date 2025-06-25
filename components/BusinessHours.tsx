@@ -319,15 +319,9 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
                         {hasSpecialHours && (specialHours.note || specialHours.reason) ? ` (${specialHours.note || specialHours.reason})` : ''}
                       </span>
-                      {showKitchen && (
+                      {showKitchen && !hasSpecialHours && (
                         <div className="text-xs text-gray-400 mt-0.5">
-                          {hasSpecialHours ? (
-                            specialHours.kitchen ? (
-                              `Kitchen: ${formatTime(specialHours.kitchen.opens)} - ${formatTime(specialHours.kitchen.closes)}`
-                            ) : (
-                              'Kitchen closed'
-                            )
-                          ) : dayHours.kitchen ? (
+                          {dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
                           ) : (
                             'Kitchen closed'

@@ -57,9 +57,9 @@ export default function HomePage() {
             </div>
             
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow">
-              Your friendly neighbourhood pub in Stanwell Moor. Great food, 
-              fantastic entertainment, and a warm welcome for all the family - 
-              including your four-legged friends! 🐕
+              Stanwell Moor's village pub near Heathrow Airport. Traditional British food, 
+              Saturday drag shows, quiz nights, and the warmest welcome in Surrey - 
+              dogs and families always welcome! 🐕
             </p>
             
             {/* Feature tags */}
@@ -112,7 +112,7 @@ export default function HomePage() {
       </section>
 
       {/* What Makes Us Special */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -139,18 +139,83 @@ export default function HomePage() {
               <div className="text-5xl mb-4">🍽️</div>
               <h3 className="text-2xl font-bold text-anchor-green mb-3">Honest Food</h3>
               <p className="text-gray-700">
-                Traditional British pub food done right. Sunday roasts, 
-                stone-baked pizzas, and hearty meals that won&apos;t break the bank.
+                Traditional British pub classics. Famous Sunday roasts (pre-order required), 
+                fish & chips, burgers, and proper pub grub at local prices.
               </p>
             </div>
 
             {/* Entertainment Card */}
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">🎉</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Fun for Everyone</h3>
+              <h3 className="text-2xl font-bold text-anchor-green mb-3">Events & Entertainment</h3>
               <p className="text-gray-700">
-                From monthly quiz nights to spectacular drag shows, there&apos;s 
-                always something happening at The Anchor.
+                Spectacular Saturday drag shows with Nikki Manfadge, monthly quiz nights, 
+                and special events throughout the year.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Information */}
+      <section className="section-spacing bg-anchor-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green text-center mb-12">
+              Everything You Need to Know
+            </h2>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Location */}
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm">
+                <div className="text-3xl mb-3">📍</div>
+                <h3 className="font-bold text-lg text-anchor-green mb-2">Location</h3>
+                <p className="text-sm text-gray-700">
+                  Horton Road, Stanwell Moor<br />
+                  Surrey TW19 6AQ<br />
+                  <span className="text-anchor-gold font-semibold">7 mins from Heathrow T5</span>
+                </p>
+              </div>
+              
+              {/* Opening Hours */}
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm">
+                <div className="text-3xl mb-3">🕐</div>
+                <h3 className="font-bold text-lg text-anchor-green mb-2">Opening Hours</h3>
+                <p className="text-sm text-gray-700">
+                  Live hours shown above<br />
+                  Including kitchen times<br />
+                  <span className="text-xs">May vary on holidays</span>
+                </p>
+              </div>
+              
+              {/* Contact */}
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm">
+                <div className="text-3xl mb-3">📞</div>
+                <h3 className="font-bold text-lg text-anchor-green mb-2">Get in Touch</h3>
+                <p className="text-sm text-gray-700">
+                  <a href="tel:01753682707" className="hover:text-anchor-gold transition-colors">
+                    01753 682707
+                  </a><br />
+                  <span className="text-xs">Call for bookings & enquiries</span>
+                </p>
+              </div>
+              
+              {/* Key Features */}
+              <div className="bg-white rounded-xl p-6 text-center shadow-sm">
+                <div className="text-3xl mb-3">⭐</div>
+                <h3 className="font-bold text-lg text-anchor-green mb-2">Key Features</h3>
+                <p className="text-sm text-gray-700">
+                  Free Parking<br />
+                  Dog Friendly<br />
+                  <span className="text-anchor-gold font-semibold">Great Events</span>
+                </p>
+              </div>
+            </div>
+            
+            <div className="mt-8 p-6 bg-white rounded-xl shadow-sm">
+              <p className="text-center text-gray-700">
+                <strong className="text-anchor-green">Important:</strong> Sunday roasts require pre-order and payment by 1pm Saturday. 
+                Regular menu available on Sundays without pre-order. Free parking for all guests.
               </p>
             </div>
           </div>
@@ -158,7 +223,7 @@ export default function HomePage() {
       </section>
 
       {/* Next Event */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
@@ -173,7 +238,7 @@ export default function HomePage() {
       </section>
 
       {/* Heathrow Travelers Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -246,7 +311,7 @@ export default function HomePage() {
       </section>
 
       {/* Photo Gallery */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green text-center mb-12">
             Life at The Anchor
@@ -317,18 +382,18 @@ export default function HomePage() {
       </section>
 
       {/* Find Us Section */}
-      <section id="visit-us" className="py-16 md:py-20 bg-anchor-green text-white">
+      <section id="visit-us" className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">
+          <div className="max-w-6xl mx-auto flex flex-col justify-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 text-white">
               Come Visit Us!
             </h2>
             
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="bg-white/10 rounded-lg p-6 mb-6">
-                  <h3 className="text-2xl font-bold mb-4 text-white">📍 Find Us Here</h3>
-                  <address className="not-italic text-lg leading-relaxed">
+                <div className="bg-white/10 rounded-lg p-5 mb-4">
+                  <h3 className="text-xl font-bold mb-3 text-white">📍 Find Us Here</h3>
+                  <address className="not-italic text-base leading-relaxed">
                     The Anchor<br />
                     Horton Road<br />
                     Stanwell Moor<br />
@@ -336,9 +401,9 @@ export default function HomePage() {
                   </address>
                 </div>
                 
-                <div className="bg-white/10 rounded-lg p-6 mb-6">
-                  <h3 className="text-2xl font-bold mb-4 text-white">🚗 Getting Here</h3>
-                  <ul className="space-y-2">
+                <div className="bg-white/10 rounded-lg p-5 mb-5">
+                  <h3 className="text-xl font-bold mb-3 text-white">🚗 Getting Here</h3>
+                  <ul className="space-y-1.5 text-base">
                     <li>✈️ Just 7 minutes from Heathrow Terminal 5</li>
                     <li>🚌 Bus routes 441 & 442 stop nearby</li>
                     <li>🚗 Free parking for all guests</li>
@@ -358,7 +423,7 @@ export default function HomePage() {
               </div>
               
               <div className="bg-white/10 rounded-lg p-4">
-                <h3 className="text-xl font-bold mb-4 text-white">🕐 Hours & Weather</h3>
+                <h3 className="text-lg font-bold mb-3 text-white">🕐 Hours & Weather</h3>
                 <BusinessHours variant="condensed" showKitchen={true} showWeather={true} />
               </div>
             </div>

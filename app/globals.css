@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* Standard section spacing used throughout the site */
+  .section-spacing {
+    @apply py-10 md:py-12;
+  }
+}
+
 :root {
   --anchor-green: #005131;
   --anchor-gold: #a57626;

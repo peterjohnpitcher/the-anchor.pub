@@ -63,7 +63,7 @@ export default function DrinksMenuPage() {
       </section>
 
       {/* Quick Links */}
-      <section className="py-8 bg-gray-50">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="#draught" className="px-6 py-3 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
@@ -89,7 +89,7 @@ export default function DrinksMenuPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             
@@ -234,7 +234,7 @@ export default function DrinksMenuPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">
             Join Us for a Drink

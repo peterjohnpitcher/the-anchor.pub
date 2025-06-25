@@ -53,6 +53,7 @@ export default async function EventPage({ params }: Props) {
   const isQuiz = eventType.includes('quiz')
   const isSpecialEvent = eventType.includes('special') || eventType.includes('celebration')
   const isBingo = eventType.includes('bingo')
+  const isMusic = eventType.includes('music') || eventType.includes('karaoke')
   
   return (
     <>
@@ -150,7 +151,7 @@ export default async function EventPage({ params }: Props) {
       </section>
 
       {/* Event Details */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -277,7 +278,7 @@ export default async function EventPage({ params }: Props) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-anchor-green text-white">
+      <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             {isSoldOut ? "Join Our Waiting List" : "Reserve Your Spot"}
