@@ -209,8 +209,8 @@ export default function Terminal4Page() {
                   🌙 24-Hour Terminal Benefits
                 </h3>
                 <p className="text-gray-700">
-                  T4 handles many overnight flights. Join us for an early breakfast or 
-                  late dinner - much more comfortable than terminal seating!
+                  T4 handles many overnight flights. Join us for a late afternoon meal or 
+                  evening drink - much more comfortable than terminal seating!
                 </p>
               </div>
             </div>

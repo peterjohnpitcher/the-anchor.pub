@@ -285,7 +285,6 @@ export default function NearHeathrowPage() {
                 We&apos;re just minutes away with free parking - much more relaxing than airport restaurants.
               </p>
               <ul className="space-y-2 text-gray-700">
-                <li>• Full English breakfast (weekends from 12pm)</li>
                 <li>• Quick lunch options for tight schedules</li>
                 <li>• Relax in our beer garden before long flights</li>
               </ul>
