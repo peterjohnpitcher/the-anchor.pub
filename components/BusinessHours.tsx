@@ -85,6 +85,14 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
   // Get upcoming days order starting from today
   const todayIndex = dayOrder.indexOf(today)
   const upcomingDays = [...dayOrder.slice(todayIndex), ...dayOrder.slice(0, todayIndex)]
+  
+  // Helper function to check if there's a special hour for a specific date
+  const getSpecialHoursForDate = (date: Date) => {
+    if (!hours.specialHours || hours.specialHours.length === 0) return null
+    
+    const dateStr = date.toISOString().split('T')[0]
+    return hours.specialHours.find(sh => sh.date.startsWith(dateStr))
+  }
 
   // Format time from 24h to 12h
   const formatTime = (time: string) => {
@@ -171,17 +179,29 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
             const isToday = day === today
             const dayForecast = forecast[index]
             
+            // Calculate the date for this day
+            const currentDate = new Date()
+            const daysToAdd = index
+            const dayDate = new Date(currentDate)
+            dayDate.setDate(currentDate.getDate() + daysToAdd)
+            
+            // Check for special hours
+            const specialHours = getSpecialHoursForDate(dayDate)
+            const displayHours = specialHours || dayHours
+            const hasSpecialHours = !!specialHours
+            
             return (
               <div 
                 key={day} 
                 className={`flex justify-between items-start py-2 px-3 rounded ${
                   isToday ? 'bg-white/10' : ''
-                }`}
+                } ${hasSpecialHours ? 'ring-1 ring-yellow-400/50' : ''}`}
               >
                 <div className="flex items-center gap-3">
                   <span className={`font-medium capitalize ${isToday ? 'text-anchor-gold' : 'text-white'}`}>
                     {day}
                     {isToday && <span className="text-xs ml-2 text-anchor-gold">(Today)</span>}
+                    {hasSpecialHours && <span className="text-xs ml-2 text-yellow-400">({specialHours.reason || 'Special hours'})</span>}
                   </span>
                   {showWeather && dayForecast && (
                     <div className="flex items-center gap-2">
@@ -199,12 +219,14 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                   )}
                 </div>
                 <div className="text-right">
-                  {dayHours.is_closed ? (
-                    <span className="text-gray-400">Closed</span>
+                  {displayHours.is_closed ? (
+                    <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-400'}>Closed</span>
                   ) : (
                     <>
-                      <span className="text-white">{formatTime(dayHours.opens)} - {formatTime(dayHours.closes)}</span>
-                      {showKitchen && (
+                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-white'}>
+                        {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
+                      </span>
+                      {showKitchen && !hasSpecialHours && (
                         <p className="text-xs text-gray-400 mt-1">
                           {dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
@@ -240,12 +262,23 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
             const isToday = day === today
             const dayForecast = showWeather ? forecast[index] : null
             
+            // Calculate the date for this day
+            const currentDate = new Date()
+            const daysToAdd = index
+            const dayDate = new Date(currentDate)
+            dayDate.setDate(currentDate.getDate() + daysToAdd)
+            
+            // Check for special hours
+            const specialHours = getSpecialHoursForDate(dayDate)
+            const displayHours = specialHours || dayHours
+            const hasSpecialHours = !!specialHours
+            
             return (
               <div 
                 key={day} 
                 className={`flex items-center justify-between px-3 py-1.5 rounded ${
                   isToday ? 'bg-white/10 ring-1 ring-anchor-gold/30' : 'hover:bg-white/5'
-                }`}
+                } ${hasSpecialHours ? 'ring-1 ring-yellow-400/50' : ''}`}
               >
                 {/* Left: Day & Weather */}
                 <div className="flex items-center gap-3 min-w-0">
@@ -253,6 +286,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                     {day.slice(0, 3)}
                     {isToday && <span className="text-xs"> •</span>}
                   </span>
+                  {hasSpecialHours && <span className="text-xs text-yellow-400">🎉</span>}
                   {showWeather && dayForecast && (
                     <div className="flex items-center gap-1">
                       <Image 
@@ -271,14 +305,14 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                 
                 {/* Right: Hours */}
                 <div className="flex items-center gap-4 text-sm">
-                  {dayHours.is_closed ? (
-                    <span className="text-gray-400">Closed</span>
+                  {displayHours.is_closed ? (
+                    <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-400'}>Closed</span>
                   ) : (
                     <>
-                      <span className="text-gray-200">
-                        {formatTime(dayHours.opens)} - {formatTime(dayHours.closes)}
+                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-200'}>
+                        {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
                       </span>
-                      {showKitchen && (
+                      {showKitchen && !hasSpecialHours && (
                         <span className="text-xs text-gray-400">
                           {dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
@@ -331,28 +365,46 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
       <div>
         <h3 className="font-bold text-lg mb-3">Opening Hours</h3>
         <div className="space-y-2">
-          {dayOrder.map(day => {
+          {dayOrder.map((day, idx) => {
             const dayHours = hours.regularHours[day]
             const isToday = day === today
+            
+            // Calculate the date for this day
+            const currentDate = new Date()
+            const dayIndex = dayOrder.indexOf(day)
+            const todayIdx = dayOrder.indexOf(today)
+            let daysToAdd = dayIndex - todayIdx
+            if (daysToAdd < 0) daysToAdd += 7
+            
+            const dayDate = new Date(currentDate)
+            dayDate.setDate(currentDate.getDate() + daysToAdd)
+            
+            // Check for special hours
+            const specialHours = getSpecialHoursForDate(dayDate)
+            const displayHours = specialHours || dayHours
+            const hasSpecialHours = !!specialHours
             
             return (
               <div 
                 key={day} 
                 className={`flex justify-between items-start py-2 px-3 rounded ${
                   isToday ? 'bg-anchor-cream' : ''
-                }`}
+                } ${hasSpecialHours ? 'ring-2 ring-yellow-400' : ''}`}
               >
                 <span className={`font-medium capitalize ${isToday ? 'text-anchor-green' : ''}`}>
                   {day}
                   {isToday && <span className="text-xs ml-2 text-anchor-gold">(Today)</span>}
+                  {hasSpecialHours && <span className="text-xs ml-2 text-yellow-600">({specialHours.reason || 'Special hours'})</span>}
                 </span>
                 <div className="text-right">
-                  {dayHours.is_closed ? (
-                    <span className="text-gray-500">Closed</span>
+                  {displayHours.is_closed ? (
+                    <span className={hasSpecialHours ? 'text-yellow-600 font-medium' : 'text-gray-500'}>Closed</span>
                   ) : (
                     <>
-                      <span>{formatTime(dayHours.opens)} - {formatTime(dayHours.closes)}</span>
-                      {showKitchen && (
+                      <span className={hasSpecialHours ? 'text-yellow-600 font-medium' : ''}>
+                        {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
+                      </span>
+                      {showKitchen && !hasSpecialHours && (
                         <p className="text-xs text-gray-600 mt-1">
                           {dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
@@ -369,32 +421,6 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
           })}
         </div>
       </div>
-
-      {/* Special Hours */}
-      {hours.specialHours && hours.specialHours.length > 0 && (
-        <div>
-          <h3 className="font-bold text-lg mb-3">Special Hours</h3>
-          <div className="space-y-2">
-            {hours.specialHours.map((special, index) => (
-              <div key={index} className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                <div className="flex justify-between items-start">
-                  <span className="font-medium">{new Date(special.date).toLocaleDateString('en-GB', { 
-                    weekday: 'long',
-                    day: 'numeric',
-                    month: 'long'
-                  })}</span>
-                  <span>
-                    {special.is_closed ? 'Closed' : `${formatTime(special.opens!)} - ${formatTime(special.closes!)}`}
-                  </span>
-                </div>
-                {special.reason && (
-                  <p className="text-sm text-gray-600 mt-1">{special.reason}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   )
 }
