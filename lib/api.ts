@@ -167,6 +167,7 @@ export interface BusinessHours {
     closes?: string
     is_closed: boolean
     reason?: string
+    note?: string
   }>
   currentStatus: {
     isOpen: boolean

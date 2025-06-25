@@ -112,8 +112,8 @@ export function StatusBar({
     let navMessage = isOpen ? 'Open now' : 'Closed'
     
     // Add special hours reason if available
-    if (todaySpecialHours?.reason) {
-      navMessage += ` (${todaySpecialHours.reason})`
+    if (todaySpecialHours?.note || todaySpecialHours?.reason) {
+      navMessage += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
     }
     
     if (isOpen && closesIn) {
@@ -135,16 +135,16 @@ export function StatusBar({
     let message = ''
     if (isOpen) {
       message = mergedLabels.barOpen
-      if (todaySpecialHours?.reason) {
-        message += ` (${todaySpecialHours.reason})`
+      if (todaySpecialHours?.note || todaySpecialHours?.reason) {
+        message += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
       }
       if (closesIn) {
         message += ` • ${closesIn}`
       }
     } else {
       message = mergedLabels.barClosed
-      if (todaySpecialHours?.reason) {
-        message += ` (${todaySpecialHours.reason})`
+      if (todaySpecialHours?.note || todaySpecialHours?.reason) {
+        message += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
       }
       if (opensIn) {
         message += ` • ${opensIn}`
@@ -168,6 +168,15 @@ export function StatusBar({
 
   // Default variant - full size with separate bar and kitchen info
   const getKitchenHours = () => {
+    // Check if we have special hours that might affect kitchen
+    if (todaySpecialHours) {
+      if (todaySpecialHours.is_closed) {
+        return { isOpen: false, message: 'closed' }
+      }
+      // For special hours, we can't determine kitchen hours precisely
+      return { isOpen: false, message: 'check special hours' }
+    }
+    
     // Get today's hours from the API data
     const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
     const todayHours = hours.regularHours[today]
@@ -219,16 +228,16 @@ export function StatusBar({
   let barMessage = ''
   if (isOpen) {
     barMessage = mergedLabels.barOpen
-    if (todaySpecialHours?.reason) {
-      barMessage += ` (${todaySpecialHours.reason})`
+    if (todaySpecialHours?.note || todaySpecialHours?.reason) {
+      barMessage += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
     }
     if (closesIn) {
       barMessage += ` ${mergedLabels.closes} ${closesIn}`
     }
   } else {
     barMessage = mergedLabels.barClosed
-    if (todaySpecialHours?.reason) {
-      barMessage += ` (${todaySpecialHours.reason})`
+    if (todaySpecialHours?.note || todaySpecialHours?.reason) {
+      barMessage += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
     }
     if (opensIn) {
       barMessage += ` ${mergedLabels.opens} ${opensIn}`

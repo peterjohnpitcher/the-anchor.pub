@@ -201,7 +201,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                   <span className={`font-medium capitalize ${isToday ? 'text-anchor-gold' : 'text-white'}`}>
                     {day}
                     {isToday && <span className="text-xs ml-2 text-anchor-gold">(Today)</span>}
-                    {hasSpecialHours && <span className="text-xs ml-2 text-yellow-400">({specialHours.reason || 'Special hours'})</span>}
+                    {hasSpecialHours && <span className="text-xs ml-2 text-yellow-400">({specialHours.note || specialHours.reason || 'Special hours'})</span>}
                   </span>
                   {showWeather && dayForecast && (
                     <div className="flex items-center gap-2">
@@ -307,7 +307,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                   {displayHours.is_closed ? (
                     <div>
                       <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-400'}>
-                        Closed{hasSpecialHours && specialHours.reason ? ` (${specialHours.reason})` : ''}
+                        Closed{hasSpecialHours && (specialHours.note || specialHours.reason) ? ` (${specialHours.note || specialHours.reason})` : ''}
                       </span>
                       {showKitchen && (
                         <div className="text-xs text-gray-400">Kitchen closed</div>
@@ -317,12 +317,16 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                     <div>
                       <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-200'}>
                         {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
-                        {hasSpecialHours && specialHours.reason ? ` (${specialHours.reason})` : ''}
+                        {hasSpecialHours && (specialHours.note || specialHours.reason) ? ` (${specialHours.note || specialHours.reason})` : ''}
                       </span>
                       {showKitchen && (
                         <div className="text-xs text-gray-400 mt-0.5">
                           {hasSpecialHours ? (
-                            'Kitchen: Check special hours'
+                            specialHours.kitchen ? (
+                              `Kitchen: ${formatTime(specialHours.kitchen.opens)} - ${formatTime(specialHours.kitchen.closes)}`
+                            ) : (
+                              'Kitchen closed'
+                            )
                           ) : dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
                           ) : (
@@ -403,7 +407,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                 <span className={`font-medium capitalize ${isToday ? 'text-anchor-green' : ''}`}>
                   {day}
                   {isToday && <span className="text-xs ml-2 text-anchor-gold">(Today)</span>}
-                  {hasSpecialHours && <span className="text-xs ml-2 text-yellow-600">({specialHours.reason || 'Special hours'})</span>}
+                  {hasSpecialHours && <span className="text-xs ml-2 text-yellow-600">({specialHours.note || specialHours.reason || 'Special hours'})</span>}
                 </span>
                 <div className="text-right">
                   {displayHours.is_closed ? (
