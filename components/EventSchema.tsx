@@ -16,7 +16,7 @@ export function EventSchema({ event }: EventSchemaProps) {
     "name": event.name,
     "description": event.longDescription || event.description || `Join us for ${event.name} at The Anchor`,
     ...(event.shortDescription && { "disambiguatingDescription": event.shortDescription }),
-    ...(event.keywords && event.keywords.length > 0 && { "keywords": event.keywords.join(", ") }),
+    ...(event.keywords && Array.isArray(event.keywords) && event.keywords.length > 0 && { "keywords": event.keywords.join(", ") }),
     "startDate": event.startDate,
     ...(event.endDate && { "endDate": event.endDate }),
     ...(event.lastEntryTime && { "doorTime": event.lastEntryTime }),

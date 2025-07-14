@@ -8,6 +8,7 @@ import { StatusBarWrapper } from '@/components/StatusBarWrapper'
 import { GalleryImage } from '@/components/GalleryImage'
 import { NextEventServer } from '@/components/NextEventServer'
 import { Suspense } from 'react'
+import { homepageFAQSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
 // Loading skeleton for NextEvent
 function NextEventSkeleton() {
@@ -20,8 +21,16 @@ function NextEventSkeleton() {
 
 
 export default function HomePage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' }
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([homepageFAQSchema, breadcrumbSchema]) }}
+      />
       {/* Warm Welcome Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center">
         {/* Hero Image with optimized loading */}
@@ -147,6 +156,10 @@ export default function HomePage() {
               <p className="text-gray-700">
                 Traditional British pub classics. Famous Sunday roasts (pre-order required), 
                 fish & chips, burgers, and proper pub grub at local prices.
+                <br />
+                <Link href="/food/pizza" className="text-anchor-gold hover:text-anchor-gold-light font-semibold mt-2 inline-block">
+                  🍕 Tuesday & Wednesday: Pizza BOGOF Deal
+                </Link>
               </p>
             </div>
 
@@ -287,6 +300,12 @@ export default function HomePage() {
                       <strong>Kill Time Comfortably:</strong> Much nicer than terminal seating.
                     </div>
                   </li>
+                  <li className="flex gap-3">
+                    <span className="text-2xl">✈️</span>
+                    <div>
+                      <strong>Plane Spotting:</strong> <Link href="/beer-garden" className="text-anchor-gold hover:text-anchor-gold-light underline">Beer garden</Link> with aircraft every 90 seconds.
+                    </div>
+                  </li>
                 </ul>
               </div>
               
@@ -341,11 +360,13 @@ export default function HomePage() {
             />
             
             {/* Garden Photo */}
-            <GalleryImage
-              src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
-              alt="Beer garden at The Anchor - family and dog friendly"
-              caption="Unique Beer Garden"
-            />
+            <Link href="/beer-garden">
+              <GalleryImage
+                src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
+                alt="Beer garden at The Anchor - plane spotting paradise"
+                caption="Beer Garden & Plane Spotting"
+              />
+            </Link>
           </div>
           
           <div className="text-center mt-8">

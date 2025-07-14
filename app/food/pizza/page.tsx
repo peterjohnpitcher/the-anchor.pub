@@ -120,7 +120,7 @@ export default function PizzaPage() {
               <CallToAction href="/food-menu" variant="secondary" size="lg">
                 View Full Menu
               </CallToAction>
-              <CallToAction href="tel:01784421181" variant="primary" size="lg">
+              <CallToAction href="tel:01753682707" variant="primary" size="lg">
                 📞 Book a Table
               </CallToAction>
             </div>
@@ -263,8 +263,8 @@ export default function PizzaPage() {
             Available every Tuesday & Wednesday during kitchen hours
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <CallToAction href="tel:01784421181" variant="secondary" size="lg">
-              📞 Call 01784 421181
+            <CallToAction href="tel:01753682707" variant="secondary" size="lg">
+              📞 Call 01753 682707
             </CallToAction>
             <CallToAction 
               href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" 

@@ -4,6 +4,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 import { BusinessHours } from '@/components/BusinessHours'
+import { findUsPlaceSchema, generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 
 export const metadata: Metadata = {
   title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
@@ -17,8 +18,30 @@ export const metadata: Metadata = {
 }
 
 export default function FindUsPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Find Us', url: '/find-us' }
+  ])
+  
+  const howToFromHeathrowSchema = generateHowToDirectionsSchema(
+    "Heathrow Terminal 5",
+    "The Anchor Pub",
+    [
+      "Exit Terminal 5 following signs for M25/A30",
+      "At roundabout, take A3044 towards Staines",
+      "Continue straight for 1.5 miles through Stanwell",
+      "Turn left onto Horton Road (by the church)",
+      "The Anchor is 200 yards on your right",
+      "Free parking available on site"
+    ]
+  )
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([findUsPlaceSchema, breadcrumbSchema, howToFromHeathrowSchema]) }}
+      />
       {/* Hero Section */}
       <section className="relative min-h-[40vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark mt-20">
         <div className="relative z-10 container mx-auto px-4 text-center">

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
+import { TerminalNavigation } from '@/components/TerminalNavigation'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 5 | The Anchor - 7 Minutes Away',
@@ -79,6 +80,13 @@ export default function Terminal5Page() {
               <p className="text-sm text-gray-600">Terminal 5</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Terminal Navigation */}
+      <section className="py-6 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <TerminalNavigation currentTerminal="5" />
         </div>
       </section>
 

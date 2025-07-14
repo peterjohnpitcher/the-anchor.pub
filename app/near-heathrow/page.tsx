@@ -289,7 +289,8 @@ export default function NearHeathrowPage() {
               </p>
               <ul className="space-y-2 text-gray-700">
                 <li>• Quick lunch options for tight schedules</li>
-                <li>• Relax in our beer garden before long flights</li>
+                <li>• Relax in our <Link href="/beer-garden" className="text-anchor-gold hover:text-anchor-gold-light underline">beer garden</Link> before long flights</li>
+                <li>• Watch planes overhead while you dine</li>
               </ul>
             </div>
 
@@ -318,6 +319,41 @@ export default function NearHeathrowPage() {
                 <li>• Local beers and proper pub atmosphere</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Plane Spotting Section */}
+      <section className="section-spacing bg-anchor-sand/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
+              🛩️ Unique Plane Spotting Experience
+            </h2>
+            <p className="text-xl text-gray-700 mb-8">
+              Our beer garden sits directly under the Heathrow flight path - watch aircraft 
+              pass overhead every 90 seconds while enjoying your meal or drink.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-xl p-6">
+                <div className="text-3xl mb-3">✈️</div>
+                <h3 className="font-bold text-lg mb-2">Every 90 Seconds</h3>
+                <p className="text-gray-600">Constant stream of aircraft during peak times</p>
+              </div>
+              <div className="bg-white rounded-xl p-6">
+                <div className="text-3xl mb-3">📸</div>
+                <h3 className="font-bold text-lg mb-2">Photo Opportunities</h3>
+                <p className="text-gray-600">Perfect for aviation photographers</p>
+              </div>
+              <div className="bg-white rounded-xl p-6">
+                <div className="text-3xl mb-3">🍺</div>
+                <h3 className="font-bold text-lg mb-2">Comfort & Service</h3>
+                <p className="text-gray-600">Full bar and food service to your table</p>
+              </div>
+            </div>
+            <CallToAction href="/beer-garden" variant="primary" size="lg">
+              Discover Our Plane Spotting Beer Garden
+            </CallToAction>
           </div>
         </div>
       </section>

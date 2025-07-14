@@ -1,5 +1,6 @@
 import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
+import { eventBookingServiceSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
 export const metadata: Metadata = {
   title: 'Book an Event | The Anchor Stanwell Moor | Private Parties & Functions',
@@ -13,8 +14,17 @@ export const metadata: Metadata = {
 }
 
 export default function BookEventPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Book an Event', url: '/book-event' }
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([eventBookingServiceSchema, breadcrumbSchema]) }}
+      />
       
       {/* Hero Section */}
       <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark mt-20">

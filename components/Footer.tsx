@@ -47,7 +47,29 @@ const defaultSections: FooterSection[] = [
       { label: 'Food Menu', href: '/food-menu' },
       { label: 'Sunday Roast', href: '/sunday-lunch' },
       { label: 'Drinks Menu', href: '/drinks' },
-      { label: 'Book an Event', href: '/book-event' }
+      { label: 'Book an Event', href: '/book-event' },
+      { label: 'Sitemap', href: '/sitemap-page' }
+    ]
+  },
+  {
+    title: 'Special Features',
+    titleClass: 'text-anchor-gold',
+    items: [
+      { label: 'Beer Garden & Plane Spotting', href: '/beer-garden' },
+      { label: 'Pizza BOGOF Deal', href: '/food/pizza' },
+      { label: 'Drag Shows', href: '/whats-on/drag-shows' },
+      { label: 'Free Parking', href: '/find-us' }
+    ]
+  },
+  {
+    title: 'Near Heathrow',
+    titleClass: 'text-anchor-gold',
+    items: [
+      { label: 'All Terminals', href: '/near-heathrow' },
+      { label: 'Terminal 2', href: '/near-heathrow/terminal-2' },
+      { label: 'Terminal 3', href: '/near-heathrow/terminal-3' },
+      { label: 'Terminal 4', href: '/near-heathrow/terminal-4' },
+      { label: 'Terminal 5', href: '/near-heathrow/terminal-5' }
     ]
   }
 ]

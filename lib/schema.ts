@@ -19,8 +19,8 @@ export const organizationSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 51.4567,
-    "longitude": -0.4567
+    "latitude": 51.4764,
+    "longitude": -0.4735
   },
   "telephone": "+441753682707",
   "email": "manager@the-anchor.pub"
@@ -46,20 +46,21 @@ export const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 51.4567,
-    "longitude": -0.4567
+    "latitude": 51.4764,
+    "longitude": -0.4735
   },
   "url": "https://the-anchor.pub",
   "telephone": "+441753682707",
   "priceRange": "££",
   "servesCuisine": ["British", "Pizza", "Pub Food"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "312",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Monday",
-      "opens": "16:00",
-      "closes": "22:00"
-    },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Tuesday",

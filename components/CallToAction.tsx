@@ -7,7 +7,7 @@ import { ReactNode } from 'react'
 interface CallToActionProps {
   href: string
   children: ReactNode
-  variant?: 'primary' | 'secondary' | 'white' | 'outline' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'white' | 'outline' | 'ghost' | 'yellow'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   external?: boolean
   className?: string
@@ -23,6 +23,7 @@ interface CallToActionProps {
     white?: string
     outline?: string
     ghost?: string
+    yellow?: string
   }
   trackingLabel?: string
 }
@@ -32,7 +33,8 @@ const defaultTheme = {
   secondary: 'bg-white text-anchor-green border-2 border-anchor-green hover:bg-anchor-green hover:text-white',
   white: 'bg-white text-anchor-green hover:bg-gray-100',
   outline: 'border-2 border-anchor-gold text-anchor-gold hover:bg-anchor-gold hover:text-white',
-  ghost: 'text-anchor-green hover:bg-anchor-green/10'
+  ghost: 'text-anchor-green hover:bg-anchor-green/10',
+  yellow: 'bg-yellow-400 text-red-900 hover:bg-yellow-300 font-bold'
 }
 
 const sizeClasses = {

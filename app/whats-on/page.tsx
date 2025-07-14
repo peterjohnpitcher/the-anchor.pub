@@ -87,7 +87,7 @@ export default function WhatsOnPage() {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Drag Shows */}
             <Link href="/whats-on/drag-shows" className="block group">
-              <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
+              <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
                 <Image
                   src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
                   alt="Drag shows at The Anchor with Nikki Manfadge"

@@ -246,7 +246,7 @@ export default async function EventPage({ params }: Props) {
                 <h2 className="text-2xl font-bold text-anchor-green mb-6">Event Photos</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {(event.galleryImages || event.image?.slice(1) || []).map((img, index) => (
-                    <div key={index} className="relative aspect-video rounded-xl overflow-hidden">
+                    <div key={index} className="relative aspect-square rounded-xl overflow-hidden">
                       <Image
                         src={img}
                         alt={`${event.name} - Photo ${index + 1}`}
