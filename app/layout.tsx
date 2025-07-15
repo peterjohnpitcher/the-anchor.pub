@@ -6,6 +6,7 @@ import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
+import { FloatingActions } from '@/components/FloatingActions'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
@@ -30,6 +31,7 @@ const criticalCSS = `
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 html,
@@ -191,6 +193,7 @@ export default function RootLayout({
         />
         {children}
         <Footer />
+        <FloatingActions />
       </body>
     </html>
   )

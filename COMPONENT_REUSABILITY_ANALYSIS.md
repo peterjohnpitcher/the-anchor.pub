@@ -1,7 +1,7 @@
 # Component Reusability Analysis Report
 
 ## Overview
-This report analyzes all React components in the `/website/components` directory to identify opportunities for improved reusability, TypeScript improvements, and code optimization.
+This report analyzes all React components in the `/components` directory to identify opportunities for improved reusability, TypeScript improvements, and code optimization.
 
 ---
 

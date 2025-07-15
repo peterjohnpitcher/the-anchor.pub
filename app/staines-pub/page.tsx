@@ -75,7 +75,7 @@ const faqSchema = {
       "name": "What makes The Anchor different from other Staines pubs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We offer unique entertainment including drag shows and quiz nights, famous Sunday roasts, BOGOF pizza deals on Tuesdays and Wednesdays, plus a dog-friendly beer garden with plane spotting views of Heathrow."
+        "text": "We offer unique entertainment including drag shows and quiz nights, famous Sunday roasts, BOGOF pizza deals on Tuesdays, plus a dog-friendly beer garden with plane spotting views of Heathrow."
       }
     },
     {

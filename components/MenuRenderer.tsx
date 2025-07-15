@@ -1,4 +1,5 @@
 import { MenuData, MenuCategory, MenuSection, MenuItem } from '@/lib/menu-parser'
+import { SpecialOfferNotifications } from './SpecialOfferNotifications'
 
 interface MenuRendererProps {
   menuData: MenuData
@@ -30,7 +31,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
 
       {/* Menu Categories */}
       {menuData.categories.map((category, categoryIndex) => (
-        <section key={category.id} className={`section-spacing ${categoryIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
+        <section key={category.id} id={category.id} className={`section-spacing ${categoryIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
@@ -43,6 +44,9 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
                   {category.description}
                 </p>
               )}
+
+              {/* Special Offer Notifications for this section */}
+              <SpecialOfferNotifications targetSection={category.id} />
 
               {category.sections.map((section, sectionIndex) => (
                 <div key={sectionIndex} className="mb-8">

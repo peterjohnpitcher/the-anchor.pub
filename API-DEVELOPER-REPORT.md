@@ -106,10 +106,10 @@ The website gracefully handles API failures by showing:
 
 ## Code References
 
-- API Client: `/website/lib/api.ts`
-- Homepage Integration: `/website/components/EventsToday.tsx` 
-- Events Page Integration: `/website/components/UpcomingEvents.tsx`
-- Environment Config: `/website/.env.local` (API key stored here)
+- API Client: `/lib/api.ts`
+- Homepage Integration: `/components/EventsToday.tsx` 
+- Events Page Integration: `/components/UpcomingEvents.tsx`
+- Environment Config: `/.env.local` (API key stored here)
 
 ## Next Steps
 

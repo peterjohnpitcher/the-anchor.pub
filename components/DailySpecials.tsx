@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { CallToAction } from './CallToAction'
+import { usePathname } from 'next/navigation'
 
 interface DailySpecialsProps {
   isOpen: boolean
@@ -9,6 +10,7 @@ interface DailySpecialsProps {
 
 export function DailySpecials({ isOpen }: DailySpecialsProps) {
   const [currentDay, setCurrentDay] = useState<number>(0)
+  const pathname = usePathname()
   
   useEffect(() => {
     setCurrentDay(new Date().getDay())
@@ -17,12 +19,30 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
   // Don't show specials if closed
   if (!isOpen) return null
 
-  // Tuesday = 2, Friday = 5, Saturday = 6
-  const showPizzaOffer = currentDay === 2 || currentDay === 3 // Tuesday or Wednesday
+  // Tuesday = 2, Wednesday = 3, Friday = 5, Saturday = 6
+  const showPizzaOffer = currentDay === 2 || currentDay === 3 // Tuesday & Wednesday
   const showFishFriday = currentDay === 5 // Friday
   const showSundayBooking = currentDay === 6 // Saturday
 
   if (!showPizzaOffer && !showFishFriday && !showSundayBooking) return null
+
+  const handlePizzaClick = () => {
+    // If we're already on the food-menu page, just scroll to the pizza section
+    if (pathname === '/food-menu') {
+      const pizzaSection = document.getElementById('pizza')
+      if (pizzaSection) {
+        const headerOffset = 80 // Height of fixed header
+        const elementPosition = pizzaSection.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
+    }
+    // Otherwise, let the default navigation happen to /food-menu#pizza
+  }
 
   return (
     <section className="section-spacing bg-red-600 text-white">
@@ -39,9 +59,14 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
               On ALL Stone-Baked Pizzas
             </p>
             <p className="text-lg mb-8">
-              Every Tuesday & Wednesday - Dine in only
+              Every Tuesday - Dine in & takeaway
             </p>
-            <CallToAction href="#pizza" variant="yellow" size="lg">
+            <CallToAction 
+              href="/food-menu#pizza" 
+              variant="yellow" 
+              size="lg"
+              onClick={handlePizzaClick}
+            >
               View Pizza Menu
             </CallToAction>
           </div>
@@ -61,7 +86,26 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
             <p className="text-lg mb-8">
               Our famous beer-battered fish with chunky chips
             </p>
-            <CallToAction href="#mains" variant="yellow" size="lg">
+            <CallToAction 
+              href="/food-menu#mains" 
+              variant="yellow" 
+              size="lg"
+              onClick={() => {
+                if (pathname === '/food-menu') {
+                  const mainsSection = document.getElementById('mains')
+                  if (mainsSection) {
+                    const headerOffset = 80 // Height of fixed header
+                    const elementPosition = mainsSection.getBoundingClientRect().top
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    })
+                  }
+                }
+              }}
+            >
               View Fish & Chips
             </CallToAction>
           </div>

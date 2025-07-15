@@ -1,13 +1,20 @@
 ---
-title: "New Menu Options - Launching February 1st, 2023"
-description: "Starting on Wednesday, February 1st, 2023, we are thrilled to announce the launch of our new food menu options! From delicious pies to mouth-watering Thai and Indian curries, we have something to satisfy everyone's cravings. And that's not all! We are also introducing new pizza options that will become your new favourites.Book your table here to secure your dinner booking.Quality is of utmost importance at The Anchor, especially when it comes to the food options we serve. You, our customers, exp"
+title: "New Menu Near Heathrow | Thai Curry & Pies at The Anchor"
+description: "Discover our expanded menu at The Anchor pub near Heathrow Airport. Thai curries, Indian dishes, traditional pies in Stanwell Moor, just 7 minutes from Terminal 5. Perfect for Heathrow workers' dinners and Staines families. Fresh pizzas, vegetarian options, quality ingredients. Free parking, no airport prices."
 date: "2023-01-29"
 oldUrl: "https://www.the-anchor.pub/post/new-menu-options-launching-february-1st-2023"
 author: "Billy"
 keywords:
-  - the anchor
-  - stanwell moor
-  - pub
+  - new menu near heathrow
+  - thai curry pub stanwell moor
+  - indian food near terminal 5
+  - pies near heathrow airport
+  - pizza restaurant staines
+  - the anchor new menu
+  - vegetarian curry near terminal 5
+  - chicken tikka masala heathrow
+  - beef ale pie stanwell moor
+  - family dining near airport
 tags:
   - offers
   - events
@@ -23,7 +30,9 @@ images:
 
 ![new menu options launching february 1st 2023 image](/content/blog/new-menu-options-launching-february-1st-2023/hero.png)
 
-Starting on Wednesday, February 1st, 2023, we are thrilled to announce the launch of our new food menu options! From delicious pies to mouth-watering Thai and Indian curries, we have something to satisfy everyone's cravings. And that's not all! We are also introducing new pizza options that will become your new favourites.
+## Expanded Menu at The Anchor Near Heathrow Airport
+
+The Anchor pub in **Stanwell Moor**, just **7 minutes from Heathrow Terminal 5**, now offers an expanded menu featuring Thai curries, Indian dishes, traditional British pies, and artisan pizzas. Perfect for **Heathrow workers** seeking quality dinners after shifts, **Staines families** wanting variety, and travelers looking for authentic cuisine near the **airport** without inflated prices.
 
   
 
@@ -96,3 +105,24 @@ Our new barbecue Chicken pizza, topped with juicy chicken, smoky barbecue sauce,
 ### Speck Ham & Parmesan
 
 Our new Speck Ham and Parmesan pizza, topped with salty Speck ham, nutty parmesan cheese, and fresh rocket, is a delightful blend of flavors and textures that is both simple and sophisticated.
+
+### Visit The Anchor for Our New Menu Near Heathrow
+
+📍 **Location**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
+✈️ **From Heathrow**: Just 7 minutes from all terminals
+🚗 **Parking**: Free on-site parking
+🍽️ **Menu**: Thai, Indian, British pies, pizzas
+💷 **Prices**: Proper pub prices, not airport prices
+⏰ **Perfect For**: Lunch meetings, family dinners, after-work meals
+📞 **Bookings**: 01753 682707
+
+### Why Choose The Anchor for Dining Near Terminal 5
+
+- **Diverse menu** - Thai, Indian, British, and Italian options
+- **Quality ingredients** - Fresh, locally sourced where possible
+- **Vegetarian friendly** - Multiple meat-free options
+- **Family atmosphere** - Welcome all ages
+- **Convenient location** - Easy access from Heathrow and Staines
+- **No tourist markup** - Fair pricing for locals and visitors
+
+*The Anchor - Your international dining destination near Heathrow Airport*

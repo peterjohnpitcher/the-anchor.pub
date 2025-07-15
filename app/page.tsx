@@ -7,9 +7,9 @@ import { Weather } from '@/components/Weather'
 import { StatusBarWrapper } from '@/components/StatusBarWrapper'
 import { GalleryImage } from '@/components/GalleryImage'
 import { NextEventServer } from '@/components/NextEventServer'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Suspense } from 'react'
 import { homepageFAQSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+import { getPageHeaderImage, getDefaultHeaderImage } from '@/utils/page-header-images'
 
 // Loading skeleton for NextEvent
 function NextEventSkeleton() {
@@ -25,6 +25,8 @@ export default function HomePage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' }
   ])
+  
+  const headerImage = getPageHeaderImage('/') || getDefaultHeaderImage();
 
   return (
     <>
@@ -32,63 +34,80 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([homepageFAQSchema, breadcrumbSchema]) }}
       />
-      {/* Warm Welcome Hero Section */}
-      <PageHeaderWrapper
-        route="/"
-        title="The Anchor"
-        description="Stanwell Moor's village pub near Heathrow Airport. Traditional British food, Saturday drag shows, quiz nights, and the warmest welcome in Surrey - dogs and families always welcome! 🐕"
-        minHeight="min-h-[80vh]"
-        showStatusBar={false}
-      >
-        {/* Welcome message with wave */}
-        <p className="text-lg md:text-xl text-white mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-          Welcome to your local <span className="inline-block motion-safe:wave">👋</span>
-        </p>
-        
-        <p className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-          Where Everyone&apos;s Welcome
-        </p>
-        
-        <div className="mb-8 flex justify-center">
-          <StatusBarWrapper />
+      {/* Custom Hero Section with Logo */}
+      <section className="relative min-h-[80vh] flex items-center justify-center mt-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={headerImage.src}
+            alt={headerImage.alt}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+            style={{
+              objectPosition: '50% 50%'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
         </div>
         
-        {/* Feature tags */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          <span className="tag bg-white/90 backdrop-blur-sm">🚗 Free Parking</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">🐕 Dog Friendly</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">👨‍👩‍👧‍👦 Family Welcome</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">♿ Step-Free Access</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">✈️ 7 mins from Heathrow</span>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href="https://ordertab.menu/theanchor/bookings"
-            variant="primary"
-            size="lg"
-            external
-          >
-            📅 Book a Table
-          </CallToAction>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12">
+          {/* Logo with drop shadow */}
+          <div className="mb-6 sm:mb-8">
+            <Image
+              src="/images/branding/the-anchor-pub-logo-white-transparent.png"
+              alt="The Anchor Pub Logo"
+              width={300}
+              height={300}
+              className="mx-auto w-48 sm:w-64 md:w-72 lg:w-80 h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
+              priority
+            />
+          </div>
           
-          <CallToAction 
-            href="tel:01753682707"
-            variant="secondary"
-            size="lg"
-          >
-            📞 Call: 01753 682707
-          </CallToAction>
+          {/* Welcome message with wave */}
+          <p className="text-lg md:text-xl text-white mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            Your local pub <span className="inline-block motion-safe:wave">👋</span>
+          </p>
           
-          <CallToAction 
-            href="#visit-us"
-            variant="secondary"
-            size="lg"
-          >
-            📍 Find Us
-          </CallToAction>
+          <p className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            Where Everyone&apos;s Welcome
+          </p>
+          
+          <div className="mb-8 flex justify-center">
+            <StatusBarWrapper />
+          </div>
+          
+          {/* Feature tags */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 px-2 sm:px-0">
+            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🚗 Free Parking</span>
+            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🐕 Dog Friendly</span>
+            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">👨‍👩‍👧‍👦 Family Welcome</span>
+            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">♿ Step-Free Access</span>
+            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">✈️ 7 mins from Heathrow</span>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0 max-w-md mx-auto">
+            <CallToAction 
+              href="https://ordertab.menu/theanchor/bookings"
+              variant="primary"
+              size="lg"
+              external
+              className="flex-1"
+            >
+              📅 Book a Table
+            </CallToAction>
+            
+            <CallToAction 
+              href="/food-menu"
+              variant="secondary"
+              size="lg"
+              className="flex-1"
+            >
+              🍽️ View Menu
+            </CallToAction>
+          </div>
         </div>
-      </PageHeaderWrapper>
+      </section>
 
       {/* What Makes Us Special */}
       <section className="section-spacing bg-white">
@@ -122,7 +141,7 @@ export default function HomePage() {
                 fish & chips, burgers, and proper pub grub at local prices.
                 <br />
                 <Link href="/food/pizza" className="text-anchor-gold hover:text-anchor-gold-light font-semibold mt-2 inline-block">
-                  🍕 Tuesday & Wednesday: Pizza BOGOF Deal
+                  🍕 Tuesday: Pizza BOGOF Deal
                 </Link>
               </p>
             </div>
@@ -176,10 +195,13 @@ export default function HomePage() {
                 <div className="text-3xl mb-3">📞</div>
                 <h3 className="font-bold text-lg text-anchor-green mb-2">Get in Touch</h3>
                 <p className="text-sm text-gray-700">
-                  <a href="tel:01753682707" className="hover:text-anchor-gold transition-colors">
-                    01753 682707
-                  </a><br />
-                  <span className="text-xs">Call for bookings & enquiries</span>
+                  <a href="tel:01753682707" className="hover:text-anchor-gold transition-colors block">
+                    📞 01753 682707
+                  </a>
+                  <a href="https://wa.me/4401753682707" className="hover:text-anchor-gold transition-colors block mt-1">
+                    💬 WhatsApp
+                  </a>
+                  <span className="text-xs">Call or message us</span>
                 </p>
               </div>
               

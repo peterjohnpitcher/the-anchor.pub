@@ -1,13 +1,20 @@
 ---
-title: "The Botanist Gin Special Offer July 2025 | The Anchor Stanwell Moor"
-description: "Welcome to The Anchor in Stanwell Moor Village, where this July we're celebrating The Botanist gin – and at just £2.78 a single or £5.55 a double all month long, there's never been a better time to discover this botanical beauty!What Makes The Botanist Gin So Special?Here's the fun bit – The Botanist contains a whopping 31 botanicals! That includes 22 hand-foraged beauties from the Scottish island of Islay. We're talking wild juniper, elderflower, and even some thistle (it's Scottish after all!)"
+title: "Gin Offers Near Heathrow | The Botanist Special at The Anchor"
+description: "The Botanist gin special offer at The Anchor pub near Heathrow Airport. Premium Scottish gin in Stanwell Moor, just 7 minutes from Terminal 5. July special £2.78 single, £5.55 double. Perfect for Heathrow workers and Staines gin lovers. 31 botanicals, Islay distilled. Free parking, beer garden available."
 date: "2025-06-30"
 oldUrl: "https://www.the-anchor.pub/post/the-botanist-gin-special-offer-july-2025-the-ancho"
 author: "Billy"
 keywords:
-  - the anchor
-  - stanwell moor
-  - pub
+  - gin offers near heathrow
+  - botanist gin stanwell moor
+  - premium gin near terminal 5
+  - scottish gin near airport
+  - gin deals staines
+  - the anchor gin special
+  - islay gin heathrow
+  - craft gin near terminal 5
+  - gin and tonic stanwell moor
+  - botanical gin near airport
 tags:
   - offers
   - events
@@ -21,7 +28,9 @@ images:
 
 ![July 2025 Manager's Special promo for "The Botanist" gin. Bottle surrounded by colorful flowers. Text: "Indulge in the botanicals."](/content/blog/the-botanist-gin-special-offer-july-2025-the-ancho/hero.jpg)
 
-Welcome to The Anchor in Stanwell Moor Village, where this July we're celebrating The Botanist gin – and at just £2.78 a single or £5.55 a double all month long, there's never been a better time to discover this botanical beauty!
+## Premium Gin Offers Near Heathrow Airport
+
+Welcome to The Anchor in **Stanwell Moor**, just **7 minutes from Heathrow Terminal 5**, where we're celebrating The Botanist gin with special July prices! At just £2.78 a single or £5.55 a double, it's perfect for **Heathrow workers** after shifts, **Staines residents** enjoying premium spirits, or travelers seeking quality gin near the **airport** without inflated prices.
 
   
 
@@ -47,7 +56,7 @@ We've been serving the good people of Stanwell Moor since 1866, and we know a th
 
   
 
-Dogs are welcome (they might enjoy the botanical aromas too!), families feel right at home, and with plenty of parking, popping in for a quick G&T couldn't be easier. Plus, we're just minutes from Heathrow, so if you're heading off on holiday, why not start it early with a Botanist?
+Dogs are welcome (they might enjoy the botanical aromas too!), families feel right at home, and with **free parking**, popping in for a quick G&T couldn't be easier. Located just **7 minutes from Heathrow Terminal 5**, we're perfect for **airport staff** finishing shifts or travelers starting their holiday early with a premium Botanist G&T!
 
   
 
@@ -75,12 +84,25 @@ Pop in and discover why The Botanist has gin lovers going wild! With our warm we
 
   
 
-Find us at The Anchor, Horton Road, Stanwell Moor Village, Surrey, TW19 6AQ. Open daily with full food service and The Botanist at special prices all July long.
+### Visit The Anchor for Premium Gin Near Heathrow
 
-  
+📍 **Location**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
+✈️ **From Heathrow**: Just 7 minutes from all terminals
+🚗 **Parking**: Free on-site parking
+🍸 **The Botanist**: £2.78 single, £5.55 double (July special)
+🌿 **Features**: 31 botanicals, Islay distilled
+🏡 **Beer Garden**: Perfect for summer G&Ts
+📞 **Information**: 01753 682707
+
+### Why Choose The Anchor for Gin Near Terminal 5
+
+- **Premium selection** - Quality gins at pub prices
+- **Monthly specials** - 25% off featured spirits
+- **Expert service** - Generous pours, perfect serves
+- **Free parking** - No airport parking fees
+- **Dog-friendly** - Bring your four-legged friends
+- **Convenient location** - Easy access from Heathrow and Staines
 
 See you at the bar!
 
-  
-
-[#TheAnchorStanwell](https://www.the-anchor.pub/blog/hashtags/TheAnchorStanwell) [#ManagersSpecial](https://www.the-anchor.pub/blog/hashtags/ManagersSpecial) [#TheBotanistGin](https://www.the-anchor.pub/blog/hashtags/TheBotanistGin) [#JulySpecial](https://www.the-anchor.pub/blog/hashtags/JulySpecial) [#GinLovers](https://www.the-anchor.pub/blog/hashtags/GinLovers) [#StanwellMoor](https://www.the-anchor.pub/blog/hashtags/StanwellMoor) [#IslaGin](https://www.the-anchor.pub/blog/hashtags/IslaGin) [#CraftGin](https://www.the-anchor.pub/blog/hashtags/CraftGin) [#BotanicalGin](https://www.the-anchor.pub/blog/hashtags/BotanicalGin) [#SummerDrinks](https://www.the-anchor.pub/blog/hashtags/SummerDrinks) [#GinAndTonic](https://www.the-anchor.pub/blog/hashtags/GinAndTonic) [#LocalPub](https://www.the-anchor.pub/blog/hashtags/LocalPub) [#HeathrowPubs](https://www.the-anchor.pub/blog/hashtags/HeathrowPubs) [#SurreyPubs](https://www.the-anchor.pub/blog/hashtags/SurreyPubs) [#GinOclock](https://www.the-anchor.pub/blog/hashtags/GinOclock)
+*The Anchor - Your premium gin destination near Heathrow Airport*

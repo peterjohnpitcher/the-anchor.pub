@@ -17,7 +17,7 @@ The Pizza BOGOF page contains an incorrect phone number that will prevent custom
 - **Correct phone:** `01753682707`
 
 ### Affected Locations
-- File: `/website/app/food/pizza/page.tsx`
+- File: `/app/food/pizza/page.tsx`
 - Line 115: `<CallToAction href="tel:01784421181" variant="secondary" size="lg">`
 - Line 206: `<CallToAction href="tel:01784421181" variant="secondary" size="lg">`
 
@@ -64,7 +64,7 @@ The LocalBusiness schema incorrectly shows The Anchor as open on Mondays, when i
 Schema shows Monday hours as 16:00-22:00
 
 ### Affected Locations
-- File: `/website/lib/schema.ts`
+- File: `/lib/schema.ts`
 - Lines: 64-69
 ```typescript
 {
@@ -116,7 +116,7 @@ The LocalBusiness schema contains placeholder GPS coordinates instead of the act
 - **Actual location:** `latitude: 51.4764, longitude: -0.4735`
 
 ### Affected Locations
-- File: `/website/lib/schema.ts`
+- File: `/lib/schema.ts`
 - Lines: 49-50
 ```typescript
 "latitude": 51.4567,
@@ -131,7 +131,7 @@ The LocalBusiness schema contains placeholder GPS coordinates instead of the act
 
 ### Verification
 Actual coordinates verified from:
-- `/website/app/beer-garden/page.tsx` (line 30-31)
+- `/app/beer-garden/page.tsx` (line 30-31)
 - Google Maps: The Anchor, Horton Road, Stanwell Moor
 
 ### Suggested Fix
@@ -175,7 +175,7 @@ Multiple files - see detailed list in consistency report
 ### Suggested Fix
 Create constants file:
 ```typescript
-// /website/lib/constants.ts
+// /lib/constants.ts
 export const CONTACT = {
   phone: '01753 682707',        // Display format
   phoneHref: 'tel:01753682707',  // Link format
@@ -239,7 +239,7 @@ Different pages state different parking capacities, creating customer confusion.
 - Other references: "Ample parking" / "Free parking"
 
 ### Affected Locations
-- File: `/website/app/find-us/page.tsx`
+- File: `/app/find-us/page.tsx`
 - Specific text: "Parking for 20 Spaces"
 
 ### Impact
@@ -350,8 +350,8 @@ Different pages have different messages about Sunday roast pre-ordering requirem
 3. Some pages mention "regular menu also available"
 
 ### Affected Locations
-- `/website/app/food-menu/page.tsx`
-- `/website/app/sunday-lunch/page.tsx`
+- `/app/food-menu/page.tsx`
+- `/app/sunday-lunch/page.tsx`
 - Homepage
 
 ### Impact

@@ -7,7 +7,7 @@ This guide provides technical implementation details for executing the Local SEO
 ## Directory Structure
 
 ```
-/website/app/
+/app/
 ├── staines-pub/
 │   └── page.tsx
 ├── stanwell-moor-pub/

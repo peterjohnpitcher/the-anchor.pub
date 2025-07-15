@@ -16,7 +16,7 @@ The Pizza BOGOF page contained an incorrect phone number that prevented customer
 **Resolution:**
 - Fixed in commit: [Add commit hash]
 - Changed from `01784421181` to `01753682707` in both CTAs
-- File: `/website/app/food/pizza/page.tsx`
+- File: `/app/food/pizza/page.tsx`
 
 ---
 
@@ -30,7 +30,7 @@ The LocalBusiness schema incorrectly showed The Anchor as open on Mondays when i
 **Resolution:**
 - Fixed in commit: [Add commit hash]
 - Removed Monday block from openingHoursSpecification
-- File: `/website/lib/schema.ts`
+- File: `/lib/schema.ts`
 
 ---
 
@@ -44,7 +44,7 @@ The LocalBusiness schema contained placeholder GPS coordinates instead of actual
 **Resolution:**
 - Fixed in commit: [Add commit hash]
 - Updated to actual coordinates: `51.4764, -0.4735`
-- File: `/website/lib/schema.ts`
+- File: `/lib/schema.ts`
 
 ---
 
@@ -63,7 +63,7 @@ Phone numbers appear in 3 different formats across the website, causing confusio
 3. `+441753682707` (international)
 
 **Acceptance Criteria:**
-- [ ] Create and use constants from `/website/lib/constants.ts`
+- [ ] Create and use constants from `/lib/constants.ts`
 - [ ] Update all phone instances to use consistent format
 - [ ] Test click-to-call on mobile devices
 

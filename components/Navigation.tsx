@@ -192,6 +192,7 @@ export function Navigation({
                 priority
               />
             </Link>
+            {/* Status on desktop */}
             <div className={cn('hidden lg:flex items-center gap-6', mergedTheme.text)}>
               {showStatus && statusComponent}
               {showWeather && (
@@ -200,6 +201,12 @@ export function Navigation({
                 </div>
               )}
             </div>
+            {/* Status on mobile - show next to logo */}
+            {showStatus && statusComponent && (
+              <div className={cn('lg:hidden', mergedTheme.text)}>
+                {statusComponent}
+              </div>
+            )}
           </div>
 
           {/* Desktop Navigation */}
@@ -231,6 +238,12 @@ export function Navigation({
           breakpointClass
         )}>
           <div className="container mx-auto px-4 py-6 space-y-4">
+            {/* Status Bar for Mobile */}
+            {showStatus && statusComponent && (
+              <div className="pb-4 mb-4 border-b border-white/20">
+                {statusComponent}
+              </div>
+            )}
             {items.map(item => renderLink(item, true))}
             {renderCTA(true)}
           </div>

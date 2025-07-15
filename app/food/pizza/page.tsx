@@ -6,11 +6,11 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Buy One Get One Free Pizza | The Anchor Stanwell Moor | BOGOF Deal',
-  description: 'BOGOF pizza deal at The Anchor pub near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday and Wednesday. Fresh dough, quality toppings.',
+  description: 'BOGOF pizza deal at The Anchor pub near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday & Wednesday. Fresh dough, quality toppings. Dine-in & takeaway available.',
   keywords: 'buy one get one free pizza, bogof pizza stanwell moor, pizza deal heathrow, 2 for 1 pizza, pizza offer staines',
   openGraph: {
     title: 'BOGOF Pizza Deal - The Anchor Pub',
-    description: 'Buy one get one free on all pizzas every Tuesday & Wednesday',
+    description: 'Buy one get one free on all pizzas every Tuesday & Wednesday. Dine-in & takeaway available.',
     images: ['/images/the-anchor-pub-stanwell-moor.jpg'],
   },
 }
@@ -74,7 +74,7 @@ const offerSchema = {
   },
   "validFrom": "2024-01-01",
   "validThrough": "2024-12-31",
-  "availableDay": ["Tuesday", "Wednesday"],
+  "availableDay": ["Tuesday"],
   "priceSpecification": {
     "@type": "PriceSpecification",
     "price": "0",
@@ -99,7 +99,7 @@ export default function PizzaPage() {
         showStatusBar={true}
       >
         <div className="bg-yellow-400 text-red-900 font-bold text-xl md:text-2xl px-6 py-3 rounded-full inline-block mb-6">
-          🍕 TUESDAY & WEDNESDAY SPECIAL 🍕
+          🍕 TUESDAY SPECIAL 🍕
         </div>
         
         <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -135,13 +135,13 @@ export default function PizzaPage() {
               
               <div className="bg-white rounded-xl p-6 shadow-sm">
                 <div className="text-4xl mb-3">📅</div>
-                <h3 className="font-bold text-lg mb-2">Every Tue & Wed</h3>
+                <h3 className="font-bold text-lg mb-2">Every Tuesday</h3>
                 <p className="text-gray-700">Available all day during kitchen hours</p>
               </div>
             </div>
             
             <p className="text-lg text-gray-700">
-              No voucher needed • Dine-in only • Cannot be combined with other offers
+              No voucher needed • Dine-in & takeaway • Cannot be combined with other offers
             </p>
           </div>
         </div>
@@ -244,7 +244,7 @@ export default function PizzaPage() {
             Ready for Your BOGOF Pizza?
           </h2>
           <p className="text-xl mb-8 text-white/90">
-            Available every Tuesday & Wednesday during kitchen hours
+            Available every Tuesday during kitchen hours
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <CallToAction href="tel:01753682707" variant="secondary" size="lg">

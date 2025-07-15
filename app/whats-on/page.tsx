@@ -45,48 +45,6 @@ export default function WhatsOnPage({ searchParams }: { searchParams: { category
         </CallToAction>
       </PageHeaderWrapper>
 
-      {/* Featured Events */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Our Signature Events
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              These are the events that make The Anchor special
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Drag Shows */}
-            <Link href="/whats-on/drag-shows" className="block group">
-              <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
-                <Image
-                  src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
-                  alt="Drag shows at The Anchor with Nikki Manfadge"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  priority
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4">
-                  <p className="text-white font-bold text-2xl drop-shadow">Saturday Drag Shows</p>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-2">Spectacular Drag Performances</h3>
-              <p className="text-gray-700 mb-4">
-                Join us for unforgettable Saturday nights with Nikki Manfadge and special guests. 
-                Dazzling costumes, hilarious comedy, and inclusive fun for everyone!
-              </p>
-              <p className="text-anchor-gold font-semibold group-hover:underline">
-                Learn more about our drag shows →
-              </p>
-            </Link>
-
-          </div>
-        </div>
-      </section>
 
 
       {/* Upcoming Events from API */}

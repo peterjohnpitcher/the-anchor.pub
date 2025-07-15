@@ -103,6 +103,11 @@ export default function FindUsPage() {
                         📞 01753 682707
                       </a>
                     </p>
+                    <p className="mb-2">
+                      <a href="https://wa.me/4401753682707" className="text-anchor-gold hover:text-anchor-gold-light" target="_blank" rel="noopener noreferrer">
+                        💬 WhatsApp Us
+                      </a>
+                    </p>
                     <p>
                       <a href="mailto:manager@the-anchor.pub" className="text-anchor-gold hover:text-anchor-gold-light">
                         ✉️ manager@the-anchor.pub

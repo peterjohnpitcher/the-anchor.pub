@@ -56,7 +56,7 @@ const defaultSections: FooterSection[] = [
     titleClass: 'text-anchor-gold',
     items: [
       { label: 'Beer Garden & Plane Spotting', href: '/beer-garden' },
-      { label: 'Pizza BOGOF Deal', href: '/food/pizza' },
+      { label: 'Tuesday Pizza BOGOF', href: '/food/pizza' },
       { label: 'Drag Shows', href: '/whats-on/drag-shows' },
       { label: 'Free Parking', href: '/find-us' }
     ]
@@ -184,11 +184,18 @@ export function Footer({
               </h4>
               <ul className={cn('space-y-2', mergedTheme.text)}>
                 {contact.phone && (
-                  <li>
-                    📞 <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className={mergedTheme.linkHover}>
-                      {contact.phone}
-                    </a>
-                  </li>
+                  <>
+                    <li>
+                      📞 <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className={mergedTheme.linkHover}>
+                        {contact.phone}
+                      </a>
+                    </li>
+                    <li>
+                      💬 <a href={`https://wa.me/44${contact.phone.replace(/\s/g, '').replace(/^0/, '')}`} className={mergedTheme.linkHover} target="_blank" rel="noopener noreferrer">
+                        WhatsApp Us
+                      </a>
+                    </li>
+                  </>
                 )}
                 {contact.email && (
                   <li>
