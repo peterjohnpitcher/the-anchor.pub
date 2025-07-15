@@ -83,3 +83,6 @@ venv.bak/
 
 # Output directories
 output/
+
+# Prevent accidental website folder creation
+website/
