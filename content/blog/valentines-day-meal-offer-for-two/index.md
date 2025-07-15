@@ -1,9 +1,13 @@
 ---
-title: "Valentine's Dinner Near Heathrow | Romantic Meal Deals at The Anchor"
-description: "Celebrate Valentine's Day at The Anchor pub near Heathrow Airport. Special romantic dinner deals for couples including pizza, wine, and cozy atmosphere in Stanwell Moor. Perfect Valentine's restaurant just 7 minutes from Terminal 5. Book your romantic meal today."
-date: "2020-01-16"
-oldUrl: "https://www.the-anchor.pub/post/valentines-day-meal-offer-for-two"
-author: "Billy"
+title: Valentine's Dinner Near Heathrow | Romantic Meal Deals at The Anchor
+description: >-
+  Celebrate Valentine's Day at The Anchor pub near Heathrow Airport. Special
+  romantic dinner deals for couples including pizza, wine, and cozy atmosphere
+  in Stanwell Moor. Perfect Valentine's restaurant just 7 minutes from Terminal
+  5. Book your romantic meal today.
+date: '2020-01-16'
+oldUrl: 'https://www.the-anchor.pub/post/valentines-day-meal-offer-for-two'
+author: Billy
 keywords:
   - valentines dinner near heathrow
   - romantic restaurant stanwell moor
@@ -14,14 +18,14 @@ keywords:
   - date night near me
   - the anchor valentines
 tags:
-  - valentines
-  - offers
-  - romance
   - dining
+  - romance
+  - special-offers
+  - valentines
 featured: false
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
+  - image-1.png
 ---
 
 ![valentines day meal offer for two image](/content/blog/valentines-day-meal-offer-for-two/hero.png)

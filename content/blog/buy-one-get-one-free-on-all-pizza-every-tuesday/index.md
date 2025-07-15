@@ -1,9 +1,14 @@
 ---
-title: "Pizza Tuesday Deals Near Heathrow | BOGOF at The Anchor"
-description: "Get 2-for-1 pizza every Tuesday at The Anchor pub near Heathrow Airport. Buy one get one free on authentic stone-baked pizzas in Stanwell Moor. Italian ingredients, fresh dough, just 7 minutes from Terminal 5. Book your table for Tuesday pizza deals."
-date: "2020-08-31"
-oldUrl: "https://www.the-anchor.pub/post/buy-one-get-one-free-on-all-pizza-every-tuesday"
-author: "Billy"
+title: Pizza Tuesday Deals Near Heathrow | BOGOF at The Anchor
+description: >-
+  Get 2-for-1 pizza every Tuesday at The Anchor pub near Heathrow Airport. Buy
+  one get one free on authentic stone-baked pizzas in Stanwell Moor. Italian
+  ingredients, fresh dough, just 7 minutes from Terminal 5. Book your table for
+  Tuesday pizza deals.
+date: '2020-08-31'
+oldUrl: >-
+  https://www.the-anchor.pub/post/buy-one-get-one-free-on-all-pizza-every-tuesday
+author: Billy
 keywords:
   - pizza deals near heathrow
   - tuesday pizza offers
@@ -14,16 +19,16 @@ keywords:
   - italian pizza near airport
   - pub food deals staines
 tags:
-  - pizza
-  - offers
-  - tuesday-deals
   - food
+  - pizza
+  - special-offers
+  - weekly-specials
 featured: true
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
-  - "image-2.png"
-  - "image-3.png"
+  - image-1.png
+  - image-2.png
+  - image-3.png
 ---
 
 ![Delicious stone-baked pizza at The Anchor pub](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-1.png)

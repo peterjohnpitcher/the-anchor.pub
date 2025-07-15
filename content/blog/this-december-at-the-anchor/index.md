@@ -1,9 +1,13 @@
 ---
-title: "December Events Near Heathrow | Christmas at The Anchor Pub"
-description: "Celebrate December at The Anchor pub near Heathrow Airport. Enjoy Christmas parties, festive quiz nights, live entertainment, and special menus throughout the month. Perfect for Heathrow workers and families in Stanwell Moor, just 7 minutes from Terminal 5."
-date: "2019-11-27"
-oldUrl: "https://www.the-anchor.pub/post/this-december-at-the-anchor"
-author: "Billy"
+title: December Events Near Heathrow | Christmas at The Anchor Pub
+description: >-
+  Celebrate December at The Anchor pub near Heathrow Airport. Enjoy Christmas
+  parties, festive quiz nights, live entertainment, and special menus throughout
+  the month. Perfect for Heathrow workers and families in Stanwell Moor, just 7
+  minutes from Terminal 5.
+date: '2019-11-27'
+oldUrl: 'https://www.the-anchor.pub/post/this-december-at-the-anchor'
+author: Billy
 keywords:
   - december events near heathrow
   - christmas pub stanwell moor
@@ -17,15 +21,13 @@ keywords:
   - christmas near heathrow airport
 tags:
   - christmas
+  - community
   - december-events
   - festive
-  - heathrow
-  - entertainment
-  - parties
+  - heathrow-area
 featured: false
-hero: "hero.png"
-images:
-  []
+hero: hero.png
+images: []
 ---
 
 ![this december at the anchor image](/content/blog/this-december-at-the-anchor/hero.png)

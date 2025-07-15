@@ -1,9 +1,14 @@
 ---
-title: "April Fools' Day Near Heathrow | Pranks & Fun at The Anchor"
-description: "Celebrate April Fools' Day at The Anchor pub near Heathrow Airport. Learn the history of April 1st pranks while enjoying drinks in Stanwell Moor, 7 minutes from Terminal 5. Perfect spot for Heathrow workers and Staines residents planning harmless jokes. Family-friendly atmosphere, free parking. Share your best pranks over a pint!"
-date: "2023-03-04"
-oldUrl: "https://www.the-anchor.pub/post/what-is-the-history-of-april-fools-day"
-author: "Billy"
+title: April Fools' Day Near Heathrow | Pranks & Fun at The Anchor
+description: >-
+  Celebrate April Fools' Day at The Anchor pub near Heathrow Airport. Learn the
+  history of April 1st pranks while enjoying drinks in Stanwell Moor, 7 minutes
+  from Terminal 5. Perfect spot for Heathrow workers and Staines residents
+  planning harmless jokes. Family-friendly atmosphere, free parking. Share your
+  best pranks over a pint!
+date: '2023-03-04'
+oldUrl: 'https://www.the-anchor.pub/post/what-is-the-history-of-april-fools-day'
+author: Billy
 keywords:
   - april fools day near heathrow
   - pranks pub stanwell moor
@@ -16,15 +21,15 @@ keywords:
   - stanwell moor entertainment
   - celebrations near airport
 tags:
-  - events
+  - community
   - drinks
+  - events
   - food
-  - news
 featured: false
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
-  - "image-2.png"
+  - image-1.png
+  - image-2.png
 ---
 
   

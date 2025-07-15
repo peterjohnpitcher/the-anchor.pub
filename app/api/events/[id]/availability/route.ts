@@ -66,9 +66,48 @@ export async function POST(
       console.log('Event response status:', eventResponse.status)
       
       if (!eventResponse.ok) {
-        const errorText = await eventResponse.text()
-        console.error('Event API error:', errorText)
-        throw new Error(`API error: ${eventResponse.status}`)
+        // If individual event endpoint fails, try to get from events list
+        console.log('Individual event endpoint failed, trying events list')
+        const eventsResponse = await fetch(
+          `${API_BASE_URL}/events?limit=100`,
+          {
+            headers: {
+              'X-API-Key': API_KEY,
+              'Authorization': `Bearer ${API_KEY}`
+            }
+          }
+        )
+        
+        if (!eventsResponse.ok) {
+          const errorText = await eventsResponse.text()
+          console.error('Events list API error:', errorText)
+          throw new Error(`API error: ${eventsResponse.status}`)
+        }
+        
+        const eventsData = await eventsResponse.json()
+        const event = eventsData.events?.find((e: any) => e.id === params.id || e.slug === params.id)
+        
+        if (!event) {
+          console.error('Event not found in events list')
+          return NextResponse.json(
+            { error: 'Event not found' },
+            { status: 404 }
+          )
+        }
+        
+        // Create availability response from event data
+        const availability = {
+          available: event.remainingAttendeeCapacity > 0,
+          event_id: event.id,
+          capacity: event.maximumAttendeeCapacity || 100,
+          booked: event.maximumAttendeeCapacity ? (event.maximumAttendeeCapacity - event.remainingAttendeeCapacity) : 0,
+          remaining: event.remainingAttendeeCapacity || 0,
+          percentage_full: event.maximumAttendeeCapacity 
+            ? Math.round(((event.maximumAttendeeCapacity - event.remainingAttendeeCapacity) / event.maximumAttendeeCapacity) * 100)
+            : 0
+        }
+        
+        return NextResponse.json(availability)
       }
 
       const eventData = await eventResponse.json()

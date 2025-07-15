@@ -1,9 +1,15 @@
 ---
-title: "Remote Work Near Heathrow: The Anchor Pub as Your Digital Nomad Haven"
-description: "Looking for the perfect remote work spot near Heathrow Airport? The Anchor pub in Stanwell Moor offers free WiFi, quiet atmosphere, great coffee, and dog-friendly spaces just 7 minutes from Terminal 5. Ideal for digital nomads, remote workers, and traveling professionals with pets. Free parking, proper food, and a productive environment without airport prices."
-date: "2024-09-01"
-oldUrl: "https://www.the-anchor.pub/post/ultimate-guide-to-traveling-as-a-digital-nomad-wit"
-author: "Cindy Aldridge"
+title: 'Remote Work Near Heathrow: The Anchor Pub as Your Digital Nomad Haven'
+description: >-
+  Looking for the perfect remote work spot near Heathrow Airport? The Anchor pub
+  in Stanwell Moor offers free WiFi, quiet atmosphere, great coffee, and
+  dog-friendly spaces just 7 minutes from Terminal 5. Ideal for digital nomads,
+  remote workers, and traveling professionals with pets. Free parking, proper
+  food, and a productive environment without airport prices.
+date: '2024-09-01'
+oldUrl: >-
+  https://www.the-anchor.pub/post/ultimate-guide-to-traveling-as-a-digital-nomad-wit
+author: Cindy Aldridge
 keywords:
   - remote work near heathrow
   - digital nomad pub stanwell moor
@@ -16,15 +22,14 @@ keywords:
   - quiet pub for working near terminal 5
   - the anchor remote work
 tags:
-  - remote work
-  - digital nomad
-  - pet friendly
+  - community
+  - digital-nomad
+  - pet-friendly
+  - remote-work
   - wifi
-  - workspace
 featured: false
-hero: "hero.jpg"
-images:
-  []
+hero: hero.jpg
+images: []
 ---
 
 ![The image shows a cheerful dog sitting in the back of a car, next to a person wearing a yellow shirt, suggesting a moment of companionship and readiness for travel.](/content/blog/ultimate-guide-to-traveling-as-a-digital-nomad-wit/hero.jpg)

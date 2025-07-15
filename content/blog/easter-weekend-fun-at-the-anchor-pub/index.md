@@ -1,9 +1,13 @@
 ---
-title: "Easter Weekend Pub Near Heathrow | Family Dining at The Anchor"
-description: "Celebrate Easter at The Anchor pub near Heathrow Airport. Extended Easter weekend hours, traditional Sunday roast, family-friendly atmosphere in Stanwell Moor. Just 7 minutes from Terminal 5. Easter egg hunts, special menu, and free parking. Perfect for Heathrow travelers and local families."
-date: "2023-03-28"
-oldUrl: "https://www.the-anchor.pub/post/easter-weekend-fun-at-the-anchor-pub"
-author: "Billy"
+title: Easter Weekend Pub Near Heathrow | Family Dining at The Anchor
+description: >-
+  Celebrate Easter at The Anchor pub near Heathrow Airport. Extended Easter
+  weekend hours, traditional Sunday roast, family-friendly atmosphere in
+  Stanwell Moor. Just 7 minutes from Terminal 5. Easter egg hunts, special menu,
+  and free parking. Perfect for Heathrow travelers and local families.
+date: '2023-03-28'
+oldUrl: 'https://www.the-anchor.pub/post/easter-weekend-fun-at-the-anchor-pub'
+author: Billy
 keywords:
   - easter pub near heathrow
   - easter weekend stanwell moor
@@ -16,14 +20,13 @@ keywords:
   - the anchor easter
   - traditional easter lunch heathrow
 tags:
-  - offers
-  - events
   - drinks
+  - events
   - food
+  - special-offers
 featured: false
-hero: "hero.png"
-images:
-  []
+hero: hero.png
+images: []
 ---
 
   

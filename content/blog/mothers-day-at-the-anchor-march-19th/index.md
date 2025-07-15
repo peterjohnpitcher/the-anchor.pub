@@ -1,9 +1,13 @@
 ---
-title: "Mother's Day Lunch Near Heathrow | Special Menu at The Anchor"
-description: "Celebrate Mother's Day at The Anchor pub near Heathrow Airport with our special set menu. Traditional Sunday roast, booking essential, just 7 minutes from Terminal 5 in Stanwell Moor. Perfect for families flying from Heathrow or locals in Staines. Reserve your Mother's Day table today."
-date: "2023-02-10"
-oldUrl: "https://www.the-anchor.pub/post/mothers-day-at-the-anchor-march-19th"
-author: "Billy"
+title: Mother's Day Lunch Near Heathrow | Special Menu at The Anchor
+description: >-
+  Celebrate Mother's Day at The Anchor pub near Heathrow Airport with our
+  special set menu. Traditional Sunday roast, booking essential, just 7 minutes
+  from Terminal 5 in Stanwell Moor. Perfect for families flying from Heathrow or
+  locals in Staines. Reserve your Mother's Day table today.
+date: '2023-02-10'
+oldUrl: 'https://www.the-anchor.pub/post/mothers-day-at-the-anchor-march-19th'
+author: Billy
 keywords:
   - mothers day lunch near heathrow
   - mothers day pub stanwell moor
@@ -16,16 +20,16 @@ keywords:
   - the anchor mothers day
   - traditional sunday lunch heathrow
 tags:
-  - offers
-  - events
   - drinks
+  - events
   - food
+  - special-offers
 featured: false
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
-  - "image-2.png"
-  - "image-3.png"
+  - image-1.png
+  - image-2.png
+  - image-3.png
 ---
 
   

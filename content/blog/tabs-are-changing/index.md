@@ -1,9 +1,13 @@
 ---
-title: "Bar Tab Policy Near Heathrow | The Anchor Pub Stanwell Moor"
-description: "Learn about bar tab policies at The Anchor pub near Heathrow Airport. Convenient tab system for regular customers, 7-day validity, £50 limit. Perfect for airport staff and locals in Stanwell Moor. Clear terms for hassle-free drinking just 7 minutes from Terminal 5."
-date: "2019-08-20"
-oldUrl: "https://www.the-anchor.pub/post/tabs-are-changing"
-author: "Billy"
+title: Bar Tab Policy Near Heathrow | The Anchor Pub Stanwell Moor
+description: >-
+  Learn about bar tab policies at The Anchor pub near Heathrow Airport.
+  Convenient tab system for regular customers, 7-day validity, £50 limit.
+  Perfect for airport staff and locals in Stanwell Moor. Clear terms for
+  hassle-free drinking just 7 minutes from Terminal 5.
+date: '2019-08-20'
+oldUrl: 'https://www.the-anchor.pub/post/tabs-are-changing'
+author: Billy
 keywords:
   - bar tab policy near heathrow
   - pub tabs stanwell moor
@@ -16,13 +20,12 @@ keywords:
   - bar tab rules heathrow
   - pub credit system
 tags:
-  - offers
-  - events
   - drinks
+  - events
+  - special-offers
 featured: false
-hero: "hero.png"
-images:
-  []
+hero: hero.png
+images: []
 ---
 
   

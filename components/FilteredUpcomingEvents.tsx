@@ -81,7 +81,7 @@ export async function FilteredUpcomingEvents({ categorySlug }: FilteredUpcomingE
                           src={eventImage}
                           alt={event.name}
                           fill
-                          className="object-cover"
+                          className="object-contain"
                           sizes="80px"
                         />
                       </div>
@@ -141,7 +141,7 @@ export async function FilteredUpcomingEvents({ categorySlug }: FilteredUpcomingE
                           src={eventImage}
                           alt={event.name}
                           fill
-                          className="object-cover hover:scale-105 transition-transform duration-300"
+                          className="object-contain hover:scale-105 transition-transform duration-300"
                           sizes="128px"
                         />
                       </div>

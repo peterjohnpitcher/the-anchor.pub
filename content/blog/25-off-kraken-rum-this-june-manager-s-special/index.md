@@ -1,9 +1,14 @@
 ---
-title: "Best Kraken Rum Deals Near Heathrow Airport | Monthly Specials Stanwell Moor"
-description: "Discover amazing monthly rum specials at The Anchor pub near Heathrow Airport. Premium Kraken Rum with exclusive discounts for airport staff, travelers, and locals. Regular rum tasting nights featuring Caribbean spirits. Just 7 minutes from Terminal 5 with free parking. The ultimate destination for rum cocktails and deals near Heathrow."
-date: "2025-01-15"
-oldUrl: "https://www.the-anchor.pub/post/25-off-kraken-rum-this-june-manager-s-special"
-author: "Billy"
+title: Best Kraken Rum Deals Near Heathrow Airport | Monthly Specials Stanwell Moor
+description: >-
+  Discover amazing monthly rum specials at The Anchor pub near Heathrow Airport.
+  Premium Kraken Rum with exclusive discounts for airport staff, travelers, and
+  locals. Regular rum tasting nights featuring Caribbean spirits. Just 7 minutes
+  from Terminal 5 with free parking. The ultimate destination for rum cocktails
+  and deals near Heathrow.
+date: '2025-01-15'
+oldUrl: 'https://www.the-anchor.pub/post/25-off-kraken-rum-this-june-manager-s-special'
+author: Billy
 keywords:
   - kraken rum near heathrow
   - rum deals heathrow airport
@@ -18,16 +23,13 @@ keywords:
   - manager specials near heathrow
   - rum bar near terminal 5
 tags:
-  - rum
-  - special offers
-  - drinks deals
   - cocktails
-  - heathrow
-  - monthly specials
+  - heathrow-area
+  - special-offers
+  - spirits
 featured: true
-hero: "hero.jpg"
-images:
-  []
+hero: hero.jpg
+images: []
 ---
 
 Looking for the **best rum deals near Heathrow Airport**? The Anchor in **Stanwell Moor** features exclusive monthly manager's specials on premium spirits, including amazing discounts on Kraken Rum - the Caribbean spiced rum that's taking the UK by storm. Located just **7 minutes from Heathrow Terminal 5**, we're the perfect spot for airport staff celebrations, pre-flight drinks, or a quality night out near **Staines**.

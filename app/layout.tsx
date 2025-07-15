@@ -175,7 +175,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://management.orangejelly.co.uk" />
         <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
-        <link rel="preload" href="/images/page-headers/home/2D52A9A5-6CE1-4AD7-9899-6755E4944324_1_105_c.jpeg" as="image" fetchPriority="high" />
+        <link rel="preload" href="/images/page-headers/home/Page Headers - Homepage.jpg" as="image" fetchPriority="high" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"

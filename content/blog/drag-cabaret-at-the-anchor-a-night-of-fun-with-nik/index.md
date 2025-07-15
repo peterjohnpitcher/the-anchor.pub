@@ -1,9 +1,15 @@
 ---
-title: "Drag Shows Near Heathrow | Nikki Manfadge's Cabaret at The Anchor"
-description: "Experience the best drag entertainment near Heathrow Airport at The Anchor pub. Join Nikki Manfadge for an unforgettable night of comedy, cabaret, and interactive fun every last Friday. Free entry, dinner available, just 10 minutes from Terminal 5. Book your table for Stanwell Moor's hottest drag show."
-date: "2025-03-06"
-oldUrl: "https://www.the-anchor.pub/post/drag-cabaret-at-the-anchor-a-night-of-fun-with-nik"
-author: "Billy"
+title: Drag Shows Near Heathrow | Nikki Manfadge's Cabaret at The Anchor
+description: >-
+  Experience the best drag entertainment near Heathrow Airport at The Anchor
+  pub. Join Nikki Manfadge for an unforgettable night of comedy, cabaret, and
+  interactive fun every last Friday. Free entry, dinner available, just 10
+  minutes from Terminal 5. Book your table for Stanwell Moor's hottest drag
+  show.
+date: '2025-03-06'
+oldUrl: >-
+  https://www.the-anchor.pub/post/drag-cabaret-at-the-anchor-a-night-of-fun-with-nik
+author: Billy
 keywords:
   - drag shows near heathrow
   - cabaret nights stanwell moor
@@ -14,15 +20,14 @@ keywords:
   - free entertainment staines
   - friday night shows surrey
 tags:
+  - comedy
+  - drag-cabaret
   - entertainment
   - events
-  - friday-nights
-  - drag-cabaret
-  - comedy
+  - weekly-specials
 featured: true
-hero: "hero.png"
-images:
-  []
+hero: hero.png
+images: []
 ---
 
 ![Nikki Manfadge's Drag Cabaret at The Anchor](/content/blog/drag-cabaret-at-the-anchor-a-night-of-fun-with-nik/hero.png)

@@ -1,9 +1,16 @@
 ---
-title: "Best Craft Beer Pub Near Heathrow Airport | Premium T-Bar Pumps Stanwell Moor"
-description: "Discover the finest beer experience near Heathrow at The Anchor pub. State-of-the-art T-Bar pumps deliver ice-cold, perfectly poured pints just 7 minutes from Terminal 5. Featuring Carling, Coors, craft ales, and local brews. Ideal for airport staff, travelers, and beer enthusiasts. Free parking, award-winning beer garden, and expert staff make us the ultimate beer destination near Heathrow."
-date: "2025-01-15"
-oldUrl: "https://www.the-anchor.pub/post/experience-the-best-beer-at-a-great-pub-near-heath"
-author: "Billy"
+title: Best Craft Beer Pub Near Heathrow Airport | Premium T-Bar Pumps Stanwell Moor
+description: >-
+  Discover the finest beer experience near Heathrow at The Anchor pub.
+  State-of-the-art T-Bar pumps deliver ice-cold, perfectly poured pints just 7
+  minutes from Terminal 5. Featuring Carling, Coors, craft ales, and local
+  brews. Ideal for airport staff, travelers, and beer enthusiasts. Free parking,
+  award-winning beer garden, and expert staff make us the ultimate beer
+  destination near Heathrow.
+date: '2025-01-15'
+oldUrl: >-
+  https://www.the-anchor.pub/post/experience-the-best-beer-at-a-great-pub-near-heath
+author: Billy
 keywords:
   - best beer pub near heathrow
   - craft beer heathrow airport
@@ -19,27 +26,26 @@ keywords:
   - carling coors pub heathrow
 tags:
   - beer
-  - craft beer
-  - pub upgrades
+  - craft-beer
   - drinks
-  - heathrow
-  - beer garden
+  - heathrow-area
+  - pub-upgrades
 featured: true
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.jpeg"
-  - "image-2.jpeg"
-  - "image-3.jpeg"
-  - "image-4.jpeg"
-  - "image-5.jpeg"
-  - "image-6.jpeg"
-  - "image-7.jpeg"
-  - "image-8.jpeg"
-  - "image-9.jpeg"
-  - "image-10.jpeg"
-  - "image-11.jpeg"
-  - "image-12.jpeg"
-  - "image-13.jpg"
+  - image-1.jpeg
+  - image-2.jpeg
+  - image-3.jpeg
+  - image-4.jpeg
+  - image-5.jpeg
+  - image-6.jpeg
+  - image-7.jpeg
+  - image-8.jpeg
+  - image-9.jpeg
+  - image-10.jpeg
+  - image-11.jpeg
+  - image-12.jpeg
+  - image-13.jpg
 ---
 
 ![Image of new T-Bar beer pumps at The Anchor pub, featuring beer brands such as Inch's, Orchard Thieves, Carling, and Coors. The bar is well-lit and showcases a modern, inviting atmosphere. Text overlay reads 'The Upgrades at The Anchor Continue!'.](/content/blog/experience-the-best-beer-at-a-great-pub-near-heath/hero.png)

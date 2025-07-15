@@ -1,9 +1,14 @@
 ---
-title: "Free Pint Near Heathrow | Stanwell Moor Brew at The Anchor"
-description: "Free pint offer for Stanwell Moor residents at The Anchor pub near Heathrow Airport. Try our signature Stanwell Moor Brew, just 7 minutes from Terminal 5. November special for local community including Heathrow workers living locally. Traditional ale at your village pub near Staines. Limited time offer with flyer."
-date: "2024-11-08"
-oldUrl: "https://www.the-anchor.pub/post/free-pint-offer-this-november"
-author: "Billy"
+title: Free Pint Near Heathrow | Stanwell Moor Brew at The Anchor
+description: >-
+  Free pint offer for Stanwell Moor residents at The Anchor pub near Heathrow
+  Airport. Try our signature Stanwell Moor Brew, just 7 minutes from Terminal 5.
+  November special for local community including Heathrow workers living
+  locally. Traditional ale at your village pub near Staines. Limited time offer
+  with flyer.
+date: '2024-11-08'
+oldUrl: 'https://www.the-anchor.pub/post/free-pint-offer-this-november'
+author: Billy
 keywords:
   - free pint near heathrow
   - stanwell moor brew
@@ -16,14 +21,13 @@ keywords:
   - signature ale near terminal 5
   - stanwell moor residents offer
 tags:
-  - offers
-  - events
   - drinks
+  - events
   - food
+  - special-offers
 featured: false
-hero: "hero.png"
-images:
-  []
+hero: hero.png
+images: []
 ---
 
 ![A promotional graphic for The Anchor pub, highlighting a free pint offer of Stanwell Moor Brew for Stanwell Moor residents during November 2024. The design includes the brew’s logo and key offer details in a bold, engaging layout.](/content/blog/free-pint-offer-this-november/hero.png)

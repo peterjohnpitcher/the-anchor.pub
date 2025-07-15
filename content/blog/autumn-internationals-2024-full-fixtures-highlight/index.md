@@ -1,9 +1,16 @@
 ---
-title: "Watch Autumn Internationals 2024 Near Heathrow | Rugby Fixtures & Live Screening"
-description: "Watch the Autumn Internationals 2024 at The Anchor pub near Heathrow Airport. Full fixtures list, live screening times, and traditional pub food. Best rugby pub in Staines, Stanwell Moor. England v New Zealand, Ireland v All Blacks, plus all November rugby matches on our big screens."
-date: "2024-08-23"
-oldUrl: "https://www.the-anchor.pub/post/autumn-internationals-2024-full-fixtures-highlight"
-author: "Billy"
+title: >-
+  Watch Autumn Internationals 2024 Near Heathrow | Rugby Fixtures & Live
+  Screening
+description: >-
+  Watch the Autumn Internationals 2024 at The Anchor pub near Heathrow Airport.
+  Full fixtures list, live screening times, and traditional pub food. Best rugby
+  pub in Staines, Stanwell Moor. England v New Zealand, Ireland v All Blacks,
+  plus all November rugby matches on our big screens.
+date: '2024-08-23'
+oldUrl: >-
+  https://www.the-anchor.pub/post/autumn-internationals-2024-full-fixtures-highlight
+author: Billy
 keywords:
   - autumn internationals 2024
   - rugby fixtures november 2024
@@ -14,14 +21,13 @@ keywords:
   - pub near heathrow terminal 5
   - traditional pub food
 tags:
+  - events
+  - live-sports
   - rugby
   - sports
-  - events
-  - live-screening
 featured: true
-hero: "hero.png"
-images:
-  []
+hero: hero.png
+images: []
 ---
 
 ![Rugby player holding a ball with intense expression, promoting the Autumn Internationals 2024. Exciting fixtures and world-class rugby action from November 2nd to November 30th.](/content/blog/autumn-internationals-2024-full-fixtures-highlight/hero.png)

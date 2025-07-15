@@ -1,9 +1,14 @@
 ---
-title: "Price Freeze Near Heathrow | No Increases at The Anchor Pub"
-description: "Price freeze at The Anchor pub near Heathrow Airport! No draught price increases until autumn 2025. Perfect for Heathrow workers avoiding airport prices. Just 7 minutes from Terminal 5 in Stanwell Moor. Enjoy Carlsberg at £4.75, premium spirits deals, and proper pub prices. Free parking, beer garden, weekly events. Your local alternative to expensive airport bars."
-date: "2025-03-31"
-oldUrl: "https://www.the-anchor.pub/post/prices-frozen-until-autumn-theanchor-pub"
-author: "Billy"
+title: Price Freeze Near Heathrow | No Increases at The Anchor Pub
+description: >-
+  Price freeze at The Anchor pub near Heathrow Airport! No draught price
+  increases until autumn 2025. Perfect for Heathrow workers avoiding airport
+  prices. Just 7 minutes from Terminal 5 in Stanwell Moor. Enjoy Carlsberg at
+  £4.75, premium spirits deals, and proper pub prices. Free parking, beer
+  garden, weekly events. Your local alternative to expensive airport bars.
+date: '2025-03-31'
+oldUrl: 'https://www.the-anchor.pub/post/prices-frozen-until-autumn-theanchor-pub'
+author: Billy
 keywords:
   - price freeze near heathrow
   - cheap pints stanwell moor
@@ -16,15 +21,15 @@ keywords:
   - draught prices frozen
   - proper pub prices heathrow
 tags:
-  - offers
-  - events
+  - community
   - drinks
+  - events
   - food
-  - news
+  - special-offers
 featured: false
-hero: "hero.jpg"
+hero: hero.jpg
 images:
-  - "image-1.jpg"
+  - image-1.jpg
 ---
 
 ![Graphic for The Anchor's 'Budge Busting Update' on April 1st, 2025, highlighting budget-friendly pub experiences.](/content/blog/prices-frozen-until-autumn-theanchor-pub/hero.jpg)

@@ -1,9 +1,14 @@
 ---
-title: "Remembrance Day Near Heathrow | The Anchor Honours Our Heroes"
-description: "Join The Anchor pub near Heathrow Airport in honouring our fallen heroes on Remembrance Day. Located in Stanwell Moor, we observe the two-minute silence and support local remembrance events in Staines. A community pub that remembers those who gave their lives for our freedom."
-date: "2023-11-02"
-oldUrl: "https://www.the-anchor.pub/post/reflecting-on-sacrifice-remembrance-day-observance"
-author: "Billy"
+title: Remembrance Day Near Heathrow | The Anchor Honours Our Heroes
+description: >-
+  Join The Anchor pub near Heathrow Airport in honouring our fallen heroes on
+  Remembrance Day. Located in Stanwell Moor, we observe the two-minute silence
+  and support local remembrance events in Staines. A community pub that
+  remembers those who gave their lives for our freedom.
+date: '2023-11-02'
+oldUrl: >-
+  https://www.the-anchor.pub/post/reflecting-on-sacrifice-remembrance-day-observance
+author: Billy
 keywords:
   - remembrance day pub near heathrow
   - poppy day stanwell moor
@@ -16,16 +21,16 @@ keywords:
   - poppy appeal stanwell moor
   - armistice day near terminal 5
 tags:
-  - offers
-  - events
   - drinks
+  - events
   - food
+  - special-offers
 featured: false
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
-  - "image-2.png"
-  - "image-3.png"
+  - image-1.png
+  - image-2.png
+  - image-3.png
 ---
 
   

@@ -1,9 +1,13 @@
 ---
-title: "Real Ale Selection Near Heathrow | Bottled Beers at The Anchor"
-description: "Discover our premium bottled ale selection at The Anchor pub near Heathrow Airport. Featuring Old Speckled Hen, Greene King IPA, and Abbot Ale in Stanwell Moor. Quality British ales just 7 minutes from Terminal 5. Perfect for ale enthusiasts and airport visitors seeking traditional beers."
-date: "2019-05-16"
-oldUrl: "https://www.the-anchor.pub/post/the-boys-are-back-in-town"
-author: "Billy"
+title: Real Ale Selection Near Heathrow | Bottled Beers at The Anchor
+description: >-
+  Discover our premium bottled ale selection at The Anchor pub near Heathrow
+  Airport. Featuring Old Speckled Hen, Greene King IPA, and Abbot Ale in
+  Stanwell Moor. Quality British ales just 7 minutes from Terminal 5. Perfect
+  for ale enthusiasts and airport visitors seeking traditional beers.
+date: '2019-05-16'
+oldUrl: 'https://www.the-anchor.pub/post/the-boys-are-back-in-town'
+author: Billy
 keywords:
   - real ale pub near heathrow
   - bottled beers stanwell moor
@@ -16,17 +20,17 @@ keywords:
   - craft ales near heathrow
   - quality beers terminal 5
 tags:
-  - offers
-  - events
+  - community
   - drinks
+  - events
   - food
-  - news
+  - special-offers
 featured: false
-hero: "hero.jpeg"
+hero: hero.jpeg
 images:
-  - "image-1.jpeg"
-  - "image-2.jpeg"
-  - "image-3.jpeg"
+  - image-1.jpeg
+  - image-2.jpeg
+  - image-3.jpeg
 ---
 
   

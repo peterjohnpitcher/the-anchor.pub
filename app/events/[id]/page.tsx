@@ -150,7 +150,8 @@ export default async function EventPage({ params }: Props) {
                     src={event.heroImageUrl || event.image![0]}
                     alt={event.name}
                     fill
-                    className="object-cover"
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 400px"
                     priority
                   />
                 </div>
@@ -175,7 +176,8 @@ export default async function EventPage({ params }: Props) {
                       src={event.heroImageUrl || event.image![0]}
                       alt={event.name}
                       fill
-                      className="object-cover"
+                      className="object-contain"
+                      sizes="320px"
                       priority
                     />
                   </div>

@@ -1,9 +1,14 @@
 ---
-title: "Sunday Lunch Near Heathrow | Traditional Roasts at The Anchor"
-description: "Book your traditional Sunday lunch near Heathrow Airport at The Anchor pub. Fresh roast dinners with Yorkshire puddings served 12-5pm. Dog-friendly pub in Stanwell Moor offering quality Sunday roasts just 7 minutes from Terminal 5. Pre-order essential."
-date: "2025-02-02"
-oldUrl: "https://www.the-anchor.pub/post/sunday-lunch-at-the-anchor-is-back-pre-order-now"
-author: "Billy"
+title: Sunday Lunch Near Heathrow | Traditional Roasts at The Anchor
+description: >-
+  Book your traditional Sunday lunch near Heathrow Airport at The Anchor pub.
+  Fresh roast dinners with Yorkshire puddings served 12-5pm. Dog-friendly pub in
+  Stanwell Moor offering quality Sunday roasts just 7 minutes from Terminal 5.
+  Pre-order essential.
+date: '2025-02-02'
+oldUrl: >-
+  https://www.the-anchor.pub/post/sunday-lunch-at-the-anchor-is-back-pre-order-now
+author: Billy
 keywords:
   - sunday lunch near heathrow
   - traditional roast dinner
@@ -14,14 +19,13 @@ keywords:
   - quality sunday lunch
   - the anchor sunday menu
 tags:
-  - sunday-lunch
-  - food
-  - traditional
   - dining
+  - food
+  - sunday-roast
+  - traditional
 featured: true
-hero: "hero.jpg"
-images:
-  []
+hero: hero.jpg
+images: []
 ---
 
 ![Close-up of a Sunday lunch with Yorkshire pudding, roast, and veggies. Text: "The Anchor, serving 12pm-5pm." Bright, inviting setting.](/content/blog/sunday-lunch-at-the-anchor-is-back-pre-order-now/hero.jpg)

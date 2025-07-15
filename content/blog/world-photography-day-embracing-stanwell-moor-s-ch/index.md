@@ -1,9 +1,14 @@
 ---
-title: "World Photography Day Near Heathrow | Capture Stanwell Moor's Beauty"
-description: "Celebrate World Photography Day at The Anchor pub near Heathrow Airport. Join our annual photo competition capturing Stanwell Moor's charm. Submit your best village photos for display in our traditional British pub. Perfect for photographers near Terminal 5, just 7 minutes away."
-date: "2023-08-11"
-oldUrl: "https://www.the-anchor.pub/post/world-photography-day-embracing-stanwell-moor-s-ch"
-author: "Billy"
+title: World Photography Day Near Heathrow | Capture Stanwell Moor's Beauty
+description: >-
+  Celebrate World Photography Day at The Anchor pub near Heathrow Airport. Join
+  our annual photo competition capturing Stanwell Moor's charm. Submit your best
+  village photos for display in our traditional British pub. Perfect for
+  photographers near Terminal 5, just 7 minutes away.
+date: '2023-08-11'
+oldUrl: >-
+  https://www.the-anchor.pub/post/world-photography-day-embracing-stanwell-moor-s-ch
+author: Billy
 keywords:
   - world photography day near heathrow
   - stanwell moor photography competition
@@ -16,20 +21,19 @@ keywords:
   - local photography stanwell moor
   - community photo contest
 tags:
+  - community
+  - heathrow-area
   - photography
-  - community-events
-  - world-photography-day
   - stanwell-moor
-  - heathrow
-  - competition
+  - world-photography-day
 featured: false
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
-  - "image-2.png"
-  - "image-3.png"
-  - "image-4.png"
-  - "image-5.png"
+  - image-1.png
+  - image-2.png
+  - image-3.png
+  - image-4.png
+  - image-5.png
 ---
 
 ![world photography day embracing stanwell moor s ch image](/content/blog/world-photography-day-embracing-stanwell-moor-s-ch/hero.png)

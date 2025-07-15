@@ -1,9 +1,14 @@
 ---
-title: "Watch Six Nations Rugby Near Heathrow Airport | Best Sports Pub Stanwell Moor"
-description: "Experience Six Nations rugby at The Anchor pub, just 7 minutes from Heathrow Airport. Multiple HD screens, traditional pub food, and passionate atmosphere. Perfect for England rugby matches, with free parking and table booking available. The ultimate sports pub near Heathrow Terminal 5 for local fans and travelers."
-date: "2025-01-15"
-oldUrl: "https://www.the-anchor.pub/post/six-nations-rugby-at-the-anchor-2023"
-author: "Billy"
+title: Watch Six Nations Rugby Near Heathrow Airport | Best Sports Pub Stanwell Moor
+description: >-
+  Experience Six Nations rugby at The Anchor pub, just 7 minutes from Heathrow
+  Airport. Multiple HD screens, traditional pub food, and passionate atmosphere.
+  Perfect for England rugby matches, with free parking and table booking
+  available. The ultimate sports pub near Heathrow Terminal 5 for local fans and
+  travelers.
+date: '2025-01-15'
+oldUrl: 'https://www.the-anchor.pub/post/six-nations-rugby-at-the-anchor-2023'
+author: Billy
 keywords:
   - six nations rugby near heathrow
   - sports pub heathrow airport
@@ -18,19 +23,18 @@ keywords:
   - best sports pub near heathrow
   - six nations 2025 heathrow
 tags:
-  - sports
-  - rugby
-  - six nations
   - events
-  - heathrow
-  - live-sports
+  - heathrow-area
+  - rugby
+  - six-nations
+  - sports
 featured: true
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
-  - "image-2.png"
-  - "image-3.png"
-  - "image-4.png"
+  - image-1.png
+  - image-2.png
+  - image-3.png
+  - image-4.png
 ---
 
   

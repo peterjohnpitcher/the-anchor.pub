@@ -1,9 +1,15 @@
 ---
-title: "Halloween Party Near Heathrow | Day of the Dead at The Anchor"
-description: "Join The Anchor's annual Halloween party near Heathrow Airport with Day of the Dead themes. Family-friendly costume party in Stanwell Moor, just 7 minutes from Terminal 5. Live DJ, fancy dress competition, shot paddles. Perfect Halloween event for Heathrow workers and Staines residents. Free parking available."
-date: "2024-11-02"
-oldUrl: "https://www.the-anchor.pub/post/day-of-the-dead-halloween-party-costumes-dance-and"
-author: "Billy"
+title: Halloween Party Near Heathrow | Day of the Dead at The Anchor
+description: >-
+  Join The Anchor's annual Halloween party near Heathrow Airport with Day of the
+  Dead themes. Family-friendly costume party in Stanwell Moor, just 7 minutes
+  from Terminal 5. Live DJ, fancy dress competition, shot paddles. Perfect
+  Halloween event for Heathrow workers and Staines residents. Free parking
+  available.
+date: '2024-11-02'
+oldUrl: >-
+  https://www.the-anchor.pub/post/day-of-the-dead-halloween-party-costumes-dance-and
+author: Billy
 keywords:
   - halloween party near heathrow
   - day of the dead pub stanwell moor
@@ -16,14 +22,14 @@ keywords:
   - shot paddles stanwell moor
   - community halloween near terminal 5
 tags:
-  - offers
-  - events
+  - community
   - drinks
+  - events
   - food
-  - news
+  - special-offers
 featured: false
-hero: "hero.png"
-images:
+hero: hero.png
+images: null
 ---
 
 ![Colourful Day of the Dead themed poster for The Anchor’s Annual Halloween Party on Saturday, November 2nd 2024, featuring a man with sugar skull face paint and details about the event.](/content/blog/day-of-the-dead-halloween-party-costumes-dance-and/hero.png)

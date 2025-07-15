@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
+const blogRedirects = require('./blog-redirects.json')
+
 const nextConfig = {
+  async redirects() {
+    return blogRedirects
+  },
   images: {
     domains: ['the-anchor.pub', 'management.orangejelly.co.uk', 'example.com', 'openweathermap.org', 'tfcasgxopxegwrabvwat.supabase.co'],
     formats: ['image/avif', 'image/webp'],

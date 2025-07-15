@@ -1,9 +1,14 @@
 ---
-title: "Tequila & Mexican Tradition at The Anchor | Premium Tequila Bar Near Heathrow"
-description: "Discover the rich history of tequila and agave at The Anchor pub near Heathrow. Premium tequila selection, tasting events, and authentic Mexican spirits. Best tequila bar in Staines, Stanwell Moor. Learn about tequila tradition while enjoying quality drinks at our traditional pub."
-date: "2024-08-23"
-oldUrl: "https://www.the-anchor.pub/post/tequila-and-tradition-how-agave-shapes-mexican-cul"
-author: "Billy"
+title: Tequila & Mexican Tradition at The Anchor | Premium Tequila Bar Near Heathrow
+description: >-
+  Discover the rich history of tequila and agave at The Anchor pub near
+  Heathrow. Premium tequila selection, tasting events, and authentic Mexican
+  spirits. Best tequila bar in Staines, Stanwell Moor. Learn about tequila
+  tradition while enjoying quality drinks at our traditional pub.
+date: '2024-08-23'
+oldUrl: >-
+  https://www.the-anchor.pub/post/tequila-and-tradition-how-agave-shapes-mexican-cul
+author: Billy
 keywords:
   - tequila bar near heathrow
   - mexican spirits staines
@@ -15,14 +20,12 @@ keywords:
   - traditional mexican drinks
   - best tequila near me
 tags:
-  - tequila
-  - drinks
   - culture
+  - drinks
   - spirits
 featured: false
-hero: "hero.png"
-images:
-  []
+hero: hero.png
+images: []
 ---
 
 ![A scenic image of an agave field under a bright blue sky with mountains in the background. The text reads 'Tequila and Tradition: The Role of Agave in Mexican Culture.' The Anchor logo is positioned at the top, with a bold, green font for the headline. The image reflects the connection between tequila production and Mexican tradition.](/content/blog/tequila-and-tradition-how-agave-shapes-mexican-cul/hero.png)

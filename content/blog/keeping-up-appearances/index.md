@@ -1,9 +1,13 @@
 ---
-title: "Pub Renovations Near Heathrow | The Anchor's Fresh New Look"
-description: "The Anchor pub near Heathrow Airport unveils stunning renovations. Our traditional British pub in Stanwell Moor features a fresh exterior, improved parking, and beautiful new garden area. Just 7 minutes from Terminal 5, discover our transformed venue perfect for Heathrow workers and locals."
-date: "2019-04-29"
-oldUrl: "https://www.the-anchor.pub/post/keeping-up-appearances"
-author: "Billy"
+title: Pub Renovations Near Heathrow | The Anchor's Fresh New Look
+description: >-
+  The Anchor pub near Heathrow Airport unveils stunning renovations. Our
+  traditional British pub in Stanwell Moor features a fresh exterior, improved
+  parking, and beautiful new garden area. Just 7 minutes from Terminal 5,
+  discover our transformed venue perfect for Heathrow workers and locals.
+date: '2019-04-29'
+oldUrl: 'https://www.the-anchor.pub/post/keeping-up-appearances'
+author: Billy
 keywords:
   - pub renovations near heathrow
   - the anchor stanwell moor refurbishment
@@ -16,15 +20,14 @@ keywords:
   - the anchor new look
   - improved parking heathrow pub
 tags:
-  - renovations
-  - updates
-  - improvements
-  - heathrow
   - community
+  - heathrow-area
+  - improvements
+  - renovations
 featured: false
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.jpeg"
+  - image-1.jpeg
 ---
 
 ![keeping up appearances image](/content/blog/keeping-up-appearances/hero.png)
