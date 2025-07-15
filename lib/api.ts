@@ -1,7 +1,10 @@
 // The Anchor API Service
 // Handles all API calls to the management system
 
-const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
+// Use internal API routes to avoid CORS issues and keep API key secure
+const API_BASE_URL = typeof window === 'undefined' 
+  ? 'https://management.orangejelly.co.uk/api'  // Server-side: direct API calls
+  : '/api'  // Client-side: use Next.js API routes
 
 // Types based on API documentation
 export interface Event {
@@ -9,14 +12,16 @@ export interface Event {
   id: string
   slug: string
   name: string
-  description: string | null
+  description: string | null // Short description (same as shortDescription)
   shortDescription?: string | null
   longDescription?: string | null
   highlights?: string[]
-  keywords?: string[]
+  keywords?: string | string[] // Can be string or array
   startDate: string
   endDate?: string | null
-  lastEntryTime?: string | null
+  doorTime?: string | null // New field: doors open time
+  duration?: string | null // New field: ISO 8601 duration
+  about?: string | null // New field: extended description
   eventStatus: string
   eventAttendanceMode: string
   location: {
@@ -48,20 +53,23 @@ export interface Event {
     }
   }
   image?: string[]
-  heroImageUrl?: string | null
-  thumbnailImageUrl?: string | null
-  posterImageUrl?: string | null
-  galleryImages?: string[]
-  promoVideoUrl?: string | null
-  highlightVideos?: string[]
+  video?: string[] // New field: event video URLs
+  heroImageUrl?: string | null // Legacy field
+  thumbnailImageUrl?: string | null // Legacy field
+  posterImageUrl?: string | null // Legacy field
+  galleryImages?: string[] // Legacy field
+  promoVideoUrl?: string | null // Legacy field
+  highlightVideos?: string[] // Legacy field
   organizer?: {
     '@type': 'Organization'
     name: string
     url?: string
   }
   isAccessibleForFree?: boolean
-  remainingAttendeeCapacity?: number
-  maximumAttendeeCapacity?: number
+  remainingAttendeeCapacity?: number // Available seats
+  maximumAttendeeCapacity?: number // Total capacity
+  url?: string // New field: event page URL
+  identifier?: string // New field: same as id
   metaTitle?: string | null
   metaDescription?: string | null
   category?: {
@@ -97,7 +105,15 @@ export interface Event {
       name: string
     }
   }
-  faqPage?: {
+  faq?: Array<{ // Updated field name from faqPage
+    '@type': 'Question'
+    name: string
+    acceptedAnswer: {
+      '@type': 'Answer'
+      text: string
+    }
+  }>
+  faqPage?: { // Keep legacy field for compatibility
     '@type': 'FAQPage'
     mainEntity: Array<{
       '@type': 'Question'
@@ -116,6 +132,62 @@ export interface EventsResponse {
     total: number
     limit: number
     offset: number
+    has_more?: boolean
+    lastUpdated?: string
+  }
+}
+
+// New types for booking functionality
+export interface BookingInitiation {
+  event_id: string
+  mobile_number: string
+}
+
+export interface BookingInitiationResponse {
+  status: 'pending'
+  booking_token: string
+  confirmation_url: string
+  expires_at: string
+  event: {
+    id: string
+    name: string
+    date: string
+    time: string
+    available_seats: number
+  }
+  customer_exists: boolean
+  sms_sent: boolean
+}
+
+// Event availability check
+export interface EventAvailability {
+  available: boolean
+  event_id: string
+  capacity: number
+  booked: number
+  remaining: number
+  percentage_full: number
+}
+
+// Event categories
+export interface EventCategory {
+  id: string
+  name: string
+  slug: string
+  description: string
+  color: string
+  icon: string
+  is_active: boolean
+  default_start_time: string
+  default_capacity: number
+  event_count: number
+}
+
+export interface EventCategoriesResponse {
+  categories: EventCategory[]
+  meta: {
+    total: number
+    lastUpdated: string
   }
 }
 
@@ -187,7 +259,8 @@ export class AnchorAPI {
     this.baseURL = API_BASE_URL
     this.apiKey = apiKey || process.env.ANCHOR_API_KEY || ''
     
-    if (!this.apiKey) {
+    // Only warn on server-side where API key is expected
+    if (!this.apiKey && typeof window === 'undefined') {
       console.warn('ANCHOR_API_KEY is not set. API calls will fail.')
     }
   }
@@ -260,6 +333,7 @@ export class AnchorAPI {
     from_date?: string
     to_date?: string
     category_id?: string
+    available_only?: boolean
     limit?: number
     offset?: number
   } = {}): Promise<EventsResponse> {
@@ -275,19 +349,18 @@ export class AnchorAPI {
 
   async getEvent(idOrSlug: string): Promise<Event> {
     try {
-      // Try the individual event endpoint first (supports both ID and slug)
+      // Try the individual event endpoint first
       return await this.request<Event>(`/events/${idOrSlug}`)
     } catch (error: any) {
       // If individual endpoint fails, fallback to searching in events list
-      if (error?.status === 404 || error?.message?.includes('NOT_FOUND')) {
-        console.log('Individual event endpoint failed, trying events list fallback')
-        const eventsResponse = await this.getEvents({ limit: 100 })
-        const event = eventsResponse.events.find(e => e.id === idOrSlug || e.slug === idOrSlug)
-        if (event) {
-          return event
-        }
+      // This ensures we get capacity information which may not be in individual endpoint
+      console.log('Fetching event from events list for capacity data')
+      const eventsResponse = await this.getEvents({ limit: 100 })
+      const event = eventsResponse.events.find(e => e.id === idOrSlug || e.slug === idOrSlug)
+      if (event) {
+        return event
       }
-      throw error
+      throw { message: 'Event not found', status: 404 }
     }
   }
 
@@ -295,8 +368,28 @@ export class AnchorAPI {
     return this.request<EventsResponse>('/events/today')
   }
 
-  async getEventCategories(): Promise<any> {
-    return this.request('/event-categories')
+  async getEventCategories(): Promise<EventCategoriesResponse> {
+    return this.request<EventCategoriesResponse>('/event-categories')
+  }
+
+  // New methods for booking functionality
+  async checkEventAvailability(eventId: string, seats: number = 1): Promise<EventAvailability> {
+    // Use different endpoint for client vs server
+    const endpoint = typeof window === 'undefined'
+      ? `/events/${eventId}/check-availability`  // Server: external API endpoint
+      : `/events/${eventId}/availability`        // Client: internal API route
+    
+    return this.request<EventAvailability>(endpoint, {
+      method: 'POST',
+      body: JSON.stringify({ seats })
+    })
+  }
+
+  async initiateBooking(data: BookingInitiation): Promise<BookingInitiationResponse> {
+    return this.request<BookingInitiationResponse>('/bookings/initiate', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
   }
 
 
@@ -363,8 +456,8 @@ export class AnchorAPI {
   }
 }
 
-// Export singleton instance
-export const anchorAPI = new AnchorAPI()
+// Export singleton instance with API key from environment
+export const anchorAPI = new AnchorAPI(process.env.ANCHOR_API_KEY)
 
 // Helper function for business hours
 export async function getBusinessHours(): Promise<BusinessHours | null> {
@@ -493,4 +586,81 @@ export function getEventShortDescription(event: Event, maxLength: number = 150):
   }
   
   return event.description
+}
+
+// New helper functions for booking functionality
+export async function checkEventAvailability(eventId: string, seats: number = 1): Promise<EventAvailability | null> {
+  try {
+    return await anchorAPI.checkEventAvailability(eventId, seats)
+  } catch (error) {
+    console.error('Failed to check event availability:', error)
+    return null
+  }
+}
+
+export async function initiateEventBooking(eventId: string, mobileNumber: string): Promise<BookingInitiationResponse | null> {
+  try {
+    return await anchorAPI.initiateBooking({
+      event_id: eventId,
+      mobile_number: mobileNumber,
+    })
+  } catch (error: any) {
+    console.error('Failed to initiate booking:', error)
+    // Re-throw the error so the component can handle it
+    throw error
+  }
+}
+
+// Helper to get event categories
+export async function getEventCategories(): Promise<EventCategory[]> {
+  try {
+    const response = await anchorAPI.getEventCategories()
+    return response.categories || []
+  } catch (error) {
+    console.error('Failed to fetch event categories:', error)
+    return []
+  }
+}
+
+// Helper to format door time
+export function formatDoorTime(doorTimeString: string | null | undefined): string | null {
+  if (!doorTimeString) return null
+  
+  const date = new Date(doorTimeString)
+  const timeString = date.toLocaleTimeString('en-GB', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: 'Europe/London'
+  })
+  
+  return 'Doors: ' + timeString.replace(':00 ', '').replace(' ', '')
+}
+
+// Helper to format event duration
+export function formatEventDuration(duration: string | null | undefined): string | null {
+  if (!duration) return null
+  
+  // Parse ISO 8601 duration (e.g., PT3H30M)
+  const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?/)
+  if (!match) return null
+  
+  const hours = parseInt(match[1] || '0')
+  const minutes = parseInt(match[2] || '0')
+  
+  if (hours && minutes) {
+    return `${hours}h ${minutes}m`
+  } else if (hours) {
+    return `${hours} hour${hours > 1 ? 's' : ''}`
+  } else if (minutes) {
+    return `${minutes} minutes`
+  }
+  
+  return null
+}
+
+// Helper to check if event has limited availability
+export function hasLimitedAvailability(event: Event): boolean {
+  return event.offers?.availability === 'https://schema.org/LimitedAvailability' ||
+    (event.remainingAttendeeCapacity !== undefined && event.remainingAttendeeCapacity < 10)
 }

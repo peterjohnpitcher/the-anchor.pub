@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -90,43 +91,26 @@ export default function PizzaPage() {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-red-600 to-red-800" />
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-yellow-400 text-red-900 font-bold text-xl md:text-2xl px-6 py-3 rounded-full inline-block mb-6">
-              🍕 TUESDAY & WEDNESDAY SPECIAL 🍕
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 drop-shadow-lg">
-              Buy One Get One FREE
-            </h1>
-            
-            <p className="text-2xl md:text-3xl text-yellow-300 mb-8 drop-shadow">
-              On ALL Stone-Baked Pizzas
-            </p>
-            
-            <StatusBar 
-              theme={{
-                background: 'bg-white/10 backdrop-blur-md',
-                border: 'border-2 border-white/20',
-                text: 'text-white',
-                accentText: 'text-white/60'
-              }}
-            />
-            
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <CallToAction href="/food-menu" variant="secondary" size="lg">
-                View Full Menu
-              </CallToAction>
-              <CallToAction href="tel:01753682707" variant="primary" size="lg">
-                📞 Book a Table
-              </CallToAction>
-            </div>
-          </div>
+      <PageHeaderWrapper
+        route="/food/pizza"
+        title="Buy One Get One FREE"
+        description="On ALL Stone-Baked Pizzas"
+        minHeight="min-h-[60vh]"
+        showStatusBar={true}
+      >
+        <div className="bg-yellow-400 text-red-900 font-bold text-xl md:text-2xl px-6 py-3 rounded-full inline-block mb-6">
+          🍕 TUESDAY & WEDNESDAY SPECIAL 🍕
         </div>
-      </section>
+        
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <CallToAction href="/food-menu" variant="secondary" size="lg">
+            View Full Menu
+          </CallToAction>
+          <CallToAction href="tel:01753682707" variant="primary" size="lg">
+            📞 Book a Table
+          </CallToAction>
+        </div>
+      </PageHeaderWrapper>
 
       {/* Offer Details */}
       <section className="section-spacing bg-anchor-sand/20">

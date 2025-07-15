@@ -7,6 +7,7 @@ import { Weather } from '@/components/Weather'
 import { StatusBarWrapper } from '@/components/StatusBarWrapper'
 import { GalleryImage } from '@/components/GalleryImage'
 import { NextEventServer } from '@/components/NextEventServer'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Suspense } from 'react'
 import { homepageFAQSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
@@ -32,99 +33,62 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify([homepageFAQSchema, breadcrumbSchema]) }}
       />
       {/* Warm Welcome Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center">
-        {/* Hero Image with optimized loading */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero/the-anchor-pub-interior-atmosphere.jpg"
-            alt="The Anchor pub - warm and welcoming interior"
-            fill
-            className="object-cover"
-            priority
-            loading="eager"
-            sizes="100vw"
-            quality={75}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-          />
-          {/* Warm overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-anchor-green/70 via-anchor-green/50 to-anchor-green/70" />
+      <PageHeaderWrapper
+        route="/"
+        title="The Anchor"
+        description="Stanwell Moor's village pub near Heathrow Airport. Traditional British food, Saturday drag shows, quiz nights, and the warmest welcome in Surrey - dogs and families always welcome! 🐕"
+        minHeight="min-h-[80vh]"
+        showStatusBar={false}
+      >
+        {/* Welcome message with wave */}
+        <p className="text-lg md:text-xl text-white mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          Welcome to your local <span className="inline-block motion-safe:wave">👋</span>
+        </p>
+        
+        <p className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          Where Everyone&apos;s Welcome
+        </p>
+        
+        <div className="mb-8 flex justify-center">
+          <StatusBarWrapper />
         </div>
         
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            {/* Welcome message with wave */}
-            <p className="text-lg md:text-xl text-white mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-              Welcome to your local <span className="inline-block motion-safe:wave">👋</span>
-            </p>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
-              The Anchor
-            </h1>
-            
-            <p className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-              Where Everyone&apos;s Welcome
-            </p>
-            
-            <div className="mb-8 flex justify-center">
-              <StatusBarWrapper />
-            </div>
-            
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow">
-              Stanwell Moor's village pub near Heathrow Airport. Traditional British food, 
-              Saturday drag shows, quiz nights, and the warmest welcome in Surrey - 
-              dogs and families always welcome! 🐕
-            </p>
-            
-            {/* Feature tags */}
-            <div className="flex flex-wrap justify-center gap-3 mb-10">
-              <span className="tag bg-white/90 backdrop-blur-sm">🚗 Free Parking</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🐕 Dog Friendly</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">👨‍👩‍👧‍👦 Family Welcome</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">♿ Step-Free Access</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">✈️ 7 mins from Heathrow</span>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CallToAction 
-                href="https://ordertab.menu/theanchor/bookings"
-                variant="primary"
-                size="lg"
-                external
-              >
-                📅 Book a Table
-              </CallToAction>
-              
-              <CallToAction 
-                href="tel:01753682707"
-                variant="secondary"
-                size="lg"
-              >
-                📞 Call: 01753 682707
-              </CallToAction>
-              
-              <CallToAction 
-                href="#visit-us"
-                variant="secondary"
-                size="lg"
-              >
-                📍 Find Us
-              </CallToAction>
-            </div>
-          </div>
+        {/* Feature tags */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <span className="tag bg-white/90 backdrop-blur-sm">🚗 Free Parking</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🐕 Dog Friendly</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">👨‍👩‍👧‍👦 Family Welcome</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">♿ Step-Free Access</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">✈️ 7 mins from Heathrow</span>
         </div>
         
-        {/* Friendly scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="text-center">
-            <p className="text-sm text-white/80 mb-2 drop-shadow">Scroll to explore</p>
-            <svg className="w-6 h-6 text-white mx-auto animate-bounce drop-shadow-lg" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <CallToAction 
+            href="https://ordertab.menu/theanchor/bookings"
+            variant="primary"
+            size="lg"
+            external
+          >
+            📅 Book a Table
+          </CallToAction>
+          
+          <CallToAction 
+            href="tel:01753682707"
+            variant="secondary"
+            size="lg"
+          >
+            📞 Call: 01753 682707
+          </CallToAction>
+          
+          <CallToAction 
+            href="#visit-us"
+            variant="secondary"
+            size="lg"
+          >
+            📍 Find Us
+          </CallToAction>
         </div>
-      </section>
+      </PageHeaderWrapper>
 
       {/* What Makes Us Special */}
       <section className="section-spacing bg-white">
@@ -257,6 +221,7 @@ export default function HomePage() {
           </Suspense>
         </div>
       </section>
+
 
       {/* Heathrow Travelers Section */}
       <section className="section-spacing bg-white">

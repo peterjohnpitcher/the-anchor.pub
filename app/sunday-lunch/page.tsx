@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -19,60 +20,45 @@ export default function SundayLunchPage() {
     <>
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"
-            alt="The Anchor famous Sunday roast dinner"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+      <PageHeaderWrapper
+        route="/sunday-lunch"
+        title="Sunday Roast at The Anchor"
+        description="Traditional British roast dinners that locals rave about"
+        minHeight="min-h-[60vh]"
+        showStatusBar={false}
+      >
+        <p className="text-anchor-gold text-lg mb-4 drop-shadow">Every Sunday 12pm - 5pm</p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <CallToAction 
+            href="tel:01753682707"
+            variant="primary"
+            size="lg"
+          >
+            📞 Book Your Table Now
+          </CallToAction>
+          
+          <CallToAction 
+            href="#menu"
+            variant="white"
+            size="lg"
+          >
+            View Sunday Menu
+          </CallToAction>
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-anchor-gold text-lg mb-4 drop-shadow">Every Sunday 12pm - 5pm</p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Sunday Roast at The Anchor
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              Traditional British roast dinners that locals rave about
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CallToAction 
-                href="tel:01753682707"
-                variant="primary"
-                size="lg"
-              >
-                📞 Book Your Table Now
-              </CallToAction>
-              
-              <CallToAction 
-                href="#menu"
-                variant="white"
-                size="lg"
-              >
-                View Sunday Menu
-              </CallToAction>
-            </div>
-            
-            <div className="mt-6 bg-red-600/90 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
-              <p className="text-white font-bold text-lg mb-1">
-                ⚠️ IMPORTANT: Pre-order & Payment Required
-              </p>
-              <p className="text-white text-sm">
-                Sunday roasts must be pre-ordered and paid for by 1pm on Saturday
-              </p>
-              <p className="text-white/90 text-xs mt-2">
-                Regular menu also available on Sundays without pre-order
-              </p>
-            </div>
-          </div>
+        <div className="mt-6 bg-red-600/90 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
+          <p className="text-white font-bold text-lg mb-1">
+            ⚠️ IMPORTANT: Pre-order & Payment Required
+          </p>
+          <p className="text-white text-sm">
+            Sunday roasts must be pre-ordered and paid for by 1pm on Saturday
+          </p>
+          <p className="text-white/90 text-xs mt-2">
+            Regular menu also available on Sundays without pre-order
+          </p>
         </div>
-      </section>
+      </PageHeaderWrapper>
 
       {/* Why Our Roasts Are Special */}
       <section className="section-spacing bg-white">

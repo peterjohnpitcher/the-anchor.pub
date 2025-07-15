@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -19,67 +20,39 @@ export default function NearHeathrowPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
-            alt="The Anchor pub beer garden with planes overhead - closest pub to Heathrow"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-anchor-green/70 via-anchor-green/50 to-anchor-green/70" />
+      <PageHeaderWrapper
+        route="/near-heathrow"
+        title="The Closest Pub to Heathrow Airport"
+        description="Just 7 minutes from Terminal 5 • 10 minutes from Terminals 2 & 3"
+        minHeight="min-h-[70vh]"
+        showStatusBar={true}
+      >
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <span className="tag bg-white/90 backdrop-blur-sm">✈️ 7 mins from T5</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🚗 Free Parking</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🍽️ Full Menu</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">⏰ Late Opening</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">📶 Free WiFi</span>
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              The Closest Pub to Heathrow Airport
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              Just 7 minutes from Terminal 5 • 10 minutes from Terminals 2 & 3
-            </p>
-            
-            {/* Status Bar */}
-            <div className="flex justify-center mb-8">
-              <StatusBar 
-                theme={{
-                  background: 'bg-white/10 backdrop-blur-md',
-                  border: 'border-2 border-white/20',
-                  text: 'text-white',
-                  accentText: 'text-white/60'
-                }}
-              />
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-3 mb-10">
-              <span className="tag bg-white/90 backdrop-blur-sm">✈️ 7 mins from T5</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🚗 Free Parking</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🍽️ Full Menu</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">⏰ Late Opening</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">📶 Free WiFi</span>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CallToAction 
-                href="tel:01753682707"
-                variant="primary"
-                size="lg"
-              >
-                📞 Book a Table: 01753 682707
-              </CallToAction>
-              
-              <CallToAction 
-                href="#terminals"
-                variant="secondary"
-                size="lg"
-              >
-                📍 Get Directions
-              </CallToAction>
-            </div>
-          </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <CallToAction 
+            href="tel:01753682707"
+            variant="primary"
+            size="lg"
+          >
+            📞 Book a Table: 01753 682707
+          </CallToAction>
+          
+          <CallToAction 
+            href="#terminals"
+            variant="secondary"
+            size="lg"
+          >
+            📍 Get Directions
+          </CallToAction>
         </div>
-      </section>
+      </PageHeaderWrapper>
 
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">

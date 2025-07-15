@@ -6,9 +6,10 @@ A modern, SEO-optimized website for The Anchor pub in Stanwell Moor, featuring e
 
 - 🎯 **Local SEO Optimized** - Targeting "near me" searches and Heathrow traffic
 - 📱 **Mobile-First Design** - Responsive and fast on all devices
-- 🎭 **Event Management** - Live event updates via API integration
+- 🎭 **Event Management** - Live event updates via API integration with SMS booking
 - 🍽️ **Dynamic Menus** - Food and drinks menus with pricing
 - ✈️ **Heathrow Landing Pages** - Terminal-specific pages for travelers
+- 📝 **Blog System** - Markdown-based blog for news, offers, and updates
 - ♿ **Accessible** - WCAG compliant with family-friendly design
 - 🚀 **Performance** - Optimized images, lazy loading, and caching
 
@@ -112,6 +113,39 @@ API documentation: [See API_SPEC.md]
 3. Include proper schema markup
 4. Update sitemap in `app/sitemap.ts`
 5. Add to navigation if needed
+
+### Managing Blog Content
+
+The website includes a blog system for news, updates, and promotional content.
+
+#### Creating a New Blog Post
+
+**Quick method using the script:**
+```bash
+./scripts/new-blog-post.sh "my-blog-post-slug"
+```
+
+**Manual method:**
+1. Create a directory in `content/blog/` with your post slug
+2. Copy `content/blog/TEMPLATE.md` to `content/blog/your-slug/index.md`
+3. Edit the frontmatter and content
+4. Add images (hero.jpg required, others optional)
+5. Build and test
+
+**Blog Structure:**
+- Each post lives in its own directory under `content/blog/`
+- Posts require an `index.md` file with frontmatter
+- Images should be placed in the same directory
+- See `content/blog/README.md` for detailed documentation
+
+**Required Frontmatter:**
+- title, description, date, author
+- keywords (array), tags (array)
+- hero (image filename)
+
+**Optional Frontmatter:**
+- featured (boolean)
+- images (array of additional images)
 
 ## SEO Features
 

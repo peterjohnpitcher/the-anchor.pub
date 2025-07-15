@@ -5,21 +5,24 @@ interface EventSchemaProps {
 }
 
 export function EventSchema({ event }: EventSchemaProps) {
-  // Use slug if available, otherwise use ID
-  const eventUrl = event.slug ? `https://the-anchor.pub/events/${event.slug}` : `https://the-anchor.pub/events/${event.id}`
+  // Use event.url if available, otherwise construct from slug or ID
+  const eventUrl = event.url || (event.slug ? `https://the-anchor.pub/events/${event.slug}` : `https://the-anchor.pub/events/${event.id}`)
   
   const schema = {
     "@context": "https://schema.org",
     "@type": "Event",
     "@id": eventUrl,
-    "identifier": event.id,
+    "identifier": event.identifier || event.id,
     "name": event.name,
-    "description": event.longDescription || event.description || `Join us for ${event.name} at The Anchor`,
+    "description": event.longDescription || event.about || event.description || `Join us for ${event.name} at The Anchor`,
     ...(event.shortDescription && { "disambiguatingDescription": event.shortDescription }),
-    ...(event.keywords && Array.isArray(event.keywords) && event.keywords.length > 0 && { "keywords": event.keywords.join(", ") }),
+    ...(event.keywords && { 
+      "keywords": Array.isArray(event.keywords) ? event.keywords.join(", ") : event.keywords 
+    }),
     "startDate": event.startDate,
     ...(event.endDate && { "endDate": event.endDate }),
-    ...(event.lastEntryTime && { "doorTime": event.lastEntryTime }),
+    ...(event.doorTime && { "doorTime": event.doorTime }),
+    ...(event.duration && { "duration": event.duration }),
     "eventStatus": event.eventStatus || "https://schema.org/EventScheduled",
     "eventAttendanceMode": event.eventAttendanceMode || "https://schema.org/OfflineEventAttendanceMode",
     "location": {
@@ -62,8 +65,9 @@ export function EventSchema({ event }: EventSchemaProps) {
       }
     }),
     ...(event.image && event.image.length > 0 && {
-      "image": event.heroImageUrl || event.image
+      "image": event.image
     }),
+    ...(event.heroImageUrl && !event.image && { "image": event.heroImageUrl }),
     ...(event.thumbnailImageUrl && { "thumbnailUrl": event.thumbnailImageUrl }),
     "organizer": event.organizer || {
       "@type": "Organization",
@@ -86,14 +90,27 @@ export function EventSchema({ event }: EventSchemaProps) {
         "abstract": event.highlights.join(" • ")
       }
     }),
-    ...(event.promoVideoUrl && {
+    ...(event.video && event.video.length > 0 && {
+      "video": event.video.map((videoUrl, index) => ({
+        "@type": "VideoObject",
+        "url": videoUrl,
+        "name": `${event.name} - Video ${index + 1}`
+      }))
+    }),
+    ...(event.promoVideoUrl && !event.video && {
       "video": {
         "@type": "VideoObject",
         "url": event.promoVideoUrl,
         "name": `${event.name} - Promotional Video`
       }
     }),
-    ...(event.faqPage && { "about": event.faqPage })
+    ...(event.faq && event.faq.length > 0 && {
+      "subEvent": {
+        "@type": "FAQPage",
+        "mainEntity": event.faq
+      }
+    }),
+    ...(event.faqPage && !event.faq && { "about": event.faqPage })
   }
 
   return (

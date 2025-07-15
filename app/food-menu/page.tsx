@@ -4,6 +4,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { MenuRenderer } from '@/components/MenuRenderer'
 import { DailySpecials } from '@/components/DailySpecials'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { getBusinessHours } from '@/lib/api'
 import { Metadata } from 'next'
@@ -38,58 +39,29 @@ export default async function FoodMenuPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"
-            alt="The Anchor famous Sunday roast"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-anchor-green/80 via-anchor-green/60 to-anchor-green/80" />
+      <PageHeaderWrapper
+        route="/food-menu"
+        title="Good Food, Good Company"
+        description="Great memories start with great food"
+        minHeight="min-h-[50vh]"
+        showStatusBar={true}
+      >
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <span className="tag bg-white/90 backdrop-blur-sm">🍖 Sunday Roasts</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🍕 Stone-Baked Pizzas</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🍔 Burgers & Stacks</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🌱 Veggie Options</span>
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Good Food, Good Company
-            </h1>
-            
-            {/* Status Bar */}
-            <div className="flex justify-center mb-6">
-              <StatusBar 
-                theme={{
-                  background: 'bg-white/10 backdrop-blur-md',
-                  border: 'border-2 border-white/20',
-                  text: 'text-white',
-                  accentText: 'text-white/60'
-                }}
-              />
-            </div>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              Great memories start with great food
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="tag bg-white/90 backdrop-blur-sm">🍖 Sunday Roasts</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🍕 Stone-Baked Pizzas</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🍔 Burgers & Stacks</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🌱 Veggie Options</span>
-            </div>
-            
-            <CallToAction 
-              href="#menu"
-              variant="primary"
-              size="lg"
-              className="bg-white text-anchor-green hover:bg-gray-100"
-            >
-              📖 Jump to Menu
-            </CallToAction>
-          </div>
-        </div>
-      </section>
+        <CallToAction 
+          href="#menu"
+          variant="primary"
+          size="lg"
+          className="bg-white text-anchor-green hover:bg-gray-100"
+        >
+          📖 Jump to Menu
+        </CallToAction>
+      </PageHeaderWrapper>
 
       {/* Daily Specials - Shows only on relevant days */}
       <DailySpecials isOpen={isOpen} />

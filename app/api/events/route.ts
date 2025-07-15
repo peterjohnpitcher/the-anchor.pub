@@ -1,48 +1,72 @@
 import { NextResponse } from 'next/server'
-import { anchorAPI } from '@/lib/api'
+
+const API_KEY = process.env.ANCHOR_API_KEY
+const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const limit = parseInt(searchParams.get('limit') || '10')
-  const from_date = searchParams.get('from_date') || new Date().toISOString().split('T')[0]
-  const category_id = searchParams.get('category_id') || undefined
-
-  try {
-    const response = await anchorAPI.getEvents({
-      from_date,
-      limit,
-      category_id,
-    })
-    
-    return NextResponse.json(response)
-  } catch (error: any) {
-    console.error('Events API error:', error)
+  if (!API_KEY) {
+    console.error('ANCHOR_API_KEY is not set in environment variables')
     return NextResponse.json(
-      { error: 'Failed to fetch events', message: error.message },
+      { error: 'API key not configured' },
       { status: 500 }
     )
   }
-}
 
-export async function POST(request: Request) {
+  const { searchParams } = new URL(request.url)
+  const today = searchParams.get('today') === 'true'
+  const limit = searchParams.get('limit') || '10'
+  const fromDate = searchParams.get('from_date') || new Date().toISOString().split('T')[0]
+  const categoryId = searchParams.get('category_id')
+  const availableOnly = searchParams.get('available_only')
+  
   try {
-    const body = await request.json()
-    const { endpoint } = body
+    let endpoint: string
     
-    // Support specific endpoints
-    if (endpoint === 'todays') {
-      const response = await anchorAPI.getTodaysEvents()
-      return NextResponse.json(response)
+    if (today) {
+      endpoint = '/events/today'
+    } else {
+      // Build query params
+      const query = new URLSearchParams()
+      query.append('from_date', fromDate)
+      query.append('limit', limit)
+      if (categoryId) query.append('category_id', categoryId)
+      if (availableOnly) query.append('available_only', availableOnly)
+      
+      endpoint = `/events?${query.toString()}`
     }
     
-    return NextResponse.json(
-      { error: 'Invalid endpoint' },
-      { status: 400 }
+    const response = await fetch(
+      `${API_BASE_URL}${endpoint}`,
+      {
+        headers: {
+          'X-API-Key': API_KEY,
+          'Authorization': `Bearer ${API_KEY}`
+        }
+      }
     )
-  } catch (error: any) {
-    console.error('Events API error:', error)
+
+    if (!response.ok) {
+      console.error(`Events API error: ${response.status} ${response.statusText}`)
+      
+      if (response.status === 401) {
+        console.error('Authentication failed - API key may be invalid or lack permissions')
+        return NextResponse.json(
+          { error: 'Authentication failed. Please check API key validity and permissions.' },
+          { status: 401 }
+        )
+      }
+      
+      const errorText = await response.text()
+      console.error('Error response:', errorText)
+      throw new Error(`API error: ${response.status}`)
+    }
+
+    const data = await response.json()
+    return NextResponse.json(data)
+  } catch (error) {
+    console.error('Failed to fetch events:', error)
     return NextResponse.json(
-      { error: 'Failed to fetch events', message: error.message },
+      { error: 'Failed to fetch events' },
       { status: 500 }
     )
   }

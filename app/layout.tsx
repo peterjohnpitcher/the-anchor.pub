@@ -91,7 +91,7 @@ const outfit = Outfit({
   subsets: ['latin'], 
   variable: '--font-outfit',
   weight: ['400', '600', '700'],
-  display: 'optional',
+  display: 'swap', // Change from 'optional' to 'swap' to prevent timeout
   preload: true,
   fallback: ['system-ui', '-apple-system', 'sans-serif'],
 })
@@ -100,7 +100,7 @@ const merriweather = Merriweather({
   subsets: ['latin'], 
   variable: '--font-merriweather',
   weight: ['400'],
-  display: 'optional',
+  display: 'swap', // Change from 'optional' to 'swap' to prevent timeout
   preload: false,
   fallback: ['Georgia', 'serif'],
 })
@@ -173,7 +173,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://management.orangejelly.co.uk" />
         <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
-        <link rel="preload" href="/images/hero/the-anchor-pub-interior-atmosphere.jpg" as="image" fetchPriority="high" />
+        <link rel="preload" href="/images/page-headers/home/2D52A9A5-6CE1-4AD7-9899-6755E4944324_1_105_c.jpeg" as="image" fetchPriority="high" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"

@@ -16,10 +16,27 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function BlogPage() {
-  const posts = await getAllBlogPosts()
-  const featuredPost = posts.find(post => post.featured) || posts[0]
-  const otherPosts = posts.filter(post => post.slug !== featuredPost?.slug)
+// Configuration
+const POSTS_PER_PAGE = 12
+
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: { page?: string }
+}) {
+  const currentPage = Number(searchParams.page) || 1
+  const allPosts = await getAllBlogPosts()
+  
+  // Calculate pagination
+  const totalPosts = allPosts.length
+  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE)
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE
+  const endIndex = startIndex + POSTS_PER_PAGE
+  
+  // Get posts for current page
+  const posts = allPosts.slice(startIndex, endIndex)
+  const featuredPost = currentPage === 1 ? (allPosts.find(post => post.featured) || posts[0]) : null
+  const otherPosts = featuredPost ? posts.filter(post => post.slug !== featuredPost.slug) : posts
 
   return (
     <>
@@ -48,12 +65,18 @@ export default async function BlogPage() {
             <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
               News, events, and stories from your local pub
             </p>
+            
+            {currentPage > 1 && (
+              <p className="text-lg text-white/80">
+                Page {currentPage} of {totalPages}
+              </p>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Featured Post */}
-      {featuredPost && (
+      {/* Featured Post (only on first page) */}
+      {featuredPost && currentPage === 1 && (
         <section className="section-spacing bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
@@ -67,6 +90,8 @@ export default async function BlogPage() {
                         alt={featuredPost.title}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority
                       />
                     </div>
                     <div className="p-8">
@@ -106,43 +131,128 @@ export default async function BlogPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8">Latest Stories</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8">
+              {currentPage === 1 ? 'Latest Stories' : 'All Stories'}
+            </h2>
             
             {otherPosts.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {otherPosts.map(post => (
-                  <article key={post.slug} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <Link href={`/blog/${post.slug}`}>
-                      <div className="relative h-48">
-                        <Image
-                          src={`/content/blog/${post.slug}/${post.hero}`}
-                          alt={post.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <div className="flex flex-wrap gap-2 mb-3">
-                          {post.tags.slice(0, 2).map(tag => (
-                            <span key={tag} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
-                              {tag}
-                            </span>
-                          ))}
+              <>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                  {otherPosts.map(post => (
+                    <article key={post.slug} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                      <Link href={`/blog/${post.slug}`}>
+                        <div className="relative h-48">
+                          <Image
+                            src={`/content/blog/${post.slug}/${post.hero}`}
+                            alt={post.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            loading="lazy"
+                          />
                         </div>
-                        <h3 className="text-lg font-bold text-anchor-green mb-2 line-clamp-2">
-                          {post.title}
-                        </h3>
-                        <p className="text-gray-700 text-sm mb-4 line-clamp-2">
-                          {post.description}
-                        </p>
-                        <div className="text-sm text-gray-600">
-                          <time>{new Date(post.date).toLocaleDateString('en-GB')}</time>
+                        <div className="p-6">
+                          <div className="flex flex-wrap gap-2 mb-3">
+                            {post.tags.slice(0, 2).map(tag => (
+                              <span key={tag} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          <h3 className="text-lg font-bold text-anchor-green mb-2 line-clamp-2">
+                            {post.title}
+                          </h3>
+                          <p className="text-gray-700 text-sm mb-4 line-clamp-2">
+                            {post.description}
+                          </p>
+                          <div className="text-sm text-gray-600">
+                            <time>{new Date(post.date).toLocaleDateString('en-GB')}</time>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  </article>
-                ))}
-              </div>
+                      </Link>
+                    </article>
+                  ))}
+                </div>
+
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="flex justify-center items-center gap-2">
+                    {/* Previous button */}
+                    {currentPage > 1 && (
+                      <Link
+                        href={`/blog?page=${currentPage - 1}`}
+                        className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                      >
+                        ← Previous
+                      </Link>
+                    )}
+
+                    {/* Page numbers */}
+                    <div className="flex gap-2">
+                      {/* First page */}
+                      {currentPage > 3 && (
+                        <>
+                          <Link
+                            href="/blog"
+                            className="px-3 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                          >
+                            1
+                          </Link>
+                          {currentPage > 4 && <span className="px-2 py-2">...</span>}
+                        </>
+                      )}
+
+                      {/* Current page and neighbors */}
+                      {Array.from({ length: totalPages }, (_, i) => i + 1)
+                        .filter(page => {
+                          const distance = Math.abs(page - currentPage)
+                          return distance <= 2
+                        })
+                        .map(page => (
+                          <Link
+                            key={page}
+                            href={page === 1 ? '/blog' : `/blog?page=${page}`}
+                            className={`px-3 py-2 rounded-lg transition-colors ${
+                              page === currentPage
+                                ? 'bg-anchor-green text-white'
+                                : 'bg-white border border-gray-300 hover:bg-gray-50'
+                            }`}
+                          >
+                            {page}
+                          </Link>
+                        ))}
+
+                      {/* Last page */}
+                      {currentPage < totalPages - 2 && (
+                        <>
+                          {currentPage < totalPages - 3 && <span className="px-2 py-2">...</span>}
+                          <Link
+                            href={`/blog?page=${totalPages}`}
+                            className="px-3 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                          >
+                            {totalPages}
+                          </Link>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Next button */}
+                    {currentPage < totalPages && (
+                      <Link
+                        href={`/blog?page=${currentPage + 1}`}
+                        className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                      >
+                        Next →
+                      </Link>
+                    )}
+                  </div>
+                )}
+
+                {/* Results info */}
+                <p className="text-center text-sm text-gray-600 mt-6">
+                  Showing {startIndex + 1}-{Math.min(endIndex, totalPosts)} of {totalPosts} posts
+                </p>
+              </>
             ) : (
               <div className="text-center py-12">
                 <p className="text-gray-600 mb-4">No blog posts yet. Check back soon!</p>

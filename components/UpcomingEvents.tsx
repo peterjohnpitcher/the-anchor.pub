@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getUpcomingEvents, formatEventDate, formatEventTime, formatPrice, getEventShortDescription } from '@/lib/api'
+import { getUpcomingEvents, formatEventDate, formatEventTime, formatPrice, getEventShortDescription, formatDoorTime, hasLimitedAvailability } from '@/lib/api'
 import { EventSchema } from '@/components/EventSchema'
 
 export async function UpcomingEvents() {
@@ -93,6 +93,21 @@ export async function UpcomingEvents() {
                         {event.remainingAttendeeCapacity === 0 && (
                           <span className="text-red-600 font-semibold">
                             SOLD OUT
+                          </span>
+                        )}
+                        {hasLimitedAvailability(event) && event.remainingAttendeeCapacity !== 0 && (
+                          <span className="text-amber-600 font-semibold animate-pulse">
+                            LIMITED AVAILABILITY
+                          </span>
+                        )}
+                        {event.remainingAttendeeCapacity && event.remainingAttendeeCapacity > 0 && !hasLimitedAvailability(event) && (
+                          <span className="text-gray-600">
+                            {event.remainingAttendeeCapacity} seats available
+                          </span>
+                        )}
+                        {formatDoorTime(event.doorTime) && (
+                          <span className="text-gray-600">
+                            {formatDoorTime(event.doorTime)}
                           </span>
                         )}
                         {event.performer && (

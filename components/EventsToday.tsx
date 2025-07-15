@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getTodaysEvents, formatEventTime, type Event } from '@/lib/api'
+import { getTodaysEvents, formatEventTime, formatDoorTime, hasLimitedAvailability, type Event } from '@/lib/api'
 
 // Map API event data to our display format
 function mapEventToDisplay(event: Event) {
@@ -15,10 +15,16 @@ function mapEventToDisplay(event: Event) {
     id: event.id,
     name: event.name,
     time: startTime,
-    description: event.description || 'Join us for a great time!',
+    description: event.shortDescription || event.description || 'Join us for a great time!',
     link,
     price: event.offers?.price,
-    soldOut: event.remainingAttendeeCapacity === 0
+    priceCurrency: event.offers?.priceCurrency,
+    soldOut: event.remainingAttendeeCapacity === 0,
+    remainingSeats: event.remainingAttendeeCapacity,
+    limitedAvailability: hasLimitedAvailability(event),
+    doorTime: formatDoorTime(event.doorTime),
+    performer: event.performer?.name,
+    category: event.category
   }
 }
 
@@ -184,21 +190,48 @@ export function EventsToday() {
       {events.map((event) => (
         <div key={event.id} className="card-warm bg-white border-2 border-anchor-sand p-6 group">
           <div className="mb-4">
-            <h3 className="font-bold text-2xl text-anchor-green mb-2">{event.name}</h3>
-            <p className="text-anchor-gold font-medium text-sm">{event.time}</p>
-            {event.price && (
-              <p className={`text-sm mt-1 ${event.price === "0" ? "text-green-600 font-semibold" : "text-gray-600"}`}>
-                {event.price === "0" ? "FREE EVENT" : `From £${event.price}`}
-              </p>
+            {event.category && (
+              <span 
+                className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-2"
+                style={{
+                  backgroundColor: `${event.category.color}20`,
+                  color: event.category.color
+                }}
+              >
+                {event.category.name}
+              </span>
             )}
+            <h3 className="font-bold text-2xl text-anchor-green mb-2">{event.name}</h3>
+            <div className="space-y-1">
+              <p className="text-anchor-gold font-medium text-sm">{event.time}</p>
+              {event.doorTime && (
+                <p className="text-gray-600 text-sm">{event.doorTime}</p>
+              )}
+              {event.performer && (
+                <p className="text-gray-600 text-sm">Featuring: {event.performer}</p>
+              )}
+              {event.price && (
+                <p className={`text-sm mt-1 ${event.price === "0" ? "text-green-600 font-semibold" : "text-gray-600"}`}>
+                  {event.price === "0" ? "FREE EVENT" : `From £${event.price}`}
+                </p>
+              )}
+            </div>
           </div>
           <p className="text-gray-700 mb-6 leading-relaxed">{event.description}</p>
-          {event.soldOut && (
-            <p className="text-sm text-red-600 font-semibold mb-3">SOLD OUT</p>
-          )}
+          <div className="space-y-2">
+            {event.soldOut && (
+              <p className="text-sm text-red-600 font-semibold">SOLD OUT</p>
+            )}
+            {event.limitedAvailability && !event.soldOut && (
+              <p className="text-sm text-amber-600 font-semibold animate-pulse">LIMITED AVAILABILITY</p>
+            )}
+            {event.remainingSeats && event.remainingSeats > 0 && !event.limitedAvailability && (
+              <p className="text-sm text-gray-600">{event.remainingSeats} seats available</p>
+            )}
+          </div>
           <Link 
             href={event.link}
-            className="inline-flex items-center text-anchor-gold font-semibold hover:text-anchor-gold-light transition-colors gap-2"
+            className="inline-flex items-center text-anchor-gold font-semibold hover:text-anchor-gold-light transition-colors gap-2 mt-4"
           >
             <span>Find out more</span>
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

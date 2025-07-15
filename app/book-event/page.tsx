@@ -1,4 +1,5 @@
 import { CallToAction } from '@/components/CallToAction'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 import { eventBookingServiceSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
@@ -27,24 +28,21 @@ export default function BookEventPage() {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-anchor-green to-anchor-green-dark mt-20">
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-            Host Your Event at The Anchor
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8">
-            From intimate gatherings to large celebrations
-          </p>
-          
-          <CallToAction 
-            href="tel:01753682707"
-            variant="primary"
-            size="lg"
-          >
-            📞 Call to Discuss: 01753 682707
-          </CallToAction>
-        </div>
-      </section>
+      <PageHeaderWrapper
+        route="/book-event"
+        title="Host Your Event at The Anchor"
+        description="From intimate gatherings to large celebrations"
+        minHeight="min-h-[50vh]"
+        showStatusBar={false}
+      >
+        <CallToAction 
+          href="tel:01753682707"
+          variant="primary"
+          size="lg"
+        >
+          📞 Call to Discuss: 01753 682707
+        </CallToAction>
+      </PageHeaderWrapper>
 
       {/* Event Types */}
       <section className="section-spacing bg-white">

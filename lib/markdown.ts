@@ -146,11 +146,11 @@ export function distributeImages(htmlContent: string, images: string[], blogSlug
         index < paragraphs.length - 1) {
       const imagePath = `/content/blog/${blogSlug}/${images[imageIndex]}`
       result += `
-        <figure class="my-8">
+        <figure class="not-prose my-12">
           <img 
             src="${imagePath}" 
             alt="Article image" 
-            class="w-full rounded-lg shadow-md"
+            class="w-full h-auto rounded-lg shadow-lg"
             loading="lazy"
           />
         </figure>

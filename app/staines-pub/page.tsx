@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
 
@@ -97,44 +98,26 @@ export default function StainesPubPage() {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center mt-20">
-        <Image
-          src="/images/the-anchor-pub-stanwell-moor.jpg"
-          alt="The Anchor pub near Staines - exterior view"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-anchor-gold text-white font-semibold text-lg px-6 py-2 rounded-full inline-block mb-6">
-              📍 Just 8 Minutes from Staines
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-              Your Local Staines Pub
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Traditional British pub serving the Staines community with great food, 
-              entertainment, and a warm welcome
-            </p>
-            
-            <StatusBar />
-            
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
-                📞 Call {CONTACT.phone}
-              </CallToAction>
-              <CallToAction href="/food-menu" variant="secondary" size="lg">
-                View Our Menu
-              </CallToAction>
-            </div>
-          </div>
+      <PageHeaderWrapper
+        route="/staines-pub"
+        title="Your Local Staines Pub"
+        description="Traditional British pub serving the Staines community with great food, entertainment, and a warm welcome"
+        minHeight="min-h-[60vh]"
+        showStatusBar={true}
+      >
+        <div className="bg-anchor-gold text-white font-semibold text-lg px-6 py-2 rounded-full inline-block mb-6">
+          📍 Just 8 Minutes from Staines
         </div>
-      </section>
+        
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
+            📞 Call {CONTACT.phone}
+          </CallToAction>
+          <CallToAction href="/food-menu" variant="secondary" size="lg">
+            View Our Menu
+          </CallToAction>
+        </div>
+      </PageHeaderWrapper>
 
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">

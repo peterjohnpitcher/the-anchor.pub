@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -104,50 +105,24 @@ export default function BeerGardenPage() {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
-            alt="The Anchor beer garden with planes overhead - perfect for plane spotting"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-sky-600/70 via-sky-700/60 to-anchor-green/80" />
+      <PageHeaderWrapper
+        route="/beer-garden"
+        title="Beer Garden & Plane Spotting"
+        description="Watch aircraft every 90 seconds while enjoying a pint"
+        minHeight="min-h-[70vh]"
+        showStatusBar={true}
+      >
+        <div className="bg-white/90 backdrop-blur-sm text-anchor-green font-bold text-lg md:text-xl px-6 py-3 rounded-full inline-block mb-6">
+          ✈️ DIRECTLY UNDER THE FLIGHT PATH ✈️
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white/90 backdrop-blur-sm text-anchor-green font-bold text-lg md:text-xl px-6 py-3 rounded-full inline-block mb-6">
-              ✈️ DIRECTLY UNDER THE FLIGHT PATH ✈️
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Beer Garden & Plane Spotting
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              Watch aircraft every 90 seconds while enjoying a pint
-            </p>
-            
-            <StatusBar 
-              theme={{
-                background: 'bg-white/10 backdrop-blur-md',
-                border: 'border-2 border-white/20',
-                text: 'text-white',
-                accentText: 'text-white/60'
-              }}
-            />
-            
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <span className="tag bg-white/90 backdrop-blur-sm">🛬 Every 90 Seconds</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">📸 Photo Opportunities</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🐕 Dog Friendly</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🍺 Full Bar Service</span>
-            </div>
-          </div>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <span className="tag bg-white/90 backdrop-blur-sm">🛬 Every 90 Seconds</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">📸 Photo Opportunities</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🐕 Dog Friendly</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🍺 Full Bar Service</span>
         </div>
-      </section>
+      </PageHeaderWrapper>
 
       {/* Plane Spotting Paradise */}
       <section className="section-spacing bg-white">

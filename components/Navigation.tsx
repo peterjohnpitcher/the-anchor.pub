@@ -50,6 +50,7 @@ const defaultItems: NavigationItem[] = [
   { label: "What's On", href: '/whats-on' },
   { label: 'Food', href: '/food-menu' },
   { label: 'Drinks', href: '/drinks' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Find Us', href: '/find-us' },
   { label: 'Near Heathrow', href: '/near-heathrow' }
 ]

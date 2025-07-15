@@ -2,8 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
-import { UpcomingEvents } from '@/components/UpcomingEvents'
+import { FilteredUpcomingEvents } from '@/components/FilteredUpcomingEvents'
+import { CategoryFilter } from '@/components/CategoryFilter'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: "What's On | The Anchor Stanwell Moor | Events & Entertainment",
@@ -16,61 +19,31 @@ export const metadata: Metadata = {
   },
 }
 
-export default function WhatsOnPage() {
+export default function WhatsOnPage({ searchParams }: { searchParams: { category?: string } }) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
-            alt="Entertainment at The Anchor - drag shows and events"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+      <PageHeaderWrapper
+        route="/whats-on"
+        title="What's On at The Anchor"
+        description="From drag shows to quiz nights - there's always something happening!"
+        showStatusBar={true}
+      >
+        <div className="flex flex-wrap justify-center gap-3 mb-8 mt-6">
+          <span className="tag bg-white/90 backdrop-blur-sm">👑 Drag Shows</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🎉 Special Events</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🧠 Quiz Nights</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🎱 Cash Bingo</span>
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              What's On at The Anchor
-            </h1>
-            
-            {/* Status Bar */}
-            <div className="flex justify-center mb-6">
-              <StatusBar 
-                theme={{
-                  background: 'bg-white/10 backdrop-blur-md',
-                  border: 'border-2 border-white/20',
-                  text: 'text-white',
-                  accentText: 'text-white/60'
-                }}
-              />
-            </div>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              From drag shows to quiz nights - there's always something happening!
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="tag bg-white/90 backdrop-blur-sm">👑 Drag Shows</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🎉 Special Events</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🧠 Quiz Nights</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🎱 Cash Bingo</span>
-            </div>
-            
-            <CallToAction 
-              href="#upcoming-events"
-              variant="primary"
-              size="lg"
-            >
-              View All Events
-            </CallToAction>
-          </div>
-        </div>
-      </section>
+        <CallToAction 
+          href="#upcoming-events"
+          variant="primary"
+          size="lg"
+        >
+          View All Events
+        </CallToAction>
+      </PageHeaderWrapper>
 
       {/* Featured Events */}
       <section className="section-spacing bg-white">
@@ -129,13 +102,19 @@ export default function WhatsOnPage() {
           </div>
           
           <div className="max-w-5xl mx-auto">
-            <UpcomingEvents />
+            <Suspense fallback={<div className="text-center py-8">Loading events...</div>}>
+              <CategoryFilter />
+            </Suspense>
+            <Suspense fallback={<div className="text-center py-8">Loading events...</div>}>
+              <FilteredUpcomingEvents categorySlug={searchParams.category} />
+            </Suspense>
           </div>
         </div>
       </section>
 
+
       {/* Special Events */}
-      <section className="section-spacing bg-gray-50">
+      <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">

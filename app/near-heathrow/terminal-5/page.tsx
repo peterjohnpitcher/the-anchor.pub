@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
 import { TerminalNavigation } from '@/components/TerminalNavigation'
@@ -21,39 +22,31 @@ export default function Terminal5Page() {
     <>
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-anchor-green to-anchor-green-dark" />
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-anchor-gold text-lg mb-4">Just 7 minutes away</p>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              The Closest Pub to Heathrow Terminal 5
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8">
-              Perfect for British Airways travelers • Free parking • Traditional British pub
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CallToAction 
-                href="tel:01753682707"
-                variant="primary"
-                size="lg"
-              >
-                📞 Book a Table
-              </CallToAction>
-              
-              <CallToAction 
-                href="#directions"
-                variant="white"
-                size="lg"
-              >
-                📍 Get Directions
-              </CallToAction>
-            </div>
-          </div>
+      <PageHeaderWrapper
+        route="/near-heathrow/terminal-5"
+        title="The Closest Pub to Heathrow Terminal 5"
+        description="Perfect for British Airways travelers • Free parking • Traditional British pub"
+        minHeight="min-h-[60vh]"
+      >
+        <p className="text-anchor-gold text-lg mb-4">Just 7 minutes away</p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <CallToAction 
+            href="tel:01753682707"
+            variant="primary"
+            size="lg"
+          >
+            📞 Book a Table
+          </CallToAction>
+          
+          <CallToAction 
+            href="#directions"
+            variant="white"
+            size="lg"
+          >
+            📍 Get Directions
+          </CallToAction>
         </div>
-      </section>
+      </PageHeaderWrapper>
 
       {/* Quick Info Cards */}
       <section className="section-spacing bg-gray-50">

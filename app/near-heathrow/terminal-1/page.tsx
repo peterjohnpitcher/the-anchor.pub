@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
 
@@ -87,49 +88,32 @@ export default function Terminal1Page() {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center mt-20">
-        <Image
-          src="/images/the-anchor-beer-garden-heathrow.jpg"
-          alt={`${BRAND.name} - closest pub to Heathrow Terminal 1`}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-full px-6 py-3 mb-8">
-              <span className="text-white font-semibold">✈️ Terminal 1</span>
-              <span className="text-white/60">•</span>
-              <span className="text-white font-bold">{HEATHROW_TIMES.terminal1} minutes away</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-              Closest Pub to<br/>Heathrow Terminal 1
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-              The perfect pre-flight dining spot or post-landing refreshment stop for T1 travelers
-            </p>
-            
-            <StatusBar />
-            
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
-                📞 Book a Table
-              </CallToAction>
-              <CallToAction 
-                href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" 
-                variant="secondary" 
-                size="lg"
-              >
-                📍 Get Directions
-              </CallToAction>
-            </div>
-          </div>
+      <PageHeaderWrapper
+        route="/near-heathrow/terminal-1"
+        title="Closest Pub to Heathrow Terminal 1"
+        description="The perfect pre-flight dining spot or post-landing refreshment stop for T1 travelers"
+        minHeight="min-h-[70vh]"
+        showStatusBar={true}
+      >
+        <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-full px-6 py-3 mb-8">
+          <span className="text-white font-semibold">✈️ Terminal 1</span>
+          <span className="text-white/60">•</span>
+          <span className="text-white font-bold">{HEATHROW_TIMES.terminal1} minutes away</span>
         </div>
-      </section>
+        
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
+            📞 Book a Table
+          </CallToAction>
+          <CallToAction 
+            href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" 
+            variant="secondary" 
+            size="lg"
+          >
+            📍 Get Directions
+          </CallToAction>
+        </div>
+      </PageHeaderWrapper>
 
       {/* Quick Journey Info */}
       <section className="py-8 bg-red-600 text-white">

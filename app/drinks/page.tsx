@@ -4,6 +4,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { MenuRenderer } from '@/components/MenuRenderer'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 import { drinksMenuSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
@@ -41,58 +42,38 @@ export default async function DrinksMenuPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify([drinksMenuSchema, breadcrumbSchema]) }}
       />
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-anchor-green to-anchor-green-dark" />
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Drinks at The Anchor
-            </h1>
-            
-            {/* Status Bar */}
-            <div className="flex justify-center mb-6">
-              <StatusBar 
-                theme={{
-                  background: 'bg-white/10 backdrop-blur-md',
-                  border: 'border-2 border-white/20',
-                  text: 'text-white',
-                  accentText: 'text-white/60'
-                }}
-              />
-            </div>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              From real ales to premium spirits - something for everyone
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="tag bg-white/90 backdrop-blur-sm">🍺 Real Ales</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🥃 Premium Spirits</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🍷 Wine Selection</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🍹 Cocktails</span>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CallToAction 
-                href="#menu"
-                variant="primary"
-                size="lg"
-                className="bg-white text-anchor-green hover:bg-gray-100"
-              >
-                📖 Jump to Menu
-              </CallToAction>
-              <CallToAction 
-                href="#cocktails"
-                variant="primary"
-                size="lg"
-              >
-                🍹 View Our Cocktails
-              </CallToAction>
-            </div>
-          </div>
+      <PageHeaderWrapper
+        route="/drinks"
+        title="Drinks at The Anchor"
+        description="From real ales to premium spirits - something for everyone"
+        minHeight="min-h-[50vh]"
+        showStatusBar={true}
+      >
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <span className="tag bg-white/90 backdrop-blur-sm">🍺 Real Ales</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🥃 Premium Spirits</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🍷 Wine Selection</span>
+          <span className="tag bg-white/90 backdrop-blur-sm">🍹 Cocktails</span>
         </div>
-      </section>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <CallToAction 
+            href="#menu"
+            variant="primary"
+            size="lg"
+            className="bg-white text-anchor-green hover:bg-gray-100"
+          >
+            📖 Jump to Menu
+          </CallToAction>
+          <CallToAction 
+            href="#cocktails"
+            variant="primary"
+            size="lg"
+          >
+            🍹 View Our Cocktails
+          </CallToAction>
+        </div>
+      </PageHeaderWrapper>
 
       {/* Quick Links */}
       <section className="section-spacing bg-gray-50">
