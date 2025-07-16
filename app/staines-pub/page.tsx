@@ -3,6 +3,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
 
@@ -58,43 +59,13 @@ const localBusinessSchema = {
   "url": "https://the-anchor.pub"
 }
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How far is The Anchor from Staines?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Anchor is just 8 minutes drive from Staines town centre via the A30. We're located on Horton Road in Stanwell Moor, with free parking available."
-      }
-    },
-    {
-      "@type": "Question", 
-      "name": "What makes The Anchor different from other Staines pubs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We offer unique entertainment including drag shows and quiz nights, famous Sunday roasts, BOGOF pizza deals on Tuesdays, plus a dog-friendly beer garden with plane spotting views of Heathrow."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you have parking at your Staines area pub?",
-      "acceptedAnswer": {
-        "@type": "Answer", 
-        "text": `Yes! We have ${PARKING.description} with space for ${PARKING.capacity} cars, plus extended parking nearby if needed.`
-      }
-    }
-  ]
-}
 
 export default function StainesPubPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema]) }}
       />
       
       {/* Hero Section */}
@@ -149,7 +120,7 @@ export default function StainesPubPage() {
                 </div>
                 <h3 className="text-xl font-bold text-anchor-green mb-2">Famous Sunday Roasts</h3>
                 <p className="text-gray-700">
-                  Award-winning roasts<br/>
+                  Our renowned roasts<br/>
                   Pre-order by Saturday 1pm<br/>
                   Regular menu also available
                 </p>
@@ -162,7 +133,7 @@ export default function StainesPubPage() {
                 <h3 className="text-xl font-bold text-anchor-green mb-2">Unique Entertainment</h3>
                 <p className="text-gray-700">
                   Drag shows monthly<br/>
-                  Quiz nights weekly<br/>
+                  Quiz nights monthly<br/>
                   Live sports coverage
                 </p>
               </div>
@@ -308,6 +279,25 @@ export default function StainesPubPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "How far is The Anchor from Staines?",
+            answer: "The Anchor is just 8 minutes drive from Staines town centre via the A30. We're located on Horton Road in Stanwell Moor, with free parking available."
+          },
+          {
+            question: "What makes The Anchor different from other Staines pubs?",
+            answer: "We offer unique entertainment including drag shows and quiz nights, famous Sunday roasts, BOGOF pizza deals on Tuesdays, plus a dog-friendly beer garden with plane spotting views of Heathrow."
+          },
+          {
+            question: "Do you have parking at your Staines area pub?",
+            answer: `Yes! We have ${PARKING.description} with space for ${PARKING.capacity} cars, plus extended parking nearby if needed.`
+          }
+        ]}
+        className="bg-gray-50"
+      />
 
       {/* CTA Section */}
       <section className="section-spacing bg-anchor-green text-white">

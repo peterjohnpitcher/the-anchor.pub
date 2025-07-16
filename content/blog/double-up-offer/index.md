@@ -32,7 +32,7 @@ hero: hero.png
 images: []
 ---
 
-![A promotional graphic for The Anchor's Double Up Offer, highlighting "Double Up for 2 Quid!" with a £2 upgrade on spirits and a call to visit the-anchor.pub for terms and conditions.](/content/blog/the-anchor-s-double-up-offer-get-more-for-just-2-e/hero.png)
+![A promotional graphic for The Anchor's Double Up Offer, highlighting "Double Up for 2 Quid!" with a £2 upgrade on spirits and a call to visit the-anchor.pub for terms and conditions.](/content/blog/double-up-offer/hero.png)
 
 ## Double Up Spirits for £2 Near Heathrow Airport
 
@@ -298,7 +298,7 @@ The **Double Up Offer** is **one of the easiest ways to get better value on your
 
 *   **Great Savings** – Get a **double measure for just £2 extra** (compare to airport prices!)
     
-*   **No Special Conditions** – The offer is **always available**, no happy hour restrictions
+*   **No Special Conditions** – The offer is **always available**, no time restrictions
     
 *   **Top-Shelf Brands** – Enjoy **premium spirits** without overspending
     
@@ -366,7 +366,7 @@ So, next time you visit **The Anchor**, **why not double up for just £2 extra?*
 
 ### Why Choose The Anchor for Spirits
 
-- **Permanent offer** - Not just happy hour
+- **Permanent offer** - Available all day, every day
 - **Quality brands** - Premium spirits selection
 - **Fair prices** - Proper pub rates, not airport markup
 - **Easy access** - Minutes from Heathrow

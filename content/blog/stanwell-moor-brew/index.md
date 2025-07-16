@@ -23,9 +23,10 @@ keywords:
   - signature beer near heathrow
 tags:
   - drinks
-  - events
-  - food
-  - special-offers
+  - beer
+  - local-brew
+  - craft-beer
+  - new-arrival
 featured: false
 hero: hero.png
 images:
@@ -34,7 +35,7 @@ images:
 
   
 
-![A pint of beer with a "Stanwell Moor Brew" label, text overlay reads "new to the family" with The Anchor logo.](/content/blog/introducing-stanwell-moor-brew-at-the-anchor-thean/hero.png)
+![A pint of beer with a "Stanwell Moor Brew" label, text overlay reads "new to the family" with The Anchor logo.](/content/blog/stanwell-moor-brew/hero.png)
 
   
 
@@ -56,7 +57,7 @@ Our Stanwell Moor Brew offers a refreshing crispness that makes it incredibly dr
 
   
 
-![Close-up of a beer glass with a "Stanwell Moor Brew" house lager label.](/content/blog/introducing-stanwell-moor-brew-at-the-anchor-thean/image-1.png)
+![Close-up of a beer glass with a "Stanwell Moor Brew" house lager label.](/content/blog/stanwell-moor-brew/image-1.png)
 
   
 

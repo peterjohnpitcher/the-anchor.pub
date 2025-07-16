@@ -22,10 +22,11 @@ keywords:
   - village life near terminal 5
   - support local stanwell moor
 tags:
-  - drinks
-  - events
-  - food
-  - special-offers
+  - community
+  - stanwell-moor
+  - village-life
+  - local-area
+  - guide
 featured: false
 hero: hero.png
 images:
@@ -38,7 +39,7 @@ images:
 
   
 
-![What is Stanwell Moor](/content/blog/what-makes-stanwell-moor-a-lovely-little-village/hero.png)
+![What is Stanwell Moor](/content/blog/stanwell-moor-village/hero.png)
 
 It’s probably fair to say that the last couple of years has been difficult for everyone. Some of us have lost loved ones, some have been poorly with the terrible virus that ravaged our country. If one good thing has come out of the pandemic, it’s that it’s brought people together to support, love and care for one another in their hour of need.
 
@@ -72,7 +73,7 @@ A note from our local Councillor, Jim McIlroy:
 
 ## The Anchor
 
-![The Anchor Pub](/content/blog/what-makes-stanwell-moor-a-lovely-little-village/image-1.png)
+![The Anchor Pub](/content/blog/stanwell-moor-village/image-1.png)
 
 **Link to Website:** [https://www.the-anchor.pub](https://www.the-anchor.pub) (online ordering for collection available here:
 
@@ -84,7 +85,7 @@ We are the village local. We have been operating The Anchor since March 2019 and
 
 ## T5 Stores & Post Office
 
-![T5 Stores](/content/blog/what-makes-stanwell-moor-a-lovely-little-village/image-2.png)
+![T5 Stores](/content/blog/stanwell-moor-village/image-2.png)
 
 Our lovely local shop is set up with all of the essentials. They provide a wide range of food items, with many speciality foods to make sure everyone has what they need. They also offer full post office services (a rarity in a small community nowadays), National Lottery and PayPoint.
 
@@ -92,7 +93,7 @@ Our lovely local shop is set up with all of the essentials. They provide a wide 
 
 ## Heathrow Laundrette & Dry Cleaners
 
-![Heathrow Laundrette](/content/blog/what-makes-stanwell-moor-a-lovely-little-village/image-3.jpg)
+![Heathrow Laundrette](/content/blog/stanwell-moor-village/image-3.jpg)
 
 **Link to Website:** [https://heathrowlaunderetteanddrycleaners.business.site/](https://heathrowlaunderetteanddrycleaners.business.site/)
 
@@ -102,7 +103,7 @@ Heathrow Laundrette offers an excellent service with lots of added extras! Dry c
 
 ## Polash Tandoori
 
-![Polash Tandoori](/content/blog/what-makes-stanwell-moor-a-lovely-little-village/image-4.png)
+![Polash Tandoori](/content/blog/stanwell-moor-village/image-4.png)
 
 **Link to Website:** [https://www.polashtandoori.co.uk/](https://www.polashtandoori.co.uk/)
 
@@ -114,7 +115,7 @@ The Polash is a great takeaway that offers a wide range of Bangladeshi and India
 
 ## **Tallulah’s Sunbeds, Nails & Beauty**
 
-![Tallulahs Sunbeds Nails and Beauty](/content/blog/what-makes-stanwell-moor-a-lovely-little-village/image-5.jpg)
+![Tallulahs Sunbeds Nails and Beauty](/content/blog/stanwell-moor-village/image-5.jpg)
 
 **Link to Facebook Page:** [https://www.facebook.com/Tallulahs-Sunbeds-Nails-Beauty-205833078128579](https://www.facebook.com/Tallulahs-Sunbeds-Nails-Beauty-205833078128579)
 

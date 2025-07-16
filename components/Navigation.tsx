@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useState, useEffect, ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import type { NavigationItem, BusinessInfo } from '@/lib/types'
+import { useFocusTrap } from '@/hooks/useFocusTrap'
 
 interface NavigationProps {
   logo?: {
@@ -81,6 +82,7 @@ export function Navigation({
 }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const focusTrapRef = useFocusTrap(isMobileMenuOpen)
 
   const mergedTheme = { ...defaultTheme, ...theme }
   const breakpointClass = {
@@ -99,6 +101,31 @@ export function Navigation({
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [sticky])
+
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMobileMenuOpen])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
 
   const renderLink = (item: NavigationItem, isMobile = false) => {
     const linkClass = cn(
@@ -172,13 +199,28 @@ export function Navigation({
   }
 
   return (
-    <nav className={cn(
-      'transition-all duration-300 shadow-md',
-      sticky && 'fixed top-0 left-0 right-0 z-50',
-      mergedTheme.background,
-      className
-    )}>
-      <div className="container mx-auto px-4">
+    <>
+      {/* Skip to main content link for accessibility */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-anchor-gold focus:text-white focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-anchor-gold-light"
+      >
+        Skip to main content
+      </a>
+      
+      <nav 
+        className={cn(
+          'transition-all duration-300 shadow-md',
+          sticky && 'fixed top-0 left-0 right-0 z-50',
+          mergedTheme.background,
+          className
+        )}
+        role="navigation"
+        aria-label="Main navigation"
+        itemScope 
+        itemType="https://schema.org/SiteNavigationElement"
+      >
+        <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo and Status */}
           <div className="flex items-center gap-6">
@@ -219,6 +261,8 @@ export function Navigation({
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(breakpointClass, mergedTheme.text)}
+            aria-expanded={isMobileMenuOpen}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
@@ -233,10 +277,16 @@ export function Navigation({
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className={cn(
-          'bg-anchor-green-dark border-t border-anchor-green-light shadow-lg',
-          breakpointClass
-        )}>
+        <div 
+          ref={focusTrapRef}
+          className={cn(
+            'bg-anchor-green-dark border-t border-anchor-green-light shadow-lg',
+            breakpointClass
+          )}
+          role="dialog"
+          aria-label="Mobile navigation menu"
+          aria-modal="true"
+        >
           <div className="container mx-auto px-4 py-6 space-y-4">
             {/* Status Bar for Mobile */}
             {showStatus && statusComponent && (
@@ -249,6 +299,7 @@ export function Navigation({
           </div>
         </div>
       )}
-    </nav>
+      </nav>
+    </>
   )
 }

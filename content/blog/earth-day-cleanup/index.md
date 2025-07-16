@@ -22,9 +22,11 @@ keywords:
   - environmental volunteering near terminal 5
   - sustainable pub near heathrow
 tags:
-  - drinks
-  - events
-  - special-offers
+  - community
+  - earth-day
+  - environment
+  - april
+  - volunteer
 featured: false
 hero: hero.png
 images:
@@ -38,7 +40,7 @@ images:
 
   
 
-![Bright flyer for Earth Day 2024 at Stanwell Moor Village on April 19th, detailing the event at The Anchor from 11:30 am to 2 pm.](/content/blog/earth-day-2024-at-the-anchor-join-the-cleanup-thea/hero.png)
+![Bright flyer for Earth Day 2024 at Stanwell Moor Village on April 19th, detailing the event at The Anchor from 11:30 am to 2 pm.](/content/blog/earth-day-cleanup/hero.png)
 
   
 
@@ -88,7 +90,7 @@ After the cleanup, join us back at The Anchor. We will share stories, experience
 
   
 
-![A collage of sponsor logos for Earth Day 2024, set against a backdrop of clouds and green hills, representing the community and environmental focus. Logos include The Anchor, Stanwell Moor Residents Association, TW19 Staines, Surrey County Council, Spelthorne Borough Council, Heathrow Airport, Airpets, Aymer Clearance, Biffa, Costa Carwash, and Town Farm Primary School.](/content/blog/earth-day-2024-at-the-anchor-join-the-cleanup-thea/image-1.png)
+![A collage of sponsor logos for Earth Day 2024, set against a backdrop of clouds and green hills, representing the community and environmental focus. Logos include The Anchor, Stanwell Moor Residents Association, TW19 Staines, Surrey County Council, Spelthorne Borough Council, Heathrow Airport, Airpets, Aymer Clearance, Biffa, Costa Carwash, and Town Farm Primary School.](/content/blog/earth-day-cleanup/image-1.png)
 
   
 
@@ -200,11 +202,11 @@ Whether you're an **airport employee** looking to give back, a **Stanwell Moor r
 
 ### Gallery: Earth Day Success Near Heathrow
 
-![Community volunteers at Earth Day cleanup](/content/blog/earth-day-2024-at-the-anchor-join-the-cleanup-thea/image-5.png)
+![Community volunteers at Earth Day cleanup](/content/blog/earth-day-cleanup/image-5.png)
 
-![Volunteers enjoying lunch at The Anchor](/content/blog/earth-day-2024-at-the-anchor-join-the-cleanup-thea/image-10.png)
+![Volunteers enjoying lunch at The Anchor](/content/blog/earth-day-cleanup/image-10.png)
 
-![Group photo of Earth Day participants](/content/blog/earth-day-2024-at-the-anchor-join-the-cleanup-thea/image-15.png)
+![Group photo of Earth Day participants](/content/blog/earth-day-cleanup/image-15.png)
 
 
 

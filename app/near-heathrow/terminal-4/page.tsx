@@ -120,7 +120,7 @@ export default function Terminal4Page() {
                 <h3 className="text-2xl font-bold text-anchor-green mb-4">🚕 By Taxi</h3>
                 <div className="space-y-4 text-gray-700">
                   <div>
-                    <p className="font-semibold mb-2">Cost: £15-18</p>
+                    <p className="font-semibold mb-2">Cost: Around £25</p>
                     <p>Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;</p>
                   </div>
                   <div>

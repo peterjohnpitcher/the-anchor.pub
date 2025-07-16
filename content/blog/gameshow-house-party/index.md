@@ -39,7 +39,7 @@ images:
   - image-35.png
 ---
 
-![Nikki Manfadge hosting The Anchor's Gameshow House Party, thanking everyone for a great night featuring the game "Fortunate Families."](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/hero.png)
+![Nikki Manfadge hosting The Anchor's Gameshow House Party, thanking everyone for a great night featuring the game "Fortunate Families."](/content/blog/gameshow-house-party/hero.png)
 
 ## Monthly Gameshow Nights at The Anchor Near Heathrow Airport
 
@@ -73,21 +73,21 @@ Our gameshow nights at this **entertainment venue near Heathrow** always end wit
 
 ### Gallery: Gameshow Night Highlights
 
-![Drag bingo in action at The Anchor](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/image-1.png)
+![Drag bingo in action at The Anchor](/content/blog/gameshow-house-party/image-1.png)
 
-![The Price is Right contestants](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/image-5.png)
+![The Price is Right contestants](/content/blog/gameshow-house-party/image-5.png)
 
-![Fortunate Families teams competing](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/image-10.png)
+![Fortunate Families teams competing](/content/blog/gameshow-house-party/image-10.png)
 
-![Play Your Cards Right excitement](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/image-15.png)
+![Play Your Cards Right excitement](/content/blog/gameshow-house-party/image-15.png)
 
-![Winners celebrating with prizes](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/image-20.png)
+![Winners celebrating with prizes](/content/blog/gameshow-house-party/image-20.png)
 
-![Packed pub atmosphere](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/image-25.png)
+![Packed pub atmosphere](/content/blog/gameshow-house-party/image-25.png)
 
-![Nikki Manfadge entertaining the crowd](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/image-30.png)
+![Nikki Manfadge entertaining the crowd](/content/blog/gameshow-house-party/image-30.png)
 
-![Happy contestants and audience](/content/blog/a-night-to-remember-the-anchor-s-gameshow-house-pa/image-35.png)
+![Happy contestants and audience](/content/blog/gameshow-house-party/image-35.png)
   
 
 ## **Why Choose The Anchor for Entertainment Near Heathrow**

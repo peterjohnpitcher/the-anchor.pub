@@ -33,7 +33,7 @@ hero: hero.png
 images: []
 ---
 
-![A woman studies a map on a beach beside her chocolate Labrador.](/content/blog/essential-tips-for-travelling-with-your-dog-safety/hero.png)
+![A woman studies a map on a beach beside her chocolate Labrador.](/content/blog/dog-travel-tips/hero.png)
 
 ## Dog-Friendly Travel Stop Near Heathrow Airport
 

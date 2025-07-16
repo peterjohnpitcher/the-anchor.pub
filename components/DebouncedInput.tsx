@@ -2,26 +2,17 @@
 
 import { useCallback, useState, useEffect, memo } from 'react'
 
-interface DebouncedInputProps {
+interface DebouncedInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
   value: string
   onChange: (value: string) => void
   delay?: number
-  placeholder?: string
-  type?: string
-  id?: string
-  className?: string
-  disabled?: boolean
 }
 
 function DebouncedInputComponent({
   value: externalValue,
   onChange,
   delay = 300,
-  placeholder,
-  type = 'text',
-  id,
-  className,
-  disabled
+  ...rest
 }: DebouncedInputProps) {
   const [internalValue, setInternalValue] = useState(externalValue)
 
@@ -45,13 +36,9 @@ function DebouncedInputComponent({
 
   return (
     <input
-      type={type}
-      id={id}
+      {...rest}
       value={internalValue}
       onChange={handleChange}
-      placeholder={placeholder}
-      className={className}
-      disabled={disabled}
     />
   )
 }

@@ -37,7 +37,7 @@ images:
   - image-4.png
 ---
 
-![Promotional banner for The Anchor featuring the announcement of a new Dining Room opening in spring 2024.](/content/blog/the-anchor-s-new-dining-room-in-stanwell-moor-thea/hero.png)
+![Promotional banner for The Anchor featuring the announcement of a new Dining Room opening in spring 2024.](/content/blog/new-dining-room/hero.png)
 
   
 
@@ -195,18 +195,18 @@ All of the progress we're making with the new Dining Room right now wouldn't be 
 
   
 
-![Architectural line drawing of The Anchor's front exterior.](/content/blog/the-anchor-s-new-dining-room-in-stanwell-moor-thea/image-1.png)
+![Architectural line drawing of The Anchor's front exterior.](/content/blog/new-dining-room/image-1.png)
 
   
 
-![Architectural line drawing of The Anchor's side profile with visible signage.](/content/blog/the-anchor-s-new-dining-room-in-stanwell-moor-thea/image-2.png)
+![Architectural line drawing of The Anchor's side profile with visible signage.](/content/blog/new-dining-room/image-2.png)
 
   
 
-![Architectural line drawing of The Anchor showcasing a new extension with orange details.](/content/blog/the-anchor-s-new-dining-room-in-stanwell-moor-thea/image-3.png)
+![Architectural line drawing of The Anchor showcasing a new extension with orange details.](/content/blog/new-dining-room/image-3.png)
 
   
 
-![Floor plan of The Anchor highlighting the proposed dining area.](/content/blog/the-anchor-s-new-dining-room-in-stanwell-moor-thea/image-4.png)
+![Floor plan of The Anchor highlighting the proposed dining area.](/content/blog/new-dining-room/image-4.png)
 
 *The Anchor - Expanding to serve you better near Heathrow Airport*

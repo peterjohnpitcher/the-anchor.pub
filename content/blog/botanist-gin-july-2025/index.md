@@ -24,15 +24,16 @@ keywords:
   - botanical gin near airport
 tags:
   - drinks
-  - events
-  - food
+  - gin
   - special-offers
+  - premium-spirits
+  - july
 featured: false
 hero: hero.jpg
 images: []
 ---
 
-![July 2025 Manager's Special promo for "The Botanist" gin. Bottle surrounded by colorful flowers. Text: "Indulge in the botanicals."](/content/blog/the-botanist-gin-special-offer-july-2025-the-ancho/hero.jpg)
+![July 2025 Manager's Special promo for "The Botanist" gin. Bottle surrounded by colorful flowers. Text: "Indulge in the botanicals."](/content/blog/botanist-gin-july-2025/hero.jpg)
 
 ## Premium Gin Offers Near Heathrow Airport
 

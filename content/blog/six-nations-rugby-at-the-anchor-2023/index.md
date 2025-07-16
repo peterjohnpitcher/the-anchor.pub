@@ -75,7 +75,7 @@ Whether England is defending their title or chasing glory, every match matters i
 **Ultimate Rugby Experience**:
 - Multiple HD screens with excellent viewing angles
 - Passionate atmosphere with fellow rugby supporters
-- Traditional pub food and award-winning beers
+- Traditional pub food and exceptional beers
 - Table booking available for popular matches
 - Free parking and easy access from all Heathrow terminals
 

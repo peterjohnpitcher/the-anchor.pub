@@ -1,0 +1,423 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import { Metadata } from 'next'
+import { CallToAction } from '@/components/CallToAction'
+import { StatusBar } from '@/components/StatusBar'
+import { BusinessHours } from '@/components/BusinessHours'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { CONTACT, BRAND, PARKING } from '@/lib/constants'
+import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+
+export const metadata: Metadata = {
+  title: `Pizza Tuesday BOGOF Deal Near Me | ${BRAND.name} Stanwell Moor`,
+  description: 'Buy One Get One FREE on ALL pizzas every Tuesday at The Anchor pub near Heathrow. Stone-baked pizzas from £7.49. Dine-in or takeaway. Free parking. Just 7 minutes from Terminal 5.',
+  keywords: 'pizza tuesday deal near me, bogof pizza stanwell moor, tuesday pizza offer heathrow, 2 for 1 pizza deal, pizza night near airport, cheap pizza tuesday surrey',
+  openGraph: {
+    title: 'Pizza Tuesday - BOGOF on All Pizzas',
+    description: 'Every Tuesday at The Anchor! Buy one pizza, get one FREE. All sizes, all pizzas, dine-in or takeaway.',
+    images: ['/images/food/pizza-tuesday-bogof.jpg'],
+    type: 'website',
+  },
+}
+
+const pizzaOfferSchema = {
+  "@context": "https://schema.org",
+  "@type": "Offer",
+  "@id": "https://the-anchor.pub/pizza-tuesday#offer",
+  "name": "Pizza Tuesday - Buy One Get One Free",
+  "description": "Buy any pizza and get another pizza of equal or lesser value completely FREE. Available all day Tuesday during kitchen hours.",
+  "url": "https://the-anchor.pub/pizza-tuesday",
+  "priceSpecification": {
+    "@type": "PriceSpecification",
+    "price": "0",
+    "priceCurrency": "GBP",
+    "eligibleQuantity": {
+      "@type": "QuantitativeValue",
+      "value": 1,
+      "unitText": "pizza"
+    }
+  },
+  "itemOffered": {
+    "@type": "Product",
+    "name": "Stone-Baked Pizza",
+    "category": "Food"
+  },
+  "seller": {
+    "@type": "Restaurant",
+    "name": BRAND.name,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Horton Road",
+      "addressLocality": "Stanwell Moor",
+      "addressRegion": "Surrey",
+      "postalCode": "TW19 6AQ"
+    }
+  },
+  "validFrom": "2024-01-01",
+  "validThrough": "2025-12-31",
+  "availabilityStarts": "18:00:00",
+  "availabilityEnds": "21:00:00",
+  "eligibleRegion": {
+    "@type": "Place",
+    "name": "Stanwell Moor and surrounding areas"
+  },
+  "category": "Restaurant Offers"
+}
+
+const pizzaTuesdayEventSchema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "@id": "https://the-anchor.pub/pizza-tuesday#event",
+  "name": "Pizza Tuesday at The Anchor",
+  "description": "Weekly BOGOF pizza deal every Tuesday. Buy one pizza, get one free on our entire stone-baked pizza menu.",
+  "startDate": "2024-01-02T18:00:00+00:00",
+  "endDate": "2025-12-30T21:00:00+00:00",
+  "eventSchedule": {
+    "@type": "Schedule",
+    "repeatFrequency": "P1W",
+    "byDay": "https://schema.org/Tuesday",
+    "startTime": "18:00:00",
+    "endTime": "21:00:00"
+  },
+  "location": {
+    "@type": "Restaurant",
+    "name": BRAND.name,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Horton Road",
+      "addressLocality": "Stanwell Moor"
+    }
+  },
+  "offers": {
+    "@id": "https://the-anchor.pub/pizza-tuesday#offer"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": BRAND.name,
+    "url": "https://the-anchor.pub"
+  }
+}
+
+export default function PizzaTuesdayPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Special Offers', url: '/special-offers' },
+    { name: 'Pizza Tuesday', url: '/pizza-tuesday' }
+  ])
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([pizzaOfferSchema, pizzaTuesdayEventSchema, breadcrumbSchema]) }}
+      />
+      
+      {/* Hero Section */}
+      <PageHeaderWrapper
+        route="/pizza-tuesday"
+        title="Pizza Tuesday - BOGOF All Day!"
+        description="Buy One Get One FREE on ALL pizzas, every Tuesday"
+        minHeight="min-h-[70vh]"
+      >
+        <div className="flex flex-col items-center">
+          <p className="text-amber-300 text-xl mb-4">Available 6pm-9pm during kitchen hours</p>
+          <div className="bg-red-600 text-white px-6 py-3 rounded-full text-2xl font-bold mb-6">
+            2 FOR 1 ON ALL PIZZAS
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <CallToAction 
+              href={`tel:${CONTACT.phone}`}
+              variant="primary"
+              size="lg"
+            >
+              📞 Book Your Table
+            </CallToAction>
+            <CallToAction 
+              href="/food/pizza"
+              variant="secondary"
+              size="lg"
+            >
+              🍕 View Pizza Menu
+            </CallToAction>
+          </div>
+        </div>
+      </PageHeaderWrapper>
+
+      {/* Status Bar */}
+      <StatusBar />
+
+      {/* The Deal Section */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-8">
+              Every Tuesday is Pizza Day!
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-red-50 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-red-800 mb-4">The Deal</h3>
+                <ul className="space-y-3 text-lg">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 text-xl">✓</span>
+                    <span>Buy ANY pizza, get one FREE</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 text-xl">✓</span>
+                    <span>All sizes included (8" or 12")</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 text-xl">✓</span>
+                    <span>Dine-in or takeaway</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 text-xl">✓</span>
+                    <span>No vouchers needed</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 text-xl">✓</span>
+                    <span>Free pizza is equal or lesser value</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-amber-50 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-amber-800 mb-4">Available Times</h3>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-semibold text-lg mb-2">Every Tuesday</p>
+                    <p className="text-3xl font-bold text-amber-700">6:00 PM - 9:00 PM</p>
+                    <p className="text-gray-600 mt-2">During kitchen service hours</p>
+                  </div>
+                  <div className="pt-4 border-t border-amber-200">
+                    <p className="font-semibold mb-2">📍 Location</p>
+                    <p>Just 7 minutes from Heathrow Terminal 5</p>
+                    <p>Free parking available</p>
+                    <p className="text-green-700 font-semibold mt-2">Outside ULEZ Zone</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-xl text-gray-700 mb-6">
+                Perfect for families, date nights, or catching up with friends. 
+                Our stone-baked pizzas are made fresh to order with authentic Italian ingredients.
+              </p>
+              <CallToAction href="/food/pizza" variant="primary" size="lg">
+                View Our Pizza Selection
+              </CallToAction>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pizza Menu Preview */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              Our Stone-Baked Pizza Selection
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-xl text-red-700 mb-3">Classic Favorites</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <span className="font-semibold">Rustic Classic</span>
+                    <span className="text-gray-600"> - £7.49/£10.49</span>
+                    <p className="text-sm text-gray-600">Rich tomato, mozzarella, oregano</p>
+                  </li>
+                  <li>
+                    <span className="font-semibold">Simply Salami</span>
+                    <span className="text-gray-600"> - £8.49/£12.99</span>
+                    <p className="text-sm text-gray-600">Napoli salami, tomato, mozzarella</p>
+                  </li>
+                  <li>
+                    <span className="font-semibold">Barbecue Chicken</span>
+                    <span className="text-gray-600"> - £9.99/£13.99</span>
+                    <p className="text-sm text-gray-600">BBQ sauce, chicken, speck ham</p>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="font-bold text-xl text-red-700 mb-3">Gourmet Selection</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <span className="font-semibold">Fully Loaded</span>
+                    <span className="text-gray-600"> - £9.49/£13.99</span>
+                    <p className="text-sm text-gray-600">Three meats on stone-baked base</p>
+                  </li>
+                  <li>
+                    <span className="font-semibold">The Garden Club</span>
+                    <span className="text-gray-600"> - £8.99/£12.99</span>
+                    <p className="text-sm text-gray-600">Roasted veg, rocket, mozzarella</p>
+                  </li>
+                  <li>
+                    <span className="font-semibold">Nice & Spicy</span>
+                    <span className="text-gray-600"> - £8.49/£13.49</span>
+                    <p className="text-sm text-gray-600">'Nduja, Ventricina, roquito peppers</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-gray-600 mb-4">Gluten-free bases available on request</p>
+              <Link href="/food/pizza" className="text-anchor-gold hover:text-anchor-green font-semibold">
+                View Full Pizza Menu →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-anchor-green mb-8">
+              Why Tuesday Pizza Night at The Anchor?
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-amber-50 rounded-xl p-6">
+                <div className="text-4xl mb-3">🍕</div>
+                <h3 className="font-bold text-lg mb-2">Authentic Stone-Baked</h3>
+                <p className="text-gray-700">Traditional oven, perfect crust every time</p>
+              </div>
+              
+              <div className="bg-amber-50 rounded-xl p-6">
+                <div className="text-4xl mb-3">🚗</div>
+                <h3 className="font-bold text-lg mb-2">Easy Access</h3>
+                <p className="text-gray-700">Free parking, 7 mins from Heathrow</p>
+              </div>
+              
+              <div className="bg-amber-50 rounded-xl p-6">
+                <div className="text-4xl mb-3">👨‍👩‍👧‍👦</div>
+                <h3 className="font-bold text-lg mb-2">Family Friendly</h3>
+                <p className="text-gray-700">Kids love our 8" pizzas, perfect size!</p>
+              </div>
+            </div>
+            
+            <p className="text-lg text-gray-700 mb-6">
+              Skip the expensive chain restaurants and enjoy authentic Italian-style pizzas 
+              at proper pub prices. With our BOGOF deal, it's the best value pizza night in the area!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Location Benefits */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              Perfect Pizza Location Near Heathrow
+            </h2>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-lg p-6 text-center">
+                <div className="text-3xl mb-3">✈️</div>
+                <h3 className="font-semibold mb-2">Terminal 5</h3>
+                <p className="text-gray-600">Just 7 minutes</p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 text-center">
+                <div className="text-3xl mb-3">🏘️</div>
+                <h3 className="font-semibold mb-2">Stanwell Moor</h3>
+                <p className="text-gray-600">Your local pizzeria</p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 text-center">
+                <div className="text-3xl mb-3">🚗</div>
+                <h3 className="font-semibold mb-2">M25 Junction 14</h3>
+                <p className="text-gray-600">5 minutes away</p>
+              </div>
+              
+              <div className="bg-white rounded-lg p-6 text-center">
+                <div className="text-3xl mb-3">🚌</div>
+                <h3 className="font-semibold mb-2">Bus Route 442</h3>
+                <p className="text-gray-600">Stops outside</p>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-green-50 rounded-xl p-6 text-center">
+              <p className="text-lg text-green-800">
+                <span className="font-bold">Save £12.50!</span> We're outside the ULEZ zone - 
+                perfect for diners coming from London
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <FAQAccordionWithSchema
+        faqs={[
+          {
+            question: "How does the Pizza Tuesday BOGOF deal work?",
+            answer: "Simply order any pizza from our menu and get another pizza of equal or lesser value completely FREE. No vouchers needed - just mention the Tuesday deal when ordering. Available for both dine-in and takeaway during kitchen hours (6pm-9pm)."
+          },
+          {
+            question: "What time is the pizza deal available on Tuesdays?",
+            answer: "Our Pizza Tuesday BOGOF offer is available from 6pm to 9pm, which are our kitchen hours on Tuesday evenings. We recommend booking a table in advance as Tuesday nights can get busy!"
+          },
+          {
+            question: "Can I mix and match pizza sizes with the BOGOF deal?",
+            answer: "Yes! You can mix 8\" and 12\" pizzas. If you order pizzas of different prices, the lower-priced pizza is free. For example, order a 12\" Fully Loaded and get an 8\" Rustic Classic free."
+          },
+          {
+            question: "Do I need to book a table for Pizza Tuesday?",
+            answer: `We strongly recommend booking, especially during peak times (7-8pm). Call us on ${CONTACT.phone} to reserve your table. Walk-ins are welcome but subject to availability.`
+          },
+          {
+            question: "Is the Pizza Tuesday deal available for takeaway?",
+            answer: "Yes! The BOGOF deal applies to both dine-in and takeaway orders. Just call ahead on 01753 682707 to place your takeaway order and we'll have it ready for collection."
+          },
+          {
+            question: "Do you have gluten-free pizzas for the Tuesday deal?",
+            answer: "Yes, we can make any of our pizzas with a gluten-free base on request. The BOGOF deal applies to gluten-free pizzas too. Please mention when ordering as they take slightly longer to prepare."
+          }
+        ]}
+        className="bg-white"
+      />
+
+      {/* CTA Section */}
+      <section className="section-spacing bg-red-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready for Pizza Tuesday?
+          </h2>
+          <p className="text-xl mb-8 text-white/90">
+            Book your table now and enjoy 2-for-1 pizzas this Tuesday!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <CallToAction 
+              href={`tel:${CONTACT.phone}`}
+              variant="secondary"
+              size="lg"
+              className="flex-1"
+            >
+              📞 Call to Book
+            </CallToAction>
+            <CallToAction 
+              href="/food/pizza"
+              variant="primary"
+              size="lg"
+              className="flex-1 bg-white text-red-600 hover:bg-gray-100"
+            >
+              🍕 View Menu
+            </CallToAction>
+          </div>
+          <p className="mt-6 text-sm text-white/80">
+            {BRAND.name} • {CONTACT.address.street}, {CONTACT.address.town} • Free Parking
+          </p>
+        </div>
+      </section>
+    </>
+  )
+}

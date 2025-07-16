@@ -120,7 +120,7 @@ export default function Terminal2Page() {
                 <h3 className="text-2xl font-bold text-anchor-green mb-4">🚕 By Taxi</h3>
                 <div className="space-y-4 text-gray-700">
                   <div>
-                    <p className="font-semibold mb-2">Cost: £12-15</p>
+                    <p className="font-semibold mb-2">Cost: Around £25</p>
                     <p>Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;</p>
                   </div>
                   <div>
@@ -204,6 +204,26 @@ export default function Terminal2Page() {
                 <p className="text-gray-700">
                   Flying to Munich, Toronto, or Singapore? Start with fish & chips or a Sunday roast. 
                   Our international guests love experiencing authentic British pub culture.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">
+                  🚫 Outside ULEZ Zone
+                </h3>
+                <p className="text-gray-700">
+                  Save £12.50 daily! We're outside London's ULEZ zone, perfect for travelers 
+                  avoiding the charge. Direct access from M25 without entering the zone.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">
+                  🚌 Direct Bus Route
+                </h3>
+                <p className="text-gray-700">
+                  The 442 bus stops directly outside, connecting Terminal 2 to our pub. 
+                  Much cheaper than a taxi and runs regularly throughout the day.
                 </p>
               </div>
             </div>
@@ -307,8 +327,8 @@ export default function Terminal2Page() {
                   <h3 className="text-2xl font-bold text-anchor-green mb-4">Before Your Flight</h3>
                   <p className="mb-4">
                     Instead of paying premium prices for average food at the terminal, enjoy a proper meal 
-                    at The Anchor. Our traditional British menu offers everything from hearty full English 
-                    breakfasts to classic fish and chips, all at local pub prices. With Terminal 2's 
+                    at The Anchor. Our traditional British menu offers everything from classic pub favorites 
+                    to fish and chips, all at local pub prices during kitchen hours. With Terminal 2's 
                     recommendation to arrive 3 hours early for international flights, you'll have plenty 
                     of time to relax in our beer garden or cozy interior before heading to the gate.
                   </p>

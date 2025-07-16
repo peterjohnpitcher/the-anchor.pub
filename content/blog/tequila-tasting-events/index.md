@@ -35,7 +35,7 @@ images:
   - image-5.png
 ---
 
-![Poster for Tequila Tasting Evening with agave plant background. Text reads 'Tequila Tasting Evening, Friday, October 18th 2024' with The Anchor logo below.](/content/blog/5-star-tequila-tasting-night-at-the-anchor-an-unfo/hero.png)
+![Poster for Tequila Tasting Evening with agave plant background. Text reads 'Tequila Tasting Evening, Friday, October 18th 2024' with The Anchor logo below.](/content/blog/tequila-tasting-events/hero.png)
 
 Looking for **tequila tasting near Heathrow**? Our October 2024 Tequila Tasting Night achieved something remarkable - every single guest gave us 5 stars! Just 10 minutes from the airport, The Anchor delivers premium spirits experiences that transport you straight to Mexico. Discover why our tasting events have become the talk of Stanwell Moor.
 
@@ -55,7 +55,7 @@ Our **tequila tasting events** have set a new standard for spirits experiences i
 
 "Amazing experience, loved everything about it, fantastic evening!" - just one of many 5-star reviews from the night.
 
-![Guests enjoying tequila tasting at The Anchor](/content/blog/5-star-tequila-tasting-night-at-the-anchor-an-unfo/image-1.png)
+![Guests enjoying tequila tasting at The Anchor](/content/blog/tequila-tasting-events/image-1.png)
 
 ## What Makes Our Tequila Tastings Special
 
@@ -82,7 +82,7 @@ Our **spirits tasting near Heathrow** stands out because:
 
 ### More Than Just Drinks
 
-![Mexican themed decorations and table setup](/content/blog/5-star-tequila-tasting-night-at-the-anchor-an-unfo/image-2.png)
+![Mexican themed decorations and table setup](/content/blog/tequila-tasting-events/image-2.png)
 
 **7:00 PM - Welcome & Introduction**
 - Arrival drink (Tequila Sunrise)
@@ -118,7 +118,7 @@ Our **spirits tasting near Heathrow** stands out because:
 
 ### What Made It Perfect
 
-![Happy guests at tequila tasting event](/content/blog/5-star-tequila-tasting-night-at-the-anchor-an-unfo/image-3.png)
+![Happy guests at tequila tasting event](/content/blog/tequila-tasting-events/image-3.png)
 
 Every single guest rated us 5 stars. Here's why:
 
@@ -168,7 +168,7 @@ Located in Stanwell Moor, we offer:
 
 ### Winter Warmers: December 2024
 
-![Cozy winter spirits selection](/content/blog/5-star-tequila-tasting-night-at-the-anchor-an-unfo/image-4.png)
+![Cozy winter spirits selection](/content/blog/tequila-tasting-events/image-4.png)
 
 Following our tequila success, join us for:
 
@@ -209,7 +209,7 @@ Our **tequila tasting near Heathrow** events sell out quickly:
 
 ### Premium Experience, Complete Package
 
-![Selection of premium tequilas](/content/blog/5-star-tequila-tasting-night-at-the-anchor-an-unfo/image-5.png)
+![Selection of premium tequilas](/content/blog/tequila-tasting-events/image-5.png)
 
 **Your £35 Ticket Includes:**
 - Welcome drink on arrival

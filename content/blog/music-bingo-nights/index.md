@@ -30,7 +30,7 @@ images:
   - "image-5.png"
 ---
 
-![Music Bingo Night Banner at The Anchor](/content/blog/monthly-music-bingo-nights-great-food-prizes-and-f/hero.png)
+![Music Bingo Night Banner at The Anchor](/content/blog/music-bingo-nights/hero.png)
 
 Experience **music bingo near Heathrow** with a melodic twist! Every last Wednesday, The Anchor hosts the area's most entertaining bingo night where songs replace numbers. Test your music knowledge, win prizes, and enjoy great food just 10 minutes from Terminal 5. Join Stanwell Moor's favorite musical game night!
 
@@ -106,7 +106,7 @@ Our **music bingo prizes** include:
 
 Everyone has multiple chances to win throughout the night!
 
-![Friends gathered around a table, engaged in Music Bingo at our village pub.](/content/blog/monthly-music-bingo-nights-great-food-prizes-and-f/image-1.png)
+![Friends gathered around a table, engaged in Music Bingo at our village pub.](/content/blog/music-bingo-nights/image-1.png)
 
 ## Food and Drink
 
@@ -129,7 +129,7 @@ Enjoy our full menu during **music bingo**:
 - Desserts for winners!
 
 **Drinks Specials:**
-- Happy hour before bingo
+- Pre-bingo drink deals
 - Pitcher deals for tables
 - Soft drinks for drivers
 - Coffee for concentration
@@ -154,7 +154,7 @@ What makes our nights special:
 - Fair and fun
 - Interactive hosting style
 
-![A joyful group of friends celebrating a win at Music Bingo night.](/content/blog/monthly-music-bingo-nights-great-food-prizes-and-f/image-2.png)
+![A joyful group of friends celebrating a win at Music Bingo night.](/content/blog/music-bingo-nights/image-2.png)
 
 ## Perfect for Groups
 
@@ -201,7 +201,7 @@ Our playlists include:
 
 Everyone will hear songs they love!
 
-![Group of smiling friends posing together during Music Bingo night at our village pub.](/content/blog/monthly-music-bingo-nights-great-food-prizes-and-f/image-3.png)
+![Group of smiling friends posing together during Music Bingo night at our village pub.](/content/blog/music-bingo-nights/image-3.png)
 
 ## Why Choose The Anchor
 
@@ -240,7 +240,7 @@ Music bingo fills up fast:
 - Mention dietary requirements
 - Request specific seating
 
-![Cheerful group of Music Bingo participants posing for a photo at our pub.](/content/blog/monthly-music-bingo-nights-great-food-prizes-and-f/image-4.png)
+![Cheerful group of Music Bingo participants posing for a photo at our pub.](/content/blog/music-bingo-nights/image-4.png)
 
 ## Special Theme Nights
 
@@ -281,7 +281,7 @@ Our **music bingo near Heathrow** creates:
 
 Many players return every month!
 
-![Snapshot of a jovial group of friends, making memories at our Music Bingo event.](/content/blog/monthly-music-bingo-nights-great-food-prizes-and-f/image-5.png)
+![Snapshot of a jovial group of friends, making memories at our Music Bingo event.](/content/blog/music-bingo-nights/image-5.png)
 
 ## Corporate Bookings
 
@@ -319,7 +319,7 @@ Ready for the most entertaining **bingo night near Heathrow**? Join us on the la
 **Next Music Bingo Night:**
 📅 Last Wednesday monthly  
 ⏰ 7:30 PM start  
-🎵 Free entry (book ahead!)  
+🎵 Book ahead!  
 📍 The Anchor, Stanwell Moor
 
 **Book your table now:**

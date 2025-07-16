@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Airport | The Anchor Stanwell Moor | 7 Minutes from All Terminals',
-  description: 'The closest traditional British pub to Heathrow Airport. Just 7 minutes from Terminal 5, 10 minutes from T2/T3. Free parking, great food, and a warm welcome for travelers.',
+  description: 'The closest traditional British pub to Heathrow Airport in Surrey. Just 7 minutes from Terminal 5. Free parking, great food, and a warm welcome for travelers.',
   keywords: 'pub near heathrow, heathrow airport pub, pub near terminal 5, closest pub to heathrow, heathrow restaurant',
   openGraph: {
     title: 'The Anchor - Your Local Pub Near Heathrow Airport',
@@ -72,7 +72,7 @@ export default function NearHeathrowPage() {
               <div className="text-5xl mb-4">🚗</div>
               <h3 className="text-2xl font-bold text-anchor-green mb-3">Free Parking</h3>
               <p className="text-gray-700">
-                Over 50 free parking spaces. No stress, no fees, no time limits. 
+                20 free parking spaces for pub guests. No stress, no fees. 
                 Perfect for meeting arriving passengers.
               </p>
             </div>
@@ -99,8 +99,9 @@ export default function NearHeathrowPage() {
               <div className="text-5xl mb-4">💼</div>
               <h3 className="text-2xl font-bold text-anchor-green mb-3">Business Friendly</h3>
               <p className="text-gray-700">
-                Free WiFi, quiet corners for meetings, and proper coffee. 
-                Popular with flight crews and business travelers.
+                Free WiFi throughout, dining room with power points at tables, 
+                quiet corners for meetings, and proper coffee. Popular with flight 
+                crews, business travelers, and digital nomads.
               </p>
             </div>
 
@@ -108,8 +109,8 @@ export default function NearHeathrowPage() {
               <div className="text-5xl mb-4">🎒</div>
               <h3 className="text-2xl font-bold text-anchor-green mb-3">Luggage Welcome</h3>
               <p className="text-gray-700">
-                Plenty of space for bags and cases. No cramped city pub experience here - 
-                we&apos;ve got room for travelers.
+                Plenty of space for bags and cases. Safe luggage storage available. 
+                No cramped city pub experience here - we&apos;ve got room for travelers.
               </p>
             </div>
 
@@ -218,7 +219,7 @@ export default function NearHeathrowPage() {
             <div className="card-warm bg-white p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-2xl font-bold text-anchor-green">By Taxi</h3>
-                <span className="text-anchor-gold font-semibold">£10-15</span>
+                <span className="text-anchor-gold font-semibold">£25</span>
               </div>
               <p className="text-gray-700 mb-4">All terminals</p>
               <p className="text-gray-600 text-sm mb-4">
@@ -233,7 +234,7 @@ export default function NearHeathrowPage() {
             <div className="card-warm bg-white p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-2xl font-bold text-anchor-green">By Bus</h3>
-                <span className="text-anchor-gold font-semibold">441/442</span>
+                <span className="text-anchor-gold font-semibold">442</span>
               </div>
               <p className="text-gray-700 mb-4">From Central Bus Station</p>
               <p className="text-gray-600 text-sm">
@@ -327,6 +328,146 @@ export default function NearHeathrowPage() {
             <CallToAction href="/beer-garden" variant="primary" size="lg">
               Discover Our Plane Spotting Beer Garden
             </CallToAction>
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities for Travelers */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
+              Everything Travelers Need
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              From entertainment to remote work facilities - we've got you covered
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="bg-anchor-cream rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-anchor-green mb-6">🎮 Entertainment & Games</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">🎱</span>
+                  <div>
+                    <p className="font-semibold">Pool Table</p>
+                    <p className="text-xs text-gray-600">Kill time with a game</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">🎯</span>
+                  <div>
+                    <p className="font-semibold">Darts Board</p>
+                    <p className="text-xs text-gray-600">Professional setup</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">🎵</span>
+                  <div>
+                    <p className="font-semibold">Jukebox</p>
+                    <p className="text-xs text-gray-600">Your music choice</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">🎰</span>
+                  <div>
+                    <p className="font-semibold">Fruit Machine</p>
+                    <p className="text-xs text-gray-600">Try your luck</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">📺</span>
+                  <div>
+                    <p className="font-semibold">4 TVs</p>
+                    <p className="text-xs text-gray-600">Terrestrial channels</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-anchor-cream rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-anchor-green mb-6">💻 Digital Nomad Friendly</h3>
+              <ul className="space-y-3">
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">📶</span>
+                  <div>
+                    <strong>Free WiFi Throughout</strong>
+                    <p className="text-sm text-gray-600">Fast, reliable, no passwords or time limits</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">🔌</span>
+                  <div>
+                    <strong>Power Points at Tables</strong>
+                    <p className="text-sm text-gray-600">Dining room equipped for laptop work</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">☕</span>
+                  <div>
+                    <strong>Quiet Work Environment</strong>
+                    <p className="text-sm text-gray-600">Peaceful weekday atmosphere</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* Traveler-Specific Amenities */}
+          <div className="mt-8 bg-anchor-sand/20 rounded-2xl p-8 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">🧳 Traveler Amenities</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="flex items-start gap-3">
+                <span className="text-anchor-gold text-xl mt-1">🧳</span>
+                <div>
+                  <strong>Luggage Storage</strong>
+                  <p className="text-sm text-gray-600">Safe storage while you dine</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-anchor-gold text-xl mt-1">🐕</span>
+                <div>
+                  <strong>Pet Friendly</strong>
+                  <p className="text-sm text-gray-600">Water bowls for traveling pets</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-anchor-gold text-xl mt-1">🚗</span>
+                <div>
+                  <strong>Free Parking</strong>
+                  <p className="text-sm text-gray-600">20 spaces for pub guests</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-anchor-gold text-xl mt-1">💳</span>
+                <div>
+                  <strong>All Cards Welcome</strong>
+                  <p className="text-sm text-gray-600">Including American Express</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-anchor-gold text-xl mt-1">♿</span>
+                <div>
+                  <strong>Accessible Entry</strong>
+                  <p className="text-sm text-gray-600">Ramp available at back door</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-anchor-gold text-xl mt-1">🚌</span>
+                <div>
+                  <strong>Bus Stop Outside</strong>
+                  <p className="text-sm text-gray-600">Route 442 to/from Heathrow</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <p className="text-gray-700 max-w-3xl mx-auto">
+              Whether you're waiting for a flight, killing time during a layover, or working remotely while traveling, 
+              The Anchor provides everything you need at local prices - not airport markups.
+            </p>
           </div>
         </div>
       </section>

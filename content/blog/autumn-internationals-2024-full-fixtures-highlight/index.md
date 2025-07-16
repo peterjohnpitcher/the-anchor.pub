@@ -45,7 +45,7 @@ The **Autumn Internationals 2024** will commence on **Saturday, 2nd November**, 
 The four weeks of world-class rugby will see northern hemisphere powerhouses clash with their southern hemisphere rivals. At The Anchor, we'll be showing every match with:
 
 - Multiple HD screens throughout the pub
-- **Traditional pub grub** served all day
+- **Traditional pub grub** served during kitchen hours
 - Special match-day drink offers
 - **Free parking** for all guests
 - **Dog-friendly** atmosphere
@@ -58,7 +58,7 @@ Watch all these fixtures at The Anchor, your premier **sports pub near Heathrow 
 
 ### **Week 1 - Saturday, 2nd November 2024**
 *   **England v New Zealand**, 3:10 pm - *Kitchen open, book early!*
-*   **Scotland v Fiji**, 5:40 pm - *Happy hour prices*
+*   **Scotland v Fiji**, 5:40 pm - *Special match prices*
 
 ### **Week 2 - Friday, 8th to Sunday, 10th November 2024**
 *   **Ireland v New Zealand**, 8:10 pm (Friday) - *Live music after*

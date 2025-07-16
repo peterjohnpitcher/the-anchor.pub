@@ -2,10 +2,11 @@ import Image from 'next/image'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Beer Garden & Plane Spotting | The Anchor Stanwell Moor | Heathrow Flight Path',
+  title: 'Beer Garden Near Me | Plane Spotting Pub | The Anchor Stanwell Moor',
   description: 'Unique beer garden directly under Heathrow flight path. Best plane spotting pub near Heathrow with outdoor seating, dog-friendly space, and views of aircraft every 90 seconds.',
   keywords: 'plane spotting heathrow, beer garden stanwell moor, pub garden heathrow, plane spotting pub, outdoor dining heathrow, best places for plane spotting, heathrow flight path pub',
   openGraph: {
@@ -57,51 +58,13 @@ const planeSpottingSchema = {
   ]
 }
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What planes can I see from The Anchor beer garden?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You'll see all types of aircraft using Heathrow including A380s, Boeing 777s, 787 Dreamliners, and A350s. Planes pass directly overhead approximately every 90 seconds during peak times."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "When is the best time for plane spotting at The Anchor?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Early morning (6am-9am) and late afternoon (4pm-8pm) offer the most frequent flights. Summer evenings are particularly popular as you can enjoy drinks while watching the constant stream of aircraft."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is the beer garden dog friendly?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! Dogs are very welcome in our beer garden. We provide water bowls and it's a great spot for your furry friend to relax while you enjoy plane spotting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I take photos of planes from the beer garden?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely! Our beer garden is a popular spot for aviation photographers. The planes pass low overhead providing excellent photo opportunities."
-      }
-    }
-  ]
-}
 
 export default function BeerGardenPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([planeSpottingSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([planeSpottingSchema]) }}
       />
       
       {/* Hero Section */}
@@ -225,7 +188,7 @@ export default function BeerGardenPage() {
               <div className="bg-white rounded-xl p-6 text-center">
                 <div className="text-4xl mb-3">🍔</div>
                 <h3 className="font-bold text-lg mb-2">Food Service</h3>
-                <p className="text-gray-700">Full menu available in the garden (kitchen hours apply)</p>
+                <p className="text-gray-700">Full menu available in the garden during kitchen hours</p>
               </div>
               
               <div className="bg-white rounded-xl p-6 text-center">
@@ -284,7 +247,7 @@ export default function BeerGardenPage() {
                   <li>• Arrive early to secure the best spotting tables</li>
                   <li>• Try our aviation-themed cocktails</li>
                   <li>• Join other enthusiasts - great community feel</li>
-                  <li>• Food available all day (check kitchen hours)</li>
+                  <li>• Food available during kitchen hours</li>
                 </ul>
               </div>
             </div>
@@ -320,6 +283,29 @@ export default function BeerGardenPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "What planes can I see from The Anchor beer garden?",
+            answer: "You'll see all types of aircraft using Heathrow including A380s, Boeing 777s, 787 Dreamliners, and A350s. Planes pass directly overhead approximately every 90 seconds during peak times."
+          },
+          {
+            question: "When is the best time for plane spotting at The Anchor?",
+            answer: "Early morning (6am-9am) and late afternoon (4pm-8pm) offer the most frequent flights. Summer evenings are particularly popular as you can enjoy drinks while watching the constant stream of aircraft."
+          },
+          {
+            question: "Is the beer garden dog friendly?",
+            answer: "Yes! Dogs are very welcome in our beer garden. We provide water bowls and it's a great spot for your furry friend to relax while you enjoy plane spotting."
+          },
+          {
+            question: "Can I take photos of planes from the beer garden?",
+            answer: "Absolutely! Our beer garden is a popular spot for aviation photographers. The planes pass low overhead providing excellent photo opportunities."
+          }
+        ]}
+        className="bg-gray-50"
+      />
 
       {/* CTA Section */}
       <section className="section-spacing bg-anchor-green text-white">

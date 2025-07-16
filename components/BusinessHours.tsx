@@ -40,17 +40,13 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
           throw new Error(hoursData.error)
         }
         
-        // Debug logging
-        console.log('Business hours fetched at:', hoursData.fetchedAt)
-        console.log('Kitchen open status:', hoursData.currentStatus?.kitchenOpen)
-        
         setHours(hoursData)
         
         if (weatherData && weatherData.forecast) {
           setForecast(weatherData.forecast)
         }
       } catch (err) {
-        console.error('Failed to fetch data:', err)
+        // Error: Failed to fetch data
         setError('Unable to load business hours')
       } finally {
         setLoading(false)
@@ -342,6 +338,24 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
   // Full variant - for dedicated sections
   return (
     <div className="space-y-4">
+      {/* Schema.org OpeningHoursSpecification */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "OpeningHoursSpecification",
+            "@id": "https://the-anchor.pub/#opening-hours",
+            "dayOfWeek": Object.entries(hours.regularHours)
+              .filter(([_, h]) => !h.is_closed)
+              .map(([day, h]) => day.charAt(0).toUpperCase() + day.slice(1)),
+            "opens": hours.regularHours[today]?.opens || "16:00",
+            "closes": hours.regularHours[today]?.closes || "22:00",
+            "validFrom": new Date().toISOString().split('T')[0],
+            "validThrough": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+          })
+        }}
+      />
       {/* Current Status */}
       <div className={`p-4 rounded-lg ${hours.currentStatus.isOpen ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
         <div className="flex items-center justify-between">
@@ -369,7 +383,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
       </div>
 
       {/* Regular Hours */}
-      <div>
+      <div itemProp="openingHours" itemScope itemType="https://schema.org/OpeningHoursSpecification">
         <h3 className="font-bold text-lg mb-3">Opening Hours</h3>
         <div className="space-y-2">
           {dayOrder.map((day, idx) => {
@@ -398,7 +412,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                   isToday ? 'bg-anchor-cream' : ''
                 } ${hasSpecialHours ? 'ring-2 ring-yellow-400' : ''}`}
               >
-                <span className={`font-medium capitalize ${isToday ? 'text-anchor-green' : ''}`}>
+                <span className={`font-medium capitalize ${isToday ? 'text-anchor-green' : ''}`} itemProp="dayOfWeek">
                   {day}
                   {isToday && <span className="text-xs ml-2 text-anchor-gold">(Today)</span>}
                   {hasSpecialHours && <span className="text-xs ml-2 text-yellow-600">({specialHours.note || specialHours.reason || 'Special hours'})</span>}
@@ -409,7 +423,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                   ) : (
                     <>
                       <span className={hasSpecialHours ? 'text-yellow-600 font-medium' : ''}>
-                        {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
+                        <time itemProp="opens" content={displayHours.opens}>{formatTime(displayHours.opens!)}</time> - <time itemProp="closes" content={displayHours.closes}>{formatTime(displayHours.closes!)}</time>
                       </span>
                       {showKitchen && !hasSpecialHours && (
                         <p className="text-xs text-gray-600 mt-1">

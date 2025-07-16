@@ -1,5 +1,10 @@
 [
   {
+    "source": "/blog/drag-cabaret-at-the-anchor-a-night-of-fun-with-nik",
+    "destination": "/blog/drag-cabaret-nikki",
+    "permanent": true
+  },
+  {
     "source": "/blog/5-star-tequila-tasting-night-at-the-anchor-an-unfo",
     "destination": "/blog/tequila-tasting-events",
     "permanent": true

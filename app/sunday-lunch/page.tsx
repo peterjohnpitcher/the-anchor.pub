@@ -6,7 +6,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
-  description: 'Award-winning Sunday roasts at The Anchor. Traditional British roast dinners served 12-5pm every Sunday. Pre-order and payment required by 1pm Saturday. Regular menu also available.',
+  description: 'Our renowned Sunday roasts at The Anchor pub in Surrey. Traditional British roast dinners served 12-5pm every Sunday. Pre-order required. Near Heathrow Airport.',
   keywords: 'sunday roast stanwell moor, sunday lunch near heathrow, best roast dinner surrey, traditional sunday lunch',
   openGraph: {
     title: 'Famous Sunday Roasts at The Anchor',

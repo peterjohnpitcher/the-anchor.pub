@@ -1,9 +1,13 @@
 ---
-title: "Christmas Opening Hours Near Heathrow | The Anchor Stanwell Moor"
-description: "Check Christmas and New Year opening hours at The Anchor pub near Heathrow Airport. Special festive events, Christmas Day drinks service, Boxing Day football, and New Year's Eve party in Stanwell Moor. Just 7 minutes from Terminal 5. Plan your holiday visits to our traditional pub."
-date: "2021-12-03"
-oldUrl: "https://www.the-anchor.pub/post/christmas-2021"
-author: "Billy"
+title: Christmas Opening Hours Near Heathrow | The Anchor Stanwell Moor
+description: >-
+  Check Christmas and New Year opening hours at The Anchor pub near Heathrow
+  Airport. Special festive events, Christmas Day drinks service, Boxing Day
+  football, and New Year's Eve party in Stanwell Moor. Just 7 minutes from
+  Terminal 5. Plan your holiday visits to our traditional pub.
+date: '2021-12-03'
+oldUrl: 'https://www.the-anchor.pub/post/christmas-2021'
+author: Billy
 keywords:
   - christmas opening hours near heathrow
   - christmas day pub stanwell moor
@@ -17,12 +21,15 @@ keywords:
   - festive events near terminal 5
 tags:
   - events
-  - drinks
+  - christmas
+  - festive-menu
+  - december
+  - special-offers
 featured: false
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
-  - "image-2.png"
+  - image-1.png
+  - image-2.png
 ---
 
   
@@ -52,7 +59,7 @@ Planning your festive season near **Heathrow Airport**? The Anchor in **Stanwell
 
 **Boxing Day Football**
 - **Hours**: 12:00 noon - 10:00 PM
-- **Premier League**: All matches shown on big screens
+- **Football**: Major matches shown on terrestrial TV
 - **Kitchen**: Full menu available
 - **Great for**: Escaping the relatives!
 
@@ -96,7 +103,7 @@ Planning your festive season near **Heathrow Airport**? The Anchor in **Stanwell
 **Getting Here:**
 - From Terminal 5: A3044 to Stanwell Moor
 - From Staines: A3044 westbound
-- Bus: Routes 441 & 442
+- Bus: Route 442
 
 **Christmas Booking Tips:**
 - Book early for group celebrations

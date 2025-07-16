@@ -26,7 +26,7 @@ images:
   []
 ---
 
-![An image of people celebrating with beer with the caption "2024 at The Anchor, Bringing families, friends and neighbours together for another year".](/content/blog/new-year-vibes-stanwell-moor-village-staines-the-a/hero.png)
+![An image of people celebrating with beer with the caption "2024 at The Anchor, Bringing families, friends and neighbours together for another year".](/content/blog/new-year-celebration/hero.png)
 
 Looking for a genuine **village pub near Heathrow** with real community spirit? The Anchor in Stanwell Moor offers something special year-round - a place where neighbors become friends, travelers find a warm welcome, and every season brings new reasons to gather. Just 10 minutes from the airport, discover your new local.
 

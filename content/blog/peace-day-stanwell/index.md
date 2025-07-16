@@ -22,9 +22,11 @@ keywords:
   - living near heathrow airport
   - peaceful community staines
 tags:
-  - drinks
-  - events
-  - special-offers
+  - community
+  - peace-day
+  - september
+  - stanwell-moor
+  - awareness
 featured: false
 hero: hero.png
 images: []
@@ -32,7 +34,7 @@ images: []
 
   
 
-![International Day of Peace - A photo of sheet sitting under a tree with a blue sky background](/content/blog/international-day-of-peace-stanwell-moor-village-s/hero.png)
+![International Day of Peace - A photo of sheet sitting under a tree with a blue sky background](/content/blog/peace-day-stanwell/hero.png)
 
   
 

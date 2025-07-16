@@ -1,7 +1,7 @@
 ---
 title: "Christmas Market Near Heathrow | The Anchor's Festive Shopping Event"
 slug: christmas-market
-description: "Visit The Anchor's Christmas Market in Stanwell Moor, just 7 minutes from Heathrow Airport. Free entry festive market with local artisan stalls, live piano music, mulled wine, and Christmas treats. Perfect holiday shopping near Terminal 5. December community event."
+description: "Visit The Anchor's Christmas Market in Stanwell Moor, just 7 minutes from Heathrow Airport. Festive market with local artisan stalls, live piano music, mulled wine, and Christmas treats. Perfect holiday shopping near Terminal 5. December community event."
 date: "2023-11-17"
 oldUrl: "https://www.the-anchor.pub/post/experience-the-magic-at-the-anchor-s-christmas-mar"
 author: "Billy"
@@ -25,7 +25,7 @@ images:
   []
 ---
 
-![experience the magic at the anchor s christmas mar image](/content/blog/experience-the-magic-at-the-anchor-s-christmas-mar/hero.png)
+![experience the magic at the anchor s christmas mar image](/content/blog/christmas-market/hero.png)
 
 Looking for a magical **Christmas market near Heathrow**? The Anchor's annual Festive Market transforms our traditional pub into a winter wonderland of local crafts, seasonal treats, and community spirit. Just 7 minutes from Terminal 5, discover unique gifts and festive cheer in the heart of Stanwell Moor.
 
@@ -36,7 +36,7 @@ Looking for a magical **Christmas market near Heathrow**? The Anchor's annual Fe
 **Date**: First Saturday of December (Annual Event)  
 **Time**: 1:00 PM - 5:00 PM  
 **Location**: The Anchor, Stanwell Moor  
-**Entry**: FREE for all visitors  
+**Entry**: Details vary by year  
 
 Our **Christmas market** offers the perfect blend of traditional festive shopping and modern convenience, all within easy reach of Heathrow terminals.
 
@@ -47,7 +47,7 @@ Our **Christmas market** offers the perfect blend of traditional festive shoppin
 Unlike crowded city markets or airport shopping, The Anchor's **festive market** provides:
 
 - **Local artisan stalls** - Handcrafted gifts you won't find elsewhere
-- **Free entry** - No tickets or booking required
+- **Easy access** - No booking required
 - **Free parking** - Stress-free arrival
 - **Indoor/outdoor spaces** - Comfortable whatever the weather
 - **Live piano music** - Creating magical atmosphere
@@ -98,7 +98,7 @@ No **Christmas market near Heathrow** is complete without seasonal treats:
 - **Christmas pudding** - With brandy butter
 - **Festive sandwiches** - Turkey and cranberry
 - **Soup of the day** - Perfect for cold days
-- **Full pub menu** - Available all day
+- **Full pub menu** - Available during kitchen hours
 
 ## Entertainment and Atmosphere
 

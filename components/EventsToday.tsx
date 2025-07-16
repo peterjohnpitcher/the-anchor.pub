@@ -59,7 +59,7 @@ export function EventsToday() {
           setEvents(dayEvents)
         }
       } catch (err) {
-        console.error('Failed to fetch events:', err)
+        // Error: Failed to fetch events
         setError('Unable to load events')
         // Use fallback events on error
         setEvents(fallbackEvents)

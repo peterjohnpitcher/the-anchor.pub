@@ -5,12 +5,13 @@ import { StatusBar } from '@/components/StatusBar'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { MenuRenderer } from '@/components/MenuRenderer'
 import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { drinksMenuSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
 export const metadata: Metadata = {
-  title: 'Drinks Menu | The Anchor Stanwell Moor | Real Ales & Premium Spirits',
-  description: 'Extensive drinks selection at The Anchor. Real ales, craft beers, premium spirits, wines, and cocktails. Great atmosphere and friendly service.',
+  title: 'Drinks Menu Near Me | The Anchor Stanwell Moor | Real Ales & Premium Spirits',
+  description: 'Extensive drinks selection at The Anchor pub in Surrey. Real ales, craft beers, premium spirits, wines, and cocktails. Great atmosphere near Heathrow Airport.',
   keywords: 'drinks menu stanwell moor, real ale pub, cocktails heathrow, craft beer stanwell',
   openGraph: {
     title: 'Drinks Menu - The Anchor Pub',
@@ -35,11 +36,47 @@ export default async function DrinksMenuPage() {
     )
   }
 
+  const enhancedDrinksMenuSchema = {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "The Anchor Drinks Menu",
+    "description": "Full bar service with real ales, craft beers, wines, spirits and soft drinks at The Anchor pub in Stanwell Moor, Surrey",
+    "hasMenuSection": menuData.categories.map(category => ({
+      "@type": "MenuSection",
+      "name": category.title,
+      "hasMenuItem": category.sections.flatMap(section => 
+        section.items.map(item => ({
+          "@type": "MenuItem",
+          "name": item.name,
+          "description": item.description,
+          "offers": {
+            "@type": "Offer",
+            "price": item.price.replace(/[£$]/, '').split(' / ')[0],
+            "priceCurrency": "GBP"
+          }
+        }))
+      )
+    })),
+    "inLanguage": "en-GB",
+    "provider": {
+      "@type": "BarOrPub",
+      "name": "The Anchor",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Horton Road",
+        "addressLocality": "Stanwell Moor",
+        "addressRegion": "Surrey",
+        "postalCode": "TW19 6AQ"
+      }
+    }
+  }
+
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([drinksMenuSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([enhancedDrinksMenuSchema, breadcrumbSchema]) }}
       />
       {/* Hero Section */}
       <PageHeaderWrapper
@@ -190,6 +227,41 @@ export default async function DrinksMenuPage() {
       <div id="menu">
         <MenuRenderer menuData={menuData} accentColor="anchor-green" />
       </div>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "What beers are on tap at The Anchor?",
+            answer: "We have a fantastic selection of draught beers including Aspall, Carlsberg, Birra Moretti, Carling, Fosters, Guinness, Inches, Pravha, and Stella Artois. Our draught selection offers something for every taste, from crisp lagers to rich stouts."
+          },
+          {
+            question: "Do you serve cocktails at The Anchor?",
+            answer: "Yes! We have a full cocktail menu featuring classics like Mojitos, Margaritas, Espresso Martinis, and many more. Our skilled bartenders can also make your favourite cocktail on request."
+          },
+          {
+            question: "What's the best pub for craft beer near Heathrow?",
+            answer: "The Anchor is just 7 minutes from Heathrow and offers an excellent selection of craft beers, real ales, and premium lagers. We're much better value than airport bars and have a proper pub atmosphere with our beer garden."
+          },
+          {
+            question: "Do you have non-alcoholic drink options?",
+            answer: "Absolutely! We offer a full range of soft drinks, mocktails, premium coffee, tea, and non-alcoholic beers. We ensure everyone can enjoy their visit regardless of whether they're drinking alcohol."
+          },
+          {
+            question: "Can I book the bar area for a private drinks party?",
+            answer: "Yes, our bar area can be reserved exclusively for cocktail receptions and casual events. We offer comprehensive drinks packages including welcome drinks, wine packages, and bar tabs. Our experienced team will help create the perfect drinks solution for your celebration. Contact us on 01753 682707 to discuss your requirements."
+          },
+          {
+            question: "What wines do you serve at The Anchor?",
+            answer: "We offer a carefully selected wine list including our iHeart house wines available in 187ml bottles (perfect single-serve size) or 700ml bottles. We also have premium wine options by the bottle. Our selection includes red, white, rosé, and sparkling wines to suit all tastes and budgets."
+          },
+          {
+            question: "What payment methods are accepted at the bar?",
+            answer: "We accept cash and all major credit and debit cards, including American Express. Whether you're settling a tab, buying rounds, or paying for events, we make it easy with multiple payment options."
+          }
+        ]}
+        className="bg-gray-50"
+      />
 
       {/* CTA Section */}
       <section className="section-spacing bg-anchor-green text-white">

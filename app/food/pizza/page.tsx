@@ -6,11 +6,11 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Buy One Get One Free Pizza | The Anchor Stanwell Moor | BOGOF Deal',
-  description: 'BOGOF pizza deal at The Anchor pub near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday & Wednesday. Fresh dough, quality toppings. Dine-in & takeaway available.',
+  description: 'BOGOF pizza deal at The Anchor pub near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday. Fresh dough, quality toppings. Dine-in & takeaway available.',
   keywords: 'buy one get one free pizza, bogof pizza stanwell moor, pizza deal heathrow, 2 for 1 pizza, pizza offer staines',
   openGraph: {
     title: 'BOGOF Pizza Deal - The Anchor Pub',
-    description: 'Buy one get one free on all pizzas every Tuesday & Wednesday. Dine-in & takeaway available.',
+    description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
     images: ['/images/the-anchor-pub-stanwell-moor.jpg'],
   },
 }
@@ -24,8 +24,8 @@ const pizzaMenuSchema = {
     "hasMenuItem": [
       {
         "@type": "MenuItem",
-        "name": "Margherita Pizza",
-        "description": "Classic tomato base with mozzarella and fresh basil",
+        "name": "Rustic Classic Pizza",
+        "description": "Rich tomato sauce, creamy mozzarella, crisp stone-baked crust—a timeless favourite.",
         "offers": {
           "@type": "Offer",
           "price": "10.99",
@@ -34,8 +34,8 @@ const pizzaMenuSchema = {
       },
       {
         "@type": "MenuItem",
-        "name": "Pepperoni Pizza",
-        "description": "Loaded with spicy pepperoni and extra cheese",
+        "name": "Simply Salami Pizza",
+        "description": "Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection.",
         "offers": {
           "@type": "Offer",
           "price": "12.99",
@@ -44,8 +44,8 @@ const pizzaMenuSchema = {
       },
       {
         "@type": "MenuItem",
-        "name": "BBQ Chicken Pizza",
-        "description": "BBQ base, chicken, red onions, and peppers",
+        "name": "Barbecue Chicken Pizza",
+        "description": "Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust.",
         "offers": {
           "@type": "Offer",
           "price": "13.99",
@@ -136,7 +136,7 @@ export default function PizzaPage() {
               <div className="bg-white rounded-xl p-6 shadow-sm">
                 <div className="text-4xl mb-3">📅</div>
                 <h3 className="font-bold text-lg mb-2">Every Tuesday</h3>
-                <p className="text-gray-700">Available all day during kitchen hours</p>
+                <p className="text-gray-700">Available during kitchen hours</p>
               </div>
             </div>
             
@@ -157,39 +157,39 @@ export default function PizzaPage() {
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Margherita</h3>
-                <p className="text-gray-700 mb-3">Classic tomato base with mozzarella and fresh basil</p>
-                <p className="text-xl font-bold text-anchor-gold">£10.99</p>
+                <h3 className="text-2xl font-bold text-anchor-green mb-2">Rustic Classic</h3>
+                <p className="text-gray-700 mb-3">Rich tomato sauce, creamy mozzarella, crisp stone-baked crust—a timeless favourite.</p>
+                <p className="text-xl font-bold text-anchor-gold">£7.49 / £10.49</p>
               </div>
               
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Pepperoni</h3>
-                <p className="text-gray-700 mb-3">Loaded with spicy pepperoni and extra cheese</p>
-                <p className="text-xl font-bold text-anchor-gold">£12.99</p>
+                <h3 className="text-2xl font-bold text-anchor-green mb-2">Simply Salami</h3>
+                <p className="text-gray-700 mb-3">Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection.</p>
+                <p className="text-xl font-bold text-anchor-gold">£8.49 / £12.99</p>
               </div>
               
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">BBQ Chicken</h3>
-                <p className="text-gray-700 mb-3">BBQ base, chicken, red onions, and peppers</p>
-                <p className="text-xl font-bold text-anchor-gold">£13.99</p>
+                <h3 className="text-2xl font-bold text-anchor-green mb-2">Barbecue Chicken</h3>
+                <p className="text-gray-700 mb-3">Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust.</p>
+                <p className="text-xl font-bold text-anchor-gold">£9.99 / £13.99</p>
               </div>
               
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Hawaiian</h3>
-                <p className="text-gray-700 mb-3">Ham, pineapple, and extra cheese</p>
-                <p className="text-xl font-bold text-anchor-gold">£12.99</p>
+                <h3 className="text-2xl font-bold text-anchor-green mb-2">Fully Loaded</h3>
+                <p className="text-gray-700 mb-3">Napoli salami, speck ham, fennel salami, mozzarella on a bold stone-baked base.</p>
+                <p className="text-xl font-bold text-anchor-gold">£9.49 / £13.99</p>
               </div>
               
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Meat Feast</h3>
-                <p className="text-gray-700 mb-3">Pepperoni, ham, sausage, and bacon</p>
-                <p className="text-xl font-bold text-anchor-gold">£14.99</p>
+                <h3 className="text-2xl font-bold text-anchor-green mb-2">Nice & Spicy</h3>
+                <p className="text-gray-700 mb-3">'Nduja, Ventricina, roquito peppers, mozzarella—fiery flavours on a crisp crust.</p>
+                <p className="text-xl font-bold text-anchor-gold">£8.49 / £13.49</p>
               </div>
               
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Veggie Supreme</h3>
-                <p className="text-gray-700 mb-3">Mushrooms, peppers, onions, olives, and sweetcorn</p>
-                <p className="text-xl font-bold text-anchor-gold">£12.99</p>
+                <h3 className="text-2xl font-bold text-anchor-green mb-2">The Garden Club</h3>
+                <p className="text-gray-700 mb-3">Roasted courgettes, caramelised onions, rocket, and mozzarella on a rich tomato base.</p>
+                <p className="text-xl font-bold text-anchor-gold">£8.99 / £12.99</p>
               </div>
             </div>
             

@@ -43,7 +43,7 @@ images:
   - image-8.png
 ---
 
-![Festive graphic showcasing Christmas decorations and the text 'Rounding up all the fun from December!' with The Anchor's logo.](/content/blog/december-at-the-anchor-celebrating-community-chris/hero.png)
+![Festive graphic showcasing Christmas decorations and the text 'Rounding up all the fun from December!' with The Anchor's logo.](/content/blog/december-celebrations/hero.png)
 
 December was nothing short of magical at The Anchor, your **community pub near Heathrow Airport**. As Christmas approached, we became the backdrop to countless moments of joy, connection, and celebration in **Stanwell Moor**. Whether it was the packed house on Christmas Eve and Christmas Day or the laughter-filled evenings at our themed events, December proved why we're the premier **Christmas pub near Heathrow Terminal 5**.
 
@@ -69,193 +69,193 @@ For us, moments like these are what The Anchor is all about—being a home away 
 
 ## **Event Highlights: A December Full of Christmas Cheer**
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-1.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-1.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-10.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-10.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-11.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-11.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-12.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-12.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-13.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-13.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-14.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-14.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-15.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-15.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-16.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-16.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-17.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-17.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-18.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-18.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-19.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-19.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-2.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-2.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-20.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-20.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-21.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-21.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-22.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-22.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-23.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-23.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-24.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-24.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-25.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-25.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-26.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-26.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-27.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-27.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-28.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-28.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-29.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-29.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-3.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-3.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-30.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-30.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-31.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-31.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-32.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-32.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-33.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-33.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-34.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-34.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-35.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-35.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-36.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-36.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-37.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-37.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-38.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-38.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-39.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-39.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-4.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-4.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-40.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-40.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-41.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-41.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-42.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-42.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-43.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-43.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-44.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-44.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-45.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-45.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-46.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-46.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-47.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-47.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-48.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-48.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-49.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-49.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-5.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-5.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-50.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-50.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-51.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-51.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-52.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-52.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-53.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-53.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-54.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-54.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-55.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-55.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-56.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-56.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-57.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-57.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-58.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-58.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-59.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-59.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-6.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-6.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-60.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-60.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-61.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-61.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-62.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-62.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-63.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-63.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-64.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-64.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-65.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-65.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-66.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-66.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-67.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-67.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-68.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-68.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-69.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-69.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-7.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-7.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-70.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-70.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-71.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-71.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-72.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-72.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-73.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-73.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-74.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-74.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-75.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-75.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-76.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-76.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-77.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-77.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-78.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-78.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-79.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-79.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-8.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-8.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-80.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-80.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-81.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-81.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-82.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-82.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-83.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-83.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-84.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-84.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-85.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-85.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-86.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-86.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-87.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-87.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-88.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-88.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-89.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-89.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-9.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-9.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-90.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-90.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-91.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-91.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-92.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-92.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-93.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-93.png)
 
-![december at the anchor celebrating community chris image](/content/blog/december-at-the-anchor-celebrating-community-chris/image-94.png)
+![december at the anchor celebrating community chris image](/content/blog/december-celebrations/image-94.png)
 
   
 

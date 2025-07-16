@@ -20,9 +20,11 @@ keywords:
   - bar tab rules heathrow
   - pub credit system
 tags:
-  - drinks
-  - events
-  - special-offers
+  - community
+  - update
+  - payment
+  - service-change
+  - important
 featured: false
 hero: hero.png
 images: []

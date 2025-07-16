@@ -31,7 +31,7 @@ images:
   - image-3.png
 ---
 
-![the importance of being dog friendly image](/content/blog/the-importance-of-being-dog-friendly/hero.png)
+![the importance of being dog friendly image](/content/blog/dog-friendly-pub/hero.png)
 
 Looking for a **dog friendly pub near Heathrow**? The Anchor in Stanwell Moor welcomes well-behaved dogs with open arms! Our spacious garden terrace, warm hospitality, and dog-friendly amenities make us the perfect spot for you and your four-legged friend. Just 7 minutes from Terminal 5, we're your local **family friendly pub** where dogs are part of the family.
 
@@ -68,7 +68,7 @@ Book early for Sunday lunch - our dog-friendly tables fill up fast!
 
 ## Our Dog-Friendly Garden Terrace
 
-![the importance of being dog friendly image](/content/blog/the-importance-of-being-dog-friendly/image-1.png)
+![the importance of being dog friendly image](/content/blog/dog-friendly-pub/image-1.png)
 
 ### The Perfect Outdoor Space for Dogs
 
@@ -106,7 +106,7 @@ Being a **family friendly pub** in Stanwell Moor means we're perfectly positione
 
 ## Our Official Dog-Friendly Policy
 
-![the importance of being dog friendly image](/content/blog/the-importance-of-being-dog-friendly/image-2.png)
+![the importance of being dog friendly image](/content/blog/dog-friendly-pub/image-2.png)
 
 ### Clear Guidelines for a Great Experience
 
@@ -236,6 +236,6 @@ At The Anchor, we believe that the best times are shared with all family members
 
 Whether you're a Heathrow traveler with time to spare, a local looking for your new regular, or visiting the area with your dog, The Anchor provides the perfect dog-friendly experience. Because life's too short to leave your best friend at home!
 
-![the importance of being dog friendly image](/content/blog/the-importance-of-being-dog-friendly/image-3.png)
+![the importance of being dog friendly image](/content/blog/dog-friendly-pub/image-3.png)
 
 *Follow The Anchor on social media for dog event updates and photos from our four-legged visitors! #DogFriendlyPubNearHeathrow*

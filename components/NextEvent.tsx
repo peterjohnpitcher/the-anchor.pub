@@ -28,7 +28,7 @@ export function NextEvent() {
           setError('No upcoming events scheduled')
         }
       } catch (err) {
-        console.error('Failed to fetch next event:', err)
+        // Error: Failed to fetch next event
         setError('Unable to load event information')
       } finally {
         setLoading(false)

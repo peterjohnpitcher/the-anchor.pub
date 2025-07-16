@@ -16,8 +16,8 @@ export const CONTACT = {
   
   // Coordinates (verified from Google Maps)
   coordinates: {
-    lat: 51.4764,
-    lng: -0.4735
+    lat: 51.462509,
+    lng: -0.502067
   }
 }
 

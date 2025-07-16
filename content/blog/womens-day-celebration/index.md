@@ -22,10 +22,11 @@ keywords:
   - female staff pub stanwell moor
   - womens day drinks heathrow
 tags:
-  - drinks
   - events
-  - food
-  - special-offers
+  - womens-day
+  - march
+  - equality
+  - celebration
 featured: false
 hero: hero.png
 images:
@@ -34,7 +35,7 @@ images:
 
   
 
-![international women s day celebrating the achievem image](/content/blog/international-women-s-day-celebrating-the-achievem/hero.png)
+![international women s day celebrating the achievem image](/content/blog/womens-day-celebration/hero.png)
 
 ## Celebrating International Women's Day at The Anchor Near Heathrow
 
@@ -65,7 +66,7 @@ This year’s theme for International Women's Day is “Choose to Challenge”. 
 
   
 
-![international women s day celebrating the achievem image](/content/blog/international-women-s-day-celebrating-the-achievem/image-1.png)
+![international women s day celebrating the achievem image](/content/blog/womens-day-celebration/image-1.png)
 
 ## Celebrate International Women's Day at Our Pub Near Heathrow
 

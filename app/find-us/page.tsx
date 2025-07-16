@@ -5,11 +5,12 @@ import { StatusBar } from '@/components/StatusBar'
 import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
 import { Metadata } from 'next'
 import { BusinessHours } from '@/components/BusinessHours'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { findUsPlaceSchema, generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 
 export const metadata: Metadata = {
   title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
-  description: 'Find The Anchor pub in Stanwell Moor. Easy directions from Heathrow, M25, and local areas. Free parking available. Just off Horton Road near the church.',
+  description: 'Find The Anchor pub in Stanwell Moor, Surrey. Easy directions from Heathrow, M25, Staines, and local areas. Free parking available. Just off Horton Road near the church.',
   keywords: 'anchor pub directions, find anchor stanwell moor, pub near me directions, free parking pub',
   openGraph: {
     title: 'Find The Anchor - Directions & Location',
@@ -37,6 +38,7 @@ export default function FindUsPage() {
     ]
   )
 
+
   return (
     <>
       <script
@@ -55,7 +57,7 @@ export default function FindUsPage() {
       {/* Quick Info */}
       <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">📍</div>
               <p className="font-bold text-anchor-green">Stanwell Moor</p>
@@ -64,7 +66,7 @@ export default function FindUsPage() {
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🚗</div>
               <p className="font-bold text-anchor-green">Free Parking</p>
-              <p className="text-sm text-gray-600">50+ spaces</p>
+              <p className="text-sm text-gray-600">20 spaces for pub guests</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">✈️</div>
@@ -74,7 +76,32 @@ export default function FindUsPage() {
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🚌</div>
               <p className="font-bold text-anchor-green">Bus Routes</p>
-              <p className="text-sm text-gray-600">441 & 442</p>
+              <p className="text-sm text-gray-600">442</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center">
+              <div className="text-3xl mb-2">📶</div>
+              <p className="font-bold text-anchor-green">Free WiFi</p>
+              <p className="text-sm text-gray-600">Throughout the pub</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center">
+              <div className="text-3xl mb-2">🎱</div>
+              <p className="font-bold text-anchor-green">Pool & Darts</p>
+              <p className="text-sm text-gray-600">Games available</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center">
+              <div className="text-3xl mb-2">💻</div>
+              <p className="font-bold text-anchor-green">Work Friendly</p>
+              <p className="text-sm text-gray-600">Tables with plugs</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center">
+              <div className="text-3xl mb-2">🎵</div>
+              <p className="font-bold text-anchor-green">Entertainment</p>
+              <p className="text-sm text-gray-600">Jukebox & more</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg text-center">
+              <div className="text-3xl mb-2">💳</div>
+              <p className="font-bold text-anchor-green">Payment</p>
+              <p className="text-sm text-gray-600">Cash & all cards inc. Amex</p>
             </div>
           </div>
         </div>
@@ -104,8 +131,8 @@ export default function FindUsPage() {
                       </a>
                     </p>
                     <p className="mb-2">
-                      <a href="https://wa.me/4401753682707" className="text-anchor-gold hover:text-anchor-gold-light" target="_blank" rel="noopener noreferrer">
-                        💬 WhatsApp Us
+                      <a href="https://wa.me/441753682707" className="text-anchor-gold hover:text-anchor-gold-light" target="_blank" rel="noopener noreferrer">
+                        💬 WhatsApp: 01753682707
                       </a>
                     </p>
                     <p>
@@ -134,7 +161,7 @@ export default function FindUsPage() {
                     </li>
                     <li className="flex gap-3">
                       <span className="text-anchor-gold">🚗</span>
-                      <span>Large car park visible from road</span>
+                      <span>Free parking for pub guests (20 spaces)</span>
                     </li>
                     <li className="flex gap-3">
                       <span className="text-anchor-gold">🌳</span>
@@ -238,11 +265,11 @@ export default function FindUsPage() {
             <div className="bg-white rounded-xl p-6 shadow-md">
               <h3 className="font-bold text-xl text-anchor-green mb-4">By Bus</h3>
               <div className="space-y-3 text-gray-700">
-                <p><strong>Route 441:</strong> Heathrow Central - Stanwell Moor</p>
-                <p><strong>Route 442:</strong> Staines - Stanwell Moor</p>
+                <p><strong>Route 442:</strong> Staines - Stanwell Moor - Heathrow</p>
                 <p className="text-sm">Ask driver for The Anchor stop</p>
+                <p className="text-sm text-green-600 font-semibold">✓ ULEZ Free Route</p>
               </div>
-              <p className="mt-4 text-sm text-gray-600">Buses run hourly</p>
+              <p className="mt-4 text-sm text-gray-600">Regular service throughout the day</p>
             </div>
           </div>
         </div>
@@ -260,7 +287,7 @@ export default function FindUsPage() {
                 <div>
                   <div className="text-4xl mb-3">🚗</div>
                   <h3 className="font-bold text-anchor-green mb-2">20 Spaces</h3>
-                  <p className="text-gray-700">On-site parking for all guests</p>
+                  <p className="text-gray-700">Free parking for pub guests</p>
                 </div>
                 <div>
                   <div className="text-4xl mb-3">♿</div>
@@ -274,7 +301,106 @@ export default function FindUsPage() {
                 </div>
               </div>
               <p className="mt-6 text-gray-600 italic">
-                Free parking while you visit. Extended parking available - ask staff for details.
+                Free parking for pub guests. Paid parking for longer term stays coming soon.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities */}
+      <section className="section-spacing bg-anchor-sand/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
+              Our Facilities
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-2xl p-8 shadow-sm">
+                <h3 className="text-2xl font-bold text-anchor-green mb-6">Entertainment & Games</h3>
+                <ul className="space-y-3">
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">🎱</span>
+                    <span><strong>Pool Table</strong> - Challenge your friends</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">🎯</span>
+                    <span><strong>Darts Board</strong> - Professional setup with oche</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">🎵</span>
+                    <span><strong>Jukebox</strong> - Wide selection of music</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">🎰</span>
+                    <span><strong>Fruit Machine</strong> - Try your luck (18+)</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">📺</span>
+                    <span><strong>4 TVs</strong> - Terrestrial channels for sports & news</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-8 shadow-sm">
+                <h3 className="text-2xl font-bold text-anchor-green mb-6">Work & Connectivity</h3>
+                <ul className="space-y-3">
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">📶</span>
+                    <span><strong>Free WiFi</strong> - Fast, reliable, no time limits</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">🔌</span>
+                    <span><strong>Power Points</strong> - Tables with plugs in dining room</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">☕</span>
+                    <span><strong>Quiet Weekdays</strong> - Perfect for remote work</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">🚗</span>
+                    <span><strong>Free Parking</strong> - No hourly fees</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-anchor-gold">🧳</span>
+                    <span><strong>Luggage Storage</strong> - Safe storage for travelers</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-white rounded-2xl p-8 shadow-sm">
+              <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Guest Services</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="flex items-start gap-3">
+                  <span className="text-anchor-gold text-xl mt-1">🐕</span>
+                  <div>
+                    <strong>Dog Friendly</strong>
+                    <p className="text-sm text-gray-600">Water bowls available</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-anchor-gold text-xl mt-1">♿</span>
+                  <div>
+                    <strong>Accessible Entry</strong>
+                    <p className="text-sm text-gray-600">Ramp available at back door</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-anchor-gold text-xl mt-1">💳</span>
+                  <div>
+                    <strong>All Cards Accepted</strong>
+                    <p className="text-sm text-gray-600">Including American Express</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 text-center bg-white rounded-xl p-6 shadow-sm">
+              <p className="text-gray-700">
+                <strong className="text-anchor-green">Digital Nomad Friendly:</strong> Our dining room is equipped with tables 
+                featuring power points, making it perfect for remote workers and digital nomads. Combined with free WiFi 
+                and a quiet weekday atmosphere, it's an ideal workspace near Heathrow.
               </p>
             </div>
           </div>
@@ -292,6 +418,45 @@ export default function FindUsPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "Is there parking at The Anchor pub?",
+            answer: "Yes, The Anchor offers free parking for pub guests. Our car park has 20 spaces available. Paid parking for longer term stays will be available in the future."
+          },
+          {
+            question: "How far is The Anchor from Heathrow Airport?",
+            answer: "The Anchor is just 7 minutes from Terminal 5, 15 minutes from Terminals 2 & 3, and 10 minutes from Terminal 4. We're the closest traditional British pub to Heathrow Airport."
+          },
+          {
+            question: "What areas does The Anchor serve?",
+            answer: "We serve Stanwell Moor, Staines, Ashford, Feltham, Bedfont, and surrounding Surrey areas. We're also convenient for all Heathrow terminals and nearby hotels."
+          },
+          {
+            question: "Is The Anchor accessible by public transport?",
+            answer: "Yes! The 442 bus runs between Staines, Stanwell Moor and Heathrow, stopping nearby. This is a ULEZ-free route, making it an environmentally friendly option."
+          },
+          {
+            question: "Can I walk to The Anchor from nearby hotels?",
+            answer: "If you're staying at the Premier Inn Heathrow Terminal 5, we're about a 15-minute walk. From other Heathrow hotels, we recommend a taxi (around £25) or take the 442 bus which stops directly outside the pub."
+          },
+          {
+            question: "What's the best way to find The Anchor?",
+            answer: "Look for the church on Horton Road - we're right next to it! If using sat nav, our postcode is TW19 6AQ. From the A3044, turn onto Horton Road at the church and we're on your right with free parking available."
+          },
+          {
+            question: "Is The Anchor wheelchair accessible?",
+            answer: "The Anchor has a wheelchair ramp available at the back door for step-free access to the main areas. Please note that we do not currently have accessible toilet facilities."
+          },
+          {
+            question: "What payment methods does The Anchor accept?",
+            answer: "We accept cash and all major credit and debit cards, including American Express. Whether you're enjoying a meal, drinks, or booking an event, we make payment convenient with multiple options available."
+          }
+        ]}
+        className="bg-gray-50"
+      />
 
       {/* Map CTA */}
       <section className="section-spacing bg-anchor-green text-white">

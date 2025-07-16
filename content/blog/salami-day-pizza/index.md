@@ -23,10 +23,11 @@ keywords:
   - discount pizza near terminal 5
   - italian food near airport
 tags:
-  - drinks
-  - events
   - food
+  - pizza
   - special-offers
+  - italian
+  - september
 featured: false
 hero: hero.png
 images: []
@@ -34,7 +35,7 @@ images: []
 
   
 
-![world salami day pizza dive into exclusive pizza d image](/content/blog/world-salami-day-pizza-dive-into-exclusive-pizza-d/hero.png)
+![world salami day pizza dive into exclusive pizza d image](/content/blog/salami-day-pizza/hero.png)
 
   
 
@@ -58,7 +59,7 @@ In honour of World Salami Day, we're slicing our prices in half. That's right! E
 
 Before diving into our delicious menu, let's take a brief journey back in time. Pizza, in its most basic form - bread topped with oils and local flavors, has been a staple in Mediterranean cultures for centuries. However, the pizza that has captured the hearts and stomachs of so many worldwide has its roots in Naples, Italy.
 
-In the late 18th and early 19th centuries, this bustling Italian city saw its streets filled with the aroma of flatbreads adorned with tomatoes, cheese, oil, anchovies, and garlic. But it was the Margherita pizza, named in honor of Queen Margherita of Savoy in 1889, with its iconic ingredients representing the colors of the Italian flag (red tomatoes, white mozzarella, and green basil), that gained international fame and set the standard for what we now know as pizza.
+In the late 18th and early 19th centuries, this bustling Italian city saw its streets filled with the aroma of flatbreads adorned with tomatoes, cheese, oil, anchovies, and garlic. The classic combination of tomato, mozzarella, and basil - now featured in our Rustic Classic pizza - gained international fame and set the standard for what we now know as pizza.
 
   
 

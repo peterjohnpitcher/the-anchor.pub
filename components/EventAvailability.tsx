@@ -13,6 +13,7 @@ export default function EventAvailability({ eventId, className = '', showDetails
   const [availability, setAvailability] = useState<EventAvailability | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+  const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
 
   useEffect(() => {
     async function fetchAvailability() {
@@ -20,8 +21,9 @@ export default function EventAvailability({ eventId, className = '', showDetails
         const data = await checkEventAvailability(eventId)
         setAvailability(data)
         setError(false)
+        setLastUpdate(new Date())
       } catch (err) {
-        console.error('Failed to check availability:', err)
+        // Error: Failed to check availability
         setError(true)
       } finally {
         setLoading(false)
@@ -38,7 +40,8 @@ export default function EventAvailability({ eventId, className = '', showDetails
 
   if (loading) {
     return (
-      <div className={`text-sm text-gray-500 ${className}`}>
+      <div className={`text-sm text-gray-500 ${className}`} role="status" aria-live="polite">
+        <span className="sr-only">Loading event availability</span>
         Checking availability...
       </div>
     )
@@ -50,7 +53,7 @@ export default function EventAvailability({ eventId, className = '', showDetails
 
   if (!availability.available) {
     return (
-      <div className={`text-sm font-semibold text-red-600 ${className}`}>
+      <div className={`text-sm font-semibold text-red-600 ${className}`} role="alert" aria-live="assertive">
         SOLD OUT
       </div>
     )
@@ -61,15 +64,15 @@ export default function EventAvailability({ eventId, className = '', showDetails
 
   if (showDetails) {
     return (
-      <div className={`space-y-2 ${className}`}>
+      <div className={`space-y-2 ${className}`} role="region" aria-live="polite" aria-label="Event availability details">
         <div className="flex items-center gap-2">
           <span className={`text-sm font-semibold ${
             isLimited ? 'text-amber-600 animate-pulse' : 'text-green-600'
-          }`}>
+          }`} role={isLimited ? 'alert' : undefined}>
             {isLimited ? 'LIMITED AVAILABILITY' : `${availability.remaining} seats available`}
           </span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-gray-200 rounded-full h-2" role="progressbar" aria-valuenow={percentageFull} aria-valuemin={0} aria-valuemax={100} aria-label="Booking capacity">
           <div 
             className={`h-2 rounded-full transition-all duration-300 ${
               percentageFull >= 90 ? 'bg-red-500' :
@@ -80,9 +83,12 @@ export default function EventAvailability({ eventId, className = '', showDetails
             style={{ width: `${percentageFull}%` }}
           />
         </div>
-        <p className="text-xs text-gray-600">
+        <p className="text-xs text-gray-600" aria-live="off">
           {availability.booked} of {availability.capacity} seats booked
         </p>
+        <span className="sr-only" aria-live="polite">
+          Last updated: {lastUpdate.toLocaleTimeString()}
+        </span>
       </div>
     )
   }
@@ -90,7 +96,7 @@ export default function EventAvailability({ eventId, className = '', showDetails
   return (
     <span className={`text-sm ${
       isLimited ? 'text-amber-600 font-semibold animate-pulse' : 'text-gray-600'
-    } ${className}`}>
+    } ${className}`} role={isLimited ? 'alert' : undefined} aria-live={isLimited ? 'assertive' : 'polite'}>
       {isLimited ? 'Limited availability' : `${availability.remaining} seats available`}
     </span>
   )

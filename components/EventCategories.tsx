@@ -51,7 +51,7 @@ export async function EventCategories() {
       </div>
     )
   } catch (error) {
-    console.error('Failed to load event categories:', error)
+    // Error: Failed to load event categories
     return null
   }
 }

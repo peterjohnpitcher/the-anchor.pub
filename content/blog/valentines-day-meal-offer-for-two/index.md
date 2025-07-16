@@ -80,7 +80,7 @@ Choose from our delicious selection:
 
 **Classic Romance**
 - **Rustic Classic** - Tomato, mozzarella, oregano
-- **Simply Salami** - Classic pepperoni favorite
+- **Simply Salami** - Italian salami perfection
 - **The Works** - Loaded with toppings
 
 **Adventurous Choices**

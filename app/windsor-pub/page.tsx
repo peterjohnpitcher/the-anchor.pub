@@ -1,0 +1,475 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import { CallToAction } from '@/components/CallToAction'
+import { StatusBar } from '@/components/StatusBar'
+import { BusinessHours } from '@/components/BusinessHours'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
+import { Metadata } from 'next'
+import { CONTACT, BRAND, PARKING } from '@/lib/constants'
+
+export const metadata: Metadata = {
+  title: `Windsor Pub Near Me | ${BRAND.name} - 15 Minutes from Windsor`,
+  description: `${BRAND.name} is the perfect traditional pub just 15 minutes from Windsor. Outside ULEZ zone with free parking. Sunday roasts, quiz nights, drag shows, and authentic British atmosphere. Easy access via M4.`,
+  keywords: 'windsor pub, pub near windsor, windsor berkshire pub, pubs close to windsor, british pub windsor, traditional pub near windsor castle',
+  openGraph: {
+    title: 'The Anchor - Traditional Pub Near Windsor',
+    description: 'Just 15 minutes from Windsor with free parking. Sunday roasts, British classics, and regular entertainment.',
+    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    type: 'website',
+  },
+}
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Restaurant", "BarOrPub"],
+  "@id": "https://the-anchor.pub/windsor-pub#business",
+  "name": `${BRAND.name} - Near Windsor`,
+  "image": "https://the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": CONTACT.address.street,
+    "addressLocality": CONTACT.address.town,
+    "addressRegion": "Surrey",
+    "postalCode": CONTACT.address.postcode,
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": CONTACT.coordinates.lat,
+    "longitude": CONTACT.coordinates.lng
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Windsor"
+    },
+    {
+      "@type": "City",
+      "name": "Old Windsor"
+    },
+    {
+      "@type": "City",
+      "name": "Datchet"
+    },
+    {
+      "@type": "City",
+      "name": "Eton"
+    }
+  ],
+  "priceRange": "££",
+  "servesCuisine": ["British", "Traditional English", "Sunday Roast"],
+  "telephone": CONTACT.phoneIntl,
+  "url": "https://the-anchor.pub/windsor-pub"
+}
+
+export default function WindsorPubPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Locations', url: '/locations' },
+    { name: 'Windsor Pub', url: '/windsor-pub' }
+  ])
+
+  const directionsSchema = generateHowToDirectionsSchema(
+    'Windsor Town Centre',
+    'The Anchor Pub Stanwell Moor',
+    [
+      'From Windsor town center, head east on High Street/A308',
+      'Continue onto Datchet Road/B376',
+      'Turn left onto Horton Road/B376',
+      'Continue for about 4 miles through Wraysbury',
+      'After passing Wraysbury Station, continue on Horton Road',
+      'The Anchor will be on your left with free parking'
+    ]
+  )
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema, breadcrumbSchema, directionsSchema]) }}
+      />
+      
+      {/* Hero Section */}
+      <PageHeaderWrapper
+        route="/windsor-pub"
+        title="Traditional British Pub Near Windsor"
+        description="Just 15 minutes from Windsor Castle with free parking"
+        showStatusBar={true}
+      >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <CallToAction 
+            href={`tel:${CONTACT.phone}`}
+            variant="primary"
+            size="lg"
+          >
+            📞 Call to Book
+          </CallToAction>
+          <CallToAction 
+            href="/food-menu"
+            variant="secondary"
+            size="lg"
+          >
+            🍽️ View Menu
+          </CallToAction>
+        </div>
+      </PageHeaderWrapper>
+
+      {/* Welcome Section */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-6">
+              Windsor's Favorite Traditional Pub Experience
+            </h2>
+            <p className="text-xl text-gray-700 mb-8">
+              Just a 15-minute drive from Windsor Castle, The Anchor offers authentic British 
+              hospitality without the tourist prices. Enjoy traditional pub atmosphere, fantastic 
+              food, and a warm welcome in our historic Stanwell Moor location.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-anchor-cream rounded-xl p-6">
+                <div className="text-4xl mb-3">🏰</div>
+                <h3 className="font-bold text-lg mb-2">Near Windsor</h3>
+                <p className="text-gray-700">15 minutes from Windsor Castle via M4 or B376</p>
+              </div>
+              
+              <div className="bg-anchor-cream rounded-xl p-6">
+                <div className="text-4xl mb-3">💷</div>
+                <h3 className="font-bold text-lg mb-2">Better Value</h3>
+                <p className="text-gray-700">Avoid Windsor tourist prices - proper pub rates</p>
+              </div>
+              
+              <div className="bg-anchor-cream rounded-xl p-6">
+                <div className="text-4xl mb-3">🚫</div>
+                <h3 className="font-bold text-lg mb-2">ULEZ Free</h3>
+                <p className="text-gray-700">Save £12.50 - we're outside the zone!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Windsor Residents Choose Us */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              Why Windsor Residents Love The Anchor
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">Worth the Journey</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">✓</span>
+                    <div>
+                      <strong>Escape Windsor's tourist crowds</strong> - Peaceful village pub atmosphere
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">✓</span>
+                    <div>
+                      <strong>Half the price of Windsor pubs</strong> - Genuine local pricing
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">✓</span>
+                    <div>
+                      <strong>Free parking always available</strong> - No expensive Windsor parking fees
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">✓</span>
+                    <div>
+                      <strong>Real locals pub</strong> - Where Windsor residents go for a proper pint
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">Special Events & Offers</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">🍕</span>
+                    <div>
+                      <strong>Tuesday Pizza BOGOF</strong> - Buy one get one free all day
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">🥘</span>
+                    <div>
+                      <strong>Famous Sunday Roasts</strong> - Book by Saturday 1pm
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">🎭</span>
+                    <div>
+                      <strong>Monthly Drag Shows</strong> - Spectacular entertainment, FREE entry
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">🧠</span>
+                    <div>
+                      <strong>Quiz Nights</strong> - £3 entry, great prizes, monthly events
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-blue-50 rounded-xl p-6 text-center">
+              <p className="text-lg text-blue-800">
+                <span className="font-bold">Royal Connection:</span> Many castle staff and Windsor 
+                locals are regulars - discover where the real community meets!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular with Windsor Groups */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              Popular with Windsor Groups
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-amber-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-amber-800 mb-4">Regular Visitors</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Windsor Rugby Club socials</li>
+                  <li>• Eton College staff gatherings</li>
+                  <li>• Windsor & Eton FC supporters</li>
+                  <li>• Local business networking</li>
+                  <li>• Theatre Royal Windsor groups</li>
+                </ul>
+              </div>
+              
+              <div className="bg-blue-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-blue-800 mb-4">Perfect For</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Pre-race meals (Windsor Racecourse)</li>
+                  <li>• Post-castle visit dinners</li>
+                  <li>• Birthday celebrations</li>
+                  <li>• Christmas parties</li>
+                  <li>• Retirement gatherings</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-lg text-gray-700 mb-6">
+                Private function room available for Windsor groups - from 20 to 250 guests
+              </p>
+              <CallToAction href="/book-event" variant="primary" size="lg">
+                Enquire About Group Bookings
+              </CallToAction>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Getting Here from Windsor */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              Getting to The Anchor from Windsor
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl p-6">
+                <h3 className="text-xl font-bold mb-4">🚗 Driving Routes</h3>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-semibold mb-2">Via M4 (Fastest)</p>
+                    <ul className="space-y-1 text-gray-700 text-sm">
+                      <li>• M4 westbound to Junction 5</li>
+                      <li>• A4 towards Slough</li>
+                      <li>• Follow signs to Stanwell Moor</li>
+                      <li>• 15 minutes in normal traffic</li>
+                    </ul>
+                  </div>
+                  <div className="pt-4 border-t">
+                    <p className="font-semibold mb-2">Via B376 (Scenic)</p>
+                    <ul className="space-y-1 text-gray-700 text-sm">
+                      <li>• Through Datchet and Wraysbury</li>
+                      <li>• Beautiful countryside route</li>
+                      <li>• 20 minutes, avoiding motorway</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6">
+                <h3 className="text-xl font-bold mb-4">📍 Local Landmarks</h3>
+                <div className="space-y-3">
+                  <p className="text-gray-700">
+                    <strong>From Windsor Castle:</strong> 6.5 miles (15 mins)
+                  </p>
+                  <p className="text-gray-700">
+                    <strong>From Windsor Racecourse:</strong> 5.5 miles (12 mins)
+                  </p>
+                  <p className="text-gray-700">
+                    <strong>From Legoland:</strong> 7 miles (16 mins)
+                  </p>
+                  <p className="text-gray-700">
+                    <strong>Near M25 Junction 14:</strong> Perfect stopover
+                  </p>
+                  <div className="pt-4 border-t">
+                    <p className="font-semibold text-green-700">💚 Parking</p>
+                    <p className="text-gray-700">20 free spaces - no time limits!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <CallToAction 
+                href="https://maps.google.com/maps?saddr=Windsor+Castle&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                variant="secondary"
+                external
+              >
+                📍 Get Directions from Windsor
+              </CallToAction>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Windsor Connection */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-anchor-green mb-8">
+              Windsor to The Anchor - Why We're Worth the Trip
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-lg mb-3">Better Than Tourist Pubs</h3>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li>• Authentic atmosphere</li>
+                  <li>• Local prices</li>
+                  <li>• Real community feel</li>
+                  <li>• No tourist crowds</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-lg mb-3">Easy Access</h3>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li>• 15 mins from Windsor</li>
+                  <li>• Free parking</li>
+                  <li>• Near M4 & M25</li>
+                  <li>• Avoid town traffic</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="font-bold text-lg mb-3">Unique Features</h3>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li>• Plane spotting garden</li>
+                  <li>• Monthly entertainment</li>
+                  <li>• Dog friendly throughout</li>
+                  <li>• Traditional games</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p className="text-lg text-gray-700">
+              Join the many Windsor residents who've discovered their new favorite pub - 
+              where you're treated like a local, not a tourist!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Opening Hours */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-anchor-green mb-8">
+              Opening Hours
+            </h2>
+            <BusinessHours />
+            <p className="mt-4 text-gray-600">
+              Kitchen closes earlier - check times for food service
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "How far is The Anchor from Windsor Castle?",
+            answer: "The Anchor is approximately 6.5 miles from Windsor Castle, which is about a 15-minute drive via the M4 or a scenic 20-minute route through Datchet and Wraysbury via the B376."
+          },
+          {
+            question: "Why do Windsor residents come to The Anchor instead of Windsor pubs?",
+            answer: "Many Windsor locals prefer The Anchor for the authentic village pub atmosphere, significantly lower prices than tourist-focused Windsor pubs, free parking, and the chance to enjoy a proper local without the crowds. Plus, we're outside the ULEZ zone!"
+          },
+          {
+            question: "Is there parking at The Anchor for Windsor visitors?",
+            answer: "Yes! We have 20 free parking spaces with no time restrictions. This is a huge advantage over Windsor where parking can cost £3-4 per hour. You can relax and enjoy your visit without watching the clock."
+          },
+          {
+            question: "What's the best route from Windsor to avoid traffic?",
+            answer: "The quickest route is via the M4 (Junction 5) which takes about 15 minutes. For a more scenic route avoiding motorways, take the B376 through Datchet and Wraysbury. Avoid rush hours (8-9am and 5-6pm) for the smoothest journey."
+          },
+          {
+            question: "Do you get many customers from Windsor and Eton?",
+            answer: "Absolutely! We have many regulars from Windsor, Old Windsor, Datchet, and Eton. Castle staff, local business people, and sports clubs often choose us for meals and events away from the tourist areas."
+          },
+          {
+            question: "Can you accommodate large Windsor groups?",
+            answer: "Yes! We regularly host groups from Windsor for birthdays, work events, and celebrations. We can accommodate groups from 20 to 250 people. Many prefer us to Windsor venues for better value and a more relaxed atmosphere."
+          }
+        ]}
+        className="bg-white"
+      />
+
+      {/* CTA Section */}
+      <section className="section-spacing bg-anchor-green text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Discover Windsor's Favorite Local
+          </h2>
+          <p className="text-xl mb-8 text-white/90">
+            Just 15 minutes from the castle - where Windsor locals escape the tourists
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <CallToAction 
+              href={`tel:${CONTACT.phone}`}
+              variant="secondary"
+              size="lg"
+              className="flex-1"
+            >
+              📞 Book a Table
+            </CallToAction>
+            <CallToAction 
+              href="/special-offers"
+              variant="primary"
+              size="lg"
+              className="flex-1 bg-white text-anchor-green hover:bg-gray-100"
+            >
+              🎉 View Offers
+            </CallToAction>
+          </div>
+          <p className="mt-6 text-sm text-white/80">
+            Just 15 minutes from Windsor • Free Parking • Outside ULEZ Zone
+          </p>
+        </div>
+      </section>
+    </>
+  )
+}

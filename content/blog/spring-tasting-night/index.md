@@ -34,7 +34,7 @@ images:
   - "image-35.jpeg"
 ---
 
-![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night-at-the-anchor-unmissable-flav/hero.png)
+![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night/hero.png)
 
 Looking for exclusive **pub events near Heathrow**? The Anchor's Spring Tasting Night on March 14th, 2025 was a sold-out celebration of premium spirits, cocktails, and community. With our next **rum tasting event** coming in June, discover why our **tasting events** in Stanwell Moor are the must-attend experiences for spirit enthusiasts.
 
@@ -64,7 +64,7 @@ Our March **spring spirits tasting** showcased the season's finest flavors in ou
 - Intimate, friendly atmosphere
 - Exceptional value for money
 
-![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night-at-the-anchor-unmissable-flav/image-1.jpeg)
+![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night/image-1.jpeg)
 
 ### Featured Spring Spirits Now at Our Bar
 
@@ -106,7 +106,7 @@ All six premium spirits from our **tasting event** are now available at The Anch
 
 Our **pub events near Heathrow** follow a proven format that guests love:
 
-![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night-at-the-anchor-unmissable-flav/image-10.jpeg)
+![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night/image-10.jpeg)
 
 **6:30 PM - Welcome & Introduction**
 - Arrival drinks and meet your host
@@ -143,7 +143,7 @@ Our **pub events near Heathrow** follow a proven format that guests love:
 
 Following our spring success, our next **tasting event** promises Caribbean vibes and premium rums:
 
-![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night-at-the-anchor-unmissable-flav/image-11.jpeg)
+![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night/image-11.jpeg)
 
 **What to Expect:**
 - 6 premium Caribbean rums
@@ -209,7 +209,7 @@ Visit our bar to enjoy the featured spirits anytime:
 
 Host your own **private tasting event** at our **pub near Heathrow**:
 
-![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night-at-the-anchor-unmissable-flav/image-12.jpeg)
+![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night/image-12.jpeg)
 
 **Options Include:**
 - Gin tasting experiences
@@ -259,6 +259,6 @@ Don't miss our Caribbean Rum Night in June 2025 - follow us on social media or s
 
 **Raise a glass to great spirits and even better company at The Anchor!**
 
-![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night-at-the-anchor-unmissable-flav/image-13.jpeg)
+![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night/image-13.jpeg)
 
 *All featured spirits available at our bar. Ask our team for recommendations or to create your own tasting flight.*

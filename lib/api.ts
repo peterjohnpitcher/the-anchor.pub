@@ -520,19 +520,44 @@ export function formatEventDate(dateString: string): string {
 }
 
 export function formatEventTime(dateString: string): string {
-  // Parse the date and extract time in UK timezone
-  const date = new Date(dateString)
+  let date: Date
   
-  // Use Intl.DateTimeFormat to get the time in UK timezone
-  const timeString = date.toLocaleTimeString('en-GB', {
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true,
-    timeZone: 'Europe/London'
-  })
+  // IMPORTANT: The API returns times like "2025-07-18T19:00+00:00" which are UTC
+  // But these events are actually scheduled for local UK time (7pm local, not 7pm UTC)
+  // So we need to treat the numeric time as local time, ignoring the timezone offset
+  
+  // Extract just the date and time part, ignoring any timezone info
+  let cleanDateString = dateString
+  
+  // Remove timezone offset (+00:00, -05:00, etc) or Z
+  if (dateString.includes('+') || dateString.includes('Z')) {
+    cleanDateString = dateString.split('+')[0].split('Z')[0]
+  } else if (dateString.includes('-') && dateString.lastIndexOf('-') > 10) {
+    // Handle negative offsets (but not the date separators)
+    cleanDateString = dateString.substring(0, dateString.lastIndexOf('-'))
+  }
+  
+  // Parse as local time
+  if (cleanDateString.includes('T')) {
+    date = new Date(cleanDateString)
+  } else {
+    // Format like "2024-03-20 19:00:00"
+    const isoString = cleanDateString.replace(' ', 'T')
+    date = new Date(isoString)
+  }
+  
+  // Format the time
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const period = hours >= 12 ? 'pm' : 'am'
+  const displayHours = hours % 12 || 12
   
   // Convert to the desired format (8pm instead of 8:00 pm)
-  return timeString.replace(':00 ', '').replace(' ', '')
+  if (minutes === 0) {
+    return `${displayHours}${period}`
+  } else {
+    return `${displayHours}:${minutes.toString().padStart(2, '0')}${period}`
+  }
 }
 
 export function formatPrice(price: string | number, currency: string = 'GBP'): string {
@@ -626,15 +651,37 @@ export async function getEventCategories(): Promise<EventCategory[]> {
 export function formatDoorTime(doorTimeString: string | null | undefined): string | null {
   if (!doorTimeString) return null
   
-  const date = new Date(doorTimeString)
-  const timeString = date.toLocaleTimeString('en-GB', {
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true,
-    timeZone: 'Europe/London'
-  })
+  // Use the same logic as formatEventTime - strip timezone and treat as local time
+  let cleanDateString = doorTimeString
   
-  return 'Doors: ' + timeString.replace(':00 ', '').replace(' ', '')
+  // Remove timezone offset (+00:00, -05:00, etc) or Z
+  if (doorTimeString.includes('+') || doorTimeString.includes('Z')) {
+    cleanDateString = doorTimeString.split('+')[0].split('Z')[0]
+  } else if (doorTimeString.includes('-') && doorTimeString.lastIndexOf('-') > 10) {
+    // Handle negative offsets (but not the date separators)
+    cleanDateString = doorTimeString.substring(0, doorTimeString.lastIndexOf('-'))
+  }
+  
+  // Parse as local time
+  let date: Date
+  if (cleanDateString.includes('T')) {
+    date = new Date(cleanDateString)
+  } else {
+    // Format like "2024-03-20 19:00:00"
+    const isoString = cleanDateString.replace(' ', 'T')
+    date = new Date(isoString)
+  }
+  
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const period = hours >= 12 ? 'pm' : 'am'
+  const displayHours = hours % 12 || 12
+  
+  const timeString = minutes === 0 
+    ? `${displayHours}${period}`
+    : `${displayHours}:${minutes.toString().padStart(2, '0')}${period}`
+  
+  return 'Doors: ' + timeString
 }
 
 // Helper to format event duration

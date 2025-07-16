@@ -20,10 +20,11 @@ keywords:
   - the anchor mothers day
   - traditional sunday lunch heathrow
 tags:
-  - drinks
   - events
-  - food
-  - special-offers
+  - mothers-day
+  - sunday-roast
+  - family-dining
+  - march
 featured: false
 hero: hero.png
 images:

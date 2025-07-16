@@ -26,7 +26,7 @@ images:
   []
 ---
 
-![A vibrant promotional graphic for The Anchor's Monthly Cash Bingo, featuring colourful bingo balls, bold 3D text, and the pub's logo on a dark green background.](/content/blog/cash-bingo-at-the-anchor-win-50-at-our-monthly-bin/hero.jpg)
+![A vibrant promotional graphic for The Anchor's Monthly Cash Bingo, featuring colourful bingo balls, bold 3D text, and the pub's logo on a dark green background.](/content/blog/monthly-cash-bingo/hero.jpg)
 
 Looking for **bingo near Heathrow** with real cash prizes? Join us at The Anchor every first Thursday for our legendary Cash Bingo Night! With up to £50 to win, great atmosphere, and just 10 minutes from the airport, we're Stanwell Moor's premier bingo destination. Eyes down for a fantastic night out!
 
@@ -155,7 +155,7 @@ Make it a proper night out with our **Chip Shop Friday** menu:
 **What Sets Us Apart:**
 - Guaranteed £50 prize
 - Three games keep interest high
-- Food available all evening
+- Food available during kitchen hours
 - Friendly, inclusive atmosphere
 - Professional organization
 

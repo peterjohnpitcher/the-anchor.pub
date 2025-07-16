@@ -24,15 +24,16 @@ keywords:
   - craft beer pub near airport
 tags:
   - drinks
-  - events
-  - food
+  - beer
+  - new-arrival
+  - czech-beer
   - special-offers
 featured: false
 hero: hero.png
 images: []
 ---
 
-![Promotional graphic for Pravha, highlighting its crisp, light taste and Prague's brewing tradition. The image shows a close-up of golden beer with bubbles, the Pravha logo, and The Anchor pub logo in the corner.](/content/blog/enjoy-pravha-at-the-anchor-the-light-and-refreshin/hero.png)
+![Promotional graphic for Pravha, highlighting its crisp, light taste and Prague's brewing tradition. The image shows a close-up of golden beer with bubbles, the Pravha logo, and The Anchor pub logo in the corner.](/content/blog/pravha-beer/hero.png)
 
   
 

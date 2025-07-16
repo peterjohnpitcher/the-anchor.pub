@@ -32,7 +32,7 @@ images:
   - "image-7.png"
 ---
 
-![Map view of Stanwell Moor](/content/blog/stanwell-moor-ideal-for-a-cosy-pub/hero.png)
+![Map view of Stanwell Moor](/content/blog/cosy-pub-stanwell/hero.png)
 
 Looking for a **cosy pub near Heathrow**? Nestled in the charming village of Stanwell Moor, The Anchor offers the perfect escape from airport hustle. Just 10 minutes from Terminal 5, discover a traditional British pub where locals and travelers alike find warmth, comfort, and genuine hospitality.
 
@@ -40,7 +40,7 @@ Looking for a **cosy pub near Heathrow**? Nestled in the charming village of Sta
 
 ### A Hidden Gem in Surrey Countryside
 
-![Old photo of Stanwell Moor by Francis Frith](/content/blog/stanwell-moor-ideal-for-a-cosy-pub/image-1.png)
+![Old photo of Stanwell Moor by Francis Frith](/content/blog/cosy-pub-stanwell/image-1.png)
 
 Stanwell Moor Village remains one of Surrey's best-kept secrets. This **historic village near Heathrow** offers:
 
@@ -56,7 +56,7 @@ Despite its proximity to one of the world's busiest airports, Stanwell Moor main
 
 ### Where Traditional Meets Modern Comfort
 
-![Sunset view of the walk around Hithermoor lake](/content/blog/stanwell-moor-ideal-for-a-cosy-pub/image-2.png)
+![Sunset view of the walk around Hithermoor lake](/content/blog/cosy-pub-stanwell/image-2.png)
 
 At The Anchor, we've perfected the art of the **cosy pub near Heathrow Airport**:
 
@@ -78,7 +78,7 @@ At The Anchor, we've perfected the art of the **cosy pub near Heathrow Airport**
 
 ### More Than Just a Pub
 
-![Old photo of The Anchor by Francis Frith](/content/blog/stanwell-moor-ideal-for-a-cosy-pub/image-3.png)
+![Old photo of The Anchor by Francis Frith](/content/blog/cosy-pub-stanwell/image-3.png)
 
 The Anchor isn't just a **cosy pub** - it's the beating heart of Stanwell Moor village:
 
@@ -94,7 +94,7 @@ Our tight-knit community welcomes visitors with open arms, whether you're a Heat
 
 ### Comfort Food Done Right
 
-![Sunny day photo of Staines moor](/content/blog/stanwell-moor-ideal-for-a-cosy-pub/image-4.png)
+![Sunny day photo of Staines moor](/content/blog/cosy-pub-stanwell/image-4.png)
 
 Our menu celebrates **traditional British pub cuisine**:
 
@@ -118,7 +118,7 @@ Everything is prepared fresh daily, providing the comfort food you crave in a co
 
 ### Always Something Happening
 
-![Old photo of Stanwell Moor by Francis Frith](/content/blog/stanwell-moor-ideal-for-a-cosy-pub/image-5.png)
+![Old photo of Stanwell Moor by Francis Frith](/content/blog/cosy-pub-stanwell/image-5.png)
 
 Your **local cosy pub** comes alive with regular events:
 
@@ -134,7 +134,7 @@ Check our events calendar to see what's on during your visit!
 
 ### Dog-Friendly & Family Welcoming
 
-![Spring photo of Stanwell Moor lake with pollen on the ground](/content/blog/stanwell-moor-ideal-for-a-cosy-pub/image-6.png)
+![Spring photo of Stanwell Moor lake with pollen on the ground](/content/blog/cosy-pub-stanwell/image-6.png)
 
 The Anchor welcomes everyone:
 
@@ -156,7 +156,7 @@ The Anchor welcomes everyone:
 
 ### Creating Your Home Away From Home
 
-![Old photo of The Mill in Stanwell Moor by Francis Frith](/content/blog/stanwell-moor-ideal-for-a-cosy-pub/image-7.png)
+![Old photo of The Mill in Stanwell Moor by Francis Frith](/content/blog/cosy-pub-stanwell/image-7.png)
 
 What makes The Anchor truly cosy:
 

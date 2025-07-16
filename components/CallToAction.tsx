@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
+import { analytics } from '@/lib/analytics'
 
 interface CallToActionProps {
   href: string
@@ -34,7 +35,7 @@ const defaultTheme = {
   white: 'bg-white text-anchor-green hover:bg-gray-100',
   outline: 'border-2 border-anchor-gold text-anchor-gold hover:bg-anchor-gold hover:text-white',
   ghost: 'text-anchor-green hover:bg-anchor-green/10',
-  yellow: 'bg-yellow-400 text-red-900 hover:bg-yellow-300 font-bold'
+  yellow: 'bg-yellow-400 text-gray-900 hover:bg-yellow-300 font-bold ring-1 ring-yellow-600/20'
 }
 
 const sizeClasses = {
@@ -79,6 +80,17 @@ export function CallToAction({
   )
   
   const handleClick = () => {
+    // Track analytics
+    const category = href.includes('ordertab') || href.includes('book') ? 'booking' : 
+                    href.includes('tel:') || href.includes('mailto:') ? 'contact' :
+                    href.startsWith('http') ? 'social' : 'navigation'
+    
+    analytics.clickEvent(
+      category as any, 
+      trackingLabel || `${children}`, 
+      size === 'xl' ? 5 : size === 'lg' ? 4 : size === 'md' ? 3 : size === 'sm' ? 2 : 1
+    )
+    
     // Call custom onClick if provided
     if (onClick) {
       onClick()

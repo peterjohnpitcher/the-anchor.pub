@@ -1,0 +1,37 @@
+[
+  {
+    "source": "/blog/tag/offers",
+    "destination": "/blog/tag/special-offers",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/pet-friendly",
+    "destination": "/blog/tag/dog-friendly",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/update",
+    "destination": "/blog/tag/news",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/festive",
+    "destination": "/blog/tag/christmas",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/festive-menu",
+    "destination": "/blog/tag/christmas",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/new-arrivals",
+    "destination": "/blog/tag/new-arrival",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/updates",
+    "destination": "/blog/tag/news",
+    "permanent": true
+  }
+]

@@ -18,16 +18,17 @@ keywords:
   - mental health awareness heathrow
   - family dining near terminal 5
 tags:
-  - drinks
-  - events
-  - food
-  - special-offers
+  - community
+  - mental-health
+  - children
+  - awareness
+  - february
 featured: false
 hero: hero.png
 images: []
 ---
 
-![Group of smiling children looking down at the camera with bright sunlight filtering through green trees, promoting Children's Mental Health Awareness Week at The Anchor from February 4th to February 9th, 2025.](/content/blog/children-s-mental-health-week-supporting-young-min/hero.png)
+![Group of smiling children looking down at the camera with bright sunlight filtering through green trees, promoting Children's Mental Health Awareness Week at The Anchor from February 4th to February 9th, 2025.](/content/blog/childrens-mental-health-week/hero.png)
 
   
 

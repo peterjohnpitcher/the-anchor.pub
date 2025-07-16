@@ -2,14 +2,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { CallToAction } from '@/components/CallToAction'
-import { BusinessHours } from '@/components/BusinessHours'
-import { Weather } from '@/components/Weather'
 import { StatusBarWrapper } from '@/components/StatusBarWrapper'
-import { GalleryImage } from '@/components/GalleryImage'
 import { NextEventServer } from '@/components/NextEventServer'
 import { Suspense } from 'react'
 import { homepageFAQSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { getPageHeaderImage, getDefaultHeaderImage } from '@/utils/page-header-images'
+import { LazySection } from '@/components/LazySection'
+
+// Lazy load non-critical components
+const BusinessHours = dynamic(() => import('@/components/BusinessHours').then(mod => ({ default: mod.BusinessHours })), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-lg" />,
+  ssr: true
+})
+
+const GalleryImage = dynamic(() => import('@/components/GalleryImage').then(mod => ({ default: mod.GalleryImage })), {
+  loading: () => <div className="aspect-square bg-gray-100 animate-pulse rounded-lg" />,
+  ssr: true
+})
 
 // Loading skeleton for NextEvent
 function NextEventSkeleton() {
@@ -44,6 +53,9 @@ export default function HomePage() {
             className="object-cover"
             priority
             sizes="100vw"
+            quality={85}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             style={{
               objectPosition: '50% 50%'
             }}
@@ -60,7 +72,7 @@ export default function HomePage() {
               width={300}
               height={300}
               className="mx-auto w-48 sm:w-64 md:w-72 lg:w-80 h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
-              priority
+              loading="eager"
             />
           </div>
           

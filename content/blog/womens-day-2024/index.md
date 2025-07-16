@@ -23,10 +23,11 @@ keywords:
   - community celebration stanwell moor
   - womens achievements near airport
 tags:
-  - drinks
   - events
-  - food
+  - womens-day
+  - march
   - special-offers
+  - celebration
 featured: false
 hero: hero.png
 images: []
@@ -34,7 +35,7 @@ images: []
 
   
 
-![international women s day 2024 celebration stanwel image](/content/blog/international-women-s-day-2024-celebration-stanwel/hero.png)
+![international women s day 2024 celebration stanwel image](/content/blog/womens-day-2024/hero.png)
 
   
 

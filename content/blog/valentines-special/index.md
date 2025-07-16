@@ -22,10 +22,11 @@ keywords:
   - the anchor valentines
   - february 14 restaurant heathrow
 tags:
-  - drinks
-  - events
-  - food
   - special-offers
+  - valentines
+  - romantic-dining
+  - couples
+  - february
 featured: false
 hero: hero.png
 images:
@@ -36,7 +37,7 @@ images:
 
   
 
-![A gentleman and a lady enjoying a romantic Valentine's Day dinner at The Anchor, with the table set elegantly amidst red decorations, candlelight, champagne, and a pint of beer. Text states '2 for 1 on dinner this Valentine's Day! *see the-anchor.pub for details.'](/content/blog/valentine-s-special-stanwell-moor-village-staines-/hero.png)
+![A gentleman and a lady enjoying a romantic Valentine's Day dinner at The Anchor, with the table set elegantly amidst red decorations, candlelight, champagne, and a pint of beer. Text states '2 for 1 on dinner this Valentine's Day! *see the-anchor.pub for details.'](/content/blog/valentines-special/hero.png)
 
   
 
@@ -54,7 +55,7 @@ This 14th February 2024, from 6 pm to 9 pm, immerse yourself in a romantic atmos
 
   
 
-![A Black lady presenting a red rose to a Hispanic lady, both sharing smiles and clad in red, embodying romance. The Anchor's logo is showcased at the top with the location 'Stanwell Moor Village.'](/content/blog/valentine-s-special-stanwell-moor-village-staines-/image-1.png)
+![A Black lady presenting a red rose to a Hispanic lady, both sharing smiles and clad in red, embodying romance. The Anchor's logo is showcased at the top with the location 'Stanwell Moor Village.'](/content/blog/valentines-special/image-1.png)
 
 ## Your Effortless Path to Valentine's Day Dining: Book Online
 
@@ -66,7 +67,7 @@ Booking your romantic evening is easy with our online reservation system. Secure
 
   
 
-![A Caucasian chap and an Indian bloke in dinner suits clinking champagne flutes, encircled by heart-shaped adornments and a backdrop of rich red hues, commemorating Valentine's Day at The Anchor.](/content/blog/valentine-s-special-stanwell-moor-village-staines-/image-2.png)
+![A Caucasian chap and an Indian bloke in dinner suits clinking champagne flutes, encircled by heart-shaped adornments and a backdrop of rich red hues, commemorating Valentine's Day at The Anchor.](/content/blog/valentines-special/image-2.png)
 
 ## Discover Local Charm: Your Valentine's Day Dining Destination
 
@@ -85,7 +86,7 @@ The Anchor epitomises the quaint charm and warmth of our village, making it the 
 
   
 
-![An Indian gentleman donning a turban and a lady are whimsically hit by Cupid's arrow amidst a cascade of hearts and a vibrant red celebratory background, with The Anchor's logo indicating the festivity's venue.](/content/blog/valentine-s-special-stanwell-moor-village-staines-/image-3.png)
+![An Indian gentleman donning a turban and a lady are whimsically hit by Cupid's arrow amidst a cascade of hearts and a vibrant red celebratory background, with The Anchor's logo indicating the festivity's venue.](/content/blog/valentines-special/image-3.png)
 
 ## Make This Valentine's Day Unforgettable
 

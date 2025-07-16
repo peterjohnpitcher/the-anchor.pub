@@ -24,15 +24,16 @@ keywords:
   - tequila offerings near terminal 5
 tags:
   - drinks
-  - events
-  - food
-  - special-offers
+  - tequila
+  - day-of-the-dead
+  - mexican-culture
+  - spirits
 featured: false
 hero: hero.png
 images: []
 ---
 
-![A striking image of a woman with traditional Día de los Muertos face paint and a vibrant flower crown featuring marigolds and sunflowers. The text reads 'A Toast to the Dead: The Cultural Significance of Tequila During Día de los Muertos.' The Anchor logo is positioned at the top, with bold white fonts used for the headline.](/content/blog/a-toast-to-the-dead-tequila-s-role-in-d-a-de-los-m/hero.png)
+![A striking image of a woman with traditional Día de los Muertos face paint and a vibrant flower crown featuring marigolds and sunflowers. The text reads 'A Toast to the Dead: The Cultural Significance of Tequila During Día de los Muertos.' The Anchor logo is positioned at the top, with bold white fonts used for the headline.](/content/blog/tequila-day-of-dead/hero.png)
 
 ## Experience Day of the Dead Tequila Traditions Near Heathrow
 

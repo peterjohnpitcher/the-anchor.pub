@@ -66,7 +66,7 @@ export function StatusBar({
         const data = await response.json()
         setHours(data)
       } catch (err) {
-        console.error('Failed to fetch business hours:', err)
+        // Error: Failed to fetch business hours
       } finally {
         setLoading(false)
       }

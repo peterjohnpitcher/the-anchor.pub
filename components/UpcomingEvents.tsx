@@ -149,7 +149,7 @@ export async function UpcomingEvents() {
       </>
     )
   } catch (error) {
-    console.error('Failed to load upcoming events:', error)
+    // Error: Failed to load upcoming events
     
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">

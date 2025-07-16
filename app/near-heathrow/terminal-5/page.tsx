@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
 import { TerminalNavigation } from '@/components/TerminalNavigation'
@@ -128,7 +129,7 @@ export default function Terminal5Page() {
                 <h3 className="text-2xl font-bold text-anchor-green mb-4">🚕 By Taxi</h3>
                 <div className="space-y-4 text-gray-700">
                   <div>
-                    <p className="font-semibold mb-2">Cost: £10-12</p>
+                    <p className="font-semibold mb-2">Cost: Around £25</p>
                     <p>Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;</p>
                   </div>
                   <div>
@@ -294,6 +295,37 @@ export default function Terminal5Page() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "How far is The Anchor from Heathrow Terminal 5?",
+            answer: "The Anchor is just 7 minutes (2.8 miles) from Terminal 5, making it the closest traditional British pub to T5. It's a straight drive via the A3044."
+          },
+          {
+            question: "Is there parking at The Anchor near Terminal 5?",
+            answer: "Yes! We offer free parking for all customers. This is perfect for meeting arriving passengers or enjoying a meal before your flight without paying expensive airport parking fees."
+          },
+          {
+            question: "Can I get a taxi from Terminal 5 to The Anchor?",
+            answer: "Yes, taxis are readily available from Terminal 5. The journey costs around £25 and takes about 7 minutes. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor, TW19 6AQ'. Alternatively, the 442 bus stops directly outside the pub for much less."
+          },
+          {
+            question: "What time should I leave The Anchor to catch my flight from T5?",
+            answer: "Allow 15 minutes to drive from The Anchor to Terminal 5, plus parking time if needed. For short-haul flights, leave 2.5 hours before departure. For long-haul, leave 3.5 hours before."
+          },
+          {
+            question: "Do BA cabin crew visit The Anchor?",
+            answer: "Yes! We're very popular with British Airways crew based at Terminal 5. Many are regulars who appreciate our proximity to T5 and relaxed atmosphere after long flights."
+          },
+          {
+            question: "Can I store luggage at The Anchor between flights?",
+            answer: "We can store luggage for short periods for customers who are dining with us. Perfect if you have a long layover or are between flights. Just ask our staff."
+          }
+        ]}
+        className="bg-gray-50"
+      />
+
       {/* CTA Section */}
       <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
@@ -332,35 +364,119 @@ export default function Terminal5Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Restaurant",
-            "name": "The Anchor - Pub Near Heathrow Terminal 5",
-            "description": "The closest pub to Heathrow Terminal 5 - just 7 minutes drive with free parking.",
-            "image": "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Horton Road",
-              "addressLocality": "Stanwell Moor",
-              "addressRegion": "Surrey",
-              "postalCode": "TW19 6AQ",
-              "addressCountry": "GB"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              "name": "The Anchor - Pub Near Heathrow Terminal 5",
+              "description": "The closest pub to Heathrow Terminal 5 - just 7 minutes drive with free parking.",
+              "image": "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Horton Road",
+                "addressLocality": "Stanwell Moor",
+                "addressRegion": "Surrey",
+                "postalCode": "TW19 6AQ",
+                "addressCountry": "GB"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.4745,
+                "longitude": -0.4713
+              },
+              "url": "https://the-anchor.pub/near-heathrow/terminal-5",
+              "telephone": "+441753682707",
+              "priceRange": "££",
+              "servesCuisine": ["British", "Pub Food"],
+              "nearbyLocation": {
+                "@type": "Airport",
+                "name": "Heathrow Terminal 5",
+                "iataCode": "LHR"
+              }
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 51.4745,
-              "longitude": -0.4713
+            {
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              "name": "How to get to The Anchor from Heathrow Terminal 5",
+              "description": "Easy directions from Terminal 5 to The Anchor pub - just 7 minutes by car",
+              "totalTime": "PT7M",
+              "supply": {
+                "@type": "HowToSupply",
+                "name": "Transportation",
+                "requiredQuantity": 1
+              },
+              "step": [
+                {
+                  "@type": "HowToStep",
+                  "name": "Exit Terminal 5",
+                  "text": "Exit Terminal 5 following signs for M25/A30",
+                  "position": 1
+                },
+                {
+                  "@type": "HowToStep",
+                  "name": "Take A3044",
+                  "text": "At roundabout, take A3044 towards Staines",
+                  "position": 2
+                },
+                {
+                  "@type": "HowToStep",
+                  "name": "Continue straight",
+                  "text": "Continue straight for 1.5 miles",
+                  "position": 3
+                },
+                {
+                  "@type": "HowToStep",
+                  "name": "Turn onto Horton Road",
+                  "text": "Turn right onto Horton Road (at the church)",
+                  "position": 4
+                },
+                {
+                  "@type": "HowToStep",
+                  "name": "Arrive at The Anchor",
+                  "text": "The Anchor is 200m on your right with free parking",
+                  "position": 5
+                }
+              ]
             },
-            "url": "https://the-anchor.pub/near-heathrow/terminal-5",
-            "telephone": "+441753682707",
-            "priceRange": "££",
-            "servesCuisine": ["British", "Pub Food"],
-            "nearbyLocation": {
-              "@type": "Airport",
-              "name": "Heathrow Terminal 5",
-              "iataCode": "LHR"
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How far is The Anchor from Heathrow Terminal 5?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Anchor is just 7 minutes (2.8 miles) from Terminal 5, making it the closest traditional British pub to T5. It's a straight drive via the A3044."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is there parking at The Anchor near Terminal 5?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! We offer free parking for all customers. This is perfect for meeting arriving passengers or enjoying a meal before your flight without paying expensive airport parking fees."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I get a taxi from Terminal 5 to The Anchor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, taxis are readily available from Terminal 5. The journey costs around £25 and takes about 7 minutes. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor, TW19 6AQ'. Alternatively, the 442 bus stops directly outside the pub for much less."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What time should I leave The Anchor to catch my flight from T5?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Allow 15 minutes to drive from The Anchor to Terminal 5, plus parking time if needed. For short-haul flights, leave 2.5 hours before departure. For long-haul, leave 3.5 hours before."
+                  }
+                }
+              ]
             }
-          })
+          ])
         }}
       />
     </>

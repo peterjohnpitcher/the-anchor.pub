@@ -4,12 +4,12 @@ import { CallToAction } from '@/components/CallToAction'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Drag Shows | The Anchor Stanwell Moor | Saturday Night Entertainment',
-  description: 'Spectacular drag shows every Saturday at The Anchor with Nikki Manfadge. Inclusive, fun entertainment near Heathrow. Book your table for an unforgettable night!',
+  title: 'Drag Shows | The Anchor Stanwell Moor | Monthly Entertainment',
+  description: 'Spectacular monthly drag shows at The Anchor with Nikki Manfadge. Inclusive, fun entertainment near Heathrow. Book your table for an unforgettable night!',
   keywords: 'drag shows stanwell moor, drag queen near heathrow, nikki manfadge, saturday night entertainment surrey',
   openGraph: {
-    title: 'Saturday Drag Shows at The Anchor',
-    description: 'Join us for spectacular drag performances with Nikki Manfadge every Saturday night!',
+    title: 'Monthly Drag Shows at The Anchor',
+    description: 'Join us for spectacular drag performances with Nikki Manfadge - check our What\'s On page for dates!',
     images: ['/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg'],
   },
 }
@@ -33,7 +33,7 @@ export default function DragShowsPage() {
         
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <p className="text-pink-300 text-lg mb-4 drop-shadow">Every Saturday Night</p>
+            <p className="text-pink-300 text-lg mb-4 drop-shadow">Monthly Special Events</p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
               Drag Shows at The Anchor
             </h1>
@@ -69,7 +69,7 @@ export default function DragShowsPage() {
             
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="text-xl mb-6 text-center">
-                Every Saturday night, The Anchor transforms into Stanwell Moor's premier 
+                Join us monthly as The Anchor transforms into Stanwell Moor's premier 
                 entertainment venue with our spectacular drag shows!
               </p>
               
@@ -135,7 +135,7 @@ export default function DragShowsPage() {
               <h3 className="text-2xl font-bold text-purple-700 mb-4">Nikki Manfadge</h3>
               <p className="text-gray-700 text-lg mb-4">
                 Our resident queen and host extraordinaire! Nikki brings glamour, comedy, 
-                and fierce performances every Saturday night. Known for her quick wit, 
+                and fierce performances at our monthly shows. Known for her quick wit, 
                 stunning outfits, and ability to get everyone on their feet.
               </p>
               <p className="text-gray-700">
@@ -302,7 +302,7 @@ export default function DragShowsPage() {
                 <div>
                   <h3 className="text-2xl font-bold text-anchor-green mb-4">A Night Like No Other</h3>
                   <p className="mb-4">
-                    Every Saturday, our traditional British pub transforms into a glittering cabaret venue. 
+                    Each month, our traditional British pub transforms into a glittering cabaret venue. 
                     The magic begins the moment you walk through our doors - rainbow flags flying proud, 
                     disco lights twinkling, and an atmosphere of pure celebration. Our drag shows have 
                     become legendary in the local area, with people traveling from Staines, Ashford, 
@@ -392,7 +392,7 @@ export default function DragShowsPage() {
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">Every Saturday Night</p>
+            <p className="font-semibold mb-2">Monthly Shows - Check What's On for Dates</p>
             <p>Show starts at 9:00 PM</p>
             <p className="text-sm mt-2">The Anchor, Stanwell Moor</p>
           </div>
@@ -407,7 +407,7 @@ export default function DragShowsPage() {
             "@context": "https://schema.org",
             "@type": "Event",
             "name": "Saturday Drag Shows with Nikki Manfadge",
-            "description": "Spectacular drag performances every Saturday night at The Anchor",
+            "description": "Spectacular monthly drag performances at The Anchor with Nikki Manfadge",
             "startDate": "2024-01-06T21:00",
             "endDate": "2024-01-06T23:30",
             "eventSchedule": {

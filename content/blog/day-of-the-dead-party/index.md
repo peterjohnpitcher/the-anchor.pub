@@ -34,7 +34,7 @@ images:
   - image-4.png
 ---
 
-![Colourful Day of the Dead celebration at The Anchor, featuring a traditional Día de Muertos skull with vibrant decorations.](/content/blog/celebrate-day-of-the-dead-at-the-anchor-with-fun-a/hero.png)
+![Colourful Day of the Dead celebration at The Anchor, featuring a traditional Día de Muertos skull with vibrant decorations.](/content/blog/day-of-the-dead-party/hero.png)
 
 Experience authentic **Day of the Dead celebrations near Heathrow** at The Anchor! This October, we're transforming our traditional British pub into a vibrant Mexican fiesta. From tequila tastings to fancy dress parties, join us for Día de los Muertos festivities that honor tradition while creating unforgettable memories. Just 10 minutes from the airport, discover Surrey's most colorful cultural celebration.
 
@@ -68,7 +68,7 @@ Join us for a month-long celebration of life, remembrance, and Mexican culture!
 
 At The Anchor, we're bringing these traditions to life with respect and authenticity.
 
-![Halloween Themed Pub Quiz Night at The Anchor, featuring a Día de Muertos skull with floral decorations. Event date and details included.](/content/blog/celebrate-day-of-the-dead-at-the-anchor-with-fun-a/image-1.png)
+![Halloween Themed Pub Quiz Night at The Anchor, featuring a Día de Muertos skull with floral decorations. Event date and details included.](/content/blog/day-of-the-dead-party/image-1.png)
 
 ## Halloween Quiz Night: October 9th
 
@@ -92,7 +92,7 @@ Kick off the festivities with our **Halloween-themed quiz**:
 
 Book your table: [https://bit.ly/3VhJzzy](https://bit.ly/3VhJzzy)
 
-![Tequila Tasting Evening poster at The Anchor, with event details and bold text highlighting Friday, October 18th.](/content/blog/celebrate-day-of-the-dead-at-the-anchor-with-fun-a/image-2.png)
+![Tequila Tasting Evening poster at The Anchor, with event details and bold text highlighting Friday, October 18th.](/content/blog/day-of-the-dead-party/image-2.png)
 
 ## Premium Tequila Tasting: October 18th
 
@@ -132,7 +132,7 @@ In Mexican tradition, tequila plays an important role:
 
 Our tasting honors these traditions while creating new memories.
 
-![Nikki Manfadge hosting Gameshow House Party at The Anchor. Bright red background with bold white text and fun, lively imagery.](/content/blog/celebrate-day-of-the-dead-at-the-anchor-with-fun-a/image-3.png)
+![Nikki Manfadge hosting Gameshow House Party at The Anchor. Bright red background with bold white text and fun, lively imagery.](/content/blog/day-of-the-dead-party/image-3.png)
 
 ## Gameshow House Party: October 30th
 
@@ -149,7 +149,7 @@ Join Nikki Manfadge for an unforgettable evening:
 
 In true Day of the Dead spirit, we celebrate life with joy and laughter!
 
-![Day of the Dead Fancy Dress Halloween Party at The Anchor. Event information with a festive Día de Muertos skull image.](/content/blog/celebrate-day-of-the-dead-at-the-anchor-with-fun-a/image-4.png)
+![Day of the Dead Fancy Dress Halloween Party at The Anchor. Event information with a festive Día de Muertos skull image.](/content/blog/day-of-the-dead-party/image-4.png)
 
 ## Grand Finale: November 2nd Party
 

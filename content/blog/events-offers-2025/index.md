@@ -33,7 +33,7 @@ hero: hero.jpg
 images: []
 ---
 
-![A vibrant collage showcasing events, community gatherings, and memorable moments at The Anchor pub in Stanwell Moor Village, celebrating 2025 with fresh flavours, exciting events, and a warm welcome.](/content/blog/exciting-new-events-offers-at-the-anchor-for-2025-/hero.jpg)
+![A vibrant collage showcasing events, community gatherings, and memorable moments at The Anchor pub in Stanwell Moor Village, celebrating 2025 with fresh flavours, exciting events, and a warm welcome.](/content/blog/events-offers-2025/hero.jpg)
 
 ## Exciting 2025 Events and Offers Near Heathrow Airport
 
@@ -214,7 +214,7 @@ Or simply head over to [the-anchor.pub](http://the-anchor.pub) to see the full 
 **Perfect for Heathrow Workers:**
 - Just 7 minutes from all terminals
 - Free parking (no airport fees!)
-- After-work specials and happy hours
+- After-work specials and deals
 - Regular entertainment perfect for shift patterns
 
 **Ideal for Stanwell Moor & Staines Residents:**
@@ -224,7 +224,7 @@ Or simply head over to [the-anchor.pub](http://the-anchor.pub) to see the full 
 - Meet neighbors and make friends
 
 **What Makes Us Special:**
-- Award-winning sustainable practices
+- Recognized sustainable practices
 - Diverse events calendar for all interests
 - Traditional British pub with modern touches
 - Welcoming to all communities near the airport

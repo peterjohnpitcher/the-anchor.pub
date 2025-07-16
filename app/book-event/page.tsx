@@ -1,15 +1,16 @@
 import { CallToAction } from '@/components/CallToAction'
 import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { eventBookingServiceSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
 export const metadata: Metadata = {
-  title: 'Book an Event | The Anchor Stanwell Moor | Private Parties & Functions',
-  description: 'Book The Anchor for your private event. Birthday parties, corporate events, wakes, and celebrations. Flexible spaces and custom menus available.',
-  keywords: 'book private event stanwell moor, party venue near heathrow, function room hire, birthday party venue',
+  title: 'Event Venue Hire Near Me | The Anchor Stanwell Moor | Private Bookings',
+  description: 'Transform your special occasion into an unforgettable experience at The Anchor. Versatile venue spaces for 10-200 guests with comprehensive event services.',
+  keywords: 'private venue hire stanwell moor, event space near heathrow, function room hire, wedding venue surrey, corporate events staines',
   openGraph: {
-    title: 'Book Your Event at The Anchor',
-    description: 'Private parties, functions, and celebrations. We make your event special.',
+    title: 'Private Bookings at The Anchor',
+    description: 'Versatile venue spaces and comprehensive event services for celebrations of all sizes.',
     images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
   },
 }
@@ -20,18 +21,62 @@ export default function BookEventPage() {
     { name: 'Book an Event', url: '/book-event' }
   ])
 
+  const enhancedEventServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Private Event Hosting at The Anchor",
+    "description": "Professional event hosting services for birthdays, corporate events, wakes, celebrations, and private parties in Stanwell Moor, Surrey",
+    "provider": {
+      "@type": "Restaurant",
+      "name": "The Anchor",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Horton Road",
+        "addressLocality": "Stanwell Moor",
+        "addressRegion": "Surrey",
+        "postalCode": "TW19 6AQ"
+      },
+      "telephone": "+441753682707"
+    },
+    "areaServed": [
+      "Stanwell Moor",
+      "Staines",
+      "Ashford",
+      "Feltham",
+      "Bedfont",
+      "Egham",
+      "Heathrow",
+      "Surrey"
+    ],
+    "serviceType": [
+      "Birthday Party Hosting",
+      "Corporate Event Venue",
+      "Wake and Memorial Services",
+      "Private Function Room Hire",
+      "Christmas Party Venue",
+      "Wedding Reception Venue"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "47",
+      "bestRating": "5"
+    }
+  }
+
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([eventBookingServiceSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([enhancedEventServiceSchema, breadcrumbSchema]) }}
       />
       
       {/* Hero Section */}
       <PageHeaderWrapper
         route="/book-event"
-        title="Host Your Event at The Anchor"
-        description="From intimate gatherings to large celebrations"
+        title="Private Bookings at The Anchor"
+        description="Transform your special occasion into an unforgettable experience"
         minHeight="min-h-[50vh]"
         showStatusBar={false}
       >
@@ -44,153 +89,316 @@ export default function BookEventPage() {
         </CallToAction>
       </PageHeaderWrapper>
 
-      {/* Event Types */}
+      {/* Venue Spaces */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-4">
-              Perfect for Every Occasion
+              Venue Spaces
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Our flexible spaces and experienced team make any event special
+              Our venue offers a variety of distinct spaces that can be hired individually or in combination
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="text-center">
-              <div className="text-6xl mb-4">🎂</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Birthday Parties</h3>
-              <p className="text-gray-700">
-                Milestone birthdays, surprise parties, or intimate celebrations. 
-                Custom decorations and cake arrangements available.
-              </p>
+          {/* Available Spaces */}
+          <div className="max-w-5xl mx-auto mb-12">
+            <h3 className="text-2xl font-bold text-anchor-green mb-8 text-center">Available Spaces</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h4 className="text-xl font-bold text-anchor-green mb-3">The Dining Room</h4>
+                <p className="text-gray-700 mb-4">
+                  Our main event space, highly versatile and perfect for celebrations of all sizes. 
+                  Can be arranged for formal dining, presentations, dancing, or cocktail receptions.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Flexible seating arrangements</li>
+                  <li>• Natural lighting with dimming options</li>
+                  <li>• Direct access to facilities</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h4 className="text-xl font-bold text-anchor-green mb-3">Bar Area</h4>
+                <p className="text-gray-700 mb-4">
+                  Can be reserved exclusively for cocktail receptions and casual events. 
+                  Perfect for informal gatherings and drinks parties.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Full bar service</li>
+                  <li>• Standing reception setup</li>
+                  <li>• Background music system</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h4 className="text-xl font-bold text-anchor-green mb-3">Outdoor Terrace</h4>
+                <p className="text-gray-700 mb-4">
+                  Weather permitting, our outdoor space provides a beautiful setting for 
+                  summer parties and alfresco dining.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Garden furniture available</li>
+                  <li>• Covered areas</li>
+                  <li>• Outdoor heating options</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h4 className="text-xl font-bold text-anchor-green mb-3">Entire Venue</h4>
+                <p className="text-gray-700 mb-4">
+                  For larger celebrations, exclusive use of the whole venue is available. 
+                  Perfect for weddings, large corporate events, and milestone celebrations.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Complete privacy</li>
+                  <li>• All spaces included</li>
+                  <li>• Dedicated event team</li>
+                </ul>
+              </div>
             </div>
-            
-            <div className="text-center">
-              <div className="text-6xl mb-4">💼</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Corporate Events</h3>
-              <p className="text-gray-700">
-                Team building, Christmas parties, leaving dos, or business meetings. 
-                AV equipment and catering options.
-              </p>
+          </div>
+
+          {/* Space Features */}
+          <div className="bg-white border-2 border-anchor-green rounded-2xl p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">Space Features</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <ul className="space-y-3">
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">✓</span>
+                  <span>Flexible seating (banquet, theatre, cabaret, cocktail)</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">✓</span>
+                  <span>Climate control for year-round comfort</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">✓</span>
+                  <span>Wheelchair accessibility throughout</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">✓</span>
+                  <span>Dedicated service staff</span>
+                </li>
+              </ul>
+              <ul className="space-y-3">
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">✓</span>
+                  <span>Audio capabilities for speeches</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">✓</span>
+                  <span>Space for DJ or live entertainment</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">✓</span>
+                  <span>Free parking for all guests</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-anchor-gold">✓</span>
+                  <span>Flexible setup options</span>
+                </li>
+              </ul>
             </div>
-            
-            <div className="text-center">
-              <div className="text-6xl mb-4">💑</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Celebrations</h3>
-              <p className="text-gray-700">
-                Engagements, anniversaries, baby showers, or any special occasion. 
-                We'll help make it memorable.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="text-6xl mb-4">🕊️</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Wakes & Memorials</h3>
-              <p className="text-gray-700">
-                Respectful and caring service for life celebrations. 
-                Flexible catering and private areas available.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="text-6xl mb-4">🎄</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Seasonal Parties</h3>
-              <p className="text-gray-700">
-                Christmas parties, New Year celebrations, or seasonal gatherings. 
-                Festive menus and decorations.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="text-6xl mb-4">🎉</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Private Functions</h3>
-              <p className="text-gray-700">
-                Reunions, club meetings, or any private gathering. 
-                Exclusive use options available.
-              </p>
+          </div>
+
+          {/* Capacity Options */}
+          <div className="mt-12 text-center">
+            <h3 className="text-2xl font-bold text-anchor-green mb-6">Capacity Options</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              <div className="bg-anchor-cream rounded-lg p-4">
+                <p className="text-3xl font-bold text-anchor-gold mb-2">10+</p>
+                <p className="text-sm text-gray-700">Intimate gatherings</p>
+              </div>
+              <div className="bg-anchor-cream rounded-lg p-4">
+                <p className="text-3xl font-bold text-anchor-gold mb-2">80</p>
+                <p className="text-sm text-gray-700">Medium events</p>
+              </div>
+              <div className="bg-anchor-cream rounded-lg p-4">
+                <p className="text-3xl font-bold text-anchor-gold mb-2">150</p>
+                <p className="text-sm text-gray-700">Large celebrations</p>
+              </div>
+              <div className="bg-anchor-cream rounded-lg p-4">
+                <p className="text-3xl font-bold text-anchor-gold mb-2">200</p>
+                <p className="text-sm text-gray-700">Standing receptions</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What We Offer */}
+      {/* Catering Options */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              What We Offer
+              Catering Options
             </h2>
             
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Buffet Service</h3>
+                <p className="text-gray-700 mb-4">
+                  Classic buffet-style dining perfect for relaxed gatherings where guests can mingle.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Hot and cold options</li>
+                  <li>• Self-service setup</li>
+                  <li>• Wide variety of choices</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Sit-Down Meals</h3>
+                <p className="text-gray-700 mb-4">
+                  Formal plated service for elegant occasions with full table service.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Multiple course options</li>
+                  <li>• Waiter service</li>
+                  <li>• Pre-selected menus</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Canapés & Finger Foods</h3>
+                <p className="text-gray-700 mb-4">
+                  Sophisticated bite-sized offerings ideal for cocktail parties.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Passed by staff</li>
+                  <li>• Variety of flavors</li>
+                  <li>• Perfect for mingling</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Pizza Parties</h3>
+                <p className="text-gray-700 mb-4">
+                  Casual and fun option perfect for birthday parties and informal celebrations.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Fresh made pizzas</li>
+                  <li>• Variety of toppings</li>
+                  <li>• Great for all ages</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Drinks Packages</h3>
+                <p className="text-gray-700 mb-4">
+                  Comprehensive beverage solutions from welcome drinks to full bar service.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Welcome drinks</li>
+                  <li>• Wine packages</li>
+                  <li>• Bar tabs available</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Custom Catering</h3>
+                <p className="text-gray-700 mb-4">
+                  Bespoke menu creation to match your specific requirements.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Tailored menus</li>
+                  <li>• Special themes</li>
+                  <li>• Chef consultation</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-anchor-cream rounded-xl p-6 text-center">
+              <p className="text-lg font-semibold text-anchor-green mb-2">All Catering Options Include:</p>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-gray-700">
+                <span>✓ Vegetarian & vegan choices</span>
+                <span>✓ Gluten-free options</span>
+                <span>✓ Allergy-conscious preparation</span>
+                <span>✓ Halal options on request</span>
+                <span>✓ Children's menu variations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Preferred Vendor Network */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
+              Preferred Vendor Network
+            </h2>
+            <p className="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+              We've curated a network of trusted professionals to enhance your event
+            </p>
+            
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl p-8 shadow-md">
-                <h3 className="text-2xl font-bold text-anchor-green mb-6">Spaces Available</h3>
+              <div className="bg-gray-50 rounded-xl p-8">
+                <h3 className="text-2xl font-bold text-anchor-green mb-6">Entertainment</h3>
                 <ul className="space-y-4">
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
+                    <span className="text-anchor-gold">🎵</span>
                     <div>
-                      <strong>Main Bar Area</strong>
-                      <p className="text-gray-600">Up to 80 guests for drinks receptions</p>
+                      <strong>DJs</strong>
+                      <p className="text-gray-600">Professional disc jockeys for all music genres and event styles</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
+                    <span className="text-anchor-gold">🎸</span>
                     <div>
-                      <strong>Restaurant Section</strong>
-                      <p className="text-gray-600">Seated dining for up to 60 guests</p>
+                      <strong>Live Bands</strong>
+                      <p className="text-gray-600">From acoustic duos to full bands covering various musical styles</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
+                    <span className="text-anchor-gold">🎭</span>
                     <div>
-                      <strong>Beer Garden</strong>
-                      <p className="text-gray-600">Outdoor space for summer events</p>
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <div>
-                      <strong>Exclusive Hire</strong>
-                      <p className="text-gray-600">Whole venue for larger events</p>
+                      <strong>Special Entertainment</strong>
+                      <p className="text-gray-600">Magicians, comedians, and unique performers</p>
                     </div>
                   </li>
                 </ul>
               </div>
               
-              <div className="bg-white rounded-2xl p-8 shadow-md">
-                <h3 className="text-2xl font-bold text-anchor-green mb-6">Services Included</h3>
+              <div className="bg-gray-50 rounded-xl p-8">
+                <h3 className="text-2xl font-bold text-anchor-green mb-6">Event Services</h3>
                 <ul className="space-y-4">
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <span>Dedicated event coordinator</span>
+                    <span className="text-anchor-gold">📸</span>
+                    <div>
+                      <strong>Photography</strong>
+                      <p className="text-gray-600">Capture every moment with our recommended photographers</p>
+                    </div>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <span>Custom menu planning</span>
+                    <span className="text-anchor-gold">🌺</span>
+                    <div>
+                      <strong>Floristry</strong>
+                      <p className="text-gray-600">Beautiful arrangements from simple centerpieces to elaborate displays</p>
+                    </div>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <span>Buffet or sit-down meal options</span>
+                    <span className="text-anchor-gold">🎨</span>
+                    <div>
+                      <strong>Decoration</strong>
+                      <p className="text-gray-600">Transform our spaces with professional styling and theming</p>
+                    </div>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <span>Full bar service</span>
+                    <span className="text-anchor-gold">🚗</span>
+                    <div>
+                      <strong>Transport</strong>
+                      <p className="text-gray-600">Reliable transportation solutions for your guests</p>
+                    </div>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <span>Background music system</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <span>Free parking for all guests</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <span>Decoration assistance</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-anchor-gold">✓</span>
-                    <span>Flexible timings</span>
+                    <span className="text-anchor-gold">🎤</span>
+                    <div>
+                      <strong>Equipment Rental</strong>
+                      <p className="text-gray-600">Audio/visual and lighting equipment for presentations or performances</p>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -199,55 +407,82 @@ export default function BookEventPage() {
         </div>
       </section>
 
-      {/* Menu Options */}
-      <section className="section-spacing bg-white">
+      {/* Additional Services */}
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              Catering Options
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
+              Additional Services
             </h2>
-            <p className="text-xl text-gray-700 mb-12">
-              From finger buffets to three-course meals, we cater to your needs and budget
-            </p>
             
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">Light Bites</h3>
-                <p className="text-gray-700 mb-4">From £8 per person</p>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>Sandwiches & wraps</li>
-                  <li>Sausage rolls</li>
-                  <li>Crisps & nibbles</li>
-                  <li>Tea & coffee</li>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">Event Support</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Flexible setup options - arranged to your specifications</li>
+                  <li>• Extended access - early setup and late finish available</li>
+                  <li>• Multiple space bookings - combine areas for larger events</li>
                 </ul>
               </div>
               
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">Hot Buffet</h3>
-                <p className="text-gray-700 mb-4">From £15 per person</p>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>Selection of hot dishes</li>
-                  <li>Vegetarian options</li>
-                  <li>Salads & sides</li>
-                  <li>Dessert selection</li>
-                </ul>
-              </div>
-              
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">Formal Dining</h3>
-                <p className="text-gray-700 mb-4">From £25 per person</p>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>Three-course meal</li>
-                  <li>Table service</li>
-                  <li>Choice of mains</li>
-                  <li>Coffee & mints</li>
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-xl text-anchor-green mb-3">Accessibility & Coordination</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Full accessibility accommodations available</li>
+                  <li>• Event coordination - experienced team helps plan every detail</li>
+                  <li>• Vendor liaison - we'll coordinate with all your suppliers</li>
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Perfect For */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
+              Perfect For
+            </h2>
             
-            <p className="mt-8 text-gray-600 italic">
-              All menus can be customized. Dietary requirements catered for.
-            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-5xl mb-4">💑</div>
+                <h3 className="text-xl font-bold text-anchor-green mb-2">Weddings & Ceremonies</h3>
+                <p className="text-gray-600">Wedding receptions, ceremonies, and engagement parties</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-5xl mb-4">🎂</div>
+                <h3 className="text-xl font-bold text-anchor-green mb-2">Milestone Celebrations</h3>
+                <p className="text-gray-600">Birthday parties, anniversaries, and retirement parties</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-5xl mb-4">💼</div>
+                <h3 className="text-xl font-bold text-anchor-green mb-2">Corporate Events</h3>
+                <p className="text-gray-600">Meetings, team building, Christmas parties, and presentations</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-5xl mb-4">👨‍👩‍👧‍👦</div>
+                <h3 className="text-xl font-bold text-anchor-green mb-2">Family Gatherings</h3>
+                <p className="text-gray-600">Christenings, baby showers, and family reunions</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-5xl mb-4">🕊️</div>
+                <h3 className="text-xl font-bold text-anchor-green mb-2">Memorial Services</h3>
+                <p className="text-gray-600">Funeral wakes and celebration of life gatherings</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-5xl mb-4">🎉</div>
+                <h3 className="text-xl font-bold text-anchor-green mb-2">Social Functions</h3>
+                <p className="text-gray-600">Club meetings, society functions, and private dining</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -268,11 +503,12 @@ export default function BookEventPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
-                  "Held my 50th birthday here - absolutely perfect! The team went above and beyond 
-                  to make it special. The buffet was delicious and plenty of it. Would highly recommend."
+                  "The Anchor made our wedding reception absolutely magical. From the initial planning 
+                  to the big day, everything was flawless. The team's attention to detail and warm 
+                  hospitality made all the difference."
                 </p>
-                <p className="font-semibold text-anchor-green">- Sarah Thompson</p>
-                <p className="text-sm text-gray-600">Birthday Party, 80 guests</p>
+                <p className="font-semibold text-anchor-green">- Emily & James Carter</p>
+                <p className="text-sm text-gray-600">Wedding Reception, 120 guests</p>
               </div>
               
               <div className="bg-white rounded-xl p-6 shadow-md">
@@ -282,11 +518,12 @@ export default function BookEventPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
-                  "Organised our company Christmas party here. Great venue, fantastic food, and 
-                  the staff handled everything professionally. Easy parking was a big plus for our team."
+                  "We use The Anchor for all our corporate events now. The flexibility of the spaces, 
+                  quality of the catering, and professional service make it our go-to venue. Plus, 
+                  the location near Heathrow is perfect for our international clients."
                 </p>
-                <p className="font-semibold text-anchor-green">- Mark Davies</p>
-                <p className="text-sm text-gray-600">Corporate Event, 45 guests</p>
+                <p className="font-semibold text-anchor-green">- Richard Hughes, TechCorp UK</p>
+                <p className="text-sm text-gray-600">Quarterly Team Meetings</p>
               </div>
               
               <div className="bg-white rounded-xl p-6 shadow-md">
@@ -296,103 +533,68 @@ export default function BookEventPage() {
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">
-                  "Beautiful celebration of life for my father. The Anchor team were so understanding 
-                  and helpful during a difficult time. The private area was perfect for our family."
+                  "Celebrated my mum's 80th birthday here with family from all over. The staff couldn't 
+                  have been more helpful, the food was outstanding, and having our own space made it 
+                  feel really special. Thank you!"
                 </p>
-                <p className="font-semibold text-anchor-green">- Jennifer Williams</p>
-                <p className="text-sm text-gray-600">Memorial Service, 60 guests</p>
+                <p className="font-semibold text-anchor-green">- David Patterson</p>
+                <p className="text-sm text-gray-600">Milestone Birthday, 65 guests</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Frequently Asked Questions */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              Event Booking FAQs
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  How far in advance should I book?
-                </h3>
-                <p className="text-gray-700">
-                  We recommend booking at least 2-3 weeks in advance for small gatherings and 
-                  4-6 weeks for larger events. December books up particularly quickly, so plan 
-                  ahead for Christmas parties.
-                </p>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  Is there a minimum number of guests?
-                </h3>
-                <p className="text-gray-700">
-                  We welcome events from 10 people upwards. For smaller groups, you're welcome 
-                  to reserve a table in our main dining area. For exclusive use of a space, 
-                  we typically require a minimum of 30 guests.
-                </p>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  Do you offer drinks packages?
-                </h3>
-                <p className="text-gray-700">
-                  Yes! We can arrange drinks packages including arrival drinks, wine with meals, 
-                  and bar tabs. We'll work within your budget to create the perfect package. 
-                  Cash bars are also available for guests to purchase their own drinks.
-                </p>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  Can you accommodate special dietary requirements?
-                </h3>
-                <p className="text-gray-700">
-                  Absolutely. Our kitchen can cater for vegetarian, vegan, gluten-free, and 
-                  most other dietary requirements. Just let us know when booking and we'll 
-                  ensure everyone is well looked after.
-                </p>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  Is there parking available for all my guests?
-                </h3>
-                <p className="text-gray-700">
-                  We have 20 free parking spaces on-site. For larger events, there's additional 
-                  street parking nearby. We're also just a short taxi ride from Heathrow hotels 
-                  and Staines station.
-                </p>
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  What's your cancellation policy?
-                </h3>
-                <p className="text-gray-700">
-                  We understand plans can change. Cancellations made more than 14 days before 
-                  your event incur no charge. For cancellations within 14 days, we may retain 
-                  any deposit paid. We're always happy to discuss rescheduling options.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        title="Event Booking FAQs"
+        faqs={[
+          {
+            question: "How far in advance should I book?",
+            answer: "We recommend booking at least 2-4 weeks in advance for smaller events and 6-8 weeks for larger celebrations. December books up particularly quickly, so contact us early for Christmas parties. Saturday nights are our busiest times."
+          },
+          {
+            question: "Is there a minimum number of guests?",
+            answer: "We welcome events from 10 people upwards. For smaller groups, you're welcome to reserve a table in our main dining area. For exclusive use of a space, we typically require a minimum of 30 guests."
+          },
+          {
+            question: "Do you offer drinks packages?",
+            answer: "Yes! We can arrange drinks packages including arrival drinks, wine with meals, and bar tabs. We'll work within your budget to create the perfect package. Cash bars are also available for guests to purchase their own drinks."
+          },
+          {
+            question: "Can you accommodate special dietary requirements?",
+            answer: "Absolutely. Our kitchen can cater for vegetarian, vegan, gluten-free, and most other dietary requirements. Just let us know when booking and we'll ensure everyone is well looked after."
+          },
+          {
+            question: "Is there parking available for all my guests?",
+            answer: "We have 20 free parking spaces on-site. For larger events, there's additional street parking nearby. We're also just a short taxi ride from Heathrow hotels and Staines station."
+          },
+          {
+            question: "What's your cancellation policy?",
+            answer: "We understand plans can change. Cancellations made more than 14 days before your event incur no charge. For cancellations within 14 days, we may retain any deposit paid. We're always happy to discuss rescheduling options."
+          },
+          {
+            question: "What types of events can I host at The Anchor?",
+            answer: "We host all types of events including birthday parties, corporate events, Christmas parties, wakes and memorials, engagement parties, baby showers, retirement parties, and any special celebration. Our flexible spaces can accommodate groups from 10 to 300 guests."
+          },
+          {
+            question: "What payment methods do you accept for events?",
+            answer: "We accept cash and all major credit and debit cards, including American Express. For event bookings, we can arrange payment in advance or on the day. Deposits can be paid by card over the phone or in person."
+          }
+        ]}
+        className="bg-white"
+      />
 
       {/* Booking Process */}
       <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              How to Book Your Event
+              Booking Process
             </h2>
+            <p className="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
+              From your initial inquiry to the day of your event, we make the process seamless and stress-free
+            </p>
             
             <div className="space-y-6">
               <div className="flex gap-4 items-start">
@@ -400,10 +602,9 @@ export default function BookEventPage() {
                   1
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Initial Enquiry</h3>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Initial Contact</h3>
                   <p className="text-gray-700">
-                    Call us on 01753 682707 or email manager@the-anchor.pub with your event details, 
-                    preferred date, and approximate numbers.
+                    Get in touch via phone (01753 682707) or email to discuss your requirements
                   </p>
                 </div>
               </div>
@@ -413,10 +614,9 @@ export default function BookEventPage() {
                   2
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Discuss Requirements</h3>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Site Visit</h3>
                   <p className="text-gray-700">
-                    We'll discuss your needs, show you the available spaces, and help plan 
-                    your perfect event including menu options and timings.
+                    View our spaces and discuss layout options with our events team
                   </p>
                 </div>
               </div>
@@ -426,10 +626,9 @@ export default function BookEventPage() {
                   3
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Confirm Booking</h3>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Proposal</h3>
                   <p className="text-gray-700">
-                    Once you're happy with everything, we'll confirm your booking. 
-                    A small deposit may be required for larger events.
+                    Receive a detailed proposal with menu options and pricing
                   </p>
                 </div>
               </div>
@@ -439,10 +638,33 @@ export default function BookEventPage() {
                   4
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl text-anchor-green mb-2">Enjoy Your Event</h3>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Confirmation</h3>
                   <p className="text-gray-700">
-                    On the day, our team will ensure everything runs smoothly so you can 
-                    relax and enjoy your special occasion.
+                    Secure your date with a deposit (refundable up to 14 days before event)
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-12 h-12 bg-anchor-gold text-white rounded-full flex items-center justify-center font-bold">
+                  5
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Planning Meeting</h3>
+                  <p className="text-gray-700">
+                    Final details discussion 2 weeks before your event
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex gap-4 items-start">
+                <div className="flex-shrink-0 w-12 h-12 bg-anchor-gold text-white rounded-full flex items-center justify-center font-bold">
+                  6
+                </div>
+                <div>
+                  <h3 className="font-bold text-xl text-anchor-green mb-2">Event Day</h3>
+                  <p className="text-gray-700">
+                    Our experienced team delivers your perfect event
                   </p>
                 </div>
               </div>

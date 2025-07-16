@@ -1,9 +1,10 @@
 ---
 title: Drag Shows Near Heathrow | Nikki Manfadge's Cabaret at The Anchor
+slug: drag-cabaret-nikki
 description: >-
   Experience the best drag entertainment near Heathrow Airport at The Anchor
   pub. Join Nikki Manfadge for an unforgettable night of comedy, cabaret, and
-  interactive fun every last Friday. Free entry, dinner available, just 10
+  interactive fun every last Friday. FREE entry, dinner available, just 10
   minutes from Terminal 5. Book your table for Stanwell Moor's hottest drag
   show.
 date: '2025-03-06'
@@ -30,7 +31,7 @@ hero: hero.png
 images: []
 ---
 
-![Nikki Manfadge's Drag Cabaret at The Anchor](/content/blog/drag-cabaret-at-the-anchor-a-night-of-fun-with-nik/hero.png)
+![Nikki Manfadge's Drag Cabaret at The Anchor](/content/blog/drag-cabaret-nikki/hero.png)
 
 Looking for the best **drag shows near Heathrow**? Experience an unforgettable night of entertainment at The Anchor with resident drag queen **Nikki Manfadge**. Just 10 minutes from Terminal 5, discover Stanwell Moor's hottest cabaret show where anything can happen!
 
@@ -43,7 +44,7 @@ Forget predictable nights out. **Nikki Manfadge's Drag Cabaret** at The Anchor d
 - **High-energy interactive entertainment** that breaks all the rules
 - **Sharp comedy and quick wit** from our resident drag queen
 - **Audience participation** that makes every show unique
-- **Free entry** to the area's most exciting cabaret night
+- **FREE entry** to the area's most exciting cabaret night
 - **Full dinner menu** available before the show
 - **Monthly shows** every last Friday
 
@@ -108,7 +109,7 @@ Located just **10 minutes from Heathrow Terminal 5**, The Anchor offers:
 **Essential Information:**
 - **Date**: Last Friday of every month
 - **Time**: 7pm start (arrive by 6:30pm for seats)
-- **Entry**: Completely FREE
+- **Entry**: FREE
 - **Food**: Full menu 6pm-9pm
 - **Booking**: Recommended via [https://bit.ly/43n4MyN](https://bit.ly/43n4MyN)
 - **Location**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
@@ -168,7 +169,7 @@ Follow The Anchor on [Facebook](https://www.facebook.com/theanchorpubsm) and [In
 
 ## Book Now for Nikki Manfadge's Drag Cabaret
 
-Don't miss out on **Stanwell Moor's hottest entertainment**! With free entry and limited seating, tables fill up fast.
+Don't miss out on **Stanwell Moor's hottest entertainment**! With FREE entry and limited seating, tables fill up fast.
 
 **Secure your spot for an unforgettable night of drag, comedy, and cabaret near Heathrow.**
 

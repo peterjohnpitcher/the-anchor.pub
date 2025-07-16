@@ -19,8 +19,8 @@ export const organizationSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 51.4764,
-    "longitude": -0.4735
+    "latitude": 51.462509,
+    "longitude": -0.502067
   },
   "telephone": "+441753682707",
   "email": "manager@the-anchor.pub"
@@ -46,8 +46,8 @@ export const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 51.4764,
-    "longitude": -0.4735
+    "latitude": 51.462509,
+    "longitude": -0.502067
   },
   "url": "https://the-anchor.pub",
   "telephone": "+441753682707",
@@ -61,6 +61,12 @@ export const localBusinessSchema = {
     "worstRating": "1"
   },
   "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Monday",
+      "opens": "16:00",
+      "closes": "22:00"
+    },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Tuesday",
@@ -125,11 +131,48 @@ export const localBusinessSchema = {
       "@type": "LocationFeatureSpecification",
       "name": "Dog Friendly",
       "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Free WiFi",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Pool Table",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Darts",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Outside ULEZ Zone",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Luggage Storage",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Live Sports on TV",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Private Event Space",
+      "value": true
     }
   ],
-  "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+  "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "American Express"],
   "currenciesAccepted": "GBP",
-  "publicAccess": true
+  "publicAccess": true,
+  "isAccessibleForFree": true,
+  "maximumAttendeeCapacity": 250
 }
 
 export const webSiteSchema = {
@@ -153,3 +196,127 @@ export const webSiteSchema = {
 }
 
 export const restaurantSchema = localBusinessSchema
+
+// Event Series Schemas for Regular Events
+export const quizNightEventSeries = {
+  "@context": "https://schema.org",
+  "@type": "EventSeries",
+  "@id": "https://the-anchor.pub/#quiz-night-series",
+  "name": "Monthly Quiz Night at The Anchor",
+  "description": "Test your knowledge at our popular monthly quiz night. £3 entry, teams up to 6, great prizes including £25 bar voucher for winners.",
+  "startDate": "2024-01-01",
+  "endDate": "2025-12-31",
+  "eventSchedule": {
+    "@type": "Schedule",
+    "repeatFrequency": "P1M",
+    "startTime": "19:00:00",
+    "endTime": "22:00:00",
+    "scheduleTimezone": "Europe/London"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "The Anchor",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Horton Road",
+      "addressLocality": "Stanwell Moor",
+      "addressRegion": "Surrey",
+      "postalCode": "TW19 6AQ",
+      "addressCountry": "GB"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "3",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
+  },
+  "organizer": {
+    "@id": "https://the-anchor.pub/#organization"
+  },
+  "performer": {
+    "@type": "Organization",
+    "name": "Question One Quiz Masters"
+  }
+}
+
+export const dragShowEventSeries = {
+  "@context": "https://schema.org",
+  "@type": "EventSeries",
+  "@id": "https://the-anchor.pub/#drag-show-series",
+  "name": "Monthly Drag Shows with Nikki Manfadge",
+  "description": "Spectacular monthly drag performances featuring Nikki Manfadge. FREE entry, alternating between Games Night and Karaoke Night formats.",
+  "startDate": "2024-01-01",
+  "endDate": "2025-12-31",
+  "eventSchedule": {
+    "@type": "Schedule",
+    "repeatFrequency": "P1M",
+    "startTime": "21:00:00",
+    "endTime": "23:30:00",
+    "scheduleTimezone": "Europe/London"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "The Anchor",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Horton Road",
+      "addressLocality": "Stanwell Moor",
+      "addressRegion": "Surrey",
+      "postalCode": "TW19 6AQ",
+      "addressCountry": "GB"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
+  },
+  "organizer": {
+    "@id": "https://the-anchor.pub/#organization"
+  },
+  "performer": {
+    "@type": "Person",
+    "name": "Nikki Manfadge",
+    "jobTitle": "Drag Queen"
+  }
+}
+
+export const bingoEventSeries = {
+  "@context": "https://schema.org",
+  "@type": "EventSeries",
+  "@id": "https://the-anchor.pub/#bingo-series",
+  "name": "Monthly Cash Bingo Night",
+  "description": "Monthly bingo night with £10 per book entry. 10 games with various prizes including drinks, chocolate, vouchers, and cash jackpot on the last game.",
+  "startDate": "2024-01-01",
+  "endDate": "2025-12-31",
+  "eventSchedule": {
+    "@type": "Schedule",
+    "repeatFrequency": "P1M",
+    "startTime": "19:00:00",
+    "endTime": "21:00:00",
+    "scheduleTimezone": "Europe/London"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "The Anchor",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Horton Road",
+      "addressLocality": "Stanwell Moor",
+      "addressRegion": "Surrey",
+      "postalCode": "TW19 6AQ",
+      "addressCountry": "GB"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "10",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock"
+  },
+  "organizer": {
+    "@id": "https://the-anchor.pub/#organization"
+  }
+}

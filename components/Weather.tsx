@@ -57,18 +57,44 @@ export function Weather({
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
+  const [lastFetchTime, setLastFetchTime] = useState<number>(0)
 
   const mergedTheme = { ...defaultTheme, ...theme }
 
   useEffect(() => {
     setMounted(true)
-  }, [])
+    
+    // Load cached weather data
+    const cacheKey = `weather_${location}`
+    const cached = localStorage.getItem(cacheKey)
+    if (cached) {
+      try {
+        const { data, timestamp } = JSON.parse(cached)
+        const age = Date.now() - timestamp
+        // Use cached data if less than 5 minutes old
+        if (age < 5 * 60 * 1000) {
+          setWeather(data)
+          setLoading(false)
+          setLastFetchTime(timestamp)
+        }
+      } catch (e) {
+        // Invalid cache data, ignore
+      }
+    }
+  }, [location])
 
   useEffect(() => {
     if (!mounted) return
 
     async function fetchWeather() {
       try {
+        // Check if we should skip due to recent fetch
+        const now = Date.now()
+        if (lastFetchTime && now - lastFetchTime < 60 * 1000) {
+          // Skip if fetched within last minute
+          return
+        }
+        
         const response = await fetch(apiEndpoint)
         
         if (!response.ok) {
@@ -82,8 +108,16 @@ export function Weather({
         }
         
         setWeather(data)
+        setLastFetchTime(now)
+        
+        // Cache the weather data
+        const cacheKey = `weather_${location}`
+        localStorage.setItem(cacheKey, JSON.stringify({
+          data,
+          timestamp: now
+        }))
       } catch (err) {
-        console.error('Failed to fetch weather:', err)
+        // Error: Failed to fetch weather
         setError('Unable to load weather')
       } finally {
         setLoading(false)
@@ -96,7 +130,7 @@ export function Weather({
       const interval = setInterval(fetchWeather, refreshInterval)
       return () => clearInterval(interval)
     }
-  }, [mounted, apiEndpoint, refreshInterval])
+  }, [mounted, apiEndpoint, refreshInterval, location, lastFetchTime])
 
   const formatTemp = (temp: number) => {
     if (unit === 'fahrenheit') {

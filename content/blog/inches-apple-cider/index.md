@@ -35,7 +35,7 @@ images:
 
   
 
-![Inches cider photo with quote "apple bobbing never felt so grown up"](/content/blog/exciting-arrival-welcome-inches-apple-cider-to-our/hero.png)
+![Inches cider photo with quote "apple bobbing never felt so grown up"](/content/blog/inches-apple-cider/hero.png)
 
 ## British Apple Cider Now Pouring Near Heathrow
 
@@ -80,7 +80,7 @@ Looking for authentic **British apple cider near Heathrow Airport**? The Anchor 
 
   
 
-![Top down photo of the bubbles on top of a pint of Inches apple cider](/content/blog/exciting-arrival-welcome-inches-apple-cider-to-our/image-1.png)
+![Top down photo of the bubbles on top of a pint of Inches apple cider](/content/blog/inches-apple-cider/image-1.png)
 
 ## Tasting Notes - What to Expect
 

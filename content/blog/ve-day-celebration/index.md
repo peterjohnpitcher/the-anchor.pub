@@ -32,7 +32,7 @@ hero: hero.jpg
 images: []
 ---
 
-![Celebrate VE Day at The Anchor with quiz night, karaoke, and 25% off British classics. Union Jack bunting decorates the scene.](/content/blog/ve-day-at-the-anchor-celebrate-with-british-food-e/hero.jpg)
+![Celebrate VE Day at The Anchor with quiz night, karaoke, and 25% off British classics. Union Jack bunting decorates the scene.](/content/blog/ve-day-celebration/hero.jpg)
 
 Looking for authentic **VE Day celebrations near Heathrow**? The Anchor in Stanwell Moor transforms into a traditional British heritage venue every May! Just 7 minutes from Terminal 5, we honour Victory in Europe Day with week-long festivities that bring our community together.
 

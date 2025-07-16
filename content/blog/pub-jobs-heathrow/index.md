@@ -23,10 +23,11 @@ keywords:
   - flexible hours pub work
   - hospitality careers stanwell moor
 tags:
-  - drinks
-  - events
-  - food
-  - special-offers
+  - community
+  - jobs
+  - careers
+  - hiring
+  - opportunity
 featured: false
 hero: hero.png
 images: []
@@ -34,7 +35,7 @@ images: []
 
   
 
-![Chalkboard sign with ornate detailing reading 'WE'RE HIRING' in bold, cursive chalk lettering. The Anchor's logo is present at the bottom right with the tagline 'Stanwell Moor Village,' indicating the pub's location.](/content/blog/pub-jobs-near-heathrow-bar-staff-and-sunday-runner/hero.png)
+![Chalkboard sign with ornate detailing reading 'WE'RE HIRING' in bold, cursive chalk lettering. The Anchor's logo is present at the bottom right with the tagline 'Stanwell Moor Village,' indicating the pub's location.](/content/blog/pub-jobs-heathrow/hero.png)
 
   
 

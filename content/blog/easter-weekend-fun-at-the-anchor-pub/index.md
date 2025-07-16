@@ -20,10 +20,11 @@ keywords:
   - the anchor easter
   - traditional easter lunch heathrow
 tags:
-  - drinks
   - events
-  - food
-  - special-offers
+  - easter
+  - family-friendly
+  - sunday-roast
+  - april
 featured: false
 hero: hero.png
 images: []

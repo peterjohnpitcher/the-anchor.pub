@@ -5,7 +5,7 @@ description: >-
   Celebrate British Pie Week at The Anchor pub near Heathrow Airport. Enjoy 50%
   off traditional British pies including steak & ale, chicken & mushroom. Just 7
   minutes from Terminal 5. Perfect for airport staff lunches and authentic
-  British dining. Award-winning pies in Stanwell Moor with free parking.
+  British dining. Our celebrated pies in Stanwell Moor with free parking.
 date: '2025-01-15'
 oldUrl: >-
   https://www.the-anchor.pub/post/celebrate-british-pie-week-heathrow-2024-stanwell-
@@ -36,7 +36,7 @@ images: []
 
   
 
-![celebrate british pie week heathrow 2024 stanwell  image](/content/blog/celebrate-british-pie-week-heathrow-2024-stanwell-/hero.png)
+![celebrate british pie week heathrow 2024 stanwell  image](/content/blog/british-pie-week-2024/hero.png)
 
   
 
@@ -44,7 +44,7 @@ images: []
 
 ### Indulge in Traditional British Pies - Annual March Celebration
 
-Every March, The Anchor in **Stanwell Moor** celebrates the quintessentially British tradition of Pie Week. Located just **7 minutes from Heathrow Terminal 5**, we honour this culinary heritage with exceptional offers on our award-winning pies. It's the perfect opportunity for airport staff, travelers, and locals to savour authentic **British cuisine near Heathrow Airport**.
+Every March, The Anchor in **Stanwell Moor** celebrates the quintessentially British tradition of Pie Week. Located just **7 minutes from Heathrow Terminal 5**, we honour this culinary heritage with exceptional offers on our celebrated pies. It's the perfect opportunity for airport staff, travelers, and locals to savour authentic **British cuisine near Heathrow Airport**.
 
 Book your table now
 
@@ -52,7 +52,7 @@ Book your table now
 
   
 
-### **Award-Winning British Pies Near Heathrow Terminal 5**
+### **Our Celebrated British Pies Near Heathrow Terminal 5**
 
 At The Anchor, **Stanwell Moor's** premier pub, we take pride in perfecting classic British pies. Our **traditional pub food near Heathrow** showcases authentic flavours that travelers and locals crave:
 

@@ -26,7 +26,7 @@ images:
   []
 ---
 
-![The Anchor Small Business Christmas Party Season 2023](/content/blog/the-anchor-christmas-2023-your-perfect-festive-ven/hero.png)
+![The Anchor Small Business Christmas Party Season 2023](/content/blog/christmas-venue/hero.png)
 
 Looking for the perfect **Christmas party venue near Heathrow**? The Anchor transforms into a magical festive destination every December! With customizable packages, traditional Christmas fare, and warm hospitality just 10 minutes from the airport, we're your ideal choice for company parties, family gatherings, and seasonal celebrations in Stanwell Moor.
 

@@ -75,7 +75,7 @@ As one of the best **tequila bars near Heathrow**, we offer:
 
 - **Patrón Silver** - Smooth, citrus-forward blanco
 - **Don Julio Reposado** - Perfectly balanced with vanilla notes
-- **Casa Noble Añejo** - Rich, complex, award-winning
+- **Casa Noble Añejo** - Rich, complex, exceptional quality
 - **Del Maguey Mezcals** - Authentic, small-batch productions
 - **Seasonal Special Selections** - Ask about our latest additions
 

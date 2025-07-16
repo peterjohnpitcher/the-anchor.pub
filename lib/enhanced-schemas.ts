@@ -142,8 +142,8 @@ export const findUsPlaceSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 51.4764,
-    "longitude": -0.4735
+    "latitude": 51.462509,
+    "longitude": -0.502067
   },
   "hasMap": "https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ",
   "publicAccess": true,

@@ -1,9 +1,13 @@
 ---
-title: "St Patrick's Day Pub Near Heathrow | Irish Celebration Stanwell Moor"
-description: "Celebrate St Patrick's Day at The Anchor pub near Heathrow Airport. Traditional Irish food, Guinness, live music, and festive atmosphere just 7 minutes from Terminal 5. Join our annual March 17th celebration in Stanwell Moor with corned beef, Irish stew, and authentic pub craic."
-date: "2023-03-04"
-oldUrl: "https://www.the-anchor.pub/post/st-patrick-s-day-2023"
-author: "Billy"
+title: St Patrick's Day Pub Near Heathrow | Irish Celebration Stanwell Moor
+description: >-
+  Celebrate St Patrick's Day at The Anchor pub near Heathrow Airport.
+  Traditional Irish food, Guinness, live music, and festive atmosphere just 7
+  minutes from Terminal 5. Join our annual March 17th celebration in Stanwell
+  Moor with corned beef, Irish stew, and authentic pub craic.
+date: '2023-03-04'
+oldUrl: 'https://www.the-anchor.pub/post/st-patrick-s-day-2023'
+author: Billy
 keywords:
   - st patricks day pub near heathrow
   - irish pub stanwell moor
@@ -17,13 +21,15 @@ keywords:
   - the anchor st patricks
 tags:
   - events
-  - drinks
-  - food
+  - st-patricks-day
+  - irish
+  - special-offers
+  - march
 featured: false
-hero: "hero.png"
+hero: hero.png
 images:
-  - "image-1.png"
-  - "image-2.png"
+  - image-1.png
+  - image-2.png
 ---
 
 ## Celebrate St Patrick's Day at The Anchor - Your Irish Pub Near Heathrow
@@ -39,7 +45,7 @@ Every year, The Anchor hosts one of the best **St Patrick's Day celebrations nea
 - **Traditional Irish menu** featuring corned beef and cabbage
 - **Guinness and Irish whiskey** specials
 - **Green decorations** and festive atmosphere
-- **Family-friendly** celebrations all day
+- **Family-friendly** celebrations during opening hours
 - **Free parking** for all guests
 
   
@@ -125,7 +131,7 @@ St. Patrick is the patron saint of Ireland and is credited with bringing Christi
 Join us for a proper **Irish pub experience near Heathrow Airport**:
 
 **All-Day Celebrations:**
-- **12 PM**: Doors open with Irish breakfast available
+- **12 PM**: Doors open with Irish menu available
 - **2 PM**: Live Irish music begins
 - **3 PM**: Traditional Irish dancing demonstration
 - **5 PM**: Peak celebration with full Irish menu
@@ -166,7 +172,7 @@ Join us for a proper **Irish pub experience near Heathrow Airport**:
 **Why celebrate with us:**
 - Authentic Irish atmosphere without airport prices
 - Traditional food and perfectly poured Guinness
-- Family-friendly environment all day
+- Family-friendly environment during opening hours
 - Easy access from all Heathrow terminals
 - Local community celebration feel
 

@@ -6,7 +6,7 @@ slug: piano-christmas-performance
 description: >-
   Experience live piano performances at The Anchor's Christmas Market near
   Heathrow Airport. Featuring talented young musicians at our festive events in
-  Stanwell Moor. Free entry, family-friendly atmosphere, just 7 minutes from
+  Stanwell Moor. Family-friendly atmosphere, just 7 minutes from
   Terminal 5. Perfect for airport staff and locals seeking quality entertainment
   and Christmas shopping.
 date: '2025-01-15'
@@ -39,7 +39,7 @@ images: []
 
   
 
-![A black and white photo featuring a young male pianist, identified as Arjun R, deeply focused on playing a grand piano. The image captures him from the side, with his hands gracefully positioned over the piano keys. An audience is subtly visible in the soft-focused background, suggesting a live performance setting. The upper left corner displays 'THE ANCHOR' logo with the subtitle 'Stanwell Moor Village.' Across the bottom of the image, in a stylish script font, reads 'Arjun R – a prodigy in the making,' highlighting his promising musical talent.](/content/blog/arjun-r-s-piano-performance-at-the-anchor-s-christ/hero.png)
+![A black and white photo featuring a young male pianist, identified as Arjun R, deeply focused on playing a grand piano. The image captures him from the side, with his hands gracefully positioned over the piano keys. An audience is subtly visible in the soft-focused background, suggesting a live performance setting. The upper left corner displays 'THE ANCHOR' logo with the subtitle 'Stanwell Moor Village.' Across the bottom of the image, in a stylish script font, reads 'Arjun R – a prodigy in the making,' highlighting his promising musical talent.](/content/blog/piano-christmas-performance/hero.png)
 
   
 
@@ -54,7 +54,7 @@ Experience the magic of **live piano near Heathrow Airport** at The Anchor's ann
 Our **Christmas Market near Heathrow** features:
 - **Live piano performances** throughout the day
 - **Talented young musicians** from the local area
-- **Free entry** to all performances
+- **Live performances** throughout the event
 - **Artisan stalls** for Christmas shopping
 - **Festive food and drinks** available
 - **Family-friendly atmosphere**

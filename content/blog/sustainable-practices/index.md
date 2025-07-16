@@ -2,7 +2,7 @@
 title: Sustainable Pub Near Heathrow | BII Champion The Anchor Stanwell Moor
 slug: sustainable-practices
 description: >-
-  Visit The Anchor, an award-winning sustainable pub near Heathrow Airport. BII
+  Visit The Anchor, a recognized sustainable pub near Heathrow Airport. BII
   Sustainability Champion using eco-friendly technologies, energy-saving
   systems, and community initiatives. Experience responsible hospitality just 7
   minutes from Terminal 5 in Stanwell Moor.
@@ -22,10 +22,11 @@ keywords:
   - the anchor sustainability
   - responsible hospitality heathrow
 tags:
-  - drinks
-  - events
-  - food
-  - special-offers
+  - community
+  - sustainability
+  - environment
+  - green
+  - responsibility
 featured: false
 hero: hero.png
 images: []
@@ -33,7 +34,7 @@ images: []
 
   
 
-![Image featuring the BII Sustainability Champion Award logo and a message from The Anchor, celebrating their commitment to sustainability in the hospitality industry.](/content/blog/the-anchor-leading-the-way-in-sustainable-practice/hero.png)
+![Image featuring the BII Sustainability Champion Award logo and a message from The Anchor, celebrating their commitment to sustainability in the hospitality industry.](/content/blog/sustainable-practices/hero.png)
 
 ## Introduction
 

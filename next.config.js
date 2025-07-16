@@ -1,9 +1,49 @@
 /** @type {import('next').NextConfig} */
 const blogRedirects = require('./blog-redirects.json')
+const tagRedirects = require('./tag-redirects.json')
 
 const nextConfig = {
   async redirects() {
-    return blogRedirects
+    return [...blogRedirects, ...tagRedirects]
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+        ],
+      },
+      {
+        source: '/(.*).js',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/(.*).css',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
   },
   images: {
     domains: ['the-anchor.pub', 'management.orangejelly.co.uk', 'example.com', 'openweathermap.org', 'tfcasgxopxegwrabvwat.supabase.co'],
@@ -21,6 +61,42 @@ const nextConfig = {
   swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // experimental: {
+  //   optimizeCss: true,
+  // },
+  webpack: (config, { isServer }) => {
+    // Optimize bundle splitting
+    if (!isServer) {
+      config.optimization = {
+        ...config.optimization,
+        runtimeChunk: 'single',
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Vendor chunk
+            vendor: {
+              name: 'vendor',
+              chunks: 'all',
+              test: /node_modules/,
+              priority: 20
+            },
+            // Common chunk
+            common: {
+              name: 'common',
+              chunks: 'all',
+              minChunks: 2,
+              priority: 10,
+              reuseExistingChunk: true,
+              enforce: true
+            },
+          },
+        },
+      }
+    }
+    return config
   },
 }
 

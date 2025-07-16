@@ -37,6 +37,35 @@ export default async function BlogPage({
   const posts = allPosts.slice(startIndex, endIndex)
   const featuredPost = currentPage === 1 ? (allPosts.find(post => post.featured) || posts[0]) : null
   const otherPosts = featuredPost ? posts.filter(post => post.slug !== featuredPost.slug) : posts
+  
+  // Get all unique tags with counts
+  const tagCounts = new Map<string, number>()
+  allPosts.forEach(post => {
+    post.tags.forEach(tag => {
+      tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
+    })
+  })
+  
+  // Sort tags by count (most popular first)
+  const sortedTags = Array.from(tagCounts.entries())
+    .sort((a, b) => b[1] - a[1])
+  
+  // Tag display names
+  const tagNames: Record<string, string> = {
+    'food': 'Food & Dining',
+    'drinks': 'Drinks & Bar',
+    'events': 'Events',
+    'community': 'Community',
+    'sports': 'Sports',
+    'special-offers': 'Special Offers',
+    'quiz-night': 'Quiz Nights',
+    'drag-shows': 'Drag Shows',
+    'tasting-events': 'Tastings',
+    'sunday-roast': 'Sunday Roast',
+    'christmas': 'Christmas',
+    'heathrow-area': 'Near Heathrow',
+    'dog-friendly': 'Dog Friendly',
+  }
 
   return (
     <>
@@ -75,6 +104,48 @@ export default async function BlogPage({
         </div>
       </section>
 
+      {/* Tag Cloud - Only on first page */}
+      {currentPage === 1 && (
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8 text-center">
+                Browse by Topic
+              </h2>
+              <div className="flex flex-wrap gap-3 justify-center mb-6">
+                {sortedTags.slice(0, 12).map(([tag, count]) => (
+                  <Link
+                    key={tag}
+                    href={`/blog/tag/${tag}`}
+                    className="group relative px-4 py-2 bg-white rounded-full shadow-sm hover:shadow-md transition-all hover:scale-105"
+                  >
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-anchor-green transition-colors">
+                      {tagNames[tag] || tag.replace(/-/g, ' ')}
+                    </span>
+                    <span className="ml-2 text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+                      {count}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+              {sortedTags.length > 12 && (
+                <div className="text-center">
+                  <Link 
+                    href="/blog/tags"
+                    className="inline-flex items-center text-anchor-gold hover:text-anchor-gold-light font-semibold transition-colors"
+                  >
+                    View all {sortedTags.length} topics
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Featured Post (only on first page) */}
       {featuredPost && currentPage === 1 && (
         <section className="section-spacing bg-white">
@@ -97,9 +168,13 @@ export default async function BlogPage({
                     <div className="p-8">
                       <div className="flex flex-wrap gap-2 mb-4">
                         {featuredPost.tags.map(tag => (
-                          <span key={tag} className="text-xs bg-anchor-gold/20 text-anchor-green px-3 py-1 rounded-full">
+                          <Link 
+                            key={tag} 
+                            href={`/blog/tag/${tag}`}
+                            className="text-xs bg-anchor-gold/20 text-anchor-green px-3 py-1 rounded-full hover:bg-anchor-gold hover:text-white transition-colors"
+                          >
                             {tag}
-                          </span>
+                          </Link>
                         ))}
                       </div>
                       <h3 className="text-2xl font-bold text-anchor-green mb-4">
@@ -153,10 +228,14 @@ export default async function BlogPage({
                         </div>
                         <div className="p-6">
                           <div className="flex flex-wrap gap-2 mb-3">
-                            {post.tags.slice(0, 2).map(tag => (
-                              <span key={tag} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                            {post.tags.map(tag => (
+                              <Link 
+                                key={tag} 
+                                href={`/blog/tag/${tag}`}
+                                className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded hover:bg-anchor-gold hover:text-white transition-colors"
+                              >
                                 {tag}
-                              </span>
+                              </Link>
                             ))}
                           </div>
                           <h3 className="text-lg font-bold text-anchor-green mb-2 line-clamp-2">

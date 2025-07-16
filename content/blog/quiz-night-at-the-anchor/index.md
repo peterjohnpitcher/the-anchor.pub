@@ -1,22 +1,22 @@
 ---
-title: "Quiz Night Near Heathrow | Weekly Pub Quiz at The Anchor"
-description: "Join the best pub quiz near Heathrow Airport every Wednesday at The Anchor. Professional quiz nights with great prizes, free drinks, and team fun just 10 minutes from Terminal 5. Book your table for Stanwell Moor's favorite weekly quiz."
+title: "Quiz Night Near Heathrow | Monthly Pub Quiz at The Anchor"
+description: "Join the best pub quiz near Heathrow Airport at The Anchor. Professional monthly quiz nights with great prizes, drinks prizes, and team fun just 10 minutes from Terminal 5. Book your table for Stanwell Moor's favorite quiz night."
 date: "2019-08-29"
 oldUrl: "https://www.the-anchor.pub/post/quiz-night-at-the-anchor"
 author: "Billy"
 keywords:
   - quiz night near heathrow
   - pub quiz stanwell moor
-  - wednesday quiz nights
+  - monthly quiz nights
   - the anchor quiz
   - team quiz near airport
-  - weekly pub quiz surrey
+  - monthly pub quiz surrey
   - trivia night staines
   - quiz prizes near me
 tags:
   - quiz-night
   - events
-  - wednesday
+  - monthly-events
   - entertainment
   - teams
 featured: false
@@ -27,20 +27,20 @@ images:
 
 ![quiz night at the anchor image](/content/blog/quiz-night-at-the-anchor/hero.png)
 
-Looking for the best **quiz night near Heathrow**? Every Wednesday at The Anchor, teams battle it out in our legendary pub quiz! Just 10 minutes from Terminal 5, join Stanwell Moor's favorite weekly tradition featuring professional questions, fantastic prizes, and the perfect midweek entertainment.
+Looking for the best **quiz night near Heathrow**? Join us monthly at The Anchor as teams battle it out in our legendary pub quiz! Just 10 minutes from Terminal 5, join Stanwell Moor's favorite quiz tradition featuring professional questions, fantastic prizes, and great entertainment.
 
-## Weekly Quiz Night at The Anchor
+## Monthly Quiz Night at The Anchor
 
-### Professional Pub Quiz Every Wednesday
+### Professional Pub Quiz - Monthly Event
 
 Our **pub quiz near Heathrow Airport** has become the highlight of the week for locals and visitors alike:
 
 **Quiz Night Details:**
-- **Every Wednesday** from 8:00 PM
+- **Monthly quiz nights** starting at 7:00 PM
 - **Professional quiz masters** from Question One
 - **6 rounds** of varied questions
 - **Prizes every week** for top teams
-- **Free drinks** scattered throughout
+- **Drinks prizes** scattered throughout
 - **Maximum 6 people** per team
 
 Join us for an evening of brain-teasing fun, friendly competition, and great prizes!
@@ -84,9 +84,9 @@ Join us for an evening of brain-teasing fun, friendly competition, and great pri
 
 ## Prizes and Rewards
 
-### Win Big Every Wednesday
+### Win Big at Our Monthly Quiz
 
-Our **weekly pub quiz** offers fantastic prizes:
+Our **monthly pub quiz** offers fantastic prizes:
 
 **Regular Prizes:**
 - **1st Place**: £50 bar tab
@@ -109,7 +109,7 @@ Our **weekly pub quiz** offers fantastic prizes:
 Our quiz night attracts diverse groups:
 
 **Who Joins Us:**
-- **Local teams** with weekly traditions
+- **Local teams** with monthly traditions
 - **Airport hotel guests** seeking entertainment
 - **Work colleagues** for team building
 - **Friends** catching up midweek
@@ -187,7 +187,7 @@ Keep your team fed and focused:
 
 ## Special Quiz Events
 
-### Beyond Weekly Wednesday
+### Beyond Our Monthly Quiz
 
 **Themed Quiz Nights:**
 - Christmas Special Quiz
@@ -227,11 +227,11 @@ Perfect for:
 
 Contact us for bespoke quiz packages.
 
-## Join Us This Wednesday
+## Join Us at Our Next Quiz Night
 
 ### Your New Midweek Tradition
 
-Don't miss out on **Stanwell Moor's best quiz night**! Whether you're a quiz veteran or first-timer, The Anchor's Wednesday Quiz Night offers:
+Don't miss out on **Stanwell Moor's best quiz night**! Whether you're a quiz veteran or first-timer, The Anchor's Monthly Quiz Night offers:
 
 ✓ Professional quiz masters  
 ✓ Great prizes every week  
@@ -244,6 +244,6 @@ Don't miss out on **Stanwell Moor's best quiz night**! Whether you're a quiz vet
 
 📞 Call: 01753 682707  
 📍 Visit: The Anchor, Horton Road, Stanwell Moor  
-⏰ Every Wednesday from 8 PM
+⏰ Monthly quiz nights - check What's On for dates
 
-*The Anchor - Where knowledge meets fun, every Wednesday night!*
+*The Anchor - Where knowledge meets fun at our monthly quiz nights!*

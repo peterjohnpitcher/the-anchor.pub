@@ -23,10 +23,11 @@ keywords:
   - stanwell moor community
   - feedback near airport
 tags:
-  - drinks
-  - events
-  - food
-  - special-offers
+  - community
+  - feedback
+  - improvement
+  - customer-service
+  - listening
 featured: false
 hero: hero.png
 images:
@@ -35,11 +36,11 @@ images:
 
   
 
-![Group of people holding signs encouraging people to have their say](/content/blog/the-anchor-s-journey-harnessing-community-feedback/hero.png)
+![Group of people holding signs encouraging people to have their say](/content/blog/community-feedback/hero.png)
 
 [
 
-![the anchor s journey harnessing community feedback image](/content/blog/the-anchor-s-journey-harnessing-community-feedback/image-1.png)
+![the anchor s journey harnessing community feedback image](/content/blog/community-feedback/image-1.png)
 
 
 

@@ -42,9 +42,10 @@ Searching for a **remote work spot near Heathrow Airport**? Whether you're a dig
 
 **What Makes The Anchor Ideal for Remote Work:**
 - **Free, reliable WiFi** throughout the pub
+- **Dedicated work-friendly dining room** with tables featuring built-in power points
 - **Quiet atmosphere** during weekday working hours
 - **Comfortable seating** with plenty of space
-- **Power outlets** available for laptops
+- **Multiple power outlets** available for laptops and devices
 - **Free parking** - no airport fees
 - **Dog-friendly** - bring your pet companion
 - **Proper coffee** and food without airport prices
@@ -81,12 +82,15 @@ The Anchor welcomes **digital nomads with dogs**, offering:
 
 **Everything You Need:**
 - Fast, free WiFi (no time limits)
-- Comfortable seating areas
-- Tables suitable for laptops
+- **Dining room with tables featuring built-in power points**
+- Comfortable seating areas throughout
+- Tables suitable for laptops and equipment
 - Good natural lighting
 - Quiet background music
 - Clean, modern facilities
 - Friendly, unobtrusive service
+- Pool table and darts for break time
+- Jukebox for atmosphere (you control the volume!)
 
 ### Local Area Benefits for Digital Nomads
 
@@ -100,14 +104,13 @@ The Anchor welcomes **digital nomads with dogs**, offering:
 
 ## Food & Drink for Remote Workers Near Heathrow
 
-### Coffee & Breakfast for Early Starters
+### Coffee & Drinks for Early Starters
 
 **Morning Fuel:**
 - **Proper barista coffee** - not airport prices
-- **Full English breakfast** for productive mornings
-- **Lighter options** - pastries, toast
 - **Fresh juices** and smoothies
 - **Tea selection** for non-coffee drinkers
+- **Light snacks** available during kitchen hours
 
 ### Lunch Options for Digital Nomads
 
@@ -166,10 +169,12 @@ The Anchor welcomes **digital nomads with dogs**, offering:
 
 📍 **Location**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ  
 📶 **WiFi**: Free, reliable, no passwords  
+🔌 **Power**: Dining room tables with built-in power points  
 🚗 **Parking**: Free on-site parking  
 🐕 **Dogs**: Welcome throughout  
 ☕ **Coffee**: Proper barista coffee  
 🍕 **Food**: Full menu, not airport prices  
+🎮 **Entertainment**: Pool, darts, jukebox, fruit machine  
 ⏰ **Best Hours**: Weekdays 10am-5pm  
 ✈️ **From Heathrow**: Just 7 minutes  
 

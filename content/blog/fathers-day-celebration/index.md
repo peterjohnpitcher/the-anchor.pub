@@ -22,10 +22,11 @@ keywords:
   - fathers day booking stanwell moor
   - special menu near terminal 5
 tags:
-  - drinks
   - events
-  - food
-  - special-offers
+  - fathers-day
+  - sunday-roast
+  - family-dining
+  - june
 featured: false
 hero: hero.png
 images:
@@ -34,7 +35,7 @@ images:
 
   
 
-![Father's Day special menu at The Anchor pub near Heathrow Airport](/content/blog/celebrate-father-s-day-at-the-anchor-unforgettable/hero.png)
+![Father's Day special menu at The Anchor pub near Heathrow Airport](/content/blog/fathers-day-celebration/hero.png)
 
 ## Celebrate Father's Day at Our Traditional Pub Near Heathrow
 
@@ -84,7 +85,7 @@ All mains served with roast potatoes, seasonal vegetables, creamy mash, Yorkshir
 
 Perfect for celebrating Father's Day at our **family-friendly pub near Stanwell Moor** and **Heathrow Airport**.
 
-![celebrate father s day at the anchor unforgettable image](/content/blog/celebrate-father-s-day-at-the-anchor-unforgettable/image-1.png)
+![celebrate father s day at the anchor unforgettable image](/content/blog/fathers-day-celebration/image-1.png)
 
 ## **Free Pint for Dads at Our Pub Near Heathrow**
 

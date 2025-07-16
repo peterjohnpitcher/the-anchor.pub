@@ -22,10 +22,11 @@ keywords:
   - visitor guide british pubs
   - pub manners near airport
 tags:
-  - drinks
-  - events
-  - food
-  - special-offers
+  - community
+  - guide
+  - pub-culture
+  - etiquette
+  - advice
 featured: false
 hero: hero.jpg
 images: []

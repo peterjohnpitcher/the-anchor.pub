@@ -1,0 +1,452 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import { CallToAction } from '@/components/CallToAction'
+import { StatusBar } from '@/components/StatusBar'
+import { BusinessHours } from '@/components/BusinessHours'
+import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
+import { Metadata } from 'next'
+import { CONTACT, BRAND, PARKING } from '@/lib/constants'
+
+export const metadata: Metadata = {
+  title: `Stanwell Pub Near Me | ${BRAND.name} - Your Local Village Pub`,
+  description: `${BRAND.name} is Stanwell's traditional village pub in Stanwell Moor. Family-friendly British pub with Sunday roasts, pizza deals, quiz nights, and free parking. The heart of the Stanwell community.`,
+  keywords: 'stanwell pub, pub in stanwell, stanwell moor pub, stanwell village pub, local pub stanwell, traditional pub stanwell surrey',
+  openGraph: {
+    title: 'The Anchor - Stanwell Village Pub',
+    description: 'Your local traditional British pub in Stanwell Moor. Sunday roasts, quiz nights, and community events.',
+    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    type: 'website',
+  },
+}
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Restaurant", "BarOrPub"],
+  "@id": "https://the-anchor.pub/stanwell-pub#business",
+  "name": `${BRAND.name} - Stanwell Village Pub`,
+  "image": "https://the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": CONTACT.address.street,
+    "addressLocality": "Stanwell Moor, Stanwell",
+    "addressRegion": "Surrey",
+    "postalCode": CONTACT.address.postcode,
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": CONTACT.coordinates.lat,
+    "longitude": CONTACT.coordinates.lng
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Stanwell"
+    },
+    {
+      "@type": "Place", 
+      "name": "Stanwell Moor"
+    }
+  ],
+  "priceRange": "££",
+  "servesCuisine": ["British", "Traditional English", "Sunday Roast"],
+  "telephone": CONTACT.phoneIntl,
+  "url": "https://the-anchor.pub/stanwell-pub"
+}
+
+export default function StanwellPubPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Locations', url: '/locations' },
+    { name: 'Stanwell Pub', url: '/stanwell-pub' }
+  ])
+
+  const directionsSchema = generateHowToDirectionsSchema(
+    'Stanwell Village',
+    'The Anchor Pub Stanwell Moor',
+    [
+      'From Stanwell Village, head north on Oaks Road',
+      'Turn left onto Stanwell Moor Road',
+      'Continue for about 0.5 miles',
+      'Turn right onto Horton Road',
+      'The Anchor will be on your right with free parking'
+    ]
+  )
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema, breadcrumbSchema, directionsSchema]) }}
+      />
+      
+      {/* Hero Section */}
+      <PageHeaderWrapper
+        route="/stanwell-pub"
+        title="Stanwell's Traditional Village Pub"
+        description="The heart of the Stanwell community since generations"
+        showStatusBar={true}
+      >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <CallToAction 
+            href={`tel:${CONTACT.phone}`}
+            variant="primary"
+            size="lg"
+          >
+            📞 Call Us
+          </CallToAction>
+          <CallToAction 
+            href="/food-menu"
+            variant="secondary"
+            size="lg"
+          >
+            🍽️ View Menu
+          </CallToAction>
+        </div>
+      </PageHeaderWrapper>
+
+      {/* Welcome Section */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-6">
+              Welcome to Your Local Stanwell Pub
+            </h2>
+            <p className="text-xl text-gray-700 mb-8">
+              Located in the heart of Stanwell Moor, The Anchor has been serving the Stanwell 
+              community for generations. We're more than just a pub - we're where neighbors become 
+              friends and visitors become regulars.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-anchor-cream rounded-xl p-6">
+                <div className="text-4xl mb-3">🏘️</div>
+                <h3 className="font-bold text-lg mb-2">Village Heart</h3>
+                <p className="text-gray-700">The social hub of Stanwell Moor, where locals gather daily</p>
+              </div>
+              
+              <div className="bg-anchor-cream rounded-xl p-6">
+                <div className="text-4xl mb-3">🍺</div>
+                <h3 className="font-bold text-lg mb-2">Traditional Values</h3>
+                <p className="text-gray-700">Proper British pub with real ales and honest food</p>
+              </div>
+              
+              <div className="bg-anchor-cream rounded-xl p-6">
+                <div className="text-4xl mb-3">👨‍👩‍👧‍👦</div>
+                <h3 className="font-bold text-lg mb-2">Family Friendly</h3>
+                <p className="text-gray-700">Children and dogs always welcome in our community pub</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Stanwell Residents Choose Us */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              Why Stanwell Residents Choose The Anchor
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">Your Nearest Traditional Pub</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">✓</span>
+                    <div>
+                      <strong>Walking distance from Stanwell Village</strong> - Just a pleasant stroll through Stanwell Moor
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">✓</span>
+                    <div>
+                      <strong>Free parking for 20 cars</strong> - Never worry about parking charges
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">✓</span>
+                    <div>
+                      <strong>Dog-friendly throughout</strong> - Bring your four-legged friends
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">✓</span>
+                    <div>
+                      <strong>Large beer garden</strong> - Perfect for Stanwell's sunny days
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">Community Events & Activities</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">📅</span>
+                    <div>
+                      <strong>Monthly Quiz Nights</strong> - Test your knowledge with fellow Stanwell residents
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">🎭</span>
+                    <div>
+                      <strong>Drag Show Entertainment</strong> - Monthly shows bringing glamour to Stanwell
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">🎱</span>
+                    <div>
+                      <strong>Pool & Darts</strong> - Join our local leagues or play casually
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-anchor-gold text-xl">🍕</span>
+                    <div>
+                      <strong>Tuesday Pizza BOGOF</strong> - Stanwell's favorite midweek treat
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-green-50 rounded-xl p-6 text-center">
+              <p className="text-lg text-green-800">
+                <span className="font-bold">Outside ULEZ Zone</span> - Perfect for visitors from 
+                London without the £12.50 daily charge
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Local Favorites */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              Stanwell's Favorite Pub Food
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-amber-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-amber-800 mb-4">Famous Sunday Roasts</h3>
+                <p className="mb-3">The talk of Stanwell! Our traditional Sunday roasts must be ordered by 1pm Saturday.</p>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Roast Chicken - £14.99</li>
+                  <li>• Lamb Shank - £15.49</li>
+                  <li>• Pork Belly - £15.99</li>
+                  <li>• Veggie Wellington - £15.49</li>
+                </ul>
+                <p className="mt-3 text-sm text-amber-700">Book early - Stanwell locals fill tables fast!</p>
+              </div>
+              
+              <div className="bg-blue-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-blue-800 mb-4">Weekday Favorites</h3>
+                <p className="mb-3">Classic British pub fare loved by Stanwell residents</p>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Fish & Chips Fridays</li>
+                  <li>• Steak & Ale Pie</li>
+                  <li>• Chicken Katsu Curry</li>
+                  <li>• Stone-baked Pizzas</li>
+                </ul>
+                <p className="mt-3 text-sm text-blue-700">Kitchen: Tue-Fri 6-9pm, Sat 1-7pm, Sun 12-5pm</p>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <CallToAction href="/food-menu" variant="primary" size="lg">
+                View Full Menu
+              </CallToAction>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Location & Directions */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              Getting to The Anchor from Stanwell
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl p-6">
+                <h3 className="text-xl font-bold mb-4">📍 From Stanwell Village</h3>
+                <ol className="space-y-3">
+                  <li className="flex gap-3">
+                    <span className="font-bold text-anchor-gold">1.</span>
+                    <span>Head north on Oaks Road from the village center</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="font-bold text-anchor-gold">2.</span>
+                    <span>Turn left onto Stanwell Moor Road</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="font-bold text-anchor-gold">3.</span>
+                    <span>Continue for about half a mile</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="font-bold text-anchor-gold">4.</span>
+                    <span>Turn right onto Horton Road</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="font-bold text-anchor-gold">5.</span>
+                    <span>The Anchor is on your right with free parking</span>
+                  </li>
+                </ol>
+                <p className="mt-4 text-sm text-gray-600">
+                  <strong>Journey time:</strong> 5 minutes by car, 20 minutes walking
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6">
+                <h3 className="text-xl font-bold mb-4">🚌 Public Transport</h3>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-semibold mb-2">Bus Route 442</p>
+                    <p className="text-gray-700">Stops directly outside The Anchor. Connects Stanwell, Stanwell Moor, and Heathrow.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Walking from Stanwell</p>
+                    <p className="text-gray-700">Pleasant 20-minute walk through residential areas. Popular route for dog walkers!</p>
+                  </div>
+                  <div className="pt-4 border-t">
+                    <p className="font-semibold text-green-700">💚 Eco-Friendly Route</p>
+                    <p className="text-gray-700">Outside ULEZ zone - no charges for any vehicles</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <CallToAction 
+                href="https://maps.google.com/maps?daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                variant="secondary"
+                external
+              >
+                📍 Get Directions
+              </CallToAction>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stanwell Community */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-anchor-green mb-8">
+              Part of the Stanwell Community
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="text-left">
+                <h3 className="text-xl font-bold mb-4">Local Connections</h3>
+                <ul className="space-y-3 text-gray-700">
+                  <li>• Regular meetup spot for Stanwell clubs</li>
+                  <li>• Supporters of local charities</li>
+                  <li>• Venue for Stanwell celebrations</li>
+                  <li>• Home to local darts and pool teams</li>
+                  <li>• Dog walkers' favorite refreshment stop</li>
+                </ul>
+              </div>
+              
+              <div className="text-left">
+                <h3 className="text-xl font-bold mb-4">Near Stanwell Landmarks</h3>
+                <ul className="space-y-3 text-gray-700">
+                  <li>• 5 minutes from Stanwell Village</li>
+                  <li>• 10 minutes from King George VI Reservoir</li>
+                  <li>• 15 minutes from Staines-upon-Thames</li>
+                  <li>• 7 minutes from Heathrow Terminal 5</li>
+                  <li>• Next to St Mary's Church, Stanwell Moor</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p className="text-lg text-gray-700">
+              Whether you're a lifelong Stanwell resident or new to the area, 
+              The Anchor welcomes you with warm hospitality and cold pints!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Opening Hours */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-anchor-green mb-8">
+              Stanwell Pub Opening Hours
+            </h2>
+            <BusinessHours />
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "How far is The Anchor from Stanwell Village?",
+            answer: "The Anchor is approximately 1.2 miles from Stanwell Village center, about a 5-minute drive or a pleasant 20-minute walk. We're located in Stanwell Moor, which is part of greater Stanwell."
+          },
+          {
+            question: "Is The Anchor the closest pub to Stanwell?",
+            answer: "Yes! The Anchor is the nearest traditional British pub to Stanwell Village. We're just a short journey away in Stanwell Moor, with free parking and a warm welcome for all Stanwell residents."
+          },
+          {
+            question: "Do you host events for Stanwell community groups?",
+            answer: "Absolutely! We regularly host Stanwell community groups, clubs, and private events. Our spaces can accommodate from small meetings to large celebrations. Contact us to discuss your requirements."
+          },
+          {
+            question: "What's the best way to get to The Anchor from Stanwell without a car?",
+            answer: "The 442 bus runs from Stanwell to our doorstep, or it's a pleasant 20-minute walk through Stanwell Moor. Many Stanwell residents enjoy the walk, especially with their dogs who are welcome in our pub!"
+          },
+          {
+            question: "Do Stanwell residents get any special offers?",
+            answer: "All our regular offers are available to everyone! This includes Tuesday Pizza BOGOF, Friday Fish & Chips 50% off for over 65s, and our famous Sunday roasts. We're Stanwell's local, so all locals are treated like family!"
+          }
+        ]}
+        className="bg-white"
+      />
+
+      {/* CTA Section */}
+      <section className="section-spacing bg-anchor-green text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Visit Stanwell's Favorite Local Pub
+          </h2>
+          <p className="text-xl mb-8 text-white/90">
+            Join your neighbors at The Anchor - where Stanwell comes together
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <CallToAction 
+              href={`tel:${CONTACT.phone}`}
+              variant="secondary"
+              size="lg"
+              className="flex-1"
+            >
+              📞 Call Us
+            </CallToAction>
+            <CallToAction 
+              href="/whats-on"
+              variant="primary"
+              size="lg"
+              className="flex-1 bg-white text-anchor-green hover:bg-gray-100"
+            >
+              📅 What's On
+            </CallToAction>
+          </div>
+          <p className="mt-6 text-sm text-white/80">
+            {CONTACT.address.street}, Stanwell Moor • Free Parking • Dog Friendly
+          </p>
+        </div>
+      </section>
+    </>
+  )
+}

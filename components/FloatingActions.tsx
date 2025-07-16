@@ -13,15 +13,22 @@ export function FloatingActions() {
         <div 
           className="fixed inset-0 bg-black/20 z-40 md:hidden"
           onClick={() => setIsOpen(false)}
+          role="presentation"
+          aria-hidden="true"
         />
       )}
       
       {/* Floating Action Button */}
       <div className="fixed bottom-6 right-6 z-50">
         {/* Action Menu */}
-        <div className={`absolute bottom-16 right-0 transition-all duration-300 ${
-          isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-4'
-        }`}>
+        <div 
+          className={`absolute bottom-16 right-0 transition-all duration-300 ${
+            isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-4'
+          }`}
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="floating-action-button"
+        >
           <div className="bg-white rounded-2xl shadow-2xl p-3 min-w-[200px] space-y-2">
             <a
               href="https://ordertab.menu/theanchor/bookings"
@@ -29,8 +36,9 @@ export function FloatingActions() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
               onClick={() => setIsOpen(false)}
+              role="menuitem"
             >
-              <span className="text-2xl">📅</span>
+              <span className="text-2xl" aria-hidden="true">📅</span>
               <span className="font-medium">Book a Table</span>
             </a>
             
@@ -38,8 +46,9 @@ export function FloatingActions() {
               href="tel:01753682707"
               className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
               onClick={() => setIsOpen(false)}
+              role="menuitem"
             >
-              <span className="text-2xl">📞</span>
+              <span className="text-2xl" aria-hidden="true">📞</span>
               <span className="font-medium">Call Us</span>
             </a>
             
@@ -49,8 +58,9 @@ export function FloatingActions() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
               onClick={() => setIsOpen(false)}
+              role="menuitem"
             >
-              <span className="text-2xl">💬</span>
+              <span className="text-2xl" aria-hidden="true">💬</span>
               <span className="font-medium">WhatsApp</span>
             </a>
             
@@ -58,8 +68,9 @@ export function FloatingActions() {
               href="/find-us"
               className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
               onClick={() => setIsOpen(false)}
+              role="menuitem"
             >
-              <span className="text-2xl">📍</span>
+              <span className="text-2xl" aria-hidden="true">📍</span>
               <span className="font-medium">Get Directions</span>
             </a>
             
@@ -67,8 +78,9 @@ export function FloatingActions() {
               href="/food-menu"
               className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
               onClick={() => setIsOpen(false)}
+              role="menuitem"
             >
-              <span className="text-2xl">🍽️</span>
+              <span className="text-2xl" aria-hidden="true">🍽️</span>
               <span className="font-medium">View Menu</span>
             </a>
           </div>
@@ -76,6 +88,7 @@ export function FloatingActions() {
         
         {/* Main FAB Button */}
         <button
+          id="floating-action-button"
           onClick={() => setIsOpen(!isOpen)}
           className={`
             bg-anchor-gold hover:bg-anchor-gold-light text-white 
@@ -84,6 +97,8 @@ export function FloatingActions() {
             ${isOpen ? 'rotate-45' : ''}
           `}
           aria-label="Quick actions menu"
+          aria-expanded={isOpen}
+          aria-haspopup="true"
         >
           <svg 
             className="w-6 h-6" 

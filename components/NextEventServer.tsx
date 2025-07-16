@@ -107,7 +107,7 @@ export async function NextEventServer() {
       </div>
     )
   } catch (error) {
-    console.error('Failed to fetch next event:', error)
+    // Error: Failed to fetch next event
     return null
   }
 }

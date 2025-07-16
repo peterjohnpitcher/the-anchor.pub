@@ -21,9 +21,10 @@ keywords:
   - beef ale pie stanwell moor
   - family dining near airport
 tags:
-  - drinks
-  - events
   - food
+  - new-menu
+  - pub-food
+  - february
   - special-offers
 featured: false
 hero: hero.png

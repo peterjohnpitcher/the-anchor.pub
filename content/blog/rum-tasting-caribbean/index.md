@@ -23,16 +23,17 @@ keywords:
   - rum experience stanwell moor
   - tasting events near airport
 tags:
-  - drinks
   - events
-  - food
-  - special-offers
+  - rum
+  - tasting-events
+  - caribbean
+  - spirits
 featured: false
 hero: hero.png
 images: []
 ---
 
-![Rum Tasting Night poster with two rum bottles, a tropical cocktail garnished with fruit and a flower, lush foliage, and warm lighting.](/content/blog/rum-tasting-night-stanwell-moor-explore-caribbean-/hero.png)
+![Rum Tasting Night poster with two rum bottles, a tropical cocktail garnished with fruit and a flower, lush foliage, and warm lighting.](/content/blog/rum-tasting-caribbean/hero.png)
 
   
 

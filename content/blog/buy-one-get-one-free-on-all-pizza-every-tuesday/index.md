@@ -46,7 +46,7 @@ Our **Tuesday pizza offers** have become legendary in the local area. Here's why
 - **Stone-baked to perfection** in our traditional oven
 - **Fresh dough made daily** - never frozen
 - **No vouchers needed** - just mention the offer
-- **Available all day** Tuesday during service hours
+- **Available Tuesday** 6pm-9pm during kitchen hours
 
 ![Fresh pizzas from our stone-baked oven](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-2.png)
 
@@ -73,17 +73,17 @@ Choose from our delicious selection (all included in the 2-for-1 deal):
 - San Marzano tomato base
 - Fresh mozzarella
 - Basil and oregano
-- The perfect Margherita
+- The perfect Rustic Classic
 
 **Simply Salami**
 - Italian salami
 - Mozzarella
 - Tomato base
-- Classic pepperoni style
+- Simply delicious salami
 
 **The Works**
 - Loaded with premium toppings
-- Pepperoni, mushrooms, peppers
+- Napoli salami, speck ham, fennel salami
 - Onions, olives
 - Our most popular choice
 

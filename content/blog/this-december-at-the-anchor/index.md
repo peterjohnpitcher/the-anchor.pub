@@ -44,7 +44,7 @@ We'll be celebrating non-stop this December to make Christmas magical on The Moo
 - Every Wednesday in December
 - Festive themed rounds
 - Prizes and seasonal surprises
-- Free entry, booking recommended
+- £3 entry, booking recommended
 - Perfect for airport staff teams
 
 **🎤 Festive Karaoke**
@@ -104,7 +104,7 @@ Planning your **Christmas party near Heathrow Airport**? We offer flexible packa
 - Unique gift shopping
 - Live entertainment
 - Festive food vendors
-- Free entry
+- Entry details vary by stall
 
 ### 🍾 New Year's Eve Celebration
 **December 31st**
@@ -162,7 +162,7 @@ Show your Heathrow ID for:
 - Priority booking for parties
 - Special group rates
 - Flexible timing for shifts
-- Extended happy hour
+- Special drinks offers
 
 ## December Opening Hours
 

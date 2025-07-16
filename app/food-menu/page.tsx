@@ -5,12 +5,13 @@ import { StatusBar } from '@/components/StatusBar'
 import { MenuRenderer } from '@/components/MenuRenderer'
 import { DailySpecials } from '@/components/DailySpecials'
 import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { getBusinessHours } from '@/lib/api'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Food Menu | The Anchor Stanwell Moor | Traditional British Pub Food',
+  title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Pub Food',
   description: 'Enjoy traditional British pub food at The Anchor. Famous Sunday roasts, stone-baked pizzas, burgers, and family-friendly meals. Kitchen open Tuesday-Sunday.',
   keywords: 'pub food stanwell moor, sunday roast near heathrow, british pub menu, family restaurant stanwell',
   openGraph: {
@@ -36,8 +37,71 @@ export default async function FoodMenuPage() {
 
   const isOpen = businessHours?.currentStatus?.isOpen || false
 
+  // Create schemas
+  const pizzaBOGOFSchema = {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": "Buy One Get One Free Pizza - Every Tuesday",
+    "description": "BOGOF on all stone-baked pizzas every Tuesday at The Anchor. Dine-in and takeaway available.",
+    "url": "https://the-anchor.pub/food-menu#pizza",
+    "priceCurrency": "GBP",
+    "eligibleRegion": {
+      "@type": "Place",
+      "name": "Stanwell Moor, Staines, Ashford, Feltham, and surrounding Surrey areas"
+    },
+    "availabilityStarts": "2025-01-01",
+    "availabilityEnds": "2025-12-31",
+    "validFrom": "16:00",
+    "validThrough": "22:00",
+    "dayOfWeek": "https://schema.org/Tuesday",
+    "itemOffered": {
+      "@type": "Product",
+      "name": "Stone-Baked Pizzas",
+      "category": "Pizza"
+    },
+    "seller": {
+      "@type": "LocalBusiness",
+      "name": "The Anchor",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Stanwell Moor",
+        "addressRegion": "Surrey"
+      }
+    }
+  }
+
+  const fridayFishOfferSchema = {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": "50% Off Fish & Chips for Over 65s - Every Friday",
+    "description": "Half price fish and chips for senior citizens every Friday at The Anchor pub.",
+    "url": "https://the-anchor.pub/food-menu#mains",
+    "priceCurrency": "GBP",
+    "eligibleRegion": {
+      "@type": "Place",
+      "name": "Stanwell Moor and surrounding areas"
+    },
+    "eligibleCustomerType": "Senior Citizens (65+)",
+    "dayOfWeek": "https://schema.org/Friday",
+    "seller": {
+      "@type": "LocalBusiness",
+      "name": "The Anchor"
+    }
+  }
+
+  const menuSchema = {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "Food Menu",
+    "hasMenuSection": []
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([menuSchema, pizzaBOGOFSchema, fridayFishOfferSchema]) }}
+      />
       {/* Hero Section */}
       <PageHeaderWrapper
         route="/food-menu"
@@ -209,6 +273,49 @@ export default async function FoodMenuPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "What time is the kitchen open at The Anchor?",
+            answer: "Our kitchen is open Tuesday to Friday from 6pm-9pm, Saturday from 1pm-7pm, and Sunday from 12pm-5pm for our famous Sunday roasts. The kitchen is closed Mondays. During busy periods we recommend booking ahead."
+          },
+          {
+            question: "Do you serve Sunday roast at The Anchor?",
+            answer: "Yes! Our celebrated Sunday roasts are served every Sunday from 12pm-5pm. We offer beef, chicken, lamb, and vegetarian options. All Sunday roasts must be ordered and paid for by 1pm on Saturday. Booking is essential as we're very popular - many say we serve the best Sunday roast in Surrey!"
+          },
+          {
+            question: "Is there a children's menu at The Anchor?",
+            answer: "Yes, we have a dedicated children's menu with smaller portions and kid-friendly options. Children are always welcome at The Anchor with no time restrictions. We also provide high chairs and colouring activities to keep the little ones entertained."
+          },
+          {
+            question: "What's the Tuesday pizza deal at The Anchor?",
+            answer: "Every Tuesday we offer Buy One Get One Free (BOGOF) on all our stone-baked pizzas! This applies to eat-in and takeaway. It's our most popular offer - perfect for families and pizza lovers."
+          },
+          {
+            question: "Do you cater for dietary requirements?",
+            answer: "Yes, we have vegetarian options marked on our menu and can accommodate most dietary requirements. Please inform our staff about any allergies or dietary needs when ordering. Note that all dishes are prepared in the same kitchen where allergens are present."
+          },
+          {
+            question: "Can I book a table for food at The Anchor?",
+            answer: "Absolutely! We recommend booking ahead, especially for Sunday roasts and weekend evenings. Call us on 01753 682707 to reserve your table. We can accommodate large groups with advance notice."
+          },
+          {
+            question: "Do you offer takeaway food?",
+            answer: "Yes, our entire food menu is available for takeaway. Call ahead on 01753 682707 to place your order and we'll have it ready for collection. Tuesday pizza BOGOF deal applies to takeaway too!"
+          },
+          {
+            question: "What's the best pub food near Heathrow Airport?",
+            answer: "The Anchor is just 7 minutes from Terminal 5 and serves traditional British pub food at local prices - much better value than airport restaurants! We're perfect for pre-flight meals with free parking and quick service."
+          },
+          {
+            question: "What payment methods are accepted at The Anchor?",
+            answer: "We accept cash and all major credit and debit cards, including American Express. Whether you're dining in, getting takeaway, or just having drinks, we make payment easy and convenient."
+          }
+        ]}
+        className="bg-white"
+      />
+
       {/* CTA Section */}
       <section className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4 text-center">
@@ -241,43 +348,115 @@ export default async function FoodMenuPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Menu",
-            "name": "The Anchor Food Menu",
-            "description": "Traditional British pub food menu",
-            "hasMenuSection": menuData.categories.map(category => ({
-              "@type": "MenuSection",
-              "name": category.title,
-              "hasMenuItem": category.sections.flatMap(section => 
-                section.items.map(item => ({
-                  "@type": "MenuItem",
-                  "name": item.name,
-                  "description": item.description,
-                  "offers": {
-                    "@type": "Offer",
-                    "price": item.price.replace(/[£$]/, '').split(' / ')[0],
-                    "priceCurrency": "GBP"
-                  },
-                  ...(item.vegetarian && {
-                    "suitableForDiet": ["https://schema.org/VegetarianDiet"]
-                  })
-                }))
-              )
-            })),
-            "inLanguage": "en-GB",
-            "provider": {
-              "@type": "Restaurant",
-              "name": "The Anchor",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Horton Road",
-                "addressLocality": "Stanwell Moor",
-                "addressRegion": "Surrey",
-                "postalCode": "TW19 6AQ"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Menu",
+              "name": "The Anchor Food Menu",
+              "description": "Traditional British pub food menu",
+              "hasMenuSection": menuData.categories.map(category => ({
+                "@type": "MenuSection",
+                "name": category.title,
+                "hasMenuItem": category.sections.flatMap(section => 
+                  section.items.map(item => ({
+                    "@type": "MenuItem",
+                    "name": item.name,
+                    "description": item.description,
+                    "offers": {
+                      "@type": "Offer",
+                      "price": item.price.replace(/[£$]/, '').split(' / ')[0],
+                      "priceCurrency": "GBP"
+                    },
+                    ...(item.vegetarian && {
+                      "suitableForDiet": ["https://schema.org/VegetarianDiet"]
+                    })
+                  }))
+                )
+              })),
+              "inLanguage": "en-GB",
+              "provider": {
+                "@type": "Restaurant",
+                "name": "The Anchor",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Horton Road",
+                  "addressLocality": "Stanwell Moor",
+                  "addressRegion": "Surrey",
+                  "postalCode": "TW19 6AQ"
+                }
               }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What time is the kitchen open at The Anchor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our kitchen is open Tuesday to Friday from 6pm-9pm, Saturday from 1pm-7pm, and Sunday from 12pm-5pm for our famous Sunday roasts. The kitchen is closed Mondays. During busy periods we recommend booking ahead."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you serve Sunday roast at The Anchor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Our celebrated Sunday roasts are served every Sunday from 12pm-5pm. We offer beef, chicken, lamb, and vegetarian options. All Sunday roasts must be ordered and paid for by 1pm on Saturday. Booking is essential as we're very popular - many say we serve the best Sunday roast in Surrey!"
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is there a children's menu at The Anchor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we have a dedicated children's menu with smaller portions and kid-friendly options. Children are always welcome at The Anchor with no time restrictions. We also provide high chairs and colouring activities to keep the little ones entertained."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What's the Tuesday pizza deal at The Anchor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Every Tuesday we offer Buy One Get One Free (BOGOF) on all our stone-baked pizzas! This applies to eat-in and takeaway. It's our most popular offer - perfect for families and pizza lovers."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you cater for dietary requirements?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we have vegetarian options marked on our menu and can accommodate most dietary requirements. Please inform our staff about any allergies or dietary needs when ordering. Note that all dishes are prepared in the same kitchen where allergens are present."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I book a table for food at The Anchor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely! We recommend booking ahead, especially for Sunday roasts and weekend evenings. Call us on 01753 682707 to reserve your table. We can accommodate large groups with advance notice."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you offer takeaway food?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our entire food menu is available for takeaway. Call ahead on 01753 682707 to place your order and we'll have it ready for collection. Tuesday pizza BOGOF deal applies to takeaway too!"
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What's the best pub food near Heathrow Airport?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Anchor is just 7 minutes from Terminal 5 and serves traditional British pub food at local prices - much better value than airport restaurants! We're perfect for pre-flight meals with free parking and quick service."
+                  }
+                }
+              ]
             }
-          })
+          ])
         }}
       />
     </>

@@ -1,62 +1,103 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useCallback, memo } from 'react'
 import { flightAPI, FlightAPI, type Flight } from '@/lib/flights'
 
 interface FlightStatusProps {
   terminal: string
   type?: 'departures' | 'arrivals' | 'both'
   limit?: number
+  refreshInterval?: number // in milliseconds
+  pauseWhenHidden?: boolean
 }
 
-export function FlightStatus({ terminal, type = 'both', limit = 5 }: FlightStatusProps) {
+export function FlightStatus({ 
+  terminal, 
+  type = 'both', 
+  limit = 5,
+  refreshInterval = 5 * 60 * 1000, // 5 minutes
+  pauseWhenHidden = true
+}: FlightStatusProps) {
   const [departures, setDepartures] = useState<Flight[]>([])
   const [arrivals, setArrivals] = useState<Flight[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
+  const [isVisible, setIsVisible] = useState(true)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
-  useEffect(() => {
-    async function fetchFlights() {
-      try {
-        setLoading(true)
-        setError(null)
+  const fetchFlights = useCallback(async () => {
+    try {
+      setLoading(true)
+      setError(null)
 
-        if (type === 'departures' || type === 'both') {
-          const deps = await flightAPI.getDepartures(terminal, limit * 2) // Get more to filter
-          // Filter by terminal if we got all flights
-          const filtered = deps.flights.filter(flight => 
-            !terminal || 
-            flight.departure.terminal === terminal || 
-            flight.departure.terminal === `T${terminal}` ||
-            flight.departure.terminal === `Terminal ${terminal}`
-          ).slice(0, limit)
-          setDepartures(filtered)
-        }
-
-        if (type === 'arrivals' || type === 'both') {
-          const arrs = await flightAPI.getArrivals(terminal, limit * 2) // Get more to filter
-          // Filter by terminal if we got all flights
-          const filtered = arrs.flights.filter(flight => 
-            !terminal || 
-            flight.arrival.terminal === terminal || 
-            flight.arrival.terminal === `T${terminal}` ||
-            flight.arrival.terminal === `Terminal ${terminal}`
-          ).slice(0, limit)
-          setArrivals(filtered)
-        }
-      } catch (err) {
-        console.error('Failed to fetch flight data:', err)
-        setError('Unable to load flight information')
-      } finally {
-        setLoading(false)
+      if (type === 'departures' || type === 'both') {
+        const deps = await flightAPI.getDepartures(terminal, limit * 2) // Get more to filter
+        // Filter by terminal if we got all flights
+        const filtered = deps.flights.filter(flight => 
+          !terminal || 
+          flight.departure.terminal === terminal || 
+          flight.departure.terminal === `T${terminal}` ||
+          flight.departure.terminal === `Terminal ${terminal}`
+        ).slice(0, limit)
+        setDepartures(filtered)
       }
+
+      if (type === 'arrivals' || type === 'both') {
+        const arrs = await flightAPI.getArrivals(terminal, limit * 2) // Get more to filter
+        // Filter by terminal if we got all flights
+        const filtered = arrs.flights.filter(flight => 
+          !terminal || 
+          flight.arrival.terminal === terminal || 
+          flight.arrival.terminal === `T${terminal}` ||
+          flight.arrival.terminal === `Terminal ${terminal}`
+        ).slice(0, limit)
+        setArrivals(filtered)
+      }
+    } catch (err) {
+      // Error: Failed to fetch flight data
+      setError('Unable to load flight information')
+    } finally {
+      setLoading(false)
+      setLastUpdate(new Date())
+    }
+  }, [terminal, type, limit])
+
+  // Set up intersection observer for visibility detection
+  useEffect(() => {
+    if (!pauseWhenHidden || !containerRef.current) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.1 }
+    )
+
+    observer.observe(containerRef.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [pauseWhenHidden])
+
+  // Handle fetching and refresh interval
+  useEffect(() => {
+    // Initial fetch
+    fetchFlights()
+
+    // Set up refresh interval if visible
+    if (isVisible && refreshInterval > 0) {
+      intervalRef.current = setInterval(fetchFlights, refreshInterval)
     }
 
-    fetchFlights()
-    // Refresh every 5 minutes
-    const interval = setInterval(fetchFlights, 5 * 60 * 1000)
-    return () => clearInterval(interval)
-  }, [terminal, type, limit])
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    }
+  }, [terminal, type, limit, isVisible, refreshInterval, fetchFlights])
 
   if (loading) {
     return (
@@ -81,7 +122,7 @@ export function FlightStatus({ terminal, type = 'both', limit = 5 }: FlightStatu
     )
   }
 
-  const FlightRow = ({ flight, isDeparture }: { flight: Flight; isDeparture: boolean }) => {
+  const FlightRow = memo(({ flight, isDeparture }: { flight: Flight; isDeparture: boolean }) => {
     const status = FlightAPI.getStatusText(flight.flight_status)
     const delay = isDeparture
       ? FlightAPI.calculateDelay(flight.departure.scheduled, flight.departure.estimated)
@@ -129,20 +170,32 @@ export function FlightStatus({ terminal, type = 'both', limit = 5 }: FlightStatu
         </div>
       </div>
     )
-  }
+  })
+
+  FlightRow.displayName = 'FlightRow'
 
   return (
-    <div className="space-y-6">
+    <div ref={containerRef} className="space-y-6" role="region" aria-label="Flight status information">
+      {/* ARIA live region for screen readers */}
+      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {lastUpdate && `Flight information last updated at ${lastUpdate.toLocaleTimeString()}`}
+      </div>
+
       {(type === 'departures' || type === 'both') && departures.length > 0 && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
           <div className="bg-anchor-green text-white px-6 py-4">
             <h3 className="text-lg font-semibold flex items-center gap-2">
               ✈️ Departures from Terminal {terminal}
+              {!isVisible && pauseWhenHidden && (
+                <span className="text-xs font-normal ml-auto">(Updates paused)</span>
+              )}
             </h3>
           </div>
-          <div className="px-6 py-2">
+          <div className="px-6 py-2" role="list" aria-label="Departure flights">
             {departures.map((flight, idx) => (
-              <FlightRow key={idx} flight={flight} isDeparture={true} />
+              <div key={`dep-${flight.flight.icao}-${idx}`} role="listitem">
+                <FlightRow flight={flight} isDeparture={true} />
+              </div>
             ))}
           </div>
         </div>
@@ -153,11 +206,16 @@ export function FlightStatus({ terminal, type = 'both', limit = 5 }: FlightStatu
           <div className="bg-anchor-gold text-white px-6 py-4">
             <h3 className="text-lg font-semibold flex items-center gap-2">
               🛬 Arrivals to Terminal {terminal}
+              {!isVisible && pauseWhenHidden && (
+                <span className="text-xs font-normal ml-auto">(Updates paused)</span>
+              )}
             </h3>
           </div>
-          <div className="px-6 py-2">
+          <div className="px-6 py-2" role="list" aria-label="Arrival flights">
             {arrivals.map((flight, idx) => (
-              <FlightRow key={idx} flight={flight} isDeparture={false} />
+              <div key={`arr-${flight.flight.icao}-${idx}`} role="listitem">
+                <FlightRow flight={flight} isDeparture={false} />
+              </div>
             ))}
           </div>
         </div>
@@ -178,7 +236,7 @@ export function FlightStatus({ terminal, type = 'both', limit = 5 }: FlightStatu
 }
 
 // Compact widget for showing delay summary
-export function FlightDelayWidget({ terminal }: { terminal: string }) {
+export const FlightDelayWidget = memo(function FlightDelayWidget({ terminal }: { terminal: string }) {
   const [delayInfo, setDelayInfo] = useState<{
     avgDelay: number
     delayedFlights: number
@@ -186,43 +244,46 @@ export function FlightDelayWidget({ terminal }: { terminal: string }) {
   } | null>(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    async function fetchDelayInfo() {
-      try {
-        const [deps, arrs] = await Promise.all([
-          flightAPI.getDepartures(terminal, 10),
-          flightAPI.getArrivals(terminal, 10)
-        ])
+  const fetchDelayInfo = useCallback(async () => {
+    try {
+      const [deps, arrs] = await Promise.all([
+        flightAPI.getDepartures(terminal, 10),
+        flightAPI.getArrivals(terminal, 10)
+      ])
 
-        let totalDelay = 0
-        let delayedCount = 0
-        const allFlights = [...deps.flights, ...arrs.flights]
+      let totalDelay = 0
+      let delayedCount = 0
+      const allFlights = [...deps.flights, ...arrs.flights]
 
-        allFlights.forEach(flight => {
-          const depDelay = FlightAPI.calculateDelay(
-            flight.departure.scheduled,
-            flight.departure.estimated
-          )
-          if (depDelay && depDelay > 0) {
-            totalDelay += depDelay
-            delayedCount++
-          }
-        })
+      allFlights.forEach(flight => {
+        const depDelay = FlightAPI.calculateDelay(
+          flight.departure.scheduled,
+          flight.departure.estimated
+        )
+        if (depDelay && depDelay > 0) {
+          totalDelay += depDelay
+          delayedCount++
+        }
+      })
 
-        setDelayInfo({
-          avgDelay: delayedCount > 0 ? Math.round(totalDelay / delayedCount) : 0,
-          delayedFlights: delayedCount,
-          totalFlights: allFlights.length
-        })
-      } catch (err) {
-        console.error('Failed to fetch delay info:', err)
-      } finally {
-        setLoading(false)
-      }
+      setDelayInfo({
+        avgDelay: delayedCount > 0 ? Math.round(totalDelay / delayedCount) : 0,
+        delayedFlights: delayedCount,
+        totalFlights: allFlights.length
+      })
+    } catch (err) {
+      // Error: Failed to fetch delay info
+    } finally {
+      setLoading(false)
     }
+  }, [])
 
+  useEffect(() => {
     fetchDelayInfo()
-  }, [terminal])
+    // Refresh every 10 minutes
+    const interval = setInterval(fetchDelayInfo, 10 * 60 * 1000)
+    return () => clearInterval(interval)
+  }, [terminal, fetchDelayInfo])
 
   if (loading || !delayInfo) {
     return null
@@ -233,7 +294,7 @@ export function FlightDelayWidget({ terminal }: { terminal: string }) {
     : 0
 
   return (
-    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4" role="status" aria-live="polite">
       <div className="flex items-center gap-3">
         <div className="text-3xl">✈️</div>
         <div className="flex-1">
@@ -253,4 +314,4 @@ export function FlightDelayWidget({ terminal }: { terminal: string }) {
       </div>
     </div>
   )
-}
+})

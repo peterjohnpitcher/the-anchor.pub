@@ -8,6 +8,7 @@ import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
 import { FloatingActions } from '@/components/FloatingActions'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
+import { AnalyticsProvider } from '@/components/AnalyticsProvider'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
 /* Critical CSS for above-the-fold content */
@@ -93,27 +94,29 @@ const outfit = Outfit({
   subsets: ['latin'], 
   variable: '--font-outfit',
   weight: ['400', '600', '700'],
-  display: 'swap', // Change from 'optional' to 'swap' to prevent timeout
+  display: 'swap',
   preload: true,
   fallback: ['system-ui', '-apple-system', 'sans-serif'],
+  adjustFontFallback: true,
 })
 
 const merriweather = Merriweather({ 
   subsets: ['latin'], 
   variable: '--font-merriweather',
   weight: ['400'],
-  display: 'swap', // Change from 'optional' to 'swap' to prevent timeout
+  display: 'swap',
   preload: false,
   fallback: ['Georgia', 'serif'],
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://the-anchor.pub'),
   title: {
-    default: 'The Anchor Pub Near Me | Heathrow\'s Local Pub | Open Now',
+    default: 'Traditional Pub Near Me | The Anchor Stanwell Moor | Surrey Pub Near Heathrow',
     template: '%s | The Anchor Stanwell Moor'
   },
-  description: 'The Anchor pub in Stanwell Moor near Heathrow Airport. Traditional British pub with drag shows, quiz nights & more. Dog-friendly beer garden under the flight path.',
+  description: 'The Anchor pub in Stanwell Moor, Surrey\'s best kept secret near Heathrow Airport. Traditional British pub with drag shows, quiz nights & more. Dog-friendly beer garden under the flight path.',
   keywords: ['pub near me', 'pub near Heathrow', 'Stanwell Moor pub', 'drag shows near me', 'pub quiz', 'dog friendly pub', 'beer garden', 'TW19 pub'],
   authors: [{ name: 'The Anchor' }],
   creator: 'The Anchor',
@@ -172,11 +175,18 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/outfit-v9-latin-regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/outfit-v9-latin-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://management.orangejelly.co.uk" />
         <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
         <link rel="preload" href="/images/page-headers/home/Page Headers - Homepage.jpg" as="image" fetchPriority="high" />
+        <link rel="preload" href="/images/branding/the-anchor-pub-logo-white-transparent.png" as="image" fetchPriority="high" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#005131" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -186,14 +196,18 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        <WebVitals />
-        <Navigation 
-          statusComponent={<StatusBar variant="navigation" />}
-          weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}
-        />
-        {children}
-        <Footer />
-        <FloatingActions />
+        <AnalyticsProvider>
+          <WebVitals />
+          <Navigation 
+            statusComponent={<StatusBar variant="navigation" />}
+            weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}
+          />
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
+          <FloatingActions />
+        </AnalyticsProvider>
       </body>
     </html>
   )

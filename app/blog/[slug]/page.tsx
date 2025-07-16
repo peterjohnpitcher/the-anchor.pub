@@ -71,9 +71,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-2 mb-4">
               {post.tags.map(tag => (
-                <span key={tag} className="text-sm bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full">
+                <Link 
+                  key={tag} 
+                  href={`/blog/tag/${tag}`}
+                  className="text-sm bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full hover:bg-white/30 transition-colors"
+                >
                   {tag}
-                </span>
+                </Link>
               ))}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">

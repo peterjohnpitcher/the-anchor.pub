@@ -20,7 +20,7 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
   if (!isOpen) return null
 
   // Tuesday = 2, Wednesday = 3, Friday = 5, Saturday = 6
-  const showPizzaOffer = currentDay === 2 || currentDay === 3 // Tuesday & Wednesday
+  const showPizzaOffer = currentDay === 2 // Tuesday only
   const showFishFriday = currentDay === 5 // Friday
   const showSundayBooking = currentDay === 6 // Saturday
 
@@ -78,13 +78,13 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
               🐟 FISH FRIDAY 🐟
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              50% Off Fish & Chips
+              50% Off Chip Shop Menu
             </h2>
             <p className="text-xl mb-6 text-white/90">
               For Over 65s - Every Friday!
             </p>
             <p className="text-lg mb-8">
-              Our famous beer-battered fish with chunky chips
+              All chip shop menu items including fish & chips, scampi, and sausages
             </p>
             <CallToAction 
               href="/food-menu#mains" 

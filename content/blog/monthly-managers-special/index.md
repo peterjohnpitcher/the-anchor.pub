@@ -21,13 +21,16 @@ keywords:
   - pub offers staines
 tags:
   - special-offers
-  - spirits
+  - monthly
+  - drinks
+  - manager-picks
+  - value
 featured: true
 hero: hero.png
 images: []
 ---
 
-![An advertisement for The Anchor's Monthly Manager's Specials, featuring a gin and tonic with lime and rosemary, a gold starburst, and text highlighting a 25% discount on top-shelf spirits throughout 2025.](/content/blog/the-anchor-s-monthly-manager-s-special-enjoy-25-of/hero.png)
+![An advertisement for The Anchor's Monthly Manager's Specials, featuring a gin and tonic with lime and rosemary, a gold starburst, and text highlighting a 25% discount on top-shelf spirits throughout 2025.](/content/blog/monthly-managers-special/hero.png)
 
 Looking for **premium spirits near Heathrow** without airport prices? The Anchor's Monthly Manager's Special offers 25% off carefully selected top-shelf spirits every month. Just 7 minutes from Terminal 5, discover quality gins, whiskies, and rums at genuine pub prices in our traditional Stanwell Moor venue.
 

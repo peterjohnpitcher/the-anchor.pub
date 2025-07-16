@@ -32,7 +32,7 @@ hero: hero.png
 images: []
 ---
 
-![A hand holding up a brown heart cutout against a gradient sky background with 'Random Acts of Kindness Day 2024' written above and the quote 'It takes courage to be kind' by Maya Angelou below.](/content/blog/random-acts-of-kindness-day-join-our-village-celeb/hero.png)
+![A hand holding up a brown heart cutout against a gradient sky background with 'Random Acts of Kindness Day 2024' written above and the quote 'It takes courage to be kind' by Maya Angelou below.](/content/blog/kindness-day/hero.png)
 
 ## Celebrating Kindness Near Heathrow Airport
 

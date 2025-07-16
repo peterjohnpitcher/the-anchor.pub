@@ -77,7 +77,7 @@ const defaultSections: FooterSection[] = [
 const defaultContact: ContactInfo & { social?: SocialLink[] } = {
   phone: '01753 682707',
   email: 'manager@the-anchor.pub',
-  address: 'Horton Road, Stanwell Moor',
+  address: 'Horton Road, Stanwell Moor, Surrey, TW19 6AQ',
   social: [
     { platform: 'facebook', href: 'https://www.facebook.com/theanchorpubsm/', label: 'Facebook' },
     { platform: 'instagram', href: 'https://www.instagram.com/theanchor.pub/', label: 'Instagram' }
@@ -204,7 +204,14 @@ export function Footer({
                     </a>
                   </li>
                 )}
-                {contact.address && <li>📍 {contact.address}</li>}
+                {contact.address && (
+                  <li itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                    📍 <span itemProp="streetAddress">Horton Road</span>, 
+                    <span itemProp="addressLocality">Stanwell Moor</span>, 
+                    <span itemProp="addressRegion">Surrey</span>, 
+                    <span itemProp="postalCode">TW19 6AQ</span>
+                  </li>
+                )}
                 {contact.social && contact.social.length > 0 && (
                   <li className="pt-2">
                     <div className="flex gap-4">
@@ -215,6 +222,7 @@ export function Footer({
                           className={cn(mergedTheme.linkHover, 'hover:text-anchor-gold')}
                           target="_blank" 
                           rel="noopener noreferrer"
+                          aria-label={`Visit our ${social.label || social.platform} page`}
                         >
                           {social.label || social.platform}
                         </a>
@@ -252,6 +260,9 @@ export function Footer({
                 {copyright.subtext}
               </p>
             )}
+            <p className="mt-3 text-sm text-gray-300">
+              Serving Stanwell Moor, Staines, Ashford, Feltham, Bedfont, and surrounding Surrey areas
+            </p>
           </div>
         )}
       </div>

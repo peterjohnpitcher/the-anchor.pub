@@ -3,6 +3,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
 
@@ -48,43 +49,13 @@ const localBusinessSchema = {
   "url": "https://the-anchor.pub"
 }
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": `How far is ${BRAND.name} from Heathrow Terminal 1?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `${BRAND.name} is just ${HEATHROW_TIMES.terminal1} minutes drive from Heathrow Terminal 1. We're the perfect spot for a pre-flight meal or drinks after landing.`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you have parking for Terminal 1 travelers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Yes! We offer ${PARKING.description} with space for ${PARKING.capacity} cars. Much more affordable than airport parking for short stays.`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What time should I leave for Terminal 1?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Allow ${HEATHROW_TIMES.terminal1} minutes to reach Terminal 1 from our pub, plus time for parking and security. We recommend leaving at least 2 hours before your flight.`
-      }
-    }
-  ]
-}
 
 export default function Terminal1Page() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema, faqSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema]) }}
       />
       
       {/* Hero Section */}
@@ -130,8 +101,8 @@ export default function Terminal1Page() {
             </div>
             <div className="hidden md:block w-px h-12 bg-white/30" />
             <div>
-              <p className="text-3xl font-bold">4am</p>
-              <p className="text-sm uppercase tracking-wide">Early Opens*</p>
+              <p className="text-3xl font-bold">Free</p>
+              <p className="text-sm uppercase tracking-wide">WiFi</p>
             </div>
           </div>
         </div>
@@ -153,10 +124,10 @@ export default function Terminal1Page() {
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-2xl">⏰</span>
                 </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Early Morning Opens</h3>
+                <h3 className="text-xl font-bold text-anchor-green mb-2">Convenient Hours</h3>
                 <p className="text-gray-700">
-                  Special early opening available for groups catching morning flights from Terminal 1. 
-                  Call to arrange breakfast from 4am.
+                  Open from midday at weekends and 4pm on weekdays. Perfect timing for 
+                  pre-flight meals or meeting arrivals.
                 </p>
               </div>
               
@@ -177,7 +148,7 @@ export default function Terminal1Page() {
                 </div>
                 <h3 className="text-xl font-bold text-anchor-green mb-2">Better Than Airport Food</h3>
                 <p className="text-gray-700">
-                  Enjoy proper British pub food at pub prices. Full menu available all day, 
+                  Enjoy proper British pub food at pub prices. Full menu available during kitchen hours, 
                   much better value than Terminal 1 restaurants.
                 </p>
               </div>
@@ -254,7 +225,7 @@ export default function Terminal1Page() {
               <div className="bg-white rounded-xl p-8 shadow-sm">
                 <h3 className="text-xl font-bold text-anchor-green mb-4">🚖 Taxi to Terminal 1</h3>
                 <ul className="space-y-3 text-gray-700">
-                  <li>• Typical fare: £15-20</li>
+                  <li>• Typical fare: Around £25</li>
                   <li>• Journey time: {HEATHROW_TIMES.terminal1} minutes</li>
                   <li>• We can call a taxi for you</li>
                   <li>• Pre-book for early morning flights</li>
@@ -310,8 +281,8 @@ export default function Terminal1Page() {
               <div className="border-l-4 border-red-500 bg-red-50 p-6 rounded-r-lg">
                 <h3 className="font-bold text-lg text-anchor-green mb-2">✈️ Pre-Flight Meals</h3>
                 <p className="text-gray-700">
-                  Better than airport prices with proper portions. Full English breakfast 
-                  from 4am for early Terminal 1 departures (pre-book required).
+                  Better than airport prices with proper portions. 
+                  Food available during kitchen hours for Terminal 1 departures.
                 </p>
               </div>
               
@@ -353,12 +324,31 @@ export default function Terminal1Page() {
             <BusinessHours />
             <div className="mt-6 bg-amber-100 border-2 border-amber-300 rounded-lg p-4 text-center">
               <p className="text-amber-900 font-semibold">
-                ⏰ Early opens from 4am available for Terminal 1 flights - call to arrange
+                ⏰ Open from midday weekends, 4pm weekdays - perfect for Terminal 1 travelers
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: `How far is ${BRAND.name} from Heathrow Terminal 1?`,
+            answer: `${BRAND.name} is just ${HEATHROW_TIMES.terminal1} minutes drive from Heathrow Terminal 1. We're the perfect spot for a pre-flight meal or drinks after landing.`
+          },
+          {
+            question: "Do you have parking for Terminal 1 travelers?",
+            answer: `Yes! We offer ${PARKING.description} with space for ${PARKING.capacity} cars. Much more affordable than airport parking for short stays.`
+          },
+          {
+            question: "What time should I leave for Terminal 1?",
+            answer: `Allow ${HEATHROW_TIMES.terminal1} minutes to reach Terminal 1 from our pub, plus time for parking and security. We recommend leaving at least 2 hours before your flight.`
+          }
+        ]}
+        className="bg-gray-50"
+      />
 
       {/* CTA Section */}
       <section className="section-spacing bg-red-600 text-white">
@@ -367,7 +357,7 @@ export default function Terminal1Page() {
             Terminal 1's Favourite Local Pub
           </h2>
           <p className="text-xl mb-8 text-white/90">
-            Just {HEATHROW_TIMES.terminal1} minutes away • Free parking • Open from 4am for flights
+            Just {HEATHROW_TIMES.terminal1} minutes away • Free parking • Convenient opening hours
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <CallToAction href={CONTACT.phoneHref} variant="secondary" size="lg">

@@ -23,10 +23,11 @@ keywords:
   - family celebration stanwell moor
   - paddys day near airport
 tags:
-  - drinks
   - events
-  - food
+  - st-patricks-day
+  - irish
   - special-offers
+  - march
 featured: false
 hero: hero.png
 images: []
@@ -34,7 +35,7 @@ images: []
 
   
 
-![An eye-catching St. Patrick's Day banner featuring a shamrock-filled background with The Anchor's logo, event details for 2024, and a playful slogan about the day's festivities.](/content/blog/st-patrick-s-day-2024-celebrate-at-the-anchor-thea/hero.png)
+![An eye-catching St. Patrick's Day banner featuring a shamrock-filled background with The Anchor's logo, event details for 2024, and a playful slogan about the day's festivities.](/content/blog/st-patricks-day-2024/hero.png)
 
   
 

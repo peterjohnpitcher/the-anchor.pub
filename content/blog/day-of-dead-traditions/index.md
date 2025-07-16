@@ -23,16 +23,17 @@ keywords:
   - family event stanwell moor
   - mexican culture near airport
 tags:
-  - drinks
-  - events
-  - food
-  - special-offers
+  - community
+  - day-of-the-dead
+  - mexican-culture
+  - traditions
+  - october
 featured: false
 hero: hero.png
 images: []
 ---
 
-![A vibrant sugar skull illustration next to the text 'Celebrating Life and Spirits: The Day of the Dead Traditions in Mexico.' The logo for 'The Anchor, Stanwell Moor Village' appears at the top. The background is black, and the font is bold and modern, with playful, handwritten-style lettering below.](/content/blog/celebrating-life-and-spirits-the-day-of-the-dead-t/hero.png)
+![A vibrant sugar skull illustration next to the text 'Celebrating Life and Spirits: The Day of the Dead Traditions in Mexico.' The logo for 'The Anchor, Stanwell Moor Village' appears at the top. The background is black, and the font is bold and modern, with playful, handwritten-style lettering below.](/content/blog/day-of-dead-traditions/hero.png)
 
   
 

@@ -34,7 +34,7 @@ images: []
 
   
 
-![5-star food hygiene rating sticker proudly displayed in The Anchor's window.](/content/blog/the-anchor-celebrates-another-5-star-rating-in-foo/hero.png)
+![5-star food hygiene rating sticker proudly displayed in The Anchor's window.](/content/blog/5-star-food-rating/hero.png)
 
 ## 5-Star Food Hygiene Excellence Near Heathrow Airport
 
@@ -113,7 +113,7 @@ While our 5-star hygiene rating ensures safety, we also promise:
 🚗 **Parking**: Free on-site parking
 ⭐ **Hygiene Rating**: 5 Stars (4.5+ years maintained)
 👨‍🍳 **Staff**: All Level 2 food hygiene qualified
-🍽️ **Menu**: Full menu available all day
+🍽️ **Menu**: Full menu available during kitchen hours
 📞 **Bookings**: 01753 682707
 
 ### Why Choose The Anchor for Dining Near Terminal 5

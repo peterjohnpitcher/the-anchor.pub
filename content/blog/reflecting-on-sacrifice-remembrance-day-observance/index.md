@@ -21,10 +21,11 @@ keywords:
   - poppy appeal stanwell moor
   - armistice day near terminal 5
 tags:
-  - drinks
   - events
-  - food
-  - special-offers
+  - remembrance-day
+  - community
+  - november
+  - british-history
 featured: false
 hero: hero.png
 images:
