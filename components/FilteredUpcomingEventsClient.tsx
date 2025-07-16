@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useInView } from 'react-intersection-observer'
@@ -13,7 +13,7 @@ interface EventCardProps {
   index: number
 }
 
-function EventCard({ event, index }: EventCardProps) {
+const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -217,7 +217,14 @@ function EventCard({ event, index }: EventCardProps) {
       )}
     </div>
   )
-}
+})
+
+import { memo } from 'react'
+
+// Virtual scrolling configuration
+const INITIAL_LOAD = 10
+const BATCH_SIZE = 10
+const OVERSCAN = 3 // Render this many items above/below viewport
 
 interface FilteredUpcomingEventsClientProps {
   events: Event[]
@@ -225,24 +232,63 @@ interface FilteredUpcomingEventsClientProps {
 }
 
 export function FilteredUpcomingEventsClient({ events, categorySlug }: FilteredUpcomingEventsClientProps) {
-  const [displayCount, setDisplayCount] = useState(10)
+  const [displayCount, setDisplayCount] = useState(INITIAL_LOAD)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [visibleRange, setVisibleRange] = useState({ start: 0, end: INITIAL_LOAD })
 
-  // Virtualized list of events to display
-  const displayedEvents = useMemo(() => {
-    return events.slice(0, displayCount)
-  }, [events, displayCount])
+  // Calculate which events should be rendered based on scroll position
+  const virtualizedEvents = useMemo(() => {
+    const start = Math.max(0, visibleRange.start - OVERSCAN)
+    const end = Math.min(displayCount, visibleRange.end + OVERSCAN)
+    return events.slice(start, end).map((event, idx) => ({
+      event,
+      originalIndex: start + idx
+    }))
+  }, [events, visibleRange, displayCount])
 
   const hasMore = displayCount < events.length
 
   const loadMore = useCallback(() => {
     setIsLoadingMore(true)
-    // Simulate loading delay for better UX
-    setTimeout(() => {
-      setDisplayCount(prev => Math.min(prev + 10, events.length))
+    // Use requestAnimationFrame for smoother loading
+    requestAnimationFrame(() => {
+      setDisplayCount(prev => Math.min(prev + BATCH_SIZE, events.length))
       setIsLoadingMore(false)
-    }, 300)
+    })
   }, [events.length])
+
+  // Update visible range based on scroll
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const windowHeight = window.innerHeight
+      const items = container.querySelectorAll('[data-event-index]')
+      
+      let newStart = 0
+      let newEnd = displayCount
+
+      items.forEach((item) => {
+        const rect = item.getBoundingClientRect()
+        const index = parseInt(item.getAttribute('data-event-index') || '0')
+        
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          newStart = Math.min(newStart, index)
+          newEnd = Math.max(newEnd, index + 1)
+        }
+      })
+
+      setVisibleRange({ start: newStart, end: newEnd })
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [displayCount])
 
   // Auto-load more when scrolling near bottom
   const { ref: loadMoreRef } = useInView({
@@ -270,10 +316,28 @@ export function FilteredUpcomingEventsClient({ events, categorySlug }: FilteredU
   }
 
   return (
-    <div className="space-y-6">
-      {displayedEvents.map((event, index) => (
-        <EventCard key={event.id} event={event} index={index} />
+    <div ref={containerRef} className="space-y-6" role="feed" aria-busy={isLoadingMore}>
+      {/* Spacer for items above viewport */}
+      {visibleRange.start > 0 && (
+        <div 
+          style={{ height: `${visibleRange.start * 400}px` }} 
+          aria-hidden="true"
+        />
+      )}
+      
+      {virtualizedEvents.map(({ event, originalIndex }) => (
+        <div key={event.id} data-event-index={originalIndex}>
+          <EventCard event={event} index={originalIndex} />
+        </div>
       ))}
+      
+      {/* Spacer for items below viewport */}
+      {visibleRange.end < displayCount && (
+        <div 
+          style={{ height: `${(displayCount - visibleRange.end) * 400}px` }} 
+          aria-hidden="true"
+        />
+      )}
       
       {hasMore && (
         <div ref={loadMoreRef} className="text-center py-8">
@@ -287,12 +351,18 @@ export function FilteredUpcomingEventsClient({ events, categorySlug }: FilteredU
             <button
               onClick={loadMore}
               className="px-6 py-3 bg-anchor-gold text-white rounded-full font-semibold hover:bg-anchor-gold-light transition-colors"
+              aria-label={`Load more events. ${events.length - displayCount} remaining`}
             >
               Load More Events ({events.length - displayCount} remaining)
             </button>
           )}
         </div>
       )}
+      
+      {/* Screen reader announcement */}
+      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {isLoadingMore ? 'Loading more events' : `Showing ${displayCount} of ${events.length} events`}
+      </div>
     </div>
   )
 }
