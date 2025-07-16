@@ -54,6 +54,8 @@ export default function HomePage() {
             priority
             sizes="100vw"
             quality={75}
+            loading="eager"
+            fetchPriority="high"
             style={{
               objectPosition: '50% 50%'
             }}

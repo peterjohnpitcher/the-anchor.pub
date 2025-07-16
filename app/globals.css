@@ -125,8 +125,15 @@ select:focus {
   animation-iteration-count: 1;
   transform-origin: 70% 70%;
   display: inline-block;
-  will-change: transform;
+  will-change: auto;
   contain: layout style paint;
+}
+
+/* Prevent layout shift for images */
+img {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
 }
 
 /* Only animate if user has no motion preference */

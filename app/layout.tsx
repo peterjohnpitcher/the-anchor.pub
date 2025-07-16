@@ -94,7 +94,7 @@ const outfit = Outfit({
   subsets: ['latin'], 
   variable: '--font-outfit',
   weight: ['400', '600', '700'],
-  display: 'swap',
+  display: 'optional',
   preload: true,
   fallback: ['system-ui', '-apple-system', 'sans-serif'],
   adjustFontFallback: true,
@@ -172,15 +172,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${merriweather.variable}`}>
       <head>
-        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://management.orangejelly.co.uk" />
+        <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preconnect" href="https://management.orangejelly.co.uk" />
-        <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#005131" />
         <script
