@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
 import { analytics } from '@/lib/analytics'
 
-interface CallToActionProps {
+export interface CallToActionProps {
   href: string
   children: ReactNode
   variant?: 'primary' | 'secondary' | 'white' | 'outline' | 'ghost' | 'yellow'

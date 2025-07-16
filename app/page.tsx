@@ -5,9 +5,9 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBarWrapper } from '@/components/StatusBarWrapper'
 import { NextEventServer } from '@/components/NextEventServer'
 import { Suspense } from 'react'
-import { homepageFAQSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
-import { getPageHeaderImage, getDefaultHeaderImage } from '@/utils/page-header-images'
+import { homepageFAQSchema } from '@/lib/enhanced-schemas'
 import { LazySection } from '@/components/LazySection'
+import { HeroSection } from '@/components/hero'
 
 // Lazy load non-critical components
 const BusinessHours = dynamic(() => import('@/components/BusinessHours').then(mod => ({ default: mod.BusinessHours })), {
@@ -31,95 +31,78 @@ function NextEventSkeleton() {
 
 
 export default function HomePage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: '/' }
-  ])
-  
-  const headerImage = getPageHeaderImage('/') || getDefaultHeaderImage();
-
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([homepageFAQSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFAQSchema) }}
       />
       {/* Custom Hero Section with Logo */}
-      <section className="relative min-h-[80vh] flex items-center justify-center mt-20 overflow-hidden">
-        <div className="absolute inset-0">
+      <HeroSection
+        size="hero"
+        title=""
+        image={{
+          src: "/images/page-headers/home/Page Headers - Homepage.jpg",
+          alt: "The Anchor pub in Stanwell Moor",
+          priority: true,
+          objectPosition: "50% 50%"
+        }}
+      >
+        {/* Logo with drop shadow */}
+        <div className="mb-6 sm:mb-8">
           <Image
-            src={headerImage.src}
-            alt={headerImage.alt}
-            fill
-            className="object-cover"
+            src="/images/branding/the-anchor-pub-logo-white-transparent.png"
+            alt="The Anchor Pub Logo"
+            width={300}
+            height={300}
+            className="mx-auto w-48 sm:w-64 md:w-72 lg:w-80 h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
             priority
-            sizes="100vw"
-            quality={75}
-            loading="eager"
-            fetchPriority="high"
-            style={{
-              objectPosition: '50% 50%'
-            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-8 sm:py-12">
-          {/* Logo with drop shadow */}
-          <div className="mb-6 sm:mb-8">
-            <Image
-              src="/images/branding/the-anchor-pub-logo-white-transparent.png"
-              alt="The Anchor Pub Logo"
-              width={300}
-              height={300}
-              className="mx-auto w-48 sm:w-64 md:w-72 lg:w-80 h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
-              priority
-            />
-          </div>
-          
-          {/* Welcome message with wave */}
-          <p className="text-lg md:text-xl text-white mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Your local pub <span className="inline-block motion-safe:wave">👋</span>
-          </p>
-          
-          <p className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Where Everyone&apos;s Welcome
-          </p>
-          
-          <div className="mb-8 flex justify-center">
-            <StatusBarWrapper />
-          </div>
-          
-          {/* Feature tags */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 px-2 sm:px-0">
-            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🚗 Free Parking</span>
-            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🐕 Dog Friendly</span>
-            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">👨‍👩‍👧‍👦 Family Welcome</span>
-            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">♿ Step-Free Access</span>
-            <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">✈️ 7 mins from Heathrow</span>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0 max-w-md mx-auto">
-            <CallToAction 
-              href="https://ordertab.menu/theanchor/bookings"
-              variant="primary"
-              size="lg"
-              external
-              className="flex-1"
-            >
-              📅 Book a Table
-            </CallToAction>
-            
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-              className="flex-1"
-            >
-              🍽️ View Menu
-            </CallToAction>
-          </div>
+        {/* Welcome message with wave */}
+        <p className="text-lg md:text-xl text-white mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          Your local pub <span className="inline-block motion-safe:wave">👋</span>
+        </p>
+        
+        <p className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          Where Everyone&apos;s Welcome
+        </p>
+        
+        <div className="mb-8 flex justify-center">
+          <StatusBarWrapper />
         </div>
-      </section>
+        
+        {/* Feature tags */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 px-2 sm:px-0">
+          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🚗 Free Parking</span>
+          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🐕 Dog Friendly</span>
+          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">👨‍👩‍👧‍👦 Family Welcome</span>
+          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">♿ Step-Free Access</span>
+          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">✈️ 7 mins from Heathrow</span>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0 max-w-md mx-auto">
+          <CallToAction 
+            href="https://ordertab.menu/theanchor/bookings"
+            variant="primary"
+            size="lg"
+            external
+            className="flex-1"
+          >
+            📅 Book a Table
+          </CallToAction>
+          
+          <CallToAction 
+            href="/food-menu"
+            variant="secondary"
+            size="lg"
+            className="flex-1"
+          >
+            🍽️ View Menu
+          </CallToAction>
+        </div>
+      </HeroSection>
 
       {/* What Makes Us Special */}
       <section className="section-spacing bg-white">

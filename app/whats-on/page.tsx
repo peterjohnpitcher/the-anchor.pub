@@ -4,7 +4,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { FilteredUpcomingEvents } from '@/components/FilteredUpcomingEvents'
 import { CategoryFilter } from '@/components/CategoryFilter'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { Suspense } from 'react'
@@ -24,27 +24,29 @@ export default function WhatsOnPage({ searchParams }: { searchParams: { category
   return (
     <>
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/whats-on"
         title="What's On at The Anchor"
         description="From drag shows to quiz nights - there's always something happening!"
+        size="large"
         showStatusBar={true}
-      >
-        <div className="flex flex-wrap justify-center gap-3 mb-8 mt-6">
-          <span className="tag bg-white/90 backdrop-blur-sm">👑 Drag Shows</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">🎉 Special Events</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">🧠 Quiz Nights</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">🎱 Cash Bingo</span>
-        </div>
-        
-        <CallToAction 
-          href="#upcoming-events"
-          variant="primary"
-          size="lg"
-        >
-          View All Events
-        </CallToAction>
-      </PageHeaderWrapper>
+        statusBarPosition="below"
+        tags={[
+          { label: '👑 Drag Shows', variant: 'primary' },
+          { label: '🎉 Special Events', variant: 'success' },
+          { label: '🧠 Quiz Nights', variant: 'warning' },
+          { label: '🎱 Cash Bingo', variant: 'default' }
+        ]}
+        cta={
+          <CallToAction 
+            href="#upcoming-events"
+            variant="primary"
+            size="lg"
+          >
+            View All Events
+          </CallToAction>
+        }
+      />
 
 
 

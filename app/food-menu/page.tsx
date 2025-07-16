@@ -4,7 +4,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { MenuRenderer } from '@/components/MenuRenderer'
 import { DailySpecials } from '@/components/DailySpecials'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { getBusinessHours } from '@/lib/api'
@@ -103,29 +103,29 @@ export default async function FoodMenuPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify([menuSchema, pizzaBOGOFSchema, fridayFishOfferSchema]) }}
       />
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/food-menu"
         title="Good Food, Good Company"
         description="Great memories start with great food"
-        minHeight="min-h-[50vh]"
+        size="small"
         showStatusBar={true}
-      >
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
-          <span className="tag bg-white/90 backdrop-blur-sm">🍖 Sunday Roasts</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">🍕 Stone-Baked Pizzas</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">🍔 Burgers & Stacks</span>
-          <span className="tag bg-white/90 backdrop-blur-sm">🌱 Veggie Options</span>
-        </div>
-        
-        <CallToAction 
-          href="#menu"
-          variant="primary"
-          size="lg"
-          className="bg-white text-anchor-green hover:bg-gray-100"
-        >
-          📖 Jump to Menu
-        </CallToAction>
-      </PageHeaderWrapper>
+        tags={[
+          { label: '🍖 Sunday Roasts', variant: 'default' },
+          { label: '🍕 Stone-Baked Pizzas', variant: 'default' },
+          { label: '🍔 Burgers & Stacks', variant: 'default' },
+          { label: '🌱 Veggie Options', variant: 'default' }
+        ]}
+        cta={
+          <CallToAction 
+            href="#menu"
+            variant="primary"
+            size="lg"
+            className="bg-white text-anchor-green hover:bg-gray-100"
+          >
+            📖 Jump to Menu
+          </CallToAction>
+        }
+      />
 
       {/* Daily Specials - Shows only on relevant days */}
       <DailySpecials isOpen={isOpen} />

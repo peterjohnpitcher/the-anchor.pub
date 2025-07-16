@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
@@ -23,31 +23,35 @@ export default function Terminal5Page() {
     <>
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/near-heathrow/terminal-5"
         title="The Closest Pub to Heathrow Terminal 5"
         description="Perfect for British Airways travelers • Free parking • Traditional British pub"
-        minHeight="min-h-[60vh]"
-      >
-        <p className="text-anchor-gold text-lg mb-4">Just 7 minutes away</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href="tel:01753682707"
-            variant="primary"
-            size="lg"
-          >
-            📞 Book a Table
-          </CallToAction>
-          
-          <CallToAction 
-            href="#directions"
-            variant="white"
-            size="lg"
-          >
-            📍 Get Directions
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        size="small"
+        tags={[
+          { label: '✈️ Just 7 minutes away', variant: 'success' },
+          { label: '🇬🇧 British Airways Terminal', variant: 'primary' }
+        ]}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="tel:01753682707"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </CallToAction>
+            
+            <CallToAction 
+              href="#directions"
+              variant="secondary"
+              size="lg"
+            >
+              📍 Get Directions
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Quick Info Cards */}
       <section className="section-spacing bg-gray-50">
