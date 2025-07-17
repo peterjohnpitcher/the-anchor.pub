@@ -54,10 +54,12 @@ export default function HomePage() {
           <Image
             src="/images/branding/the-anchor-pub-logo-white-transparent.png"
             alt="The Anchor Pub Logo"
-            width={300}
-            height={300}
+            width={320}
+            height={320}
+            sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, (max-width: 1024px) 288px, 320px"
             className="mx-auto w-48 sm:w-64 md:w-72 lg:w-80 h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
             priority
+            quality={90}
           />
         </div>
         
@@ -331,6 +333,9 @@ export default function HomePage() {
               src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"
               alt="Traditional Sunday roast at The Anchor"
               caption="Famous Sunday Roasts"
+              width={600}
+              height={600}
+              priority={false}
             />
             
             {/* Event Photo - Now Second */}
@@ -338,6 +343,9 @@ export default function HomePage() {
               src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
               alt="Entertainment at The Anchor - everyone welcome"
               caption="Saturday Night Entertainment"
+              width={600}
+              height={600}
+              priority={false}
             />
             
             {/* Garden Photo */}
@@ -346,6 +354,9 @@ export default function HomePage() {
                 src="/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg"
                 alt="Beer garden at The Anchor - plane spotting paradise"
                 caption="Beer Garden & Plane Spotting"
+                width={600}
+                height={600}
+                priority={false}
               />
             </Link>
           </div>

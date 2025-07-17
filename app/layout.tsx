@@ -96,7 +96,7 @@ const outfit = Outfit({
   subsets: ['latin'], 
   variable: '--font-outfit',
   weight: ['400', '600', '700'],
-  display: 'optional',
+  display: 'swap',
   preload: true,
   fallback: ['system-ui', '-apple-system', 'sans-serif'],
   adjustFontFallback: true,
@@ -187,25 +187,28 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#005131" />
+        {/* Inline critical CSS to prevent render blocking */}
+        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
         {/* Preconnect to optimize external resources */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         {/* Preload critical images */}
         <link 
           rel="preload" 
           as="image" 
-          href="/images/hero/the-anchor-pub-interior-atmosphere.jpg"
-          imageSrcSet="/images/hero/the-anchor-pub-interior-atmosphere.jpg?w=640 640w, /images/hero/the-anchor-pub-interior-atmosphere.jpg?w=1024 1024w, /images/hero/the-anchor-pub-interior-atmosphere.jpg?w=1920 1920w"
-          imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+          href="/images/page-headers/home/Page Headers - Homepage.jpg"
+          type="image/jpeg"
+        />
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/images/branding/the-anchor-pub-logo-white-transparent.png"
+          type="image/png"
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([organizationSchema, localBusinessSchema, webSiteSchema])
           }}
-          defer
         />
       </head>
       <body className="font-sans antialiased">

@@ -26,6 +26,43 @@ const nextConfig = {
           },
         ],
       },
+      // Add cache headers for static files
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/manifest.json',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=604800, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      {
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
       {
         source: '/(.*).js',
         headers: [
@@ -37,6 +74,15 @@ const nextConfig = {
       },
       {
         source: '/(.*).css',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/(.*).woff2',
         headers: [
           {
             key: 'Cache-Control',
@@ -93,6 +139,7 @@ const nextConfig = {
   },
   // experimental: {
   //   optimizeCss: true,
+  //   webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
   // },
   webpack: (config, { isServer }) => {
     // Optimize bundle splitting
