@@ -305,7 +305,7 @@ export default function DragShowsPage() {
                     Each month, our traditional British pub transforms into a glittering cabaret venue. 
                     The magic begins the moment you walk through our doors - rainbow flags flying proud, 
                     disco lights twinkling, and an atmosphere of pure celebration. Our drag shows have 
-                    become legendary in the local area, with people traveling from Staines, Ashford, 
+                    become legendary in the local area, with people travelling from Staines, Ashford, 
                     Heathrow, and beyond for a night they won't forget.
                   </p>
                   <p>

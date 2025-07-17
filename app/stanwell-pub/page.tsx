@@ -3,11 +3,12 @@ import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, DirectionsCard, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: `Stanwell Pub Near Me | ${BRAND.name} - Your Local Village Pub`,
@@ -83,62 +84,71 @@ export default function StanwellPubPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/stanwell-pub"
         title="Stanwell's Traditional Village Pub"
         description="The heart of the Stanwell community since generations"
+        size="medium"
         showStatusBar={true}
-      >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href={`tel:${CONTACT.phone}`}
-            variant="primary"
-            size="lg"
-          >
-            📞 Call Us
-          </CallToAction>
-          <CallToAction 
-            href="/food-menu"
-            variant="secondary"
-            size="lg"
-          >
-            🍽️ View Menu
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href={`tel:${CONTACT.phone}`}
+              variant="primary"
+              size="lg"
+            >
+              📞 Call Us
+            </CallToAction>
+            <CallToAction 
+              href="/food-menu"
+              variant="secondary"
+              size="lg"
+            >
+              🍽️ View Menu
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Welcome Section */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-6">
-              Welcome to Your Local Stanwell Pub
-            </h2>
-            <p className="text-xl text-gray-700 mb-8">
-              Located in the heart of Stanwell Moor, The Anchor has been serving the Stanwell 
-              community for generations. We're more than just a pub - we're where neighbors become 
-              friends and visitors become regulars.
-            </p>
+            <SectionHeader
+              title="Welcome to Your Local Stanwell Pub"
+              subtitle="Located in the heart of Stanwell Moor, The Anchor has been serving the Stanwell community for generations. We're more than just a pub - we're where neighbors become friends and visitors become regulars."
+            />
             
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">🏘️</div>
-                <h3 className="font-bold text-lg mb-2">Village Heart</h3>
-                <p className="text-gray-700">The social hub of Stanwell Moor, where locals gather daily</p>
-              </div>
-              
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">🍺</div>
-                <h3 className="font-bold text-lg mb-2">Traditional Values</h3>
-                <p className="text-gray-700">Proper British pub with real ales and honest food</p>
-              </div>
-              
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">👨‍👩‍👧‍👦</div>
-                <h3 className="font-bold text-lg mb-2">Family Friendly</h3>
-                <p className="text-gray-700">Children and dogs always welcome in our community pub</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🏘️",
+                  title: "Village Heart",
+                  description: "The social hub of Stanwell Moor, where locals gather daily",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "🍺",
+                  title: "Traditional Values",
+                  description: "Proper British pub with real ales and honest food",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "👨‍👩‍👧‍👦",
+                  title: "Family Friendly",
+                  description: "Children and dogs always welcome in our community pub",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                }
+              ]}
+              className="mb-8"
+            />
           </div>
         </div>
       </section>
@@ -147,9 +157,9 @@ export default function StanwellPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Why Stanwell Residents Choose The Anchor
-            </h2>
+            <SectionHeader
+              title="Why Stanwell Residents Choose The Anchor"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -227,9 +237,9 @@ export default function StanwellPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Stanwell's Favorite Pub Food
-            </h2>
+            <SectionHeader
+              title="Stanwell's Favorite Pub Food"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-amber-50 rounded-xl p-6">
@@ -270,9 +280,9 @@ export default function StanwellPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Getting to The Anchor from Stanwell
-            </h2>
+            <SectionHeader
+              title="Getting to The Anchor from Stanwell"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6">
@@ -340,9 +350,9 @@ export default function StanwellPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Part of the Stanwell Community
-            </h2>
+            <SectionHeader
+              title="Part of the Stanwell Community"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="text-left">
@@ -380,9 +390,9 @@ export default function StanwellPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Stanwell Pub Opening Hours
-            </h2>
+            <SectionHeader
+              title="Stanwell Pub Opening Hours"
+            />
             <BusinessHours />
           </div>
         </div>
@@ -416,37 +426,24 @@ export default function StanwellPubPage() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Visit Stanwell's Favorite Local Pub
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Join your neighbors at The Anchor - where Stanwell comes together
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="secondary"
-              size="lg"
-              className="flex-1"
-            >
-              📞 Call Us
-            </CallToAction>
-            <CallToAction 
-              href="/whats-on"
-              variant="primary"
-              size="lg"
-              className="flex-1 bg-white text-anchor-green hover:bg-gray-100"
-            >
-              📅 What's On
-            </CallToAction>
-          </div>
-          <p className="mt-6 text-sm text-white/80">
-            {CONTACT.address.street}, Stanwell Moor • Free Parking • Dog Friendly
-          </p>
-        </div>
-      </section>
+      <CTASection
+        title="Visit Stanwell's Favorite Local Pub"
+        description="Join your neighbors at The Anchor - where Stanwell comes together"
+        buttons={[
+          {
+            text: "📞 Call Us",
+            href: `tel:${CONTACT.phone}`,
+            variant: "secondary"
+          },
+          {
+            text: "📅 What's On",
+            href: "/whats-on",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+        footer={`${CONTACT.address.street}, Stanwell Moor • Free Parking • Dog Friendly`}
+      />
     </>
   )
 }

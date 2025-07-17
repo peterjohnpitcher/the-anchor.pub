@@ -2,10 +2,11 @@ import Image from 'next/image'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: `Staines Pub | ${BRAND.nameWithLocation} | Traditional British Pub Near Staines`,
@@ -69,111 +70,78 @@ export default function StainesPubPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/staines-pub"
         title="Your Local Staines Pub"
         description="Traditional British pub serving the Staines community with great food, entertainment, and a warm welcome"
-        minHeight="min-h-[60vh]"
+        size="medium"
         showStatusBar={true}
-      >
-        <div className="bg-anchor-gold text-white font-semibold text-lg px-6 py-2 rounded-full inline-block mb-6">
-          📍 Just 8 Minutes from Staines
-        </div>
-        
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
-            📞 Call {CONTACT.phone}
-          </CallToAction>
-          <CallToAction href="/food-menu" variant="secondary" size="lg">
-            View Our Menu
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        tags={[
+          { label: "📍 Just 8 Minutes from Staines", variant: "warning" }
+        ]}
+        cta={
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
+              📞 Call {CONTACT.phone}
+            </CallToAction>
+            <CallToAction href="/food-menu" variant="secondary" size="lg">
+              View Our Menu
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-4">
-              Why Staines Locals Love The Anchor
-            </h2>
-            <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-              Just a short drive from Staines town centre, we're the perfect escape for a proper pub experience
-            </p>
+            <SectionHeader
+              title="Why Staines Locals Love The Anchor"
+              subtitle="Just a short drive from Staines town centre, we're the perfect escape for a proper pub experience"
+              className="text-center mb-12"
+            />
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-anchor-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🚗</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Easy Access from Staines</h3>
-                <p className="text-gray-700">
-                  8 minutes via A30<br/>
-                  Free parking for {PARKING.capacity} cars<br/>
-                  Regular bus service
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-anchor-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🍽️</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Famous Sunday Roasts</h3>
-                <p className="text-gray-700">
-                  Our renowned roasts<br/>
-                  Pre-order by Saturday 1pm<br/>
-                  Regular menu also available
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-anchor-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🎭</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Unique Entertainment</h3>
-                <p className="text-gray-700">
-                  Drag shows monthly<br/>
-                  Quiz nights monthly<br/>
-                  Live sports coverage
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-anchor-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🍕</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">BOGOF Pizza Deal</h3>
-                <p className="text-gray-700">
-                  Every Tuesday & Wednesday<br/>
-                  Buy one get one free<br/>
-                  All stone-baked pizzas
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-anchor-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🌳</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Beer Garden Paradise</h3>
-                <p className="text-gray-700">
-                  Dog-friendly outdoor space<br/>
-                  Heathrow plane spotting<br/>
-                  Covered seating available
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-anchor-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">👥</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Community Hub</h3>
-                <p className="text-gray-700">
-                  Private function room<br/>
-                  Birthday parties welcome<br/>
-                  Corporate events catered
-                </p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🚗",
+                  title: "Easy Access from Staines",
+                  description: `8 minutes via A30\nFree parking for ${PARKING.capacity} cars\nRegular bus service`,
+                  className: "text-center"
+                },
+                {
+                  icon: "🍽️",
+                  title: "Famous Sunday Roasts",
+                  description: "Our renowned roasts\nPre-order by Saturday 1pm\nRegular menu also available",
+                  className: "text-center"
+                },
+                {
+                  icon: "🎭",
+                  title: "Unique Entertainment",
+                  description: "Drag shows monthly\nQuiz nights monthly\nLive sports coverage",
+                  className: "text-center"
+                },
+                {
+                  icon: "🍕",
+                  title: "BOGOF Pizza Deal",
+                  description: "Every Tuesday & Wednesday\nBuy one get one free\nAll stone-baked pizzas",
+                  className: "text-center"
+                },
+                {
+                  icon: "🌳",
+                  title: "Beer Garden Paradise",
+                  description: "Dog-friendly outdoor space\nHeathrow plane spotting\nCovered seating available",
+                  className: "text-center"
+                },
+                {
+                  icon: "👥",
+                  title: "Community Hub",
+                  description: "Private function room\nBirthday parties welcome\nCorporate events catered",
+                  className: "text-center"
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -182,43 +150,68 @@ export default function StainesPubPage() {
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-12">
-              Getting Here from Staines
-            </h2>
+            <SectionHeader
+              title="Getting Here from Staines"
+              className="text-center mb-12"
+            />
             
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl p-8 shadow-sm">
-                <h3 className="text-xl font-bold text-anchor-green mb-4">🚗 By Car (8 minutes)</h3>
-                <ol className="space-y-2 text-gray-700">
-                  <li>1. Head west on the A30 from Staines town centre</li>
-                  <li>2. Continue through Stanwell village</li>
-                  <li>3. Turn left onto Horton Road</li>
-                  <li>4. The Anchor is on your right with free parking</li>
-                </ol>
-              </div>
-              
-              <div className="bg-white rounded-xl p-8 shadow-sm">
-                <h3 className="text-xl font-bold text-anchor-green mb-4">🚌 By Public Transport</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Bus routes from Staines Bus Station</li>
-                  <li>• Regular services throughout the day</li>
-                  <li>• Stop: Horton Road/The Anchor</li>
-                  <li>• Journey time: 15-20 minutes</li>
-                </ul>
-              </div>
-            </div>
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "🚗 By Car (8 minutes)",
+                  content: (
+                    <ol className="space-y-2 list-decimal list-inside">
+                      <li>Head west on the A30 from Staines town centre</li>
+                      <li>Continue through Stanwell village</li>
+                      <li>Turn left onto Horton Road</li>
+                      <li>The Anchor is on your right with free parking</li>
+                    </ol>
+                  ),
+                  variant: "colored",
+                  color: "bg-amber-50"
+                },
+                {
+                  title: "🚌 By Public Transport",
+                  content: (
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2">•</span>
+                        Bus routes from Staines Bus Station
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2">•</span>
+                        Regular services throughout the day
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2">•</span>
+                        Stop: Horton Road/The Anchor
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-blue-500 mr-2">•</span>
+                        Journey time: 15-20 minutes
+                      </li>
+                    </ul>
+                  ),
+                  variant: "colored",
+                  color: "bg-blue-50"
+                }
+              ]}
+            />
             
-            <div className="mt-8 bg-anchor-green text-white rounded-xl p-6 text-center">
-              <p className="text-lg font-semibold mb-2">
-                Also conveniently located near:
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 text-white/90">
-                <span>• Heathrow T5: {HEATHROW_TIMES.terminal5} mins</span>
-                <span>• Ashford: 10 mins</span>
-                <span>• Sunbury: 15 mins</span>
-                <span>• Feltham: 12 mins</span>
-              </div>
-            </div>
+            <AlertBox
+              variant="success"
+              title="Also conveniently located near:"
+              className="mt-8 text-center"
+              content={
+                <div className="flex flex-wrap justify-center gap-4">
+                  <span>• Heathrow T5: {HEATHROW_TIMES.terminal5} mins</span>
+                  <span>• Ashford: 10 mins</span>
+                  <span>• Sunbury: 15 mins</span>
+                  <span>• Feltham: 12 mins</span>
+                </div>
+              }
+            />
           </div>
         </div>
       </section>
@@ -227,9 +220,10 @@ export default function StainesPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-12">
-              What's On at Your Staines Local
-            </h2>
+            <SectionHeader
+              title="What's On at Your Staines Local"
+              className="text-center mb-12"
+            />
             
             <div className="space-y-6">
               <div className="border-l-4 border-anchor-gold bg-anchor-cream/50 p-6 rounded-r-lg">
@@ -268,13 +262,94 @@ export default function StainesPubPage() {
         </div>
       </section>
 
+      {/* Event Venue Section */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="Popular Venue for Staines Events"
+              subtitle="Host your special occasion at The Anchor - just 8 minutes from Staines"
+            />
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Perfect for Staines Residents</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Quick journey</strong> - Just 8 minutes from Staines town centre</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Free parking</strong> - No expensive town centre rates</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Competitive prices</strong> - Better value than Staines venues</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Flexible spaces</strong> - From intimate gatherings to large parties</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-anchor-cream rounded-xl p-6">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Popular Events from Staines</h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-anchor-gold mb-1">🎉 Birthday Parties</h4>
+                    <p className="text-sm text-gray-700">Celebrate milestones with custom packages</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-anchor-gold mb-1">💼 Corporate Events</h4>
+                    <p className="text-sm text-gray-700">Team meetings and Christmas parties</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-anchor-gold mb-1">💑 Wedding Receptions</h4>
+                    <p className="text-sm text-gray-700">Beautiful venue for your special day</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-anchor-gold mb-1">🕊️ Memorial Services</h4>
+                    <p className="text-sm text-gray-700">Respectful space for celebrations of life</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-blue-50 rounded-xl p-6 text-center">
+              <p className="text-lg text-gray-800 mb-4">
+                <strong>No venue hire fee!</strong> Just minimum spend requirements. 
+                Most Staines groups easily meet minimums with food and drinks.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <CallToAction href="/book-event" variant="primary" size="md">
+                  View Event Options
+                </CallToAction>
+                <CallToAction href="tel:01753682707" variant="secondary" size="md">
+                  📞 Quick Enquiry
+                </CallToAction>
+                <CallToAction 
+                  href="https://wa.me/441753682707?text=Hi,%20I'm%20from%20Staines%20and%20interested%20in%20venue%20hire" 
+                  variant="secondary" 
+                  size="md"
+                >
+                  💬 WhatsApp
+                </CallToAction>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Opening Hours */}
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-8">
-              Opening Hours
-            </h2>
+            <SectionHeader
+              title="Opening Hours"
+              className="text-center mb-8"
+            />
             <BusinessHours />
           </div>
         </div>
@@ -300,36 +375,31 @@ export default function StainesPubPage() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Visit Staines' Favourite Local Pub
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Just 8 minutes from Staines town centre with free parking
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <CallToAction href={CONTACT.phoneHref} variant="secondary" size="lg">
-              📞 Book Your Table
-            </CallToAction>
-            <CallToAction 
-              href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" 
-              variant="outline" 
-              size="lg"
-              className="!text-white !border-white hover:!bg-white hover:!text-anchor-green"
-            >
-              📍 Get Directions from Staines
-            </CallToAction>
-          </div>
-          
-          <div className="mt-8 text-white/80">
-            <p className="font-semibold mb-2">Find us at:</p>
-            <address className="not-italic">
-              {CONTACT.address.street}, {CONTACT.address.town}, {CONTACT.address.county} {CONTACT.address.postcode}
-            </address>
-          </div>
+      <CTASection
+        title="Visit Staines' Favourite Local Pub"
+        description="Just 8 minutes from Staines town centre with free parking"
+        buttons={[
+          {
+            text: "📞 Book Your Table",
+            href: CONTACT.phoneHref,
+            variant: "secondary"
+          },
+          {
+            text: "📍 Get Directions from Staines",
+            href: "https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor",
+            variant: "outline",
+            className: "!text-white !border-white hover:!bg-white hover:!text-anchor-green"
+          }
+        ]}
+        variant="green"
+      >
+        <div className="mt-6 text-white/90">
+          <p className="font-semibold mb-2">Find us at:</p>
+          <address className="not-italic">
+            {CONTACT.address.street}, {CONTACT.address.town}, {CONTACT.address.county} {CONTACT.address.postcode}
+          </address>
         </div>
-      </section>
+      </CTASection>
     </>
   )
 }

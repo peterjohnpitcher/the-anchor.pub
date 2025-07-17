@@ -16,6 +16,3 @@ export { QuickInfoGrid } from '../QuickInfoGrid'
 
 // Alert/Notification Components
 export { AlertBox } from '../AlertBox'
-
-// Re-export existing UI components
-export { PageHeaderWrapper } from './PageHeaderWrapper'

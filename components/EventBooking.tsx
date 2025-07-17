@@ -6,6 +6,7 @@ import type { Event } from '@/lib/api'
 import { DebouncedInput } from './DebouncedInput'
 import { analytics } from '@/lib/analytics'
 import { EventBookingErrorBoundary } from './EventBookingErrorBoundary'
+import { trackEventBookingStart, trackFormStart } from '@/lib/gtm-events'
 
 interface EventBookingProps {
   event: Event
@@ -78,6 +79,13 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
     setIsBooking(true)
     setStatusMessage('Processing your booking request...')
     setRetryCount(0)
+    
+    // Track booking start for remarketing
+    trackEventBookingStart({
+      eventId: event.id,
+      eventName: event.name,
+      eventPrice: event.offers?.price ? parseFloat(event.offers.price) : undefined
+    })
 
     // Create abort controller for this request
     abortControllerRef.current = new AbortController()
@@ -239,6 +247,10 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
             aria-describedby={error ? 'phone-error' : 'phone-help'}
             aria-invalid={!!error}
             aria-required="true"
+            onFocus={() => {
+              // Track form interaction start
+              trackFormStart(`Event Booking - ${event.name}`)
+            }}
           />
           <p id="phone-help" className="text-xs text-gray-500 mt-1">
             We'll send a confirmation link to this number

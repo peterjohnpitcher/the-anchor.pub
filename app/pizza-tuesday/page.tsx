@@ -4,10 +4,11 @@ import { Metadata } from 'next'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: `Pizza Tuesday BOGOF Deal Near Me | ${BRAND.name} Stanwell Moor`,
@@ -114,17 +115,16 @@ export default function PizzaTuesdayPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/pizza-tuesday"
         title="Pizza Tuesday - BOGOF All Day!"
         description="Buy One Get One FREE on ALL pizzas, every Tuesday"
-        minHeight="min-h-[70vh]"
-      >
-        <div className="flex flex-col items-center">
-          <p className="text-amber-300 text-xl mb-4">Available 6pm-9pm during kitchen hours</p>
-          <div className="bg-red-600 text-white px-6 py-3 rounded-full text-2xl font-bold mb-6">
-            2 FOR 1 ON ALL PIZZAS
-          </div>
+        size="large"
+        tags={[
+          { label: "Available 6pm-9pm during kitchen hours" },
+          { label: "2 FOR 1 ON ALL PIZZAS", variant: "danger" }
+        ]}
+        cta={
           <div className="flex flex-col sm:flex-row gap-4">
             <CallToAction 
               href={`tel:${CONTACT.phone}`}
@@ -141,8 +141,8 @@ export default function PizzaTuesdayPage() {
               🍕 View Pizza Menu
             </CallToAction>
           </div>
-        </div>
-      </PageHeaderWrapper>
+        }
+      />
 
       {/* Status Bar */}
       <StatusBar />
@@ -151,9 +151,9 @@ export default function PizzaTuesdayPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-8">
-              Every Tuesday is Pizza Day!
-            </h2>
+            <SectionHeader
+              title="Every Tuesday is Pizza Day!"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-red-50 rounded-2xl p-8">
@@ -217,9 +217,9 @@ export default function PizzaTuesdayPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Our Stone-Baked Pizza Selection
-            </h2>
+            <SectionHeader
+              title="Our Stone-Baked Pizza Selection"
+            />
             
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white rounded-lg p-6 shadow-sm">
@@ -279,29 +279,40 @@ export default function PizzaTuesdayPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Why Tuesday Pizza Night at The Anchor?
-            </h2>
+            <SectionHeader
+              title="Why Tuesday Pizza Night at The Anchor?"
+            />
             
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-amber-50 rounded-xl p-6">
-                <div className="text-4xl mb-3">🍕</div>
-                <h3 className="font-bold text-lg mb-2">Authentic Stone-Baked</h3>
-                <p className="text-gray-700">Traditional oven, perfect crust every time</p>
-              </div>
-              
-              <div className="bg-amber-50 rounded-xl p-6">
-                <div className="text-4xl mb-3">🚗</div>
-                <h3 className="font-bold text-lg mb-2">Easy Access</h3>
-                <p className="text-gray-700">Free parking, 7 mins from Heathrow</p>
-              </div>
-              
-              <div className="bg-amber-50 rounded-xl p-6">
-                <div className="text-4xl mb-3">👨‍👩‍👧‍👦</div>
-                <h3 className="font-bold text-lg mb-2">Family Friendly</h3>
-                <p className="text-gray-700">Kids love our 8" pizzas, perfect size!</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🍕",
+                  title: "Authentic Stone-Baked",
+                  description: "Traditional oven, perfect crust every time",
+                  variant: "colored",
+                  color: "bg-amber-50",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "🚗",
+                  title: "Easy Access",
+                  description: "Free parking, 7 mins from Heathrow",
+                  variant: "colored",
+                  color: "bg-amber-50",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "👨‍👩‍👧‍👦",
+                  title: "Family Friendly",
+                  description: "Kids love our 8\" pizzas, perfect size!",
+                  variant: "colored",
+                  color: "bg-amber-50",
+                  className: "rounded-xl p-6 text-center"
+                }
+              ]}
+              className="mb-8"
+            />
             
             <p className="text-lg text-gray-700 mb-6">
               Skip the expensive chain restaurants and enjoy authentic Italian-style pizzas 
@@ -315,42 +326,54 @@ export default function PizzaTuesdayPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Perfect Pizza Location Near Heathrow
-            </h2>
+            <SectionHeader
+              title="Perfect Pizza Location Near Heathrow"
+            />
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="text-3xl mb-3">✈️</div>
-                <h3 className="font-semibold mb-2">Terminal 5</h3>
-                <p className="text-gray-600">Just 7 minutes</p>
-              </div>
-              
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="text-3xl mb-3">🏘️</div>
-                <h3 className="font-semibold mb-2">Stanwell Moor</h3>
-                <p className="text-gray-600">Your local pizzeria</p>
-              </div>
-              
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="text-3xl mb-3">🚗</div>
-                <h3 className="font-semibold mb-2">M25 Junction 14</h3>
-                <p className="text-gray-600">5 minutes away</p>
-              </div>
-              
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="text-3xl mb-3">🚌</div>
-                <h3 className="font-semibold mb-2">Bus Route 442</h3>
-                <p className="text-gray-600">Stops outside</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={4}
+              features={[
+                {
+                  icon: "✈️",
+                  title: "Terminal 5",
+                  description: "Just 7 minutes",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                },
+                {
+                  icon: "🏘️",
+                  title: "Stanwell Moor",
+                  description: "Your local pizzeria",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                },
+                {
+                  icon: "🚗",
+                  title: "M25 Junction 14",
+                  description: "5 minutes away",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                },
+                {
+                  icon: "🚌",
+                  title: "Bus Route 442",
+                  description: "Stops outside",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                }
+              ]}
+            />
             
-            <div className="mt-8 bg-green-50 rounded-xl p-6 text-center">
-              <p className="text-lg text-green-800">
-                <span className="font-bold">Save £12.50!</span> We're outside the ULEZ zone - 
-                perfect for diners coming from London
-              </p>
-            </div>
+            <AlertBox
+              variant="success"
+              title="Save £12.50!"
+              className="mt-8 text-center"
+              content={
+                <p className="text-lg">
+                  We're outside the ULEZ zone - perfect for diners coming from London
+                </p>
+              }
+            />
           </div>
         </div>
       </section>
@@ -387,37 +410,24 @@ export default function PizzaTuesdayPage() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-red-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready for Pizza Tuesday?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Book your table now and enjoy 2-for-1 pizzas this Tuesday!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="secondary"
-              size="lg"
-              className="flex-1"
-            >
-              📞 Call to Book
-            </CallToAction>
-            <CallToAction 
-              href="/food/pizza"
-              variant="primary"
-              size="lg"
-              className="flex-1 bg-white text-red-600 hover:bg-gray-100"
-            >
-              🍕 View Menu
-            </CallToAction>
-          </div>
-          <p className="mt-6 text-sm text-white/80">
-            {BRAND.name} • {CONTACT.address.street}, {CONTACT.address.town} • Free Parking
-          </p>
-        </div>
-      </section>
+      <CTASection
+        title="Ready for Pizza Tuesday?"
+        description="Book your table now and enjoy 2-for-1 pizzas this Tuesday!"
+        buttons={[
+          {
+            text: "📞 Call to Book",
+            href: `tel:${CONTACT.phone}`,
+            variant: "secondary"
+          },
+          {
+            text: "🍕 View Menu",
+            href: "/food/pizza",
+            variant: "white"
+          }
+        ]}
+        variant="red"
+        footer={`${BRAND.name} • ${CONTACT.address.street}, ${CONTACT.address.town} • Free Parking`}
+      />
     </>
   )
 }

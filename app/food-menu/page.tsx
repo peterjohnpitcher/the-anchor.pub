@@ -9,6 +9,7 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { getBusinessHours } from '@/lib/api'
 import { Metadata } from 'next'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Pub Food',
@@ -134,39 +135,55 @@ export default async function FoodMenuPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Perfect Pre-Flight Meal - 5 Minutes from Heathrow
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-gray-50 rounded-lg p-8">
-                <h3 className="font-bold text-xl text-anchor-green mb-4">✈️ Quick Access from All Terminals</h3>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="font-semibold mr-2">T2 & T3:</span>
-                    <span>5 minutes by taxi</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="font-semibold mr-2">T4:</span>
-                    <span>7 minutes via Southern Perimeter Road</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="font-semibold mr-2">T5:</span>
-                    <span>8 minutes via M25</span>
-                  </li>
-                </ul>
-                <p className="text-sm text-gray-600 mt-4">Free parking available - no airport fees!</p>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-8">
-                <h3 className="font-bold text-xl text-anchor-green mb-4">🍽️ Why Eat at the Airport?</h3>
-                <ul className="space-y-3 text-gray-700">
-                  <li>• Proper portions at pub prices</li>
-                  <li>• Relaxed atmosphere without the rush</li>
-                  <li>• Real food, freshly cooked to order</li>
-                  <li>• Free WiFi to check flight status</li>
-                </ul>
-                <p className="text-sm text-gray-600 mt-4">Most meals served within 15 minutes</p>
-              </div>
-            </div>
+            <SectionHeader
+              title="Perfect Pre-Flight Meal - 5 Minutes from Heathrow"
+            />
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "✈️ Quick Access from All Terminals",
+                  content: (
+                    <>
+                      <ul className="space-y-3 text-gray-700">
+                        <li className="flex items-start">
+                          <span className="font-semibold mr-2">T2 & T3:</span>
+                          <span>5 minutes by taxi</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="font-semibold mr-2">T4:</span>
+                          <span>7 minutes via Southern Perimeter Road</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="font-semibold mr-2">T5:</span>
+                          <span>8 minutes via M25</span>
+                        </li>
+                      </ul>
+                      <p className="text-sm text-gray-600 mt-4">Free parking available - no airport fees!</p>
+                    </>
+                  ),
+                  variant: "colored",
+                  color: "bg-gray-50 rounded-lg p-8"
+                },
+                {
+                  title: "🍽️ Why Eat at the Airport?",
+                  content: (
+                    <>
+                      <ul className="space-y-3 text-gray-700">
+                        <li>• Proper portions at pub prices</li>
+                        <li>• Relaxed atmosphere without the rush</li>
+                        <li>• Real food, freshly cooked to order</li>
+                        <li>• Free WiFi to check flight status</li>
+                      </ul>
+                      <p className="text-sm text-gray-600 mt-4">Most meals served within 15 minutes</p>
+                    </>
+                  ),
+                  variant: "colored",
+                  color: "bg-gray-50 rounded-lg p-8"
+                }
+              ]}
+              className="mb-8"
+            />
           </div>
         </div>
       </section>
@@ -175,30 +192,36 @@ export default async function FoodMenuPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              Staines' Favourite Traditional Pub Food
-            </h2>
-            <p className="text-lg text-gray-700 mb-8">
-              Serving Stanwell Moor, Staines, and surrounding areas with proper British pub grub since opening our doors. 
-              Where Heathrow workers grab lunch, families gather for Sunday roasts, and locals know they'll always get a warm welcome.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <div className="text-3xl mb-3">🐟</div>
-                <h3 className="font-bold text-lg mb-2">Famous Fish & Chips</h3>
-                <p className="text-gray-700">Beer-battered to order, served with proper mushy peas</p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <div className="text-3xl mb-3">🥧</div>
-                <h3 className="font-bold text-lg mb-2">Homestyle Pies</h3>
-                <p className="text-gray-700">Beef & ale, chicken & mushroom - proper comfort food</p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <div className="text-3xl mb-3">🍖</div>
-                <h3 className="font-bold text-lg mb-2">Sunday Roasts</h3>
-                <p className="text-gray-700">The talk of Stanwell Moor - book early to avoid disappointment</p>
-              </div>
-            </div>
+            <SectionHeader
+              title="Staines' Favourite Traditional Pub Food"
+              subtitle="Serving Stanwell Moor, Staines, and surrounding areas with proper British pub grub since opening our doors. Where Heathrow workers grab lunch, families gather for Sunday roasts, and locals know they'll always get a warm welcome."
+            />
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🐟",
+                  title: "Famous Fish & Chips",
+                  description: "Beer-battered to order, served with proper mushy peas",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                },
+                {
+                  icon: "🥧",
+                  title: "Homestyle Pies",
+                  description: "Beef & ale, chicken & mushroom - proper comfort food",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                },
+                {
+                  icon: "🍖",
+                  title: "Sunday Roasts",
+                  description: "The talk of Stanwell Moor - book early to avoid disappointment",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -207,43 +230,54 @@ export default async function FoodMenuPage() {
       <section className="section-spacing bg-anchor-gold/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Perfect Pairings - Food & Drinks Together
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-bold text-xl text-anchor-green mb-4">🍔 With Our Burgers</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li><strong>Beef Burger:</strong> Pairs perfectly with a pint of Stella or Carlsberg</li>
-                  <li><strong>Spicy Chicken:</strong> Cool it down with a crisp Birra Moretti</li>
-                  <li><strong>Veggie Stack:</strong> Try with our refreshing Aspall cider</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold text-xl text-anchor-green mb-4">🍕 With Our Pizzas</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li><strong>Fully Loaded:</strong> Italian Peroni is the classic choice</li>
-                  <li><strong>Nice & Spicy:</strong> Smirnoff & lemonade cuts through the heat</li>
-                  <li><strong>Garden Club:</strong> Light Pinot Grigio complements perfectly</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold text-xl text-anchor-green mb-4">🐟 With Fish & Chips</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li><strong>Classic pairing:</strong> Greene King IPA or Abbot Ale</li>
-                  <li><strong>Lighter option:</strong> Sauvignon Blanc cuts through the batter</li>
-                  <li><strong>Traditional choice:</strong> A proper cup of tea!</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold text-xl text-anchor-green mb-4">🥘 With Sunday Roast</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li><strong>Beef:</strong> Full-bodied Shiraz or a pint of bitter</li>
-                  <li><strong>Chicken:</strong> Chardonnay or a smooth Carlsberg</li>
-                  <li><strong>Lamb:</strong> Malbec brings out the flavours beautifully</li>
-                </ul>
-              </div>
-            </div>
+            <SectionHeader
+              title="Perfect Pairings - Food & Drinks Together"
+            />
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "🍔 With Our Burgers",
+                  content: (
+                    <ul className="space-y-2 text-gray-700">
+                      <li><strong>Beef Burger:</strong> Pairs perfectly with a pint of Stella or Carlsberg</li>
+                      <li><strong>Spicy Chicken:</strong> Cool it down with a crisp Birra Moretti</li>
+                      <li><strong>Veggie Stack:</strong> Try with our refreshing Aspall cider</li>
+                    </ul>
+                  )
+                },
+                {
+                  title: "🍕 With Our Pizzas",
+                  content: (
+                    <ul className="space-y-2 text-gray-700">
+                      <li><strong>Fully Loaded:</strong> Italian Peroni is the classic choice</li>
+                      <li><strong>Nice & Spicy:</strong> Smirnoff & lemonade cuts through the heat</li>
+                      <li><strong>Garden Club:</strong> Light Pinot Grigio complements perfectly</li>
+                    </ul>
+                  )
+                },
+                {
+                  title: "🐟 With Fish & Chips",
+                  content: (
+                    <ul className="space-y-2 text-gray-700">
+                      <li><strong>Classic pairing:</strong> Greene King IPA or Abbot Ale</li>
+                      <li><strong>Lighter option:</strong> Sauvignon Blanc cuts through the batter</li>
+                      <li><strong>Traditional choice:</strong> A proper cup of tea!</li>
+                    </ul>
+                  )
+                },
+                {
+                  title: "🥘 With Sunday Roast",
+                  content: (
+                    <ul className="space-y-2 text-gray-700">
+                      <li><strong>Beef:</strong> Full-bodied Shiraz or a pint of bitter</li>
+                      <li><strong>Chicken:</strong> Chardonnay or a smooth Carlsberg</li>
+                      <li><strong>Lamb:</strong> Malbec brings out the flavours beautifully</li>
+                    </ul>
+                  )
+                }
+              ]}
+            />
             <p className="text-center text-gray-600 mt-8">
               Ask our staff for recommendations - they know their stuff!
             </p>
@@ -260,15 +294,19 @@ export default async function FoodMenuPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-8">
-              <h3 className="font-bold text-lg text-anchor-green mb-2">Allergen Information</h3>
-              <p className="text-gray-700">
-                All our dishes are prepared in a single kitchen where allergens are present. While we take every 
-                precaution, we cannot guarantee dishes are free from cross-contamination. If you have allergies or 
-                dietary requirements, please speak to a member of our team before ordering. We use vegetable oil 
-                where necessary to keep dishes light yet warming during colder months.
-              </p>
-            </div>
+            <AlertBox
+              variant="warning"
+              title="Allergen Information"
+              className="mb-8"
+              content={
+                <p className="text-gray-700">
+                  All our dishes are prepared in a single kitchen where allergens are present. While we take every 
+                  precaution, we cannot guarantee dishes are free from cross-contamination. If you have allergies or 
+                  dietary requirements, please speak to a member of our team before ordering. We use vegetable oil 
+                  where necessary to keep dishes light yet warming during colder months.
+                </p>
+              }
+            />
           </div>
         </div>
       </section>
@@ -317,32 +355,23 @@ export default async function FoodMenuPage() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Hungry? Book Your Table Now
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Our kitchen gets busy, especially on weekends. Book ahead to avoid disappointment!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 Call: 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="/drinks"
-              variant="white"
-              size="lg"
-            >
-              🍺 View Drinks Menu
-            </CallToAction>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Hungry? Book Your Table Now"
+        description="Our kitchen gets busy, especially on weekends. Book ahead to avoid disappointment!"
+        buttons={[
+          {
+            text: "📞 Call: 01753 682707",
+            href: "tel:01753682707",
+            variant: "white"
+          },
+          {
+            text: "🍺 View Drinks Menu",
+            href: "/drinks",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+      />
 
       {/* JSON-LD Schema */}
       <script

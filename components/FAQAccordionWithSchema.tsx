@@ -66,7 +66,7 @@ export function FAQAccordionWithSchema({
                 >
                   <button
                     onClick={() => toggleQuestion(index)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:bg-gray-50 focus:ring-2 focus:ring-anchor-gold focus:ring-inset"
                     aria-expanded={openIndex === index}
                     aria-controls={`faq-answer-${index}`}
                   >

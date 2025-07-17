@@ -4,6 +4,7 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList, DirectionsCard } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Airport | The Anchor Stanwell Moor | 7 Minutes from All Terminals',
@@ -57,15 +58,10 @@ export default function NearHeathrowPage() {
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Why Travelers Love The Anchor
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Whether you&apos;re killing time before a flight, meeting arriving passengers, 
-              or just landed and need a proper British welcome
-            </p>
-          </div>
+          <SectionHeader
+            title="Why Travelers Love The Anchor"
+            subtitle="Whether you're killing time before a flight, meeting arriving passengers, or just landed and need a proper British welcome"
+          />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
@@ -129,14 +125,10 @@ export default function NearHeathrowPage() {
       {/* Terminal-Specific Directions */}
       <section id="terminals" className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Directions from Each Terminal
-            </h2>
-            <p className="text-xl text-gray-700">
-              We&apos;re the closest traditional pub to all Heathrow terminals
-            </p>
-          </div>
+          <SectionHeader
+            title="Directions from Each Terminal"
+            subtitle="We're the closest traditional pub to all Heathrow terminals"
+          />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Terminal 2 */}
@@ -301,30 +293,37 @@ export default function NearHeathrowPage() {
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              🛩️ Unique Plane Spotting Experience
-            </h2>
-            <p className="text-xl text-gray-700 mb-8">
-              Our beer garden sits directly under the Heathrow flight path - watch aircraft 
-              pass overhead every 90 seconds while enjoying your meal or drink.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white rounded-xl p-6">
-                <div className="text-3xl mb-3">✈️</div>
-                <h3 className="font-bold text-lg mb-2">Every 90 Seconds</h3>
-                <p className="text-gray-600">Constant stream of aircraft during peak times</p>
-              </div>
-              <div className="bg-white rounded-xl p-6">
-                <div className="text-3xl mb-3">📸</div>
-                <h3 className="font-bold text-lg mb-2">Photo Opportunities</h3>
-                <p className="text-gray-600">Perfect for aviation photographers</p>
-              </div>
-              <div className="bg-white rounded-xl p-6">
-                <div className="text-3xl mb-3">🍺</div>
-                <h3 className="font-bold text-lg mb-2">Comfort & Service</h3>
-                <p className="text-gray-600">Full bar and food service to your table</p>
-              </div>
-            </div>
+            <SectionHeader
+              title="🛩️ Unique Plane Spotting Experience"
+              subtitle="Our beer garden sits directly under the Heathrow flight path - watch aircraft pass overhead every 90 seconds while enjoying your meal or drink."
+            />
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "✈️",
+                  title: "Every 90 Seconds",
+                  description: "Constant stream of aircraft during peak times",
+                  variant: "default",
+                  className: "bg-white rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "📸",
+                  title: "Photo Opportunities",
+                  description: "Perfect for aviation photographers",
+                  variant: "default",
+                  className: "bg-white rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "🍺",
+                  title: "Comfort & Service",
+                  description: "Full bar and food service to your table",
+                  variant: "default",
+                  className: "bg-white rounded-xl p-6 text-center"
+                }
+              ]}
+              className="mb-8"
+            />
             <CallToAction href="/beer-garden" variant="primary" size="lg">
               Discover Our Plane Spotting Beer Garden
             </CallToAction>
@@ -335,14 +334,10 @@ export default function NearHeathrowPage() {
       {/* Facilities for Travelers */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Everything Travelers Need
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              From entertainment to remote work facilities - we've got you covered
-            </p>
-          </div>
+          <SectionHeader
+            title="Everything Travelers Need"
+            subtitle="From entertainment to remote work facilities - we've got you covered"
+          />
           
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="bg-anchor-cream rounded-2xl p-8">
@@ -429,7 +424,7 @@ export default function NearHeathrowPage() {
                 <span className="text-anchor-gold text-xl mt-1">🐕</span>
                 <div>
                   <strong>Pet Friendly</strong>
-                  <p className="text-sm text-gray-600">Water bowls for traveling pets</p>
+                  <p className="text-sm text-gray-600">Water bowls for travelling pets</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -465,7 +460,7 @@ export default function NearHeathrowPage() {
           
           <div className="mt-8 text-center">
             <p className="text-gray-700 max-w-3xl mx-auto">
-              Whether you're waiting for a flight, killing time during a layover, or working remotely while traveling, 
+              Whether you're waiting for a flight, killing time during a layover, or working remotely while travelling, 
               The Anchor provides everything you need at local prices - not airport markups.
             </p>
           </div>
@@ -476,9 +471,9 @@ export default function NearHeathrowPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              More Than Just a Pub Near the Airport
-            </h2>
+            <SectionHeader
+              title="More Than Just a Pub Near the Airport"
+            />
             
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="text-xl text-center mb-8">
@@ -562,39 +557,25 @@ export default function NearHeathrowPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
-            Visit The Anchor - Heathrow&apos;s Local
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Just minutes from all terminals. Free parking. Great food. 
-            Genuine British pub experience.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 Call: 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-              variant="white"
-              size="lg"
-              external
-            >
-              📍 Get Directions
-            </CallToAction>
-          </div>
-          
-          <div className="mt-12 text-white/80">
-            <p className="mb-2">The Anchor, Horton Road, Stanwell Moor, Surrey TW19 6AQ</p>
-            <p>Free Parking • Family Friendly • Dog Friendly • Garden • Late Opening</p>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Visit The Anchor - Heathrow's Local"
+        description="Just minutes from all terminals. Free parking. Great food. Genuine British pub experience."
+        buttons={[
+          {
+            text: "📞 Call: 01753 682707",
+            href: "tel:01753682707",
+            variant: "white"
+          },
+          {
+            text: "📍 Get Directions",
+            href: "https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ",
+            variant: "white",
+            external: true
+          }
+        ]}
+        variant="green"
+        footer="The Anchor, Horton Road, Stanwell Moor, Surrey TW19 6AQ\nFree Parking • Family Friendly • Dog Friendly • Garden • Late Opening"
+      />
 
       {/* JSON-LD Schema */}
       <script

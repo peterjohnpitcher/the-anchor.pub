@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: post.title,
       description: post.description,
-      images: [`/content/blog/${post.slug}/${post.hero}`],
+      images: post.hero ? [`/content/blog/${post.slug}/${post.hero}`] : ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
@@ -58,7 +58,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <section className="relative min-h-[60vh] flex items-end mt-20">
         <div className="absolute inset-0">
           <Image
-            src={`/content/blog/${post.slug}/${post.hero}`}
+            src={post.hero ? `/content/blog/${post.slug}/${post.hero}` : '/images/hero/the-anchor-pub-interior-atmosphere.jpg'}
             alt={post.title}
             fill
             className="object-cover"

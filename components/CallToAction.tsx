@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
 import { analytics } from '@/lib/analytics'
+import { trackTableBookingClick, trackPhoneCall, trackWhatsAppClick } from '@/lib/gtm-events'
 
 export interface CallToActionProps {
   href: string
@@ -39,11 +40,11 @@ const defaultTheme = {
 }
 
 const sizeClasses = {
-  xs: 'px-3 py-1.5 text-xs',
-  sm: 'px-4 py-2 text-sm',
-  md: 'px-6 py-3 text-base',
-  lg: 'px-8 py-4 text-lg',
-  xl: 'px-10 py-5 text-xl'
+  xs: 'px-3 py-1.5 text-xs leading-tight',
+  sm: 'px-4 py-2 text-sm leading-tight',
+  md: 'px-6 py-2.5 text-base leading-tight',
+  lg: 'px-8 py-3 text-lg leading-tight',
+  xl: 'px-10 py-3.5 text-xl leading-tight'
 }
 
 export function CallToAction({ 
@@ -65,7 +66,7 @@ export function CallToAction({
   const mergedTheme = { ...defaultTheme, ...theme }
   
   const baseClasses = cn(
-    'inline-flex items-center justify-center font-semibold text-center transition-all duration-200 rounded-full',
+    'inline-flex items-center justify-center font-semibold text-center transition-all duration-200 rounded-full whitespace-nowrap',
     'focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:ring-offset-2',
     fullWidth && 'w-full',
     (disabled || loading) && 'opacity-50 cursor-not-allowed',
@@ -80,14 +81,26 @@ export function CallToAction({
   )
   
   const handleClick = () => {
-    // Track analytics
+    // Enhanced tracking for specific actions
+    const label = trackingLabel || `${children}`
+    
+    // Track specific conversion events
+    if (href.includes('ordertab.menu')) {
+      trackTableBookingClick(label)
+    } else if (href.startsWith('tel:')) {
+      trackPhoneCall(label)
+    } else if (href.includes('wa.me') || href.includes('whatsapp')) {
+      trackWhatsAppClick(label)
+    }
+    
+    // Also track generic analytics
     const category = href.includes('ordertab') || href.includes('book') ? 'booking' : 
                     href.includes('tel:') || href.includes('mailto:') ? 'contact' :
                     href.startsWith('http') ? 'social' : 'navigation'
     
     analytics.clickEvent(
       category as any, 
-      trackingLabel || `${children}`, 
+      label, 
       size === 'xl' ? 5 : size === 'lg' ? 4 : size === 'md' ? 3 : size === 'sm' ? 2 : 1
     )
     

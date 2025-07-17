@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { HeroWrapper } from '@/components/hero'
+import { CallToAction } from '@/components/CallToAction'
 
 export const metadata: Metadata = {
   title: 'Sitemap | The Anchor Stanwell Moor',
@@ -70,18 +72,31 @@ export default function SitemapPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="section-spacing bg-anchor-cream mt-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Sitemap
-            </h1>
-            <p className="text-lg text-gray-700">
-              Find your way around The Anchor website
-            </p>
+      <HeroWrapper
+        route="/sitemap-page"
+        title="Sitemap"
+        description="Find your way around The Anchor website"
+        size="small"
+        showStatusBar={false}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="/"
+              variant="primary"
+              size="lg"
+            >
+              🏠 Back to Home
+            </CallToAction>
+            <CallToAction 
+              href="/find-us"
+              variant="secondary"
+              size="lg"
+            >
+              📍 Find Us
+            </CallToAction>
           </div>
-        </div>
-      </section>
+        }
+      />
 
       {/* Sitemap Links */}
       <section className="section-spacing bg-white">

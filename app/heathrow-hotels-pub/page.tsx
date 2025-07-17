@@ -3,11 +3,12 @@ import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: `Heathrow Hotels Pub Near Me | ${BRAND.name} - Escape Airport Prices`,
@@ -92,62 +93,71 @@ export default function HeathrowHotelsPubPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/heathrow-hotels-pub"
         title="Escape Heathrow Hotel Prices"
         description="Traditional British pub just minutes from your hotel"
+        size="medium"
         showStatusBar={true}
-      >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href={`tel:${CONTACT.phone}`}
-            variant="primary"
-            size="lg"
-          >
-            📞 Book a Table
-          </CallToAction>
-          <CallToAction 
-            href="/food-menu"
-            variant="secondary"
-            size="lg"
-          >
-            🍽️ View Menu
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href={`tel:${CONTACT.phone}`}
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </CallToAction>
+            <CallToAction 
+              href="/food-menu"
+              variant="secondary"
+              size="lg"
+            >
+              🍽️ View Menu
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Welcome Section */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-6">
-              The Perfect Escape from Hotel Dining
-            </h2>
-            <p className="text-xl text-gray-700 mb-8">
-              Tired of overpriced hotel restaurants and room service? The Anchor offers authentic 
-              British pub atmosphere, honest prices, and proper portions - just a short taxi or 
-              drive from any Heathrow hotel.
-            </p>
+            <SectionHeader
+              title="The Perfect Escape from Hotel Dining"
+              subtitle="Tired of overpriced hotel restaurants and room service? The Anchor offers authentic British pub atmosphere, honest prices, and proper portions - just a short taxi or drive from any Heathrow hotel."
+            />
             
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-red-50 rounded-xl p-6">
-                <div className="text-4xl mb-3">💰</div>
-                <h3 className="font-bold text-lg mb-2">50% Less</h3>
-                <p className="text-gray-700">Than hotel restaurant prices for the same quality meal</p>
-              </div>
-              
-              <div className="bg-green-50 rounded-xl p-6">
-                <div className="text-4xl mb-3">🚗</div>
-                <h3 className="font-bold text-lg mb-2">Free Parking</h3>
-                <p className="text-gray-700">20 spaces - no hourly charges like hotel car parks</p>
-              </div>
-              
-              <div className="bg-blue-50 rounded-xl p-6">
-                <div className="text-4xl mb-3">🇬🇧</div>
-                <h3 className="font-bold text-lg mb-2">Real Experience</h3>
-                <p className="text-gray-700">Authentic British pub, not a chain hotel restaurant</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "💰",
+                  title: "50% Less",
+                  description: "Than hotel restaurant prices for the same quality meal",
+                  variant: "colored",
+                  color: "bg-red-50",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "🚗",
+                  title: "Free Parking",
+                  description: "20 spaces - no hourly charges like hotel car parks",
+                  variant: "colored",
+                  color: "bg-green-50",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "🇬🇧",
+                  title: "Real Experience",
+                  description: "Authentic British pub, not a chain hotel restaurant",
+                  variant: "colored",
+                  color: "bg-blue-50",
+                  className: "rounded-xl p-6 text-center"
+                }
+              ]}
+              className="mb-8"
+            />
           </div>
         </div>
       </section>
@@ -156,9 +166,9 @@ export default function HeathrowHotelsPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Minutes from Major Heathrow Hotels
-            </h2>
+            <SectionHeader
+              title="Minutes from Major Heathrow Hotels"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6">
@@ -212,12 +222,16 @@ export default function HeathrowHotelsPubPage() {
               </div>
             </div>
             
-            <div className="mt-8 bg-amber-50 rounded-xl p-6 text-center">
-              <p className="text-lg text-amber-800">
-                <span className="font-bold">Hotel Shuttle Tip:</span> Some hotels offer area shuttles - 
-                ask reception if they go near Stanwell Moor!
-              </p>
-            </div>
+            <AlertBox
+              variant="info"
+              title="Hotel Shuttle Tip"
+              className="mt-8 text-center"
+              content={
+                <p className="text-lg">
+                  Some hotels offer area shuttles - ask reception if they go near Stanwell Moor!
+                </p>
+              }
+            />
           </div>
         </div>
       </section>
@@ -226,9 +240,9 @@ export default function HeathrowHotelsPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Why Heathrow Hotel Guests Love The Anchor
-            </h2>
+            <SectionHeader
+              title="Why Heathrow Hotel Guests Love The Anchor"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div>
@@ -292,12 +306,16 @@ export default function HeathrowHotelsPubPage() {
               </div>
             </div>
             
-            <div className="bg-green-50 rounded-xl p-6 text-center">
-              <p className="text-lg text-green-800">
-                <span className="font-bold">Outside ULEZ Zone:</span> No extra charges - 
-                perfect if you're renting a car from the airport!
-              </p>
-            </div>
+            <AlertBox
+              variant="success"
+              title="Outside ULEZ Zone"
+              className="text-center"
+              content={
+                <p className="text-lg">
+                  No extra charges - perfect if you're renting a car from the airport!
+                </p>
+              }
+            />
           </div>
         </div>
       </section>
@@ -306,54 +324,68 @@ export default function HeathrowHotelsPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Hotel Guest Favorites
-            </h2>
+            <SectionHeader
+              title="Hotel Guest Favorites"
+            />
             
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="text-4xl mb-3">🍺</div>
-                <h3 className="font-bold text-lg mb-2">Real Ales</h3>
-                <p className="text-gray-700">Try proper British beer - not just hotel lagers</p>
-                <p className="text-anchor-gold font-semibold mt-2">From £4.80/pint</p>
-              </div>
-              
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="text-4xl mb-3">🐟</div>
-                <h3 className="font-bold text-lg mb-2">Fish & Chips</h3>
-                <p className="text-gray-700">Classic British meal hotel guests always request</p>
-                <p className="text-anchor-gold font-semibold mt-2">£12.99 (half hotel price)</p>
-              </div>
-              
-              <div className="bg-white rounded-lg p-6 text-center">
-                <div className="text-4xl mb-3">🥩</div>
-                <h3 className="font-bold text-lg mb-2">Sunday Roast</h3>
-                <p className="text-gray-700">Must-try British tradition for Sunday visitors</p>
-                <p className="text-anchor-gold font-semibold mt-2">From £14.99</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🍺",
+                  title: "Real Ales",
+                  description: "Try proper British beer - not just hotel lagers. From £4.80/pint",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                },
+                {
+                  icon: "🐟",
+                  title: "Fish & Chips",
+                  description: "Classic British meal hotel guests always request. £12.99 (half hotel price)",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                },
+                {
+                  icon: "🥩",
+                  title: "Sunday Roast",
+                  description: "Must-try British tradition for Sunday visitors. From £14.99",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                }
+              ]}
+              className="mb-8"
+            />
             
-            <div className="bg-amber-50 rounded-xl p-8">
-              <h3 className="text-xl font-bold text-amber-800 mb-4 text-center">Business Travelers Love Us</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <p className="font-semibold mb-2">Expense-Friendly</p>
-                  <ul className="space-y-1 text-gray-700 text-sm">
-                    <li>• Full VAT receipts provided</li>
-                    <li>• 50% less than hotel dining</li>
-                    <li>• Proper business atmosphere</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">Work-Friendly</p>
-                  <ul className="space-y-1 text-gray-700 text-sm">
-                    <li>• Free WiFi throughout</li>
-                    <li>• Quiet corners available</li>
-                    <li>• Power outlets in dining room</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <InfoBoxGrid
+              columns={1}
+              boxes={[
+                {
+                  title: "Business Travelers Love Us",
+                  content: (
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <p className="font-semibold mb-2">Expense-Friendly</p>
+                        <ul className="space-y-1 text-gray-700 text-sm">
+                          <li>• Full VAT receipts provided</li>
+                          <li>• 50% less than hotel dining</li>
+                          <li>• Proper business atmosphere</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-semibold mb-2">Work-Friendly</p>
+                        <ul className="space-y-1 text-gray-700 text-sm">
+                          <li>• Free WiFi throughout</li>
+                          <li>• Quiet corners available</li>
+                          <li>• Power outlets in dining room</li>
+                        </ul>
+                      </div>
+                    </div>
+                  ),
+                  variant: "colored",
+                  color: "bg-amber-50 rounded-xl p-8"
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -362,9 +394,9 @@ export default function HeathrowHotelsPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Getting Here from Your Hotel
-            </h2>
+            <SectionHeader
+              title="Getting Here from Your Hotel"
+            />
             
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gray-50 rounded-xl p-6">
@@ -415,9 +447,9 @@ export default function HeathrowHotelsPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Special Times for Hotel Guests
-            </h2>
+            <SectionHeader
+              title="Special Times for Hotel Guests"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-red-50 rounded-xl p-6">
@@ -442,13 +474,99 @@ export default function HeathrowHotelsPubPage() {
         </div>
       </section>
 
+      {/* Corporate Events for Airport Hotels */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="Corporate Venue for Heathrow Business"
+              subtitle="Perfect for airline crews, airport staff events, and international teams"
+            />
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-blue-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Ideal for Airport Companies</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>7 minutes from terminals</strong> - Quick access for international teams</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Airline crew events</strong> - Regular venue for BA, Virgin, Emirates teams</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>No hotel markups</strong> - Corporate rates, not inflated airport prices</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Free parking</strong> - Essential for staff without hotel shuttles</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Popular Airport Events</h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-anchor-gold mb-1">✈️ Crew Celebrations</h4>
+                    <p className="text-sm text-gray-700">End of season parties, retirement send-offs</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-anchor-gold mb-1">🏢 Airport Staff Events</h4>
+                    <p className="text-sm text-gray-700">Team meetings, training days, Christmas parties</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-anchor-gold mb-1">🌍 International Teams</h4>
+                    <p className="text-sm text-gray-700">Perfect when colleagues fly in for meetings</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-anchor-gold mb-1">🏨 Hotel Overflow</h4>
+                    <p className="text-sm text-gray-700">When hotel venues are fully booked</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <AlertBox
+              variant="info"
+              title="Special Rates for Airport Companies"
+              content={
+                <div className="text-center">
+                  <p className="mb-4">
+                    We understand the unique needs of airport businesses. 
+                    Flexible timing for shift patterns, special crew rates available.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <CallToAction href="/corporate-events" variant="primary" size="md">
+                      Corporate Events Info
+                    </CallToAction>
+                    <CallToAction href="tel:01753682707" variant="secondary" size="md">
+                      📞 Quick Quote
+                    </CallToAction>
+                    <CallToAction 
+                      href="https://wa.me/441753682707?text=Hi,%20we're%20a%20Heathrow%20company%20interested%20in%20corporate%20events" 
+                      variant="secondary" 
+                      size="md"
+                    >
+                      💬 WhatsApp
+                    </CallToAction>
+                  </div>
+                </div>
+              }
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Opening Hours */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Opening Hours
-            </h2>
+            <SectionHeader
+              title="Opening Hours"
+            />
             <BusinessHours />
             <p className="mt-4 text-gray-600">
               Perfect for evening meals after hotel check-in
@@ -489,37 +607,24 @@ export default function HeathrowHotelsPubPage() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Escape Hotel Prices Tonight
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Real food, real prices, real British pub - just minutes from your hotel
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="secondary"
-              size="lg"
-              className="flex-1"
-            >
-              📞 Book a Table
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="primary"
-              size="lg"
-              className="flex-1 bg-white text-anchor-green hover:bg-gray-100"
-            >
-              🍽️ View Menu
-            </CallToAction>
-          </div>
-          <p className="mt-6 text-sm text-white/80">
-            Free Parking • 7-12 mins from all major hotels • Outside ULEZ Zone
-          </p>
-        </div>
-      </section>
+      <CTASection
+        title="Escape Hotel Prices Tonight"
+        description="Real food, real prices, real British pub - just minutes from your hotel"
+        buttons={[
+          {
+            text: "📞 Book a Table",
+            href: `tel:${CONTACT.phone}`,
+            variant: "secondary"
+          },
+          {
+            text: "🍽️ View Menu",
+            href: "/food-menu",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+        footer="Free Parking • 7-12 mins from all major hotels • Outside ULEZ Zone"
+      />
     </>
   )
 }

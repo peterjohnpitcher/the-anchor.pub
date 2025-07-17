@@ -51,6 +51,16 @@ class Analytics {
       })
     }
 
+    // Also push to dataLayer for GTM
+    if (typeof window !== 'undefined' && 'dataLayer' in window) {
+      (window as any).dataLayer.push({
+        event: event.action,
+        event_category: event.category,
+        event_label: event.label,
+        value: event.value
+      })
+    }
+
     // Send to custom analytics endpoint
     if (typeof window !== 'undefined') {
       // Fire and forget - don't wait for response

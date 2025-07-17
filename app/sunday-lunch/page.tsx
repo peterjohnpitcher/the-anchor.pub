@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
@@ -20,33 +21,35 @@ export default function SundayLunchPage() {
     <>
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/sunday-lunch"
         title="Sunday Roast at The Anchor"
         description="Traditional British roast dinners that locals rave about"
-        minHeight="min-h-[60vh]"
+        size="large"
         showStatusBar={false}
+        tags={[
+          { label: "Every Sunday 12pm - 5pm", variant: "warning" }
+        ]}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="tel:01753682707"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book Your Table Now
+            </CallToAction>
+            
+            <CallToAction 
+              href="#menu"
+              variant="white"
+              size="lg"
+            >
+              View Sunday Menu
+            </CallToAction>
+          </div>
+        }
       >
-        <p className="text-anchor-gold text-lg mb-4 drop-shadow">Every Sunday 12pm - 5pm</p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href="tel:01753682707"
-            variant="primary"
-            size="lg"
-          >
-            📞 Book Your Table Now
-          </CallToAction>
-          
-          <CallToAction 
-            href="#menu"
-            variant="white"
-            size="lg"
-          >
-            View Sunday Menu
-          </CallToAction>
-        </div>
-        
         <div className="mt-6 bg-red-600/90 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
           <p className="text-white font-bold text-lg mb-1">
             ⚠️ IMPORTANT: Pre-order & Payment Required
@@ -58,46 +61,40 @@ export default function SundayLunchPage() {
             Regular menu also available on Sundays without pre-order
           </p>
         </div>
-      </PageHeaderWrapper>
+      </HeroWrapper>
 
       {/* Why Our Roasts Are Special */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Why Sundays Are Special Here
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              We've been perfecting our Sunday roast for years. It's not just a meal, it's a tradition.
-            </p>
-          </div>
+          <SectionHeader
+            title="Why Sundays Are Special Here"
+            subtitle="We've been perfecting our Sunday roast for years. It's not just a meal, it's a tradition."
+          />
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="text-5xl mb-4">👨‍🍳</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Chef's Pride</h3>
-              <p className="text-gray-700">
-                Our head chef takes personal pride in every roast. Meat is sourced locally 
-                and cooked to perfection.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl mb-4">🥘</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Generous Portions</h3>
-              <p className="text-gray-700">
-                No one leaves hungry! Proper portions with all the trimmings. 
-                Extra Yorkshire puddings? Just ask!
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl mb-4">👨‍👩‍👧‍👦</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Family Atmosphere</h3>
-              <p className="text-gray-700">
-                Sundays are for families. Relaxed atmosphere, kids welcome, 
-                and plenty of space for everyone.
-              </p>
-            </div>
-          </div>
+          <FeatureGrid
+            columns={3}
+            features={[
+              {
+                icon: "👨‍🍳",
+                title: "Chef's Pride",
+                description: "Our head chef takes personal pride in every roast. Meat is sourced locally and cooked to perfection.",
+                className: "text-center"
+              },
+              {
+                icon: "🥘",
+                title: "Generous Portions",
+                description: "No one leaves hungry! Proper portions with all the trimmings. Extra Yorkshire puddings? Just ask!",
+                className: "text-center"
+              },
+              {
+                icon: "👨‍👩‍👧‍👦",
+                title: "Family Atmosphere",
+                description: "Sundays are for families. Relaxed atmosphere, kids welcome, and plenty of space for everyone.",
+                className: "text-center"
+              }
+            ]}
+            className="max-w-5xl mx-auto"
+          />
         </div>
       </section>
 
@@ -105,25 +102,29 @@ export default function SundayLunchPage() {
       <section id="menu" className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4 text-center">
-              Sunday Roast Menu
-            </h2>
-            <div className="bg-amber-50 border-2 border-amber-400 rounded-xl p-6 mb-8 max-w-3xl mx-auto">
-              <h3 className="text-xl font-bold text-anchor-green mb-3 text-center">
-                📝 Pre-Order System (New for 2025)
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Our Sunday dinners are made from scratch and to order. <strong>All Sunday roasts must be 
-                pre-ordered and paid for by 1pm on Saturday.</strong> This ensures we can prepare your meal 
-                fresh to order - a delicious 'like home' Sunday lunch.
-              </p>
-              <div className="bg-white rounded-lg p-4 mt-4">
-                <p className="text-sm text-gray-600 text-center">
-                  <strong>Can't pre-order?</strong> No problem! Our regular menu is also available on 
-                  Sundays without pre-order requirement.
-                </p>
-              </div>
-            </div>
+            <SectionHeader
+              title="Sunday Roast Menu"
+            />
+            <AlertBox
+              variant="warning"
+              title="📝 Pre-Order System (New for 2025)"
+              className="mb-8 max-w-3xl mx-auto"
+              content={
+                <>
+                  <p className="text-gray-700 mb-4">
+                    Our Sunday dinners are made from scratch and to order. <strong>All Sunday roasts must be 
+                    pre-ordered and paid for by 1pm on Saturday.</strong> This ensures we can prepare your meal 
+                    fresh to order - a delicious 'like home' Sunday lunch.
+                  </p>
+                  <div className="bg-white rounded-lg p-4 mt-4">
+                    <p className="text-sm text-gray-600 text-center">
+                      <strong>Can't pre-order?</strong> No problem! Our regular menu is also available on 
+                      Sundays without pre-order requirement.
+                    </p>
+                  </div>
+                </>
+              }
+            />
             <p className="text-center text-sm text-gray-600 italic mb-12">
               All dishes served with herb and garlic-crusted roast potatoes, seasonal vegetables, 
               Yorkshire pudding, and red wine gravy. Vegetarian gravy available on request.
@@ -239,9 +240,9 @@ export default function SundayLunchPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              The Sunday Experience
-            </h2>
+            <SectionHeader
+              title="The Sunday Experience"
+            />
             
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -300,9 +301,9 @@ export default function SundayLunchPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              What People Say About Our Sunday Roast
-            </h2>
+            <SectionHeader
+              title="What People Say About Our Sunday Roast"
+            />
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 shadow-md">
@@ -365,9 +366,9 @@ export default function SundayLunchPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Why Sunday Roast at The Anchor is Special
-            </h2>
+            <SectionHeader
+              title="Why Sunday Roast at The Anchor is Special"
+            />
             
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="text-xl text-center mb-8">
@@ -380,7 +381,7 @@ export default function SundayLunchPage() {
                   <h3 className="text-2xl font-bold text-anchor-green mb-4">The Village Tradition</h3>
                   <p className="mb-4">
                     For generations, Sunday lunch at the village pub has been a cornerstone of British 
-                    life. At The Anchor, we honor this tradition with pride. Every Sunday, our kitchen 
+                    life. At The Anchor, we honour this tradition with pride. Every Sunday, our kitchen 
                     starts early, filling the pub with the comforting aromas of roasting meat and fresh 
                     Yorkshire puddings rising in the oven. It's the smell that draws locals from their 
                     Sunday papers and brings families together around our tables.
@@ -448,34 +449,27 @@ export default function SundayLunchPage() {
       </section>
 
       {/* Booking CTA */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Don't Miss Out on Sunday Roast
-          </h2>
-          <p className="text-xl mb-2 max-w-2xl mx-auto">
-            Sunday roasts must be pre-ordered and paid for by 1pm on Saturday.
-          </p>
-          <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
-            Can't pre-order? Our regular menu is available on Sundays too!
-          </p>
-          
-          <CallToAction 
-            href="tel:01753682707"
-            variant="white"
-            size="lg"
-            className="mb-8"
-          >
-            📞 Book Now: 01753 682707
-          </CallToAction>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <h3 className="font-bold text-xl mb-3">Sunday Roast Service</h3>
-            <p className="mb-2">Every Sunday: 12:00 PM - 5:00 PM</p>
-            <p className="text-sm">Last orders 4:30 PM</p>
-          </div>
+      <CTASection
+        title="Don't Miss Out on Sunday Roast"
+        description="Sunday roasts must be pre-ordered and paid for by 1pm on Saturday."
+        buttons={[
+          {
+            text: "📞 Book Now: 01753 682707",
+            href: "tel:01753682707",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+      >
+        <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
+          Can't pre-order? Our regular menu is available on Sundays too!
+        </p>
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
+          <h3 className="font-bold text-xl mb-3 text-white">Sunday Roast Service</h3>
+          <p className="mb-2 text-white">Every Sunday: 12:00 PM - 5:00 PM</p>
+          <p className="text-sm text-white/90">Last orders 4:30 PM</p>
         </div>
-      </section>
+      </CTASection>
 
       {/* JSON-LD Schema */}
       <script

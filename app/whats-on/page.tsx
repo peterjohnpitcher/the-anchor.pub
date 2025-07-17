@@ -4,23 +4,28 @@ import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { FilteredUpcomingEvents } from '@/components/FilteredUpcomingEvents'
 import { CategoryFilter } from '@/components/CategoryFilter'
-import { HeroWrapper } from '@/components/hero'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { Suspense } from 'react'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: "What's On Near Me | The Anchor Stanwell Moor | Events & Entertainment",
-  description: 'Regular monthly events at The Anchor pub in Surrey including drag shows, quiz nights, bingo and more. Plus major sports on terrestrial TV near Heathrow Airport!',
-  keywords: 'events stanwell moor, drag shows near heathrow, quiz night stanwell, pub entertainment surrey',
+  description: "Regular monthly events at The Anchor pub in Surrey including drag shows, quiz nights, bingo and more. Plus major sports on terrestrial TV near Heathrow Airport!",
+  keywords: "events stanwell moor, drag shows near heathrow, quiz night stanwell, pub entertainment surrey",
   openGraph: {
     title: "What's On at The Anchor",
-    description: 'Drag shows, quiz nights and more. Your local entertainment hub.',
-    images: ['/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg'],
+    description: "Drag shows, quiz nights and more. Your local entertainment hub.",
+    images: ["/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"],
   },
 }
 
-export default function WhatsOnPage({ searchParams }: { searchParams: { category?: string } }) {
+type WhatsOnPageProps = {
+  searchParams: { category?: string }
+}
+
+export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
   return (
     <>
       {/* Hero Section */}
@@ -38,29 +43,32 @@ export default function WhatsOnPage({ searchParams }: { searchParams: { category
           { label: '🎱 Cash Bingo', variant: 'default' }
         ]}
         cta={
-          <CallToAction 
-            href="#upcoming-events"
-            variant="primary"
-            size="lg"
-          >
-            View All Events
-          </CallToAction>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="#upcoming-events"
+              variant="primary"
+              size="lg"
+            >
+              📅 View All Events
+            </CallToAction>
+            <CallToAction 
+              href="/book-event"
+              variant="secondary"
+              size="lg"
+            >
+              🎉 Book Private Event
+            </CallToAction>
+          </div>
         }
       />
-
-
 
       {/* Upcoming Events from API */}
       <section id="upcoming-events" className="section-spacing bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Upcoming Events
-            </h2>
-            <p className="text-xl text-gray-700">
-              Live updates from our events calendar
-            </p>
-          </div>
+          <SectionHeader
+            title="Upcoming Events"
+            subtitle="Live updates from our events calendar"
+          />
           
           <div className="max-w-5xl mx-auto">
             <Suspense fallback={<div className="text-center py-8">Loading events...</div>}>
@@ -76,45 +84,45 @@ export default function WhatsOnPage({ searchParams }: { searchParams: { category
       {/* Entertainment & Games */}
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Daily Entertainment & Games
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Always something to do at The Anchor - from traditional pub games to digital entertainment
-            </p>
-          </div>
+          <SectionHeader
+            title="Daily Entertainment & Games"
+            subtitle="Always something to do at The Anchor - from traditional pub games to digital entertainment"
+          />
           
-          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            <div className="bg-white rounded-xl p-6 text-center shadow-sm">
-              <div className="text-5xl mb-4">🎱</div>
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Pool Table</h3>
-              <p className="text-gray-700">
-                Challenge your friends to a game. Cues and chalk provided.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-sm">
-              <div className="text-5xl mb-4">🎯</div>
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Darts Board</h3>
-              <p className="text-gray-700">
-                Professional board with oche. Darts available at the bar.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-sm">
-              <div className="text-5xl mb-4">🎵</div>
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Jukebox</h3>
-              <p className="text-gray-700">
-                Choose your favourite tunes. Wide selection of music genres.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-sm">
-              <div className="text-5xl mb-4">🎰</div>
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Fruit Machine</h3>
-              <p className="text-gray-700">
-                Try your luck on our gaming machine. 18+ only.
-              </p>
-            </div>
-          </div>
+          <FeatureGrid
+            columns={4}
+            features={[
+              {
+                icon: "🎱",
+                title: "Pool Table",
+                description: "Challenge your friends to a game. Cues and chalk provided.",
+                variant: "default",
+                className: "bg-white rounded-xl p-6 text-center shadow-sm"
+              },
+              {
+                icon: "🎯",
+                title: "Darts Board",
+                description: "Professional board with oche. Darts available at the bar.",
+                variant: "default",
+                className: "bg-white rounded-xl p-6 text-center shadow-sm"
+              },
+              {
+                icon: "🎵",
+                title: "Jukebox",
+                description: "Choose your favourite tunes. Wide selection of music genres.",
+                variant: "default",
+                className: "bg-white rounded-xl p-6 text-center shadow-sm"
+              },
+              {
+                icon: "🎰",
+                title: "Fruit Machine",
+                description: "Try your luck on our gaming machine. 18+ only.",
+                variant: "default",
+                className: "bg-white rounded-xl p-6 text-center shadow-sm"
+              }
+            ]}
+            className="max-w-5xl mx-auto"
+          />
           
           <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
@@ -132,63 +140,72 @@ export default function WhatsOnPage({ searchParams }: { searchParams: { category
       {/* Special Events */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Special Events & Celebrations
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Throughout the year, we host special themed events and celebrations
-            </p>
-          </div>
+          <SectionHeader
+            title="Special Events & Celebrations"
+            subtitle="Throughout the year, we host special themed events and celebrations"
+          />
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="text-6xl mb-4">🎄</div>
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Christmas Parties</h3>
-              <p className="text-gray-700">
-                Festive menu, decorations, and party atmosphere. Book your Christmas do with us!
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-6xl mb-4">🎃</div>
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Halloween Spectacular</h3>
-              <p className="text-gray-700">
-                Costume contests, spooky decorations, themed drinks, and DJ entertainment. Best dressed wins prizes!
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-6xl mb-4">🎉</div>
-              <h3 className="text-xl font-bold text-anchor-green mb-2">New Year's Eve</h3>
-              <p className="text-gray-700">
-                Ring in the new year with DJ entertainment, champagne, and midnight celebrations.
-              </p>
-            </div>
-          </div>
+          <FeatureGrid
+            columns={3}
+            features={[
+              {
+                icon: "🎄",
+                title: "Christmas Parties",
+                description: "Festive menu, decorations, and party atmosphere. Book your Christmas do with us!",
+                className: "text-center"
+              },
+              {
+                icon: "🎃",
+                title: "Halloween Spectacular",
+                description: "Costume contests, spooky decorations, themed drinks, and DJ entertainment. Best dressed wins prizes!",
+                className: "text-center"
+              },
+              {
+                icon: "🎉",
+                title: "New Year's Eve",
+                description: "Ring in the new year with DJ entertainment, champagne, and midnight celebrations.",
+                className: "text-center"
+              }
+            ]}
+            className="max-w-5xl mx-auto"
+          />
           
-          <div className="mt-12 bg-white rounded-lg p-8 shadow-lg max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">Watch Sports at The Anchor</h3>
-            <p className="text-gray-700 text-center mb-6">
-              Catch all the major sporting events on our screens! We show all terrestrial channel sports including:
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div>
-                <div className="text-3xl mb-2">⚽</div>
-                <p className="font-semibold">World Cup</p>
-              </div>
-              <div>
-                <div className="text-3xl mb-2">🏆</div>
-                <p className="font-semibold">Euros</p>
-              </div>
-              <div>
-                <div className="text-3xl mb-2">🎾</div>
-                <p className="font-semibold">Wimbledon</p>
-              </div>
-              <div>
-                <div className="text-3xl mb-2">🏉</div>
-                <p className="font-semibold">Six Nations</p>
-              </div>
-            </div>
-          </div>
+          <InfoBoxGrid
+            columns={1}
+            boxes={[
+              {
+                title: "Watch Sports at The Anchor",
+                content: (
+                  <>
+                    <p className="text-gray-700 text-center mb-6">
+                      Catch all the major sporting events on our screens! We show all terrestrial channel sports including:
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                      <div>
+                        <div className="text-3xl mb-2">⚽</div>
+                        <p className="font-semibold">World Cup</p>
+                      </div>
+                      <div>
+                        <div className="text-3xl mb-2">🏆</div>
+                        <p className="font-semibold">Euros</p>
+                      </div>
+                      <div>
+                        <div className="text-3xl mb-2">🎾</div>
+                        <p className="font-semibold">Wimbledon</p>
+                      </div>
+                      <div>
+                        <div className="text-3xl mb-2">🏉</div>
+                        <p className="font-semibold">Six Nations</p>
+                      </div>
+                    </div>
+                  </>
+                ),
+                variant: "default",
+                className: "bg-white rounded-lg p-8 shadow-lg"
+              }
+            ]}
+            className="mt-12 max-w-3xl mx-auto"
+          />
         </div>
       </section>
 
@@ -196,31 +213,37 @@ export default function WhatsOnPage({ searchParams }: { searchParams: { category
       <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              Host Your Event at The Anchor
-            </h2>
-            <p className="text-xl text-gray-700 mb-8">
-              Transform your special occasion into an unforgettable experience. We offer versatile 
-              venue spaces for 10-200 guests with comprehensive event services including catering, 
-              entertainment, and our preferred vendor network.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white rounded-lg p-6">
-                <div className="text-4xl mb-3">🎂</div>
-                <h3 className="font-bold text-anchor-green mb-2">Birthday Parties</h3>
-                <p className="text-gray-600 text-sm">Celebrate in style with custom menus</p>
-              </div>
-              <div className="bg-white rounded-lg p-6">
-                <div className="text-4xl mb-3">💼</div>
-                <h3 className="font-bold text-anchor-green mb-2">Corporate Events</h3>
-                <p className="text-gray-600 text-sm">Team building, meetings, or celebrations</p>
-              </div>
-              <div className="bg-white rounded-lg p-6">
-                <div className="text-4xl mb-3">🎊</div>
-                <h3 className="font-bold text-anchor-green mb-2">Special Occasions</h3>
-                <p className="text-gray-600 text-sm">Engagements, anniversaries, and more</p>
-              </div>
-            </div>
+            <SectionHeader
+              title="Host Your Event at The Anchor"
+              subtitle="Transform your special occasion into an unforgettable experience. We offer versatile venue spaces for 10-200 guests with comprehensive event services including catering, entertainment, and our preferred vendor network."
+            />
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🎂",
+                  title: "Birthday Parties",
+                  description: "Celebrate in style with custom menus",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 text-center"
+                },
+                {
+                  icon: "💼",
+                  title: "Corporate Events",
+                  description: "Team building, meetings, or celebrations",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 text-center"
+                },
+                {
+                  icon: "🎊",
+                  title: "Special Occasions",
+                  description: "Engagements, anniversaries, and more",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 text-center"
+                }
+              ]}
+              className="mb-8"
+            />
             <CallToAction href="/book-event" variant="primary" size="lg">
               Enquire About Private Events
             </CallToAction>
@@ -272,40 +295,37 @@ export default function WhatsOnPage({ searchParams }: { searchParams: { category
       />
 
       {/* Stay Updated */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Never Miss an Event
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Follow us on social media for the latest updates, special events, and last-minute changes
-          </p>
-          <div className="flex justify-center gap-6 mb-8">
-            <a 
-              href="https://www.facebook.com/theanchorpubsm/" 
-              className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Facebook
-            </a>
-            <a 
-              href="https://www.instagram.com/theanchor.pub/" 
-              className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">Event Enquiries</p>
-            <p>📞 01753 682707</p>
-            <p>📱 WhatsApp: 01753 682707</p>
-            <p>✉️ manager@the-anchor.pub</p>
-          </div>
+      <CTASection
+        title="Never Miss an Event"
+        description="Follow us on social media for the latest updates, special events, and last-minute changes"
+        buttons={[]}
+        variant="green"
+      >
+        <div className="flex justify-center gap-6 mb-8">
+          <a 
+            href="https://www.facebook.com/theanchorpubsm/" 
+            className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colors text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+          <a 
+            href="https://www.instagram.com/theanchor.pub/" 
+            className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colors text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
         </div>
-      </section>
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
+          <p className="font-semibold mb-2 text-white">Event Enquiries</p>
+          <p className="text-white">📞 01753 682707</p>
+          <p className="text-white">📱 WhatsApp: 01753 682707</p>
+          <p className="text-white">✉️ manager@the-anchor.pub</p>
+        </div>
+      </CTASection>
 
       {/* JSON-LD Schema */}
       <script

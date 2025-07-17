@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Buy One Get One Free Pizza | The Anchor Stanwell Moor | BOGOF Deal',
@@ -91,54 +92,60 @@ export default function PizzaPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/food/pizza"
         title="Buy One Get One FREE"
         description="On ALL Stone-Baked Pizzas"
-        minHeight="min-h-[60vh]"
+        size="large"
         showStatusBar={true}
-      >
-        <div className="bg-yellow-400 text-red-900 font-bold text-xl md:text-2xl px-6 py-3 rounded-full inline-block mb-6">
-          🍕 TUESDAY SPECIAL 🍕
-        </div>
-        
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <CallToAction href="/food-menu" variant="secondary" size="lg">
-            View Full Menu
-          </CallToAction>
-          <CallToAction href="tel:01753682707" variant="primary" size="lg">
-            📞 Book a Table
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        tags={[
+          { label: "🍕 TUESDAY SPECIAL 🍕", variant: "warning" }
+        ]}
+        cta={
+          <div className="flex flex-wrap justify-center gap-4">
+            <CallToAction href="/food-menu" variant="secondary" size="lg">
+              View Full Menu
+            </CallToAction>
+            <CallToAction href="tel:01753682707" variant="primary" size="lg">
+              📞 Book a Table
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Offer Details */}
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              How Our BOGOF Deal Works
-            </h2>
+            <SectionHeader
+              title="How Our BOGOF Deal Works"
+              className="mb-8"
+            />
             
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="text-4xl mb-3">🍕</div>
-                <h3 className="font-bold text-lg mb-2">Choose Any Pizza</h3>
-                <p className="text-gray-700">Pick from our full range of stone-baked pizzas</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="text-4xl mb-3">✨</div>
-                <h3 className="font-bold text-lg mb-2">Get One FREE</h3>
-                <p className="text-gray-700">Free pizza must be of equal or lesser value</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="text-4xl mb-3">📅</div>
-                <h3 className="font-bold text-lg mb-2">Every Tuesday</h3>
-                <p className="text-gray-700">Available during kitchen hours</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🍕",
+                  title: "Choose Any Pizza",
+                  description: "Pick from our full range of stone-baked pizzas",
+                  className: "text-center"
+                },
+                {
+                  icon: "✨",
+                  title: "Get One FREE",
+                  description: "Free pizza must be of equal or lesser value",
+                  className: "text-center"
+                },
+                {
+                  icon: "📅",
+                  title: "Every Tuesday",
+                  description: "Available during kitchen hours",
+                  className: "text-center"
+                }
+              ]}
+              className="mb-8"
+            />
             
             <p className="text-lg text-gray-700">
               No voucher needed • Dine-in & takeaway • Cannot be combined with other offers
@@ -151,9 +158,10 @@ export default function PizzaPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-12">
-              Our Stone-Baked Pizzas
-            </h2>
+            <SectionHeader
+              title="Our Stone-Baked Pizzas"
+              className="text-center mb-12"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-anchor-cream rounded-2xl p-8">
@@ -193,11 +201,16 @@ export default function PizzaPage() {
               </div>
             </div>
             
-            <div className="mt-8 bg-yellow-100 border-2 border-yellow-400 rounded-xl p-6 text-center">
-              <p className="text-lg font-semibold text-gray-800">
-                🍕 Kitchen Hours: Tuesday-Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
-              </p>
-            </div>
+            <AlertBox
+              variant="warning"
+              title="Kitchen Hours"
+              className="mt-8 text-center"
+              content={
+                <p className="text-gray-800">
+                  🍕 Tuesday-Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
+                </p>
+              }
+            />
           </div>
         </div>
       </section>
@@ -206,9 +219,10 @@ export default function PizzaPage() {
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              Best Pizza Deal Near Heathrow
-            </h2>
+            <SectionHeader
+              title="Best Pizza Deal Near Heathrow"
+              className="mb-8"
+            />
             
             <p className="text-lg text-gray-700 mb-6">
               Looking for "buy one get one free pizza near me"? The Anchor's BOGOF pizza deal is the best value 
@@ -238,29 +252,23 @@ export default function PizzaPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready for Your BOGOF Pizza?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Available every Tuesday during kitchen hours
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <CallToAction href="tel:01753682707" variant="secondary" size="lg">
-              📞 Call 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" 
-              variant="outline" 
-              size="lg"
-              className="!text-white !border-white hover:!bg-white hover:!text-anchor-green"
-            >
-              📍 Get Directions
-            </CallToAction>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        title="Ready for Your BOGOF Pizza?"
+        description="Available every Tuesday during kitchen hours"
+        buttons={[
+          {
+            text: "📞 Call 01753 682707",
+            href: "tel:01753682707",
+            variant: "secondary"
+          },
+          {
+            text: "📍 Get Directions",
+            href: "https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+      />
     </>
   )
 }

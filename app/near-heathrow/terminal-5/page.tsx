@@ -6,6 +6,11 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
 import { TerminalNavigation } from '@/components/TerminalNavigation'
+import { SectionHeader } from '@/components/SectionHeader'
+import { FeatureGrid } from '@/components/FeatureCard'
+import { InfoBoxGrid } from '@/components/InfoBox'
+import { AlertBox } from '@/components/AlertBox'
+import { CTASection } from '@/components/CTASection'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 5 | The Anchor - 7 Minutes Away',
@@ -56,28 +61,32 @@ export default function Terminal5Page() {
       {/* Quick Info Cards */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🚗</div>
-              <p className="font-bold text-anchor-green">7 mins</p>
-              <p className="text-sm text-gray-600">by car</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🅿️</div>
-              <p className="font-bold text-anchor-green">Free</p>
-              <p className="text-sm text-gray-600">parking</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🍺</div>
-              <p className="font-bold text-anchor-green">Real</p>
-              <p className="text-sm text-gray-600">British pub</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">✈️</div>
-              <p className="font-bold text-anchor-green">BA Hub</p>
-              <p className="text-sm text-gray-600">Terminal 5</p>
-            </div>
-          </div>
+          <FeatureGrid
+            columns={4}
+            features={[
+              {
+                icon: "🚗",
+                title: "7 mins",
+                description: "by car"
+              },
+              {
+                icon: "🅿️",
+                title: "Free",
+                description: "parking"
+              },
+              {
+                icon: "🍺",
+                title: "Real",
+                description: "British pub"
+              },
+              {
+                icon: "✈️",
+                title: "BA Hub",
+                description: "Terminal 5"
+              }
+            ]}
+            className="max-w-4xl mx-auto"
+          />
         </div>
       </section>
 
@@ -92,9 +101,10 @@ export default function Terminal5Page() {
       <section id="directions" className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              How to Get Here from Terminal 5
-            </h2>
+            <SectionHeader
+              title="How to Get Here from Terminal 5"
+              align="center"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* By Car */}
@@ -175,51 +185,36 @@ export default function Terminal5Page() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Why Terminal 5 Travelers Choose The Anchor
-            </h2>
+            <SectionHeader
+              title="Why Terminal 5 Travelers Choose The Anchor"
+              align="center"
+            />
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  ✈️ Perfect for BA Travelers
-                </h3>
-                <p className="text-gray-700">
-                  Terminal 5 is British Airways&apos; exclusive hub. Whether you&apos;re flying 
-                  Club World or Euro Traveller, enjoy a proper British welcome just minutes away.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  ⏰ Beat the Airport Prices
-                </h3>
-                <p className="text-gray-700">
-                  Why pay £15 for a sandwich at T5? Enjoy a full meal with us for the same price. 
-                  Plus a pint costs half what you&apos;d pay airside!
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🅿️ Free Parking Advantage
-                </h3>
-                <p className="text-gray-700">
-                  Meeting someone? Save on T5&apos;s expensive short-stay parking. 
-                  Park free with us and track their flight on our WiFi.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🍽️ Pre-Flight Dining
-                </h3>
-                <p className="text-gray-700">
-                  Start your holiday right. Relax in our beer garden, enjoy a proper meal, 
-                  then head to T5 refreshed and ready - not rushed and hungry.
-                </p>
-              </div>
-            </div>
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "Perfect for BA Travelers",
+                  icon: "✈️",
+                  content: "Terminal 5 is British Airways' exclusive hub. Whether you're flying Club World or Euro Traveller, enjoy a proper British welcome just minutes away."
+                },
+                {
+                  title: "Beat the Airport Prices",
+                  icon: "⏰",
+                  content: "Why pay £15 for a sandwich at T5? Enjoy a full meal with us for the same price. Plus a pint costs half what you'd pay airside!"
+                },
+                {
+                  title: "Free Parking Advantage",
+                  icon: "🅿️",
+                  content: "Meeting someone? Save on T5's expensive short-stay parking. Park free with us and track their flight on our WiFi."
+                },
+                {
+                  title: "Pre-Flight Dining",
+                  icon: "🍽️",
+                  content: "Start your holiday right. Relax in our beer garden, enjoy a proper meal, then head to T5 refreshed and ready - not rushed and hungry."
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -228,12 +223,11 @@ export default function Terminal5Page() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Live Terminal 5 Flight Information
-            </h2>
-            <p className="text-lg text-gray-700 text-center mb-8">
-              Check flight times while you enjoy your meal or drink
-            </p>
+            <SectionHeader
+              title="Live Terminal 5 Flight Information"
+              subtitle="Check flight times while you enjoy your meal or drink"
+              align="center"
+            />
             <FlightStatus terminal="5" type="both" limit={5} />
           </div>
         </div>
@@ -243,9 +237,10 @@ export default function Terminal5Page() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Terminal 5 Travel Tips
-            </h2>
+            <SectionHeader
+              title="Terminal 5 Travel Tips"
+              align="center"
+            />
             
             <div className="mb-8">
               <FlightDelayWidget terminal="5" />
@@ -274,27 +269,30 @@ export default function Terminal5Page() {
               </div>
             </div>
 
-            <div className="bg-anchor-cream rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-anchor-green mb-4">Local Knowledge</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>T5 security is typically quieter before 6am and after 8pm</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>The Anchor is popular with BA cabin crew - we know the flight schedules!</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>We can store luggage for short periods if you&apos;re between flights</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>Our Sunday roast is famous among T5 staff - book ahead!</span>
-                </li>
-              </ul>
-            </div>
+            <AlertBox
+              variant="tip"
+              title="Local Knowledge"
+              content={
+                <ul className="space-y-3">
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>T5 security is typically quieter before 6am and after 8pm</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>The Anchor is popular with BA cabin crew - we know the flight schedules!</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>We can store luggage for short periods if you&apos;re between flights</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>Our Sunday roast is famous among T5 staff - book ahead!</span>
+                  </li>
+                </ul>
+              }
+            />
           </div>
         </div>
       </section>
@@ -331,38 +329,31 @@ export default function Terminal5Page() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            See You Soon at The Anchor!
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Just 7 minutes from Terminal 5 • Free Parking • Great British Food
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="/near-heathrow"
-              variant="white"
-              size="lg"
-            >
-              ← Back to All Terminals
-            </CallToAction>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">The Anchor</p>
-            <p>Horton Road, Stanwell Moor</p>
-            <p>Surrey TW19 6AQ</p>
-          </div>
+      <CTASection
+        title="See You Soon at The Anchor!"
+        description="Just 7 minutes from Terminal 5 • Free Parking • Great British Food"
+        variant="green"
+        buttons={[
+          {
+            text: "📞 01753 682707",
+            href: "tel:01753682707",
+            variant: "white",
+            size: "lg"
+          },
+          {
+            text: "← Back to All Terminals",
+            href: "/near-heathrow",
+            variant: "white",
+            size: "lg"
+          }
+        ]}
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
+          <p className="font-semibold mb-2">The Anchor</p>
+          <p>Horton Road, Stanwell Moor</p>
+          <p>Surrey TW19 6AQ</p>
         </div>
-      </section>
+      </CTASection>
 
       {/* JSON-LD Schema */}
       <script

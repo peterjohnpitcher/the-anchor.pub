@@ -11,6 +11,7 @@ interface CTASectionProps {
   variant?: 'green' | 'red' | 'dark'
   className?: string
   footer?: string
+  children?: React.ReactNode
 }
 
 export function CTASection({ 
@@ -19,7 +20,8 @@ export function CTASection({
   buttons, 
   variant = 'green',
   className = '',
-  footer
+  footer,
+  children
 }: CTASectionProps) {
   const bgClasses = {
     green: 'bg-anchor-green text-white',
@@ -54,6 +56,7 @@ export function CTASection({
             {footer}
           </p>
         )}
+        {children}
       </div>
     </section>
   )

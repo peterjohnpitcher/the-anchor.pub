@@ -1,9 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
+import { SectionHeader } from '@/components/SectionHeader'
+import { FeatureGrid } from '@/components/FeatureCard'
+import { InfoBoxGrid } from '@/components/InfoBox'
+import { AlertBox } from '@/components/AlertBox'
+import { CTASection } from '@/components/CTASection'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 2 | The Anchor - 10 Minutes Away',
@@ -21,57 +26,64 @@ export default function Terminal2Page() {
     <>
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/near-heathrow/terminal-2"
         title="Your Local Pub Near Heathrow Terminal 2"
         description="Perfect for Star Alliance travelers • Free parking • Traditional British hospitality"
-        minHeight="min-h-[60vh]"
-      >
-        <p className="text-anchor-gold text-lg mb-4">Just 10 minutes away</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href="tel:01753682707"
-            variant="primary"
-            size="lg"
-          >
-            📞 Book a Table
-          </CallToAction>
-          
-          <CallToAction 
-            href="#directions"
-            variant="white"
-            size="lg"
-          >
-            📍 Get Directions
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        size="large"
+        tags={[
+          { label: "Just 10 minutes away", variant: "warning" }
+        ]}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="tel:01753682707"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </CallToAction>
+            
+            <CallToAction 
+              href="#directions"
+              variant="white"
+              size="lg"
+            >
+              📍 Get Directions
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Quick Info Cards */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🚗</div>
-              <p className="font-bold text-anchor-green">10 mins</p>
-              <p className="text-sm text-gray-600">by car</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🅿️</div>
-              <p className="font-bold text-anchor-green">Free</p>
-              <p className="text-sm text-gray-600">parking</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🍺</div>
-              <p className="font-bold text-anchor-green">Real</p>
-              <p className="text-sm text-gray-600">British pub</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">⭐</div>
-              <p className="font-bold text-anchor-green">Star Alliance</p>
-              <p className="text-sm text-gray-600">Terminal 2</p>
-            </div>
-          </div>
+          <FeatureGrid
+            columns={4}
+            features={[
+              {
+                icon: "🚗",
+                title: "10 mins",
+                description: "by car"
+              },
+              {
+                icon: "🅿️",
+                title: "Free",
+                description: "parking"
+              },
+              {
+                icon: "🍺",
+                title: "Real",
+                description: "British pub"
+              },
+              {
+                icon: "⭐",
+                title: "Star Alliance",
+                description: "Terminal 2"
+              }
+            ]}
+            className="max-w-4xl mx-auto"
+          />
         </div>
       </section>
 
@@ -79,9 +91,10 @@ export default function Terminal2Page() {
       <section id="directions" className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              How to Get Here from Terminal 2
-            </h2>
+            <SectionHeader
+              title="How to Get Here from Terminal 2"
+              align="center"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* By Car */}
@@ -162,71 +175,46 @@ export default function Terminal2Page() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Why Terminal 2 Travelers Choose The Anchor
-            </h2>
+            <SectionHeader
+              title="Why Terminal 2 Travelers Choose The Anchor"
+              align="center"
+            />
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  ⭐ Star Alliance Hub
-                </h3>
-                <p className="text-gray-700">
-                  Terminal 2 hosts Star Alliance carriers including Lufthansa, United, Air Canada, 
-                  and Singapore Airlines. Enjoy authentic British hospitality before your international journey.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  👑 The Queen&apos;s Terminal
-                </h3>
-                <p className="text-gray-700">
-                  Opened by Her Majesty in 2014, T2 is Heathrow&apos;s newest terminal. 
-                  Experience a piece of traditional Britain at The Anchor before entering this modern gateway.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🅿️ Smart Parking Choice
-                </h3>
-                <p className="text-gray-700">
-                  Terminal 2 short-stay parking costs £6.90 for just 30 minutes! 
-                  Park free with us while dropping off or collecting passengers.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🍽️ International Meets Local
-                </h3>
-                <p className="text-gray-700">
-                  Flying to Munich, Toronto, or Singapore? Start with fish & chips or a Sunday roast. 
-                  Our international guests love experiencing authentic British pub culture.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🚫 Outside ULEZ Zone
-                </h3>
-                <p className="text-gray-700">
-                  Save £12.50 daily! We're outside London's ULEZ zone, perfect for travelers 
-                  avoiding the charge. Direct access from M25 without entering the zone.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🚌 Direct Bus Route
-                </h3>
-                <p className="text-gray-700">
-                  The 442 bus stops directly outside, connecting Terminal 2 to our pub. 
-                  Much cheaper than a taxi and runs regularly throughout the day.
-                </p>
-              </div>
-            </div>
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "Star Alliance Hub",
+                  icon: "⭐",
+                  content: "Terminal 2 hosts Star Alliance carriers including Lufthansa, United, Air Canada, and Singapore Airlines. Enjoy authentic British hospitality before your international journey."
+                },
+                {
+                  title: "The Queen's Terminal",
+                  icon: "👑",
+                  content: "Opened by Her Majesty in 2014, T2 is Heathrow's newest terminal. Experience a piece of traditional Britain at The Anchor before entering this modern gateway."
+                },
+                {
+                  title: "Smart Parking Choice",
+                  icon: "🅿️",
+                  content: "Terminal 2 short-stay parking costs £6.90 for just 30 minutes! Park free with us while dropping off or collecting passengers."
+                },
+                {
+                  title: "International Meets Local",
+                  icon: "🍽️",
+                  content: "Flying to Munich, Toronto, or Singapore? Start with fish & chips or a Sunday roast. Our international guests love experiencing authentic British pub culture."
+                },
+                {
+                  title: "Outside ULEZ Zone",
+                  icon: "🚫",
+                  content: "Save £12.50 daily! We're outside London's ULEZ zone, perfect for travelers avoiding the charge. Direct access from M25 without entering the zone."
+                },
+                {
+                  title: "Direct Bus Route",
+                  icon: "🚌",
+                  content: "The 442 bus stops directly outside, connecting Terminal 2 to our pub. Much cheaper than a taxi and runs regularly throughout the day."
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -235,12 +223,11 @@ export default function Terminal2Page() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Live Terminal 2 Flight Information
-            </h2>
-            <p className="text-lg text-gray-700 text-center mb-8">
-              Check flight times while you enjoy your meal or drink
-            </p>
+            <SectionHeader
+              title="Live Terminal 2 Flight Information"
+              subtitle="Check flight times while you enjoy your meal or drink"
+              align="center"
+            />
             <FlightStatus terminal="2" type="both" limit={5} />
           </div>
         </div>
@@ -250,9 +237,10 @@ export default function Terminal2Page() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Terminal 2 Travel Tips
-            </h2>
+            <SectionHeader
+              title="Terminal 2 Travel Tips"
+              align="center"
+            />
             
             <div className="mb-8">
               <FlightDelayWidget terminal="2" />
@@ -283,27 +271,30 @@ export default function Terminal2Page() {
               </div>
             </div>
 
-            <div className="bg-anchor-cream rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-anchor-green mb-4">Insider Knowledge</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>T2 is connected to T3 via pedestrian walkway - great for airline connections</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>The Anchor hosts many Lufthansa and United crews - we know the flight patterns!</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>T2 security is busiest 6-9am for European departures</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>Our German beers are popular with Lufthansa passengers!</span>
-                </li>
-              </ul>
-            </div>
+            <AlertBox
+              variant="tip"
+              title="Insider Knowledge"
+              content={
+                <ul className="space-y-3">
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>T2 is connected to T3 via pedestrian walkway - great for airline connections</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>The Anchor hosts many Lufthansa and United crews - we know the flight patterns!</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>T2 security is busiest 6-9am for European departures</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>Our German beers are popular with Lufthansa passengers!</span>
+                  </li>
+                </ul>
+              }
+            />
           </div>
         </div>
       </section>
@@ -312,9 +303,10 @@ export default function Terminal2Page() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Your Perfect Stop Near Terminal 2
-            </h2>
+            <SectionHeader
+              title="Your Perfect Stop Near Terminal 2"
+              align="center"
+            />
             
             <div className="prose prose-lg max-w-none text-gray-700 mb-12">
               <p className="text-xl text-center mb-8">
@@ -375,38 +367,31 @@ export default function Terminal2Page() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            See You Soon at The Anchor!
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Just 10 minutes from Terminal 2 • Free Parking • Authentic British Pub
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="/near-heathrow"
-              variant="white"
-              size="lg"
-            >
-              ← Back to All Terminals
-            </CallToAction>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">The Anchor</p>
-            <p>Horton Road, Stanwell Moor</p>
-            <p>Surrey TW19 6AQ</p>
-          </div>
+      <CTASection
+        title="See You Soon at The Anchor!"
+        description="Just 10 minutes from Terminal 2 • Free Parking • Authentic British Pub"
+        variant="green"
+        buttons={[
+          {
+            text: "📞 01753 682707",
+            href: "tel:01753682707",
+            variant: "white",
+            size: "lg"
+          },
+          {
+            text: "← Back to All Terminals",
+            href: "/near-heathrow",
+            variant: "white",
+            size: "lg"
+          }
+        ]}
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
+          <p className="font-semibold mb-2">The Anchor</p>
+          <p>Horton Road, Stanwell Moor</p>
+          <p>Surrey TW19 6AQ</p>
         </div>
-      </section>
+      </CTASection>
 
       {/* JSON-LD Schema */}
       <script

@@ -7,8 +7,10 @@ import { Footer } from '@/components/Footer'
 import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
 import { FloatingActions } from '@/components/FloatingActions'
+import { FloatingEventCTA } from '@/components/FloatingEventCTA'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
 import { AnalyticsProvider } from '@/components/AnalyticsProvider'
+import { GoogleTagManager, GoogleTagManagerNoscript } from '@/components/GoogleTagManager'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
 /* Critical CSS for above-the-fold content */
@@ -169,9 +171,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || ''
+
   return (
     <html lang="en" className={`${outfit.variable} ${merriweather.variable}`}>
       <head>
+        <GoogleTagManager gtmId={gtmId} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://management.orangejelly.co.uk" />
@@ -204,6 +209,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <GoogleTagManagerNoscript gtmId={gtmId} />
         <AnalyticsProvider>
           <WebVitals />
           <Navigation 
@@ -215,6 +221,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <FloatingActions />
+          <FloatingEventCTA />
         </AnalyticsProvider>
       </body>
     </html>

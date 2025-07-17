@@ -7,6 +7,7 @@ import { EventSchema } from '@/components/EventSchema'
 import EventBooking from '@/components/EventBooking'
 import EventAvailability from '@/components/EventAvailability'
 import { anchorAPI, formatEventDate, formatEventTime, formatPrice, isEventFree, isEventSoldOut, formatDoorTime, formatEventDuration, hasLimitedAvailability } from '@/lib/api'
+import { EventPageTracker } from '@/components/EventPageTracker'
 
 type Props = {
   params: { id: string }
@@ -60,6 +61,13 @@ export default async function EventPage({ params }: Props) {
   return (
     <>
       <EventSchema event={event} />
+      <EventPageTracker 
+        eventId={event.id}
+        eventName={event.name}
+        eventDate={event.startDate}
+        eventCategory={event.category?.name}
+        eventPrice={event.offers?.price ? parseFloat(event.offers.price) : undefined}
+      />
       
       {/* Event Header Section - Mobile First */}
       <section className="mt-20 pt-6 pb-2 bg-white">

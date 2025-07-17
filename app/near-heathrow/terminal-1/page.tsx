@@ -2,10 +2,11 @@ import Image from 'next/image'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: `Pub Near Heathrow Terminal 1 | ${BRAND.name} - ${HEATHROW_TIMES.terminal1} Minutes Away`,
@@ -59,32 +60,30 @@ export default function Terminal1Page() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/near-heathrow/terminal-1"
         title="Closest Pub to Heathrow Terminal 1"
         description="The perfect pre-flight dining spot or post-landing refreshment stop for T1 travelers"
-        minHeight="min-h-[70vh]"
+        size="large"
         showStatusBar={true}
-      >
-        <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-full px-6 py-3 mb-8">
-          <span className="text-white font-semibold">✈️ Terminal 1</span>
-          <span className="text-white/60">•</span>
-          <span className="text-white font-bold">{HEATHROW_TIMES.terminal1} minutes away</span>
-        </div>
-        
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
-            📞 Book a Table
-          </CallToAction>
-          <CallToAction 
-            href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" 
-            variant="secondary" 
-            size="lg"
-          >
-            📍 Get Directions
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        tags={[
+          { label: `✈️ Terminal 1 • ${HEATHROW_TIMES.terminal1} minutes away`, variant: "primary" }
+        ]}
+        cta={
+          <div className="flex flex-wrap justify-center gap-4">
+            <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
+              📞 Book a Table
+            </CallToAction>
+            <CallToAction 
+              href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" 
+              variant="secondary" 
+              size="lg"
+            >
+              📍 Get Directions
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Quick Journey Info */}
       <section className="py-8 bg-red-600 text-white">
@@ -112,80 +111,64 @@ export default function Terminal1Page() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-4">
-              Why Terminal 1 Travelers Choose {BRAND.name}
-            </h2>
-            <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-              Whether you're catching an early flight or meeting arrivals, we're your perfect Terminal 1 companion
-            </p>
+            <SectionHeader
+              title={`Why Terminal 1 Travelers Choose ${BRAND.name}`}
+              subtitle="Whether you're catching an early flight or meeting arrivals, we're your perfect Terminal 1 companion"
+            />
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-anchor-cream/50 rounded-xl p-6">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">⏰</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Convenient Hours</h3>
-                <p className="text-gray-700">
-                  Open from midday at weekends and 4pm on weekdays. Perfect timing for 
-                  pre-flight meals or meeting arrivals.
-                </p>
-              </div>
-              
-              <div className="bg-anchor-cream/50 rounded-xl p-6">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">🚗</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Cheaper Than Airport Parking</h3>
-                <p className="text-gray-700">
-                  Meeting someone at T1? Park with us for free instead of paying expensive airport rates. 
-                  Just {HEATHROW_TIMES.terminal1} minutes to arrivals.
-                </p>
-              </div>
-              
-              <div className="bg-anchor-cream/50 rounded-xl p-6">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">🍽️</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Better Than Airport Food</h3>
-                <p className="text-gray-700">
-                  Enjoy proper British pub food at pub prices. Full menu available during kitchen hours, 
-                  much better value than Terminal 1 restaurants.
-                </p>
-              </div>
-              
-              <div className="bg-anchor-cream/50 rounded-xl p-6">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">👨‍✈️</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Airport Staff Welcome</h3>
-                <p className="text-gray-700">
-                  Popular with Terminal 1 staff. Show your airport ID for special offers 
-                  on food and drinks throughout the week.
-                </p>
-              </div>
-              
-              <div className="bg-anchor-cream/50 rounded-xl p-6">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">🧳</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Luggage Friendly</h3>
-                <p className="text-gray-700">
-                  Plenty of space for bags and cases. Perfect for that last meal before 
-                  heading to Terminal 1 check-in.
-                </p>
-              </div>
-              
-              <div className="bg-anchor-cream/50 rounded-xl p-6">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-2xl">📱</span>
-                </div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Flight Tracking</h3>
-                <p className="text-gray-700">
-                  Free WiFi to check your Terminal 1 flight status. Our staff can help 
-                  you track arrivals if you're meeting someone.
-                </p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "⏰",
+                  title: "Convenient Hours",
+                  description: "Open from midday at weekends and 4pm on weekdays. Perfect timing for pre-flight meals or meeting arrivals.",
+                  variant: "colored",
+                  color: "bg-anchor-cream/50",
+                  className: "rounded-xl p-6"
+                },
+                {
+                  icon: "🚗",
+                  title: "Cheaper Than Airport Parking",
+                  description: `Meeting someone at T1? Park with us for free instead of paying expensive airport rates. Just ${HEATHROW_TIMES.terminal1} minutes to arrivals.`,
+                  variant: "colored",
+                  color: "bg-anchor-cream/50",
+                  className: "rounded-xl p-6"
+                },
+                {
+                  icon: "🍽️",
+                  title: "Better Than Airport Food",
+                  description: "Enjoy proper British pub food at pub prices. Full menu available during kitchen hours, much better value than Terminal 1 restaurants.",
+                  variant: "colored",
+                  color: "bg-anchor-cream/50",
+                  className: "rounded-xl p-6"
+                },
+                {
+                  icon: "👨‍✈️",
+                  title: "Airport Staff Welcome",
+                  description: "Popular with Terminal 1 staff. Show your airport ID for special offers on food and drinks throughout the week.",
+                  variant: "colored",
+                  color: "bg-anchor-cream/50",
+                  className: "rounded-xl p-6"
+                },
+                {
+                  icon: "🧳",
+                  title: "Luggage Friendly",
+                  description: "Plenty of space for bags and cases. Perfect for that last meal before heading to Terminal 1 check-in.",
+                  variant: "colored",
+                  color: "bg-anchor-cream/50",
+                  className: "rounded-xl p-6"
+                },
+                {
+                  icon: "📱",
+                  title: "Flight Tracking",
+                  description: "Free WiFi to check your Terminal 1 flight status. Our staff can help you track arrivals if you're meeting someone.",
+                  variant: "colored",
+                  color: "bg-anchor-cream/50",
+                  className: "rounded-xl p-6"
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -194,9 +177,9 @@ export default function Terminal1Page() {
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-12">
-              Quick Route to Terminal 1
-            </h2>
+            <SectionHeader
+              title="Quick Route to Terminal 1"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-white rounded-xl p-8 shadow-sm">
@@ -230,12 +213,16 @@ export default function Terminal1Page() {
                   <li>• We can call a taxi for you</li>
                   <li>• Pre-book for early morning flights</li>
                 </ul>
-                <div className="mt-6 p-4 bg-amber-50 rounded-lg">
-                  <p className="text-sm text-amber-800">
-                    <strong>Tip:</strong> Book your return taxi when you land - 
-                    many drivers know {BRAND.name} as the Terminal 1 meeting point!
-                  </p>
-                </div>
+                <AlertBox
+                  variant="info"
+                  title="Tip"
+                  className="mt-6"
+                  content={
+                    <p className="text-sm">
+                      Book your return taxi when you land - many drivers know {BRAND.name} as the Terminal 1 meeting point!
+                    </p>
+                  }
+                />
               </div>
             </div>
             
@@ -273,9 +260,9 @@ export default function Terminal1Page() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              Perfect for Terminal 1 Occasions
-            </h2>
+            <SectionHeader
+              title="Perfect for Terminal 1 Occasions"
+            />
             
             <div className="grid md:grid-cols-2 gap-6 text-left">
               <div className="border-l-4 border-red-500 bg-red-50 p-6 rounded-r-lg">
@@ -318,15 +305,19 @@ export default function Terminal1Page() {
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green text-center mb-8">
-              Opening Hours
-            </h2>
+            <SectionHeader
+              title="Opening Hours"
+            />
             <BusinessHours />
-            <div className="mt-6 bg-amber-100 border-2 border-amber-300 rounded-lg p-4 text-center">
-              <p className="text-amber-900 font-semibold">
-                ⏰ Open from midday weekends, 4pm weekdays - perfect for Terminal 1 travelers
-              </p>
-            </div>
+            <AlertBox
+              variant="info"
+              content={
+                <p className="font-semibold text-center">
+                  ⏰ Open from midday weekends, 4pm weekdays - perfect for Terminal 1 travelers
+                </p>
+              }
+              className="mt-6"
+            />
           </div>
         </div>
       </section>
@@ -351,43 +342,37 @@ export default function Terminal1Page() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-red-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Terminal 1's Favourite Local Pub
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Just {HEATHROW_TIMES.terminal1} minutes away • Free parking • Convenient opening hours
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <CallToAction href={CONTACT.phoneHref} variant="secondary" size="lg">
-              📞 Call {CONTACT.phone}
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu" 
-              variant="outline" 
-              size="lg"
-              className="!text-white !border-white hover:!bg-white hover:!text-red-600"
-            >
-              View Pre-Flight Menu
-            </CallToAction>
-          </div>
-          
-          <div className="mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-xl max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold mb-4">Quick Terminal 1 Info</h3>
-            <div className="grid grid-cols-2 gap-4 text-left">
-              <div>
-                <p className="font-semibold">Airlines at T1:</p>
-                <p className="text-white/80">Check with airline for latest terminal info</p>
-              </div>
-              <div>
-                <p className="font-semibold">Our Address:</p>
-                <p className="text-white/80">{CONTACT.address.street}, {CONTACT.address.postcode}</p>
-              </div>
+      <CTASection
+        title="Terminal 1's Favourite Local Pub"
+        description={`Just ${HEATHROW_TIMES.terminal1} minutes away • Free parking • Convenient opening hours`}
+        buttons={[
+          {
+            text: `📞 Call ${CONTACT.phone}`,
+            href: CONTACT.phoneHref,
+            variant: "secondary"
+          },
+          {
+            text: "View Pre-Flight Menu",
+            href: "/food-menu",
+            variant: "white"
+          }
+        ]}
+        variant="red"
+      >
+        <div className="mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-xl max-w-2xl mx-auto">
+          <h3 className="text-xl font-bold mb-4">Quick Terminal 1 Info</h3>
+          <div className="grid grid-cols-2 gap-4 text-left">
+            <div>
+              <p className="font-semibold">Airlines at T1:</p>
+              <p className="text-white/80">Check with airline for latest terminal info</p>
+            </div>
+            <div>
+              <p className="font-semibold">Our Address:</p>
+              <p className="text-white/80">{CONTACT.address.street}, {CONTACT.address.postcode}</p>
             </div>
           </div>
         </div>
-      </section>
+      </CTASection>
     </>
   )
 }

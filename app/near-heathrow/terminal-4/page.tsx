@@ -1,9 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
+import { SectionHeader } from '@/components/SectionHeader'
+import { FeatureGrid } from '@/components/FeatureCard'
+import { InfoBoxGrid } from '@/components/InfoBox'
+import { AlertBox } from '@/components/AlertBox'
+import { CTASection } from '@/components/CTASection'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 4 | The Anchor - 12 Minutes Away',
@@ -21,57 +26,64 @@ export default function Terminal4Page() {
     <>
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/near-heathrow/terminal-4"
         title="Traditional British Pub Near Heathrow Terminal 4"
         description="Perfect for SkyTeam & budget travelers • Free parking • Real British hospitality"
-        minHeight="min-h-[60vh]"
-      >
-        <p className="text-anchor-gold text-lg mb-4">Just 12 minutes away</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href="tel:01753682707"
-            variant="primary"
-            size="lg"
-          >
-            📞 Book a Table
-          </CallToAction>
-          
-          <CallToAction 
-            href="#directions"
-            variant="white"
-            size="lg"
-          >
-            📍 Get Directions
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        size="large"
+        tags={[
+          { label: "Just 12 minutes away", variant: "warning" }
+        ]}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="tel:01753682707"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </CallToAction>
+            
+            <CallToAction 
+              href="#directions"
+              variant="white"
+              size="lg"
+            >
+              📍 Get Directions
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Quick Info Cards */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🚗</div>
-              <p className="font-bold text-anchor-green">12 mins</p>
-              <p className="text-sm text-gray-600">by car</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🅿️</div>
-              <p className="font-bold text-anchor-green">Free</p>
-              <p className="text-sm text-gray-600">parking</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">💷</div>
-              <p className="font-bold text-anchor-green">Value</p>
-              <p className="text-sm text-gray-600">prices</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🌐</div>
-              <p className="font-bold text-anchor-green">SkyTeam</p>
-              <p className="text-sm text-gray-600">Terminal 4</p>
-            </div>
-          </div>
+          <FeatureGrid
+            columns={4}
+            features={[
+              {
+                icon: "🚗",
+                title: "12 mins",
+                description: "by car"
+              },
+              {
+                icon: "🅿️",
+                title: "Free",
+                description: "parking"
+              },
+              {
+                icon: "💷",
+                title: "Value",
+                description: "prices"
+              },
+              {
+                icon: "🌐",
+                title: "SkyTeam",
+                description: "Terminal 4"
+              }
+            ]}
+            className="max-w-4xl mx-auto"
+          />
         </div>
       </section>
 
@@ -79,9 +91,10 @@ export default function Terminal4Page() {
       <section id="directions" className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              How to Get Here from Terminal 4
-            </h2>
+            <SectionHeader
+              title="How to Get Here from Terminal 4"
+              align="center"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* By Car */}
@@ -162,51 +175,36 @@ export default function Terminal4Page() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Why Terminal 4 Travelers Choose The Anchor
-            </h2>
+            <SectionHeader
+              title="Why Terminal 4 Travelers Choose The Anchor"
+              align="center"
+            />
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🌐 SkyTeam Alliance Hub
-                </h3>
-                <p className="text-gray-700">
-                  Terminal 4 hosts Air France, KLM, and other SkyTeam partners, plus many 
-                  Middle Eastern and Asian carriers. Experience British culture before your journey.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  💰 Budget-Friendly Option
-                </h3>
-                <p className="text-gray-700">
-                  T4 also serves budget airlines. Why start your holiday overspending at the airport? 
-                  Our meals cost less than airport fast food with proper portions.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🚊 Transit Alternative
-                </h3>
-                <p className="text-gray-700">
-                  T4 is furthest from central terminals. If you have a long connection, 
-                  escape to The Anchor instead of waiting in crowded lounges.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🌙 24-Hour Terminal Benefits
-                </h3>
-                <p className="text-gray-700">
-                  T4 handles many overnight flights. Join us for a late afternoon meal or 
-                  evening drink - much more comfortable than terminal seating!
-                </p>
-              </div>
-            </div>
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "SkyTeam Alliance Hub",
+                  icon: "🌐",
+                  content: "Terminal 4 hosts Air France, KLM, and other SkyTeam partners, plus many Middle Eastern and Asian carriers. Experience British culture before your journey."
+                },
+                {
+                  title: "Budget-Friendly Option",
+                  icon: "💰",
+                  content: "T4 also serves budget airlines. Why start your holiday overspending at the airport? Our meals cost less than airport fast food with proper portions."
+                },
+                {
+                  title: "Transit Alternative",
+                  icon: "🚊",
+                  content: "T4 is furthest from central terminals. If you have a long connection, escape to The Anchor instead of waiting in crowded lounges."
+                },
+                {
+                  title: "24-Hour Terminal Benefits",
+                  icon: "🌙",
+                  content: "T4 handles many overnight flights. Join us for a late afternoon meal or evening drink - much more comfortable than terminal seating!"
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -215,12 +213,11 @@ export default function Terminal4Page() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Live Terminal 4 Flight Information
-            </h2>
-            <p className="text-lg text-gray-700 text-center mb-8">
-              Check flight times while you enjoy your meal or drink
-            </p>
+            <SectionHeader
+              title="Live Terminal 4 Flight Information"
+              subtitle="Check flight times while you enjoy your meal or drink"
+              align="center"
+            />
             <FlightStatus terminal="4" type="both" limit={5} />
           </div>
         </div>
@@ -230,9 +227,10 @@ export default function Terminal4Page() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Terminal 4 Travel Tips
-            </h2>
+            <SectionHeader
+              title="Terminal 4 Travel Tips"
+              align="center"
+            />
             
             <div className="mb-8">
               <FlightDelayWidget terminal="4" />
@@ -265,64 +263,60 @@ export default function Terminal4Page() {
               </div>
             </div>
 
-            <div className="bg-anchor-cream rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-anchor-green mb-4">Insider Tips</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>T4 to T5 connections need 90+ minutes - consider a quick meal with us instead!</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>Air France morning flights are busy - T4 security peaks 5:30-7:30am</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>Many Gulf carrier flights depart late evening - perfect for an early dinner</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>T4 parking is cheapest at Heathrow - but free is better at The Anchor!</span>
-                </li>
-              </ul>
-            </div>
+            <AlertBox
+              variant="tip"
+              title="Insider Tips"
+              content={
+                <ul className="space-y-3">
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>T4 to T5 connections need 90+ minutes - consider a quick meal with us instead!</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>Air France morning flights are busy - T4 security peaks 5:30-7:30am</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>Many Gulf carrier flights depart late evening - perfect for an early dinner</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>T4 parking is cheapest at Heathrow - but free is better at The Anchor!</span>
+                  </li>
+                </ul>
+              }
+            />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            See You Soon at The Anchor!
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Just 12 minutes from Terminal 4 • Free Parking • Great Value
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="/near-heathrow"
-              variant="white"
-              size="lg"
-            >
-              ← Back to All Terminals
-            </CallToAction>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">The Anchor</p>
-            <p>Horton Road, Stanwell Moor</p>
-            <p>Surrey TW19 6AQ</p>
-          </div>
+      <CTASection
+        title="See You Soon at The Anchor!"
+        description="Just 12 minutes from Terminal 4 • Free Parking • Great Value"
+        variant="green"
+        buttons={[
+          {
+            text: "📞 01753 682707",
+            href: "tel:01753682707",
+            variant: "white",
+            size: "lg"
+          },
+          {
+            text: "← Back to All Terminals",
+            href: "/near-heathrow",
+            variant: "white",
+            size: "lg"
+          }
+        ]}
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
+          <p className="font-semibold mb-2">The Anchor</p>
+          <p>Horton Road, Stanwell Moor</p>
+          <p>Surrey TW19 6AQ</p>
         </div>
-      </section>
+      </CTASection>
 
       {/* JSON-LD Schema */}
       <script

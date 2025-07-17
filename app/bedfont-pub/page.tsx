@@ -3,10 +3,11 @@ import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Bedfont Pub | The Anchor - 5 Minutes Away | Surrey',
@@ -77,50 +78,67 @@ export default function BedfontPubPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/bedfont-pub"
         title="Bedfont's Closest Traditional Pub"
         description="Just 5 minutes away with free parking"
+        size="medium"
         showStatusBar={true}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="tel:01753682707"
+              variant="primary"
+              size="lg"
+            >
+              📞 Call to Book
+            </CallToAction>
+            <CallToAction 
+              href="/food-menu"
+              variant="secondary"
+              size="lg"
+            >
+              🍽️ View Menu
+            </CallToAction>
+          </div>
+        }
       />
 
       {/* Distance & Benefits */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-4">
-                The Anchor - Bedfont's Best Kept Secret
-              </h2>
-              <p className="text-xl text-gray-700">
-                Your nearest proper British pub - just 5 minutes from both East and West Bedfont
-              </p>
-            </div>
+            <SectionHeader
+              title="The Anchor - Bedfont's Best Kept Secret"
+              subtitle="Your nearest proper British pub - just 5 minutes from both East and West Bedfont"
+              className="text-center mb-12"
+            />
 
             {/* Key Benefits Grid */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center">
-                <div className="bg-anchor-gold text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                  5min
-                </div>
-                <h3 className="font-bold text-lg mb-2">Closest Pub</h3>
-                <p className="text-gray-600">Just 5 minutes from Bedfont - your nearest traditional pub</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-anchor-gold text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🏢</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Business Friendly</h3>
-                <p className="text-gray-600">Popular with Bedfont Lakes Business Park workers</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-anchor-gold text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🏘️</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2">Community Hub</h3>
-                <p className="text-gray-600">Where East and West Bedfont residents meet</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "5min",
+                  title: "Closest Pub",
+                  description: "Just 5 minutes from Bedfont - your nearest traditional pub",
+                  className: "text-center"
+                },
+                {
+                  icon: "🏢",
+                  title: "Business Friendly",
+                  description: "Popular with Bedfont Lakes Business Park workers",
+                  className: "text-center"
+                },
+                {
+                  icon: "🏘️",
+                  title: "Community Hub",
+                  description: "Where East and West Bedfont residents meet",
+                  className: "text-center"
+                }
+              ]}
+              className="mb-12"
+            />
 
             {/* Why Choose Us */}
             <div className="bg-anchor-cream rounded-2xl p-8">
@@ -158,9 +176,9 @@ export default function BedfontPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8 text-center">
-              Easy to Find from Bedfont
-            </h2>
+            <SectionHeader
+              title="Easy to Find from Bedfont"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -223,9 +241,9 @@ export default function BedfontPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8 text-center">
-              Perfect for Bedfont Locals
-            </h2>
+            <SectionHeader
+              title="Perfect for Bedfont Locals"
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-8 rounded-xl">
                 <h3 className="font-bold text-xl text-anchor-green mb-4">Family Gatherings</h3>
@@ -278,9 +296,9 @@ export default function BedfontPubPage() {
       <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8 text-center">
-              Opening Hours
-            </h2>
+            <SectionHeader
+              title="Opening Hours"
+            />
             <BusinessHours />
           </div>
         </div>
@@ -306,35 +324,24 @@ export default function BedfontPubPage() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Your Nearest Traditional Pub
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join your Bedfont neighbours at The Anchor - where everyone knows your name
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 Call: 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="/find-us"
-              variant="white"
-              size="lg"
-            >
-              📍 Get Directions
-            </CallToAction>
-          </div>
-          <p className="mt-8 text-white/80">
-            Horton Road, Stanwell Moor, Surrey TW19 6AQ
-          </p>
-        </div>
-      </section>
+      <CTASection
+        title="Your Nearest Traditional Pub"
+        description="Join your Bedfont neighbours at The Anchor - where everyone knows your name"
+        buttons={[
+          {
+            text: "📞 Call: 01753 682707",
+            href: "tel:01753682707",
+            variant: "white"
+          },
+          {
+            text: "📍 Get Directions",
+            href: "/find-us",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+        footer="Horton Road, Stanwell Moor, Surrey TW19 6AQ"
+      />
     </>
   )
 }

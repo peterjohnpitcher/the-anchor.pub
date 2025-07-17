@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const blogRedirects = require('./blog-redirects.json')
 const tagRedirects = require('./tag-redirects.json')
+const wixRedirects = require('./wix-redirects.json')
 
 const nextConfig = {
   async redirects() {
-    return [...blogRedirects, ...tagRedirects]
+    return [...wixRedirects, ...blogRedirects, ...tagRedirects]
   },
   async headers() {
     return [

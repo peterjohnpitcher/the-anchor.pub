@@ -2,15 +2,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { Metadata } from 'next'
 import { BusinessHours } from '@/components/BusinessHours'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { findUsPlaceSchema, generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
-  description: 'Find The Anchor pub in Stanwell Moor, Surrey. Easy directions from Heathrow, M25, Staines, and local areas. Free parking available. Just off Horton Road near the church.',
+  description: 'Find The Anchor pub in Stanwell Moor, Surrey. Easy directions from Heathrow, M25, Staines, and local areas. Free parking available on Horton Road.',
   keywords: 'anchor pub directions, find anchor stanwell moor, pub near me directions, free parking pub',
   openGraph: {
     title: 'Find The Anchor - Directions & Location',
@@ -32,7 +33,7 @@ export default function FindUsPage() {
       "Exit Terminal 5 following signs for M25/A30",
       "At roundabout, take A3044 towards Staines",
       "Continue straight for 1.5 miles through Stanwell",
-      "Turn left onto Horton Road (by the church)",
+      "Turn left onto Horton Road",
       "The Anchor is 200 yards on your right",
       "Free parking available on site"
     ]
@@ -46,12 +47,35 @@ export default function FindUsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify([findUsPlaceSchema, breadcrumbSchema, howToFromHeathrowSchema]) }}
       />
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/find-us"
         title="Find The Anchor"
         description="Easy to find, hard to leave!"
-        minHeight="min-h-[40vh]"
+        size="small"
         showStatusBar={true}
+        tags={[
+          { label: "📍 Centre of Stanwell Moor village", variant: "default" },
+          { label: "🚗 Free Parking", variant: "success" }
+        ]}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
+              variant="primary"
+              size="lg"
+              external
+            >
+              📍 Get Directions
+            </CallToAction>
+            <CallToAction 
+              href="tel:01753682707"
+              variant="secondary"
+              size="lg"
+            >
+              📞 Call Us
+            </CallToAction>
+          </div>
+        }
       />
 
       {/* Quick Info */}
@@ -113,7 +137,9 @@ export default function FindUsPage() {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-3xl font-bold text-anchor-green mb-6">Our Address</h2>
+                <SectionHeader
+                  title="Our Address"
+                />
                 <div className="bg-anchor-cream rounded-2xl p-8">
                   <address className="not-italic text-lg space-y-2">
                     <p className="font-bold text-xl text-anchor-green">The Anchor</p>
@@ -145,15 +171,17 @@ export default function FindUsPage() {
               </div>
               
               <div>
-                <h2 className="text-3xl font-bold text-anchor-green mb-6">Landmarks</h2>
+                <SectionHeader
+                  title="Landmarks"
+                />
                 <div className="bg-anchor-sand/30 rounded-2xl p-8">
                   <p className="text-lg font-semibold text-anchor-green mb-4">
                     Look out for these landmarks:
                   </p>
                   <ul className="space-y-3">
                     <li className="flex gap-3">
-                      <span className="text-anchor-gold">⛪</span>
-                      <span>Next to St Mary's Church</span>
+                      <span className="text-anchor-gold">🏘️</span>
+                      <span>Centre of Stanwell Moor village</span>
                     </li>
                     <li className="flex gap-3">
                       <span className="text-anchor-gold">✈️</span>
@@ -180,7 +208,9 @@ export default function FindUsPage() {
             
             {/* Business Hours & Weather */}
             <div className="mt-12">
-              <h2 className="text-3xl font-bold text-anchor-green mb-6 text-center">Hours & Weather</h2>
+              <SectionHeader
+                title="Hours & Weather"
+              />
               <div className="bg-anchor-green/95 rounded-2xl shadow-lg p-6 max-w-2xl mx-auto">
                 <BusinessHours variant="condensed" showKitchen={true} showWeather={true} />
               </div>
@@ -192,9 +222,9 @@ export default function FindUsPage() {
       {/* Directions */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-            Directions from Popular Locations
-          </h2>
+          <SectionHeader
+            title="Directions from Popular Locations"
+          />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* From M25 */}
@@ -279,9 +309,9 @@ export default function FindUsPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8">
-              Free Parking
-            </h2>
+            <SectionHeader
+              title="Free Parking"
+            />
             <div className="bg-anchor-cream rounded-2xl p-8">
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
@@ -312,9 +342,9 @@ export default function FindUsPage() {
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Our Facilities
-            </h2>
+            <SectionHeader
+              title="Our Facilities"
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl p-8 shadow-sm">
                 <h3 className="text-2xl font-bold text-anchor-green mb-6">Entertainment & Games</h3>
@@ -407,18 +437,6 @@ export default function FindUsPage() {
         </div>
       </section>
 
-      {/* Opening Hours */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Opening Hours
-            </h2>
-            <BusinessHours variant="full" showKitchen={true} />
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
         faqs={[
@@ -444,7 +462,7 @@ export default function FindUsPage() {
           },
           {
             question: "What's the best way to find The Anchor?",
-            answer: "Look for the church on Horton Road - we're right next to it! If using sat nav, our postcode is TW19 6AQ. From the A3044, turn onto Horton Road at the church and we're on your right with free parking available."
+            answer: "If using sat nav, our postcode is TW19 6AQ. From the A3044, turn onto Horton Road and we're on your right with free parking available."
           },
           {
             question: "Is The Anchor wheelchair accessible?",
@@ -459,47 +477,36 @@ export default function FindUsPage() {
       />
 
       {/* Map CTA */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Get Directions
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Use your preferred map service to navigate directly to The Anchor
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-              variant="white"
-              size="lg"
-              external
-            >
-              📍 Google Maps
-            </CallToAction>
-            <CallToAction 
-              href="https://maps.apple.com/?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-              variant="white"
-              size="lg"
-              external
-            >
-              📍 Apple Maps
-            </CallToAction>
-            <CallToAction 
-              href="https://www.waze.com/ul?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-              variant="white"
-              size="lg"
-              external
-            >
-              📍 Waze
-            </CallToAction>
-          </div>
-          
-          <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">Sat Nav Postcode</p>
-            <p className="text-2xl font-bold">TW19 6AQ</p>
-          </div>
+      <CTASection
+        title="Get Directions"
+        description="Use your preferred map service to navigate directly to The Anchor"
+        buttons={[
+          {
+            text: "📍 Google Maps",
+            href: "https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ",
+            variant: "white",
+            external: true
+          },
+          {
+            text: "📍 Apple Maps",
+            href: "https://maps.apple.com/?q=The+Anchor+Stanwell+Moor+TW19+6AQ",
+            variant: "white",
+            external: true
+          },
+          {
+            text: "📍 Waze",
+            href: "https://www.waze.com/ul?q=The+Anchor+Stanwell+Moor+TW19+6AQ",
+            variant: "white",
+            external: true
+          }
+        ]}
+        variant="green"
+      >
+        <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
+          <p className="font-semibold mb-2">Sat Nav Postcode</p>
+          <p className="text-2xl font-bold">TW19 6AQ</p>
         </div>
-      </section>
+      </CTASection>
     </>
   )
 }

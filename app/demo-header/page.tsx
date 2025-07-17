@@ -1,12 +1,13 @@
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 
 export default function DemoHeaderPage() {
   return (
     <>
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/demo-header"
         title="Demo Header Page"
         description="This page demonstrates the new header image system"
+        size="small"
         showStatusBar={true}
       />
       

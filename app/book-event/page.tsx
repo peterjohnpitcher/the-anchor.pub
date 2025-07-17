@@ -1,8 +1,9 @@
 import { CallToAction } from '@/components/CallToAction'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { eventBookingServiceSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+import { CTASection, SectionHeader, InfoBoxGrid, FeatureGrid, QuickInfoGrid } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Event Venue Hire Near Me | The Anchor Stanwell Moor | Private Bookings',
@@ -73,33 +74,30 @@ export default function BookEventPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/book-event"
         title="Private Bookings at The Anchor"
         description="Transform your special occasion into an unforgettable experience"
-        minHeight="min-h-[50vh]"
+        size="medium"
         showStatusBar={false}
-      >
-        <CallToAction 
-          href="tel:01753682707"
-          variant="primary"
-          size="lg"
-        >
-          📞 Call to Discuss: 01753 682707
-        </CallToAction>
-      </PageHeaderWrapper>
+        cta={
+          <CallToAction 
+            href="tel:01753682707"
+            variant="primary"
+            size="lg"
+          >
+            📞 Call to Discuss: 01753 682707
+          </CallToAction>
+        }
+      />
 
       {/* Venue Spaces */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-4">
-              Venue Spaces
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Our venue offers a variety of distinct spaces that can be hired individually or in combination
-            </p>
-          </div>
+          <SectionHeader
+            title="Venue Spaces"
+            subtitle="Our venue offers a variety of distinct spaces that can be hired individually or in combination"
+          />
           
           {/* Available Spaces */}
           <div className="max-w-5xl mx-auto mb-12">
@@ -231,9 +229,9 @@ export default function BookEventPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              Catering Options
-            </h2>
+            <SectionHeader
+              title="Catering Options"
+            />
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 shadow-md">
@@ -327,12 +325,10 @@ export default function BookEventPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              Preferred Vendor Network
-            </h2>
-            <p className="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
-              We've curated a network of trusted professionals to enhance your event
-            </p>
+            <SectionHeader
+              title="Preferred Vendor Network"
+              subtitle="We've curated a network of trusted professionals to enhance your event"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 rounded-xl p-8">
@@ -411,9 +407,9 @@ export default function BookEventPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              Additional Services
-            </h2>
+            <SectionHeader
+              title="Additional Services"
+            />
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 shadow-sm">
@@ -442,47 +438,51 @@ export default function BookEventPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              Perfect For
-            </h2>
+            <SectionHeader
+              title="Perfect For"
+            />
             
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-5xl mb-4">💑</div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Weddings & Ceremonies</h3>
-                <p className="text-gray-600">Wedding receptions, ceremonies, and engagement parties</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-5xl mb-4">🎂</div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Milestone Celebrations</h3>
-                <p className="text-gray-600">Birthday parties, anniversaries, and retirement parties</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-5xl mb-4">💼</div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Corporate Events</h3>
-                <p className="text-gray-600">Meetings, team building, Christmas parties, and presentations</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-5xl mb-4">👨‍👩‍👧‍👦</div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Family Gatherings</h3>
-                <p className="text-gray-600">Christenings, baby showers, and family reunions</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-5xl mb-4">🕊️</div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Memorial Services</h3>
-                <p className="text-gray-600">Funeral wakes and celebration of life gatherings</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-5xl mb-4">🎉</div>
-                <h3 className="text-xl font-bold text-anchor-green mb-2">Social Functions</h3>
-                <p className="text-gray-600">Club meetings, society functions, and private dining</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "💑",
+                  title: "Weddings & Ceremonies",
+                  description: "Wedding receptions, ceremonies, and engagement parties",
+                  className: "text-center"
+                },
+                {
+                  icon: "🎂",
+                  title: "Milestone Celebrations",
+                  description: "Birthday parties, anniversaries, and retirement parties",
+                  className: "text-center"
+                },
+                {
+                  icon: "💼",
+                  title: "Corporate Events",
+                  description: "Meetings, team building, Christmas parties, and presentations",
+                  className: "text-center"
+                },
+                {
+                  icon: "👨‍👩‍👧‍👦",
+                  title: "Family Gatherings",
+                  description: "Christenings, baby showers, and family reunions",
+                  className: "text-center"
+                },
+                {
+                  icon: "🕊️",
+                  title: "Memorial Services",
+                  description: "Funeral wakes and celebration of life gatherings",
+                  className: "text-center"
+                },
+                {
+                  icon: "🎉",
+                  title: "Social Functions",
+                  description: "Club meetings, society functions, and private dining",
+                  className: "text-center"
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -491,9 +491,9 @@ export default function BookEventPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              What Our Event Guests Say
-            </h2>
+            <SectionHeader
+              title="What Our Event Guests Say"
+            />
             
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 shadow-md">
@@ -589,12 +589,10 @@ export default function BookEventPage() {
       <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-12 text-center">
-              Booking Process
-            </h2>
-            <p className="text-xl text-gray-700 mb-12 text-center max-w-3xl mx-auto">
-              From your initial inquiry to the day of your event, we make the process seamless and stress-free
-            </p>
+            <SectionHeader
+              title="Booking Process"
+              subtitle="From your initial inquiry to the day of your event, we make the process seamless and stress-free"
+            />
             
             <div className="space-y-6">
               <div className="flex gap-4 items-start">
@@ -674,39 +672,29 @@ export default function BookEventPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Let's Plan Your Perfect Event
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Get in touch today to discuss your requirements and check availability
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 Call: 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="mailto:manager@the-anchor.pub?subject=Event Enquiry"
-              variant="white"
-              size="lg"
-            >
-              ✉️ Email Us
-            </CallToAction>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">Office Hours</p>
-            <p>Monday - Friday: 10am - 6pm</p>
-            <p className="text-sm mt-2">Or leave a message anytime</p>
-          </div>
+      <CTASection
+        title="Let's Plan Your Perfect Event"
+        description="Get in touch today to discuss your requirements and check availability"
+        buttons={[
+          {
+            text: "📞 Call: 01753 682707",
+            href: "tel:01753682707",
+            variant: "white"
+          },
+          {
+            text: "✉️ Email Us",
+            href: "mailto:manager@the-anchor.pub?subject=Event Enquiry",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
+          <p className="font-semibold mb-2 text-white">Office Hours</p>
+          <p className="text-white">Monday - Friday: 10am - 6pm</p>
+          <p className="text-sm mt-2 text-white/90">Or leave a message anytime</p>
         </div>
-      </section>
+      </CTASection>
     </>
   )
 }

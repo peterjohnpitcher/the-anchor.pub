@@ -3,11 +3,12 @@ import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: `Windsor Pub Near Me | ${BRAND.name} - 15 Minutes from Windsor`,
@@ -92,62 +93,71 @@ export default function WindsorPubPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/windsor-pub"
         title="Traditional British Pub Near Windsor"
         description="Just 15 minutes from Windsor Castle with free parking"
+        size="medium"
         showStatusBar={true}
-      >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href={`tel:${CONTACT.phone}`}
-            variant="primary"
-            size="lg"
-          >
-            📞 Call to Book
-          </CallToAction>
-          <CallToAction 
-            href="/food-menu"
-            variant="secondary"
-            size="lg"
-          >
-            🍽️ View Menu
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href={`tel:${CONTACT.phone}`}
+              variant="primary"
+              size="lg"
+            >
+              📞 Call to Book
+            </CallToAction>
+            <CallToAction 
+              href="/food-menu"
+              variant="secondary"
+              size="lg"
+            >
+              🍽️ View Menu
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Welcome Section */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-6">
-              Windsor's Favorite Traditional Pub Experience
-            </h2>
-            <p className="text-xl text-gray-700 mb-8">
-              Just a 15-minute drive from Windsor Castle, The Anchor offers authentic British 
-              hospitality without the tourist prices. Enjoy traditional pub atmosphere, fantastic 
-              food, and a warm welcome in our historic Stanwell Moor location.
-            </p>
+            <SectionHeader
+              title="Windsor's Favorite Traditional Pub Experience"
+              subtitle="Just a 15-minute drive from Windsor Castle, The Anchor offers authentic British hospitality without the tourist prices. Enjoy traditional pub atmosphere, fantastic food, and a warm welcome in our historic Stanwell Moor location."
+            />
             
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">🏰</div>
-                <h3 className="font-bold text-lg mb-2">Near Windsor</h3>
-                <p className="text-gray-700">15 minutes from Windsor Castle via M4 or B376</p>
-              </div>
-              
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">💷</div>
-                <h3 className="font-bold text-lg mb-2">Better Value</h3>
-                <p className="text-gray-700">Avoid Windsor tourist prices - proper pub rates</p>
-              </div>
-              
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">🚫</div>
-                <h3 className="font-bold text-lg mb-2">ULEZ Free</h3>
-                <p className="text-gray-700">Save £12.50 - we're outside the zone!</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🏰",
+                  title: "Near Windsor",
+                  description: "15 minutes from Windsor Castle via M4 or B376",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "💷",
+                  title: "Better Value",
+                  description: "Avoid Windsor tourist prices - proper pub rates",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "🚫",
+                  title: "ULEZ Free",
+                  description: "Save £12.50 - we're outside the zone!",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                }
+              ]}
+              className="mb-8"
+            />
           </div>
         </div>
       </section>
@@ -156,9 +166,9 @@ export default function WindsorPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Why Windsor Residents Love The Anchor
-            </h2>
+            <SectionHeader
+              title="Why Windsor Residents Love The Anchor"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -222,12 +232,16 @@ export default function WindsorPubPage() {
               </div>
             </div>
             
-            <div className="mt-8 bg-blue-50 rounded-xl p-6 text-center">
-              <p className="text-lg text-blue-800">
-                <span className="font-bold">Royal Connection:</span> Many castle staff and Windsor 
-                locals are regulars - discover where the real community meets!
-              </p>
-            </div>
+            <AlertBox
+              variant="info"
+              title="Royal Connection"
+              className="mt-8 text-center"
+              content={
+                <p className="text-lg">
+                  Many castle staff and Windsor locals are regulars - discover where the real community meets!
+                </p>
+              }
+            />
           </div>
         </div>
       </section>
@@ -236,9 +250,9 @@ export default function WindsorPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Popular with Windsor Groups
-            </h2>
+            <SectionHeader
+              title="Popular with Windsor Groups"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-amber-50 rounded-xl p-6">
@@ -280,9 +294,9 @@ export default function WindsorPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Getting to The Anchor from Windsor
-            </h2>
+            <SectionHeader
+              title="Getting to The Anchor from Windsor"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6">
@@ -348,9 +362,9 @@ export default function WindsorPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Windsor to The Anchor - Why We're Worth the Trip
-            </h2>
+            <SectionHeader
+              title="Windsor to The Anchor - Why We're Worth the Trip"
+            />
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-gray-50 rounded-xl p-6">
@@ -396,9 +410,9 @@ export default function WindsorPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Opening Hours
-            </h2>
+            <SectionHeader
+              title="Opening Hours"
+            />
             <BusinessHours />
             <p className="mt-4 text-gray-600">
               Kitchen closes earlier - check times for food service
@@ -439,37 +453,24 @@ export default function WindsorPubPage() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Discover Windsor's Favorite Local
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Just 15 minutes from the castle - where Windsor locals escape the tourists
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="secondary"
-              size="lg"
-              className="flex-1"
-            >
-              📞 Book a Table
-            </CallToAction>
-            <CallToAction 
-              href="/special-offers"
-              variant="primary"
-              size="lg"
-              className="flex-1 bg-white text-anchor-green hover:bg-gray-100"
-            >
-              🎉 View Offers
-            </CallToAction>
-          </div>
-          <p className="mt-6 text-sm text-white/80">
-            Just 15 minutes from Windsor • Free Parking • Outside ULEZ Zone
-          </p>
-        </div>
-      </section>
+      <CTASection
+        title="Discover Windsor's Favorite Local"
+        description="Just 15 minutes from the castle - where Windsor locals escape the tourists"
+        buttons={[
+          {
+            text: "📞 Book a Table",
+            href: `tel:${CONTACT.phone}`,
+            variant: "secondary"
+          },
+          {
+            text: "🎉 View Offers",
+            href: "/special-offers",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+        footer="Just 15 minutes from Windsor • Free Parking • Outside ULEZ Zone"
+      />
     </>
   )
 }

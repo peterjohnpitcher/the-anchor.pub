@@ -1,9 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
+import { SectionHeader } from '@/components/SectionHeader'
+import { FeatureGrid } from '@/components/FeatureCard'
+import { InfoBoxGrid } from '@/components/InfoBox'
+import { AlertBox } from '@/components/AlertBox'
+import { CTASection } from '@/components/CTASection'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 3 | The Anchor - 10 Minutes Away',
@@ -21,57 +26,64 @@ export default function Terminal3Page() {
     <>
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/near-heathrow/terminal-3"
         title="Your Family Pub Near Heathrow Terminal 3"
         description="Perfect for Virgin Atlantic & Emirates travelers • Free parking • British hospitality"
-        minHeight="min-h-[60vh]"
-      >
-        <p className="text-anchor-gold text-lg mb-4">Just 10 minutes away</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href="tel:01753682707"
-            variant="primary"
-            size="lg"
-          >
-            📞 Book a Table
-          </CallToAction>
-          
-          <CallToAction 
-            href="#directions"
-            variant="white"
-            size="lg"
-          >
-            📍 Get Directions
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        size="large"
+        tags={[
+          { label: "Just 10 minutes away", variant: "warning" }
+        ]}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href="tel:01753682707"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </CallToAction>
+            
+            <CallToAction 
+              href="#directions"
+              variant="white"
+              size="lg"
+            >
+              📍 Get Directions
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Quick Info Cards */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🚗</div>
-              <p className="font-bold text-anchor-green">10 mins</p>
-              <p className="text-sm text-gray-600">by car</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🅿️</div>
-              <p className="font-bold text-anchor-green">Free</p>
-              <p className="text-sm text-gray-600">parking</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">👨‍👩‍👧‍👦</div>
-              <p className="font-bold text-anchor-green">Family</p>
-              <p className="text-sm text-gray-600">friendly</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">✈️</div>
-              <p className="font-bold text-anchor-green">Virgin & Emirates</p>
-              <p className="text-sm text-gray-600">Terminal 3</p>
-            </div>
-          </div>
+          <FeatureGrid
+            columns={4}
+            features={[
+              {
+                icon: "🚗",
+                title: "10 mins",
+                description: "by car"
+              },
+              {
+                icon: "🅿️",
+                title: "Free",
+                description: "parking"
+              },
+              {
+                icon: "👨‍👩‍👧‍👦",
+                title: "Family",
+                description: "friendly"
+              },
+              {
+                icon: "✈️",
+                title: "Virgin & Emirates",
+                description: "Terminal 3"
+              }
+            ]}
+            className="max-w-4xl mx-auto"
+          />
         </div>
       </section>
 
@@ -79,9 +91,10 @@ export default function Terminal3Page() {
       <section id="directions" className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              How to Get Here from Terminal 3
-            </h2>
+            <SectionHeader
+              title="How to Get Here from Terminal 3"
+              align="center"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* By Car */}
@@ -162,51 +175,36 @@ export default function Terminal3Page() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Why Terminal 3 Travelers Choose The Anchor
-            </h2>
+            <SectionHeader
+              title="Why Terminal 3 Travelers Choose The Anchor"
+              align="center"
+            />
             
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🌍 Global Airlines Hub
-                </h3>
-                <p className="text-gray-700">
-                  Terminal 3 hosts Virgin Atlantic, Emirates, Delta, and many Asian carriers. 
-                  Whether flying to New York, Dubai, or Tokyo, start with a taste of Britain.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  👨‍👩‍👧‍👦 Family-Friendly Space
-                </h3>
-                <p className="text-gray-700">
-                  Traveling with children? We offer a dedicated kids menu, high chairs, 
-                  and a relaxed atmosphere. Much better than busy airport restaurants!
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  💷 Value for Money
-                </h3>
-                <p className="text-gray-700">
-                  A family meal at T3 can cost over £60. Enjoy the same at The Anchor 
-                  for half the price, with generous portions and free parking too!
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-anchor-green mb-3">
-                  🛬 Perfect for Arrivals
-                </h3>
-                <p className="text-gray-700">
-                  Meeting someone from a long-haul flight? Wait comfortably with us 
-                  instead of the crowded arrivals hall. Track flights on our free WiFi.
-                </p>
-              </div>
-            </div>
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "Global Airlines Hub",
+                  icon: "🌍",
+                  content: "Terminal 3 hosts Virgin Atlantic, Emirates, Delta, and many Asian carriers. Whether flying to New York, Dubai, or Tokyo, start with a taste of Britain."
+                },
+                {
+                  title: "Family-Friendly Space",
+                  icon: "👨‍👩‍👧‍👦",
+                  content: "Traveling with children? We offer a dedicated kids menu, high chairs, and a relaxed atmosphere. Much better than busy airport restaurants!"
+                },
+                {
+                  title: "Value for Money",
+                  icon: "💷",
+                  content: "A family meal at T3 can cost over £60. Enjoy the same at The Anchor for half the price, with generous portions and free parking too!"
+                },
+                {
+                  title: "Perfect for Arrivals",
+                  icon: "🛬",
+                  content: "Meeting someone from a long-haul flight? Wait comfortably with us instead of the crowded arrivals hall. Track flights on our free WiFi."
+                }
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -215,12 +213,11 @@ export default function Terminal3Page() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Live Terminal 3 Flight Information
-            </h2>
-            <p className="text-lg text-gray-700 text-center mb-8">
-              Check flight times while you enjoy your meal or drink
-            </p>
+            <SectionHeader
+              title="Live Terminal 3 Flight Information"
+              subtitle="Check flight times while you enjoy your meal or drink"
+              align="center"
+            />
             <FlightStatus terminal="3" type="both" limit={5} />
           </div>
         </div>
@@ -230,9 +227,10 @@ export default function Terminal3Page() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center">
-              Terminal 3 Travel Tips
-            </h2>
+            <SectionHeader
+              title="Terminal 3 Travel Tips"
+              align="center"
+            />
             
             <div className="mb-8">
               <FlightDelayWidget terminal="3" />
@@ -263,64 +261,60 @@ export default function Terminal3Page() {
               </div>
             </div>
 
-            <div className="bg-anchor-cream rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-anchor-green mb-4">Local Insights</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>Virgin Atlantic Premium check-in is worth it for families - much shorter queues</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>Emirates A380 flights board 45 mins early - don&apos;t cut it close!</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>T3 has the best shopping at Heathrow - arrive early if you want to browse</span>
-                </li>
-                <li className="flex gap-3">
-                  <span>💡</span>
-                  <span>We&apos;re popular with Virgin cabin crew - great stories over Sunday lunch!</span>
-                </li>
-              </ul>
-            </div>
+            <AlertBox
+              variant="tip"
+              title="Local Insights"
+              content={
+                <ul className="space-y-3">
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>Virgin Atlantic Premium check-in is worth it for families - much shorter queues</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>Emirates A380 flights board 45 mins early - don&apos;t cut it close!</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>T3 has the best shopping at Heathrow - arrive early if you want to browse</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span>💡</span>
+                    <span>We&apos;re popular with Virgin cabin crew - great stories over Sunday lunch!</span>
+                  </li>
+                </ul>
+              }
+            />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            See You Soon at The Anchor!
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Just 10 minutes from Terminal 3 • Free Parking • Family Friendly
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="/near-heathrow"
-              variant="white"
-              size="lg"
-            >
-              ← Back to All Terminals
-            </CallToAction>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">The Anchor</p>
-            <p>Horton Road, Stanwell Moor</p>
-            <p>Surrey TW19 6AQ</p>
-          </div>
+      <CTASection
+        title="See You Soon at The Anchor!"
+        description="Just 10 minutes from Terminal 3 • Free Parking • Family Friendly"
+        variant="green"
+        buttons={[
+          {
+            text: "📞 01753 682707",
+            href: "tel:01753682707",
+            variant: "white",
+            size: "lg"
+          },
+          {
+            text: "← Back to All Terminals",
+            href: "/near-heathrow",
+            variant: "white",
+            size: "lg"
+          }
+        ]}
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
+          <p className="font-semibold mb-2">The Anchor</p>
+          <p>Horton Road, Stanwell Moor</p>
+          <p>Surrey TW19 6AQ</p>
         </div>
-      </section>
+      </CTASection>
 
       {/* JSON-LD Schema */}
       <script

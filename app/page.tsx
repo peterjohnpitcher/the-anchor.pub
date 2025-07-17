@@ -8,6 +8,7 @@ import { Suspense } from 'react'
 import { homepageFAQSchema } from '@/lib/enhanced-schemas'
 import { LazySection } from '@/components/LazySection'
 import { HeroSection } from '@/components/hero'
+import { CTASection, SectionHeader, FeatureGrid, QuickInfoGrid, InfoBoxGrid } from '@/components/ui'
 
 // Lazy load non-critical components
 const BusinessHours = dynamic(() => import('@/components/BusinessHours').then(mod => ({ default: mod.BusinessHours })), {
@@ -107,50 +108,41 @@ export default function HomePage() {
       {/* What Makes Us Special */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              What Makes Us Special
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              More than just a pub - we&apos;re the heart of the community
-            </p>
-          </div>
+          <SectionHeader
+            title="What Makes Us Special"
+            subtitle="More than just a pub - we're the heart of the community"
+          />
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Community Card */}
-            <div className="card-warm bg-anchor-sand/30 p-8 text-center">
-              <div className="text-5xl mb-4">🤝</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Community Hub</h3>
-              <p className="text-gray-700">
-                A gathering place for locals and visitors alike. From quiz nights 
-                to celebrations, we&apos;re where memories are made.
-              </p>
-            </div>
-
-            {/* Food Card */}
-            <div className="card-warm bg-anchor-sand/30 p-8 text-center">
-              <div className="text-5xl mb-4">🍽️</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Honest Food</h3>
-              <p className="text-gray-700">
-                Traditional British pub classics. Famous Sunday roasts (pre-order required), 
-                fish & chips, burgers, and proper pub grub at local prices.
-                <br />
-                <Link href="/food/pizza" className="text-anchor-gold hover:text-anchor-gold-light font-semibold mt-2 inline-block">
-                  🍕 Tuesday: Pizza BOGOF Deal
-                </Link>
-              </p>
-            </div>
-
-            {/* Entertainment Card */}
-            <div className="card-warm bg-anchor-sand/30 p-8 text-center">
-              <div className="text-5xl mb-4">🎉</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Events & Entertainment</h3>
-              <p className="text-gray-700">
-                Spectacular Saturday drag shows with Nikki Manfadge, monthly quiz nights, 
-                and special events throughout the year.
-              </p>
-            </div>
-          </div>
+          <FeatureGrid
+            columns={3}
+            features={[
+              {
+                icon: "🤝",
+                title: "Community Hub",
+                description: "A gathering place for locals and visitors alike. From quiz nights to celebrations, we're where memories are made.",
+                variant: "colored",
+                color: "bg-anchor-sand/30",
+                className: "card-warm p-8 text-center"
+              },
+              {
+                icon: "🍽️",
+                title: "Honest Food",
+                description: "Traditional British pub classics. Famous Sunday roasts (pre-order required), fish & chips, burgers, and proper pub grub. Tuesday: Pizza BOGOF Deal!",
+                variant: "colored",
+                color: "bg-anchor-sand/30",
+                className: "card-warm p-8 text-center"
+              },
+              {
+                icon: "🎉",
+                title: "Events & Entertainment",
+                description: "Spectacular Saturday drag shows with Nikki Manfadge, monthly quiz nights, and special events throughout the year.",
+                variant: "colored",
+                color: "bg-anchor-sand/30",
+                className: "card-warm p-8 text-center"
+              }
+            ]}
+            className="max-w-6xl mx-auto"
+          />
         </div>
       </section>
 
@@ -158,59 +150,63 @@ export default function HomePage() {
       <section className="section-spacing bg-anchor-cream">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green text-center mb-12">
-              Everything You Need to Know
-            </h2>
+            <SectionHeader
+              title="Everything You Need to Know"
+            />
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* Location */}
-              <div className="bg-white rounded-xl p-6 text-center shadow-sm">
-                <div className="text-3xl mb-3">📍</div>
-                <h3 className="font-bold text-lg text-anchor-green mb-2">Location</h3>
-                <p className="text-sm text-gray-700">
-                  Horton Road, Stanwell Moor<br />
-                  Surrey TW19 6AQ<br />
-                  <span className="text-anchor-gold font-semibold">7 mins from Heathrow T5</span>
-                </p>
-              </div>
-              
-              {/* Opening Hours */}
-              <div className="bg-white rounded-xl p-6 text-center shadow-sm">
-                <div className="text-3xl mb-3">🕐</div>
-                <h3 className="font-bold text-lg text-anchor-green mb-2">Opening Hours</h3>
-                <p className="text-sm text-gray-700">
-                  Live hours shown above<br />
-                  Including kitchen times<br />
-                  <span className="text-xs">May vary on holidays</span>
-                </p>
-              </div>
-              
-              {/* Contact */}
-              <div className="bg-white rounded-xl p-6 text-center shadow-sm">
-                <div className="text-3xl mb-3">📞</div>
-                <h3 className="font-bold text-lg text-anchor-green mb-2">Get in Touch</h3>
-                <p className="text-sm text-gray-700">
-                  <a href="tel:01753682707" className="hover:text-anchor-gold transition-colors block">
-                    📞 01753 682707
-                  </a>
-                  <a href="https://wa.me/4401753682707" className="hover:text-anchor-gold transition-colors block mt-1">
-                    💬 WhatsApp
-                  </a>
-                  <span className="text-xs">Call or message us</span>
-                </p>
-              </div>
-              
-              {/* Key Features */}
-              <div className="bg-white rounded-xl p-6 text-center shadow-sm">
-                <div className="text-3xl mb-3">⭐</div>
-                <h3 className="font-bold text-lg text-anchor-green mb-2">Key Features</h3>
-                <p className="text-sm text-gray-700">
-                  Free Parking<br />
-                  Dog Friendly<br />
-                  <span className="text-anchor-gold font-semibold">Great Events</span>
-                </p>
-              </div>
-            </div>
+            <QuickInfoGrid
+              columns={4}
+              items={[
+                {
+                  icon: "📍",
+                  title: "Location",
+                  subtitle: (
+                    <>
+                      Horton Road, Stanwell Moor<br />
+                      Surrey TW19 6AQ<br />
+                      <span className="text-anchor-gold font-semibold">7 mins from Heathrow T5</span>
+                    </>
+                  )
+                },
+                {
+                  icon: "🕐",
+                  title: "Opening Hours",
+                  subtitle: (
+                    <>
+                      Live hours shown above<br />
+                      Including kitchen times<br />
+                      <span className="text-xs">May vary on holidays</span>
+                    </>
+                  )
+                },
+                {
+                  icon: "📞",
+                  title: "Get in Touch",
+                  subtitle: (
+                    <>
+                      <a href="tel:01753682707" className="hover:text-anchor-gold transition-colors block">
+                        📞 01753 682707
+                      </a>
+                      <a href="https://wa.me/4401753682707" className="hover:text-anchor-gold transition-colors block mt-1">
+                        💬 WhatsApp
+                      </a>
+                      <span className="text-xs">Call or message us</span>
+                    </>
+                  )
+                },
+                {
+                  icon: "⭐",
+                  title: "Key Features",
+                  subtitle: (
+                    <>
+                      Free Parking<br />
+                      Dog Friendly<br />
+                      <span className="text-anchor-gold font-semibold">Great Events</span>
+                    </>
+                  )
+                }
+              ]}
+            />
             
             <div className="mt-8 p-6 bg-white rounded-xl shadow-sm">
               <p className="text-center text-gray-700">
@@ -225,14 +221,10 @@ export default function HomePage() {
       {/* Next Event */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-              Next Event at The Anchor
-            </h2>
-            <p className="text-xl text-gray-700">
-              Don&apos;t miss out on what&apos;s coming up
-            </p>
-          </div>
+          <SectionHeader
+            title="Next Event at The Anchor"
+            subtitle="Don't miss out on what's coming up"
+          />
           <Suspense fallback={<NextEventSkeleton />}>
             <NextEventServer />
           </Suspense>
@@ -244,77 +236,84 @@ export default function HomePage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
-                ✈️ Perfect for Heathrow Travelers
-              </h2>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Just 7-12 minutes from all terminals • Free parking • Real British experience
-              </p>
-            </div>
+            <SectionHeader
+              title="✈️ Perfect for Heathrow Travelers"
+              subtitle="Just 7-12 minutes from all terminals • Free parking • Real British experience"
+            />
             
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              {/* Why Choose Us */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm">
-                <h3 className="text-2xl font-bold text-anchor-green mb-6">Why Stop at The Anchor?</h3>
-                <ul className="space-y-4">
-                  <li className="flex gap-3">
-                    <span className="text-2xl">💰</span>
-                    <div>
-                      <strong>Save Money:</strong> Airport food costs 3x more. Enjoy a proper meal for less.
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-2xl">🚗</span>
-                    <div>
-                      <strong>Free Parking:</strong> No hourly charges, no stress. Stay as long as you like.
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-2xl">🇬🇧</span>
-                    <div>
-                      <strong>Real Experience:</strong> Authentic British pub, not an airport chain.
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-2xl">⏰</span>
-                    <div>
-                      <strong>Kill Time Comfortably:</strong> Much nicer than terminal seating.
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-2xl">✈️</span>
-                    <div>
-                      <strong>Plane Spotting:</strong> <Link href="/beer-garden" className="text-anchor-gold hover:text-anchor-gold-light underline">Beer garden</Link> with aircraft every 90 seconds.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              
-              {/* Terminal Times */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm">
-                <h3 className="text-2xl font-bold text-anchor-green mb-6">Journey Times by Car</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                    <span className="font-semibold">Terminal 2 & 3</span>
-                    <span className="text-anchor-gold font-bold">11 minutes</span>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                    <span className="font-semibold">Terminal 4</span>
-                    <span className="text-anchor-gold font-bold">12 minutes</span>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                    <span className="font-semibold">Terminal 5</span>
-                    <span className="text-anchor-gold font-bold">7 minutes</span>
-                  </div>
-                </div>
-                <div className="mt-6 text-center">
-                  <CallToAction href="/near-heathrow" variant="primary" size="lg">
-                    Get Directions From Your Terminal
-                  </CallToAction>
-                </div>
-              </div>
-            </div>
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "Why Stop at The Anchor?",
+                  content: (
+                    <ul className="space-y-4">
+                      <li className="flex gap-3">
+                        <span className="text-2xl">💰</span>
+                        <div>
+                          <strong>Save Money:</strong> Airport food costs 3x more. Enjoy a proper meal for less.
+                        </div>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="text-2xl">🚗</span>
+                        <div>
+                          <strong>Free Parking:</strong> No hourly charges, no stress. Stay as long as you like.
+                        </div>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="text-2xl">🇬🇧</span>
+                        <div>
+                          <strong>Real Experience:</strong> Authentic British pub, not an airport chain.
+                        </div>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="text-2xl">⏰</span>
+                        <div>
+                          <strong>Kill Time Comfortably:</strong> Much nicer than terminal seating.
+                        </div>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="text-2xl">✈️</span>
+                        <div>
+                          <strong>Plane Spotting:</strong> <Link href="/beer-garden" className="text-anchor-gold hover:text-anchor-gold-light underline">Beer garden</Link> with aircraft every 90 seconds.
+                        </div>
+                      </li>
+                    </ul>
+                  ),
+                  variant: "default",
+                  className: "bg-white rounded-2xl p-8 shadow-sm"
+                },
+                {
+                  title: "Journey Times by Car",
+                  content: (
+                    <>
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                          <span className="font-semibold">Terminal 2 & 3</span>
+                          <span className="text-anchor-gold font-bold">11 minutes</span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                          <span className="font-semibold">Terminal 4</span>
+                          <span className="text-anchor-gold font-bold">12 minutes</span>
+                        </div>
+                        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                          <span className="font-semibold">Terminal 5</span>
+                          <span className="text-anchor-gold font-bold">7 minutes</span>
+                        </div>
+                      </div>
+                      <div className="mt-6 text-center">
+                        <CallToAction href="/near-heathrow" variant="primary" size="lg">
+                          Get Directions From Your Terminal
+                        </CallToAction>
+                      </div>
+                    </>
+                  ),
+                  variant: "default",
+                  className: "bg-white rounded-2xl p-8 shadow-sm"
+                }
+              ]}
+              className="mb-12"
+            />
           </div>
         </div>
       </section>
@@ -322,9 +321,9 @@ export default function HomePage() {
       {/* Photo Gallery */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green text-center mb-12">
-            Life at The Anchor
-          </h2>
+          <SectionHeader
+            title="Life at The Anchor"
+          />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Event Photo */}
@@ -350,14 +349,111 @@ export default function HomePage() {
               />
             </Link>
           </div>
-          
-          <div className="text-center mt-8">
-            <Link href="/gallery" className="inline-flex items-center text-anchor-gold hover:text-anchor-gold-light font-semibold">
-              See more photos
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+        </div>
+      </section>
+
+      {/* Private Events Section */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeader
+              title="Host Your Event at The Anchor"
+              subtitle="From intimate gatherings to grand celebrations"
+            />
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <Link href="/corporate-events" className="group">
+                <div className="bg-gray-50 rounded-xl p-6 transition-all hover:shadow-lg hover:scale-105">
+                  <div className="text-4xl mb-4">💼</div>
+                  <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Corporate Events</h3>
+                  <p className="text-gray-700 mb-4">
+                    Professional venue for meetings, team building, and conferences. 
+                    7 minutes from Heathrow with free parking.
+                  </p>
+                  <p className="text-anchor-gold font-semibold">Learn more →</p>
+                </div>
+              </Link>
+              
+              <Link href="/christmas-parties" className="group">
+                <div className="bg-red-50 rounded-xl p-6 transition-all hover:shadow-lg hover:scale-105">
+                  <div className="text-4xl mb-4">🎄</div>
+                  <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Christmas Parties</h3>
+                  <p className="text-gray-700 mb-4">
+                    Book your festive celebration now! Traditional menus, 
+                    festive atmosphere, packages from £19.95pp.
+                  </p>
+                  <p className="text-anchor-gold font-semibold">Check availability →</p>
+                </div>
+              </Link>
+              
+              <Link href="/private-party-venue" className="group">
+                <div className="bg-pink-50 rounded-xl p-6 transition-all hover:shadow-lg hover:scale-105">
+                  <div className="text-4xl mb-4">🎉</div>
+                  <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Private Parties</h3>
+                  <p className="text-gray-700 mb-4">
+                    Birthdays, anniversaries, and celebrations. 
+                    Flexible spaces, custom menus, your music.
+                  </p>
+                  <p className="text-anchor-gold font-semibold">Plan your party →</p>
+                </div>
+              </Link>
+            </div>
+            
+            <div className="bg-anchor-cream rounded-2xl p-8">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-4">Why Choose The Anchor?</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600">✓</span>
+                      <span><strong>No venue hire fee</strong> - just minimum spend</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600">✓</span>
+                      <span><strong>Free parking</strong> for all your guests</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600">✓</span>
+                      <span><strong>Flexible spaces</strong> for 10-200 guests</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600">✓</span>
+                      <span><strong>Custom catering</strong> to suit all budgets</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-green-600">✓</span>
+                      <span><strong>Experienced team</strong> to handle every detail</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="text-center">
+                  <p className="text-lg text-gray-700 mb-6">
+                    From business meetings to birthday parties, 
+                    we make your event special.
+                  </p>
+                  <CallToAction 
+                    href="/book-event" 
+                    variant="primary" 
+                    size="lg"
+                  >
+                    Explore All Event Options
+                  </CallToAction>
+                  <div className="mt-4 space-y-2">
+                    <p className="text-sm text-gray-600">
+                      <strong>Quick enquiry?</strong>
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                      <a href="tel:01753682707" className="text-anchor-gold hover:text-anchor-gold-light font-semibold">
+                        📞 01753 682707
+                      </a>
+                      <a href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20hosting%20an%20event" className="text-anchor-gold hover:text-anchor-gold-light font-semibold">
+                        💬 WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -366,9 +462,11 @@ export default function HomePage() {
       <section id="visit-us" className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 text-white">
-              Come Visit Us!
-            </h2>
+            <SectionHeader
+              title="Come Visit Us!"
+              align="center"
+              className="text-white mb-6"
+            />
             
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>

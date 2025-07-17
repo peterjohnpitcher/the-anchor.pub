@@ -3,11 +3,12 @@ import Link from 'next/link'
 import { CallToAction } from '@/components/CallToAction'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { PageHeaderWrapper } from '@/components/ui/PageHeaderWrapper'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: `Ashford Pub Near Me | ${BRAND.name} - 10 Minutes from Ashford`,
@@ -88,62 +89,71 @@ export default function AshfordPubPage() {
       />
       
       {/* Hero Section */}
-      <PageHeaderWrapper
+      <HeroWrapper
         route="/ashford-pub"
         title="Traditional British Pub Near Ashford"
         description="Just 10 minutes from Ashford with free parking"
+        size="medium"
         showStatusBar={true}
-      >
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <CallToAction 
-            href={`tel:${CONTACT.phone}`}
-            variant="primary"
-            size="lg"
-          >
-            📞 Call to Book
-          </CallToAction>
-          <CallToAction 
-            href="/food-menu"
-            variant="secondary"
-            size="lg"
-          >
-            🍽️ View Menu
-          </CallToAction>
-        </div>
-      </PageHeaderWrapper>
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <CallToAction 
+              href={`tel:${CONTACT.phone}`}
+              variant="primary"
+              size="lg"
+            >
+              📞 Call to Book
+            </CallToAction>
+            <CallToAction 
+              href="/food-menu"
+              variant="secondary"
+              size="lg"
+            >
+              🍽️ View Menu
+            </CallToAction>
+          </div>
+        }
+      />
 
       {/* Welcome Section */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-6">
-              Ashford's Favorite Traditional Pub Experience
-            </h2>
-            <p className="text-xl text-gray-700 mb-8">
-              Just a 10-minute drive from Ashford, The Anchor offers the perfect escape from 
-              busy town life. Enjoy traditional British hospitality, fantastic food, and a warm 
-              welcome in our historic Stanwell Moor location.
-            </p>
+            <SectionHeader
+              title="Ashford's Favorite Traditional Pub Experience"
+              subtitle="Just a 10-minute drive from Ashford, The Anchor offers the perfect escape from busy town life. Enjoy traditional British hospitality, fantastic food, and a warm welcome in our historic Stanwell Moor location."
+            />
             
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">🚗</div>
-                <h3 className="font-bold text-lg mb-2">Easy Access</h3>
-                <p className="text-gray-700">10 minutes via A30 with 20 free parking spaces</p>
-              </div>
-              
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">🍺</div>
-                <h3 className="font-bold text-lg mb-2">Real Pub Feel</h3>
-                <p className="text-gray-700">Traditional atmosphere Ashford chain pubs can't match</p>
-              </div>
-              
-              <div className="bg-anchor-cream rounded-xl p-6">
-                <div className="text-4xl mb-3">💚</div>
-                <h3 className="font-bold text-lg mb-2">ULEZ Free</h3>
-                <p className="text-gray-700">Save £12.50 - we're outside the zone!</p>
-              </div>
-            </div>
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🚗",
+                  title: "Easy Access",
+                  description: "10 minutes via A30 with 20 free parking spaces",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "🍺",
+                  title: "Real Pub Feel",
+                  description: "Traditional atmosphere Ashford chain pubs can't match",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                },
+                {
+                  icon: "💚",
+                  title: "ULEZ Free",
+                  description: "Save £12.50 - we're outside the zone!",
+                  variant: "colored",
+                  color: "bg-anchor-cream",
+                  className: "rounded-xl p-6 text-center"
+                }
+              ]}
+              className="mb-8"
+            />
           </div>
         </div>
       </section>
@@ -152,9 +162,9 @@ export default function AshfordPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Why Ashford Residents Love The Anchor
-            </h2>
+            <SectionHeader
+              title="Why Ashford Residents Love The Anchor"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -218,12 +228,16 @@ export default function AshfordPubPage() {
               </div>
             </div>
             
-            <div className="mt-8 bg-blue-50 rounded-xl p-6 text-center">
-              <p className="text-lg text-blue-800">
-                <span className="font-bold">Plane Spotting Bonus:</span> Watch aircraft overhead 
-                every 90 seconds - entertainment Ashford pubs can't offer!
-              </p>
-            </div>
+            <AlertBox
+              variant="info"
+              title="Plane Spotting Bonus"
+              className="mt-8 text-center"
+              content={
+                <p className="text-lg">
+                  Watch aircraft overhead every 90 seconds - entertainment Ashford pubs can't offer!
+                </p>
+              }
+            />
           </div>
         </div>
       </section>
@@ -232,9 +246,9 @@ export default function AshfordPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Popular with Ashford Groups
-            </h2>
+            <SectionHeader
+              title="Popular with Ashford Groups"
+            />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-amber-50 rounded-xl p-6">
@@ -272,13 +286,93 @@ export default function AshfordPubPage() {
         </div>
       </section>
 
+      {/* Event Venue for Ashford */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="Event Venue for Ashford Celebrations"
+              subtitle="Just 10 minutes from Ashford with free parking"
+            />
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-gray-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Why Ashford Chooses The Anchor</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Avoid town traffic</strong> - Easy access, ample parking</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Better value</strong> - No inflated town centre prices</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>Flexible spaces</strong> - Intimate gatherings to 200 guests</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>No venue hire fee</strong> - Just reasonable minimum spend</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-amber-50 rounded-xl p-6">
+                <h3 className="text-xl font-bold text-anchor-green mb-4">Popular Ashford Events</h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-amber-700 mb-1">🎂 Milestone Birthdays</h4>
+                    <p className="text-sm text-gray-700">18th, 21st, 40th, 50th celebrations</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-amber-700 mb-1">💑 Wedding Receptions</h4>
+                    <p className="text-sm text-gray-700">Beautiful venue, competitive pricing</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-amber-700 mb-1">🏆 Sports Club Events</h4>
+                    <p className="text-sm text-gray-700">End of season parties, presentations</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-amber-700 mb-1">🎄 Christmas Parties</h4>
+                    <p className="text-sm text-gray-700">Festive celebrations for Ashford groups</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-blue-50 rounded-xl p-6 text-center">
+              <p className="text-lg text-gray-800 mb-4">
+                <strong>Special rates for Ashford bookings!</strong> 
+                We love being part of the Ashford community.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <CallToAction href="/book-event" variant="primary" size="md">
+                  View All Event Options
+                </CallToAction>
+                <CallToAction href="tel:01753682707" variant="secondary" size="md">
+                  📞 Call: 01753 682707
+                </CallToAction>
+                <CallToAction 
+                  href="https://wa.me/441753682707?text=Hi,%20I'm%20from%20Ashford%20and%20interested%20in%20booking%20an%20event" 
+                  variant="secondary" 
+                  size="md"
+                >
+                  💬 WhatsApp Us
+                </CallToAction>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Getting Here from Ashford */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
-              Getting to The Anchor from Ashford
-            </h2>
+            <SectionHeader
+              title="Getting to The Anchor from Ashford"
+            />
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6">
@@ -346,9 +440,9 @@ export default function AshfordPubPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Ashford to The Anchor - Local Connections
-            </h2>
+            <SectionHeader
+              title="Ashford to The Anchor - Local Connections"
+            />
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-gray-50 rounded-xl p-6">
@@ -393,9 +487,9 @@ export default function AshfordPubPage() {
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-anchor-green mb-8">
-              Opening Hours
-            </h2>
+            <SectionHeader
+              title="Opening Hours"
+            />
             <BusinessHours />
             <p className="mt-4 text-gray-600">
               Kitchen closes earlier - check times for food service
@@ -436,37 +530,24 @@ export default function AshfordPubPage() {
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Worth the Trip from Ashford
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Join your Ashford neighbors who've discovered their new favorite pub
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="secondary"
-              size="lg"
-              className="flex-1"
-            >
-              📞 Book a Table
-            </CallToAction>
-            <CallToAction 
-              href="/special-offers"
-              variant="primary"
-              size="lg"
-              className="flex-1 bg-white text-anchor-green hover:bg-gray-100"
-            >
-              🎉 View Offers
-            </CallToAction>
-          </div>
-          <p className="mt-6 text-sm text-white/80">
-            Just 10 minutes from Ashford • Free Parking • Outside ULEZ Zone
-          </p>
-        </div>
-      </section>
+      <CTASection
+        title="Worth the Trip from Ashford"
+        description="Join your Ashford neighbors who've discovered their new favorite pub"
+        buttons={[
+          {
+            text: "📞 Book a Table",
+            href: `tel:${CONTACT.phone}`,
+            variant: "secondary"
+          },
+          {
+            text: "🎉 View Offers",
+            href: "/special-offers",
+            variant: "white"
+          }
+        ]}
+        variant="green"
+        footer="Just 10 minutes from Ashford • Free Parking • Outside ULEZ Zone"
+      />
     </>
   )
 }

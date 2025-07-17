@@ -240,6 +240,10 @@ This document consolidates all fact-checking questions and answers for future re
 - Sandwiches
 - Accessible toilets
 
+## FALSE CLAIMS TO AVOID
+- **"Next to St Mary's Church"** - We are NOT next to any church ✗
+- Any specific church landmarks in directions ✗
+
 ## NOTES FOR WEBSITE UPDATES
 1. Remove all "all day food" claims - food only during kitchen hours
 2. Award claims made generic (no specific awards mentioned)

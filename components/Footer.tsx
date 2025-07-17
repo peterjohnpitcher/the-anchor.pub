@@ -52,6 +52,16 @@ const defaultSections: FooterSection[] = [
     ]
   },
   {
+    title: 'Private Events',
+    titleClass: 'text-anchor-gold',
+    items: [
+      { label: 'Christmas Parties', href: '/christmas-parties' },
+      { label: 'Corporate Events', href: '/corporate-events' },
+      { label: 'Birthday Parties', href: '/private-party-venue' },
+      { label: 'Function Room Hire', href: '/function-room-hire' }
+    ]
+  },
+  {
     title: 'Special Features',
     titleClass: 'text-anchor-gold',
     items: [

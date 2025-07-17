@@ -1,7 +1,7 @@
 interface QuickInfoItem {
   icon: string | React.ReactNode
   title: string
-  subtitle?: string
+  subtitle?: string | React.ReactNode
 }
 
 interface QuickInfoGridProps {
