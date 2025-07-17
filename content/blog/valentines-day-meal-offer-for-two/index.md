@@ -24,11 +24,8 @@ tags:
   - valentines
 featured: false
 hero: hero.png
-images:
-  - image-1.png
+images: []
 ---
-
-![valentines day meal offer for two image](/content/blog/valentines-day-meal-offer-for-two/hero.png)
 
 Looking for the perfect **Valentine's dinner near Heathrow**? Skip overpriced airport restaurants and discover The Anchor's romantic meal deals in Stanwell Moor. Our cozy pub atmosphere, special Valentine's menu, and unbeatable prices make us the ideal spot for couples celebrating love, just 7 minutes from Terminal 5.
 

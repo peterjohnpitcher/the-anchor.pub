@@ -28,15 +28,10 @@ tags:
   - british-history
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
+images: []
 ---
 
   
-
-![Illustration of Remembrance Day 2023 with a detailed depiction of a black soldier in uniform wearing medals, juxtaposed against a large red poppy. Background features sepia-toned sketches of wartime scenes, soldiers, and letters. A senior veteran with a poppy pinned to his lapel is also present. The image is captioned with 'The Anchor - Stanwell Moor Village'.](/content/blog/reflecting-on-sacrifice-remembrance-day-observance/hero.png)
 
   
 

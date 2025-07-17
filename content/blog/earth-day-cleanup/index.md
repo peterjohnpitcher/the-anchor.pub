@@ -29,18 +29,10 @@ tags:
   - volunteer
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-5.png
-  - image-10.png
-  - image-15.png
-  - image-20.png
-  - image-25.png
+images: []
 ---
 
   
-
-![Bright flyer for Earth Day 2024 at Stanwell Moor Village on April 19th, detailing the event at The Anchor from 11:30 am to 2 pm.](/content/blog/earth-day-cleanup/hero.png)
 
   
 

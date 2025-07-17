@@ -30,15 +30,10 @@ tags:
   - community
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
+images: []
 ---
 
   
-
-![Hands holding a lit diya (lamp) with intricate designs, surrounded by candles and festive decorations, with text reading 'Diwali Blessings in Stanwell Moor' against a dark background illuminated by golden lights.](/content/blog/diwali-celebration/hero.png)
 
 **🎉Happy Diwali!**
 

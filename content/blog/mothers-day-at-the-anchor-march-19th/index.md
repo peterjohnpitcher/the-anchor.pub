@@ -27,15 +27,10 @@ tags:
   - march
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
+images: []
 ---
 
   
-
-![mothers day at the anchor march 19th image](/content/blog/mothers-day-at-the-anchor-march-19th/hero.png)
 
 ## Celebrate Mother's Day at The Anchor - Your Local Pub Near Heathrow
 

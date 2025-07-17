@@ -29,13 +29,10 @@ tags:
   - summer
 featured: false
 hero: hero.png
-images:
-  - image-1.png
+images: []
 ---
 
   
-
-![Inches cider photo with quote "apple bobbing never felt so grown up"](/content/blog/inches-apple-cider/hero.png)
 
 ## British Apple Cider Now Pouring Near Heathrow
 

@@ -27,15 +27,10 @@ tags:
   - special-offers
 featured: false
 hero: hero.jpeg
-images:
-  - image-1.jpeg
-  - image-2.jpeg
-  - image-3.jpeg
+images: []
 ---
 
   
-
-![the boys are back in town image](/content/blog/the-boys-are-back-in-town/hero.jpeg)
 
 ## Premium Bottled Ales at The Anchor - Your Real Ale Pub Near Heathrow
 

@@ -28,11 +28,8 @@ tags:
   - special-offers
 featured: false
 hero: hero.jpg
-images:
-  - image-1.jpg
+images: []
 ---
-
-![Graphic for The Anchor's 'Budge Busting Update' on April 1st, 2025, highlighting budget-friendly pub experiences.](/content/blog/prices-frozen-until-autumn-theanchor-pub/hero.jpg)
 
 ## Price Freeze Near Heathrow Airport - No Increases Until Autumn 2025
 

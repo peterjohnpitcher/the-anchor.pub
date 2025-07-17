@@ -32,18 +32,8 @@ tags:
   - heathrow-area
 featured: true
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
-  - image-4.png
-  - image-5.png
-  - image-6.png
-  - image-7.png
-  - image-8.png
+images: []
 ---
-
-![Festive graphic showcasing Christmas decorations and the text 'Rounding up all the fun from December!' with The Anchor's logo.](/content/blog/december-celebrations/hero.png)
 
 December was nothing short of magical at The Anchor, your **community pub near Heathrow Airport**. As Christmas approached, we became the backdrop to countless moments of joy, connection, and celebration in **Stanwell Moor**. Whether it was the packed house on Christmas Eve and Christmas Day or the laughter-filled evenings at our themed events, December proved why we're the premier **Christmas pub near Heathrow Terminal 5**.
 

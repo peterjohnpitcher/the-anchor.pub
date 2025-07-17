@@ -29,13 +29,10 @@ tags:
   - june
 featured: false
 hero: hero.png
-images:
-  - image-1.png
+images: []
 ---
 
   
-
-![Father's Day special menu at The Anchor pub near Heathrow Airport](/content/blog/fathers-day-celebration/hero.png)
 
 ## Celebrate Father's Day at Our Traditional Pub Near Heathrow
 

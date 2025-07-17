@@ -131,6 +131,7 @@ export function Navigation({
   const renderLink = (item: NavigationItem, isMobile = false) => {
     const linkClass = cn(
       'font-medium transition-colors',
+      'text-sm xl:text-base', // Responsive text sizing
       mergedTheme.text,
       mergedTheme.hoverText,
       isMobile && 'block text-lg py-2'
@@ -167,11 +168,12 @@ export function Navigation({
     if (!ctaButton) return null
 
     const ctaClass = cn(
-      'font-semibold transition-all px-6 py-2 rounded-full',
+      'font-semibold transition-all rounded-full',
+      'px-4 py-1.5 text-sm xl:px-6 xl:py-2 xl:text-base', // Responsive sizing
       mergedTheme.ctaBackground,
       mergedTheme.ctaText,
       mergedTheme.ctaHoverBackground,
-      isMobile && 'block text-center py-3 mt-4'
+      isMobile && 'block text-center py-3 mt-4 text-base px-6'
     )
 
     if (ctaButton.external) {
@@ -253,7 +255,7 @@ export function Navigation({
           </div>
 
           {/* Desktop Navigation */}
-          <div className={cn('hidden items-center space-x-8', breakpointClass === 'md:hidden' ? 'md:flex' : breakpointClass === 'lg:hidden' ? 'lg:flex' : 'sm:flex')}>
+          <div className={cn('hidden lg:flex items-center lg:space-x-6 xl:space-x-8')}>
             {items.map(item => renderLink(item))}
             {renderCTA()}
           </div>
@@ -261,7 +263,7 @@ export function Navigation({
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={cn(breakpointClass, mergedTheme.text)}
+            className={cn('lg:hidden', mergedTheme.text)}
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -281,8 +283,7 @@ export function Navigation({
         <div 
           ref={focusTrapRef}
           className={cn(
-            'bg-anchor-green-dark border-t border-anchor-green-light shadow-lg',
-            breakpointClass
+            'lg:hidden bg-anchor-green-dark border-t border-anchor-green-light shadow-lg'
           )}
           role="dialog"
           aria-label="Mobile navigation menu"

@@ -29,13 +29,10 @@ tags:
   - celebration
 featured: false
 hero: hero.png
-images:
-  - image-1.png
+images: []
 ---
 
   
-
-![international women s day celebrating the achievem image](/content/blog/womens-day-celebration/hero.png)
 
 ## Celebrating International Women's Day at The Anchor Near Heathrow
 

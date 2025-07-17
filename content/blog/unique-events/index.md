@@ -30,9 +30,7 @@ tags:
   - special-offers
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
+images: []
 ---
 
 ## Weekly Events and Entertainment Near Heathrow Airport
@@ -59,8 +57,6 @@ Some popular events include:
     
       
     
-
-![Eye-level view of a lively event at a local pub](/content/blog/unique-events/hero.png)
 
 Families and friends enjoying activities together at The Anchor's family fun day.
 

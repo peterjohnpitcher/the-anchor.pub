@@ -27,14 +27,8 @@ tags:
   - spirits
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
-  - image-4.png
+images: []
 ---
-
-![Colourful Day of the Dead celebration at The Anchor, featuring a traditional Día de Muertos skull with vibrant decorations.](/content/blog/day-of-the-dead-party/hero.png)
 
 Experience authentic **Day of the Dead celebrations near Heathrow** at The Anchor! This October, we're transforming our traditional British pub into a vibrant Mexican fiesta. From tequila tastings to fancy dress parties, join us for Día de los Muertos festivities that honour tradition while creating unforgettable memories. Just 10 minutes from the airport, discover Surrey's most colourful cultural celebration.
 

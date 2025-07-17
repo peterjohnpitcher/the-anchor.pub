@@ -28,18 +28,8 @@ tags:
   - special-offers
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-5.png
-  - image-10.png
-  - image-15.png
-  - image-20.png
-  - image-25.png
-  - image-30.png
-  - image-35.png
+images: []
 ---
-
-![Nikki Manfadge hosting The Anchor's Gameshow House Party, thanking everyone for a great night featuring the game "Fortunate Families."](/content/blog/gameshow-house-party/hero.png)
 
 ## Monthly Gameshow Nights at The Anchor Near Heathrow Airport
 

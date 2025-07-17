@@ -30,15 +30,10 @@ tags:
   - private-dining
 featured: true
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
+images: []
 ---
 
   
-
-![a personal pub for personal celebrations image](/content/blog/a-personal-pub-for-personal-celebrations/hero.png)
 
 ## Your Perfect Party Venue Near Heathrow Airport
 

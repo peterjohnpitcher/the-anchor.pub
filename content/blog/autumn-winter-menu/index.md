@@ -30,14 +30,10 @@ tags:
   - special-offers
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
+images: []
 ---
 
   
-
-![The Anchors Autumn Winter Menu Release](/content/blog/autumn-winter-menu/hero.png)
 
 ## Seasonal Winter Menu at The Anchor Near Heathrow Airport
 

@@ -28,13 +28,10 @@ tags:
   - special-offers
 featured: false
 hero: hero.png
-images:
-  - image-1.png
+images: []
 ---
 
   
-
-![new menu options launching february 1st 2023 image](/content/blog/new-menu-options-launching-february-1st-2023/hero.png)
 
 ## Expanded Menu at The Anchor Near Heathrow Airport
 

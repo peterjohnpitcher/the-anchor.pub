@@ -21,20 +21,8 @@ tags:
   - cocktails
 featured: false
 hero: "hero.png"
-images:
-  - "image-1.jpeg"
-  - "image-2.jpeg"
-  - "image-3.jpeg"
-  - "image-4.jpeg"
-  - "image-5.jpeg"
-  - "image-8.jpeg"
-  - "image-12.jpeg"
-  - "image-20.jpeg"
-  - "image-28.jpeg"
-  - "image-35.jpeg"
+images: []
 ---
-
-![spring tasting night at the anchor unmissable flav image](/content/blog/spring-tasting-night/hero.png)
 
 Looking for exclusive **pub events near Heathrow**? The Anchor's Spring Tasting Night on March 14th, 2025 was a sold-out celebration of premium spirits, cocktails, and community. With our next **rum tasting event** coming in June, discover why our **tasting events** in Stanwell Moor are the must-attend experiences for spirit enthusiasts.
 

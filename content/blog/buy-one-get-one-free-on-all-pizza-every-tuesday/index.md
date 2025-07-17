@@ -25,10 +25,7 @@ tags:
   - weekly-specials
 featured: true
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
+images: []
 ---
 
 ![Delicious stone-baked pizza at The Anchor pub](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-1.png)

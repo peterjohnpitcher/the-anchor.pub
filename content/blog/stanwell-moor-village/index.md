@@ -29,17 +29,10 @@ tags:
   - guide
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.jpg
-  - image-4.png
-  - image-5.jpg
+images: []
 ---
 
   
-
-![What is Stanwell Moor](/content/blog/stanwell-moor-village/hero.png)
 
 It’s probably fair to say that the last couple of years has been difficult for everyone. Some of us have lost loved ones, some have been poorly with the terrible virus that ravaged our country. If one good thing has come out of the pandemic, it’s that it’s brought people together to support, love and care for one another in their hour of need.
 

@@ -27,14 +27,10 @@ tags:
   - march
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
+images: []
 ---
 
 ## Celebrate St Patrick's Day at The Anchor - Your Irish Pub Near Heathrow
-
-![st patrick s day 2023 image](/content/blog/st-patrick-s-day-2023/hero.png)
 
 Looking for the perfect **St Patrick's Day pub near Heathrow Airport**? The Anchor in **Stanwell Moor** transforms into an authentic Irish celebration every March 17th! Just **7 minutes from Terminal 5**, we're the ideal spot for airport staff, travelers, and locals to enjoy traditional Irish hospitality, Guinness, and festive craic.
 

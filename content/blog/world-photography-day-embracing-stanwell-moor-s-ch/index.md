@@ -28,15 +28,8 @@ tags:
   - world-photography-day
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
-  - image-4.png
-  - image-5.png
+images: []
 ---
-
-![world photography day embracing stanwell moor s ch image](/content/blog/world-photography-day-embracing-stanwell-moor-s-ch/hero.png)
 
 Hello, cherished residents and wonderful visitors of **Stanwell Moor near Heathrow**!
 

@@ -29,15 +29,10 @@ tags:
   - february
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
+images: []
 ---
 
   
-
-![A gentleman and a lady enjoying a romantic Valentine's Day dinner at The Anchor, with the table set elegantly amidst red decorations, candlelight, champagne, and a pint of beer. Text states '2 for 1 on dinner this Valentine's Day! *see the-anchor.pub for details.'](/content/blog/valentines-special/hero.png)
 
   
 

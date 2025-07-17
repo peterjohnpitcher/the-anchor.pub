@@ -30,16 +30,10 @@ tags:
   - sports
 featured: true
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
-  - image-4.png
+images: []
 ---
 
   
-
-![six nations rugby at the anchor 2023 image](/content/blog/six-nations-rugby-at-the-anchor-2023/hero.png)
 
 ## Watch Six Nations Rugby at The Anchor - Your Local Sports Pub Near Heathrow
 

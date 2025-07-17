@@ -1,9 +1,13 @@
 ---
-title: "Race Night Events Near Heathrow | Fun Charity Racing at The Anchor"
-description: "Join our exciting Race Night events at The Anchor pub near Heathrow Airport. Video horse racing, cash prizes, and charity fundraising in Stanwell Moor. Perfect entertainment for groups, just 7 minutes from Terminal 5. Book your table for our next race night!"
-date: "2021-07-26"
-oldUrl: "https://www.the-anchor.pub/post/what-is-race-night"
-author: "Billy"
+title: Race Night Events Near Heathrow | Fun Charity Racing at The Anchor
+description: >-
+  Join our exciting Race Night events at The Anchor pub near Heathrow Airport.
+  Video horse racing, cash prizes, and charity fundraising in Stanwell Moor.
+  Perfect entertainment for groups, just 7 minutes from Terminal 5. Book your
+  table for our next race night!
+date: '2021-07-26'
+oldUrl: 'https://www.the-anchor.pub/post/what-is-race-night'
+author: Billy
 keywords:
   - race night near heathrow
   - charity events stanwell moor
@@ -19,12 +23,9 @@ tags:
   - entertainment
   - race-night
 featured: false
-hero: "hero.gif"
-images:
-  - "image-1.png"
+hero: hero.gif
+images: []
 ---
-
-![what is race night image](/content/blog/what-is-race-night/hero.gif)
 
 Looking for exciting **race night events near Heathrow**? The Anchor in Stanwell Moor hosts thrilling charity race nights featuring video horse racing, cash prizes, and fantastic group entertainment. Just 7 minutes from Terminal 5, experience the excitement of the races while supporting great causes at our traditional pub.
 

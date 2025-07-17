@@ -27,14 +27,10 @@ tags:
   - special-offers
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
+images: []
 ---
 
   
-
-![christmas 2021 image](/content/blog/christmas-2021/hero.png)
 
 ## Christmas & New Year Opening Hours at The Anchor Near Heathrow
 

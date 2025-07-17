@@ -1,10 +1,15 @@
 ---
-title: "Music Bingo Near Heathrow | Monthly Prize Night at The Anchor"
+title: Music Bingo Near Heathrow | Monthly Prize Night at The Anchor
 slug: music-bingo-nights
-description: "Play music bingo near Heathrow Airport at The Anchor pub. Last Wednesday monthly featuring song snippets instead of numbers. Win prizes, enjoy dinner, and have fun just 10 minutes from Terminal 5. Book your table for Stanwell Moor's most entertaining bingo twist."
-date: "2023-06-10"
-oldUrl: "https://www.the-anchor.pub/post/monthly-music-bingo-nights-great-food-prizes-and-f"
-author: "Billy"
+description: >-
+  Play music bingo near Heathrow Airport at The Anchor pub. Last Wednesday
+  monthly featuring song snippets instead of numbers. Win prizes, enjoy dinner,
+  and have fun just 10 minutes from Terminal 5. Book your table for Stanwell
+  Moor's most entertaining bingo twist.
+date: '2023-06-10'
+oldUrl: >-
+  https://www.the-anchor.pub/post/monthly-music-bingo-nights-great-food-prizes-and-f
+author: Billy
 keywords:
   - music bingo near heathrow
   - musical bingo stanwell moor
@@ -21,16 +26,9 @@ tags:
   - entertainment
   - games
 featured: false
-hero: "hero.png"
-images:
-  - "image-1.png"
-  - "image-2.png"
-  - "image-3.png"
-  - "image-4.png"
-  - "image-5.png"
+hero: hero.png
+images: []
 ---
-
-![Music Bingo Night Banner at The Anchor](/content/blog/music-bingo-nights/hero.png)
 
 Experience **music bingo near Heathrow** with a melodic twist! Every last Wednesday, The Anchor hosts the area's most entertaining bingo night where songs replace numbers. Test your music knowledge, win prizes, and enjoy great food just 10 minutes from Terminal 5. Join Stanwell Moor's favorite musical game night!
 

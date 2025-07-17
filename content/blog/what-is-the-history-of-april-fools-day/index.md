@@ -27,14 +27,10 @@ tags:
   - food
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
+images: []
 ---
 
   
-
-![what is the history of april fools day image](/content/blog/what-is-the-history-of-april-fools-day/hero.png)
 
 ## April Fools' Day History at Your Local Pub Near Heathrow
 

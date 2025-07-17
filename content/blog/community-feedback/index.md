@@ -30,13 +30,10 @@ tags:
   - listening
 featured: false
 hero: hero.png
-images:
-  - image-1.png
+images: []
 ---
 
   
-
-![Group of people holding signs encouraging people to have their say](/content/blog/community-feedback/hero.png)
 
 [
 

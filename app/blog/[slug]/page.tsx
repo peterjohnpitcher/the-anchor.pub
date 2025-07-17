@@ -49,8 +49,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
   const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
-  // Distribute images throughout content
-  const contentWithImages = distributeImages(post.htmlContent || '', post.images, post.slug)
+  // Distribute images throughout content only if images array has items
+  const contentWithImages = post.images && post.images.length > 0 
+    ? distributeImages(post.htmlContent || '', post.images, post.slug)
+    : post.htmlContent || ''
 
   return (
     <>

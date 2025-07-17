@@ -29,13 +29,10 @@ tags:
   - new-arrival
 featured: false
 hero: hero.png
-images:
-  - image-1.png
+images: []
 ---
 
   
-
-![A pint of beer with a "Stanwell Moor Brew" label, text overlay reads "new to the family" with The Anchor logo.](/content/blog/stanwell-moor-brew/hero.png)
 
   
 

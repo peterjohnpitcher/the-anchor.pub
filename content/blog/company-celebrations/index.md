@@ -30,18 +30,10 @@ tags:
   - christmas
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
-  - image-4.png
-  - image-5.png
-  - image-6.png
+images: []
 ---
 
   
-
-![Friends cheersing with beer](/content/blog/company-celebrations/hero.png)
 
 ![Click for details on booking](/content/blog/company-celebrations/image-1.png)
 

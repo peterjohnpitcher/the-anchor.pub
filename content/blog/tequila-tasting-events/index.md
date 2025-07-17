@@ -27,15 +27,8 @@ tags:
   - tasting-events
 featured: true
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
-  - image-4.png
-  - image-5.png
+images: []
 ---
-
-![Poster for Tequila Tasting Evening with agave plant background. Text reads 'Tequila Tasting Evening, Friday, October 18th 2024' with The Anchor logo below.](/content/blog/tequila-tasting-events/hero.png)
 
 Looking for **tequila tasting near Heathrow**? Our October 2024 Tequila Tasting Night achieved something remarkable - every single guest gave us 5 stars! Just 10 minutes from the airport, The Anchor delivers premium spirits experiences that transport you straight to Mexico. Discover why our tasting events have become the talk of Stanwell Moor.
 

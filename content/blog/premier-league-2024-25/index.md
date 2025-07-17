@@ -2,11 +2,11 @@
 title: Watch Major Football Near Heathrow Airport | Sports Pub Stanwell Moor
 slug: premier-league-2024-25
 description: >-
-  Watch major football matches on terrestrial TV at The Anchor pub near Heathrow Airport.
-  4 HD screens showing World Cup, Euros, FA Cup and more. Great atmosphere just 7 minutes
-  from Terminal 5. Perfect for airport staff and football fans. Free parking,
-  full menu during matches. The best local pub for major football events near
-  Heathrow.
+  Watch major football matches on terrestrial TV at The Anchor pub near Heathrow
+  Airport. 4 HD screens showing World Cup, Euros, FA Cup and more. Great
+  atmosphere just 7 minutes from Terminal 5. Perfect for airport staff and
+  football fans. Free parking, full menu during matches. The best local pub for
+  major football events near Heathrow.
 date: '2025-01-15'
 oldUrl: >-
   https://www.the-anchor.pub/post/welcome-to-the-2024-25-premier-league-season-at-th
@@ -32,11 +32,8 @@ tags:
   - sports
 featured: true
 hero: hero.png
-images:
-  - image-1.png
+images: []
 ---
-
-![Promotional banner for The Anchor pub celebrating the 2024/25 Premier League season kickoff. The banner features The Anchor's logo and the Premier League logo with text stating 'Celebrating the 24/25 Season Kick-Off' on a purple background.](/content/blog/premier-league-2024-25/hero.png)
 
 ## Watch Major Football Matches Near Heathrow Airport
 

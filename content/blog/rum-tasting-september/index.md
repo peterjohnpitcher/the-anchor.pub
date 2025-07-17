@@ -29,18 +29,8 @@ tags:
   - special-offers
 featured: false
 hero: hero.png
-images:
-  - image-1.jpeg
-  - image-2.jpeg
-  - image-3.jpeg
-  - image-4.jpeg
-  - image-5.jpeg
-  - image-6.jpeg
-  - image-7.jpeg
-  - image-8.jpeg
+images: []
 ---
-
-![Rum tasting event poster with cocktail garnished with hibiscus, pineapple, and lime; two rum bottles in background; event details on right.](/content/blog/rum-tasting-september/hero.png)
 
 On 13th June, The Anchor hosted its fifth quarterly tasting event - a spectacular rum tasting night that maintained our perfect 5-star record. Fifteen fortunate guests discovered the incredible diversity of premium rum right here in Stanwell Moor. With guest ratings of 5.6 out of 5 (yes, someone actually gave us 6/5!), this latest triumph proves why our tasting events have become the most coveted tickets in the area.
 

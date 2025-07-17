@@ -32,23 +32,8 @@ tags:
   - pub-upgrades
 featured: true
 hero: hero.png
-images:
-  - image-1.jpeg
-  - image-2.jpeg
-  - image-3.jpeg
-  - image-4.jpeg
-  - image-5.jpeg
-  - image-6.jpeg
-  - image-7.jpeg
-  - image-8.jpeg
-  - image-9.jpeg
-  - image-10.jpeg
-  - image-11.jpeg
-  - image-12.jpeg
-  - image-13.jpg
+images: []
 ---
-
-![Image of new T-Bar beer pumps at The Anchor pub, featuring beer brands such as Inch's, Orchard Thieves, Carling, and Coors. The bar is well-lit and showcases a modern, inviting atmosphere. Text overlay reads 'The Upgrades at The Anchor Continue!'.](/content/blog/experience-the-best-beer-at-a-great-pub-near-heath/hero.png)
 
   
 

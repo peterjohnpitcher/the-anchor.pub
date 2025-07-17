@@ -30,14 +30,8 @@ tags:
   - special-offers
 featured: false
 hero: hero.png
-images:
-  - image-1.png
-  - image-2.png
-  - image-3.png
-  - image-4.png
+images: []
 ---
-
-![Promotional banner for The Anchor featuring the announcement of a new Dining Room opening in spring 2024.](/content/blog/new-dining-room/hero.png)
 
   
 
