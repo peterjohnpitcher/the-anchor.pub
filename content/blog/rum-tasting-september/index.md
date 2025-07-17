@@ -133,27 +133,27 @@ Premium mixers from [Fever-Tree](https://www.fever-tree.com/) and [Schweppes](ht
 
   
 
-## **Future Special Events at The Anchor**
+## **Next Special Event: November**
 
 ![Bowl of lime wedges in the foreground with assorted rum bottles, including Bacardi, in the background. Bright, tropical vibe.](/content/blog/rum-tasting-september/image-6.jpeg)
 
-The overwhelming success of our rum tasting night has inspired us to consider more special events in the future. While we don't have anything scheduled just yet, the enthusiasm from our guests makes it clear there's appetite for more unique experiences.
+The overwhelming success of our rum tasting night has inspired us to plan another special event for November. While we're keeping the details under wraps for now, the enthusiasm from our June guests makes it clear there's appetite for more unique experiences.
 
 The [premium spirits market](https://drinksint.com/news/fullstory.php/aid/10234/) continues to evolve with exciting innovations, and we're always exploring new ways to bring exceptional experiences to Stanwell Moor.
 
   
 
-### **Stay Connected for Future Events**
+### **Stay Connected for November's Event**
 
-Want to be first to know about any future special events?
+Want to be first to know about our November special event?
 
   
 
-*   Call 01753 682707 to join our mailing list
+*   Call 01753 682707 to express your interest
     
-*   Follow us on social media for announcements
+*   Follow us on social media for the announcement
     
-*   Pop in regularly - our best events often start as conversations at the bar
+*   Pop in regularly - we'll share details with our regulars first
     
 
   
@@ -192,4 +192,4 @@ Our June rum tasting night proved why special events at The Anchor create lastin
 
   
 
-**While this particular event has passed, the spirit of discovery continues every day at The Anchor. Visit us to explore our extensive rum selection, enjoy our regular events like quiz nights and drag shows, or simply experience the warm welcome that made this tasting night so special. Call 01753 682707 or drop by - who knows what new experiences await?**
+**While this particular rum tasting has passed, mark your calendar for November when we'll host another special event. In the meantime, visit us to explore our extensive rum selection, enjoy our regular events like quiz nights and drag shows, or simply experience the warm welcome that made this tasting night so special. Call 01753 682707 to ensure you don't miss November's announcement!**
