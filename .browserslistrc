@@ -1,16 +1,14 @@
-# Browsers we support
-# Modern browsers only - no IE support
+# Target modern browsers only for ES2020 support
+# This eliminates legacy polyfills
 
-defaults
-not IE 11
+defaults and supports es6-module
 not dead
-> 0.2%
-last 2 versions
-Firefox ESR
+not op_mini all
 
-# Specific versions for better performance
+# Minimum versions that support ES2020 features
 Chrome >= 90
 Firefox >= 88
 Safari >= 14
 Edge >= 90
-iOS >= 14
+iOS >= 14.5
+Android >= 90

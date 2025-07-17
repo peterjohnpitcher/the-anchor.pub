@@ -30,6 +30,9 @@
     "typescript": "^5"
   },
   "devDependencies": {
+    "@plaiceholder/base64": "^1.0.0",
+    "@plaiceholder/css": "^1.0.0",
+    "@plaiceholder/svg": "^1.0.0",
     "@playwright/test": "^1.53.1",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -37,9 +40,11 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.30",
+    "globby": "^14.1.0",
     "gray-matter": "^4.0.3",
     "jsdom": "^26.1.0",
     "postcss": "^8",
+    "sharp": "^0.34.3",
     "tailwindcss": "^3.4.1",
     "turndown": "^7.2.0"
   }

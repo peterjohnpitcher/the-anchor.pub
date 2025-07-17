@@ -7,7 +7,7 @@ import { NextEventServer } from '@/components/NextEventServer'
 import { Suspense } from 'react'
 import { homepageFAQSchema } from '@/lib/enhanced-schemas'
 import { LazySection } from '@/components/LazySection'
-import { HeroSection } from '@/components/hero'
+import { OptimizedHeroSection } from '@/components/hero/OptimizedHeroSection'
 import { CTASection, SectionHeader, FeatureGrid, QuickInfoGrid, InfoBoxGrid } from '@/components/ui'
 
 // Lazy load non-critical components
@@ -39,14 +39,20 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFAQSchema) }}
       />
       {/* Custom Hero Section with Logo */}
-      <HeroSection
+      <OptimizedHeroSection
         size="hero"
         title=""
         image={{
           src: "/images/page-headers/home/Page Headers - Homepage.jpg",
           alt: "The Anchor pub in Stanwell Moor",
           priority: true,
-          objectPosition: "50% 50%"
+          objectPosition: "50% 50%",
+          blurDataURL: "data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQF/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAAwQRIf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAZEQACAwEAAAAAAAAAAAAAAAACAwABMQT/2gAMAwEAAhEDEQA/ANOxLaMjPcVcr70CTruylQTmPeREIvZWFCfOotGp/9k=",
+          optimized: {
+            mobile: "/images/page-headers/home/optimized/hero-mobile",
+            tablet: "/images/page-headers/home/optimized/hero-tablet",
+            desktop: "/images/page-headers/home/optimized/hero-desktop"
+          }
         }}
       >
         {/* Logo with drop shadow */}
@@ -107,7 +113,7 @@ export default function HomePage() {
             🍽️ View Menu
           </CallToAction>
         </div>
-      </HeroSection>
+      </OptimizedHeroSection>
 
       {/* What Makes Us Special */}
       <section className="section-spacing bg-white">

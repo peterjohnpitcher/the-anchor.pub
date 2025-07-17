@@ -1,4 +1,5 @@
 export { HeroSection, type HeroSize } from './HeroSection'
+export { OptimizedHeroSection } from './OptimizedHeroSection'
 export { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs'
 export { HeroTag } from './HeroTag'
 export { HeroWrapper } from './HeroWrapper'

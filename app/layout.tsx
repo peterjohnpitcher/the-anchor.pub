@@ -191,6 +191,17 @@ export default function RootLayout({
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
         {/* Preconnect to optimize external resources */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://openweathermap.org" />
+        <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
+        
+        {/* Preload critical fonts */}
+        <link 
+          rel="preload" 
+          href="/_next/static/media/outfit-latin-400-normal.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="anonymous" 
+        />
         {/* Preload critical images */}
         <link 
           rel="preload" 

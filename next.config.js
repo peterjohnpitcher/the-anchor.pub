@@ -122,7 +122,7 @@ const nextConfig = {
   images: {
     domains: ['the-anchor.pub', 'management.orangejelly.co.uk', 'example.com', 'openweathermap.org', 'tfcasgxopxegwrabvwat.supabase.co'],
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    deviceSizes: [640, 1024, 1920],  // Optimized for our breakpoints
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
     dangerouslyAllowSVG: true,
@@ -144,6 +144,8 @@ const nextConfig = {
     optimizeCss: false, // Disabled due to previous issues
     // Track web vitals
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
+    // Optimize for edge runtime
+    serverComponentsExternalPackages: ['sharp'],
   },
   webpack: (config, { isServer }) => {
     // Optimize bundle splitting
