@@ -449,6 +449,9 @@ export default function HomePage() {
                       <a href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20hosting%20an%20event" className="text-anchor-gold hover:text-anchor-gold-light font-semibold">
                         💬 WhatsApp
                       </a>
+                      <a href="mailto:manager@the-anchor.pub?subject=Event%20Enquiry" className="text-anchor-gold hover:text-anchor-gold-light font-semibold">
+                        📧 Email Us
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -462,11 +465,11 @@ export default function HomePage() {
       <section id="visit-us" className="section-spacing bg-anchor-green text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto flex flex-col justify-center">
-            <SectionHeader
-              title="Come Visit Us!"
-              align="center"
-              className="text-white mb-6"
-            />
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                Come Visit Us!
+              </h2>
+            </div>
             
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
