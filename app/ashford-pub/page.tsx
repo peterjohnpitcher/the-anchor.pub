@@ -313,7 +313,7 @@ export default function AshfordPubPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-green-600">✓</span>
-                    <span><strong>No venue hire fee</strong> - Just reasonable minimum spend</span>
+                    <span><strong>Tailored pricing for every event</strong> - Let's discuss your needs</span>
                   </li>
                 </ul>
               </div>

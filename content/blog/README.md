@@ -133,7 +133,7 @@ Use standard Markdown syntax:
    - Include a call-to-action at the end
 
 3. **Images**:
-   - Optimize images for web (compress, appropriate dimensions)
+   - Optimise images for web (compress, appropriate dimensions)
    - Use descriptive filenames (e.g., `botanist-gin-special-offer.jpg`)
    - Ensure hero image is eye-catching and relevant
 

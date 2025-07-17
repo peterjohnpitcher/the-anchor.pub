@@ -66,7 +66,7 @@ Looking for a **pool league near Heathrow**? The Anchor pub in **Stanwell Moor**
 - Airport staff looking for a regular team sport
 - Commitment to weekly matches during season
 - Team players who enjoy the social side of pool
-- Potential team captains to help organize
+- Potential team captains to help organise
 
 ### Benefits of Joining The Anchor Pool Team
 

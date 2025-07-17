@@ -221,10 +221,10 @@ Or simply head over to [the-anchor.pub](http://the-anchor.pub) to see the full 
 - Your true local community pub
 - Family-friendly atmosphere
 - Support local businesses and events
-- Meet neighbors and make friends
+- Meet neighbours and make friends
 
 **What Makes Us Special:**
-- Recognized sustainable practices
+- Recognised sustainable practices
 - Diverse events calendar for all interests
 - Traditional British pub with modern touches
 - Welcoming to all communities near the airport

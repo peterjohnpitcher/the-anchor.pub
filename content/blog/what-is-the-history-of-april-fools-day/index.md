@@ -61,7 +61,7 @@ The tradition of playing practical jokes on April Fools' Day spread throughout E
 Whether you're looking to celebrate April Fools' Day with a playful prank or a delicious meal, The Anchor pub has everything you need. Our location near **Heathrow Airport** makes us the perfect spot for:
 - **Heathrow workers** to unwind after pulling office pranks
 - **Local families** to share April Fools' stories
-- **Travelers** to experience British humor traditions
+- **Travellers** to experience British humour traditions
 - **Staines residents** to gather for laughs
 
 Don't forget to bring your family and furry friends too! We are a family-friendly and dog-friendly pub with **free parking**, making it easy to visit from anywhere in the Heathrow area.
@@ -76,7 +76,7 @@ Here are some harmless prank ideas you can use to celebrate April Fools' Day:
     
 2.  **Food swap**: Switch the labels on food containers in the fridge, so your family or co-workers will be in for a surprise when they open their lunch.
     
-3.  **Sticky notes**: Cover someone's desk or car with sticky notes, creating a colorful mosaic that they'll have to peel off one by one.
+3.  **Sticky notes**: Cover someone's desk or car with sticky notes, creating a colourful mosaic that they'll have to peel off one by one.
     
 4.  **Fake news**: Send a fake news article to your friends or family members that's so outrageous, they'll know it's a joke. For example, "World's First Flying Car Takes Off!" or "Scientists Discover Time Travel Is Possible!"
     
@@ -101,7 +101,7 @@ Over the years, some April Fools' Day pranks have become legendary. Here are som
     
 3.  **Google's "Mic Drop" (2016)**: Google introduced a "Mic Drop" feature in Gmail that would add a GIF of a minion dropping a microphone to the end of an email, causing confusion in professional settings.
     
-4.  **Volkswagen's "Voltswagen" (2021)**: Volkswagen announced they would be rebranding as "Voltswagen" to emphasize their commitment to electric vehicles, fooling many before revealing it was a prank.
+4.  **Volkswagen's "Voltswagen" (2021)**: Volkswagen announced they would be rebranding as "Voltswagen" to emphasise their commitment to electric vehicles, fooling many before revealing it was a prank.
     
 
 ## April Fools' Traditions Around the World
@@ -124,7 +124,7 @@ Different countries have their own April Fools' traditions:
 
 ### Why Celebrate at The Anchor
 
-- **Local tradition** - Share pranks with neighbors
+- **Local tradition** - Share pranks with neighbours
 - **Safe space** - Laugh about jokes gone wrong
 - **Great atmosphere** - Everyone loves a good laugh
 - **Convenient location** - Easy access from Heathrow

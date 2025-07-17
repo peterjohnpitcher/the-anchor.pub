@@ -319,8 +319,8 @@ export default function StainesPubPage() {
             
             <div className="bg-blue-50 rounded-xl p-6 text-center">
               <p className="text-lg text-gray-800 mb-4">
-                <strong>No venue hire fee!</strong> Just minimum spend requirements. 
-                Most Staines groups easily meet minimums with food and drinks.
+                <strong>Flexible venue hire pricing!</strong> Tailored to your event. 
+                We're always willing to discuss your needs and budget.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <CallToAction href="/book-event" variant="primary" size="md">

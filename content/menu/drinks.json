@@ -566,44 +566,79 @@
       "id": "soft",
       "title": "Soft Drinks & Mixers",
       "emoji": "🥤",
+      "description": "Refreshing non-alcoholic options and premium mixers for every occasion",
       "sections": [
         {
-          "title": "Soft Drinks",
-          "style": "list",
+          "title": "Classic Soft Drinks",
+          "style": "grid",
           "items": [
-            { "name": "Coca-Cola, Diet Coke, Coke Zero, Lemonade, 7-Up Free", "price": "Various sizes" },
-            { "name": "J2O - Orange & Passionfruit, Apple & Mango, Apple & Raspberry", "price": "" },
-            { "name": "Fanta Orange, Appletiser", "price": "Can" }
+            { 
+              "name": "Coca-Cola Range", 
+              "price": "Various sizes",
+              "description": "The classics you love - Original, Diet Coke, and Coke Zero. Served ice-cold in glass bottles or on draught."
+            },
+            { 
+              "name": "Lemonade & 7-Up Free", 
+              "price": "Various sizes",
+              "description": "Crisp, refreshing lemon-lime sodas. Perfect on their own or as mixers for your favourite spirits."
+            },
+            { 
+              "name": "J2O Fruit Fusions", 
+              "price": "",
+              "description": "Premium fruit blends: Orange & Passionfruit, Apple & Mango, Apple & Raspberry. The sophisticated soft drink choice."
+            },
+            { 
+              "name": "Fanta Orange & Appletiser", 
+              "price": "",
+              "description": "Vibrant orange flavour and sparkling apple - fruity favourites served chilled."
+            }
           ]
         },
         {
-          "title": "Juices",
-          "style": "list",
+          "title": "Fresh Juices & Premium Mixers",
+          "style": "grid",
           "items": [
-            { "name": "Orange, Pineapple, Cranberry", "price": "" }
+            { 
+              "name": "Fresh Fruit Juices", 
+              "price": "",
+              "description": "Orange, Pineapple, and Cranberry juices. Perfect for mocktails or enjoyed on their own over ice."
+            },
+            { 
+              "name": "Classic Mixers", 
+              "price": "",
+              "description": "Schweppes Tonic, Slimline Tonic, Ginger Ale, and Soda Water. Essential companions for our premium spirits."
+            },
+            { 
+              "name": "Fever-Tree Premium", 
+              "price": "",
+              "description": "Mexican Lime and Rhubarb & Raspberry. Artisan mixers that elevate any gin or vodka serve."
+            }
           ]
         },
         {
-          "title": "Mixers",
-          "style": "list",
+          "title": "Energy & Hydration",
+          "style": "grid",
           "items": [
-            { "name": "Tonic, Slimline Tonic, Ginger Ale, Soda Water", "price": "" },
-            { "name": "Fever Tree - Mexican Lime, Rhubarb & Raspberry", "price": "" }
-          ]
-        },
-        {
-          "title": "Energy Drinks",
-          "style": "list",
-          "items": [
-            { "name": "Red Bull, Kick Energy", "price": "" }
-          ]
-        },
-        {
-          "title": "Water & Kids Drinks",
-          "style": "list",
-          "items": [
-            { "name": "Harrogate Still/Sparkling Water", "price": "" },
-            { "name": "Fruit Shoot - Orange, Blackcurrant", "price": "" }
+            { 
+              "name": "Red Bull", 
+              "price": "",
+              "description": "The original energy drink. Perfect pick-me-up for long nights or early airport runs."
+            },
+            { 
+              "name": "Kick Energy", 
+              "price": "",
+              "description": "British-made energy boost with a refreshing citrus kick. Great value alternative."
+            },
+            { 
+              "name": "Harrogate Spring Water", 
+              "price": "",
+              "description": "Still or Sparkling. Yorkshire's finest mineral water, naturally pure and refreshing."
+            },
+            { 
+              "name": "Kids' Favourites", 
+              "price": "",
+              "description": "Fruit Shoot in Orange and Blackcurrant. Perfect size for little hands, no spills guaranteed!"
+            }
           ]
         }
       ]

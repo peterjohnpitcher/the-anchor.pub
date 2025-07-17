@@ -55,7 +55,7 @@ As a **quality pub near Heathrow Airport**, The Anchor transforms ordinary eveni
 
 ### A Sold-Out Evening of Discovery
 
-Our March **spring spirits tasting** showcased the season's finest flavors in our transformed private dining room. The event earned a stellar **4.8/5 rating** from guests who praised:
+Our March **spring spirits tasting** showcased the season's finest flavours in our transformed private dining room. The event earned a stellar **4.8/5 rating** from guests who praised:
 
 - Warm, knowledgeable hosts
 - Premium spirit selection
@@ -167,7 +167,7 @@ Our **tasting events near Heathrow** offer advantages over London venues:
 - **Better value** - Same quality spirits, lower prices
 - **Free parking** - No transport costs or hassle
 - **Intimate setting** - Maximum 20 guests vs. 50+ in city
-- **Local community** - Meet neighbors, make friends
+- **Local community** - Meet neighbours, make friends
 - **No rush** - Relaxed pace, stay for drinks after
 - **Expert hosts** - Our trained staff, not agency workers
 

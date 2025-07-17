@@ -76,7 +76,7 @@ Yes, wearing green is a common tradition on St. Patrick's Day, as it is associat
 
 ### Do you wear green or orange on St Patty's Day?
 
-While green is the traditional color of St. Patrick's Day, orange is also an important color in Irish history and culture. However, it is not typically worn on St. Patrick's Day itself.
+While green is the traditional colour of St. Patrick's Day, orange is also an important colour in Irish history and culture. However, it is not typically worn on St. Patrick's Day itself.
 
   
 
@@ -88,13 +88,13 @@ While St. Patrick is the patron saint of Ireland, his holiday is celebrated arou
 
 ### What does wearing orange on St. Patrick Day mean?
 
-Wearing orange is associated with the Protestant community in Ireland, as opposed to the Catholic community which traditionally wears green. The color orange is also associated with William of Orange, a Protestant king who defeated the Catholic King James II in the Battle of the Boyne in 1690.
+Wearing orange is associated with the Protestant community in Ireland, as opposed to the Catholic community which traditionally wears green. The colour orange is also associated with William of Orange, a Protestant king who defeated the Catholic King James II in the Battle of the Boyne in 1690.
 
   
 
 ### Why do we wear green on St. Patrick's Day?
 
-Green is the color associated with Ireland and is used to represent the country's landscape, culture and history. It's also the color of the shamrock, which is said to have been used by St. Patrick to explain the concept of the Holy Trinity to the Irish people.
+Green is the colour associated with Ireland and is used to represent the country's landscape, culture and history. It's also the colour of the shamrock, which is said to have been used by St. Patrick to explain the concept of the Holy Trinity to the Irish people.
 
   
 
@@ -154,7 +154,7 @@ Join us for a proper **Irish pub experience near Heathrow Airport**:
     
 2.  Saint Patrick is credited with bringing Christianity to Ireland. According to legend, he used the three leaves of the shamrock to explain the Holy Trinity to the Irish people.
     
-3.  Saint Patrick's Day was originally a religious holiday to honor Saint Patrick. It wasn't until later that it became a more secular celebration.
+3.  Saint Patrick's Day was originally a religious holiday to honour Saint Patrick. It wasn't until later that it became a more secular celebration.
     
 4.  Saint Patrick is said to have used the symbol of the Irish harp to represent the Christian faith, which is why it became a national symbol of Ireland.
     

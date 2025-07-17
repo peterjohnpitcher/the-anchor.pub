@@ -217,7 +217,7 @@ Our **quality burgers** come with options for everyone:
 
 "Best burgers I've had near the airport. Beats Heathrow prices and quality by miles!" - James T.
 
-"The B-Stack is incredible. Proper pub burger with amazing flavor. Worth the short drive from T5." - Sarah M.
+"The B-Stack is incredible. Proper pub burger with amazing flavour. Worth the short drive from T5." - Sarah M.
 
 "As a local, this is our go-to burger spot. Kids love it, prices are fair, quality is consistent." - The Wilson Family
 
@@ -225,7 +225,7 @@ Our **quality burgers** come with options for everyone:
 
 ### From American Import to British Staple
 
-While burgers originated across the Atlantic, the British pub burger has evolved into something special. At The Anchor, we honor both traditions - American-style portions with British quality ingredients.
+While burgers originated across the Atlantic, the British pub burger has evolved into something special. At The Anchor, we honour both traditions - American-style portions with British quality ingredients.
 
 Our commitment to **quality pub food** means:
 - Supporting local suppliers

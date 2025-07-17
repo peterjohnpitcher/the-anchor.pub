@@ -257,7 +257,7 @@ Dress up for themed nights and win extra prizes!
 
 ## Tips for Music Bingo Success
 
-### Maximize Your Chances
+### Maximise Your Chances
 
 **Veteran Players Advise:**
 - Listen carefully to intros
@@ -294,7 +294,7 @@ Perfect for workplace groups:
 - Food platters
 - Drinks packages
 - Team competition
-- Prize customization
+- Prize customisation
 - Invoice payment
 
 Contact us for corporate music bingo events!

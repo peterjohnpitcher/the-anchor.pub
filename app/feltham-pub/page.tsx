@@ -350,7 +350,7 @@ export default function FelthamPubPage() {
             <div className="bg-anchor-cream rounded-xl p-6 text-center">
               <p className="text-lg text-gray-800 mb-4">
                 <strong>Feltham groups love our flexibility!</strong> 
-                No venue hire fee, just minimum spend. Spaces for 10-200 guests.
+                Competitive rates - let's discuss your needs. Spaces for 10-200 guests.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <CallToAction href="/private-party-venue" variant="primary" size="md">

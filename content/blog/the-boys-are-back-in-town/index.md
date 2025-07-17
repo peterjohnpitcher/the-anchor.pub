@@ -43,7 +43,7 @@ Looking for quality **real ales near Heathrow Airport**? The Anchor in **Stanwel
 
 ### Why We Choose Bottled Ales
 
-At our **traditional pub near Heathrow**, we prioritize quality. While cask ales can degrade after seven days once tapped, our bottled ales guarantee perfect condition every time. This means consistent quality for every customer - from regular locals to visitors discovering British ales for the first time.
+At our **traditional pub near Heathrow**, we prioritise quality. While cask ales can degrade after seven days once tapped, our bottled ales guarantee perfect condition every time. This means consistent quality for every customer - from regular locals to visitors discovering British ales for the first time.
 
 ## Our Premium Ale Selection Near Heathrow Airport
 

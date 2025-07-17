@@ -44,7 +44,7 @@ As a **traditional pub near Heathrow Airport**, we've perfected the art of Briti
 
 ## A Brief History of the British Chip Shop
 
-The British chip shop tradition dates back to the 1860s, becoming a cornerstone of working-class cuisine. During both World Wars, fish and chips remained unrationed - testament to their importance in British culture. At The Anchor **pub near Stanwell Moor**, we honor this heritage by maintaining traditional cooking methods while ensuring consistent quality.
+The British chip shop tradition dates back to the 1860s, becoming a cornerstone of working-class cuisine. During both World Wars, fish and chips remained unrationed - testament to their importance in British culture. At The Anchor **pub near Stanwell Moor**, we honour this heritage by maintaining traditional cooking methods while ensuring consistent quality.
 
 ## Our Traditional Chip Shop Menu
 
@@ -63,10 +63,10 @@ Our signature dish features:
 **Fish Options:**
 - **Cod** - The British classic, large portions
 - **Haddock** - Slightly sweeter, equally delicious
-- **Plaice** - Delicate flavor, lighter option
+- **Plaice** - Delicate flavour, lighter option
 - **Scampi** - Breaded langoustine tails
 
-**Other Chip Shop Favorites:**
+**Other Chip Shop Favourites:**
 - **Battered sausages** - Proper British bangers
 - **Steak & kidney pie** - Served with chips and gravy
 - **Chicken & mushroom pie** - Creamy comfort food
@@ -103,7 +103,7 @@ Perfect for **Heathrow travelers** with Friday flights or locals ending the work
 At our **Stanwell Moor pub**, we:
 - Source fish from sustainable British waters
 - Cut chips fresh daily from Maris Piper potatoes
-- Use traditional beef dripping for authentic flavor
+- Use traditional beef dripping for authentic flavour
 - Prepare everything to order - never pre-cooked
 - Maintain the highest food hygiene standards
 

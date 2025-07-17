@@ -77,7 +77,7 @@ We are looking for enthusiastic bar staff to provide an excellent guest drinking
     
 *   Positive attitude and excellent communication skills.
     
-*   Ability to keep the bar organized, stocked and clean.
+*   Ability to keep the bar organised, stocked and clean.
     
 *   Relevant training certificate.
     

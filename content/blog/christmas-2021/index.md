@@ -55,7 +55,7 @@ Planning your festive season near **Heathrow Airport**? The Anchor in **Stanwell
 **Christmas Day** 🎅
 - **Hours**: 12:00 noon - 3:00 PM (last orders 2:45 PM)
 - **Service**: Drinks only - no food service
-- **Note**: Perfect for a festive drink with neighbors
+- **Note**: Perfect for a festive drink with neighbours
 
 **Boxing Day Football**
 - **Hours**: 12:00 noon - 10:00 PM

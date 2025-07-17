@@ -148,7 +148,7 @@ Our market thrives through collaboration with [TW19Staines](https://www.instagra
 
 - **Local promotion** - Reaching wider community
 - **Vendor coordination** - Quality stallholders
-- **Event expertise** - Professional organization
+- **Event expertise** - Professional organisation
 - **Community spirit** - Bringing people together
 
 ## Plan Your Christmas Market Visit

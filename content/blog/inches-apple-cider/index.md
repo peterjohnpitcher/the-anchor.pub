@@ -57,7 +57,7 @@ Looking for authentic **British apple cider near Heathrow Airport**? The Anchor 
 - Summer garden drinking
 - Cider enthusiasts
 - Those seeking British authenticity
-- Visitors wanting local flavors
+- Visitors wanting local flavours
 
   
 
@@ -105,7 +105,7 @@ Looking for authentic **British apple cider near Heathrow Airport**? The Anchor 
 
 **Main Dishes:**
 - **Fish & Chips** - Cuts through the batter beautifully
-- **BBQ Burger** - Balances smoky flavors
+- **BBQ Burger** - Balances smoky flavours
 - **Pork Dishes** - Classic apple & pork combination
 - **Sunday Roast** - Refreshing with rich gravy
 

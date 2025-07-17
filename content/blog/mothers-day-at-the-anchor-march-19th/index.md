@@ -109,7 +109,7 @@ Mother's Day as we know it today began in the United States in the early 20th ce
 
   
 
-The modern holiday of Mother's Day as we know it, began with Anna Jarvis, who organized the first official Mother's Day celebration in 1908, in Grafton, West Virginia. She chose the second Sunday in May as the day to honor mothers, because it was the anniversary of her own mother's death.
+The modern holiday of Mother's Day as we know it, began with Anna Jarvis, who organised the first official Mother's Day celebration in 1908, in Grafton, West Virginia. She chose the second Sunday in May as the day to honour mothers, because it was the anniversary of her own mother's death.
 
   
 
@@ -131,7 +131,7 @@ The campaign to establish Mother's Day as a national holiday began in earnest in
 - Photo opportunities in our garden
 - Relaxed timing - no rush to leave
 
-The idea of Mother's Day as a holiday honoring mothers spread to other countries over time. In the United Kingdom, Mothering Sunday is celebrated on the fourth Sunday of Lent, which falls between mid-March and mid-April.
+The idea of Mother's Day as a holiday honouring mothers spread to other countries over time. In the United Kingdom, Mothering Sunday is celebrated on the fourth Sunday of Lent, which falls between mid-March and mid-April.
 
 ## Book Your Mother's Day Table at The Anchor Near Heathrow
 

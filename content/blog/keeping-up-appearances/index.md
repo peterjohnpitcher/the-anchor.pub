@@ -43,7 +43,7 @@ Exciting news for our community **near Heathrow Airport**! The Anchor in Stanwel
 We're thrilled to reveal our completely transformed exterior! The scaffolding has come down, and The Anchor now sports:
 
 **What's New:**
-- Fresh paint in contemporary colors
+- Fresh paint in contemporary colours
 - Updated signage with modern branding
 - Restored traditional features
 - Enhanced curb appeal
@@ -107,7 +107,7 @@ We've replaced the high fence with a charming white picket fence, creating:
 **Key Features:**
 - Maintained traditional pub character
 - Used quality, lasting materials
-- Prioritized customer comfort
+- Prioritised customer comfort
 - Improved energy efficiency
 - Enhanced overall experience
 
@@ -144,7 +144,7 @@ These renovations wouldn't have been possible without:
 **Special Thanks:**
 - Local contractors
 - Our dedicated staff
-- Patient neighbors
+- Patient neighbours
 - Loyal customers
 - Heathrow worker community
 

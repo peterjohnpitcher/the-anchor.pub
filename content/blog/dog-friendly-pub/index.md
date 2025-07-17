@@ -112,7 +112,7 @@ Being a **family friendly pub** in Stanwell Moor means we're perfectly positione
 
 We want everyone - humans and dogs - to enjoy their visit to our **dog friendly pub near Heathrow**:
 
-1. **All well-behaved dogs welcome** - Size doesn't matter, behavior does
+1. **All well-behaved dogs welcome** - Size doesn't matter, behaviour does
 2. **Dogs on leads inside** - For everyone's comfort and safety
 3. **Garden terrace freedom** - Dogs can be off-lead in designated areas
 4. **Clean up stations provided** - Bags and bins available
@@ -178,7 +178,7 @@ Enjoy traditional pub favorites while your dog relaxes:
 
 Our commitment to being a **dog friendly pub** goes beyond just allowing dogs:
 
-- Staff trained in dog behavior and safety
+- Staff trained in dog behaviour and safety
 - Partnerships with local vets and groomers
 - Support for dog rescue charities
 - Host of the annual Stanwell Moor Dog Show

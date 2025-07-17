@@ -55,7 +55,7 @@ Read about local happenings, charity events, and the people who make Stanwell Mo
 
 **For Local Residents:**
 - Community event announcements
-- Neighbor spotlights and stories
+- Neighbour spotlights and stories
 - Village news and updates
 
 **For Visitors:**

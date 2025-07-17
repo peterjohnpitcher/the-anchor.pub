@@ -10,11 +10,11 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInf
 
 export const metadata: Metadata = {
   title: 'Function Room Hire Near Heathrow | Venue Rental Staines | The Anchor',
-  description: 'Flexible function room hire for all events. 10-200 capacity, free parking, no venue hire fee. Perfect for meetings, parties, wakes & celebrations near Heathrow.',
+  description: 'Flexible function room hire for all events. 10-200 capacity, free parking, competitive rates. Perfect for meetings, parties, wakes & celebrations near Heathrow.',
   keywords: 'function room hire near heathrow, venue hire staines, private room hire surrey, event space near terminal 5, room rental stanwell moor, venue hire near m25',
   openGraph: {
     title: 'Function Room Hire - The Anchor Stanwell Moor',
-    description: 'Versatile event spaces for hire. No venue fee, just minimum spend. Free parking.',
+    description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
     images: ['/images/events/function-room/the-anchor-function-room.jpg'],
   },
 }
@@ -42,7 +42,7 @@ const functionRoomSchema = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "GBP",
-    description: "No venue hire fee - minimum spend only"
+    description: "Flexible venue hire pricing - tailored to your event"
   }
 }
 
@@ -64,12 +64,12 @@ export default function FunctionRoomHirePage() {
       <HeroWrapper
         route="/function-room-hire"
         title="Function Room Hire"
-        description="Versatile event spaces with no venue hire fee"
+        description="Versatile event spaces with flexible pricing"
         size="large"
         showStatusBar={false}
         tags={[
           { label: "🏢 Multiple Spaces", variant: "default" },
-          { label: "💷 No Hire Fee", variant: "success" },
+          { label: "💷 Flexible Pricing", variant: "success" },
           { label: "🚗 Free Parking", variant: "default" },
           { label: "📍 Near Heathrow", variant: "success" }
         ]}
@@ -143,11 +143,12 @@ export default function FunctionRoomHirePage() {
 
           <AlertBox
             variant="success"
-            title="No Venue Hire Fee!"
+            title="Great Value Venue Hire"
             content={
               <p className="text-center">
-                We don't charge venue hire fees. Just meet our reasonable minimum spend 
-                (varies by day/time) and the space is yours. Most events easily exceed minimums with food and drinks.
+                We offer flexible venue hire pricing tailored to your event. 
+                Our competitive rates vary by day/time and we're always willing to discuss your needs. 
+                Contact us for a personalized quote.
               </p>
             }
           />
@@ -299,7 +300,7 @@ export default function FunctionRoomHirePage() {
               {
                 icon: "💷",
                 title: "No Hidden Costs",
-                description: "No venue hire fee, no admin charges, no surprises. Just minimum spend.",
+                description: "Flexible pricing, no hidden charges, great value. Let's discuss your needs.",
                 className: "text-center"
               },
               {
@@ -433,7 +434,7 @@ export default function FunctionRoomHirePage() {
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Simple, Transparent Pricing"
-              subtitle="No venue hire fee - just minimum spend requirements"
+              subtitle="Flexible pricing tailored to your event needs"
             />
             
             <div className="bg-white rounded-xl p-8 shadow-md mb-8">
@@ -534,11 +535,11 @@ export default function FunctionRoomHirePage() {
         faqs={[
           {
             question: "What exactly is included in function room hire?",
-            answer: "Everything you need is included: the space configured to your requirements, tables, chairs, linens, basic AV equipment (microphone, music system), dedicated staff, setup/breakdown, and cleaning. There's no venue hire fee - you just need to meet the minimum spend on food and drinks."
+            answer: "Everything you need is included: the space configured to your requirements, tables, chairs, linens, basic AV equipment (microphone, music system), dedicated staff, setup/breakdown, and cleaning. We offer flexible venue hire pricing tailored to your event, alongside minimum spend requirements on food and drinks."
           },
           {
-            question: "How does the 'no venue hire fee' policy work?",
-            answer: "Instead of charging a separate room hire fee, we have minimum spend requirements that vary by day and time. Your spend on food, drinks, and any extras counts toward this minimum. Most events naturally exceed the minimum once you factor in catering for your guests."
+            question: "How does your venue hire pricing work?",
+            answer: "We offer flexible venue hire pricing that's tailored to each event. Our rates vary by day, time, and the type of event you're hosting. We're always willing to discuss your needs and work within your budget. Contact us for a personalized quote that suits your requirements."
           },
           {
             question: "Can I view the function rooms before booking?",
@@ -571,7 +572,7 @@ export default function FunctionRoomHirePage() {
       {/* CTA Section */}
       <CTASection
         title="Check Availability for Your Function"
-        description="No venue hire fee • Free parking • Professional service"
+        description="Competitive rates • Free parking • Professional service"
         buttons={[
           {
             text: "📞 Call: 01753 682707",

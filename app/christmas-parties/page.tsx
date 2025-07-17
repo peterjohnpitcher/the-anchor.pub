@@ -166,7 +166,7 @@ export default function ChristmasPartiesPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-600">✓</span>
-                        <span>No venue hire fee - just minimum spend requirements</span>
+                        <span>Great value venue hire - contact us for rates</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-600">✓</span>

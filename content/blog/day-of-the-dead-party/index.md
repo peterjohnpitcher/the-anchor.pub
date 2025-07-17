@@ -36,7 +36,7 @@ images:
 
 ![Colourful Day of the Dead celebration at The Anchor, featuring a traditional Día de Muertos skull with vibrant decorations.](/content/blog/day-of-the-dead-party/hero.png)
 
-Experience authentic **Day of the Dead celebrations near Heathrow** at The Anchor! This October, we're transforming our traditional British pub into a vibrant Mexican fiesta. From tequila tastings to fancy dress parties, join us for Día de los Muertos festivities that honor tradition while creating unforgettable memories. Just 10 minutes from the airport, discover Surrey's most colorful cultural celebration.
+Experience authentic **Day of the Dead celebrations near Heathrow** at The Anchor! This October, we're transforming our traditional British pub into a vibrant Mexican fiesta. From tequila tastings to fancy dress parties, join us for Día de los Muertos festivities that honour tradition while creating unforgettable memories. Just 10 minutes from the airport, discover Surrey's most colourful cultural celebration.
 
 ## Day of the Dead at The Anchor
 
@@ -56,13 +56,13 @@ Join us for a month-long celebration of life, remembrance, and Mexican culture!
 
 ### More Than Just Mexican Halloween
 
-**Day of the Dead** is a beautiful Mexican tradition that celebrates life and honors departed loved ones:
+**Day of the Dead** is a beautiful Mexican tradition that celebrates life and honours departed loved ones:
 
 **Key Elements:**
 - **Celebration not mourning** - Joyful remembrance
 - **November 1-2** - Traditional dates
-- **Colorful decorations** - Marigolds and papel picado
-- **Ofrendas (altars)** - Honoring the departed
+- **Colourful decorations** - Marigolds and papel picado
+- **Ofrendas (altars)** - Honouring the departed
 - **Sugar skulls** - Sweet symbols of life
 - **Family gatherings** - Community celebration
 
@@ -130,7 +130,7 @@ In Mexican tradition, tequila plays an important role:
 - **Cultural pride** - Mexican heritage
 - **Life celebration** - Joy over sorrow
 
-Our tasting honors these traditions while creating new memories.
+Our tasting honours these traditions while creating new memories.
 
 ![Nikki Manfadge hosting Gameshow House Party at The Anchor. Bright red background with bold white text and fun, lively imagery.](/content/blog/day-of-the-dead-party/image-3.png)
 
@@ -181,7 +181,7 @@ Throughout October, experience:
 **Authentic Decorations:**
 - Papel picado (paper banners)
 - Marigold flowers
-- Colorful skull displays
+- Colourful skull displays
 - Traditional altars
 - Candles and photos
 - Mexican artwork
@@ -195,7 +195,7 @@ Throughout October, experience:
 
 ## Food & Drink Specials
 
-### Mexican Flavors All October
+### Mexican Flavours All October
 
 Enjoy special menu items:
 
@@ -260,7 +260,7 @@ At The Anchor, we ensure:
 - Community inclusion
 - Meaningful celebration
 
-We honor Mexican traditions while creating inclusive events for all.
+We honour Mexican traditions while creating inclusive events for all.
 
 ## Why Celebrate at The Anchor?
 
@@ -277,7 +277,7 @@ Choose us for:
 
 ## Book Your Day of the Dead Experience
 
-Ready to experience **Mexican culture near Heathrow**? Join our Día de los Muertos celebrations and create memories that honor tradition while having incredible fun.
+Ready to experience **Mexican culture near Heathrow**? Join our Día de los Muertos celebrations and create memories that honour tradition while having incredible fun.
 
 **Reserve Your Spot:**
 📞 Call: 01753 682707  

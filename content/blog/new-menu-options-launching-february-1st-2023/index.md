@@ -68,13 +68,13 @@ Our new chicken and mushroom pie, paired with buttery mashed potatoes and a medl
 
 ### Thai Green Chicken Curry
 
-Our new Thai green chicken curry, served with fluffy steamed rice and crunchy prawn crackers, is a tantalizing combination of spicy and tangy flavors that is sure to please.
+Our new Thai green chicken curry, served with fluffy steamed rice and crunchy prawn crackers, is a tantalizing combination of spicy and tangy flavours that is sure to please.
 
   
 
 ### Red Thai Vegetable Curry (V)
 
-Our new Red Thai vegetable curry, served with fluffy steamed rice and crispy prawn crackers, is a vibrant and flavorful dish that combines a mix of sweet and spicy ingredients to create a delicious and healthy meal option.
+Our new Red Thai vegetable curry, served with fluffy steamed rice and crispy prawn crackers, is a vibrant and flavourful dish that combines a mix of sweet and spicy ingredients to create a delicious and healthy meal option.
 
   
 
@@ -88,7 +88,7 @@ Our new Chicken Tikka Masala, accompanied by fluffy steamed rice and warm, soft 
 
 ### Chickpea, Sweet Potato and Spinach Curry (V)
 
-Our new Chickpea, sweet potato and spinach curry, paired with fluffy steamed rice and freshly baked sourdough naan bread, is a wholesome and flavorful vegetarian dish that is packed with nutrients and satisfying taste.
+Our new Chickpea, sweet potato and spinach curry, paired with fluffy steamed rice and freshly baked sourdough naan bread, is a wholesome and flavourful vegetarian dish that is packed with nutrients and satisfying taste.
 
   
 
@@ -104,13 +104,13 @@ Our new Chicken and Pesto pizza, topped with tender chicken, fresh basil pesto, 
 
 ### Barbecue Chicken
 
-Our new barbecue Chicken pizza, topped with juicy chicken, smoky barbecue sauce, speck ham, and a blend of melted cheeses, is a delicious combination of sweet and savory flavors that is sure to satisfy your cravings.
+Our new barbecue Chicken pizza, topped with juicy chicken, smoky barbecue sauce, speck ham, and a blend of melted cheeses, is a delicious combination of sweet and savoury flavours that is sure to satisfy your cravings.
 
   
 
 ### Speck Ham & Parmesan
 
-Our new Speck Ham and Parmesan pizza, topped with salty Speck ham, nutty parmesan cheese, and fresh rocket, is a delightful blend of flavors and textures that is both simple and sophisticated.
+Our new Speck Ham and Parmesan pizza, topped with salty Speck ham, nutty parmesan cheese, and fresh rocket, is a delightful blend of flavours and textures that is both simple and sophisticated.
 
 ### Visit The Anchor for Our New Menu Near Heathrow
 

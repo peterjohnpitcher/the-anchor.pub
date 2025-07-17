@@ -39,7 +39,7 @@ images: []
 
 ## Monthly Curry Club - Best Indian Food Near Heathrow Airport
 
-Looking for authentic **curry near Heathrow**? The Anchor's monthly Curry Club brings the vibrant flavors of India to **Stanwell Moor**, just **7 minutes from Heathrow Terminal 5**. Our expert chef creates traditional thali and classic curries that rival any Indian restaurant near the airport.
+Looking for authentic **curry near Heathrow**? The Anchor's monthly Curry Club brings the vibrant flavours of India to **Stanwell Moor**, just **7 minutes from Heathrow Terminal 5**. Our expert chef creates traditional thali and classic curries that rival any Indian restaurant near the airport.
 
 ### Authentic Indian Cuisine in a British Pub Setting
 
@@ -125,14 +125,14 @@ Choose from our selection of **authentic Indian thali near Heathrow**:
 
 ## What is Thali?
 
-Thali is a traditional Indian meal featuring a selection of dishes served on a single plate. This authentic dining style brings together complementary flavors and textures, offering a complete and balanced meal. Perfect for experiencing the diversity of **Indian cuisine near Heathrow Airport**.
+Thali is a traditional Indian meal featuring a selection of dishes served on a single plate. This authentic dining style brings together complementary flavours and textures, offering a complete and balanced meal. Perfect for experiencing the diversity of **Indian cuisine near Heathrow Airport**.
 
 ## Why Choose The Anchor's Curry Club?
 
 ### Better Than Airport Dining
 
 **Skip overpriced airport curry** and enjoy:
-- **Authentic flavors** from experienced Indian chef
+- **Authentic flavours** from experienced Indian chef
 - **Generous portions** - proper pub servings
 - **Amazing value** - £12.99 for complete thali
 - **Free parking** - no airport charges
@@ -175,6 +175,6 @@ We cater for:
 
 Forget expensive **Indian restaurants near Heathrow Airport**. The Anchor's Curry Club offers authentic thali in a warm British pub setting, with the convenience of being minutes from all terminals.
 
-Whether you're an airport worker craving proper curry, a local looking for your monthly Indian fix, or a traveler wanting authentic flavors, our **curry night in Stanwell Moor** delivers every time.
+Whether you're an airport worker craving proper curry, a local looking for your monthly Indian fix, or a traveller wanting authentic flavours, our **curry night in Stanwell Moor** delivers every time.
 
 **The Anchor Curry Club** - Where British pub meets Indian authenticity, just **7 minutes from Heathrow**!

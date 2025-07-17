@@ -118,8 +118,8 @@ export default function CorporateEventsPage() {
               },
               {
                 icon: "💷",
-                title: "No Venue Fee",
-                description: "No hire charges - just straightforward minimum spend",
+                title: "Flexible Pricing",
+                description: "Competitive venue hire rates tailored to your needs",
                 className: "text-center"
               },
               {
@@ -361,7 +361,7 @@ export default function CorporateEventsPage() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-700 mb-6">
-              All packages can be customized. No hidden venue hire fees - just minimum spend requirements.
+              All packages can be customized. Flexible venue hire pricing to suit your budget and requirements.
             </p>
             <CallToAction href="/food-menu" variant="secondary" size="lg">
               View Catering Options
@@ -522,8 +522,8 @@ export default function CorporateEventsPage() {
                     <p className="text-sm">Save £20-40 per day</p>
                   </div>
                   <div>
-                    <strong>No Venue Hire Fee</strong>
-                    <p className="text-sm">Save £200-500+</p>
+                    <strong>Flexible Venue Pricing</strong>
+                    <p className="text-sm">Tailored to your event</p>
                   </div>
                 </div>
               }
@@ -537,7 +537,7 @@ export default function CorporateEventsPage() {
         faqs={[
           {
             question: "What makes The Anchor ideal for corporate events near Heathrow?",
-            answer: "We're just 7 minutes from Terminal 5 with free parking, making us perfect for international teams. We offer flexible spaces for 10-200 guests, professional catering, and no venue hire fees - just minimum spend. Being outside the ULEZ zone saves your attendees money too."
+            answer: "We're just 7 minutes from Terminal 5 with free parking, making us perfect for international teams. We offer flexible spaces for 10-200 guests, professional catering, and competitive venue hire rates tailored to your needs. Being outside the ULEZ zone saves your attendees money too."
           },
           {
             question: "What technology and equipment do you provide for business meetings?",
@@ -552,8 +552,8 @@ export default function CorporateEventsPage() {
             answer: "We offer everything from working breakfasts and coffee breaks to buffet lunches and formal dinners. All menus can be customized to your requirements and dietary needs. We also provide drinks packages and bar tabs."
           },
           {
-            question: "Is there a venue hire fee for corporate events?",
-            answer: "No venue hire fees! We work on a minimum spend basis which varies depending on the day, time, and size of your event. This typically starts from £150 for small meetings."
+            question: "How does venue hire pricing work for corporate events?",
+            answer: "We offer flexible venue hire pricing tailored to each corporate event. Our rates vary depending on the day, time, and size of your event. We're always willing to discuss your budget and requirements to find a solution that works for you. Contact us for a personalized quote."
           },
           {
             question: "How early can we access the venue for setup?",

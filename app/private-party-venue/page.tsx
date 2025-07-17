@@ -558,7 +558,7 @@ export default function PrivatePartyVenuePage() {
           },
           {
             question: "What's included in the party packages?",
-            answer: "All packages include exclusive use of your party space, basic decorations, dedicated staff, and setup/cleanup. Food and drink are priced per person based on your menu choices. No hidden venue hire fees!"
+            answer: "All packages include exclusive use of your party space, basic decorations, dedicated staff, and setup/cleanup. Food and drink are priced per person based on your menu choices. We offer flexible venue hire pricing tailored to your celebration."
           },
           {
             question: "Can children attend parties at The Anchor?",

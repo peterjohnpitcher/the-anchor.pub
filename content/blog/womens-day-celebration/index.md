@@ -54,7 +54,7 @@ Join us at The Anchor pub in **Stanwell Moor**, just **7 minutes from Heathrow A
 
 ## What is International Women's Day?
 
-March 8th is a special day for women around the world. It’s a day when we celebrate the achievements of women and the progress we’ve made towards gender equality. International Women's Day (IWD) is a global observance that has been recognized for over 100 years, and it continues to grow in significance and importance.
+March 8th is a special day for women around the world. It's a day when we celebrate the achievements of women and the progress we've made towards gender equality. International Women's Day (IWD) is a global observance that has been recognised for over 100 years, and it continues to grow in significance and importance.
 
   
 
@@ -77,7 +77,7 @@ This year’s theme for International Women's Day is “Choose to Challenge”. 
 - Women-led quiz night with empowerment themes
 - Fundraising for local women's charities
 - Safe, supportive atmosphere for all
-- Group bookings welcome for women's organizations
+- Group bookings welcome for women's organisations
 
 **Year-Round Support:**
 - Regular women's networking events

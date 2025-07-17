@@ -157,11 +157,11 @@ Make it a proper night out with our **Chip Shop Friday** menu:
 - Three games keep interest high
 - Food available during kitchen hours
 - Friendly, inclusive atmosphere
-- Professional organization
+- Professional organisation
 
 ## Tips for Bingo Success
 
-### Maximize Your Chances
+### Maximise Your Chances
 
 **Veteran Players Advise:**
 - Arrive early for best seats

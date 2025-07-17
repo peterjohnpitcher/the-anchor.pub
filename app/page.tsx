@@ -326,18 +326,18 @@ export default function HomePage() {
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Event Photo */}
-            <GalleryImage
-              src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
-              alt="Entertainment at The Anchor - everyone welcome"
-              caption="Saturday Night Entertainment"
-            />
-            
-            {/* Food Photo */}
+            {/* Food Photo - Now First */}
             <GalleryImage
               src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"
               alt="Traditional Sunday roast at The Anchor"
               caption="Famous Sunday Roasts"
+            />
+            
+            {/* Event Photo - Now Second */}
+            <GalleryImage
+              src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
+              alt="Entertainment at The Anchor - everyone welcome"
+              caption="Saturday Night Entertainment"
             />
             
             {/* Garden Photo */}
@@ -406,7 +406,7 @@ export default function HomePage() {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <span className="text-green-600">✓</span>
-                      <span><strong>No venue hire fee</strong> - just minimum spend</span>
+                      <span><strong>Flexible venue hire pricing</strong> - tailored to your event</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-600">✓</span>

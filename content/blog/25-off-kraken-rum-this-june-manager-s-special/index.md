@@ -98,7 +98,7 @@ Our **Kraken Rum offer near Heathrow** aligns perfectly with our values of inclu
 
   
 
-Celebrating is more than just having fun; it's crucial for strengthening our bonds. Events like Pride Month allow us to recognize the diversity within our community. Everyone's story contributes to the tapestry of our shared experience. At The Anchor, we aim to create spaces where all voices are celebrated and embraced. Expressing ourselves through food and drink helps foster understanding.
+Celebrating is more than just having fun; it's crucial for strengthening our bonds. Events like Pride Month allow us to recognise the diversity within our community. Everyone's story contributes to the tapestry of our shared experience. At The Anchor, we aim to create spaces where all voices are celebrated and embraced. Expressing ourselves through food and drink helps foster understanding.
 
   
 

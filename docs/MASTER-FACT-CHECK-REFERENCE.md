@@ -38,6 +38,7 @@ This document consolidates all fact-checking questions and answers for future re
 - **Windsor**: 20 minutes ✓
 - **Ashford**: 10 minutes ✓
 - **Stanwell**: Walking distance ✓
+- **ULEZ Zone**: Outside zone - saves £12.50 per day ✓
 
 ## 3. PARKING (CONFIRMED)
 - **Number of spaces**: 20 spaces for pub guests ✓
@@ -103,7 +104,7 @@ This document consolidates all fact-checking questions and answers for future re
 - **New Year's Eve**: Yes, with DJ and prosecco (not champagne) ✓
 - **Christmas parties**: Events in run-up to Christmas, but no special festive menu ✓
 - **St. Patrick's Day**: Open and decorated but no special events ✓
-- **Valentine's Day**: Yes, offered for last few years ✓
+- **Valentine's Day**: Sometimes (not guaranteed annually) ✓
 - **Christmas Market**: NO ✓
 - **Easter egg hunts**: NO ✓
 
@@ -142,6 +143,7 @@ This document consolidates all fact-checking questions and answers for future re
 - **Tuesday**: Pizza BOGOF (all pizzas, dine-in and takeaway, no restrictions) ✓
 - **Friday**: 50% off chip shop menu items for over 65s ✓
 - **Happy Hour**: NO ✓
+- **Spirits**: Double Up offer - double for £2 extra (permanent offer) ✓
 
 ## 8. DRINKS
 
@@ -150,7 +152,7 @@ This document consolidates all fact-checking questions and answers for future re
 - NO guest ales ✓
 
 ### Wine (CONFIRMED)
-- **Sizes**: 187ml (small bottles) and 700ml bottles ✓
+- **Sizes**: iHeart products: 187ml or 700ml bottles, All other wines: 700ml bottles only ✓
 - **House wine**: iHeart ✓
 
 ### Other Drinks (CONFIRMED)
@@ -176,7 +178,7 @@ This document consolidates all fact-checking questions and answers for future re
 
 ## 10. CONTACT INFORMATION (CONFIRMED)
 - **Phone**: 01753 682707 ✓
-- **WhatsApp**: 01753 682707 ✓
+- **WhatsApp**: 01753 682707 (also used for bookings) ✓
 - **Email**: manager@the-anchor.pub ✓
 - **Facebook**: @theanchorpubsm ✓
 - **Instagram**: @theanchor.pub ✓
@@ -186,16 +188,86 @@ This document consolidates all fact-checking questions and answers for future re
 
 ### Spaces Available (CONFIRMED)
 - **Entire Pub**: 250 seated, 300 standing ✓
-- **The Dining Room**: 26 seated, 50 standing ✓
-- **The Garden**: 64 seated, 150 standing ✓
-- **The Main Area**: 50 seated inside, 64 outside, 300 standing ✓
+- **The Dining Room**: 26 seated, 40 standing ✓
+- **The Garden**: 60 seated, 250 standing ✓
+- **The Main Area**: 50 seated, 60 standing ✓
+- **Note**: Entire pub total combines dining room, garden, and main pub areas ✓
+
+### Minimum Guest Requirements (CONFIRMED)
+- **Private hire**: Minimum 30 people ✓
+- **Corporate function hire**: Minimum 15 people (e.g., day meetings) ✓
 
 ### Booking Policy (CONFIRMED)
 - **Private hire available**: Yes ✓
-- **Types**: Birthdays, wakes, corporate events ✓
+- **Types**: Almost any event within reason ✓
 - **Maximum capacity**: Up to 250 with garden ✓
-- **Deposits**: Required for all private hire bookings ✓
+- **Deposits**: £250 deposit for any booking ✓
+- **Cancellation policy**: Details available upon request ✓
 - **Note**: Want to promote this more for business growth ✓
+
+### Pricing (CONFIRMED)
+- **Christmas party packages**: Don't have packages yet, don't commit to pricing ✓
+- **Corporate events**: Looks good for £150-500+ estimates but flexible ✓
+- **Private parties**: Don't have party packages right now ✓
+- **Function room hire**: No minimum spend, no packages ✓
+- **Venue hire fees**: YES - we have venue hire fees but very flexible on pricing ✓
+- **Website pricing**: Don't want any pricing on website - available upon request ✓
+
+### Equipment & Facilities (CONFIRMED)
+- **Microphone**: Yes, integrated sound system throughout pub and garden ✓
+- **TVs**: 4 TVs throughout pub for presentations ✓
+- **Dining room TV**: Can be used for meetings in multiple configurations ✓
+- **WiFi**: Yes, available throughout ✓
+- **Tables, chairs, linens**: Yes, included ✓
+- **Projector/screen**: NO ✓
+
+### Catering Options (CONFIRMED)
+- **Buffets**: Yes ✓
+- **Sit-down meals**: Yes ✓
+- **Canapés**: Yes ✓
+- **Pizza party options**: Yes ✓
+- **Full bar service**: Yes ✓
+- **External catering**: Allowed, but must be provided through The Anchor ✓
+
+### Timing & Access (CONFIRMED)
+- **Event timing**: Fully flexible timing can be arranged ✓
+- **Bar service times**: Still apply ✓
+- **Other services**: Can continue as needed ✓
+- **Setup access**: Flexible ✓
+
+### External Suppliers Policy (CONFIRMED)
+- **Decorations**: Allowed (no sticky things like cellotape, bluetac, pins) ✓
+- **External DJs/entertainment**: Yes, allowed ✓
+- **Own cake**: Allowed ✓
+- **Other external catering**: Must be provided through The Anchor ✓
+- **General rule**: Almost anything within reason, agreed in contract ✓
+
+### Marketing Claims (CONFIRMED)
+- **"Hosted 100+ events in 2024"**: Yes (not 200+) ✓
+- **Regular venue for airline crews**: Yes ✓
+- **Used by local businesses**: Yes ✓
+- **7 minutes from Heathrow T5**: Yes ✓
+- **3 minutes from M25 J14**: Yes ✓
+- **Outside ULEZ saves £12.50 per guest**: Yes ✓
+- **Customer testimonials**: Remove - don't have any right now ✓
+
+### Important Messaging (CONFIRMED)
+- **Focus on**: Great venue for informal events ✓
+- **Atmosphere**: Family feeling venue at great prices ✓
+- **Size**: Not a huge venue, but great personal venue ✓
+- **Key benefit**: Making guests feel special ✓
+- **Pricing**: Available upon request - competitors watching ✓
+- **Services**: Can provide lots depending on request ✓
+
+### Technical Details (CONFIRMED)
+- **Phone**: 01753 682707 ✓
+- **WhatsApp**: 01753 682707 ✓
+- **Email**: manager@the-anchor.pub ✓
+- **Response time**: 2-hour during business hours ✓
+- **Image locations**: /public/images/events/ subfolders ✓
+
+### Floating CTA Widget (CONFIRMED)
+- **Use**: Yes, but make it very discrete ✓
 
 ## 12. MARKETING CLAIMS (CONFIRMED TO KEEP)
 - **"Surrey's Best Kept Secret"** ✓
@@ -219,6 +291,7 @@ This document consolidates all fact-checking questions and answers for future re
 
 ## 14. OTHER FACTS (CONFIRMED)
 - **Planes overhead**: "Every 90 seconds" - at times (flight schedules vary) ✓
+  - **Schedule pattern**: Either early morning until 3pm OR from 3pm until late at night ✓
 - **Food hygiene rating**: 5-star since 2019 without fail ✓
 - **Most events are paid**: Only drag shows are free ✓
 - **Payment methods**: Cash and all cards including Amex ✓
@@ -244,14 +317,26 @@ This document consolidates all fact-checking questions and answers for future re
 - **"Next to St Mary's Church"** - We are NOT next to any church ✗
 - Any specific church landmarks in directions ✗
 
+## BRAND NAME USAGE (CONFIRMED)
+- **Official name**: "The Anchor" ✓
+- **With location**: "The Anchor, Stanwell Moor" ✓
+- **Never use**: "The Anchor Pub" ✗
+
+## GPS COORDINATES NOTE
+- **Currently used**: 51.462509, -0.502067 (in most files)
+- **Alternative mentioned**: 51.4764, -0.4735 (in CONSISTENCY-ISSUES-SUMMARY.md)
+- **Action needed**: Verify correct coordinates with owner
+
 ## NOTES FOR WEBSITE UPDATES
 1. Remove all "all day food" claims - food only during kitchen hours
-2. Award claims made generic (no specific awards mentioned)
+2. Award claims made generic (no specific awards mentioned)  
 3. Update all parking references to "20 spaces"
 4. Ensure all event frequencies say "monthly" not specific days
 5. Don't mention specific drink prices
 6. Emphasize private hire availability for business growth
 7. Leave comments in code for future paid parking information
+8. Always use "The Anchor" not "The Anchor Pub" in all content
+9. Verify and update GPS coordinates if needed
 
 ---
 *Last updated: January 2025*

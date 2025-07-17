@@ -60,7 +60,7 @@ Ideal for **Heathrow staff** seeking substantial meals or **Stanwell Moor locals
 
 **A Glimpse into Our New Offerings**
 
-While we're keeping the names of our dishes under wraps for now, we can't resist sharing a few tantalizing photographs. Each image captures the essence of what's to come: hearty, flavorful, and oh-so-comforting. From rich gravies to succulent meats and delightful vegetarian options, there's something for everyone.
+While we're keeping the names of our dishes under wraps for now, we can't resist sharing a few tantalizing photographs. Each image captures the essence of what's to come: hearty, flavourful, and oh-so-comforting. From rich gravies to succulent meats and delightful vegetarian options, there's something for everyone.
 
 ![Another photo of a new dish available on The Anchors Autumn Winter menu](/content/blog/autumn-winter-menu/image-1.png)
 

@@ -38,17 +38,17 @@ Tequila's journey from sacred agave plant to the premium spirits we serve at our
 
 ### Agave: The Sacred Plant Behind Our Premium Tequilas
 
-The agave plant, revered by the Aztecs as the "tree of wonders," has been central to Mexican culture for millennia. At The Anchor, we honor this tradition by offering only **quality tequilas** made from 100% blue agave. 
+The agave plant, revered by the Aztecs as the "tree of wonders," has been central to Mexican culture for millennia. At The Anchor, we honour this tradition by offering only **quality tequilas** made from 100% blue agave. 
 
 The ancient Mexicans created pulque, a sacred fermented agave drink used in religious ceremonies. This milky beverage was believed to connect the earthly and spiritual realms - a tradition we respect in our thoughtful approach to serving tequila at our **pub near Heathrow Airport**.
 
 ### From Pulque to Premium Tequila: Evolution of Excellence
 
-When Spanish colonizers introduced distillation in the 16th century, mezcal was born. In Jalisco, the blue agave (Agave tequilana) created unique flavors that became tequila. Today at The Anchor, we showcase this evolution with our selection of:
+When Spanish colonizers introduced distillation in the 16th century, mezcal was born. In Jalisco, the blue agave (Agave tequilana) created unique flavours that became tequila. Today at The Anchor, we showcase this evolution with our selection of:
 
 - **100% Agave Blancos** - Pure, unaged expressions
 - **Reposados** - Rested in oak for smooth complexity
-- **Añejos** - Aged for rich, sophisticated flavors
+- **Añejos** - Aged for rich, sophisticated flavours
 - **Premium Mezcals** - Tequila's smoky cousin
 
 ## Tequila Production: Understanding What Makes Our Selection Special
@@ -61,11 +61,11 @@ Every premium tequila at our **Stanwell Moor pub** begins with skilled jimadores
 
 1. **Cooking**: Piñas are slowly roasted in traditional ovens
 2. **Crushing**: Extracting sweet agave juice using tahona wheels
-3. **Fermentation**: Natural yeasts create unique flavor profiles
+3. **Fermentation**: Natural yeasts create unique flavour profiles
 4. **Distillation**: Typically twice-distilled for purity
 5. **Aging**: Time in oak creates our reposados and añejos
 
-Visit The Anchor to taste the difference traditional methods make. Our knowledgeable staff can guide you through our tequila selection, explaining how each production step affects flavor.
+Visit The Anchor to taste the difference traditional methods make. Our knowledgeable staff can guide you through our tequila selection, explaining how each production step affects flavour.
 
 ## Experience Tequila Culture at The Anchor Near Heathrow
 
@@ -95,7 +95,7 @@ Join us for regular tequila experiences:
 At The Anchor, we understand tequila is more than a drink - it's cultural heritage. In Mexico, tequila appears at:
 
 - **Weddings** - Toasting new beginnings
-- **Day of the Dead** - Honoring ancestors
+- **Day of the Dead** - Honouring ancestors
 - **Independence Day** - Celebrating national pride
 - **Family Gatherings** - Strengthening bonds
 

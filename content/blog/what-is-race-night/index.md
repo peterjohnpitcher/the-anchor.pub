@@ -148,7 +148,7 @@ Through our race nights, The Anchor has supported:
 
 ## Race Night Tips for First-Timers
 
-### Maximize Your Evening
+### Maximise Your Evening
 
 **Betting Strategy:**
 - Spread bets across multiple races
