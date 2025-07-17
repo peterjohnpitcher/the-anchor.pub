@@ -216,14 +216,14 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                 </div>
                 <div className="text-right">
                   {displayHours.is_closed ? (
-                    <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-400'}>Closed</span>
+                    <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-300'}>Closed</span>
                   ) : (
                     <>
                       <span className={hasSpecialHours ? 'text-yellow-400' : 'text-white'}>
                         {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
                       </span>
                       {showKitchen && !hasSpecialHours && (
-                        <p className="text-xs text-gray-400 mt-1">
+                        <p className="text-xs text-gray-300 mt-1">
                           {dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
                           ) : (
@@ -291,7 +291,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-gray-200">
                         {Math.round(dayForecast.temp_max)}°/{Math.round(dayForecast.temp_min)}°C
                       </span>
                     </div>
@@ -302,11 +302,11 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                 <div className="text-right text-sm">
                   {displayHours.is_closed ? (
                     <div>
-                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-400'}>
+                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-300'}>
                         Closed{hasSpecialHours && (specialHours.note || specialHours.reason) ? ` (${specialHours.note || specialHours.reason})` : ''}
                       </span>
                       {showKitchen && (
-                        <div className="text-xs text-gray-400">Kitchen closed</div>
+                        <div className="text-xs text-gray-300">Kitchen closed</div>
                       )}
                     </div>
                   ) : (
@@ -316,7 +316,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         {hasSpecialHours && (specialHours.note || specialHours.reason) ? ` (${specialHours.note || specialHours.reason})` : ''}
                       </span>
                       {showKitchen && !hasSpecialHours && (
-                        <div className="text-xs text-gray-400 mt-0.5">
+                        <div className="text-xs text-gray-300 mt-0.5">
                           {dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
                           ) : (

@@ -12,14 +12,19 @@ const config: Config = {
     extend: {
       colors: {
         'anchor-green': '#005131',
-        'anchor-gold': '#a57626',
+        'anchor-gold': '#8b6914',  // Darkened from #a57626 for WCAG AA compliance (4.5:1)
         'anchor-cream': '#faf8f3',
         'anchor-charcoal': '#1a1a1a',
-        'anchor-gold-light': '#d4a574',
+        'anchor-gold-light': '#a57626',  // Using old gold as light variant
         'anchor-green-dark': '#003d25',
         'anchor-warm-white': '#ffffff',
         'anchor-sage': '#7a8b7f',
         'anchor-sand': '#f5e6d3',
+        // Additional accessible color variants
+        'anchor-gold-dark': '#6b5010',  // Even darker for small text
+        'anchor-green-light': '#006b45',  // Lighter but still accessible green
+        'anchor-text-on-green': '#ffffff',  // Ensure white text on green bg
+        'anchor-text-on-gold': '#1a1a1a',  // Dark text on gold backgrounds
       },
       fontFamily: {
         sans: ['var(--font-outfit)', 'sans-serif'],

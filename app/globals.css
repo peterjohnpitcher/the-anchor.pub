@@ -11,14 +11,18 @@
 
 :root {
   --anchor-green: #005131;
-  --anchor-gold: #a57626;
+  --anchor-gold: #8b6914;
   --anchor-cream: #faf8f3;
   --anchor-charcoal: #1a1a1a;
-  --anchor-gold-light: #d4a574;
+  --anchor-gold-light: #a57626;
   --anchor-green-dark: #003d25;
   --anchor-warm-white: #ffffff;
   --anchor-sage: #7a8b7f;
   --anchor-sand: #f5e6d3;
+  --anchor-gold-dark: #6b5010;
+  --anchor-green-light: #006b45;
+  --anchor-text-on-green: #ffffff;
+  --anchor-text-on-gold: #1a1a1a;
 }
 
 * {

@@ -136,11 +136,15 @@ const nextConfig = {
   swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+    // Remove unnecessary React properties
+    reactRemoveProperties: process.env.NODE_ENV === 'production',
   },
-  // experimental: {
-  //   optimizeCss: true,
-  //   webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
-  // },
+  experimental: {
+    // Optimize CSS delivery
+    optimizeCss: false, // Disabled due to previous issues
+    // Track web vitals
+    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
+  },
   webpack: (config, { isServer }) => {
     // Optimize bundle splitting
     if (!isServer) {
