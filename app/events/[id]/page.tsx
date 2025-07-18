@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { CallToAction } from '@/components/CallToAction'
+import { Button, Container, Section, Card, CardBody, Badge, Alert, Grid, GridItem } from '@/components/ui'
 import { EventSchema } from '@/components/EventSchema'
 import EventBooking from '@/components/EventBooking'
 import EventAvailability from '@/components/EventAvailability'
@@ -70,18 +70,20 @@ export default async function EventPage({ params }: Props) {
       />
       
       {/* Event Header Section - Mobile First */}
-      <section className="mt-20 pt-6 pb-2 bg-white">
-        <div className="container mx-auto px-4">
+      <div className="mt-20 pt-6 pb-2 bg-white">
+        <Container>
           <div className="max-w-6xl mx-auto">
             {/* Event Title and Basic Info */}
             <div className="text-center">
               {event.category && (
-                <span 
-                  className="inline-block px-3 py-1.5 rounded-full text-white text-xs md:text-sm font-semibold mb-3"
-                  style={{ backgroundColor: event.category.color }}
+                <Badge 
+                  variant="default"
+                  size="sm"
+                  className="mb-3"
+                  style={{ backgroundColor: event.category.color, color: 'white' }}
                 >
                   {event.category.name}
-                </span>
+                </Badge>
               )}
               
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4 px-2">
@@ -142,12 +144,12 @@ export default async function EventPage({ params }: Props) {
               )}
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Event Details - Mobile First */}
-      <section className="py-6 md:py-8 bg-white">
-        <div className="container mx-auto px-4">
+      <div className="py-6 md:py-8 bg-white">
+        <Container>
           <div className="max-w-6xl mx-auto">
             {/* Mobile: Image First, Desktop: Grid Layout */}
             {/* Square Event Image - Mobile: Full Width, Desktop: In Grid */}
@@ -194,32 +196,38 @@ export default async function EventPage({ params }: Props) {
                 {/* Quick Info Cards - Mobile: Grid, Desktop: Stack */}
                 <div className="grid grid-cols-2 gap-3 lg:grid-cols-1 lg:gap-4">
                   {/* Price */}
-                  <div className="bg-anchor-cream rounded-xl p-4 md:p-6">
-                    <p className="text-xs md:text-sm text-gray-600 mb-1">Entry Price</p>
-                    <p className={`text-xl md:text-2xl font-bold ${isFree ? 'text-green-600' : 'text-anchor-gold'}`}>
-                      {isFree ? 'FREE' : event.offers ? formatPrice(event.offers.price, event.offers.priceCurrency) : 'TBC'}
-                    </p>
-                  </div>
+                  <Card variant="default" className="bg-anchor-cream">
+                    <CardBody className="p-4 md:p-6">
+                      <p className="text-sm md:text-base text-gray-600 mb-1">Entry Price</p>
+                      <p className={`text-xl md:text-2xl font-bold ${isFree ? 'text-green-600' : 'text-anchor-gold'}`}>
+                        {isFree ? 'FREE' : event.offers ? formatPrice(event.offers.price, event.offers.priceCurrency) : 'TBC'}
+                      </p>
+                    </CardBody>
+                  </Card>
                   
                   {/* Capacity */}
-                  <div className="bg-anchor-cream rounded-xl p-4 md:p-6">
-                    <p className="text-xs md:text-sm text-gray-600 mb-1">Availability</p>
-                    <EventAvailability eventId={event.id} showDetails={true} />
-                  </div>
+                  <Card variant="default" className="bg-anchor-cream">
+                    <CardBody className="p-4 md:p-6">
+                      <p className="text-sm md:text-base text-gray-600 mb-1">Availability</p>
+                      <EventAvailability eventId={event.id} showDetails={true} />
+                    </CardBody>
+                  </Card>
                   
                   {/* Status */}
-                  <div className="bg-anchor-cream rounded-xl p-4 md:p-6 col-span-2 lg:col-span-1">
-                    <p className="text-xs md:text-sm text-gray-600 mb-1">Status</p>
-                    <p className={`text-base md:text-lg font-bold ${
-                      event.eventStatus.includes('Cancelled') ? 'text-red-600' :
-                      event.eventStatus.includes('Postponed') ? 'text-orange-600' :
-                      'text-green-600'
-                    }`}>
-                      {event.eventStatus.includes('Cancelled') ? 'CANCELLED' :
-                       event.eventStatus.includes('Postponed') ? 'POSTPONED' :
-                       'CONFIRMED'}
-                    </p>
-                  </div>
+                  <Card variant="default" className="bg-anchor-cream col-span-2 lg:col-span-1">
+                    <CardBody className="p-4 md:p-6">
+                      <p className="text-sm md:text-base text-gray-600 mb-1">Status</p>
+                      <p className={`text-base md:text-lg font-bold ${
+                        event.eventStatus.includes('Cancelled') ? 'text-red-600' :
+                        event.eventStatus.includes('Postponed') ? 'text-orange-600' :
+                        'text-green-600'
+                      }`}>
+                        {event.eventStatus.includes('Cancelled') ? 'CANCELLED' :
+                         event.eventStatus.includes('Postponed') ? 'POSTPONED' :
+                         'CONFIRMED'}
+                      </p>
+                    </CardBody>
+                  </Card>
                 </div>
               </div>
               
@@ -262,24 +270,26 @@ export default async function EventPage({ params }: Props) {
             {/* Full Width Sections */}
             <div className="mt-8 space-y-6 md:space-y-8">
               {/* Location */}
-              <div className="bg-gray-50 rounded-xl md:rounded-2xl p-6 md:p-8">
-                <h2 className="text-xl md:text-2xl font-bold text-anchor-green mb-3 md:mb-4">Location</h2>
-                <address className="not-italic text-gray-700 text-base">
-                  <p className="font-semibold">{event.location.name}</p>
-                  <p>{event.location.address.streetAddress}</p>
-                  <p>{event.location.address.addressLocality}, {event.location.address.addressRegion}</p>
-                  <p>{event.location.address.postalCode}</p>
-                </address>
-                <Link 
-                  href="/find-us"
-                  className="inline-flex items-center text-anchor-gold hover:text-anchor-gold-light font-semibold mt-3 md:mt-4 text-base"
-                >
-                  Get directions
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
+              <Card variant="elevated" className="bg-gray-50">
+                <CardBody className="p-6 md:p-8">
+                  <h2 className="text-xl md:text-2xl font-bold text-anchor-green mb-3 md:mb-4">Location</h2>
+                  <address className="not-italic text-gray-700 text-base">
+                    <p className="font-semibold">{event.location.name}</p>
+                    <p>{event.location.address.streetAddress}</p>
+                    <p>{event.location.address.addressLocality}, {event.location.address.addressRegion}</p>
+                    <p>{event.location.address.postalCode}</p>
+                  </address>
+                  <Link 
+                    href="/find-us"
+                    className="inline-flex items-center text-anchor-gold hover:text-anchor-gold-light font-semibold mt-3 md:mt-4 text-base"
+                  >
+                    Get directions
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </CardBody>
+              </Card>
             
               {/* FAQs */}
               {((event.faq && event.faq.length > 0) || (event.faqPage && event.faqPage.mainEntity.length > 0)) && (
@@ -287,10 +297,12 @@ export default async function EventPage({ params }: Props) {
                   <h2 className="text-xl md:text-2xl font-bold text-anchor-green mb-4 md:mb-6">Frequently Asked Questions</h2>
                   <div className="space-y-3 md:space-y-4">
                     {(event.faq || event.faqPage?.mainEntity || []).map((faq, index) => (
-                      <div key={index} className="bg-gray-50 rounded-xl p-4 md:p-6">
-                        <h3 className="font-semibold text-base md:text-lg text-anchor-green mb-2">{faq.name}</h3>
-                        <p className="text-gray-700 text-sm md:text-base">{faq.acceptedAnswer.text}</p>
-                      </div>
+                      <Card key={index} variant="default" className="bg-gray-50">
+                        <CardBody className="p-4 md:p-6">
+                          <h3 className="font-semibold text-base md:text-lg text-anchor-green mb-2">{faq.name}</h3>
+                          <p className="text-gray-700 text-sm md:text-base">{faq.acceptedAnswer.text}</p>
+                        </CardBody>
+                      </Card>
                     ))}
                   </div>
                 </div>
@@ -324,12 +336,12 @@ export default async function EventPage({ params }: Props) {
               )}
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* CTA Section - Mobile First */}
-      <section className="py-8 md:py-12 bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
+      <div className="py-8 md:py-12 bg-anchor-green text-white">
+        <Container className="text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">
             {isSoldOut ? "Join Our Waiting List" : "Reserve Your Spot"}
           </h2>
@@ -341,26 +353,30 @@ export default async function EventPage({ params }: Props) {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center max-w-md mx-auto sm:max-w-none">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              📞 Call: 01753 682707
-            </CallToAction>
+            <Link href="tel:01753682707" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="bg-white text-anchor-green hover:bg-gray-100 sm:w-auto"
+              >
+                📞 Call: 01753 682707
+              </Button>
+            </Link>
             
-            <CallToAction 
-              href="/whats-on"
-              variant="white"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              View All Events
-            </CallToAction>
+            <Link href="/whats-on" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="bg-white text-anchor-green hover:bg-gray-100 sm:w-auto"
+              >
+                View All Events
+              </Button>
+            </Link>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
       
     </>
   )

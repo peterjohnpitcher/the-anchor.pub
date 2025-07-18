@@ -1,14 +1,26 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { CallToAction } from '@/components/CallToAction'
 import { StatusBarWrapper } from '@/components/StatusBarWrapper'
 import { NextEventServer } from '@/components/NextEventServer'
 import { Suspense } from 'react'
 import { homepageFAQSchema } from '@/lib/enhanced-schemas'
 import { LazySection } from '@/components/LazySection'
 import { OptimizedHeroSection } from '@/components/hero/OptimizedHeroSection'
-import { CTASection, SectionHeader, FeatureGrid, QuickInfoGrid, InfoBoxGrid } from '@/components/ui'
+import { 
+  Button, 
+  Card, 
+  CardBody, 
+  Container, 
+  Grid, 
+  GridItem,
+  Alert,
+  CTASection, 
+  SectionHeader, 
+  FeatureGrid, 
+  QuickInfoGrid, 
+  InfoBoxGrid 
+} from '@/components/ui'
 
 // Lazy load non-critical components
 const BusinessHours = dynamic(() => import('@/components/BusinessHours').then(mod => ({ default: mod.BusinessHours })), {
@@ -41,7 +53,7 @@ export default function HomePage() {
       {/* Custom Hero Section with Logo */}
       <OptimizedHeroSection
         size="hero"
-        title=""
+        title="Welcome to The Anchor"
         image={{
           src: "/images/page-headers/home/Page Headers - Homepage.jpg",
           alt: "The Anchor pub in Stanwell Moor",
@@ -59,7 +71,7 @@ export default function HomePage() {
         <div className="mb-6 sm:mb-8">
           <Image
             src="/images/branding/the-anchor-pub-logo-white-transparent.png"
-            alt="The Anchor Pub Logo"
+            alt="The Anchor Pub logo - elegant anchor symbol with traditional British pub typography in white"
             width={320}
             height={320}
             sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
@@ -94,30 +106,39 @@ export default function HomePage() {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0 max-w-md mx-auto">
-          <CallToAction 
+          <Link
             href="https://ordertab.menu/theanchor/bookings"
-            variant="primary"
-            size="lg"
-            external
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex-1"
           >
-            📅 Book a Table
-          </CallToAction>
+            <Button 
+              variant="primary"
+              size="lg"
+              fullWidth
+            >
+              📅 Book a Table
+            </Button>
+          </Link>
           
-          <CallToAction 
+          <Link
             href="/food-menu"
-            variant="secondary"
-            size="lg"
             className="flex-1"
           >
-            🍽️ View Menu
-          </CallToAction>
+            <Button 
+              variant="secondary"
+              size="lg"
+              fullWidth
+            >
+              🍽️ View Menu
+            </Button>
+          </Link>
         </div>
       </OptimizedHeroSection>
 
       {/* What Makes Us Special */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <SectionHeader
             title="What Makes Us Special"
             subtitle="More than just a pub - we're the heart of the community"
@@ -153,12 +174,12 @@ export default function HomePage() {
             ]}
             className="max-w-6xl mx-auto"
           />
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Key Information */}
-      <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-cream py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Everything You Need to Know"
@@ -185,7 +206,7 @@ export default function HomePage() {
                     <>
                       Live hours shown above<br />
                       Including kitchen times<br />
-                      <span className="text-xs">May vary on holidays</span>
+                      <span className="text-sm sm:text-xs">May vary on holidays</span>
                     </>
                   )
                 },
@@ -200,7 +221,7 @@ export default function HomePage() {
                       <a href="https://wa.me/4401753682707" className="hover:text-anchor-gold transition-colors block mt-1">
                         💬 WhatsApp
                       </a>
-                      <span className="text-xs">Call or message us</span>
+                      <span className="text-sm sm:text-xs">Call or message us</span>
                     </>
                   )
                 },
@@ -225,12 +246,12 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Next Event */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+        <Container>
           <SectionHeader
             title="Next Event at The Anchor"
             subtitle="Don't miss out on what's coming up"
@@ -238,13 +259,13 @@ export default function HomePage() {
           <Suspense fallback={<NextEventSkeleton />}>
             <NextEventServer />
           </Suspense>
-        </div>
-      </section>
+        </Container>
+      </div>
 
 
       {/* Heathrow Travelers Section */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="✈️ Perfect for Heathrow Travelers"
@@ -312,9 +333,11 @@ export default function HomePage() {
                         </div>
                       </div>
                       <div className="mt-6 text-center">
-                        <CallToAction href="/near-heathrow" variant="primary" size="lg">
-                          Get Directions From Your Terminal
-                        </CallToAction>
+                        <Link href="/near-heathrow">
+                          <Button variant="primary" size="lg">
+                            Get Directions From Your Terminal
+                          </Button>
+                        </Link>
                       </div>
                     </>
                   ),
@@ -325,12 +348,12 @@ export default function HomePage() {
               className="mb-12"
             />
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Photo Gallery */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+        <Container>
           <SectionHeader
             title="Life at The Anchor"
           />
@@ -368,58 +391,65 @@ export default function HomePage() {
               />
             </Link>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Private Events Section */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Host Your Event at The Anchor"
               subtitle="From intimate gatherings to grand celebrations"
             />
             
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Grid cols={3} gap="lg" className="mb-12">
               <Link href="/corporate-events" className="group">
-                <div className="bg-gray-50 rounded-xl p-6 transition-all hover:shadow-lg hover:scale-105">
-                  <div className="text-4xl mb-4">💼</div>
-                  <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Corporate Events</h3>
-                  <p className="text-gray-700 mb-4">
-                    Professional venue for meetings, team building, and conferences. 
-                    7 minutes from Heathrow with free parking.
-                  </p>
-                  <p className="text-anchor-gold font-semibold">Learn more →</p>
-                </div>
+                <Card variant="default" className="h-full transition-all hover:shadow-lg hover:scale-105">
+                  <CardBody className="text-center">
+                    <div className="text-4xl mb-4">💼</div>
+                    <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Corporate Events</h3>
+                    <p className="text-gray-700 mb-4">
+                      Professional venue for meetings, team building, and conferences. 
+                      7 minutes from Heathrow with free parking.
+                    </p>
+                    <p className="text-anchor-gold font-semibold">Learn more →</p>
+                  </CardBody>
+                </Card>
               </Link>
               
               <Link href="/christmas-parties" className="group">
-                <div className="bg-red-50 rounded-xl p-6 transition-all hover:shadow-lg hover:scale-105">
-                  <div className="text-4xl mb-4">🎄</div>
-                  <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Christmas Parties</h3>
+                <Card variant="default" className="h-full transition-all hover:shadow-lg hover:scale-105 bg-red-50">
+                  <CardBody className="text-center">
+                    <div className="text-4xl mb-4">🎄</div>
+                    <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Christmas Parties</h3>
                   <p className="text-gray-700 mb-4">
                     Book your festive celebration now! Traditional menus, 
                     festive atmosphere, packages from £19.95pp.
                   </p>
-                  <p className="text-anchor-gold font-semibold">Check availability →</p>
-                </div>
+                  <p className="text-anchor-gold font-semibold">Cheque availability →</p>
+                  </CardBody>
+                </Card>
               </Link>
               
               <Link href="/private-party-venue" className="group">
-                <div className="bg-pink-50 rounded-xl p-6 transition-all hover:shadow-lg hover:scale-105">
-                  <div className="text-4xl mb-4">🎉</div>
-                  <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Private Parties</h3>
-                  <p className="text-gray-700 mb-4">
-                    Birthdays, anniversaries, and celebrations. 
-                    Flexible spaces, custom menus, your music.
-                  </p>
-                  <p className="text-anchor-gold font-semibold">Plan your party →</p>
-                </div>
+                <Card variant="default" className="h-full transition-all hover:shadow-lg hover:scale-105 bg-pink-50">
+                  <CardBody className="text-center">
+                    <div className="text-4xl mb-4">🎉</div>
+                    <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Private Parties</h3>
+                    <p className="text-gray-700 mb-4">
+                      Birthdays, anniversaries, and celebrations. 
+                      Flexible spaces, custom menus, your music.
+                    </p>
+                    <p className="text-anchor-gold font-semibold">Plan your party →</p>
+                  </CardBody>
+                </Card>
               </Link>
-            </div>
+            </Grid>
             
-            <div className="bg-anchor-cream rounded-2xl p-8">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+            <Card variant="default" className="bg-anchor-cream">
+              <CardBody>
+                <Grid cols={2} gap="lg" align="center">
                 <div>
                   <h3 className="text-2xl font-bold text-anchor-green mb-4">Why Choose The Anchor?</h3>
                   <ul className="space-y-3">
@@ -450,13 +480,14 @@ export default function HomePage() {
                     From business meetings to birthday parties, 
                     we make your event special.
                   </p>
-                  <CallToAction 
-                    href="/book-event" 
-                    variant="primary" 
-                    size="lg"
-                  >
-                    Explore All Event Options
-                  </CallToAction>
+                  <Link href="/book-event">
+                    <Button 
+                      variant="primary" 
+                      size="lg"
+                    >
+                      Explore All Event Options
+                    </Button>
+                  </Link>
                   <div className="mt-4 space-y-2">
                     <p className="text-sm text-gray-600">
                       <strong>Quick enquiry?</strong>
@@ -474,15 +505,16 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </Grid>
+            </CardBody>
+          </Card>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Find Us Section */}
-      <section id="visit-us" className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4">
+      <div id="visit-us" className="bg-anchor-green text-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-6xl mx-auto flex flex-col justify-center">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -490,7 +522,7 @@ export default function HomePage() {
               </h2>
             </div>
             
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <Grid cols={2} gap="lg" align="center">
               <div>
                 <div className="bg-white/10 rounded-lg p-5 mb-4">
                   <h3 className="text-xl font-bold mb-3 text-white">📍 Find Us Here</h3>
@@ -512,25 +544,31 @@ export default function HomePage() {
                   </ul>
                 </div>
                 
-                <CallToAction 
+                <Link
                   href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                  variant="white"
-                  size="lg"
-                  external
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full sm:w-auto"
                 >
-                  Get Directions on Google Maps
-                </CallToAction>
+                  <Button 
+                    variant="outline"
+                    size="lg"
+                    fullWidth
+                    className="bg-white text-anchor-green hover:bg-gray-100"
+                  >
+                    Get Directions on Google Maps
+                  </Button>
+                </Link>
               </div>
               
               <div className="bg-white/10 rounded-lg p-4">
                 <h3 className="text-lg font-bold mb-3 text-white">🕐 Hours & Weather</h3>
                 <BusinessHours variant="condensed" showKitchen={true} showWeather={true} />
               </div>
-            </div>
+            </Grid>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
     </>
   )

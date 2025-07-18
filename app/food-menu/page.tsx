@@ -1,15 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button, Container, Section, Card, CardBody, Alert } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { MenuRenderer } from '@/components/MenuRenderer'
 import { DailySpecials } from '@/components/DailySpecials'
-import { HeroWrapper } from '@/components/hero'
+import { HeroWrapper, Breadcrumbs } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { getBusinessHours } from '@/lib/api'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Pub Food',
@@ -20,6 +21,11 @@ export const metadata: Metadata = {
     description: 'Traditional British pub food, famous Sunday roasts, and family-friendly dining near Heathrow.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Food Menu - The Anchor Pub',
+    description: 'Traditional British pub food, famous Sunday roasts, and family-friendly dining near Heathrow.',
+    images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg']
+  })
 }
 
 export default async function FoodMenuPage() {
@@ -110,6 +116,9 @@ export default async function FoodMenuPage() {
         description="Great memories start with great food"
         size="small"
         showStatusBar={true}
+        breadcrumbs={[
+          { name: 'Food & Drink' }
+        ]}
         tags={[
           { label: '🍖 Sunday Roasts', variant: 'default' },
           { label: '🍕 Stone-Baked Pizzas', variant: 'default' },
@@ -117,14 +126,15 @@ export default async function FoodMenuPage() {
           { label: '🌱 Veggie Options', variant: 'default' }
         ]}
         cta={
-          <CallToAction 
-            href="#menu"
-            variant="primary"
-            size="lg"
-            className="bg-white text-anchor-green hover:bg-gray-100"
-          >
-            📖 Jump to Menu
-          </CallToAction>
+          <Link href="#menu">
+            <Button 
+              variant="secondary"
+              size="lg"
+              className="bg-white text-anchor-green hover:bg-gray-100"
+            >
+              📖 Jump to Menu
+            </Button>
+          </Link>
         }
       />
 
@@ -132,8 +142,8 @@ export default async function FoodMenuPage() {
       <DailySpecials isOpen={isOpen} />
 
       {/* Perfect Pre-Flight Meal Section */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Perfect Pre-Flight Meal - 5 Minutes from Heathrow"
@@ -185,12 +195,12 @@ export default async function FoodMenuPage() {
               className="mb-8"
             />
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Staines & Local Authority Content */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Staines' Favourite Traditional Pub Food"
@@ -223,12 +233,12 @@ export default async function FoodMenuPage() {
               ]}
             />
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Food & Drink Pairings */}
-      <section className="section-spacing bg-anchor-gold/10">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-gold/10 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Perfect Pairings - Food & Drinks Together"
@@ -282,8 +292,8 @@ export default async function FoodMenuPage() {
               Ask our staff for recommendations - they know their stuff!
             </p>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Menu Content */}
       <div id="menu">
@@ -291,25 +301,24 @@ export default async function FoodMenuPage() {
       </div>
 
       {/* Additional Information */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto">
-            <AlertBox
+            <Alert
               variant="warning"
               title="Allergen Information"
               className="mb-8"
-              content={
-                <p className="text-gray-700">
-                  All our dishes are prepared in a single kitchen where allergens are present. While we take every 
-                  precaution, we cannot guarantee dishes are free from cross-contamination. If you have allergies or 
-                  dietary requirements, please speak to a member of our team before ordering. We use vegetable oil 
-                  where necessary to keep dishes light yet warming during colder months.
-                </p>
-              }
-            />
+            >
+              <p className="text-gray-700">
+                All our dishes are prepared in a single kitchen where allergens are present. While we take every 
+                precaution, we cannot guarantee dishes are free from cross-contamination. If you have allergies or 
+                dietary requirements, please speak to a member of our team before ordering. We use vegetable oil 
+                where necessary to keep dishes light yet warming during colder months.
+              </p>
+            </Alert>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
@@ -414,76 +423,6 @@ export default async function FoodMenuPage() {
                   "postalCode": "TW19 6AQ"
                 }
               }
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "What time is the kitchen open at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Our kitchen is open Tuesday to Friday from 6pm-9pm, Saturday from 1pm-7pm, and Sunday from 12pm-5pm for our famous Sunday roasts. The kitchen is closed Mondays. During busy periods we recommend booking ahead."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do you serve Sunday roast at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes! Our celebrated Sunday roasts are served every Sunday from 12pm-5pm. We offer beef, chicken, lamb, and vegetarian options. All Sunday roasts must be ordered and paid for by 1pm on Saturday. Booking is essential as we're very popular - many say we serve the best Sunday roast in Surrey!"
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Is there a children's menu at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we have a dedicated children's menu with smaller portions and kid-friendly options. Children are always welcome at The Anchor with no time restrictions. We also provide high chairs and colouring activities to keep the little ones entertained."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What's the Tuesday pizza deal at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Every Tuesday we offer Buy One Get One Free (BOGOF) on all our stone-baked pizzas! This applies to eat-in and takeaway. It's our most popular offer - perfect for families and pizza lovers."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do you cater for dietary requirements?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we have vegetarian options marked on our menu and can accommodate most dietary requirements. Please inform our staff about any allergies or dietary needs when ordering. Note that all dishes are prepared in the same kitchen where allergens are present."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Can I book a table for food at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Absolutely! We recommend booking ahead, especially for Sunday roasts and weekend evenings. Call us on 01753 682707 to reserve your table. We can accommodate large groups with advance notice."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do you offer takeaway food?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, our entire food menu is available for takeaway. Call ahead on 01753 682707 to place your order and we'll have it ready for collection. Tuesday pizza BOGOF deal applies to takeaway too!"
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What's the best pub food near Heathrow Airport?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "The Anchor is just 7 minutes from Terminal 5 and serves traditional British pub food at local prices - much better value than airport restaurants! We're perfect for pre-flight meals with free parking and quick service."
-                  }
-                }
-              ]
             }
           ])
         }}

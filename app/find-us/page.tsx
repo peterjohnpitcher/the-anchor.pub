@@ -1,13 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button, Container, Section, Card, CardBody, Grid, Alert } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { Metadata } from 'next'
 import { BusinessHours } from '@/components/BusinessHours'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { findUsPlaceSchema, generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
@@ -18,6 +19,11 @@ export const metadata: Metadata = {
     description: 'Easy to find pub in Stanwell Moor with free parking. Just 7 minutes from Heathrow.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Find The Anchor - Directions & Location',
+    description: 'Easy to find pub in Stanwell Moor with free parking. Just 7 minutes from Heathrow.',
+    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+  })
 }
 
 export default function FindUsPage() {
@@ -59,81 +65,86 @@ export default function FindUsPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
+            <Link
               href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-              variant="primary"
-              size="lg"
-              external
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              📍 Get Directions
-            </CallToAction>
-            <CallToAction 
-              href="tel:01753682707"
-              variant="secondary"
-              size="lg"
-            >
-              📞 Call Us
-            </CallToAction>
+              <Button 
+                variant="primary"
+                size="lg"
+              >
+                📍 Get Directions
+              </Button>
+            </Link>
+            <Link href="tel:01753682707">
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                📞 Call Us
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Quick Info */}
-      <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-cream py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">📍</div>
               <p className="font-bold text-anchor-green">Stanwell Moor</p>
-              <p className="text-sm text-gray-600">Surrey TW19 6AQ</p>
+              <p className="text-sm text-gray-700">Surrey TW19 6AQ</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🚗</div>
               <p className="font-bold text-anchor-green">Free Parking</p>
-              <p className="text-sm text-gray-600">20 spaces for pub guests</p>
+              <p className="text-sm text-gray-700">20 spaces for pub guests</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">✈️</div>
               <p className="font-bold text-anchor-green">Near Heathrow</p>
-              <p className="text-sm text-gray-600">7-12 minutes</p>
+              <p className="text-sm text-gray-700">7-12 minutes</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🚌</div>
               <p className="font-bold text-anchor-green">Bus Routes</p>
-              <p className="text-sm text-gray-600">442</p>
+              <p className="text-sm text-gray-700">442</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">📶</div>
               <p className="font-bold text-anchor-green">Free WiFi</p>
-              <p className="text-sm text-gray-600">Throughout the pub</p>
+              <p className="text-sm text-gray-700">Throughout the pub</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🎱</div>
               <p className="font-bold text-anchor-green">Pool & Darts</p>
-              <p className="text-sm text-gray-600">Games available</p>
+              <p className="text-sm text-gray-700">Games available</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">💻</div>
               <p className="font-bold text-anchor-green">Work Friendly</p>
-              <p className="text-sm text-gray-600">Tables with plugs</p>
+              <p className="text-sm text-gray-700">Tables with plugs</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🎵</div>
               <p className="font-bold text-anchor-green">Entertainment</p>
-              <p className="text-sm text-gray-600">Jukebox & more</p>
+              <p className="text-sm text-gray-700">Jukebox & more</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">💳</div>
               <p className="font-bold text-anchor-green">Payment</p>
-              <p className="text-sm text-gray-600">Cash & all cards inc. Amex</p>
+              <p className="text-sm text-gray-700">Cash & all cards inc. Amex</p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Address & Contact */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
@@ -198,7 +209,7 @@ export default function FindUsPage() {
                   </ul>
                   
                   <div className="mt-6 p-4 bg-white rounded-lg">
-                    <p className="text-sm text-gray-600 italic">
+                    <p className="text-sm text-gray-700 italic">
                       "If you can hear the planes, you're close!"
                     </p>
                   </div>
@@ -216,12 +227,12 @@ export default function FindUsPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Directions */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+        <Container>
           <SectionHeader
             title="Directions from Popular Locations"
           />
@@ -237,7 +248,7 @@ export default function FindUsPage() {
                 <li>Turn left at Horton Road</li>
                 <li>The Anchor is on your right</li>
               </ol>
-              <p className="mt-4 text-sm text-gray-600">Journey time: 5 minutes from M25</p>
+              <p className="mt-4 text-sm text-gray-700">Journey time: 5 minutes from M25</p>
             </div>
 
             {/* From Staines */}
@@ -250,7 +261,7 @@ export default function FindUsPage() {
                 <li>Turn right onto Horton Road</li>
                 <li>The Anchor is on your right</li>
               </ol>
-              <p className="mt-4 text-sm text-gray-600">Journey time: 10 minutes</p>
+              <p className="mt-4 text-sm text-gray-700">Journey time: 10 minutes</p>
             </div>
 
             {/* From Windsor */}
@@ -263,7 +274,7 @@ export default function FindUsPage() {
                 <li>Follow signs to Stanwell Moor</li>
                 <li>Turn left at Horton Road</li>
               </ol>
-              <p className="mt-4 text-sm text-gray-600">Journey time: 20 minutes</p>
+              <p className="mt-4 text-sm text-gray-700">Journey time: 20 minutes</p>
             </div>
 
             {/* From Ashford */}
@@ -276,7 +287,7 @@ export default function FindUsPage() {
                 <li>Turn left onto Horton Road</li>
                 <li>The Anchor is on your right</li>
               </ol>
-              <p className="mt-4 text-sm text-gray-600">Journey time: 10 minutes</p>
+              <p className="mt-4 text-sm text-gray-700">Journey time: 10 minutes</p>
             </div>
 
             {/* From Heathrow */}
@@ -299,15 +310,15 @@ export default function FindUsPage() {
                 <p className="text-sm">Ask driver for The Anchor stop</p>
                 <p className="text-sm text-green-600 font-semibold">✓ ULEZ Free Route</p>
               </div>
-              <p className="mt-4 text-sm text-gray-600">Regular service throughout the day</p>
+              <p className="mt-4 text-sm text-gray-700">Regular service throughout the day</p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Parking Information */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Free Parking"
@@ -330,17 +341,17 @@ export default function FindUsPage() {
                   <p className="text-gray-700">Well-lit parking area with CCTV</p>
                 </div>
               </div>
-              <p className="mt-6 text-gray-600 italic">
+              <p className="mt-6 text-gray-700 italic">
                 Free parking for pub guests. Paid parking for longer term stays coming soon.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Facilities */}
-      <section className="section-spacing bg-anchor-sand/20">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-sand/20 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Our Facilities"
@@ -406,21 +417,21 @@ export default function FindUsPage() {
                   <span className="text-anchor-gold text-xl mt-1">🐕</span>
                   <div>
                     <strong>Dog Friendly</strong>
-                    <p className="text-sm text-gray-600">Water bowls available</p>
+                    <p className="text-sm text-gray-700">Water bowls available</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-anchor-gold text-xl mt-1">♿</span>
                   <div>
                     <strong>Accessible Entry</strong>
-                    <p className="text-sm text-gray-600">Ramp available at back door</p>
+                    <p className="text-sm text-gray-700">Ramp available at back door</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-anchor-gold text-xl mt-1">💳</span>
                   <div>
                     <strong>All Cards Accepted</strong>
-                    <p className="text-sm text-gray-600">Including American Express</p>
+                    <p className="text-sm text-gray-700">Including American Express</p>
                   </div>
                 </div>
               </div>
@@ -434,8 +445,8 @@ export default function FindUsPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

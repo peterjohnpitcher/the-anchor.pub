@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button, Container, Section, Card, CardBody, Grid } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { FilteredUpcomingEvents } from '@/components/FilteredUpcomingEvents'
 import { CategoryFilter } from '@/components/CategoryFilter'
@@ -9,16 +9,22 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: "What's On Near Me | The Anchor Stanwell Moor | Events & Entertainment",
-  description: "Regular monthly events at The Anchor pub in Surrey including drag shows, quiz nights, bingo and more. Plus major sports on terrestrial TV near Heathrow Airport!",
+  description: "Regular monthly events at The Anchor pub in Surrey including drag shows, quiz nights, bingo & more. Plus major sports on TV near Heathrow!",
   keywords: "events stanwell moor, drag shows near heathrow, quiz night stanwell, pub entertainment surrey",
   openGraph: {
     title: "What's On at The Anchor",
     description: "Drag shows, quiz nights and more. Your local entertainment hub.",
     images: ["/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"],
   },
+  twitter: getTwitterMetadata({
+    title: "What's On at The Anchor - Events & Entertainment",
+    description: "Regular monthly events including drag shows, quiz nights, bingo & more. Plus major sports on TV!",
+    images: ["/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"]
+  })
 }
 
 type WhatsOnPageProps = {
@@ -44,27 +50,29 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="#upcoming-events"
-              variant="primary"
-              size="lg"
-            >
-              📅 View All Events
-            </CallToAction>
-            <CallToAction 
-              href="/book-event"
-              variant="secondary"
-              size="lg"
-            >
-              🎉 Book Private Event
-            </CallToAction>
+            <Link href="#upcoming-events">
+              <Button 
+                variant="primary"
+                size="lg"
+              >
+                📅 View All Events
+              </Button>
+            </Link>
+            <Link href="/book-event">
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                🎉 Book Private Event
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Upcoming Events from API */}
-      <section id="upcoming-events" className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div id="upcoming-events" className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <SectionHeader
             title="Upcoming Events"
             subtitle="Live updates from our events calendar"
@@ -78,12 +86,12 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
               <FilteredUpcomingEvents categorySlug={searchParams.category} />
             </Suspense>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Entertainment & Games */}
-      <section className="section-spacing bg-anchor-sand/20">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-sand/20 py-16 sm:py-20 lg:py-24">
+        <Container>
           <SectionHeader
             title="Daily Entertainment & Games"
             subtitle="Always something to do at The Anchor - from traditional pub games to digital entertainment"
@@ -124,22 +132,24 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             className="max-w-5xl mx-auto"
           />
           
-          <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
-              <span className="text-3xl">📶</span> Free WiFi Throughout
-            </h3>
-            <p className="text-gray-700 text-center">
-              Stay connected with our free, high-speed WiFi. Perfect for checking emails, social media, or even getting some work done. 
-              Our dining room features tables with power points - ideal for remote workers and digital nomads.
-            </p>
-          </div>
-        </div>
-      </section>
+          <Card variant="default" className="mt-12 max-w-3xl mx-auto">
+            <CardBody className="text-center">
+              <h3 className="text-2xl font-bold text-anchor-green mb-4">
+                <span className="text-3xl">📶</span> Free WiFi Throughout
+              </h3>
+              <p className="text-gray-700">
+                Stay connected with our free, high-speed WiFi. Perfect for checking emails, social media, or even getting some work done. 
+                Our dining room features tables with power points - ideal for remote workers and digital nomads.
+              </p>
+            </CardBody>
+          </Card>
+        </Container>
+      </div>
 
 
       {/* Special Events */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <SectionHeader
             title="Special Events & Celebrations"
             subtitle="Throughout the year, we host special themed events and celebrations"
@@ -206,12 +216,12 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             ]}
             className="mt-12 max-w-3xl mx-auto"
           />
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Private Events */}
-      <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-cream py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Host Your Event at The Anchor"
@@ -244,12 +254,14 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
               ]}
               className="mb-8"
             />
-            <CallToAction href="/book-event" variant="primary" size="lg">
-              Enquire About Private Events
-            </CallToAction>
+            <Link href="/book-event">
+              <Button variant="primary" size="lg">
+                Enquire About Private Events
+              </Button>
+            </Link>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
@@ -260,7 +272,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
           },
           {
             question: "What time is quiz night at The Anchor?",
-            answer: "Quiz night is held monthly (date varies), starting at 7pm. Entry is £3 per person. Prizes include a £25 bar voucher for 1st place, and the 2nd from last team wins a bottle of wine. Check our social media for the next quiz date!"
+            answer: "Quiz night is held monthly (date varies), starting at 7pm. Entry is £3 per person. Prizes include a £25 bar voucher for 1st place, and the 2nd from last team wins a bottle of wine. Cheque our social media for the next quiz date!"
           },
           {
             question: "Do I need to book for events at The Anchor?",
@@ -272,7 +284,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
           },
           {
             question: "Is there bingo at The Anchor pub?",
-            answer: "Yes, we host cash prize bingo monthly. £10 per book with various prizes throughout the night, including a cash jackpot on the last game. Check our events calendar or follow us on social media for the next bingo night!"
+            answer: "Yes, we host cash prize bingo monthly. £10 per book with various prizes throughout the night, including a cash jackpot on the last game. Cheque our events calendar or follow us on social media for the next bingo night!"
           },
           {
             question: "Are children allowed at The Anchor events?",
@@ -312,7 +324,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
           </a>
           <a 
             href="https://www.instagram.com/theanchor.pub/" 
-            className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colors text-white"
+            className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colours text-white"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -360,6 +372,29 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
                   "name": "Monthly Drag Shows",
                   "startDate": "2024-01-01T19:00",
                   "endDate": "2024-01-01T23:00",
+                  "location": {
+                    "@type": "Place",
+                    "name": "The Anchor Pub",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "streetAddress": "Horton Road",
+                      "addressLocality": "Stanwell Moor",
+                      "addressRegion": "Surrey",
+                      "postalCode": "TW19 6AQ",
+                      "addressCountry": "GB"
+                    }
+                  },
+                  "eventStatus": "https://schema.org/EventScheduled",
+                  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                  "image": ["https://the-anchor.pub/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"],
+                  "offers": {
+                    "@type": "Offer",
+                    "url": "https://the-anchor.pub/whats-on",
+                    "price": "0",
+                    "priceCurrency": "GBP",
+                    "availability": "https://schema.org/InStock",
+                    "validFrom": "2024-01-01"
+                  },
                   "eventSchedule": {
                     "@type": "Schedule",
                     "repeatFrequency": "P1M"
@@ -384,7 +419,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
                   "name": "What time is quiz night at The Anchor?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Quiz night is held monthly (date varies), starting at 7pm. Entry is £3 per person. Prizes include a £25 bar voucher for 1st place, and the 2nd from last team wins a bottle of wine. Check our social media for the next quiz date!"
+                    "text": "Quiz night is held monthly (date varies), starting at 7pm. Entry is £3 per person. Prizes include a £25 bar voucher for 1st place, and the 2nd from last team wins a bottle of wine. Cheque our social media for the next quiz date!"
                   }
                 },
                 {
@@ -408,7 +443,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
                   "name": "Is there bingo at The Anchor pub?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, we host cash prize bingo monthly. £10 per book with various prizes throughout the night, including a cash jackpot on the last game. Check our events calendar or follow us on social media for the next bingo night!"
+                    "text": "Yes, we host cash prize bingo monthly. £10 per book with various prizes throughout the night, including a cash jackpot on the last game. Cheque our events calendar or follow us on social media for the next bingo night!"
                   }
                 },
                 {
@@ -432,7 +467,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
                   "name": "Is there entertainment every night at The Anchor?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We have scheduled entertainment throughout the month including monthly quiz nights, drag shows (alternating between Games Night and Karaoke Night), bingo nights, and special events. Check our What's On page or social media for upcoming dates."
+                    "text": "We have scheduled entertainment throughout the month including monthly quiz nights, drag shows (alternating between Games Night and Karaoke Night), bingo nights, and special events. Cheque our What's On page or social media for upcoming dates."
                   }
                 },
                 {

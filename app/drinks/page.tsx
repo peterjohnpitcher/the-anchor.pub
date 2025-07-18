@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button, Container, Section, Card, CardBody } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { MenuRenderer } from '@/components/MenuRenderer'
@@ -9,16 +9,22 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { drinksMenuSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Drinks Menu Near Me | The Anchor Stanwell Moor | Real Ales & Premium Spirits',
-  description: 'Extensive drinks selection at The Anchor pub in Surrey. Real ales, craft beers, premium spirits, wines, and cocktails. Great atmosphere near Heathrow Airport.',
+  description: 'Extensive drinks selection at The Anchor pub in Surrey. Real ales, craft beers, premium spirits, wines & cocktails. Great atmosphere near Heathrow.',
   keywords: 'drinks menu stanwell moor, real ale pub, cocktails heathrow, craft beer stanwell',
   openGraph: {
     title: 'Drinks Menu - The Anchor Pub',
     description: 'Real ales, premium spirits, and extensive drinks selection. Something for everyone!',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Drinks Menu - The Anchor Pub',
+    description: 'Real ales, premium spirits, and extensive drinks selection. Something for everyone!',
+    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+  })
 }
 
 export default async function DrinksMenuPage() {
@@ -32,7 +38,7 @@ export default async function DrinksMenuPage() {
   if (!menuData) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-xl text-gray-600">Menu temporarily unavailable. Please call us on 01753 682707.</p>
+        <p className="text-xl text-gray-700">Menu temporarily unavailable. Please call us on 01753 682707.</p>
       </div>
     )
   }
@@ -94,28 +100,30 @@ export default async function DrinksMenuPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="#menu"
-              variant="primary"
-              size="lg"
-              className="bg-white text-anchor-green hover:bg-gray-100"
-            >
-              📖 Jump to Menu
-            </CallToAction>
-            <CallToAction 
-              href="#cocktails"
-              variant="secondary"
-              size="lg"
-            >
-              🍹 View Our Cocktails
-            </CallToAction>
+            <Link href="#menu">
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                📖 Jump to Menu
+              </Button>
+            </Link>
+            <Link href="#cocktails">
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                🍹 View Our Cocktails
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Quick Links */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="flex flex-wrap justify-center gap-4">
             {menuData.categories.map((category) => (
               <Link 
@@ -127,12 +135,12 @@ export default async function DrinksMenuPage() {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Your Local After Landing */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Your Local After Landing - Just 5 Minutes from Heathrow"
@@ -161,12 +169,12 @@ export default async function DrinksMenuPage() {
               ]}
             />
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Why The Anchor for Drinks */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Stanwell Moor's Premier Drinks Destination"
@@ -179,7 +187,7 @@ export default async function DrinksMenuPage() {
                   content: (
                     <>
                       <p className="text-gray-700 mb-4">Stanwell Moor's largest beer garden. Watch planes overhead while enjoying perfectly poured pints in the sunshine. Heated areas and covered sections mean the garden's open year-round.</p>
-                      <p className="text-sm text-gray-600">Dog-friendly outdoor areas - bring your four-legged friends!</p>
+                      <p className="text-sm text-gray-700">Dog-friendly outdoor areas - bring your four-legged friends!</p>
                     </>
                   ),
                   variant: "default",
@@ -190,7 +198,7 @@ export default async function DrinksMenuPage() {
                   content: (
                     <>
                       <p className="text-gray-700 mb-4">Multiple screens showing major sporting events on BBC and ITV. Catch the Six Nations, World Cup, Euros, and other big tournaments with great views from every seat.</p>
-                      <p className="text-sm text-gray-600">Big matches get busy - arrive early for the best seats!</p>
+                      <p className="text-sm text-gray-700">Big matches get busy - arrive early for the best seats!</p>
                     </>
                   ),
                   variant: "default",
@@ -201,7 +209,7 @@ export default async function DrinksMenuPage() {
                   content: (
                     <>
                       <p className="text-gray-700 mb-4">Serving Stanwell Moor and Staines for generations. Where locals meet, airport workers unwind, and visitors become regulars. Your neighbourhood pub with a global touch.</p>
-                      <p className="text-sm text-gray-600">Ask about our locals' card for exclusive offers!</p>
+                      <p className="text-sm text-gray-700">Ask about our locals' card for exclusive offers!</p>
                     </>
                   ),
                   variant: "default",
@@ -212,7 +220,7 @@ export default async function DrinksMenuPage() {
                   content: (
                     <>
                       <p className="text-gray-700 mb-4">From real ales to craft cocktails, we take drinks seriously. Expert bar staff, proper glassware, and drinks served exactly how they should be. No shortcuts.</p>
-                      <p className="text-sm text-gray-600">Can't see your favourite? Just ask - we might have it!</p>
+                      <p className="text-sm text-gray-700">Can't see your favourite? Just ask - we might have it!</p>
                     </>
                   ),
                   variant: "default",
@@ -221,12 +229,12 @@ export default async function DrinksMenuPage() {
               ]}
             />
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Seasonal Highlights */}
-      <section className="section-spacing bg-anchor-gold/10">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-gold/10 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Drinks for Every Season"
@@ -265,8 +273,8 @@ export default async function DrinksMenuPage() {
               ]}
             />
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Menu Content */}
       <div id="menu">

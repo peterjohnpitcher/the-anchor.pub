@@ -1,19 +1,26 @@
 import Image from 'next/image'
-import { CallToAction } from '@/components/CallToAction'
+import Link from 'next/link'
+import { Button, Container, Section, Card, CardBody, Alert } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Buy One Get One Free Pizza | The Anchor Stanwell Moor | BOGOF Deal',
-  description: 'BOGOF pizza deal at The Anchor pub near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday. Fresh dough, quality toppings. Dine-in & takeaway available.',
+  description: 'BOGOF pizza deal at The Anchor near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday. Fresh dough, quality toppings. Dine-in & takeaway.',
   keywords: 'buy one get one free pizza, bogof pizza stanwell moor, pizza deal heathrow, 2 for 1 pizza, pizza offer staines',
   openGraph: {
     title: 'BOGOF Pizza Deal - The Anchor Pub',
     description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
     images: ['/images/the-anchor-pub-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'BOGOF Pizza Deal - The Anchor Pub',
+    description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
+    images: ['/images/the-anchor-pub-stanwell-moor.jpg']
+  })
 }
 
 const pizzaMenuSchema = {
@@ -103,19 +110,23 @@ export default function PizzaPage() {
         ]}
         cta={
           <div className="flex flex-wrap justify-center gap-4">
-            <CallToAction href="/food-menu" variant="secondary" size="lg">
-              View Full Menu
-            </CallToAction>
-            <CallToAction href="tel:01753682707" variant="primary" size="lg">
-              📞 Book a Table
-            </CallToAction>
+            <Link href="/food-menu">
+              <Button variant="secondary" size="lg">
+                View Full Menu
+              </Button>
+            </Link>
+            <Link href="tel:01753682707">
+              <Button variant="primary" size="lg">
+                📞 Book a Table
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Offer Details */}
-      <section className="section-spacing bg-anchor-sand/20">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-sand/20 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-3xl mx-auto text-center">
             <SectionHeader
               title="How Our BOGOF Deal Works"
@@ -151,12 +162,12 @@ export default function PizzaPage() {
               No voucher needed • Dine-in & takeaway • Cannot be combined with other offers
             </p>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Pizza Menu */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Our Stone-Baked Pizzas"
@@ -164,60 +175,71 @@ export default function PizzaPage() {
             />
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Rustic Classic</h3>
-                <p className="text-gray-700 mb-3">Rich tomato sauce, creamy mozzarella, crisp stone-baked crust—a timeless favourite.</p>
-                <p className="text-xl font-bold text-anchor-gold">£7.49 / £10.49</p>
-              </div>
+              <Card variant="default" className="bg-anchor-cream">
+                <CardBody className="p-8">
+                  <h3 className="text-2xl font-bold text-anchor-green mb-2">Rustic Classic</h3>
+                  <p className="text-gray-700 mb-3">Rich tomato sauce, creamy mozzarella, crisp stone-baked crust—a timeless favourite.</p>
+                  <p className="text-xl font-bold text-anchor-gold">£7.49 / £10.49</p>
+                </CardBody>
+              </Card>
               
-              <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Simply Salami</h3>
-                <p className="text-gray-700 mb-3">Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection.</p>
-                <p className="text-xl font-bold text-anchor-gold">£8.49 / £12.99</p>
-              </div>
+              <Card variant="default" className="bg-anchor-cream">
+                <CardBody className="p-8">
+                  <h3 className="text-2xl font-bold text-anchor-green mb-2">Simply Salami</h3>
+                  <p className="text-gray-700 mb-3">Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection.</p>
+                  <p className="text-xl font-bold text-anchor-gold">£8.49 / £12.99</p>
+                </CardBody>
+              </Card>
               
-              <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Barbecue Chicken</h3>
-                <p className="text-gray-700 mb-3">Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust.</p>
-                <p className="text-xl font-bold text-anchor-gold">£9.99 / £13.99</p>
-              </div>
+              <Card variant="default" className="bg-anchor-cream">
+                <CardBody className="p-8">
+                  <h3 className="text-2xl font-bold text-anchor-green mb-2">Barbecue Chicken</h3>
+                  <p className="text-gray-700 mb-3">Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust.</p>
+                  <p className="text-xl font-bold text-anchor-gold">£9.99 / £13.99</p>
+                </CardBody>
+              </Card>
               
-              <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Fully Loaded</h3>
-                <p className="text-gray-700 mb-3">Napoli salami, speck ham, fennel salami, mozzarella on a bold stone-baked base.</p>
-                <p className="text-xl font-bold text-anchor-gold">£9.49 / £13.99</p>
-              </div>
+              <Card variant="default" className="bg-anchor-cream">
+                <CardBody className="p-8">
+                  <h3 className="text-2xl font-bold text-anchor-green mb-2">Fully Loaded</h3>
+                  <p className="text-gray-700 mb-3">Napoli salami, speck ham, fennel salami, mozzarella on a bold stone-baked base.</p>
+                  <p className="text-xl font-bold text-anchor-gold">£9.49 / £13.99</p>
+                </CardBody>
+              </Card>
               
-              <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">Nice & Spicy</h3>
-                <p className="text-gray-700 mb-3">'Nduja, Ventricina, roquito peppers, mozzarella—fiery flavours on a crisp crust.</p>
-                <p className="text-xl font-bold text-anchor-gold">£8.49 / £13.49</p>
-              </div>
+              <Card variant="default" className="bg-anchor-cream">
+                <CardBody className="p-8">
+                  <h3 className="text-2xl font-bold text-anchor-green mb-2">Nice & Spicy</h3>
+                  <p className="text-gray-700 mb-3">'Nduja, Ventricina, roquito peppers, mozzarella—fiery flavours on a crisp crust.</p>
+                  <p className="text-xl font-bold text-anchor-gold">£8.49 / £13.49</p>
+                </CardBody>
+              </Card>
               
-              <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-2">The Garden Club</h3>
-                <p className="text-gray-700 mb-3">Roasted courgettes, caramelised onions, rocket, and mozzarella on a rich tomato base.</p>
-                <p className="text-xl font-bold text-anchor-gold">£8.99 / £12.99</p>
-              </div>
+              <Card variant="default" className="bg-anchor-cream">
+                <CardBody className="p-8">
+                  <h3 className="text-2xl font-bold text-anchor-green mb-2">The Garden Club</h3>
+                  <p className="text-gray-700 mb-3">Roasted courgettes, caramelised onions, rocket, and mozzarella on a rich tomato base.</p>
+                  <p className="text-xl font-bold text-anchor-gold">£8.99 / £12.99</p>
+                </CardBody>
+              </Card>
             </div>
             
-            <AlertBox
+            <Alert
               variant="warning"
               title="Kitchen Hours"
               className="mt-8 text-center"
-              content={
-                <p className="text-gray-800">
-                  🍕 Tuesday-Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
-                </p>
-              }
-            />
+            >
+              <p className="text-gray-800">
+                🍕 Tuesday-Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
+              </p>
+            </Alert>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* Local SEO Section */}
-      <section className="section-spacing bg-anchor-sand/20">
-        <div className="container mx-auto px-4">
+      <div className="bg-anchor-sand/20 py-16 sm:py-20 lg:py-24">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Best Pizza Deal Near Heathrow"
@@ -230,26 +252,34 @@ export default function PizzaPage() {
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white rounded-lg p-4">
-                <p className="font-semibold">Stanwell Moor</p>
-                <p className="text-sm text-gray-600">2 min drive</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="font-semibold">Staines</p>
-                <p className="text-sm text-gray-600">8 min drive</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="font-semibold">Heathrow T5</p>
-                <p className="text-sm text-gray-600">7 min drive</p>
-              </div>
-              <div className="bg-white rounded-lg p-4">
-                <p className="font-semibold">Ashford</p>
-                <p className="text-sm text-gray-600">10 min drive</p>
-              </div>
+              <Card variant="default">
+                <CardBody className="p-4 text-center">
+                  <p className="font-semibold">Stanwell Moor</p>
+                  <p className="text-sm text-gray-600">2 min drive</p>
+                </CardBody>
+              </Card>
+              <Card variant="default">
+                <CardBody className="p-4 text-center">
+                  <p className="font-semibold">Staines</p>
+                  <p className="text-sm text-gray-600">8 min drive</p>
+                </CardBody>
+              </Card>
+              <Card variant="default">
+                <CardBody className="p-4 text-center">
+                  <p className="font-semibold">Heathrow T5</p>
+                  <p className="text-sm text-gray-600">7 min drive</p>
+                </CardBody>
+              </Card>
+              <Card variant="default">
+                <CardBody className="p-4 text-center">
+                  <p className="font-semibold">Ashford</p>
+                  <p className="text-sm text-gray-600">10 min drive</p>
+                </CardBody>
+              </Card>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </div>
 
       {/* CTA Section */}
       <CTASection
