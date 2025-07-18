@@ -422,12 +422,15 @@ export default function DragShowsPage() {
             "@type": "Event",
             "name": "Saturday Drag Shows with Nikki Manfadge",
             "description": "Spectacular monthly drag performances at The Anchor with Nikki Manfadge",
-            "startDate": "2024-01-06T21:00",
-            "endDate": "2024-01-06T23:30",
+            "startDate": "2025-01-18T21:00:00+00:00",
+            "endDate": "2025-01-18T23:30:00+00:00",
             "eventSchedule": {
               "@type": "Schedule",
               "byDay": "Saturday",
-              "repeatFrequency": "P1W"
+              "repeatFrequency": "P1M",
+              "startTime": "21:00:00",
+              "endTime": "23:30:00",
+              "scheduleTimezone": "Europe/London"
             },
             "location": {
               "@type": "Place",
@@ -452,7 +455,16 @@ export default function DragShowsPage() {
               "url": "https://the-anchor.pub"
             },
             "eventStatus": "https://schema.org/EventScheduled",
-            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "offers": {
+              "@type": "Offer",
+              "url": "https://the-anchor.pub/whats-on/drag-shows",
+              "price": "0",
+              "priceCurrency": "GBP",
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2025-01-01T00:00:00+00:00"
+            },
+            "image": ["https://the-anchor.pub/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"]
           })
         }}
       />

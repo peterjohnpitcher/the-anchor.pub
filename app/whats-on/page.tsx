@@ -370,8 +370,8 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
                 {
                   "@type": "Event",
                   "name": "Monthly Drag Shows",
-                  "startDate": "2024-01-01T19:00",
-                  "endDate": "2024-01-01T23:00",
+                  "startDate": "2024-01-01T19:00:00+00:00",
+                  "endDate": "2024-01-01T23:00:00+00:00",
                   "location": {
                     "@type": "Place",
                     "name": "The Anchor Pub",
@@ -393,11 +393,14 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
                     "price": "0",
                     "priceCurrency": "GBP",
                     "availability": "https://schema.org/InStock",
-                    "validFrom": "2024-01-01"
+                    "validFrom": "2024-01-01T00:00:00+00:00"
                   },
                   "eventSchedule": {
                     "@type": "Schedule",
-                    "repeatFrequency": "P1M"
+                    "repeatFrequency": "P1M",
+                    "startTime": "19:00:00",
+                    "endTime": "23:00:00",
+                    "scheduleTimezone": "Europe/London"
                   }
                 }
               ]

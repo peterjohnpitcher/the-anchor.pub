@@ -31,8 +31,8 @@ const christmasEventSchema = {
   "@type": "Event",
   name: "Christmas Parties at The Anchor",
   description: "Book your Christmas party at The Anchor pub. Perfect for office parties and festive celebrations with traditional Christmas menus and free parking.",
-  startDate: "2024-11-15",
-  endDate: "2025-01-05",
+  startDate: "2024-11-15T12:00:00+00:00",
+  endDate: "2025-01-05T23:00:00+00:00",
   location: {
     "@type": "Place",
     name: "The Anchor",
@@ -41,15 +41,28 @@ const christmasEventSchema = {
       streetAddress: "Horton Road",
       addressLocality: "Stanwell Moor",
       addressRegion: "Surrey",
-      postalCode: "TW19 6AQ"
+      postalCode: "TW19 6AQ",
+      addressCountry: "GB"
     }
+  },
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  organizer: {
+    "@type": "Organization",
+    name: "The Anchor",
+    url: "https://the-anchor.pub"
   },
   offers: {
     "@type": "Offer",
     price: "19.95",
     priceCurrency: "GBP",
-    description: "Christmas party packages from £19.95 per person"
-  }
+    description: "Christmas party packages from £19.95 per person",
+    url: "https://the-anchor.pub/christmas-parties",
+    availability: "https://schema.org/InStock",
+    validFrom: "2024-10-01T00:00:00+00:00"
+  },
+  image: ["https://the-anchor.pub/images/events/christmas/the-anchor-christmas-party-venue.jpg"],
+  maximumAttendeeCapacity: 200
 }
 
 export default function ChristmasPartiesPage() {

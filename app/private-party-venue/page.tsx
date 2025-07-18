@@ -31,8 +31,8 @@ const privatePartySchema = {
   "@type": "Event",
   name: "Private Parties at The Anchor",
   description: "Celebrate birthdays, anniversaries, and special occasions at The Anchor. Flexible venue spaces with custom catering and free parking.",
-  startDate: new Date().toISOString().split('T')[0],
-  endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+  startDate: new Date().toISOString(),
+  endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
   location: {
     "@type": "Place",
     name: "The Anchor",
@@ -41,15 +41,28 @@ const privatePartySchema = {
       streetAddress: "Horton Road",
       addressLocality: "Stanwell Moor",
       addressRegion: "Surrey",
-      postalCode: "TW19 6AQ"
+      postalCode: "TW19 6AQ",
+      addressCountry: "GB"
     }
+  },
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  organizer: {
+    "@type": "Organization",
+    name: "The Anchor",
+    url: "https://the-anchor.pub"
   },
   offers: {
     "@type": "Offer",
     price: "15",
     priceCurrency: "GBP",
-    description: "Party packages from £15 per person"
-  }
+    description: "Party packages from £15 per person",
+    url: "https://the-anchor.pub/private-party-venue",
+    availability: "https://schema.org/InStock",
+    validFrom: new Date().toISOString()
+  },
+  image: ["https://the-anchor.pub/images/venue/function-room/the-anchor-private-party-venue-stanwell-moor.jpg"],
+  maximumAttendeeCapacity: 200
 }
 
 export default function PrivatePartyVenuePage() {

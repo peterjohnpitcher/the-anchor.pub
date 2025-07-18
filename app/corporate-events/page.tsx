@@ -31,8 +31,8 @@ const corporateEventSchema = {
   "@type": "Event",
   name: "Corporate Events at The Anchor",
   description: "Professional venue for business meetings, conferences, team building, and corporate hospitality near Heathrow Airport",
-  startDate: new Date().toISOString().split('T')[0],
-  endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+  startDate: new Date().toISOString(),
+  endDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
   location: {
     "@type": "Place",
     name: "The Anchor",
@@ -41,15 +41,28 @@ const corporateEventSchema = {
       streetAddress: "Horton Road",
       addressLocality: "Stanwell Moor",
       addressRegion: "Surrey",
-      postalCode: "TW19 6AQ"
+      postalCode: "TW19 6AQ",
+      addressCountry: "GB"
     }
+  },
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  organizer: {
+    "@type": "Organization",
+    name: "The Anchor",
+    url: "https://the-anchor.pub"
   },
   offers: {
     "@type": "Offer",
     price: "150",
     priceCurrency: "GBP",
-    description: "Corporate packages from £150 minimum spend"
-  }
+    description: "Corporate packages from £150 minimum spend",
+    url: "https://the-anchor.pub/corporate-events",
+    availability: "https://schema.org/InStock",
+    validFrom: new Date().toISOString()
+  },
+  image: ["https://the-anchor.pub/images/venue/function-room/the-anchor-corporate-events-stanwell-moor.jpg"],
+  maximumAttendeeCapacity: 200
 }
 
 export default function CorporateEventsPage() {
