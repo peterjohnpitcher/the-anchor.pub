@@ -117,9 +117,9 @@ export function StatusBar({
     }
     
     if (isOpen && closesIn) {
-      navMessage += ` • Closes ${closesIn}`
+      navMessage += ` • Closes ${closesIn.startsWith('in ') ? closesIn : `in ${closesIn}`}`
     } else if (!isOpen && opensIn) {
-      navMessage += ` • Opens ${opensIn}`
+      navMessage += ` • Opens ${opensIn.startsWith('in ') ? opensIn : `in ${opensIn}`}`
     }
     
     return (
@@ -145,7 +145,7 @@ export function StatusBar({
         message += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
       }
       if (closesIn) {
-        message += ` • ${closesIn}`
+        message += ` • ${closesIn.startsWith('in ') ? closesIn : `in ${closesIn}`}`
       }
     } else {
       message = mergedLabels.barClosed
@@ -153,7 +153,7 @@ export function StatusBar({
         message += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
       }
       if (opensIn) {
-        message += ` • ${opensIn}`
+        message += ` • ${opensIn.startsWith('in ') ? opensIn : `in ${opensIn}`}`
       }
     }
     
@@ -238,7 +238,7 @@ export function StatusBar({
       barMessage += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
     }
     if (closesIn) {
-      barMessage += ` ${mergedLabels.closes} ${closesIn}`
+      barMessage += ` ${mergedLabels.closes} ${closesIn.startsWith('in ') ? closesIn : `in ${closesIn}`}`
     }
   } else {
     barMessage = mergedLabels.barClosed
@@ -246,7 +246,7 @@ export function StatusBar({
       barMessage += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
     }
     if (opensIn) {
-      barMessage += ` ${mergedLabels.opens} ${opensIn}`
+      barMessage += ` ${mergedLabels.opens} ${opensIn.startsWith('in ') ? opensIn : `in ${opensIn}`}`
     }
   }
 

@@ -51,16 +51,28 @@ export async function GET() {
       // Recalculate opens/closes in
       if (data.currentStatus.isOpen) {
         // Calculate closes in
-        const minutesUntilClose = closeTime < openTime && currentTime < closeTime 
-          ? (closeTime - currentTime) * 60
-          : (closeTime - currentTime) * 60
+        let minutesUntilClose
+        
+        if (closeTime === 0) {
+          // Closing at midnight
+          minutesUntilClose = (24 - currentTime) * 60
+        } else if (closeTime < openTime && currentTime < closeTime) {
+          // Already past midnight, closing soon
+          minutesUntilClose = (closeTime - currentTime) * 60
+        } else if (closeTime < openTime) {
+          // Closing after midnight, but we're still before midnight
+          minutesUntilClose = (24 - currentTime + closeTime) * 60
+        } else {
+          // Normal closing time (same day)
+          minutesUntilClose = (closeTime - currentTime) * 60
+        }
         
         if (minutesUntilClose > 60) {
           const hours = Math.floor(minutesUntilClose / 60)
           const mins = Math.round(minutesUntilClose % 60)
-          data.currentStatus.closesIn = `in ${hours}h ${mins}m`
+          data.currentStatus.closesIn = `${hours}h ${mins}m`
         } else {
-          data.currentStatus.closesIn = `in ${Math.round(minutesUntilClose)}m`
+          data.currentStatus.closesIn = `${Math.round(minutesUntilClose)}m`
         }
       } else if (currentTime < openTime) {
         // Calculate opens in
@@ -69,9 +81,9 @@ export async function GET() {
         if (minutesUntilOpen > 60) {
           const hours = Math.floor(minutesUntilOpen / 60)
           const mins = Math.round(minutesUntilOpen % 60)
-          data.currentStatus.opensIn = `in ${hours}h ${mins}m`
+          data.currentStatus.opensIn = `${hours}h ${mins}m`
         } else {
-          data.currentStatus.opensIn = `in ${Math.round(minutesUntilOpen)}m`
+          data.currentStatus.opensIn = `${Math.round(minutesUntilOpen)}m`
         }
       }
       
