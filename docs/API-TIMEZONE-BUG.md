@@ -16,10 +16,17 @@ On July 18, 2025 at 16:25 BST:
 - API returns: `isOpen: false` (incorrect - should be true)
 
 ## Workaround
-Added client-side calculation in `components/BusinessHours.tsx` that:
-1. Uses the browser's local time (correctly handles BST)
-2. Calculates open/closed status based on regular hours
-3. Falls back to API data if calculation fails
+Fixed by applying timezone correction at the API level:
+
+1. **Server-side fix in `/app/api/business-hours/route.ts`**:
+   - Intercepts the external API response
+   - Recalculates open/closed status using server's local time (BST)
+   - Ensures consistent status across all components
+
+2. **Client-side calculation in `components/BusinessHours.tsx`**:
+   - Provides additional fallback
+   - Uses the browser's local time (correctly handles BST)
+   - Falls back to API data if calculation fails
 
 ## Action Items
 1. Report bug to orangejelly.co.uk API support
@@ -27,5 +34,5 @@ Added client-side calculation in `components/BusinessHours.tsx` that:
 3. Remove workaround once API is fixed
 
 ## Code Reference
-See the client-side calculation in:
-- `/components/BusinessHours.tsx` lines 45-114
+- Server-side fix: `/app/api/business-hours/route.ts` lines 23-88
+- Client-side fallback: `/components/BusinessHours.tsx` lines 45-114

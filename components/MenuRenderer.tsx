@@ -3,6 +3,7 @@
 import { useMemo, memo, useRef, useEffect, useState } from 'react'
 import { MenuData, MenuCategory, MenuSection, MenuItem } from '@/lib/menu-parser'
 import { SpecialOfferNotifications } from './SpecialOfferNotifications'
+import { HeroBadge } from './HeroBadge'
 
 interface MenuRendererProps {
   menuData: MenuData
@@ -213,11 +214,11 @@ interface MenuItemProps {
 }
 
 const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFocus, isHighlighted }: MenuItemProps) {
-  return (
+  const cardContent = (
     <div 
       className={`rounded-2xl shadow-md transition-all ${isFocused ? 'ring-2 ring-anchor-gold' : ''} ${
         isHighlighted 
-          ? 'bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-300 p-6 hover:shadow-xl hover:scale-105 featured-cocktail' 
+          ? 'bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-300 p-6 hover:shadow-xl hover:scale-105' 
           : 'bg-white p-8'
       }`}
       itemScope 
@@ -229,8 +230,11 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
       aria-label={`${item.name}, ${item.price}${item.vegetarian ? ', vegetarian' : ''}`}
     >
       <div className="flex justify-between items-start mb-4">
-        <h3 className={`font-bold ${isHighlighted ? 'text-lg' : 'text-xl'} text-anchor-green`} itemProp="name">
-          {item.name}
+        <h3 className={`font-bold ${isHighlighted ? 'text-lg' : 'text-xl'} text-anchor-green flex items-center flex-wrap`} itemProp="name">
+          <span>{item.name}</span>
+          {isHighlighted && (
+            <HeroBadge text="NEW" variant="new" position="inline" />
+          )}
           {item.vegetarian && (
             <span className="text-anchor-gold text-sm font-bold bg-green-100 px-2 py-1 rounded ml-2">(V)</span>
           )}
@@ -248,6 +252,18 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
       )}
     </div>
   )
+
+  // Wrap in container with absolute badge for desktop
+  if (isHighlighted) {
+    return (
+      <div className="relative">
+        <HeroBadge text="NEW" variant="new" position="absolute" />
+        {cardContent}
+      </div>
+    )
+  }
+
+  return cardContent
 })
 
 const MenuItemList = memo(function MenuItemList({ item, itemId, isFocused, onFocus }: MenuItemProps) {
