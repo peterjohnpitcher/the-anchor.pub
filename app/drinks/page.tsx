@@ -10,6 +10,7 @@ import { Metadata } from 'next'
 import { drinksMenuSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import './cocktails.css'
 
 export const metadata: Metadata = {
   title: 'Drinks Menu Near Me | The Anchor Stanwell Moor | Real Ales & Premium Spirits',

@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { EventSchema } from '@/components/EventSchema'
+import { staticEvents } from '@/lib/static-events'
 
 export const metadata: Metadata = {
   title: 'Drag Shows | The Anchor Stanwell Moor | Monthly Entertainment',
@@ -414,60 +416,7 @@ export default function DragShowsPage() {
       </section>
 
       {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Event",
-            "name": "Saturday Drag Shows with Nikki Manfadge",
-            "description": "Spectacular monthly drag performances at The Anchor with Nikki Manfadge",
-            "startDate": "2025-01-18T21:00:00+00:00",
-            "endDate": "2025-01-18T23:30:00+00:00",
-            "eventSchedule": {
-              "@type": "Schedule",
-              "byDay": "Saturday",
-              "repeatFrequency": "P1M",
-              "startTime": "21:00:00",
-              "endTime": "23:30:00",
-              "scheduleTimezone": "Europe/London"
-            },
-            "location": {
-              "@type": "Place",
-              "name": "The Anchor",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Horton Road",
-                "addressLocality": "Stanwell Moor",
-                "addressRegion": "Surrey",
-                "postalCode": "TW19 6AQ",
-                "addressCountry": "GB"
-              }
-            },
-            "performer": {
-              "@type": "Person",
-              "name": "Nikki Manfadge",
-              "sameAs": "https://www.instagram.com/theanchor.pub/"
-            },
-            "organizer": {
-              "@type": "Organization",
-              "name": "The Anchor",
-              "url": "https://the-anchor.pub"
-            },
-            "eventStatus": "https://schema.org/EventScheduled",
-            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-            "offers": {
-              "@type": "Offer",
-              "url": "https://the-anchor.pub/whats-on/drag-shows",
-              "price": "0",
-              "priceCurrency": "GBP",
-              "availability": "https://schema.org/InStock",
-              "validFrom": "2025-01-01T00:00:00+00:00"
-            },
-            "image": ["https://the-anchor.pub/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"]
-          })
-        }}
-      />
+      <EventSchema event={staticEvents.dragShows} />
     </>
   )
 }

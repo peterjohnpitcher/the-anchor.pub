@@ -42,7 +42,78 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
           throw new Error(hoursData.error)
         }
         
-        setHours(hoursData)
+        // Add client-side calculation fallback if API status seems incorrect
+        const enrichedData = { ...hoursData }
+        
+        // Calculate current status client-side as fallback
+        const now = new Date()
+        const dayName = now.toLocaleDateString('en-GB', { weekday: 'long' }).toLowerCase()
+        const currentHours = hoursData.regularHours[dayName]
+        
+        if (currentHours && !currentHours.is_closed) {
+          const currentTime = now.getHours() + now.getMinutes() / 60
+          const [openHour, openMin] = currentHours.opens.split(':').map(Number)
+          const [closeHour, closeMin] = currentHours.closes.split(':').map(Number)
+          
+          const openTime = openHour + openMin / 60
+          let closeTime = closeHour + closeMin / 60
+          
+          // Handle closing after midnight
+          if (closeTime < openTime) {
+            if (currentTime < closeTime) {
+              // We're in the early hours after midnight, still "yesterday's" opening
+              enrichedData.currentStatus.isOpen = true
+            } else {
+              // Normal day hours
+              enrichedData.currentStatus.isOpen = currentTime >= openTime
+            }
+          } else {
+            // Normal hours (close before midnight)
+            enrichedData.currentStatus.isOpen = currentTime >= openTime && currentTime < closeTime
+          }
+          
+          // Calculate opens/closes in
+          if (enrichedData.currentStatus.isOpen) {
+            // Calculate closes in
+            const minutesUntilClose = closeTime === 0 
+              ? (24 - currentTime) * 60  // Closing at midnight
+              : closeTime < openTime && currentTime < closeTime 
+              ? (closeTime - currentTime) * 60
+              : (closeTime - currentTime) * 60
+            
+            if (minutesUntilClose > 60) {
+              const hours = Math.floor(minutesUntilClose / 60)
+              const mins = Math.round(minutesUntilClose % 60)
+              enrichedData.currentStatus.closesIn = `in ${hours}h ${mins}m`
+            } else {
+              enrichedData.currentStatus.closesIn = `in ${Math.round(minutesUntilClose)}m`
+            }
+          } else if (currentTime < openTime) {
+            // Calculate opens in
+            const minutesUntilOpen = (openTime - currentTime) * 60
+            
+            if (minutesUntilOpen > 60) {
+              const hours = Math.floor(minutesUntilOpen / 60)
+              const mins = Math.round(minutesUntilOpen % 60)
+              enrichedData.currentStatus.opensIn = `in ${hours}h ${mins}m`
+            } else {
+              enrichedData.currentStatus.opensIn = `in ${Math.round(minutesUntilOpen)}m`
+            }
+          }
+          
+          // Check kitchen status
+          if (currentHours.kitchen && enrichedData.currentStatus.isOpen) {
+            const [kitchenOpenHour, kitchenOpenMin] = currentHours.kitchen.opens.split(':').map(Number)
+            const [kitchenCloseHour, kitchenCloseMin] = currentHours.kitchen.closes.split(':').map(Number)
+            
+            const kitchenOpenTime = kitchenOpenHour + kitchenOpenMin / 60
+            const kitchenCloseTime = kitchenCloseHour + kitchenCloseMin / 60
+            
+            enrichedData.currentStatus.kitchenOpen = currentTime >= kitchenOpenTime && currentTime < kitchenCloseTime
+          }
+        }
+        
+        setHours(enrichedData)
         
         if (weatherData && weatherData.forecast) {
           setForecast(weatherData.forecast)
@@ -234,7 +305,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         className="w-6 h-6"
                         sizes="24px"
                       />
-                      <span className="text-sm sm:text-xs text-gray-600">
+                      <span className="text-sm sm:text-xs text-white/80">
                         {Math.round(dayForecast.temp_max)}°/{Math.round(dayForecast.temp_min)}°C
                       </span>
                     </div>
@@ -318,7 +389,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         className="w-5 h-5"
                         sizes="20px"
                       />
-                      <span className="text-sm sm:text-xs text-gray-600">
+                      <span className="text-sm sm:text-xs text-white/80">
                         {Math.round(dayForecast.temp_max)}°/{Math.round(dayForecast.temp_min)}°C
                       </span>
                     </div>
@@ -329,21 +400,21 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                 <div className="text-right text-sm">
                   {displayHours.is_closed ? (
                     <div>
-                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-600'}>
+                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-white'}>
                         Closed{hasSpecialHours && (specialHours.note || specialHours.reason) ? ` (${specialHours.note || specialHours.reason})` : ''}
                       </span>
                       {showKitchen && (
-                        <div className="text-sm sm:text-xs text-gray-600">Kitchen closed</div>
+                        <div className="text-sm sm:text-xs text-white/80">Kitchen closed</div>
                       )}
                     </div>
                   ) : (
                     <div>
-                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-gray-600'}>
+                      <span className={hasSpecialHours ? 'text-yellow-400' : 'text-white'}>
                         {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
                         {hasSpecialHours && (specialHours.note || specialHours.reason) ? ` (${specialHours.note || specialHours.reason})` : ''}
                       </span>
                       {showKitchen && !hasSpecialHours && (
-                        <div className="text-sm sm:text-xs text-gray-600 mt-0.5">
+                        <div className="text-sm sm:text-xs text-white/80 mt-0.5">
                           {dayHours.kitchen ? (
                             `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
                           ) : (

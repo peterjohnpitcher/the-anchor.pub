@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useId } from 'react'
 import Script from 'next/script'
 
 interface FAQItem {
@@ -12,14 +12,17 @@ interface FAQAccordionWithSchemaProps {
   title?: string
   faqs: FAQItem[]
   className?: string
+  renderSchema?: boolean
 }
 
 export function FAQAccordionWithSchema({ 
   title = "Frequently Asked Questions", 
   faqs, 
-  className = "" 
+  className = "",
+  renderSchema = true
 }: FAQAccordionWithSchemaProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const schemaId = useId()
 
   const toggleQuestion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -41,12 +44,14 @@ export function FAQAccordionWithSchema({
 
   return (
     <>
-      {/* Inject FAQ schema */}
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {/* Inject FAQ schema - only if renderSchema is true */}
+      {renderSchema && (
+        <Script
+          id={`faq-schema-${schemaId}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       
       <section className={`section-spacing ${className}`}>
         <div className="container mx-auto px-4">

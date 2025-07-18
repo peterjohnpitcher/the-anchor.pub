@@ -132,22 +132,22 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
               <SpecialOfferNotifications targetSection={category.id} />
 
               {category.sections.map((section, sectionIndex) => (
-                <div key={sectionIndex} className="mb-8">
+                <div key={sectionIndex} className={`mb-8 ${section.highlight && category.id === 'cocktails' ? 'cocktails-featured' : ''}`}>
                   {section.title && (
-                    <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">
+                    <h3 className={`text-2xl font-bold mb-6 text-center ${section.highlight && category.id === 'cocktails' ? 'text-anchor-gold' : 'text-anchor-green'}`}>
                       {section.title}
                     </h3>
                   )}
                   
                   {section.description && (
-                    <p className="text-center text-gray-700 mb-6">
+                    <p className={`text-center mb-6 ${section.highlight && category.id === 'cocktails' ? 'text-lg text-gray-800 font-medium' : 'text-gray-700'}`}>
                       {section.description}
                     </p>
                   )}
 
                   {/* Grid Style */}
                   {section.style === 'grid' && (
-                    <div className="grid md:grid-cols-2 gap-6" role="list">
+                    <div className={`grid gap-6 ${section.highlight && category.id === 'cocktails' ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-2'}`} role="list">
                       {section.items.map((item, itemIndex) => (
                         <MenuItemCard 
                           key={itemIndex} 
@@ -155,6 +155,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
                           itemId={`${category.id}-${sectionIndex}-${itemIndex}`}
                           isFocused={focusedItem === `${category.id}-${sectionIndex}-${itemIndex}`}
                           onFocus={setFocusedItem}
+                          isHighlighted={section.highlight && category.id === 'cocktails'}
                         />
                       ))}
                     </div>
@@ -208,12 +209,17 @@ interface MenuItemProps {
   itemId: string
   isFocused: boolean
   onFocus: (id: string) => void
+  isHighlighted?: boolean
 }
 
-const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFocus }: MenuItemProps) {
+const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFocus, isHighlighted }: MenuItemProps) {
   return (
     <div 
-      className={`bg-white rounded-2xl p-8 shadow-md transition-all ${isFocused ? 'ring-2 ring-anchor-gold' : ''}`}
+      className={`rounded-2xl shadow-md transition-all ${isFocused ? 'ring-2 ring-anchor-gold' : ''} ${
+        isHighlighted 
+          ? 'bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-300 p-6 hover:shadow-xl hover:scale-105 featured-cocktail' 
+          : 'bg-white p-8'
+      }`}
       itemScope 
       itemType="https://schema.org/MenuItem"
       role="listitem"
@@ -223,19 +229,19 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
       aria-label={`${item.name}, ${item.price}${item.vegetarian ? ', vegetarian' : ''}`}
     >
       <div className="flex justify-between items-start mb-4">
-        <h3 className="font-bold text-xl text-anchor-green" itemProp="name">
+        <h3 className={`font-bold ${isHighlighted ? 'text-lg' : 'text-xl'} text-anchor-green`} itemProp="name">
           {item.name}
           {item.vegetarian && (
             <span className="text-anchor-gold text-sm font-bold bg-green-100 px-2 py-1 rounded ml-2">(V)</span>
           )}
         </h3>
-        <span className="text-xl font-bold text-anchor-gold whitespace-nowrap ml-4" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+        <span className={`font-bold whitespace-nowrap ml-4 ${isHighlighted ? 'text-2xl text-amber-600' : 'text-xl text-anchor-gold'}`} itemProp="offers" itemScope itemType="https://schema.org/Offer">
           <span itemProp="price" content={item.price.replace('£', '')}>{item.price}</span>
           <meta itemProp="priceCurrency" content="GBP" />
         </span>
       </div>
       {item.description && (
-        <p className="text-gray-700" itemProp="description">{item.description}</p>
+        <p className={`${isHighlighted ? 'text-gray-800 text-sm leading-relaxed' : 'text-gray-700'}`} itemProp="description">{item.description}</p>
       )}
       {item.vegetarian && (
         <meta itemProp="suitableForDiet" content="https://schema.org/VegetarianDiet" />

@@ -11,17 +11,17 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
-  title: `Pub Near Heathrow Terminal 1 | ${BRAND.name} - ${HEATHROW_TIMES.terminal1} Minutes Away`,
-  description: `${BRAND.name} - closest traditional British pub to Heathrow Terminal 1, just ${HEATHROW_TIMES.terminal1} mins drive. Perfect for pre-flight meals. Free parking.`,
-  keywords: 'pub near heathrow terminal 1, heathrow t1 pub, restaurants near terminal 1, bars near heathrow terminal 1, heathrow terminal 1 food',
+  title: `Pub Near Heathrow Terminal 1 Hotels | ${BRAND.name} - Local British Pub`,
+  description: `Escape Terminal 1 hotel dining for authentic British pub experience. ${BRAND.name} offers local atmosphere, traditional food & ales just ${HEATHROW_TIMES.terminal1} mins from T1 hotels.`,
+  keywords: 'pub near heathrow terminal 1, heathrow t1 pub, restaurants near terminal 1, bars near heathrow terminal 1, heathrow terminal 1 food, local pub near terminal 1 hotels',
   openGraph: {
-    title: `${BRAND.name} - Closest Pub to Heathrow Terminal 1`,
-    description: `Just ${HEATHROW_TIMES.terminal1} minutes from T1. Traditional British pub with parking.`,
+    title: `${BRAND.name} - Local Pub Near Terminal 1 Hotels`,
+    description: `Escape hotel dining! Family pub ${HEATHROW_TIMES.terminal1} mins from T1. Real atmosphere.`,
     images: ['/images/near-heathrow/the-anchor-pub-heathrow-terminal-1.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: `${BRAND.name} - Closest Pub to Heathrow Terminal 1`,
-    description: `Just ${HEATHROW_TIMES.terminal1} minutes from T1. Traditional British pub with parking.`,
+    title: `${BRAND.name} - Local Pub Near Terminal 1 Hotels`,
+    description: `Escape hotel dining! Family pub ${HEATHROW_TIMES.terminal1} mins from T1. Real atmosphere.`,
     images: ['/images/near-heathrow/the-anchor-pub-heathrow-terminal-1.jpg']
   })
 }
@@ -310,6 +310,117 @@ export default function Terminal1Page() {
         </div>
       </section>
 
+      {/* Hotel Guest Section */}
+      <section className="section-spacing bg-anchor-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeader
+              title="Staying Near Terminal 1?"
+              subtitle="Escape your hotel for a genuine British pub experience"
+              align="center"
+            />
+            
+            <div className="mb-12">
+              <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto">
+                If you're staying at one of the Terminal 1 hotels, The Anchor offers 
+                the perfect escape from hotel dining. Experience a real British family 
+                pub where locals gather - a refreshing change from the international 
+                atmosphere of airport hotels.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">
+                Why Hotel Guests Choose The Anchor
+              </h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">🏠 A Real Local Experience</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Traditional British pub atmosphere</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Meet local residents, not just travelers</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Authentic ales and home-cooked meals</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Peaceful setting away from airport hustle</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">💰 Better Value Than Hotels</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Pub prices, not hotel prices</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Hearty portions of British classics</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Free parking saves on hotel charges</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Relaxed atmosphere with no time limits</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
+                🚕 Getting Here from Terminal 1 Hotels
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <p className="font-semibold mb-2">By Taxi</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">£15-18</p>
+                  <p className="text-sm text-gray-600">10 minutes</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">By Uber</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">£13-16</p>
+                  <p className="text-sm text-gray-600">10 minutes</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">By Bus</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">£2.50</p>
+                  <p className="text-sm text-gray-600">Take 442 bus</p>
+                </div>
+              </div>
+              <p className="text-center text-sm text-gray-600 mt-4">
+                Tell your driver: "The Anchor pub, Horton Road, Stanwell Moor"
+              </p>
+            </div>
+
+            <div className="bg-anchor-green text-white rounded-2xl p-8 text-center">
+              <p className="text-lg mb-4 max-w-2xl mx-auto">
+                Take a break from the hustle and bustle of airport life. 
+                The Anchor offers a peaceful village pub atmosphere where you can 
+                relax, enjoy great food, and experience genuine British hospitality.
+              </p>
+              <Link href="tel:01753682707">
+                <Button variant="secondary" size="lg" className="bg-white text-anchor-green hover:bg-gray-100">
+                  📞 Book Your Table: 01753 682707
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Opening Hours */}
       <section className="section-spacing bg-anchor-sand/20">
         <div className="container mx-auto px-4">
@@ -345,6 +456,14 @@ export default function Terminal1Page() {
           {
             question: "What time should I leave for Terminal 1?",
             answer: `Allow ${HEATHROW_TIMES.terminal1} minutes to reach Terminal 1 from our pub, plus time for parking and security. We recommend leaving at least 2 hours before your flight.`
+          },
+          {
+            question: "Is The Anchor good for Terminal 1 hotel guests?",
+            answer: "Absolutely! Many guests from Terminal 1 hotels visit us for a break from hotel dining. We offer a genuine British family pub atmosphere with local residents, traditional ales, and home-cooked food at pub prices."
+          },
+          {
+            question: "How do I get to The Anchor from my Terminal 1 hotel?",
+            answer: "It's about £15-18 by taxi (10 minutes) or £13-16 by Uber. The 442 bus also stops near us for just £2.50. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor' or use postcode TW19 6AQ."
           }
         ]}
         className="bg-gray-50"

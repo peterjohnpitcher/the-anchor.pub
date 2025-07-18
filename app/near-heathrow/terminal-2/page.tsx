@@ -10,19 +10,20 @@ import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
 import { CTASection } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Terminal 2 | The Anchor - 10 Minutes Away',
-  description: 'Traditional British pub 10 mins from Heathrow Terminal 2. Free parking, great food & perfect for Star Alliance travelers. Pre-flight dining.',
-  keywords: 'pub near terminal 2, heathrow terminal 2 restaurant, closest pub to T2, star alliance terminal pub, queens terminal restaurant',
+  title: 'Pub Near Heathrow Terminal 2 Hotels | The Anchor - Local British Pub',
+  description: 'Escape Terminal 2 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 11 mins from T2 hotels.',
+  keywords: 'pub near terminal 2, heathrow terminal 2 restaurant, closest pub to T2, star alliance terminal pub, queens terminal restaurant, local pub near terminal 2 hotels',
   openGraph: {
-    title: 'The Anchor - 10 Minutes from Heathrow Terminal 2',
-    description: 'The perfect traditional British pub near Terminal 2. Free parking and authentic pub food.',
+    title: 'The Anchor - Local Pub Near Terminal 2 Hotels',
+    description: 'Escape hotel dining! Family pub 11 mins from T2. Real atmosphere.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - 10 Minutes from Heathrow Terminal 2',
-    description: 'The perfect traditional British pub near Terminal 2. Free parking and authentic pub food.',
+    title: 'The Anchor - Local Pub Near Terminal 2 Hotels',
+    description: 'Escape hotel dining! Family pub 11 mins from T2. Real atmosphere.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
   })
 }
@@ -42,7 +43,7 @@ export default function Terminal2Page() {
           { name: 'Terminal 2' }
         ]}
         tags={[
-          { label: "Just 10 minutes away", variant: "warning" }
+          { label: "Just 11 minutes away", variant: "warning" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -76,7 +77,7 @@ export default function Terminal2Page() {
             features={[
               {
                 icon: "🚗",
-                title: "10 mins",
+                title: "11 mins",
                 description: "by car"
               },
               {
@@ -112,7 +113,7 @@ export default function Terminal2Page() {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* By Car */}
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (10 minutes)</h3>
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (11 minutes)</h3>
                 <ol className="space-y-3 text-gray-700">
                   <li className="flex gap-3">
                     <span className="font-bold text-anchor-gold">1.</span>
@@ -379,10 +380,152 @@ export default function Terminal2Page() {
         </div>
       </section>
 
+      {/* Hotel Guest Section */}
+      <section className="section-spacing bg-anchor-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeader
+              title="Staying Near Terminal 2?"
+              subtitle="Escape your hotel for a genuine British pub experience"
+              align="center"
+            />
+            
+            <div className="mb-12">
+              <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto">
+                If you're staying at one of the Terminal 2 hotels, The Anchor offers 
+                the perfect escape from hotel dining. Experience a real British family 
+                pub where locals gather - a refreshing change from the international 
+                atmosphere of airport hotels.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-anchor-green mb-6 text-center">
+                Why Hotel Guests Choose The Anchor
+              </h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">🏠 A Real Local Experience</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Traditional British pub atmosphere</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Meet local residents, not just travelers</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Authentic ales and home-cooked meals</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Peaceful setting away from airport hustle</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-3">💰 Better Value Than Hotels</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Pub prices, not hotel prices</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Hearty portions of British classics</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Free parking saves on hotel charges</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-anchor-gold">✓</span>
+                      <span>Relaxed atmosphere with no time limits</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
+                🚕 Getting Here from Terminal 2 Hotels
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <p className="font-semibold mb-2">By Taxi</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">£18-22</p>
+                  <p className="text-sm text-gray-600">11 minutes</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">By Uber</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">£15-18</p>
+                  <p className="text-sm text-gray-600">11 minutes</p>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">By Bus</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">£2.50</p>
+                  <p className="text-sm text-gray-600">Take 442 bus</p>
+                </div>
+              </div>
+              <p className="text-center text-sm text-gray-600 mt-4">
+                Tell your driver: "The Anchor pub, Horton Road, Stanwell Moor"
+              </p>
+            </div>
+
+            <div className="bg-anchor-green text-white rounded-2xl p-8 text-center">
+              <p className="text-lg mb-4 max-w-2xl mx-auto">
+                Take a break from the hustle and bustle of airport life. 
+                The Anchor offers a peaceful village pub atmosphere where you can 
+                relax, enjoy great food, and experience genuine British hospitality.
+              </p>
+              <Link href="tel:01753682707">
+                <Button variant="secondary" size="lg" className="bg-white text-anchor-green hover:bg-gray-100">
+                  📞 Book Your Table: 01753 682707
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "How far is The Anchor from Heathrow Terminal 2?",
+            answer: "The Anchor is just 11 minutes drive from Heathrow Terminal 2. We're the perfect spot for a pre-flight meal or drinks after landing."
+          },
+          {
+            question: "Do you have parking for Terminal 2 travelers?",
+            answer: "Yes! We offer free parking with space for 30 cars. Much more affordable than airport parking for short stays."
+          },
+          {
+            question: "What time should I leave for Terminal 2?",
+            answer: "Allow 11 minutes to reach Terminal 2 from our pub, plus time for parking and security. We recommend leaving at least 2 hours before your flight for European destinations, 3 hours for international."
+          },
+          {
+            question: "Is The Anchor good for Terminal 2 hotel guests?",
+            answer: "Absolutely! Many guests from Terminal 2 hotels visit us for a break from hotel dining. We offer a genuine British family pub atmosphere with local residents, traditional ales, and home-cooked food at pub prices."
+          },
+          {
+            question: "How do I get to The Anchor from my Terminal 2 hotel?",
+            answer: "It's about £18-22 by taxi (11 minutes) or £15-18 by Uber. The 442 bus also stops near us for just £2.50. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor' or use postcode TW19 6AQ."
+          },
+          {
+            question: "Why choose The Anchor over Terminal 2 restaurants?",
+            answer: "Airport restaurants are expensive and crowded. At The Anchor, you'll enjoy authentic British pub atmosphere, meet local residents (not just travelers), pay pub prices (not airport prices), and relax in our peaceful village setting away from the airport hustle."
+          }
+        ]}
+        className="bg-gray-50"
+      />
+
       {/* CTA Section */}
       <CTASection
         title="See You Soon at The Anchor!"
-        description="Just 10 minutes from Terminal 2 • Free Parking • Authentic British Pub"
+        description="Just 11 minutes from Terminal 2 • Free Parking • Authentic British Pub"
         variant="green"
         buttons={[
           {

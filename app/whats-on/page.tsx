@@ -10,6 +10,8 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { EventSchema } from '@/components/EventSchema'
+import { staticEvents } from '@/lib/static-events'
 
 export const metadata: Metadata = {
   title: "What's On Near Me | The Anchor Stanwell Moor | Events & Entertainment",
@@ -339,153 +341,10 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         </div>
       </CTASection>
 
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            {
-              "@context": "https://schema.org",
-              "@type": "EventSeries",
-              "name": "Events at The Anchor",
-              "description": "Regular monthly events including drag shows, quiz nights, and cash bingo",
-              "organizer": {
-                "@type": "Organization",
-                "name": "The Anchor",
-                "url": "https://the-anchor.pub"
-              },
-              "location": {
-                "@type": "Place",
-                "name": "The Anchor",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Horton Road",
-                  "addressLocality": "Stanwell Moor",
-                  "addressRegion": "Surrey",
-                  "postalCode": "TW19 6AQ",
-                  "addressCountry": "GB"
-                }
-              },
-              "subEvent": [
-                {
-                  "@type": "Event",
-                  "name": "Monthly Drag Shows",
-                  "startDate": "2024-01-01T19:00:00+00:00",
-                  "endDate": "2024-01-01T23:00:00+00:00",
-                  "location": {
-                    "@type": "Place",
-                    "name": "The Anchor Pub",
-                    "address": {
-                      "@type": "PostalAddress",
-                      "streetAddress": "Horton Road",
-                      "addressLocality": "Stanwell Moor",
-                      "addressRegion": "Surrey",
-                      "postalCode": "TW19 6AQ",
-                      "addressCountry": "GB"
-                    }
-                  },
-                  "eventStatus": "https://schema.org/EventScheduled",
-                  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-                  "image": ["https://the-anchor.pub/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"],
-                  "offers": {
-                    "@type": "Offer",
-                    "url": "https://the-anchor.pub/whats-on",
-                    "price": "0",
-                    "priceCurrency": "GBP",
-                    "availability": "https://schema.org/InStock",
-                    "validFrom": "2024-01-01T00:00:00+00:00"
-                  },
-                  "eventSchedule": {
-                    "@type": "Schedule",
-                    "repeatFrequency": "P1M",
-                    "startTime": "19:00:00",
-                    "endTime": "23:00:00",
-                    "scheduleTimezone": "Europe/London"
-                  }
-                }
-              ]
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "When are the drag shows at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Our fabulous drag shows run monthly, alternating between Nikki's Games Night (starting at 7pm) and Nikki's Karaoke Night (starting at 8pm). While there's no age restriction, please note there may be adult language. Entry is FREE but we recommend arriving early to get a good seat!"
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What time is quiz night at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Quiz night is held monthly (date varies), starting at 7pm. Entry is £3 per person. Prizes include a £25 bar voucher for 1st place, and the 2nd from last team wins a bottle of wine. Cheque our social media for the next quiz date!"
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do I need to book for events at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "For most regular events like drag shows and quiz nights, booking isn't required but arriving early is recommended as we do get busy! For special events, private parties, or large groups, please call us on 01753 682707 to reserve your space."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Can I hire The Anchor for a private party?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes! We offer versatile venue spaces that can accommodate groups from 10 to 200 guests. Perfect for birthdays, corporate events, weddings, wakes, and any celebration. Our experienced team will work with you to create the perfect event with flexible catering options and our preferred vendor network. Contact us on 01753 682707 for a personalised consultation."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Is there bingo at The Anchor pub?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, we host cash prize bingo monthly. £10 per book with various prizes throughout the night, including a cash jackpot on the last game. Cheque our events calendar or follow us on social media for the next bingo night!"
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Are children allowed at The Anchor events?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Children are always welcome at The Anchor with no time restrictions. Our drag shows have no age restriction, but please be aware there may be adult language. Some special events may be adults-only (18+). Please check when booking if bringing children."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "How much are tickets for events at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Our monthly drag shows are FREE entry! Quiz night is £3 per person, and bingo is £10 per book. Special ticketed events vary in price - check our social media or call us for specific event pricing."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Is there entertainment every night at The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We have scheduled entertainment throughout the month including monthly quiz nights, drag shows (alternating between Games Night and Karaoke Night), bingo nights, and special events. Cheque our What's On page or social media for upcoming dates."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What payment methods are accepted for events?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We accept cash and all major credit and debit cards, including American Express, for event entry fees, drinks, and food. Whether it's quiz night entry, bingo books, or your bar tab, we make payment easy and convenient."
-                  }
-                }
-              ]
-            }
-          ])
-        }}
-      />
+      {/* Event Schemas for Monthly Events */}
+      <EventSchema event={staticEvents.dragShows} />
+      <EventSchema event={staticEvents.quizNight} />
+      <EventSchema event={staticEvents.bingoNight} />
     </>
   )
 }

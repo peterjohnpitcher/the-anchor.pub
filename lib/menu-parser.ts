@@ -15,6 +15,7 @@ export interface MenuSection {
   description?: string
   items: MenuItem[]
   style?: 'grid' | 'list' | 'feature'
+  highlight?: boolean
 }
 
 export interface MenuCategory {

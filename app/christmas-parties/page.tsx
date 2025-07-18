@@ -8,6 +8,8 @@ import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CONTACT, BRAND } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { EventSchema } from '@/components/EventSchema'
+import { staticEvents } from '@/lib/static-events'
 
 export const metadata: Metadata = {
   title: 'Christmas Party Venue Near Heathrow | The Anchor Stanwell Moor | Book Now',
@@ -25,45 +27,6 @@ export const metadata: Metadata = {
   })
 }
 
-// TODO: Add christmasEventSchema when generateEventSchema is available
-const christmasEventSchema = {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  name: "Christmas Parties at The Anchor",
-  description: "Book your Christmas party at The Anchor pub. Perfect for office parties and festive celebrations with traditional Christmas menus and free parking.",
-  startDate: "2024-11-15T12:00:00+00:00",
-  endDate: "2025-01-05T23:00:00+00:00",
-  location: {
-    "@type": "Place",
-    name: "The Anchor",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Horton Road",
-      addressLocality: "Stanwell Moor",
-      addressRegion: "Surrey",
-      postalCode: "TW19 6AQ",
-      addressCountry: "GB"
-    }
-  },
-  eventStatus: "https://schema.org/EventScheduled",
-  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-  organizer: {
-    "@type": "Organization",
-    name: "The Anchor",
-    url: "https://the-anchor.pub"
-  },
-  offers: {
-    "@type": "Offer",
-    price: "19.95",
-    priceCurrency: "GBP",
-    description: "Christmas party packages from £19.95 per person",
-    url: "https://the-anchor.pub/christmas-parties",
-    availability: "https://schema.org/InStock",
-    validFrom: "2024-10-01T00:00:00+00:00"
-  },
-  image: ["https://the-anchor.pub/images/events/christmas/the-anchor-christmas-party-venue.jpg"],
-  maximumAttendeeCapacity: 200
-}
 
 export default function ChristmasPartiesPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -78,9 +41,10 @@ export default function ChristmasPartiesPage() {
 
   return (
     <>
+      <EventSchema event={staticEvents.christmasParties} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([christmasEventSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       
       {/* Hero Section */}

@@ -14,17 +14,17 @@ import { CTASection } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Terminal 5 | The Anchor - 7 Minutes Away',
-  description: 'The closest pub to Heathrow Terminal 5 - just 7 minutes drive. Free parking, traditional British food, and a warm welcome. Perfect for BA travelers.',
-  keywords: 'pub near terminal 5, heathrow terminal 5 restaurant, closest pub to T5, british airways terminal pub',
+  title: 'Pub Near Heathrow Terminal 5 Hotels | The Anchor - Local British Pub',
+  description: 'Escape Sofitel & Hilton T5 hotel dining. Experience an authentic British family pub just 7 minutes from Terminal 5. Free parking, real ales, home-cooked food.',
+  keywords: 'pub near terminal 5, heathrow terminal 5 restaurant, closest pub to T5, british airways terminal pub, sofitel heathrow alternative, hilton T5 restaurant, local pub near heathrow hotels',
   openGraph: {
-    title: 'The Anchor - 7 Minutes from Heathrow Terminal 5',
-    description: 'The closest traditional British pub to Terminal 5. Free parking and great food.',
+    title: 'The Anchor - Real British Pub Near Terminal 5 Hotels',
+    description: 'Escape hotel dining! Authentic local pub 7 mins from Sofitel & Hilton T5. Free parking.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - 7 Minutes from Heathrow Terminal 5',
-    description: 'The closest traditional British pub to Terminal 5. Free parking and great food.',
+    title: 'The Anchor - Real British Pub Near Terminal 5 Hotels',
+    description: 'Escape hotel dining! Authentic local pub 7 mins from Sofitel & Hilton T5. Free parking.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
   })
 }
@@ -305,6 +305,141 @@ export default function Terminal5Page() {
         </div>
       </section>
 
+      {/* Hotel Guest Section */}
+      <section className="section-spacing bg-anchor-cream">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeader
+              title="Staying at a Terminal 5 Hotel?"
+              subtitle="Escape the hotel restaurant for an authentic British pub experience"
+              align="center"
+            />
+            
+            <div className="mb-12">
+              <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto">
+                If you're staying at the Sofitel, Hilton Garden Inn, or any T5 hotel, 
+                The Anchor offers the perfect escape from generic hotel dining. 
+                Experience a real British family pub where locals have gathered for over 250 years.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-white rounded-2xl p-8 shadow-sm">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">
+                  🏨 Sofitel Terminal 5 Guests
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Just 8 minutes from your luxury hotel, The Anchor offers a genuine
+                  alternative to hotel dining with traditional British pub fare.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-6">
+                  <li className="flex gap-2">
+                    <span className="text-anchor-gold">✓</span>
+                    <span>Half the price of hotel dining</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-anchor-gold">✓</span>
+                    <span>Authentic British atmosphere</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-anchor-gold">✓</span>
+                    <span>Meet real locals, not just travelers</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-anchor-gold">✓</span>
+                    <span>Traditional ales & home-cooked food</span>
+                  </li>
+                </ul>
+                <p className="text-sm text-gray-600 italic">
+                  Ask about our special offers for hotel guests
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 shadow-sm">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">
+                  🏨 Hilton T5 Guests
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Why settle for another chain restaurant meal? Your Hilton is just 
+                  7 minutes from genuine British hospitality.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-6">
+                  <li className="flex gap-2">
+                    <span className="text-anchor-gold">✓</span>
+                    <span>Real cask ales, not just lagers</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-anchor-gold">✓</span>
+                    <span>Stone-baked pizzas from £12</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-anchor-gold">✓</span>
+                    <span>Sunday roasts that locals queue for</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-anchor-gold">✓</span>
+                    <span>Garden terrace for sunny days</span>
+                  </li>
+                </ul>
+                <p className="text-sm text-gray-600 italic">
+                  Perfect for business travelers looking for local atmosphere
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm mb-8">
+              <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
+                🚕 Getting Here from Your Hotel
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <p className="font-semibold mb-2">By Taxi</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">£12-15</p>
+                  <p className="text-sm text-gray-600">5-8 minutes</p>
+                  <p className="text-sm text-gray-600 mt-2">Ask for "The Anchor, Stanwell Moor"</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold mb-2">By Uber</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">£10-13</p>
+                  <p className="text-sm text-gray-600">5-8 minutes</p>
+                  <p className="text-sm text-gray-600 mt-2">Postcode: TW19 6AQ</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold mb-2">Walking</p>
+                  <p className="text-3xl font-bold text-anchor-gold mb-2">25-30 min</p>
+                  <p className="text-sm text-gray-600">Pleasant route</p>
+                  <p className="text-sm text-gray-600 mt-2">Via Stanwell Moor Road</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-anchor-green text-white rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Experience Real British Pub Culture
+              </h3>
+              <p className="text-lg mb-6 max-w-2xl mx-auto">
+                The Anchor has been serving locals and travelers for over 250 years. 
+                Step away from the international hotel scene and discover authentic 
+                British hospitality, traditional ales, and home-cooked food in a 
+                genuine village pub atmosphere.
+              </p>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-gray-700 mb-6">
+                Join the savvy travelers who've discovered there's more to Heathrow 
+                dining than airport chains and hotel restaurants.
+              </p>
+              <Link href="tel:01753682707">
+                <Button variant="primary" size="lg">
+                  📞 Reserve Your Table: 01753 682707
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
         faqs={[
@@ -331,6 +466,18 @@ export default function Terminal5Page() {
           {
             question: "Can I store luggage at The Anchor between flights?",
             answer: "We can store luggage for short periods for customers who are dining with us. Perfect if you have a long layover or are between flights. Just ask our staff."
+          },
+          {
+            question: "Do you welcome guests from nearby hotels?",
+            answer: "Absolutely! We're popular with guests from the Sofitel, Hilton, and other Terminal 5 hotels. Many hotel guests visit us to experience authentic British pub culture and enjoy traditional food at more reasonable prices than hotel restaurants."
+          },
+          {
+            question: "How do I get to The Anchor from my Terminal 5 hotel?",
+            answer: "From Sofitel or Hilton T5, it's just £12-15 by taxi (5-8 minutes). Tell the driver 'The Anchor pub, Stanwell Moor'. Uber costs about £10-13. For the adventurous, it's a pleasant 25-30 minute walk via Stanwell Moor Road."
+          },
+          {
+            question: "Why should I leave my hotel to eat at The Anchor?",
+            answer: "Hotel restaurants serve the same international menu worldwide. At The Anchor, you'll experience genuine British hospitality, meet locals, enjoy traditional ales, and pay half what you'd spend at your hotel. This is the authentic Britain you came to see!"
           }
         ]}
         className="bg-gray-50"
@@ -438,44 +585,6 @@ export default function Terminal5Page() {
                   "name": "Arrive at The Anchor",
                   "text": "The Anchor is 200m on your right with free parking",
                   "position": 5
-                }
-              ]
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "How far is The Anchor from Heathrow Terminal 5?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "The Anchor is just 7 minutes (2.8 miles) from Terminal 5, making it the closest traditional British pub to T5. It's a straight drive via the A3044."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Is there parking at The Anchor near Terminal 5?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes! We offer free parking for all customers. This is perfect for meeting arriving passengers or enjoying a meal before your flight without paying expensive airport parking fees."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Can I get a taxi from Terminal 5 to The Anchor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, taxis are readily available from Terminal 5. The journey costs around £25 and takes about 7 minutes. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor, TW19 6AQ'. Alternatively, the 442 bus stops directly outside the pub for much less."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What time should I leave The Anchor to catch my flight from T5?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Allow 15 minutes to drive from The Anchor to Terminal 5, plus parking time if needed. For short-haul flights, leave 2.5 hours before departure. For long-haul, leave 3.5 hours before."
-                  }
                 }
               ]
             }
