@@ -62,16 +62,8 @@ export function generateBreadcrumbSchema(items: Array<{name: string, url: string
   }
 }
 
-// Aggregate Rating Schema (can be added to LocalBusiness)
-export const aggregateRatingSchema = {
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.6",
-    "reviewCount": "312",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
-}
+// Note: aggregateRating should always be added directly to a parent schema (LocalBusiness, Product, Service, etc.)
+// Never use aggregateRating as a standalone schema
 
 // Drinks Menu Schema
 export const drinksMenuSchema = {
@@ -232,26 +224,8 @@ export const speakableSchema = {
   }
 }
 
-// Review Schema Examples
-export const sampleReviewSchema = {
-  "@context": "https://schema.org",
-  "@type": "Review",
-  "reviewRating": {
-    "@type": "Rating",
-    "ratingValue": "5",
-    "bestRating": "5"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Sarah M"
-  },
-  "datePublished": "2024-01-15",
-  "reviewBody": "Fantastic local pub! The plane spotting from the beer garden is unique - aircraft pass overhead every 90 seconds. Great food, friendly staff, and free parking makes this so much better than airport restaurants.",
-  "itemReviewed": {
-    "@type": "Restaurant",
-    "name": "The Anchor"
-  }
-}
+// Note: Review schemas should only be used for specific products/services, not the restaurant itself
+// Use aggregateRating on LocalBusiness schema instead for overall restaurant ratings
 
 // Opening Hours with Special Hours
 export const detailedOpeningHoursSchema = {

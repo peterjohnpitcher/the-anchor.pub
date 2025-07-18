@@ -40,7 +40,7 @@ export function Breadcrumbs({
   const textColor = theme === 'dark' ? 'text-white/70' : 'text-gray-600'
   const hoverColor = theme === 'dark' ? 'hover:text-white' : 'hover:text-gray-900'
   const currentColor = theme === 'dark' ? 'text-white' : 'text-gray-900'
-  const iconColor = theme === 'dark' ? 'text-white/50' : 'text-gray-400'
+  const iconColor = theme === 'dark' ? 'text-white/50' : 'text-gray-600'
 
   return (
     <>
@@ -79,7 +79,7 @@ export function Breadcrumbs({
                   <Link
                     href={item.href}
                     className={cn(
-                      'transition-colors',
+                      'transition-colours',
                       textColor,
                       hoverColor
                     )}

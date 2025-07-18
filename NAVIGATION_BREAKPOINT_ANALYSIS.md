@@ -11,7 +11,7 @@ The navigation has too many items ("What's On", "Food", "Drinks", "Events", "Blo
 ### 2. **Complex Breakpoint Logic**
 Line 256 has confusing conditional logic:
 ```tsx
-className={cn('hidden items-center space-x-8', 
+className={cn('hidden items-centre space-x-8', 
   breakpointClass === 'md:hidden' ? 'md:flex' : 
   breakpointClass === 'lg:hidden' ? 'lg:flex' : 'sm:flex'
 )}
@@ -74,7 +74,7 @@ const overflowItems = ['Blog', 'Find Us', 'Near Heathrow'];
 // Update line 256 to be clearer
 <div className={cn(
   'hidden',
-  'md:flex md:items-center md:space-x-4 lg:space-x-8'
+  'md:flex md:items-centre md:space-x-4 lg:space-x-8'
 )}>
 
 // Reduce spacing between items on tablet
@@ -112,7 +112,7 @@ const overflowItems = ['Blog', 'Find Us', 'Near Heathrow'];
 ```tsx
 // Dynamic font sizing for nav items
 className={cn(
-  'font-medium transition-colors',
+  'font-medium transition-colours',
   'text-sm md:text-sm lg:text-base', // Responsive text
   mergedTheme.text,
   mergedTheme.hoverText
@@ -131,7 +131,7 @@ Test these specific widths:
 
 1. **Immediate**: Reduce navigation items or implement priority+ pattern
 2. **Short-term**: Clean up breakpoint logic and add tablet-specific styles
-3. **Long-term**: Consider mega-menu for desktop to better organize content
+3. **Long-term**: Consider mega-menu for desktop to better organise content
 
 ## Alternative: Hamburger Menu Earlier
 

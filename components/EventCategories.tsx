@@ -9,7 +9,7 @@ export async function EventCategories() {
       return (
         <div className="text-center py-12">
           <p className="text-gray-600 text-lg">No event categories available at the moment.</p>
-          <p className="text-gray-500 text-sm mt-2">Please check back later or view all our events.</p>
+          <p className="text-gray-700 text-sm mt-2">Please check back later or view all our events.</p>
         </div>
       )
     }

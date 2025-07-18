@@ -65,13 +65,13 @@ The British tradition of eating pancakes on Shrove Tuesday comes from the need t
 
 ## Why Do They Call It Shrove Tuesday?
 
-Shrove Tuesday gets its name from the old English word "shrive," meaning to confess one's sins. Historically, it was a day for confession and penance before the start of Lent, a period of fasting and self-reflection. The tradition of eating pancakes blended with this religious practice, making Shrove Tuesday a day of indulgence and repentance.
+Shrove Tuesday gets its name from the old English word "shrive," meaning to confess one's sins. Historically, it was a day for confession and penance before the start of Lent, a period of fasting and self-reflection. The tradition of eating pancakes blended with this religious practise, making Shrove Tuesday a day of indulgence and repentance.
 
   
 
 ## What Does the Bible Say About Shrove Tuesday?
 
-Interestingly, Shrove Tuesday itself isn't mentioned in the Bible. The day is more of a traditional Christian practice, marking the day before Ash Wednesday and the start of Lent. Lent's period of 40 days represents Jesus Christ's time in the wilderness, and it's a time for Christians to reflect, repent, and prepare for Easter.
+Interestingly, Shrove Tuesday itself isn't mentioned in the Bible. The day is more of a traditional Christian practise, marking the day before Ash Wednesday and the start of Lent. Lent's period of 40 days represents Jesus Christ's time in the wilderness, and it's a time for Christians to reflect, repent, and prepare for Easter.
 
   
 
@@ -89,7 +89,7 @@ Pancake Day, or Shrove Tuesday, isn't directly about Jesus, but it is connected 
 
 ## Why is it Called Ash Wednesday?
 
-Ash Wednesday is so named for the practice of placing ashes on the foreheads of faithful Christians. These ashes, traditionally made by burning the palm fronds from the previous year's Palm Sunday, are a symbol of repentance and a reminder of human mortality. It marks the beginning of Lent, a time of fasting and prayer in the Christian faith.
+Ash Wednesday is so named for the practise of placing ashes on the foreheads of faithful Christians. These ashes, traditionally made by burning the palm fronds from the previous year's Palm Sunday, are a symbol of repentance and a reminder of human mortality. It marks the beginning of Lent, a time of fasting and prayer in the Christian faith.
 
   
 
@@ -116,7 +116,7 @@ Don't miss out on our annual Pancake Day festivities at The Anchor! Come in for 
 
 ### Visit The Anchor for Pancake Day Near Terminal 5
 
-📅 **When**: Every Shrove Tuesday (check dates annually)
+📅 **When**: Every Shrove Tuesday (cheque dates annually)
 ⏰ **Offer Time**: 6pm - 9pm
 🥞 **Deal**: Free pancakes with any main meal
 📍 **Location**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ

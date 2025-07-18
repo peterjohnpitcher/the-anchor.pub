@@ -80,7 +80,7 @@ Activities like cuddling or playing with a pet stimulate these positive neurolog
 
 ## Simplifying Pet Health Management
 
-For busy professionals near **Terminal 5**, keeping track of pet health records is essential. Digital organization makes management easier:
+For busy professionals near **Terminal 5**, keeping track of pet health records is essential. Digital organisation makes management easier:
 
 **Digital Health Tips:**
 - Convert vet records to PDF format

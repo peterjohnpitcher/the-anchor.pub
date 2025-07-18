@@ -40,7 +40,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
               <div className="flex-shrink-0 text-right">
                 <p className="text-lg sm:text-xl font-bold text-white">{startTime}</p>
                 {formatDoorTime(event.doorTime) && (
-                  <p className="text-xs opacity-75 text-white/75">{formatDoorTime(event.doorTime)}</p>
+                  <p className="text-sm sm:text-xs opacity-75 text-white/75">{formatDoorTime(event.doorTime)}</p>
                 )}
               </div>
             </div>
@@ -54,7 +54,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                 <div className="relative w-20 h-20 rounded-lg overflow-hidden">
                   <Image
                     src={eventImage}
-                    alt={event.name}
+                    alt={`${event.name} event promotional image - ${event.category?.name || 'entertainment'} at The Anchor pub`}
                     fill
                     className="object-contain"
                     sizes="80px"
@@ -65,12 +65,12 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
               
               {/* Mobile Content */}
               <div className="flex-1 min-w-0">
-                <p className="text-sm text-gray-600 line-clamp-2 mb-2">
+                <p className="text-sm text-gray-700 line-clamp-2 mb-2">
                   {getEventShortDescription(event)}
                 </p>
                 
                 {/* Mobile Meta Info */}
-                <div className="flex flex-wrap items-center gap-2 text-xs mb-3">
+                <div className="flex flex-wrap items-center gap-2 text-sm sm:text-xs mb-3">
                   {event.offers && (
                     <span className={event.offers.price === "0" ? "text-green-600 font-semibold" : "text-anchor-gold font-semibold"}>
                       {event.offers.price === "0" ? "FREE" : formatPrice(event.offers.price, event.offers.priceCurrency)}
@@ -98,8 +98,8 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                   href={`/events/${event.slug || event.id}`}
                   className="inline-flex items-center text-anchor-gold font-semibold text-sm"
                 >
-                  View Details
-                  <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  View {event.name} Details
+                  <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
@@ -115,7 +115,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                 <div className="relative w-32 h-32 rounded-lg overflow-hidden">
                   <Image
                     src={eventImage}
-                    alt={event.name}
+                    alt={`${event.name} event promotional image - ${event.category?.name || 'entertainment'} at The Anchor pub`}
                     fill
                     className="object-contain hover:scale-105 transition-transform duration-300"
                     sizes="128px"
@@ -133,7 +133,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                 {event.highlights && event.highlights.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-3">
                     {event.highlights.slice(0, 3).map((highlight, idx) => (
-                      <span key={idx} className="text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-600">
+                      <span key={idx} className="text-sm sm:text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-700">
                         {highlight}
                       </span>
                     ))}
@@ -151,13 +151,13 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                   <EventAvailability eventId={event.id} />
                   
                   {event.performer && (
-                    <span className="text-gray-600">
+                    <span className="text-gray-700">
                       Featuring: {event.performer.name}
                     </span>
                   )}
                   
                   {event.duration && (
-                    <span className="text-gray-500 text-xs">
+                    <span className="text-gray-700 text-sm sm:text-xs">
                       Duration: {event.duration.replace('PT', '').replace('H', 'h ').replace('M', 'm')}
                     </span>
                   )}
@@ -167,7 +167,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                   <div className="flex items-center gap-3">
                     {event.category && (
                       <span 
-                        className="inline-block px-3 py-1 text-xs font-semibold rounded-full"
+                        className="inline-block px-3 py-1 text-sm sm:text-xs font-semibold rounded-full"
                         style={{
                           backgroundColor: `${event.category.color}20`,
                           color: event.category.color
@@ -179,7 +179,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                     )}
                     
                     {event.video && event.video.length > 0 && (
-                      <span className="text-xs text-gray-500">
+                      <span className="text-sm sm:text-xs text-gray-700">
                         📹 Video available
                       </span>
                     )}
@@ -189,8 +189,8 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                     href={`/events/${event.slug || event.id}`}
                     className="inline-flex items-center text-anchor-gold hover:text-anchor-gold-light font-semibold text-sm"
                   >
-                    View Details & Book
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    View {event.name} Details & Book
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
@@ -304,13 +304,13 @@ export function FilteredUpcomingEventsClient({ events, categorySlug }: FilteredU
   if (events.length === 0) {
     return (
       <div className="text-center py-12 bg-gray-50 rounded-2xl">
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-700 text-lg">
           {categorySlug 
             ? `No upcoming events in this category at the moment.`
             : `No upcoming events scheduled at the moment.`
           }
         </p>
-        <p className="text-gray-600 mt-2">Check back soon or follow us on social media for updates!</p>
+        <p className="text-gray-700 mt-2">Check back soon or follow us on social media for updates!</p>
       </div>
     )
   }

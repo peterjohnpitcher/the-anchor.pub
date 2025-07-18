@@ -37,7 +37,7 @@ export function ScrollDepthTracker({
       })
     }
 
-    // Check initial scroll position
+    // Cheque initial scroll position
     handleScroll()
 
     // Add scroll listener with throttling

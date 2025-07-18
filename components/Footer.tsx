@@ -163,10 +163,11 @@ export function Footer({
             {businessInfo.logo && (
               <Image
                 src={businessInfo.logo}
-                alt={`${businessInfo.name} logo`}
+                alt="The Anchor pub logo - white anchor symbol with traditional pub lettering on dark background"
                 width={180}
                 height={72}
                 className="h-16 w-auto mb-4"
+                sizes="180px"
               />
             )}
             <p className={cn(mergedTheme.text, 'leading-relaxed')}>
@@ -261,16 +262,16 @@ export function Footer({
         
         {/* Copyright */}
         {copyright && (
-          <div className={cn('border-t pt-8 text-center text-gray-300', mergedTheme.borderColor)}>
+          <div className={cn('border-t pt-8 text-center text-gray-600', mergedTheme.borderColor)}>
             <p>
               &copy; {copyright.year} {copyright.text}
             </p>
             {copyright.subtext && (
-              <p className="mt-2 text-sm text-gray-400">
+              <p className="mt-2 text-sm text-gray-600">
                 {copyright.subtext}
               </p>
             )}
-            <p className="mt-3 text-sm text-gray-300">
+            <p className="mt-3 text-sm text-gray-600">
               Serving Stanwell Moor, Staines, Ashford, Feltham, Bedfont, and surrounding Surrey areas
             </p>
           </div>

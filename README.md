@@ -1,17 +1,17 @@
 # The Anchor Website
 
-A modern, SEO-optimized website for The Anchor pub in Stanwell Moor, featuring event management, menu displays, and location-based marketing for Heathrow travelers.
+A modern, SEO-optimised website for The Anchor pub in Stanwell Moor, featuring event management, menu displays, and location-based marketing for Heathrow travelers.
 
 ## Features
 
-- 🎯 **Local SEO Optimized** - Targeting "near me" searches and Heathrow traffic
+- 🎯 **Local SEO Optimised** - Targeting "near me" searches and Heathrow traffic
 - 📱 **Mobile-First Design** - Responsive and fast on all devices
 - 🎭 **Event Management** - Live event updates via API integration with SMS booking
 - 🍽️ **Dynamic Menus** - Food and drinks menus with pricing
 - ✈️ **Heathrow Landing Pages** - Terminal-specific pages for travelers
 - 📝 **Blog System** - Markdown-based blog for news, offers, and updates
 - ♿ **Accessible** - WCAG compliant with family-friendly design
-- 🚀 **Performance** - Optimized images, lazy loading, and caching
+- 🚀 **Performance** - Optimised images, lazy loading, and caching
 
 ## Tech Stack
 
@@ -71,13 +71,13 @@ website/
 │   ├── api.ts            # API client
 │   └── schema.ts         # Schema.org definitions
 ├── public/               # Static assets
-│   └── images/           # Optimized images
+│   └── images/           # Optimised images
 └── ...
 ```
 
 ## Key Pages
 
-- **Homepage** (`/`) - Local SEO optimized landing
+- **Homepage** (`/`) - Local SEO optimised landing
 - **Food Menu** (`/food-menu`) - Complete menu with prices
 - **Drinks** (`/drinks`) - Bar menu and cocktail collection
 - **Sunday Lunch** (`/sunday-lunch`) - Dedicated Sunday roast page
@@ -93,7 +93,7 @@ npm run dev      # Start development server
 npm run build    # Build for production
 npm run start    # Start production server
 npm run lint     # Run ESLint
-npm run type     # Type check with TypeScript
+npm run type     # Type cheque with TypeScript
 ```
 
 ### API Integration
@@ -153,15 +153,15 @@ The website includes a blog system for news, updates, and promotional content.
 - Schema.org markup (LocalBusiness, Restaurant, Event)
 - Meta tags and Open Graph
 - Terminal-specific landing pages
-- Local business optimization
+- Local business optimisation
 
 ## Performance
 
-- Next.js Image optimization
+- Next.js Image optimisation
 - Lazy loading components
 - API response caching (5 minutes)
 - Static page generation where possible
-- Optimized fonts and CSS
+- Optimised fonts and CSS
 
 ## Deployment
 
@@ -172,16 +172,16 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 1. Create a feature branch
 2. Make your changes
 3. Test on mobile and desktop
-4. Run linting and type checks
+4. Run linting and type cheques
 5. Submit a pull request
 
 ## Support
 
 For issues or questions:
-- Technical: Check deployment logs
+- Technical: Cheque deployment logs
 - Content: Use the management API
 - Design: Follow brand guidelines
 
-## License
+## Licence
 
 © 2024 The Anchor. All rights reserved.

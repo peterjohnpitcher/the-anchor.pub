@@ -37,7 +37,7 @@ const defaultTheme = {
   background: 'bg-white',
   text: 'text-gray-900',
   tempColor: 'text-anchor-green',
-  labelColor: 'text-gray-600'
+  labelColor: 'text-gray-700'
 }
 
 export function Weather({ 
@@ -118,7 +118,7 @@ export function Weather({
         }))
       } catch (err) {
         // Error: Failed to fetch weather
-        setError('Unable to load weather')
+        setError("We couldn't get the current weather. Don't worry, we're still open during our regular hours!")
       } finally {
         setLoading(false)
       }
@@ -178,21 +178,29 @@ export function Weather({
   // Compact variant - for header
   if (variant === 'compact') {
     return (
-      <div className={cn('flex items-center gap-2 text-sm', className)}>
-        <Image 
-          src={`https://openweathermap.org/img/wn/${weather.icon}.png`}
-          alt={weather.description}
-          width={32}
-          height={32}
-          className="w-8 h-8"
-        />
-        <span className={cn('font-medium', mergedTheme.text)}>
-          {formatTemp(weather.temp)}
-        </span>
-        <span className={cn('opacity-90 hidden sm:inline capitalize', mergedTheme.text)}>
-          {weather.description}
-        </span>
-      </div>
+      <>
+        <div className={cn('flex items-center gap-2 text-sm', className)}>
+          <Image 
+            src={`https://openweathermap.org/img/wn/${weather.icon}.png`}
+            alt={weather.description}
+            width={32}
+            height={32}
+            className="w-8 h-8"
+            sizes="32px"
+            loading="lazy"
+          />
+          <span className={cn('font-medium', mergedTheme.text)}>
+            {formatTemp(weather.temp)}
+          </span>
+          <span className={cn('opacity-90 hidden sm:inline capitalize', mergedTheme.text)}>
+            {weather.description}
+          </span>
+        </div>
+        {/* Screen reader announcement for weather updates */}
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          Current weather: {weather.description}, {formatTemp(weather.temp)}
+        </div>
+      </>
     )
   }
 
@@ -215,6 +223,8 @@ export function Weather({
           width={64}
           height={64}
           className="w-16 h-16"
+          sizes="64px"
+          loading="lazy"
         />
         
         <div className="flex-1">
@@ -237,6 +247,13 @@ export function Weather({
             <div>Wind: {weather.wind_speed} km/h</div>
           )}
         </div>
+      </div>
+      {/* Screen reader announcement for weather updates */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        Weather update for {location}: {weather.description}, {formatTemp(weather.temp)}
+        {showFeelsLike && `, feels like ${formatTemp(weather.feels_like)}`}
+        {showHumidity && `, humidity ${weather.humidity}%`}
+        {showWind && `, wind ${weather.wind_speed} km/h`}
       </div>
     </div>
   )

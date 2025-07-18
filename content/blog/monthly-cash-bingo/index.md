@@ -227,7 +227,7 @@ A: Booking recommended but not essential
 A: Yes, but you won't qualify for the £50 jackpot
 
 **Q: What forms of ID are accepted?**
-A: Passport, driving license, or proof of age card
+A: Passport, driving licence, or proof of age card
 
 **Q: Can I bring my own dauber?**
 A: Yes, or buy one from us

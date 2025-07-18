@@ -37,7 +37,7 @@ images: []
 
 ## Exciting 2025 Events and Offers Near Heathrow Airport
 
-At **The Anchor** pub in **Stanwell Moor**, just **7 minutes from Heathrow Terminal 5**, we're thrilled to unveil our exciting lineup of events and offers for 2025! Located conveniently for **Heathrow workers** and **Staines residents**, our traditional pub has listened to your feedback and created an incredible program of entertainment, dining specials, and community events. Here's what's coming to your favorite **local pub near the airport**.
+At **The Anchor** pub in **Stanwell Moor**, just **7 minutes from Heathrow Terminal 5**, we're thrilled to unveil our exciting lineup of events and offers for 2025! Located conveniently for **Heathrow workers** and **Staines residents**, our traditional pub has listened to your feedback and created an incredible programme of entertainment, dining specials, and community events. Here's what's coming to your favourite **local pub near the airport**.
 
   
 

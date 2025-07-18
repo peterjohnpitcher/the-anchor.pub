@@ -61,7 +61,7 @@ These small acts can make a big difference in someone's day, especially in our b
 
 ## The Anchor's Commitment to a Kinder World
 
-Here at **The Anchor pub near Terminal 5**, our doors are always open to everyone – families, travellers, airport staff, and our four-legged friends. We take pride in creating a space where kindness is not just an occasional gesture but a consistent practice. Our friendly staff are always ready with a warm welcome, ensuring that every visitor feels part of our village community.
+Here at **The Anchor pub near Terminal 5**, our doors are always open to everyone – families, travellers, airport staff, and our four-legged friends. We take pride in creating a space where kindness is not just an occasional gesture but a consistent practise. Our friendly staff are always ready with a warm welcome, ensuring that every visitor feels part of our village community.
 
 **What Makes Us Special:**
 - Dog-friendly environment for pet owners

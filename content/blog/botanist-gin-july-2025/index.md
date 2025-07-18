@@ -33,7 +33,7 @@ hero: hero.jpg
 images: []
 ---
 
-![July 2025 Manager's Special promo for "The Botanist" gin. Bottle surrounded by colorful flowers. Text: "Indulge in the botanicals."](/content/blog/botanist-gin-july-2025/hero.jpg)
+![July 2025 Manager's Special promo for "The Botanist" gin. Bottle surrounded by colourful flowers. Text: "Indulge in the botanicals."](/content/blog/botanist-gin-july-2025/hero.jpg)
 
 ## Premium Gin Offers Near Heathrow Airport
 

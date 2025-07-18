@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, KeyboardEvent, useCallback, useMemo } from
 import { useSearchParams, useRouter } from 'next/navigation'
 import { getEventCategories, type EventCategory } from '@/lib/api'
 import { analytics } from '@/lib/analytics'
+import { LoadingState } from '@/components/ui/LoadingState'
 
 // Cache key for localStorage
 const CATEGORIES_CACHE_KEY = 'anchor-event-categories'
@@ -169,11 +170,14 @@ export function CategoryFilter() {
 
   if (loading) {
     return (
-      <div className="flex justify-center gap-2 mb-8 overflow-x-auto">
-        <div className="h-10 w-24 bg-gray-200 rounded-full animate-pulse flex-shrink-0"></div>
-        <div className="h-10 w-32 bg-gray-200 rounded-full animate-pulse flex-shrink-0"></div>
-        <div className="h-10 w-28 bg-gray-200 rounded-full animate-pulse flex-shrink-0"></div>
-      </div>
+      <>
+        <div className="flex justify-center gap-2 mb-8 overflow-x-auto">
+          <LoadingState variant="skeleton" className="h-10 w-96" />
+        </div>
+        <div className="sr-only" aria-live="polite">
+          Loading event categories...
+        </div>
+      </>
     )
   }
 
@@ -248,6 +252,14 @@ export function CategoryFilter() {
             />
           ))}
         </div>
+      </div>
+      
+      {/* Screen reader announcement for filter changes */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {currentCategory 
+          ? `Filtering by ${activeCategories.find(cat => cat.slug === currentCategory)?.name || currentCategory} category`
+          : 'Showing all event categories'
+        }
       </div>
     </div>
   )

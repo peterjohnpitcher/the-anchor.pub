@@ -34,7 +34,7 @@ export function PageHeader({
           priority
           sizes="100vw"
           style={{
-            objectPosition: '50% 50%' // Center both horizontally and vertically
+            objectPosition: '50% 50%' // Centre both horizontally and vertically
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />

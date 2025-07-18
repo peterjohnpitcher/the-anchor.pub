@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { getAllBlogPosts } from '@/lib/markdown'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'All Blog Topics | The Anchor Stanwell Moor',
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
     description: 'Explore all blog categories and topics',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'All Blog Topics - The Anchor',
+    description: 'Explore all blog categories and topics',
+    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+  })
 }
 
 // Tag display names and descriptions
@@ -152,13 +158,13 @@ export default async function AllTagsPage() {
                           href={`/blog/tag/${tag}`}
                           className="group bg-gray-50 rounded-lg p-4 hover:shadow-md transition-all hover:scale-105"
                         >
-                          <h3 className="font-semibold text-anchor-green group-hover:text-anchor-gold transition-colors mb-1">
+                          <h3 className="font-semibold text-anchor-green group-hover:text-anchor-gold transition-colours mb-1">
                             {info.name}
                           </h3>
                           <p className="text-sm text-gray-600 mb-2 line-clamp-2">
                             {info.description}
                           </p>
-                          <span className="text-xs bg-white px-2 py-1 rounded-full text-gray-500">
+                          <span className="text-sm sm:text-xs bg-white px-2 py-1 rounded-full text-gray-700">
                             {count} {count === 1 ? 'post' : 'posts'}
                           </span>
                         </Link>
@@ -182,20 +188,16 @@ export default async function AllTagsPage() {
             Don't miss our latest stories, events, and special offers
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="/blog"
-              variant="white"
-              size="lg"
-            >
-              Back to Blog
-            </CallToAction>
-            <CallToAction 
-              href="/whats-on"
-              variant="white"
-              size="lg"
-            >
-              Upcoming Events
-            </CallToAction>
+            <Link href="/blog">
+              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+                Back to Blog
+              </Button>
+            </Link>
+            <Link href="/whats-on">
+              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+                Upcoming Events
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

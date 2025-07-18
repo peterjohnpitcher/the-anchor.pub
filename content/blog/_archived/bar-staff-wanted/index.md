@@ -50,7 +50,7 @@ We are looking for enthusiastic bar staff to provide an excellent guest drinking
     
 *   Mix ingredients to prepare cocktails.
     
-*   Check customers’ identification and confirm it meets legal drinking age.
+*   Cheque customers’ identification and confirm it meets legal drinking age.
     
 *   Restock and replenish bar inventory and supplies.
     

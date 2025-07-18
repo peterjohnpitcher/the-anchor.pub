@@ -106,7 +106,7 @@ Food plays a key role in Day of the Dead celebrations. Our kitchen prepares spec
 - **Pan de muerto** (sweet bread) available to order
 - **Mexican-spiced dishes** added to our regular menu
 - **Traditional British-Mexican fusion** options
-- **Colorful desserts** inspired by sugar skulls
+- **Colourful desserts** inspired by sugar skulls
 
   
 
@@ -149,7 +149,7 @@ While many cultures mourn the dead with sombre rituals, Mexico's Day of the Dead
 - **Authentic atmosphere** - Traditional decorations and customs
 - **Premium tequila selection** - Not available at airport bars
 - **Educational experience** - Learn about Mexican culture
-- **Community ofrenda** - Honor loved ones together
+- **Community ofrenda** - Honour loved ones together
 - **Convenient location** - Easy access from Heathrow and Staines
 - **Free parking** - No airport parking fees
 

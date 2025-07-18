@@ -52,7 +52,7 @@ export function Gallery({
     if (onImageClick) {
       onImageClick(image, index)
     } else {
-      // Default lightbox behavior
+      // Default lightbox behaviour
       setLightboxImage(image)
       setLightboxIndex(index)
     }
@@ -158,13 +158,14 @@ export function Gallery({
                     fill
                     sizes={`(max-width: 768px) 100vw, (max-width: 1200px) ${100/columns}vw, ${1200/columns}px`}
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading={index < 4 ? "eager" : "lazy"}
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colours duration-300" />
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-white/90 backdrop-blur-sm rounded-full p-3">
-                      <svg className="w-6 h-6 text-anchor-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 text-anchor-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                       </svg>
                     </div>
@@ -203,10 +204,10 @@ export function Gallery({
         >
           <button
             onClick={handleLightboxClose}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            className="absolute top-4 right-4 text-white hover:text-gray-600 transition-colours p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Close lightbox"
           >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -216,10 +217,10 @@ export function Gallery({
               e.stopPropagation()
               handleLightboxNavigation('prev')
             }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-600 transition-colours p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Previous image"
           >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
@@ -229,10 +230,10 @@ export function Gallery({
               e.stopPropagation()
               handleLightboxNavigation('next')
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-600 transition-colors p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Next image"
           >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -247,7 +248,7 @@ export function Gallery({
               width={lightboxImage.width || 1200}
               height={lightboxImage.height || 800}
               className="max-w-full max-h-[90vh] w-auto h-auto object-contain"
-              priority
+              loading="eager"
             />
             
             {lightboxImage.caption && (

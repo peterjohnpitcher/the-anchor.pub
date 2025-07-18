@@ -68,7 +68,7 @@ Your blog content goes here in Markdown format...
 - **date** (string): Publication date in YYYY-MM-DD format
 - **author** (string): Name of the post author
 - **keywords** (array): SEO keywords related to the post
-- **tags** (array): Categories/tags for organizing posts
+- **tags** (array): Categories/tags for organising posts
 - **hero** (string): Filename of the main hero image
 
 ### Optional Fields
@@ -120,7 +120,7 @@ Use standard Markdown syntax:
 
 ### Best Practices
 
-1. **SEO Optimization**:
+1. **SEO Optimisation**:
    - Use descriptive titles (50-60 characters)
    - Write compelling descriptions (120-160 characters)
    - Include relevant keywords naturally in the content

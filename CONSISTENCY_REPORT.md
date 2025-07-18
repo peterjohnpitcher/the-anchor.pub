@@ -203,7 +203,7 @@ No consistent error states for:
 7. **Automated Testing**
    - Add tests for consistent data display
    - Validate schema markup
-   - Check for broken links and missing images
+   - Cheque for broken links and missing images
 
 ## Conclusion
 

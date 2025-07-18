@@ -98,7 +98,7 @@ Our **pub events near Heathrow Airport** attract:
 - **Stag/hen parties** - Fun without the late night
 - **Social clubs** - Regular group bookings
 - **Charity fundraisers** - Support your cause
-- **Local community** - Meet your neighbors
+- **Local community** - Meet your neighbours
 
 ## Supporting Great Causes
 
@@ -154,7 +154,7 @@ Through our race nights, The Anchor has supported:
 **Betting Strategy:**
 - Spread bets across multiple races
 - Consider horse names you like
-- Check previous form guides
+- Cheque previous form guides
 - Pool bets with friends
 - Remember it's for charity!
 
@@ -170,12 +170,12 @@ Through our race nights, The Anchor has supported:
 ### Save These Dates
 
 Race nights typically held:
-- **Quarterly events** - Check our calendar
+- **Quarterly events** - Cheque our calendar
 - **Friday evenings** - 7pm start
 - **Special charity events** - Throughout year
 - **Private race nights** - Book your own
 
-📅 **Next Race Night**: Check our events page or ask at the bar
+📅 **Next Race Night**: Cheque our events page or ask at the bar
 
 ## Book Your Race Night Experience
 

@@ -7,6 +7,7 @@ import { DebouncedInput } from './DebouncedInput'
 import { analytics } from '@/lib/analytics'
 import { EventBookingErrorBoundary } from './EventBookingErrorBoundary'
 import { trackEventBookingStart, trackFormStart } from '@/lib/gtm-events'
+import { CONTACT_INFO } from '@/lib/error-handling'
 
 interface EventBookingProps {
   event: Event
@@ -128,7 +129,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         // Track successful booking
         analytics.formSubmit('booking', event.name, 1)
       } else {
-        const errorMsg = 'Unable to initiate booking. Please try again or call us.'
+        const errorMsg = `We couldn't process your booking online. Please call us at ${CONTACT_INFO.phone} and we'll reserve your spot right away.`
         setError(errorMsg)
         setStatusMessage(errorMsg)
         
@@ -141,11 +142,11 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       // Check for specific error messages
       let errorMsg: string
       if (err?.message?.includes('temporarily unavailable') || err?.status === 503) {
-        errorMsg = 'The booking system is temporarily unavailable. Please try again later or call us at 01753 682707.'
+        errorMsg = `The booking system is temporarily unavailable. Please try again later or call us at ${CONTACT_INFO.phone}.`
       } else if (err?.message?.includes('API key')) {
-        errorMsg = 'There is a configuration issue. Please call us at 01753 682707 to book.'
+        errorMsg = `There is a configuration issue. Please call us at ${CONTACT_INFO.phone} to book.`
       } else {
-        errorMsg = 'Unable to process your booking. Please try again or call us at 01753 682707.'
+        errorMsg = `We couldn't process your booking online. Please call us at ${CONTACT_INFO.phone} and we'll reserve your spot right away.`
       }
       setError(errorMsg)
       setStatusMessage(errorMsg)
@@ -153,7 +154,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       setIsBooking(false)
       abortControllerRef.current = null
     }
-  }, [phoneNumber, validatePhoneNumber, formatPhoneNumber, event.id, event.name])
+  }, [phoneNumber, validatePhoneNumber, formatPhoneNumber, event.id, event.name, event.offers?.price])
 
   // Focus error message when it appears
   useEffect(() => {
@@ -252,7 +253,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
               trackFormStart(`Event Booking - ${event.name}`)
             }}
           />
-          <p id="phone-help" className="text-xs text-gray-500 mt-1">
+          <p id="phone-help" className="text-sm sm:text-xs text-gray-700 mt-1">
             We'll send a confirmation link to this number
           </p>
         </div>
@@ -263,12 +264,11 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
             id="phone-error" 
             className="bg-red-50 border border-red-200 rounded p-3" 
             role="alert"
-            tabIndex={-1}
             aria-live="assertive"
           >
             <p className="text-sm text-red-700">{error}</p>
             {retryCount > 0 && (
-              <p className="text-xs text-red-600 mt-1">
+              <p className="text-sm sm:text-xs text-red-600 mt-1">
                 Failed after {retryCount} retry attempt{retryCount > 1 ? 's' : ''}
               </p>
             )}
@@ -284,7 +284,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         >
           {isBooking ? (
             <span className="flex items-center justify-center">
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>

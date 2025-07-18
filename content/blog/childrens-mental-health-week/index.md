@@ -46,7 +46,7 @@ At **The Anchor**, we understand how important it is for families to spend quali
 
   
 
-This is more than just a meal—it’s a chance to **pause, connect, and check in on the children in our lives**.
+This is more than just a meal—it’s a chance to **pause, connect, and cheque in on the children in our lives**.
 
   
 

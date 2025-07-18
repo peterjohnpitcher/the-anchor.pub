@@ -44,7 +44,7 @@ Our annual Halloween celebration combines spooky fun with vibrant Día de Muerto
 
 ## **Celebrating Day of the Dead Halloween Near Terminal 5**
 
-Our Halloween Party at this **pub near Heathrow** combines spooky Halloween vibes with colorful Día de Muertos traditions. Located conveniently for **airport workers** and **Stanwell Moor families**, we welcome incredible fancy dress costumes ranging from classic ghosts to intricate sugar skull face paint designs.
+Our Halloween Party at this **pub near Heathrow** combines spooky Halloween vibes with colourful Día de Muertos traditions. Located conveniently for **airport workers** and **Stanwell Moor families**, we welcome incredible fancy dress costumes ranging from classic ghosts to intricate sugar skull face paint designs.
 
 The Anchor provides the perfect **Halloween venue near Terminal 5** for:
 - **Young families** from Staines seeking safe Halloween fun
@@ -259,7 +259,7 @@ The Anchor’s Day of the Dead Halloween Party was more than just a celebration;
 
   
 
-As we look forward to more events, we invite everyone to join us at The Anchor. Whether you’re a local looking for a night out with friends, a family wanting a place to gather, or simply someone seeking a lively spot to celebrate, The Anchor is here for you. Check out the photos from the night and see why our events are perfect for bringing people together.
+As we look forward to more events, we invite everyone to join us at The Anchor. Whether you’re a local looking for a night out with friends, a family wanting a place to gather, or simply someone seeking a lively spot to celebrate, The Anchor is here for you. Cheque out the photos from the night and see why our events are perfect for bringing people together.
 
 So, if you’re ready for more nights filled with dancing, good food, and fantastic company, keep an eye out for our next big event. Here at The Anchor, the doors are always open, and the welcome is always warm.
 
@@ -269,14 +269,14 @@ So, if you’re ready for more nights filled with dancing, good food, and fantas
 
 ### Join Our Next Halloween Party Near Heathrow
 
-📅 **When**: Annual Halloween celebration (check for dates)
+📅 **When**: Annual Halloween celebration (cheque for dates)
 📍 **Location**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
 ✈️ **From Heathrow**: Just 7 minutes from all terminals
 🚗 **Parking**: Free on-site parking
 🎵 **Entertainment**: Live DJ from 8pm-1am
 🎭 **Features**: Fancy dress competition with prizes
 🍹 **Bar Specials**: Shot paddles and Halloween cocktails
-🍔 **Food**: Late-night burgers and pub favorites
+🍔 **Food**: Late-night burgers and pub favourites
 📞 **Information**: 01753 682707
 
 ### Why Choose The Anchor for Halloween Near Terminal 5

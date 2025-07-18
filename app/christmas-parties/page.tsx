@@ -1,22 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CONTACT, BRAND } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Christmas Party Venue Near Heathrow | The Anchor Stanwell Moor | Book Now',
-  description: 'Book your 2024/2025 Christmas party at The Anchor. Intimate venue perfect for office parties and family celebrations. Free parking, festive menus, flexible packages. Limited dates available.',
+  description: 'Book your Christmas party at The Anchor. Intimate venue for office parties & family celebrations. Free parking, festive menus, flexible packages.',
   keywords: 'christmas party venue surrey, christmas party venue staines, office christmas party heathrow, christmas party venue near me, festive party venue stanwell moor, corporate christmas party surrey',
   openGraph: {
     title: 'Christmas Parties at The Anchor - Book Now',
     description: 'Celebrate Christmas 2024/2025 at The Anchor. Festive menus, free parking, flexible spaces for 20-200 guests.',
     images: ['/images/events/christmas/the-anchor-christmas-party-venue.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Christmas Parties at The Anchor - Book Now',
+    description: 'Celebrate Christmas 2024/2025 at The Anchor. Festive menus, free parking, flexible spaces for 20-200 guests.',
+    images: ['/images/events/christmas/the-anchor-christmas-party-venue.jpg']
+  })
 }
 
 // TODO: Add christmasEventSchema when generateEventSchema is available
@@ -79,20 +85,16 @@ export default function ChristmasPartiesPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="primary"
-              size="lg"
-            >
-              📞 Check Availability
-            </CallToAction>
-            <CallToAction 
-              href="#packages"
-              variant="secondary"
-              size="lg"
-            >
-              🎁 View Packages
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">
+                📞 Cheque Availability
+              </Button>
+            </Link>
+            <Link href="#packages">
+              <Button variant="secondary" size="lg">
+                🎁 View Packages
+              </Button>
+            </Link>
           </div>
         }
       >
@@ -240,9 +242,11 @@ export default function ChristmasPartiesPage() {
                         <li>✓ Christmas crackers</li>
                         <li>✓ Perfect for office lunches</li>
                       </ul>
-                      <CallToAction href={`tel:${CONTACT.phone}`} variant="primary" fullWidth>
-                        Get Lunch Quote
-                      </CallToAction>
+                      <Link href={CONTACT.phoneHref}>
+                        <Button variant="primary" fullWidth>
+                          Get Lunch Quote
+                        </Button>
+                      </Link>
                     </>
                   ),
                   variant: "default"
@@ -260,9 +264,11 @@ export default function ChristmasPartiesPage() {
                         <li>✓ Christmas atmosphere</li>
                         <li>✓ Dancing & entertainment space</li>
                       </ul>
-                      <CallToAction href={`tel:${CONTACT.phone}`} variant="primary" fullWidth>
-                        Get Evening Quote
-                      </CallToAction>
+                      <Link href={CONTACT.phoneHref}>
+                        <Button variant="primary" fullWidth>
+                          Get Evening Quote
+                        </Button>
+                      </Link>
                     </>
                   ),
                   variant: "default",
@@ -280,9 +286,11 @@ export default function ChristmasPartiesPage() {
                         <li>✓ Exclusive area options</li>
                         <li>✓ Flexible timing</li>
                       </ul>
-                      <CallToAction href={`tel:${CONTACT.phone}`} variant="primary" fullWidth>
-                        Discuss Options
-                      </CallToAction>
+                      <Link href={CONTACT.phoneHref}>
+                        <Button variant="primary" fullWidth>
+                          Discuss Options
+                        </Button>
+                      </Link>
                     </>
                   ),
                   variant: "default"
@@ -297,9 +305,14 @@ export default function ChristmasPartiesPage() {
               <p className="text-gray-700 mb-4">
                 Every party is unique - we'll create a package that works for your group size and budget
               </p>
-              <CallToAction href="tel:01753682707" variant="primary" size="lg">
-                📞 Call for Pricing: 01753 682707
-              </CallToAction>
+              <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Call for Pricing: 01753 682707
+      </Button>
+    </Link>
             </div>
           </div>
         </div>
@@ -329,7 +342,7 @@ export default function ChristmasPartiesPage() {
                       <div className="grid md:grid-cols-3 gap-6">
                         <div className="text-center">
                           <h4 className="font-semibold text-anchor-green mb-2">Dining Room</h4>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-700">
                             Up to 26 seated for formal dining<br/>
                             Up to 40 for standing reception<br/>
                             Perfect for intimate parties
@@ -337,7 +350,7 @@ export default function ChristmasPartiesPage() {
                         </div>
                         <div className="text-center">
                           <h4 className="font-semibold text-anchor-green mb-2">Main Pub Area</h4>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-700">
                             Up to 50 seated guests<br/>
                             Up to 60 standing<br/>
                             Great for casual celebrations
@@ -345,14 +358,14 @@ export default function ChristmasPartiesPage() {
                         </div>
                         <div className="text-center">
                           <h4 className="font-semibold text-anchor-green mb-2">Combined Spaces</h4>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-700">
                             Exclusive venue hire available<br/>
                             Garden available (weather permitting)<br/>
                             Create your perfect party layout
                           </p>
                         </div>
                       </div>
-                      <p className="text-center text-sm text-gray-600 mt-4">
+                      <p className="text-center text-sm text-gray-700 mt-4">
                         <em>Minimum 30 guests for exclusive venue hire</em>
                       </p>
                     </div>
@@ -415,7 +428,7 @@ export default function ChristmasPartiesPage() {
                   <li>• Free parking (saves £££)</li>
                   <li>• Easy taxi access</li>
                   <li>• Safe, well-lit car park</li>
-                  <li>• No city center prices</li>
+                  <li>• No city centre prices</li>
                 </ul>
               </div>
             </div>
@@ -429,7 +442,7 @@ export default function ChristmasPartiesPage() {
           <div className="max-w-3xl mx-auto">
             <SectionHeader
               title="Easy Booking Process"
-              subtitle="We make organizing your Christmas party simple and stress-free"
+              subtitle="We make organising your Christmas party simple and stress-free"
             />
             
             <div className="space-y-6">
@@ -498,7 +511,7 @@ export default function ChristmasPartiesPage() {
           },
           {
             question: "What entertainment options are available?",
-            answer: "We have a music system for background music or party playlists, space for dancing, and can accommodate DJs or live entertainment. We can also organize festive games and activities."
+            answer: "We have a music system for background music or party playlists, space for dancing, and can accommodate DJs or live entertainment. We can also organise festive games and activities."
           },
           {
             question: "What time do Christmas parties finish?",

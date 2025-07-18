@@ -101,7 +101,7 @@ We're taking care of our seasoned locals with **half-price Chip Shop meals every
 
 ### 🍸 Monthly Manager's Special
 
-Each month we feature a **premium spirit at 25% off**. Past favorites include Bombay Sapphire, Kraken Rum, and The Botanist Gin. Premium quality, smartly priced—right in line with our **prices frozen until autumn** commitment.
+Each month we feature a **premium spirit at 25% off**. Past favourites include Bombay Sapphire, Kraken Rum, and The Botanist Gin. Premium quality, smartly priced—right in line with our **prices frozen until autumn** commitment.
 
   
 

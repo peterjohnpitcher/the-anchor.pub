@@ -46,8 +46,50 @@ export function LoadingState({
         'animate-spin rounded-full border-2 border-gray-300 border-t-gray-600',
         sizeClasses[size]
       )} aria-hidden="true"></div>
-      {text && <span className="ml-2 text-sm text-gray-600">{text}</span>}
+      {text && <span className="ml-2 text-sm text-gray-700">{text}</span>}
       {!text && <span className="sr-only">Loading...</span>}
     </div>
+  )
+}
+
+// Skeleton loading states for different components
+export function CardSkeleton() {
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6 animate-pulse" aria-label="Loading card content">
+      <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+      <div className="h-3 bg-gray-200 rounded w-full mb-2"></div>
+      <div className="h-3 bg-gray-200 rounded w-2/3"></div>
+    </div>
+  )
+}
+
+export function EventCardSkeleton() {
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6 animate-pulse" aria-label="Loading event">
+      <div className="flex items-start gap-4">
+        <div className="w-20 h-20 bg-gray-200 rounded-lg"></div>
+        <div className="flex-1">
+          <div className="h-5 bg-gray-200 rounded w-3/4 mb-2"></div>
+          <div className="h-3 bg-gray-200 rounded w-1/2 mb-2"></div>
+          <div className="h-3 bg-gray-200 rounded w-2/3"></div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function TableRowSkeleton() {
+  return (
+    <tr className="animate-pulse" aria-label="Loading table row">
+      <td className="px-4 py-3">
+        <div className="h-4 bg-gray-200 rounded w-24"></div>
+      </td>
+      <td className="px-4 py-3">
+        <div className="h-4 bg-gray-200 rounded w-32"></div>
+      </td>
+      <td className="px-4 py-3">
+        <div className="h-4 bg-gray-200 rounded w-20"></div>
+      </td>
+    </tr>
   )
 }

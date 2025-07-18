@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import type { BaseComponentProps } from '../types'
 
 const switchVariants = cva(
-  'relative inline-flex cursor-pointer items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  'relative inline-flex cursor-pointer items-center rounded-full transition-colours focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       size: {
@@ -150,7 +150,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
             {(onLabel || offLabel) && (
               <span className={cn(
                 'ml-3 text-sm font-medium',
-                disabled ? 'text-gray-400' : 'text-gray-700'
+                disabled ? 'text-gray-600' : 'text-gray-700'
               )}>
                 {isChecked ? (onLabel || 'On') : (offLabel || 'Off')}
               </span>
@@ -161,7 +161,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           {label && !onLabel && !offLabel && (
             <span className={cn(
               'text-sm font-medium',
-              disabled ? 'text-gray-400' : 'text-gray-700',
+              disabled ? 'text-gray-600' : 'text-gray-700',
               labelPosition === 'left' ? 'mr-3' : 'ml-3'
             )}>
               {label}
@@ -171,7 +171,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
         
         {/* Helper text */}
         {helperText && !error && (
-          <p id={`${switchId}-helper`} className="mt-1 text-sm text-gray-500 ml-11">
+          <p id={`${switchId}-helper`} className="mt-1 text-sm text-gray-700 ml-11">
             {helperText}
           </p>
         )}
@@ -247,7 +247,7 @@ export const SwitchGroup = forwardRef<HTMLFieldSetElement, SwitchGroupProps>(
         )}
         
         {helperText && !error && (
-          <p id={`${testId}-helper`} className="text-sm text-gray-500 mb-2">
+          <p id={`${testId}-helper`} className="text-sm text-gray-700 mb-2">
             {helperText}
           </p>
         )}

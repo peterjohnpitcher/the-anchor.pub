@@ -1,20 +1,26 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
-import { HeroWrapper } from '@/components/hero'
+import { HeroWrapper, Breadcrumbs } from '@/components/hero'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList, DirectionsCard } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Airport | The Anchor Stanwell Moor | 7 Minutes from All Terminals',
-  description: 'The closest traditional British pub to Heathrow Airport in Surrey. Just 7 minutes from Terminal 5. Free parking, great food, and a warm welcome for travelers.',
+  description: 'The closest traditional British pub to Heathrow Airport. Just 7 mins from Terminal 5. Free parking, great food & a warm welcome for travelers.',
   keywords: 'pub near heathrow, heathrow airport pub, pub near terminal 5, closest pub to heathrow, heathrow restaurant',
   openGraph: {
     title: 'The Anchor - Your Local Pub Near Heathrow Airport',
     description: 'Just 7 minutes from Heathrow Terminal 5. Perfect for pre-flight meals or meeting arriving passengers.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Your Local Pub Near Heathrow Airport',
+    description: 'Just 7 minutes from Heathrow Terminal 5. Perfect for pre-flight meals or meeting arriving passengers.',
+    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+  })
 }
 
 export default function NearHeathrowPage() {
@@ -27,6 +33,9 @@ export default function NearHeathrowPage() {
         description="Just 7 minutes from Terminal 5 • 10 minutes from Terminals 2 & 3"
         size="medium"
         showStatusBar={true}
+        breadcrumbs={[
+          { name: 'Near Heathrow' }
+        ]}
         tags={[
           { label: '✈️ 7 mins from T5', variant: 'success' },
           { label: '🚗 Free Parking', variant: 'default' },
@@ -36,21 +45,23 @@ export default function NearHeathrowPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Book a Table: 01753 682707
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Book a Table: 01753 682707
+      </Button>
+    </Link>
             
-            <CallToAction 
-              href="#terminals"
-              variant="secondary"
-              size="lg"
-            >
-              📍 Get Directions
-            </CallToAction>
+            <Link href="#terminals">
+      <Button 
+        variant="secondary"
+        size="lg"
+      >
+        📍 Get Directions
+      </Button>
+    </Link>
           </div>
         }
       />
@@ -139,7 +150,7 @@ export default function NearHeathrowPage() {
                   <span className="text-anchor-gold font-semibold">10 mins</span>
                 </div>
                 <p className="text-gray-700 mb-4">The Queen&apos;s Terminal</p>
-                <ul className="space-y-2 text-gray-600 text-sm">
+                <ul className="space-y-2 text-gray-700 text-sm">
                   <li>• Via A3044 and A3113</li>
                   <li>• Follow signs to Staines/Stanwell</li>
                   <li>• Free parking available</li>
@@ -158,7 +169,7 @@ export default function NearHeathrowPage() {
                   <span className="text-anchor-gold font-semibold">10 mins</span>
                 </div>
                 <p className="text-gray-700 mb-4">Virgin Atlantic & Emirates</p>
-                <ul className="space-y-2 text-gray-600 text-sm">
+                <ul className="space-y-2 text-gray-700 text-sm">
                   <li>• Via Tunnel Road</li>
                   <li>• Exit at Stanwell Moor</li>
                   <li>• Straight down Horton Road</li>
@@ -177,7 +188,7 @@ export default function NearHeathrowPage() {
                   <span className="text-anchor-gold font-semibold">12 mins</span>
                 </div>
                 <p className="text-gray-700 mb-4">Alliance Hub</p>
-                <ul className="space-y-2 text-gray-600 text-sm">
+                <ul className="space-y-2 text-gray-700 text-sm">
                   <li>• Via Southern Perimeter Rd</li>
                   <li>• Through Cargo tunnel</li>
                   <li>• Exit Stanwell Moor</li>
@@ -196,7 +207,7 @@ export default function NearHeathrowPage() {
                   <span className="text-anchor-gold font-semibold">7 mins</span>
                 </div>
                 <p className="text-gray-700 mb-4">British Airways Home</p>
-                <ul className="space-y-2 text-gray-600 text-sm">
+                <ul className="space-y-2 text-gray-700 text-sm">
                   <li>• Shortest route!</li>
                   <li>• Via A3044 direct</li>
                   <li>• We&apos;re the closest pub</li>
@@ -214,7 +225,7 @@ export default function NearHeathrowPage() {
                 <span className="text-anchor-gold font-semibold">£25</span>
               </div>
               <p className="text-gray-700 mb-4">All terminals</p>
-              <p className="text-gray-600 text-sm mb-4">
+              <p className="text-gray-700 text-sm mb-4">
                 Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;
               </p>
               <p className="text-sm text-gray-700">
@@ -229,7 +240,7 @@ export default function NearHeathrowPage() {
                 <span className="text-anchor-gold font-semibold">442</span>
               </div>
               <p className="text-gray-700 mb-4">From Central Bus Station</p>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-700 text-sm">
                 Regular service to Stanwell Moor. Ask driver for The Anchor stop.
               </p>
             </div>
@@ -324,9 +335,14 @@ export default function NearHeathrowPage() {
               ]}
               className="mb-8"
             />
-            <CallToAction href="/beer-garden" variant="primary" size="lg">
-              Discover Our Plane Spotting Beer Garden
-            </CallToAction>
+            <Link href="/beer-garden">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        Discover Our Plane Spotting Beer Garden
+      </Button>
+    </Link>
           </div>
         </div>
       </section>
@@ -347,35 +363,35 @@ export default function NearHeathrowPage() {
                   <span className="text-xl">🎱</span>
                   <div>
                     <p className="font-semibold">Pool Table</p>
-                    <p className="text-xs text-gray-600">Kill time with a game</p>
+                    <p className="text-sm sm:text-xs text-gray-700">Kill time with a game</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-xl">🎯</span>
                   <div>
                     <p className="font-semibold">Darts Board</p>
-                    <p className="text-xs text-gray-600">Professional setup</p>
+                    <p className="text-sm sm:text-xs text-gray-700">Professional setup</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-xl">🎵</span>
                   <div>
                     <p className="font-semibold">Jukebox</p>
-                    <p className="text-xs text-gray-600">Your music choice</p>
+                    <p className="text-sm sm:text-xs text-gray-700">Your music choice</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-xl">🎰</span>
                   <div>
                     <p className="font-semibold">Fruit Machine</p>
-                    <p className="text-xs text-gray-600">Try your luck</p>
+                    <p className="text-sm sm:text-xs text-gray-700">Try your luck</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-xl">📺</span>
                   <div>
                     <p className="font-semibold">4 TVs</p>
-                    <p className="text-xs text-gray-600">Terrestrial channels</p>
+                    <p className="text-sm sm:text-xs text-gray-700">Terrestrial channels</p>
                   </div>
                 </div>
               </div>
@@ -388,21 +404,21 @@ export default function NearHeathrowPage() {
                   <span className="text-anchor-gold">📶</span>
                   <div>
                     <strong>Free WiFi Throughout</strong>
-                    <p className="text-sm text-gray-600">Fast, reliable, no passwords or time limits</p>
+                    <p className="text-sm text-gray-700">Fast, reliable, no passwords or time limits</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-anchor-gold">🔌</span>
                   <div>
                     <strong>Power Points at Tables</strong>
-                    <p className="text-sm text-gray-600">Dining room equipped for laptop work</p>
+                    <p className="text-sm text-gray-700">Dining room equipped for laptop work</p>
                   </div>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-anchor-gold">☕</span>
                   <div>
                     <strong>Quiet Work Environment</strong>
-                    <p className="text-sm text-gray-600">Peaceful weekday atmosphere</p>
+                    <p className="text-sm text-gray-700">Peaceful weekday atmosphere</p>
                   </div>
                 </li>
               </ul>
@@ -417,42 +433,42 @@ export default function NearHeathrowPage() {
                 <span className="text-anchor-gold text-xl mt-1">🧳</span>
                 <div>
                   <strong>Luggage Storage</strong>
-                  <p className="text-sm text-gray-600">Safe storage while you dine</p>
+                  <p className="text-sm text-gray-700">Safe storage while you dine</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-anchor-gold text-xl mt-1">🐕</span>
                 <div>
                   <strong>Pet Friendly</strong>
-                  <p className="text-sm text-gray-600">Water bowls for travelling pets</p>
+                  <p className="text-sm text-gray-700">Water bowls for travelling pets</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-anchor-gold text-xl mt-1">🚗</span>
                 <div>
                   <strong>Free Parking</strong>
-                  <p className="text-sm text-gray-600">20 spaces for pub guests</p>
+                  <p className="text-sm text-gray-700">20 spaces for pub guests</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-anchor-gold text-xl mt-1">💳</span>
                 <div>
                   <strong>All Cards Welcome</strong>
-                  <p className="text-sm text-gray-600">Including American Express</p>
+                  <p className="text-sm text-gray-700">Including American Express</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-anchor-gold text-xl mt-1">♿</span>
                 <div>
                   <strong>Accessible Entry</strong>
-                  <p className="text-sm text-gray-600">Ramp available at back door</p>
+                  <p className="text-sm text-gray-700">Ramp available at back door</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="text-anchor-gold text-xl mt-1">🚌</span>
                 <div>
                   <strong>Bus Stop Outside</strong>
-                  <p className="text-sm text-gray-600">Route 442 to/from Heathrow</p>
+                  <p className="text-sm text-gray-700">Route 442 to/from Heathrow</p>
                 </div>
               </div>
             </div>

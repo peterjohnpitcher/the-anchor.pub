@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getUpcomingEvents, formatEventDate, formatEventTime } from '@/lib/api'
 import { EventSchema } from '@/components/EventSchema'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 
 export async function NextEventServer() {
   try {
@@ -17,10 +17,12 @@ export async function NextEventServer() {
               <h2 className="text-2xl font-bold text-white text-center">Coming Soon</h2>
             </div>
             <div className="p-8 text-center">
-              <p className="text-gray-600">Check back soon for our next exciting event!</p>
-              <CallToAction href="/whats-on" variant="primary" className="mt-4">
-                View All Events
-              </CallToAction>
+              <p className="text-gray-700">Cheque back soon for our next exciting event!</p>
+              <Link href="/whats-on" className="inline-block mt-4">
+                <Button variant="primary">
+                  View All Events
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -45,7 +47,7 @@ export async function NextEventServer() {
             <div className="relative w-full md:w-80 h-64 md:h-80 flex-shrink-0">
               <Image
                 src={eventImage}
-                alt={nextEvent.name}
+                alt={`${nextEvent.name} event promotional poster - ${nextEvent.category?.name || 'upcoming event'} at The Anchor pub`}
                 fill
                 className="object-contain"
                 sizes="(max-width: 768px) 100vw, 320px"
@@ -79,7 +81,7 @@ export async function NextEventServer() {
                       {nextEvent.offers.price === '0' ? 'FREE' : `£${nextEvent.offers.price}`}
                     </p>
                     {nextEvent.offers.price === '0' && (
-                      <p className="text-sm text-gray-600">No ticket needed</p>
+                      <p className="text-sm text-gray-700">No ticket needed</p>
                     )}
                   </div>
                 )}
@@ -92,14 +94,11 @@ export async function NextEventServer() {
               )}
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <CallToAction 
-                  href={`/events/${nextEvent.slug || nextEvent.id}`}
-                  variant="primary"
-                  size="lg"
-                  className="flex-1"
-                >
-                  View Details & Book
-                </CallToAction>
+                <Link href={`/events/${nextEvent.slug || nextEvent.id}`} className="flex-1">
+                  <Button variant="primary" size="lg" fullWidth>
+                    View Details & Book
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

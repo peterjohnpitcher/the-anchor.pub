@@ -220,7 +220,7 @@ https://www.the-anchor.pub/drinks/guinness
 https://www.the-anchor.pub/drinks/glenfiddich
 https://www.the-anchor.pub/drinks/jack-daniel's-honey
 https://www.the-anchor.pub/drinks/tullamore
-https://www.the-anchor.pub/drinks/grey-goose
+https://www.the-anchor.pub/drinks/gray-goose
 https://www.the-anchor.pub/drinks/cherry-cola
 https://www.the-anchor.pub/drinks/budweiser
 https://www.the-anchor.pub/post/have-you-tried-kraken-rum

@@ -40,7 +40,7 @@ export default function EventAvailability({ eventId, className = '', showDetails
 
   if (loading) {
     return (
-      <div className={`text-sm text-gray-500 ${className}`} role="status" aria-live="polite">
+      <div className={`text-sm text-gray-700 ${className}`} role="status" aria-live="polite">
         <span className="sr-only">Loading event availability</span>
         Checking availability...
       </div>
@@ -83,7 +83,7 @@ export default function EventAvailability({ eventId, className = '', showDetails
             style={{ width: `${percentageFull}%` }}
           />
         </div>
-        <p className="text-xs text-gray-600" aria-live="off">
+        <p className="text-sm sm:text-xs text-gray-700" aria-live="off">
           {availability.booked} of {availability.capacity} seats booked
         </p>
         <span className="sr-only" aria-live="polite">
@@ -95,7 +95,7 @@ export default function EventAvailability({ eventId, className = '', showDetails
 
   return (
     <span className={`text-sm ${
-      isLimited ? 'text-amber-600 font-semibold animate-pulse' : 'text-gray-600'
+      isLimited ? 'text-amber-600 font-semibold animate-pulse' : 'text-gray-700'
     } ${className}`} role={isLimited ? 'alert' : undefined} aria-live={isLimited ? 'assertive' : 'polite'}>
       {isLimited ? 'Limited availability' : `${availability.remaining} seats available`}
     </span>

@@ -66,7 +66,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
                 )}
 
                 {!isLast && (
-                  <span className="text-gray-400" aria-hidden="true">
+                  <span className="text-gray-600" aria-hidden="true">
                     {separator}
                   </span>
                 )}
@@ -138,7 +138,7 @@ export const BreadcrumbLink = forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>
         ref={ref}
         href={href}
         className={cn(
-          'text-gray-600 hover:text-anchor-green transition-colors',
+          'text-gray-600 hover:text-anchor-green transition-colours',
           className
         )}
         {...props}
@@ -161,7 +161,7 @@ export const BreadcrumbSeparator = forwardRef<HTMLSpanElement, BreadcrumbSeparat
     return (
       <span
         ref={ref}
-        className={cn('text-gray-400', className)}
+        className={cn('text-gray-600', className)}
         aria-hidden="true"
         {...props}
       >

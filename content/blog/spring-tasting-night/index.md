@@ -58,7 +58,7 @@ Our March **spring spirits tasting** showcased the season's finest flavours in o
 
 All six premium spirits from our **tasting event** are now available at The Anchor:
 
-#### 1. Grey Goose Essence Strawberry & Lemongrass
+#### 1. gray Goose Essence Strawberry & Lemongrass
 - **Profile**: Summer-inspired vodka with clean finish
 - **Perfect serve**: Pink soda or light tonic
 - **Guest rating**: 4.5/5
@@ -110,7 +110,7 @@ Our **pub events near Heathrow** follow a proven format that guests love:
 **8:00 PM - Interactive Cocktail Session**
 - Make your own seasonal cocktail
 - Learn bartending tips and tricks
-- Vote for guest favorite spirit
+- Vote for guest favourite spirit
 
 **9:00 PM - Quiz & Prizes**
 - Fun spirit-themed quiz

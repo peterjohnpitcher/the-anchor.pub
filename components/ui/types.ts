@@ -5,7 +5,7 @@ import { HTMLAttributes, ButtonHTMLAttributes, InputHTMLAttributes } from 'react
 // Common size variants
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-// Common color variants
+// Common colour variants
 export type Variant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger'
 
 // Common status types

@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import type { BaseComponentProps } from '../types'
 
 const inputVariants = cva(
-  'w-full rounded-lg border bg-white px-4 py-2 text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed',
+  'w-full rounded-lg border bg-white px-4 py-2 text-gray-900 transition-colours focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed',
   {
     variants: {
       variant: {
@@ -68,7 +68,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-700">
               {leftIcon}
             </div>
           )}
@@ -89,7 +89,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
           
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-700">
               {rightIcon}
             </div>
           )}
@@ -102,7 +102,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         
         {helperText && !error && (
-          <p id={`${inputId}-helper`} className="mt-1 text-sm text-gray-500">
+          <p id={`${inputId}-helper`} className="mt-1 text-sm text-gray-700">
             {helperText}
           </p>
         )}
@@ -172,7 +172,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
         
         {helperText && !error && (
-          <p id={`${textareaId}-helper`} className="mt-1 text-sm text-gray-500">
+          <p id={`${textareaId}-helper`} className="mt-1 text-sm text-gray-700">
             {helperText}
           </p>
         )}

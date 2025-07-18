@@ -124,7 +124,7 @@ To ensure everyone has a great experience, please note the following terms and c
     
 8.  **Cancellation and Refund Policy**: No cancellations or refunds are permitted unless The Anchor is at fault due to incorrect or incomplete orders.
     
-9.  **Combining Offers**: This promotion cannot be combined with any other promotions, discounts, or loyalty programs.
+9.  **Combining Offers**: This promotion cannot be combined with any other promotions, discounts, or loyalty programmes.
     
 10.  **Same-Day Consumption**: All pizzas must be ordered and consumed on the same day of purchase.
     

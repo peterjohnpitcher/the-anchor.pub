@@ -1,22 +1,29 @@
+import Link from 'next/link'
 import Image from 'next/image'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
-import { HeroWrapper } from '@/components/hero'
+import { HeroWrapper, Breadcrumbs } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: `Pub Near Heathrow Terminal 1 | ${BRAND.name} - ${HEATHROW_TIMES.terminal1} Minutes Away`,
-  description: `${BRAND.name} is the closest traditional British pub to Heathrow Terminal 1, just ${HEATHROW_TIMES.terminal1} minutes drive. Perfect for pre-flight meals or airport staff. Free parking.`,
+  description: `${BRAND.name} - closest traditional British pub to Heathrow Terminal 1, just ${HEATHROW_TIMES.terminal1} mins drive. Perfect for pre-flight meals. Free parking.`,
   keywords: 'pub near heathrow terminal 1, heathrow t1 pub, restaurants near terminal 1, bars near heathrow terminal 1, heathrow terminal 1 food',
   openGraph: {
     title: `${BRAND.name} - Closest Pub to Heathrow Terminal 1`,
     description: `Just ${HEATHROW_TIMES.terminal1} minutes from T1. Traditional British pub with parking.`,
     images: ['/images/near-heathrow/the-anchor-pub-heathrow-terminal-1.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: `${BRAND.name} - Closest Pub to Heathrow Terminal 1`,
+    description: `Just ${HEATHROW_TIMES.terminal1} minutes from T1. Traditional British pub with parking.`,
+    images: ['/images/near-heathrow/the-anchor-pub-heathrow-terminal-1.jpg']
+  })
 }
 
 const localBusinessSchema = {
@@ -66,21 +73,23 @@ export default function Terminal1Page() {
         description="The perfect pre-flight dining spot or post-landing refreshment stop for T1 travelers"
         size="large"
         showStatusBar={true}
+        breadcrumbs={[
+          { name: 'Near Heathrow', href: '/near-heathrow' },
+          { name: 'Terminal 1' }
+        ]}
         tags={[
           { label: `✈️ Terminal 1 • ${HEATHROW_TIMES.terminal1} minutes away`, variant: "primary" }
         ]}
         cta={
           <div className="flex flex-wrap justify-center gap-4">
-            <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
-              📞 Book a Table
-            </CallToAction>
-            <CallToAction 
-              href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" 
-              variant="secondary" 
-              size="lg"
-            >
-              📍 Get Directions
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">📞 Book a Table</Button>
+            </Link>
+            <Link href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" target="_blank" rel="noopener noreferrer">
+              <Button variant="secondary" size="lg">
+                📍 Get Directions
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -364,7 +373,7 @@ export default function Terminal1Page() {
           <div className="grid grid-cols-2 gap-4 text-left">
             <div>
               <p className="font-semibold">Airlines at T1:</p>
-              <p className="text-white/80">Check with airline for latest terminal info</p>
+              <p className="text-white/80">Cheque with airline for latest terminal info</p>
             </div>
             <div>
               <p className="font-semibold">Our Address:</p>

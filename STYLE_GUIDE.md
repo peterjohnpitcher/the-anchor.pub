@@ -1,8 +1,8 @@
 # The Anchor Style Guide
 
-## Color Usage Rules
+## Colour Usage Rules
 
-### Background Colors & Text Combinations
+### Background Colours & Text Combinations
 
 **IMPORTANT**: Always ensure proper contrast for accessibility.
 
@@ -15,14 +15,14 @@
 - `bg-anchor-gold` → Use `text-white` or `text-anchor-green`
 - `bg-anchor-gold-light` → Use `text-anchor-green`
 
-#### Text Colors
+#### Text Colours
 - `text-anchor-green` → Only use on white, light gray, or cream backgrounds
 - `text-anchor-gold` → Can be used on white, dark backgrounds, or as accent
 - `text-white` → Use on all dark backgrounds (green, charcoal, dark gradients)
 
 ### Component Guidelines
 
-#### Sections with Brand Colors
+#### Sections with Brand Colours
 ```tsx
 // ✅ CORRECT - White text on green
 <section className="bg-anchor-green text-white">

@@ -131,7 +131,7 @@ Join us for a proper **Irish pub experience near Heathrow Airport**:
 - **2 PM**: Live Irish music begins
 - **3 PM**: Traditional Irish dancing demonstration
 - **5 PM**: Peak celebration with full Irish menu
-- **Evening**: Sing-along Irish favorites
+- **Evening**: Sing-along Irish favourites
 
 **Perfect for:**
 - **Heathrow airport staff** celebrating after shifts

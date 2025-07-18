@@ -53,11 +53,11 @@ Each element has been crafted to ensure that your evening is filled with delight
 
   
 
-## Grey Goose Essence Strawberry & Lemongrass
+## gray Goose Essence Strawberry & Lemongrass
 
 ### Experience Spring at Our Spring Tasting Night
 
-Step into a realm where classic sophistication meets the playful zest of nature. **Grey Goose Essence Strawberry & Lemongrass** artfully blends the succulent sweetness of freshly picked strawberries with the invigorating tang of lemongrass. With hints of red berry freshness balanced by a whisper of citrus, every sip conjures visions of sun-dappled orchards in early bloom. Enjoy this spirit neat or with a delicate mixer that elevates its natural vibrancy. To learn more about this elegant creation, explore the details on the [Grey Goose website](https://www.greygoose.com).
+Step into a realm where classic sophistication meets the playful zest of nature. **gray Goose Essence Strawberry & Lemongrass** artfully blends the succulent sweetness of freshly picked strawberries with the invigorating tang of lemongrass. With hints of red berry freshness balanced by a whisper of citrus, every sip conjures visions of sun-dappled orchards in early bloom. Enjoy this spirit neat or with a delicate mixer that elevates its natural vibrancy. To learn more about this elegant creation, explore the details on the [gray Goose website](https://www.graygoose.com).
 
   
 
@@ -81,7 +81,7 @@ For those who appreciate the subtle artistry of botanicals, **Hendrick's Flora A
 
 ### An Exotic Burst at the Spring Tasting Night
 
-Embrace a delightful twist on a timeless classic with **Gordon's Passionfruit Gin**. Infused with the zesty essence of passionfruit, this gin offers an exotic burst of flavour that is as refreshing as it is unexpected. Its bright, citrus-infused character dances on the palate, inviting you to explore layers of taste that evoke both tradition and innovation. For a deeper dive into this dynamic spirit, check out the [Gordon's Gin website](https://www.gordonsgin.com).
+Embrace a delightful twist on a timeless classic with **Gordon's Passionfruit Gin**. Infused with the zesty essence of passionfruit, this gin offers an exotic burst of flavour that is as refreshing as it is unexpected. Its bright, citrus-infused character dances on the palate, inviting you to explore layers of taste that evoke both tradition and innovation. For a deeper dive into this dynamic spirit, cheque out the [Gordon's Gin website](https://www.gordonsgin.com).
 
   
 

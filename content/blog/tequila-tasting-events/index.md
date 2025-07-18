@@ -41,7 +41,7 @@ Our **tequila tasting events** have set a new standard for spirits experiences i
 **The Experience:**
 - **6 Premium Tequilas & Mezcals** - From smoky to sweet
 - **Expert-Led Journey** - Learn how tequila is made
-- **Interactive Scorecards** - Track your favorites
+- **Interactive Scorecards** - Track your favourites
 - **Mexican Food Pairings** - Authentic tacos included
 - **Cocktail Making Session** - Master the perfect margarita
 - **Día de Muertos Theme** - Vibrant, festive atmosphere
@@ -61,7 +61,7 @@ Our **spirits tasting near Heathrow** stands out because:
 - Aged Reposado varieties
 - Smooth Añejo expressions
 - Authentic Mezcal
-- Specialty flavored tequilas
+- Specialty flavoured tequilas
 - Premium cocktail tequilas
 
 **Professional Presentation:**
@@ -85,7 +85,7 @@ Our **spirits tasting near Heathrow** stands out because:
 **7:30 PM - Tasting Journey Begins**
 - First flight: Blanco comparison
 - Learn proper tasting technique
-- Score your favorites
+- Score your favourites
 
 **8:30 PM - Cocktail Making**
 - Hands-on margarita masterclass
@@ -100,7 +100,7 @@ Our **spirits tasting near Heathrow** stands out because:
 **9:45 PM - Premium Tastings**
 - Aged and specialty tequilas
 - Coffee tequila White Russian
-- Group favorites revealed
+- Group favourites revealed
 
 **10:30 PM - Tequila Quiz & Prizes**
 - Fun Mexican culture questions

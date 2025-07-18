@@ -68,7 +68,7 @@ Each **Sunday roast** at our **Stanwell Moor pub** includes:
 - Slow-cooked to perfection
 - Fall-off-the-bone tender
 - Mint sauce on the side
-- A pub favorite
+- A pub favourite
 
 **Pork Belly - £15.99**
 - Crispy crackling
@@ -115,7 +115,7 @@ Our **dog friendly Sunday lunch** offers:
 - **Pre-flight tradition** - Start your journey right
 - **Welcome home meal** - Nothing says Britain like Sunday roast
 - **Layover lunch** - Better than airport food
-- **Crew favorite** - Where airline staff dine
+- **Crew favourite** - Where airline staff dine
 - **Hotel alternative** - Escape hotel dining
 
 ## Why Pre-Order Your Sunday Lunch

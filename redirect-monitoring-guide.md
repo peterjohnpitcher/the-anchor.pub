@@ -24,19 +24,19 @@ Test these high-traffic URLs immediately after deployment:
 Set up custom reports to track:
 - 404 error pages
 - Traffic to redirected URLs
-- User behavior flow from redirects
+- User behaviour flow from redirects
 
 ## Week 1 Monitoring
 
-### Daily Checks
+### Daily Cheques
 1. **Google Search Console**
-   - Check Coverage report for new errors
+   - Cheque Coverage report for new errors
    - Monitor "Page with redirect" status
    - Review any crawl errors
 
 2. **Analytics**
    - Monitor organic traffic levels
-   - Check for unusual bounce rates
+   - Cheque for unusual bounce rates
    - Review landing page performance
 
 3. **Manual Testing**
@@ -68,7 +68,7 @@ Create weekly reports tracking:
    - Click-through rates
    - Impressions
 
-### Optimization Actions
+### Optimisation Actions
 Based on monitoring data:
 1. Add any missing redirects discovered
 2. Fix redirect chains if found
@@ -90,7 +90,7 @@ Based on monitoring data:
 
 3. **SEO Health**
    - Monitor keyword rankings recovery
-   - Check for any penalties
+   - Cheque for any penalties
    - Review Core Web Vitals
 
 ## Tools for Monitoring
@@ -114,19 +114,19 @@ Based on monitoring data:
 ### Useful Chrome Extensions
 - Redirect Path
 - Link Redirect Trace
-- Check My Links
+- Cheque My Links
 
 ## Emergency Response Plan
 
 If traffic drops significantly:
 1. **Immediate Actions**
-   - Check for site-wide issues
+   - Cheque for site-wide issues
    - Verify redirects are working
    - Review server logs
 
 2. **Within 24 Hours**
    - Submit updated sitemap
-   - Check for manual penalties
+   - Cheque for manual penalties
    - Review competitor changes
 
 3. **Within 48 Hours**
@@ -175,9 +175,9 @@ Next Week Focus:
 ## Contact for Issues
 
 If you encounter significant issues:
-1. Check this guide first
+1. Cheque this guide first
 2. Review redirect implementation in next.config.js
 3. Test specific redirects manually
-4. Check server logs for errors
+4. Cheque server logs for errors
 
 Remember: Most traffic fluctuations in the first month are normal. Focus on fixing errors and ensuring all redirects work correctly.

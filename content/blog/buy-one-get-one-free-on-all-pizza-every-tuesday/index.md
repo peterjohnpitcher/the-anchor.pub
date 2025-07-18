@@ -148,7 +148,7 @@ The cheaper pizza is FREE!
 
 #### Local Families
 - **Family dinner** without breaking the bank
-- **Kids eat well** with familiar favorites
+- **Kids eat well** with familiar favourites
 - **Parents relax** in our family-friendly pub
 - **Tuesday tradition** for many locals
 
@@ -223,6 +223,6 @@ While you're here for the **pizza deals**, discover:
 
 Every Tuesday, The Anchor becomes **Heathrow's best pizza deal** destination. With authentic Italian ingredients, stone-baked perfection, and unbeatable 2-for-1 prices, it's no wonder Pizza Tuesday has become a local tradition.
 
-**Join us next Tuesday and discover why we're the area's favorite pizza pub!**
+**Join us next Tuesday and discover why we're the area's favourite pizza pub!**
 
 *Follow The Anchor on social media for updates and special Pizza Tuesday announcements!*

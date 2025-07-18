@@ -171,7 +171,7 @@ Remember, every small action counts towards a larger change!
 ## **Join Our Next Earth Day Cleanup Near Heathrow**
 
 ### **Event Details:**
-🌍 **When**: April 22nd annually (check for exact dates)
+🌍 **When**: April 22nd annually (cheque for exact dates)
 📍 **Meeting Point**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
 ✈️ **From Heathrow**: Just 7 minutes from all terminals
 🚗 **Parking**: Free on-site parking
@@ -182,7 +182,7 @@ Remember, every small action counts towards a larger change!
 ### **Why Join Our Environmental Initiative Near Terminal 5**
 
 - **Make a difference** in your local community
-- **Meet neighbors** including Heathrow workers and Staines residents
+- **Meet neighbours** including Heathrow workers and Staines residents
 - **Family-friendly** activity teaching children environmental values
 - **Free lunch** at our traditional pub
 - **Certificate** of participation for volunteers

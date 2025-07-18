@@ -58,7 +58,7 @@ Our famous stacked burgers are why people seek out our **pub food near Heathrow*
 - Served with chunky chips
 
 #### The C-Stack Burger
-**Chicken lovers' favorite**:
+**Chicken lovers' favourite**:
 - Buttermilk-fried chicken breast
 - Crispy coating with secret spice blend
 - Fresh coleslaw
@@ -103,7 +103,7 @@ Sometimes simple is best. Our classic **burgers near Terminal 5** include:
 
 ### Build Your Own Burger
 
-Create your perfect burger with our customization options:
+Create your perfect burger with our customisation options:
 
 **Extra Toppings** (£1.50 each):
 - Bacon (streaky or back)

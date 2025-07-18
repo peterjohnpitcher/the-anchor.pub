@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -9,10 +9,11 @@ import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/e
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, DirectionsCard, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: `Stanwell Pub Near Me | ${BRAND.name} - Your Local Village Pub`,
-  description: `${BRAND.name} is Stanwell's traditional village pub in Stanwell Moor. Family-friendly British pub with Sunday roasts, pizza deals, quiz nights, and free parking. The heart of the Stanwell community.`,
+  description: `${BRAND.name} - Stanwell's traditional village pub. Family-friendly with Sunday roasts, pizza deals, quiz nights & free parking. Heart of community.`,
   keywords: 'stanwell pub, pub in stanwell, stanwell moor pub, stanwell village pub, local pub stanwell, traditional pub stanwell surrey',
   openGraph: {
     title: 'The Anchor - Stanwell Village Pub',
@@ -20,6 +21,11 @@ export const metadata: Metadata = {
     images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
     type: 'website',
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Stanwell Village Pub',
+    description: 'Your local traditional British pub in Stanwell Moor. Sunday roasts, quiz nights, and community events.',
+    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 const localBusinessSchema = {
@@ -92,20 +98,16 @@ export default function StanwellPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="primary"
-              size="lg"
-            >
-              📞 Call Us
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-            >
-              🍽️ View Menu
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">
+                📞 Call Us
+              </Button>
+            </Link>
+            <Link href="/food-menu">
+              <Button variant="secondary" size="lg">
+                🍽️ View Menu
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -116,7 +118,7 @@ export default function StanwellPubPage() {
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Welcome to Your Local Stanwell Pub"
-              subtitle="Located in the heart of Stanwell Moor, The Anchor has been serving the Stanwell community for generations. We're more than just a pub - we're where neighbors become friends and visitors become regulars."
+              subtitle="Located in the heart of Stanwell Moor, The Anchor has been serving the Stanwell community for generations. We're more than just a pub - we're where neighbours become friends and visitors become regulars."
             />
             
             <FeatureGrid
@@ -216,7 +218,7 @@ export default function StanwellPubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🍕</span>
                     <div>
-                      <strong>Tuesday Pizza BOGOF</strong> - Stanwell's favorite midweek treat
+                      <strong>Tuesday Pizza BOGOF</strong> - Stanwell's favourite midweek treat
                     </div>
                   </li>
                 </ul>
@@ -233,12 +235,12 @@ export default function StanwellPubPage() {
         </div>
       </section>
 
-      {/* Local Favorites */}
+      {/* Local Favourites */}
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <SectionHeader
-              title="Stanwell's Favorite Pub Food"
+              title="Stanwell's Favourite Pub Food"
             />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -255,7 +257,7 @@ export default function StanwellPubPage() {
               </div>
               
               <div className="bg-blue-50 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-blue-800 mb-4">Weekday Favorites</h3>
+                <h3 className="text-xl font-bold text-blue-800 mb-4">Weekday Favourites</h3>
                 <p className="mb-3">Classic British pub fare loved by Stanwell residents</p>
                 <ul className="space-y-2 text-gray-700">
                   <li>• Fish & Chips Fridays</li>
@@ -268,9 +270,11 @@ export default function StanwellPubPage() {
             </div>
             
             <div className="text-center">
-              <CallToAction href="/food-menu" variant="primary" size="lg">
-                View Full Menu
-              </CallToAction>
+              <Link href="/food-menu">
+                <Button variant="primary" size="lg">
+                  View Full Menu
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -290,7 +294,7 @@ export default function StanwellPubPage() {
                 <ol className="space-y-3">
                   <li className="flex gap-3">
                     <span className="font-bold text-anchor-gold">1.</span>
-                    <span>Head north on Oaks Road from the village center</span>
+                    <span>Head north on Oaks Road from the village centre</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="font-bold text-anchor-gold">2.</span>
@@ -309,7 +313,7 @@ export default function StanwellPubPage() {
                     <span>The Anchor is on your right with free parking</span>
                   </li>
                 </ol>
-                <p className="mt-4 text-sm text-gray-600">
+                <p className="mt-4 text-sm text-gray-700">
                   <strong>Journey time:</strong> 5 minutes by car, 20 minutes walking
                 </p>
               </div>
@@ -334,13 +338,11 @@ export default function StanwellPubPage() {
             </div>
             
             <div className="mt-8 text-center">
-              <CallToAction 
-                href="https://maps.google.com/maps?daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                variant="secondary"
-                external
-              >
-                📍 Get Directions
-              </CallToAction>
+              <Link href="https://maps.google.com/maps?daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
+                <Button variant="secondary" size="md">
+                  📍 Get Directions
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -362,7 +364,7 @@ export default function StanwellPubPage() {
                   <li>• Supporters of local charities</li>
                   <li>• Venue for Stanwell celebrations</li>
                   <li>• Home to local darts and pool teams</li>
-                  <li>• Dog walkers' favorite refreshment stop</li>
+                  <li>• Dog walkers' favourite refreshment stop</li>
                 </ul>
               </div>
               
@@ -403,7 +405,7 @@ export default function StanwellPubPage() {
         faqs={[
           {
             question: "How far is The Anchor from Stanwell Village?",
-            answer: "The Anchor is approximately 1.2 miles from Stanwell Village center, about a 5-minute drive or a pleasant 20-minute walk. We're located in Stanwell Moor, which is part of greater Stanwell."
+            answer: "The Anchor is approximately 1.2 miles from Stanwell Village centre, about a 5-minute drive or a pleasant 20-minute walk. We're located in Stanwell Moor, which is part of greater Stanwell."
           },
           {
             question: "Is The Anchor the closest pub to Stanwell?",
@@ -427,8 +429,8 @@ export default function StanwellPubPage() {
 
       {/* CTA Section */}
       <CTASection
-        title="Visit Stanwell's Favorite Local Pub"
-        description="Join your neighbors at The Anchor - where Stanwell comes together"
+        title="Visit Stanwell's Favourite Local Pub"
+        description="Join your neighbours at The Anchor - where Stanwell comes together"
         buttons={[
           {
             text: "📞 Call Us",

@@ -1,18 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { EventSchema } from '@/components/EventSchema'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import type { Event } from '@/lib/api'
 
 export const metadata: Metadata = {
   title: `Pizza Tuesday BOGOF Deal Near Me | ${BRAND.name} Stanwell Moor`,
-  description: 'Buy One Get One FREE on ALL pizzas every Tuesday at The Anchor pub near Heathrow. Stone-baked pizzas from £7.49. Dine-in or takeaway. Free parking. Just 7 minutes from Terminal 5.',
+  description: 'Buy One Get One FREE on ALL pizzas every Tuesday at The Anchor near Heathrow. Stone-baked pizzas from £7.49. Dine-in or takeaway. Free parking.',
   keywords: 'pizza tuesday deal near me, bogof pizza stanwell moor, tuesday pizza offer heathrow, 2 for 1 pizza deal, pizza night near airport, cheap pizza tuesday surrey',
   openGraph: {
     title: 'Pizza Tuesday - BOGOF on All Pizzas',
@@ -20,6 +23,11 @@ export const metadata: Metadata = {
     images: ['/images/food/pizza-tuesday-bogof.jpg'],
     type: 'website',
   },
+  twitter: getTwitterMetadata({
+    title: 'Pizza Tuesday - BOGOF on All Pizzas',
+    description: 'Every Tuesday at The Anchor! Buy one pizza, get one FREE. All sizes, all pizzas, dine-in or takeaway.',
+    images: ['/images/food/pizza-tuesday-bogof.jpg']
+  })
 }
 
 const pizzaOfferSchema = {
@@ -66,38 +74,53 @@ const pizzaOfferSchema = {
   "category": "Restaurant Offers"
 }
 
-const pizzaTuesdayEventSchema = {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "@id": "https://the-anchor.pub/pizza-tuesday#event",
-  "name": "Pizza Tuesday at The Anchor",
-  "description": "Weekly BOGOF pizza deal every Tuesday. Buy one pizza, get one free on our entire stone-baked pizza menu.",
-  "startDate": "2024-01-02T18:00:00+00:00",
-  "endDate": "2025-12-30T21:00:00+00:00",
-  "eventSchedule": {
-    "@type": "Schedule",
-    "repeatFrequency": "P1W",
-    "byDay": "https://schema.org/Tuesday",
-    "startTime": "18:00:00",
-    "endTime": "21:00:00"
-  },
-  "location": {
-    "@type": "Restaurant",
-    "name": BRAND.name,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Horton Road",
-      "addressLocality": "Stanwell Moor"
+// Create a proper Event object for Pizza Tuesday
+const pizzaTuesdayEvent: Event = {
+  '@type': 'Event',
+  id: 'pizza-tuesday-weekly',
+  slug: 'pizza-tuesday',
+  name: 'Pizza Tuesday at The Anchor',
+  description: 'Weekly BOGOF pizza deal every Tuesday. Buy one pizza, get one free on our entire stone-baked pizza menu.',
+  longDescription: 'Weekly BOGOF pizza deal every Tuesday. Buy one pizza, get one free on our entire stone-baked pizza menu. Perfect for families, couples, or friends looking for great value dining near Heathrow.',
+  shortDescription: 'Buy one pizza, get one FREE every Tuesday!',
+  startDate: new Date().toISOString(),
+  endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString(),
+  duration: 'PT3H',
+  image: [
+    '/images/food/pizza/the-anchor-stone-baked-pizza-stanwell-moor.jpg',
+    '/images/food/pizza/margherita-pizza-the-anchor.jpg'
+  ],
+  location: {
+    '@type': 'Place',
+    name: 'The Anchor',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Horton Road',
+      addressLocality: 'Stanwell Moor',
+      addressRegion: 'Surrey',
+      postalCode: 'TW19 6AQ',
+      addressCountry: 'GB'
     }
   },
-  "offers": {
-    "@id": "https://the-anchor.pub/pizza-tuesday#offer"
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'GBP',
+    availability: 'https://schema.org/InStock',
+    validFrom: new Date().toISOString()
   },
-  "organizer": {
-    "@type": "Organization",
-    "name": BRAND.name,
-    "url": "https://the-anchor.pub"
-  }
+  category: {
+    id: 'special-offers',
+    name: 'Special Offers',
+    slug: 'special-offers',
+    color: '#D4AF37',
+    icon: '🍕'
+  },
+  maximumAttendeeCapacity: 100,
+  remainingAttendeeCapacity: 100,
+  isAccessibleForFree: false,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode'
 }
 
 export default function PizzaTuesdayPage() {
@@ -109,9 +132,10 @@ export default function PizzaTuesdayPage() {
 
   return (
     <>
+      <EventSchema event={pizzaTuesdayEvent} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([pizzaOfferSchema, pizzaTuesdayEventSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([pizzaOfferSchema, breadcrumbSchema]) }}
       />
       
       {/* Hero Section */}
@@ -126,20 +150,14 @@ export default function PizzaTuesdayPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="primary"
-              size="lg"
-            >
-              📞 Book Your Table
-            </CallToAction>
-            <CallToAction 
-              href="/food/pizza"
-              variant="secondary"
-              size="lg"
-            >
-              🍕 View Pizza Menu
-            </CallToAction>
+            <Link href={`tel:${CONTACT.phone}`}>
+              <Button variant="primary" size="lg">📞 Book Your Table</Button>
+            </Link>
+            <Link href="/food/pizza">
+              <Button variant="secondary" size="lg">
+                🍕 View Pizza Menu
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -205,9 +223,14 @@ export default function PizzaTuesdayPage() {
                 Perfect for families, date nights, or catching up with friends. 
                 Our stone-baked pizzas are made fresh to order with authentic Italian ingredients.
               </p>
-              <CallToAction href="/food/pizza" variant="primary" size="lg">
-                View Our Pizza Selection
-              </CallToAction>
+              <Link href="/food/pizza">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        View Our Pizza Selection
+      </Button>
+    </Link>
             </div>
           </div>
         </div>
@@ -223,7 +246,7 @@ export default function PizzaTuesdayPage() {
             
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="font-bold text-xl text-red-700 mb-3">Classic Favorites</h3>
+                <h3 className="font-bold text-xl text-red-700 mb-3">Classic Favourites</h3>
                 <ul className="space-y-3">
                   <li>
                     <span className="font-semibold">Rustic Classic</span>

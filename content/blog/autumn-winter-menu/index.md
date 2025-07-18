@@ -6,7 +6,7 @@ description: >-
   Traditional British comfort dishes and seasonal specials in Stanwell Moor,
   just 7 minutes from Terminal 5. Perfect for Heathrow workers seeking warming
   meals. Cozy pub atmosphere near Staines with winter warmers and classic
-  favorites.
+  favourites.
 date: '2023-09-13'
 oldUrl: >-
   https://www.the-anchor.pub/post/dive-into-the-anchor-s-autumn-winter-menu-cozy-del
@@ -60,14 +60,14 @@ While we're keeping the names of our dishes under wraps for now, we can't resist
 
 ![Another photo of a new dish available on The Anchors Autumn Winter menu](/content/blog/autumn-winter-menu/image-1.png)
 
-### **Year-Round Favorites Plus Seasonal Specials Near Heathrow**
+### **Year-Round Favourites Plus Seasonal Specials Near Heathrow**
 
-While our **seasonal menu** brings winter comfort, we maintain all your favorites:
+While our **seasonal menu** brings winter comfort, we maintain all your favourites:
 - **Classic pub meals** - Always available
 - **Sunday roasts** - Traditional British tradition
 - **Burgers and steaks** - Quality meat dishes
 - **Vegetarian options** - Hearty meat-free choices
-- **Fish and chips** - Friday favorite
+- **Fish and chips** - Friday favourite
 
 Perfect for **regular diners from Terminal 5** and **Staines residents** who rely on consistent quality at their **local pub near the airport**.
 

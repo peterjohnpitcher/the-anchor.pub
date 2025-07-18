@@ -46,7 +46,7 @@ export default function APIDiagnosticsPage() {
 
     const tests = [
       {
-        name: 'Health Check',
+        name: 'Health Cheque',
         endpoint: '/api/health',
         method: 'GET',
         test: async () => {
@@ -86,7 +86,7 @@ export default function APIDiagnosticsPage() {
         }
       },
       {
-        name: 'Check Availability',
+        name: 'Cheque Availability',
         endpoint: '/api/events/{id}/availability',
         method: 'POST',
         test: async () => {
@@ -245,7 +245,7 @@ export default function APIDiagnosticsPage() {
                   <span className="font-semibold">{result.method}</span>
                   <code className="ml-2 text-sm bg-gray-100 px-2 py-1 rounded">{result.endpoint}</code>
                 </div>
-                <span className="text-xs text-gray-500">{result.timestamp}</span>
+                <span className="text-xs text-gray-700">{result.timestamp}</span>
               </div>
               
               <p className={`mt-2 ${getStatusColor(result.status)}`}>
@@ -263,7 +263,7 @@ export default function APIDiagnosticsPage() {
               
               {result.details && result.status === 'success' && (
                 <details className="mt-3">
-                  <summary className="cursor-pointer text-sm text-gray-600 hover:text-gray-800">
+                  <summary className="cursor-pointer text-sm text-gray-700 hover:text-gray-800">
                     View Response Data
                   </summary>
                   <pre className="mt-2 bg-gray-50 p-3 rounded text-xs overflow-x-auto">

@@ -211,7 +211,7 @@ interface NavItemProps {
 
 const NavItem = ({ item, variant = 'default', onClick }: NavItemProps) => {
   const linkClasses = cn(
-    'font-medium transition-colors flex items-center gap-2',
+    'font-medium transition-colours flex items-center gap-2',
     variant === 'default' && 'text-white hover:text-anchor-gold',
     variant === 'light' && 'text-gray-700 hover:text-anchor-green',
     variant === 'transparent' && 'text-current hover:opacity-80'
@@ -222,7 +222,7 @@ const NavItem = ({ item, variant = 'default', onClick }: NavItemProps) => {
       {item.icon}
       {item.label}
       {item.badge && (
-        <span className="ml-1 px-2 py-0.5 text-xs bg-anchor-gold text-white rounded-full">
+        <span className="ml-1 px-2 py-0.5 text-sm sm:text-xs bg-anchor-gold text-white rounded-full">
           {item.badge}
         </span>
       )}

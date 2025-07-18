@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -8,16 +8,22 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Feltham Pub | The Anchor - 10 Minutes Away | Surrey',
-  description: 'The Anchor pub is just 10 minutes from Feltham. Traditional British pub with free parking, great food, and regular events. A peaceful Surrey alternative to busy Feltham high street pubs.',
+  description: 'The Anchor - 10 mins from Feltham. Traditional British pub with free parking, great food & regular events. Peaceful Surrey alternative to high street.',
   keywords: 'feltham pub, pub near feltham, feltham surrey pub, pub with parking feltham, traditional pub feltham',
   openGraph: {
     title: 'The Anchor - Your Local Pub Near Feltham',
     description: 'Just 10 minutes from Feltham with free parking and great food.',
     images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Your Local Pub Near Feltham',
+    description: 'Just 10 minutes from Feltham with free parking and great food.',
+    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 export default function FelthamPubPage() {
@@ -81,20 +87,22 @@ export default function FelthamPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Call to Book
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-            >
-              🍽️ View Menu
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Call to Book
+      </Button>
+    </Link>
+            <Link href="/food-menu">
+      <Button 
+        variant="secondary"
+        size="lg"
+      >
+        🍽️ View Menu
+      </Button>
+    </Link>
           </div>
         }
       />
@@ -211,15 +219,15 @@ export default function FelthamPubPage() {
                 <div className="space-y-4">
                   <div>
                     <p className="font-semibold text-anchor-green">From Feltham Station:</p>
-                    <p className="text-gray-600">10-minute drive via Bedfont Lane, or take the 117 bus towards Staines.</p>
+                    <p className="text-gray-700">10-minute drive via Bedfont Lane, or take the 117 bus towards Staines.</p>
                   </div>
                   <div>
                     <p className="font-semibold text-anchor-green">Near Bedfont Lakes:</p>
-                    <p className="text-gray-600">We're just 5 minutes from Bedfont Lakes Business Park - perfect for after-work drinks.</p>
+                    <p className="text-gray-700">We're just 5 minutes from Bedfont Lakes Business Park - perfect for after-work drinks.</p>
                   </div>
                   <div>
                     <p className="font-semibold text-anchor-green">From The Centre Feltham:</p>
-                    <p className="text-gray-600">Head south on Bedfont Lane, follow signs for Staines/Stanwell.</p>
+                    <p className="text-gray-700">Head south on Bedfont Lane, follow signs for Staines/Stanwell.</p>
                   </div>
                 </div>
               </div>
@@ -353,19 +361,30 @@ export default function FelthamPubPage() {
                 Competitive rates - let's discuss your needs. Spaces for 10-200 guests.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <CallToAction href="/private-party-venue" variant="primary" size="md">
-                  Party Venue Info
-                </CallToAction>
-                <CallToAction href="tel:01753682707" variant="secondary" size="md">
-                  📞 Quick Quote
-                </CallToAction>
-                <CallToAction 
-                  href="https://wa.me/441753682707?text=Hi,%20I'm%20from%20Feltham%20and%20interested%20in%20event%20venue%20hire" 
-                  variant="secondary" 
-                  size="md"
-                >
-                  💬 WhatsApp
-                </CallToAction>
+                <Link href="/private-party-venue">
+      <Button 
+        variant="primary"
+        size="md"
+      >
+        Party Venue Info
+      </Button>
+    </Link>
+                <Link href="tel:01753682707">
+      <Button 
+        variant="secondary"
+        size="md"
+      >
+        📞 Quick Quote
+      </Button>
+    </Link>
+                <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
+      <Button 
+        variant="secondary"
+        size="md"
+      >
+        💬 WhatsApp
+      </Button>
+    </Link>
               </div>
             </div>
           </div>

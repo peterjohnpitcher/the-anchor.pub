@@ -24,6 +24,10 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
         ],
       },
       // Add cache headers for static files
@@ -173,6 +177,30 @@ const nextConfig = {
               priority: 10,
               reuseExistingChunk: true,
               enforce: true
+            },
+            // UI components chunk
+            ui: {
+              name: 'ui',
+              test: /components\/(ui|primitives|forms|layout|navigation|overlays|feedback)/,
+              chunks: 'all',
+              priority: 30,
+              reuseExistingChunk: true
+            },
+            // Feature components chunk
+            features: {
+              name: 'features',
+              test: /components\/features/,
+              chunks: 'all',
+              priority: 25,
+              reuseExistingChunk: true
+            },
+            // Hero components chunk (frequently used)
+            hero: {
+              name: 'hero',
+              test: /components\/hero/,
+              chunks: 'all',
+              priority: 35,
+              reuseExistingChunk: true
             },
           },
         },

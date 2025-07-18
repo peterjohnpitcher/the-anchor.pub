@@ -30,11 +30,11 @@ hero: hero.png
 images: []
 ---
 
-Experience **music bingo near Heathrow** with a melodic twist! Every last Wednesday, The Anchor hosts the area's most entertaining bingo night where songs replace numbers. Test your music knowledge, win prizes, and enjoy great food just 10 minutes from Terminal 5. Join Stanwell Moor's favorite musical game night!
+Experience **music bingo near Heathrow** with a melodic twist! Every last Wednesday, The Anchor hosts the area's most entertaining bingo night where songs replace numbers. Test your music knowledge, win prizes, and enjoy great food just 10 minutes from Terminal 5. Join Stanwell Moor's favourite musical game night!
 
 ## What is Music Bingo?
 
-### Bingo Meets Your Favorite Tunes
+### Bingo Meets Your Favourite Tunes
 
 **Music bingo** revolutionizes traditional bingo with an entertaining twist:
 
@@ -190,7 +190,7 @@ Our playlists include:
 - Current Chart
 
 **Genres:**
-- Pop favorites
+- Pop favourites
 - Rock anthems
 - R&B smooth
 - Country hits

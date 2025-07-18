@@ -123,10 +123,16 @@ export function StatusBar({
     }
     
     return (
-      <div className="flex items-center gap-2 text-sm">
-        <StatusIndicator status={isOpen ? 'open' : 'closed'} size="sm" />
-        <span>{navMessage}</span>
-      </div>
+      <>
+        <div className="flex items-center gap-2 text-sm">
+          <StatusIndicator status={isOpen ? 'open' : 'closed'} size="sm" />
+          <span>{navMessage}</span>
+        </div>
+        {/* Screen reader announcement for status changes */}
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          {navMessage}
+        </div>
+      </>
     )
   }
 

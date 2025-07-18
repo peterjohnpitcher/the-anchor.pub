@@ -1,6 +1,6 @@
 ---
 title: "Unveiling our April 2019 Pricing Update at The Anchor"
-description: "As we approach the end of our first month at The Anchor, we have received an annual increase in our prices from the brewery, forcing our hand, in-turn, to increase the prices for our products.As you've hopefully seen, we are making every effort to ensure that the standards and quality of the products we serve you all are improving day-by-day, we are committed to continuously improve them for all of our guests.What products will be changing?We will be increasing the price of our draft products by"
+description: "As we approach the end of our first month at The Anchor, we have received an annual increase in our prices from the brewery, forcing our hand, in-turn, to increase the prices for our products.As you've hopefully seen, we are making every effort to ensure that the standards and quality of the products we serve you all are improving day-by-day, we are committed to continuously improve them for all of our guests.What products will be changing?We will be increasing the price of our draught products by"
 date: "2019-03-19"
 oldUrl: "https://www.the-anchor.pub/post/unveiling-our-april-2019-pricing-update-at-the-anc"
 author: "Billy"
@@ -30,7 +30,7 @@ As you've hopefully seen, we are making every effort to ensure that the standard
 
 **What products will be changing?**
 
-We will be increasing the price of our draft products by 15p per pint.
+We will be increasing the price of our draught products by 15p per pint.
 
   
 

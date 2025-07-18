@@ -20,14 +20,15 @@ const buttonVariants = cva(
         secondary: 'bg-white text-anchor-green border-2 border-anchor-green hover:bg-anchor-green hover:text-white',
         ghost: 'text-anchor-green hover:bg-anchor-green/10',
         outline: 'border-2 border-anchor-gold text-anchor-gold hover:bg-anchor-gold hover:text-white',
-        danger: 'bg-red-600 text-white hover:bg-red-700'
+        danger: 'bg-red-600 text-white hover:bg-red-700',
+        warning: 'bg-yellow-500 text-white hover:bg-yellow-600'
       },
       size: {
-        xs: 'px-3 py-1.5 text-xs',
-        sm: 'px-4 py-2 text-sm',
-        md: 'px-6 py-2.5 text-base',
-        lg: 'px-8 py-3 text-lg',
-        xl: 'px-10 py-3.5 text-xl'
+        xs: 'px-3 py-2 text-sm sm:text-xs min-h-[44px]',
+        sm: 'px-4 py-2.5 text-sm min-h-[44px]',
+        md: 'px-6 py-3 text-base min-h-[44px]',
+        lg: 'px-8 py-3.5 text-lg min-h-[48px]',
+        xl: 'px-10 py-4 text-xl min-h-[52px]'
       },
       fullWidth: {
         true: 'w-full'
@@ -79,6 +80,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <circle 
                 className="opacity-25" 

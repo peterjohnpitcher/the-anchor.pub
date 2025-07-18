@@ -1,20 +1,27 @@
+import Link from 'next/link'
 import Image from 'next/image'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Beer Garden Near Me | Plane Spotting Pub | The Anchor Stanwell Moor',
-  description: 'Unique beer garden directly under Heathrow flight path. Best plane spotting pub near Heathrow with outdoor seating, dog-friendly space, and views of aircraft every 90 seconds.',
+  description: 'Unique beer garden under Heathrow flight path. Best plane spotting pub with outdoor seating, dog-friendly space & aircraft views every 90 seconds.',
   keywords: 'plane spotting heathrow, beer garden stanwell moor, pub garden heathrow, plane spotting pub, outdoor dining heathrow, best places for plane spotting, heathrow flight path pub',
   openGraph: {
     title: 'Beer Garden & Plane Spotting - The Anchor Pub',
     description: 'Watch planes overhead every 90 seconds while enjoying drinks in our unique beer garden',
     images: ['/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Beer Garden & Plane Spotting - The Anchor Pub',
+    description: 'Watch planes overhead every 90 seconds while enjoying drinks in our unique beer garden',
+    images: ['/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg']
+  })
 }
 
 const planeSpottingSchema = {
@@ -83,20 +90,22 @@ export default function BeerGardenPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="/drinks"
-              variant="primary"
-              size="lg"
-            >
-              🍺 View Drinks Menu
-            </CallToAction>
-            <CallToAction 
-              href="/find-us"
-              variant="secondary"
-              size="lg"
-            >
-              📍 Get Directions
-            </CallToAction>
+            <Link href="/drinks">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        🍺 View Drinks Menu
+      </Button>
+    </Link>
+            <Link href="/find-us">
+      <Button 
+        variant="secondary"
+        size="lg"
+      >
+        📍 Get Directions
+      </Button>
+    </Link>
           </div>
         }
       >

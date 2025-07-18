@@ -87,7 +87,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
           />
           
           {/* Calendar icon */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-700">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
@@ -101,7 +101,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         )}
         
         {helperText && !error && (
-          <p id={`${datePickerId}-helper`} className="mt-1 text-sm text-gray-500">
+          <p id={`${datePickerId}-helper`} className="mt-1 text-sm text-gray-700">
             {helperText}
           </p>
         )}
@@ -212,7 +212,7 @@ export const DateRangePicker = forwardRef<HTMLDivElement, DateRangePickerProps>(
         )}
         
         {helperText && !error && (
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-700">
             {helperText}
           </p>
         )}
@@ -284,7 +284,7 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
           />
           
           {/* Clock icon */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-700">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -298,7 +298,7 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
         )}
         
         {helperText && !error && (
-          <p id={`${timePickerId}-helper`} className="mt-1 text-sm text-gray-500">
+          <p id={`${timePickerId}-helper`} className="mt-1 text-sm text-gray-700">
             {helperText}
           </p>
         )}

@@ -27,7 +27,7 @@ images:
 
 # The Anchor Blog - Your Local Pub Near Heathrow
 
-Welcome to The Anchor's blog, where we share the latest news, events, and happenings from your favorite **village pub near Heathrow Airport**. Located in **Stanwell Moor**, just **7 minutes from Terminal 5**, we're the perfect alternative to expensive airport bars and restaurants.
+Welcome to The Anchor's blog, where we share the latest news, events, and happenings from your favourite **village pub near Heathrow Airport**. Located in **Stanwell Moor**, just **7 minutes from Terminal 5**, we're the perfect alternative to expensive airport bars and restaurants.
 
 ## What You'll Find Here
 
@@ -81,6 +81,6 @@ Read about local happenings, charity events, and the people who make Stanwell Mo
 
 ### Stay Updated
 
-Check back regularly for the latest news and updates from The Anchor. Whether you're a Heathrow worker looking for your new local, a Stanwell Moor resident keeping up with village life, or a visitor seeking authentic British pub experiences, our blog keeps you connected to everything happening at The Anchor.
+Cheque back regularly for the latest news and updates from The Anchor. Whether you're a Heathrow worker looking for your new local, a Stanwell Moor resident keeping up with village life, or a visitor seeking authentic British pub experiences, our blog keeps you connected to everything happening at The Anchor.
 
 **The Anchor Blog - Where village life meets Heathrow convenience**

@@ -43,7 +43,7 @@ We're thrilled to reveal our completely transformed exterior! The scaffolding ha
 - Fresh paint in contemporary colours
 - Updated signage with modern branding
 - Restored traditional features
-- Enhanced curb appeal
+- Enhanced kerb appeal
 - Weather-resistant finishes
 - Professional landscaping
 

@@ -75,7 +75,7 @@ Who was Saint Patrick, and why does he capture our imagination centuries after h
     
 2.  **A Symbolic Shamrock:** He used the three-leaved shamrock to explain the Holy Trinity to the Irish, leading to its association with the day.
     
-3.  **Saint Patrick's Blue:** Originally, blue, not green, was the color associated with Saint Patrick.
+3.  **Saint Patrick's Blue:** Originally, blue, not green, was the colour associated with Saint Patrick.
     
 4.  **Escape and Return:** After escaping slavery, Patrick returned to Ireland to convert the Irish to Christianity.
     
@@ -96,7 +96,7 @@ In a blend of myth and history, St Patrick's Day roots lie deep in the heart of 
 
   
 
-Originally a day for spiritual renewal and offering prayers for missionaries worldwide, it has blossomed into a celebration of all things Irish. The transformation began in the 18th century when Irish immigrants in the United States started organizing parades and gatherings as a show of strength and connection to their roots. It wasn't long before St. Patrick's Day became a symbol of Irish culture and heritage, celebrated by people of all backgrounds.
+Originally a day for spiritual renewal and offering prayers for missionaries worldwide, it has blossomed into a celebration of all things Irish. The transformation began in the 18th century when Irish immigrants in the United States started organising parades and gatherings as a show of strength and connection to their roots. It wasn't long before St. Patrick's Day became a symbol of Irish culture and heritage, celebrated by people of all backgrounds.
 
   
 
@@ -106,7 +106,7 @@ Originally a day for spiritual renewal and offering prayers for missionaries wor
 
 Join us for special Irish dishes alongside our regular menu:
 - **Beef and Guinness Stew** - Slow-cooked to perfection
-- **Corned Beef and Cabbage** - Traditional favorite
+- **Corned Beef and Cabbage** - Traditional favourite
 - **Irish Lamb Stew** - With root vegetables
 - **Colcannon** - Traditional mashed potatoes with cabbage
 - **Bailey's Cheesecake** - For dessert
@@ -124,7 +124,7 @@ Celebrate with authentic Irish beverages:
 
   
 
-While green is the color most associated with St Patrick's Day, wearing orange can be a contentious choice.
+While green is the colour most associated with St Patrick's Day, wearing orange can be a contentious choice.
 
   
 
@@ -132,7 +132,7 @@ While green is the color most associated with St Patrick's Day, wearing orange c
 
   
 
-The color orange holds deep historical significance in Ireland. It represents the Protestants, particularly the followers of William of Orange. In the context of Ireland's history of religious and political division, wearing orange on St. Patrick's Day, traditionally a Catholic holiday, can be seen as provocative. However, today, as we embrace a more inclusive society, the day has become a celebration of Irish culture as a whole, beyond past divisions.
+The colour orange holds deep historical significance in Ireland. It represents the Protestants, particularly the followers of William of Orange. In the context of Ireland's history of religious and political division, wearing orange on St. Patrick's Day, traditionally a Catholic holiday, can be seen as provocative. However, today, as we embrace a more inclusive society, the day has become a celebration of Irish culture as a whole, beyond past divisions.
 
   
 
@@ -140,7 +140,7 @@ The color orange holds deep historical significance in Ireland. It represents th
 
 ### Live Irish Music
 - **Traditional Irish musicians** performing throughout the day
-- **Sing-along sessions** with favorite Irish songs
+- **Sing-along sessions** with favourite Irish songs
 - **Irish dancing** demonstrations
 - **Family-friendly** atmosphere all day
 
@@ -187,7 +187,7 @@ We're more than just a local pub; we're a place where stories are shared, laught
 ### Why Celebrate St Patrick's Day at The Anchor
 
 - **Authentic atmosphere** - Traditional Irish hospitality
-- **Special menu** - Irish favorites alongside regular offerings
+- **Special menu** - Irish favourites alongside regular offerings
 - **Family-friendly** - Activities for all ages
 - **Convenient location** - Easy access from Heathrow
 - **Free parking** - No hassle getting here

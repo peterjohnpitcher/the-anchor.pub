@@ -233,10 +233,9 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
       itemScope 
       itemType="https://schema.org/MenuItem"
       role="listitem"
-      tabIndex={0}
+      // Removed tabIndex to improve keyboard navigation
       data-menu-item
       data-item-id={itemId}
-      onFocus={() => onFocus(itemId)}
       aria-label={`${item.name}, ${item.price}${item.vegetarian ? ', vegetarian' : ''}`}
     >
       <CardBody>
@@ -266,16 +265,15 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
 const MenuItemList = memo(function MenuItemList({ item, itemId, isFocused, onFocus }: MenuItemProps) {
   return (
     <div 
-      className={`flex justify-between items-center p-2 rounded-lg transition-colors ${
+      className={`flex justify-between items-center p-2 rounded-lg transition-colours ${
         isFocused ? 'bg-amber-50' : 'hover:bg-gray-50'
       }`}
       itemScope 
       itemType="https://schema.org/MenuItem"
       role="listitem"
-      tabIndex={0}
+      // Removed tabIndex to improve keyboard navigation
       data-menu-item
       data-item-id={itemId}
-      onFocus={() => onFocus(itemId)}
       aria-label={`${item.name}, ${item.price}${item.vegetarian ? ', vegetarian' : ''}`}
     >
       <span className="flex items-center gap-2" itemProp="name">

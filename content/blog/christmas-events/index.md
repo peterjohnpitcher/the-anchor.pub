@@ -51,9 +51,9 @@ Each year, our **Christmas pub** hosts a variety of festive events:
 #### Christmas Karaoke Nights
 **Every Friday in December | From 8pm**
 
-Belt out your favorite festive tunes at our legendary Christmas karaoke sessions:
+Belt out your favourite festive tunes at our legendary Christmas karaoke sessions:
 - Professional karaoke setup with 1000s of songs
-- Festive cocktail menu featuring seasonal favorites
+- Festive cocktail menu featuring seasonal favourites
 - Prizes for best performances
 - No booking required - first come, first served
 - Hosted by our entertaining regular compere
@@ -134,7 +134,7 @@ Our **New Year's Eve pub** celebration features:
 
 **December 31st | 7pm-1am**
 
-- **Live DJ** playing party favorites
+- **Live DJ** playing party favourites
 - **BBC countdown** on all screens
 - **Champagne at midnight**
 - **Festive burger menu** available
@@ -161,7 +161,7 @@ Perfect for locals who want to celebrate without expensive taxis or Heathrow tra
 
 #### For Locals
 - **Walk home** after celebrations - no taxi needed
-- **Meet neighbors** at community events
+- **Meet neighbours** at community events
 - **Support local** - we use regional suppliers
 - **Regular events** throughout December
 
@@ -181,7 +181,7 @@ Perfect for locals who want to celebrate without expensive taxis or Heathrow tra
 
 ### Reserve Your Festive Experience
 
-Don't miss out on Christmas at Stanwell Moor's favorite pub:
+Don't miss out on Christmas at Stanwell Moor's favourite pub:
 
 📞 **Call**: 01753 682707
 📧 **Email**: bookings@the-anchor.pub
@@ -209,7 +209,7 @@ Don't miss out on Christmas at Stanwell Moor's favorite pub:
 
 Whether you're a **Stanwell Moor local**, **Heathrow traveler**, or visiting from **Staines** and beyond, The Anchor provides the perfect setting for your Christmas celebrations. From intimate family dinners to lively party nights, we've got your festive season covered.
 
-Join us this December and discover why The Anchor is the area's favorite **Christmas pub near Heathrow**. Book early to avoid disappointment!
+Join us this December and discover why The Anchor is the area's favourite **Christmas pub near Heathrow**. Book early to avoid disappointment!
 
 **Merry Christmas and a Happy New Year from all of us at The Anchor!**
 

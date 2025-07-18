@@ -21,7 +21,7 @@ Based on search data analysis, here are content recommendations for other pages 
 3. **Staines Food Positioning**
    - "food staines" - 500 searches/month
    - "staines fish and chips" - 500 searches/month
-   - Emphasize: "Staines' favorite fish & chips destination"
+   - Emphasize: "Staines' favourite fish & chips destination"
 
 ## Homepage
 

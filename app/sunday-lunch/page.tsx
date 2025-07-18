@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
@@ -14,6 +15,11 @@ export const metadata: Metadata = {
     description: 'Traditional British Sunday roast dinners. Pre-order by 1pm Saturday required. Regular menu also available.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Famous Sunday Roasts at The Anchor',
+    description: 'Traditional British Sunday roast dinners. Pre-order by 1pm Saturday required. Regular menu also available.',
+    images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg']
+  })
 }
 
 export default function SundayLunchPage() {
@@ -32,21 +38,24 @@ export default function SundayLunchPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Book Your Table Now
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Book Your Table Now
+      </Button>
+    </Link>
             
-            <CallToAction 
-              href="#menu"
-              variant="white"
-              size="lg"
-            >
-              View Sunday Menu
-            </CallToAction>
+            <Link href="#menu">
+      <Button 
+        variant="secondary"
+        size="lg"
+        className="bg-white text-anchor-green hover:bg-gray-100"
+      >
+        View Sunday Menu
+      </Button>
+    </Link>
           </div>
         }
       >
@@ -57,7 +66,7 @@ export default function SundayLunchPage() {
           <p className="text-white text-sm">
             Sunday roasts must be pre-ordered and paid for by 1pm on Saturday
           </p>
-          <p className="text-white/90 text-xs mt-2">
+          <p className="text-white/90 text-sm sm:text-xs mt-2">
             Regular menu also available on Sundays without pre-order
           </p>
         </div>

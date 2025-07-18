@@ -118,7 +118,7 @@ Dive into our [Community Engagement Survey](https://bit.ly/3rJHP8K) and share yo
 Join us for our focus group discussion with:
 - **Free pizza dinner** on us
 - **Open discussion** about the pub's future
-- **Meet neighbors** from the community
+- **Meet neighbours** from the community
 - **Direct input** to management
 
 ### Direct Contact

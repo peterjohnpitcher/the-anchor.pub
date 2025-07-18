@@ -27,6 +27,25 @@ export * from './forms/Radio'
 export * from './forms/DatePicker'
 export * from './forms/Switch'
 
+// Overlay components
+export * from './overlays/Modal'
+export * from './overlays/Toast'
+export * from './overlays/Tooltip'
+export * from './overlays/Popover'
+
+// Feedback components (Loading)
+export * from './feedback/Loading'
+
+// Utility components
+export { IconText } from './IconText'
+export { JourneyTime } from './JourneyTime'
+export { ContactLink } from './ContactLink'
+export { EventMetadata } from './EventMetadata'
+export { PriceDisplay } from './PriceDisplay'
+export { OpeningStatus } from './OpeningStatus'
+export { ErrorDisplay, EventsErrorDisplay, BookingErrorDisplay, WeatherErrorDisplay, FlightErrorDisplay } from './ErrorDisplay'
+export { LoadingState, CardSkeleton, EventCardSkeleton, TableRowSkeleton } from './LoadingState'
+
 // Re-export component types
 export type * from './types'
 

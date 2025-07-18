@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { CallToAction } from './CallToAction'
+import Link from 'next/link'
+import { Button } from '@/components/ui'
 import { usePathname } from 'next/navigation'
 
 interface DailySpecialsProps {
@@ -61,14 +62,15 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
             <p className="text-lg mb-8">
               Every Tuesday - Dine in & takeaway
             </p>
-            <CallToAction 
-              href="/food-menu#pizza" 
-              variant="yellow" 
-              size="lg"
-              onClick={handlePizzaClick}
-            >
-              View Pizza Menu
-            </CallToAction>
+            <Link href="/food-menu#pizza">
+              <Button 
+                variant="warning" 
+                size="lg"
+                onClick={handlePizzaClick}
+              >
+                View Pizza Menu
+              </Button>
+            </Link>
           </div>
         )}
 
@@ -86,28 +88,29 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
             <p className="text-lg mb-8">
               All chip shop menu items including fish & chips, scampi, and sausages
             </p>
-            <CallToAction 
-              href="/food-menu#mains" 
-              variant="yellow" 
-              size="lg"
-              onClick={() => {
-                if (pathname === '/food-menu') {
-                  const mainsSection = document.getElementById('mains')
-                  if (mainsSection) {
-                    const headerOffset = 80 // Height of fixed header
-                    const elementPosition = mainsSection.getBoundingClientRect().top
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-                    
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    })
+            <Link href="/food-menu#mains">
+              <Button 
+                variant="warning" 
+                size="lg"
+                onClick={() => {
+                  if (pathname === '/food-menu') {
+                    const mainsSection = document.getElementById('mains')
+                    if (mainsSection) {
+                      const headerOffset = 80 // Height of fixed header
+                      const elementPosition = mainsSection.getBoundingClientRect().top
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+                      
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      })
+                    }
                   }
-                }
-              }}
-            >
-              View Fish & Chips
-            </CallToAction>
+                }}
+              >
+                View Fish & Chips
+              </Button>
+            </Link>
           </div>
         )}
 
@@ -126,12 +129,16 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
               Don't miss out on our famous Sunday roasts
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CallToAction href="tel:01753682707" variant="yellow" size="lg">
-                📞 Call Now to Book
-              </CallToAction>
-              <CallToAction href="/sunday-lunch" variant="white" size="lg">
-                View Sunday Menu
-              </CallToAction>
+              <Link href="tel:01753682707">
+                <Button variant="warning" size="lg">
+                  📞 Call Now to Book
+                </Button>
+              </Link>
+              <Link href="/sunday-lunch">
+                <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+                  View Sunday Menu
+                </Button>
+              </Link>
             </div>
           </div>
         )}

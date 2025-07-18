@@ -123,7 +123,7 @@ Enjoying a great night out at a pub isn’t about how many pints you can drink�
 
 ### 6\. Leave No Trace
 
-Practicing good etiquette extends beyond your time at the bar. Ensuring you leave a tidy and welcoming space for the next guest is both respectful and in line with The Anchor’s commitment to sustainability.
+Practising good etiquette extends beyond your time at the bar. Ensuring you leave a tidy and welcoming space for the next guest is both respectful and in line with The Anchor’s commitment to sustainability.
 
   
 

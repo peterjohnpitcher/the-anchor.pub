@@ -75,7 +75,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
                 {label}
               </label>
               {helperText && !error && (
-                <p id={`${radioId}-helper`} className="text-sm text-gray-500">
+                <p id={`${radioId}-helper`} className="text-sm text-gray-700">
                   {helperText}
                 </p>
               )}
@@ -161,7 +161,7 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
         )}
         
         {helperText && !error && (
-          <p id={`${name}-helper`} className="text-sm text-gray-500 mb-2">
+          <p id={`${name}-helper`} className="text-sm text-gray-700 mb-2">
             {helperText}
           </p>
         )}
@@ -276,7 +276,7 @@ export const CardRadio = forwardRef<HTMLInputElement, CardRadioProps>(
             )}
             
             {helperText && (
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="mt-1 text-sm sm:text-xs text-gray-700">
                 {helperText}
               </p>
             )}

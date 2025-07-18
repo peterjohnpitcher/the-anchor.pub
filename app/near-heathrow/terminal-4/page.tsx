@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
@@ -8,7 +8,8 @@ import { SectionHeader } from '@/components/SectionHeader'
 import { FeatureGrid } from '@/components/FeatureCard'
 import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
-import { CTASection } from '@/components/CTASection'
+import { CTASection } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 4 | The Anchor - 12 Minutes Away',
@@ -19,6 +20,11 @@ export const metadata: Metadata = {
     description: 'Authentic British pub near Terminal 4. Free parking and traditional hospitality.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - 12 Minutes from Heathrow Terminal 4',
+    description: 'Authentic British pub near Terminal 4. Free parking and traditional hospitality.',
+    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+  })
 }
 
 export default function Terminal4Page() {
@@ -36,21 +42,24 @@ export default function Terminal4Page() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Book a Table
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Book a Table
+      </Button>
+    </Link>
             
-            <CallToAction 
-              href="#directions"
-              variant="white"
-              size="lg"
-            >
-              📍 Get Directions
-            </CallToAction>
+            <Link href="#directions">
+      <Button 
+        variant="secondary"
+        size="lg"
+        className="bg-white text-anchor-green hover:bg-gray-100"
+      >
+        📍 Get Directions
+      </Button>
+    </Link>
           </div>
         }
       />
@@ -158,14 +167,14 @@ export default function Terminal4Page() {
               <p className="text-gray-700 mb-6">
                 Click below for turn-by-turn directions from Terminal 4
               </p>
-              <CallToAction
-                href="https://maps.google.com/maps?saddr=Heathrow+Terminal+4&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                variant="primary"
-                size="lg"
-                external
-              >
-                Open in Google Maps
-              </CallToAction>
+              <Link href="https://maps.google.com/maps?saddr=Heathrow+Terminal+4&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        Open in Google Maps
+      </Button>
+    </Link>
             </div>
           </div>
         </div>
@@ -215,7 +224,7 @@ export default function Terminal4Page() {
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Live Terminal 4 Flight Information"
-              subtitle="Check flight times while you enjoy your meal or drink"
+              subtitle="Cheque flight times while you enjoy your meal or drink"
               align="center"
             />
             <FlightStatus terminal="4" type="both" limit={5} />

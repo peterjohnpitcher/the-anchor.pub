@@ -5,7 +5,7 @@ description: >-
   Read about our spectacular rum tasting event at The Anchor pub near Heathrow Airport.
   A special evening with 5-star reviews in Stanwell Moor, just 7
   minutes from Terminal 5. Limited to 25 guests with Caribbean food pairings.
-  Check back for future special events.
+  Cheque back for future special events.
 date: '2024-06-15'
 oldUrl: >-
   https://www.the-anchor.pub/post/rum-tasting-night-success-book-september-s-mystery
@@ -71,7 +71,7 @@ According to [industry experts](https://www.diffordsguide.com/encyclopedia/198/b
 
 ## **The Rum Tasting Night That Featured Premium Brands**
 
-![People in a lively restaurant toast with colorful drinks in pineapple-shaped glasses. A cheerful atmosphere with casual dining and laughter.](/content/blog/rum-tasting-september/image-2.jpeg)
+![People in a lively restaurant toast with colourful drinks in pineapple-shaped glasses. A cheerful atmosphere with casual dining and laughter.](/content/blog/rum-tasting-september/image-2.jpeg)
 
 This wasn't just another spirits event. From the moment guests arrived to find tropical-themed table settings and premium glassware, they knew something extraordinary awaited. Our carefully curated selection showcased rum's incredible diversity through partnerships with world-class distilleries - from coconut-infused crowd-pleasers to controversial banana expressions that sparked passionate debates.
 
@@ -79,7 +79,7 @@ This wasn't just another spirits event. From the moment guests arrived to find t
 
 ### **Premium Rums That Stole Hearts**
 
-![Glass with toothpick beside Bacardi Coconut bottle on a table. Colorful bottles in the background create a lively party vibe.](/content/blog/rum-tasting-september/image-3.jpeg)
+![Glass with toothpick beside Bacardi Coconut bottle on a table. Colourful bottles in the background create a lively party vibe.](/content/blog/rum-tasting-september/image-3.jpeg)
 
 The star of our rum tasting night was undoubtedly [Bacardi](https://www.bacardi.com/) Coconut, which earned a perfect 6/5 rating. "Smells like coconut, easy smooth taste like a piña colada but better," swooned one guest. This enthusiasm reflects the [growing trend](https://www.thespiritsbusiness.com/2024/01/flavoured-rum-market-growth/) of premium flavoured rums capturing hearts worldwide.
 

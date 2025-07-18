@@ -242,7 +242,6 @@ export const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
         id={`tabpanel-${value}`}
         aria-labelledby={`tab-${value}`}
         className={cn('mt-4 focus:outline-none', className)}
-        tabIndex={0}
         {...props}
       >
         {children}

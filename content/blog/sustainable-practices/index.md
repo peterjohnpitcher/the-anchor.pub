@@ -8,7 +8,7 @@ description: >-
   minutes from Terminal 5 in Stanwell Moor.
 date: '2024-08-10'
 oldUrl: >-
-  https://www.the-anchor.pub/post/the-anchor-leading-the-way-in-sustainable-practice
+  https://www.the-anchor.pub/post/the-anchor-leading-the-way-in-sustainable-practise
 author: Billy
 keywords:
   - sustainable pub near heathrow
@@ -96,7 +96,7 @@ We invite our customers and community members to join us on this journey. Whethe
 
   
 
-At The Anchor, sustainability is not just a practice—it’s a core value that shapes every aspect of our business. By combining tradition with innovation, we strive to create a pub that not only honours its historical roots but also looks to the future with a commitment to environmental stewardship. We are excited to continue this journey, and we thank our customers, community, and partners for their ongoing support. Together, we can make a lasting difference, one pint at a time.
+At The Anchor, sustainability is not just a practise—it’s a core value that shapes every aspect of our business. By combining tradition with innovation, we strive to create a pub that not only honours its historical roots but also looks to the future with a commitment to environmental stewardship. We are excited to continue this journey, and we thank our customers, community, and partners for their ongoing support. Together, we can make a lasting difference, one pint at a time.
 
   
 

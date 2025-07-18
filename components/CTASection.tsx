@@ -1,7 +1,15 @@
-import { CallToAction, CallToActionProps } from './CallToAction'
+import Link from 'next/link'
+import { Button } from './ui'
 
-interface CTAButton extends Omit<CallToActionProps, 'children'> {
+interface CTAButton {
   text: string
+  href: string
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'warning' | 'white'
+  className?: string
+  target?: string
+  rel?: string
+  external?: boolean
+  size?: 'xs' | 'sm' | 'md' | 'lg'
 }
 
 interface CTASectionProps {
@@ -41,15 +49,36 @@ export function CTASection({
           </p>
         )}
         <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-          {buttons.map((button, index) => (
-            <CallToAction
-              key={index}
-              {...button}
-              className={`flex-1 ${button.className || ''}`}
-            >
-              {button.text}
-            </CallToAction>
-          ))}
+          {buttons.map((button, index) => {
+            const isExternal = button.target === '_blank' || button.href.startsWith('http')
+            // Map "white" variant to outline with custom styling
+            const buttonVariant = button.variant === 'white' ? 'outline' : (button.variant || 'secondary')
+            const buttonClassName = button.variant === 'white' 
+              ? `flex-1 !text-white !border-white hover:!bg-white hover:!text-anchor-green ${button.className || ''}`
+              : `flex-1 ${button.className || ''}`
+            
+            const buttonElement = (
+              <Button 
+                variant={buttonVariant} 
+                size="lg" 
+                className={buttonClassName}
+              >
+                {button.text}
+              </Button>
+            )
+            
+            return (
+              <Link 
+                key={index}
+                href={button.href}
+                target={button.target || (isExternal ? '_blank' : undefined)}
+                rel={button.rel || (isExternal ? 'noopener noreferrer' : undefined)}
+                className="flex-1"
+              >
+                {buttonElement}
+              </Link>
+            )
+          })}
         </div>
         {footer && (
           <p className="mt-6 text-sm text-white/80">

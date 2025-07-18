@@ -76,7 +76,7 @@ export default function APITestPage() {
       <div className="bg-gray-100 rounded p-4">
         <h2 className="text-xl font-bold mb-4">Test Results:</h2>
         {results.length === 0 ? (
-          <p className="text-gray-500">No tests run yet</p>
+          <p className="text-gray-700">No tests run yet</p>
         ) : (
           <pre className="whitespace-pre-wrap text-sm">
             {results.join('\n')}
@@ -85,7 +85,7 @@ export default function APITestPage() {
       </div>
       
       <div className="mt-8 text-sm text-gray-600">
-        <p>Environment Check:</p>
+        <p>Environment Cheque:</p>
         <ul>
           <li>API Base URL: {typeof window === 'undefined' ? 'Server' : 'Client'} mode</li>
           <li>API Key: {process.env.ANCHOR_API_KEY ? '✅ Set' : '❌ Not available (expected on client)'}</li>

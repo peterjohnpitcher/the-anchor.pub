@@ -8,6 +8,40 @@ export interface HeaderImageConfig {
 
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
 
+// Descriptive alt text for each page header
+const PAGE_HEADER_ALT_TEXT: Record<string, string> = {
+  'home': 'The Anchor pub entrance with warm lighting and traditional British pub signage',
+  'whats-on': 'Live entertainment stage at The Anchor with colorful lighting and audience seating',
+  'food-menu': 'Delicious pub food spread including burgers, fish and chips on wooden table',
+  'drinks': 'Well-stocked bar at The Anchor showing beer taps, spirits, and wine selection',
+  'sunday-lunch': 'Traditional Sunday roast dinner with Yorkshire pudding, vegetables, and gravy',
+  'beer-garden': 'Spacious outdoor beer garden with wooden tables, umbrellas and string lights',
+  'find-us': 'The Anchor pub exterior on Horton Road, Stanwell Moor with clear signage',
+  'near-heathrow': 'The Anchor pub with planes visible overhead, showcasing proximity to Heathrow',
+  'blog': 'Cozy interior corner of The Anchor with vintage decor and warm atmosphere',
+  'events': 'Packed event night at The Anchor with crowd enjoying live entertainment',
+  'private-party-venue': 'Private function room set up for celebration with decorations and seating',
+  'function-room-hire': 'Versatile function room at The Anchor ready for corporate or private events',
+  'corporate-events': 'Professional meeting setup in The Anchor function room with presentation area',
+  'christmas-parties': 'Festively decorated dining area with Christmas tree and holiday lights',
+  'drag-shows': 'Drag performer on stage at The Anchor in glamorous outfit entertaining crowd',
+  'pizza-tuesday': 'Fresh stone-baked pizzas on display for Pizza Tuesday special offer',
+  'ashford-pub': 'The Anchor pub showcasing its convenient location for Ashford residents',
+  'staines-pub': 'Traditional British pub atmosphere at The Anchor, perfect for Staines locals',
+  'm25-junction-14-pub': 'The Anchor pub exterior with easy access from M25 Junction 14',
+  'stanwell-pub': 'The heart of Stanwell community - The Anchor pub welcoming entrance',
+  'windsor-pub': 'The Anchor pub traditional British charm, short drive from Windsor',
+  'heathrow-hotels-pub': 'The Anchor pub ideal for hotel guests, with planes visible overhead',
+  'bedfont-pub': 'Welcoming pub atmosphere at The Anchor for Bedfont community',
+  'egham-pub': 'The Anchor traditional pub setting perfect for Egham visitors',
+  'feltham-pub': 'Local favorite The Anchor pub serving Feltham community',
+  'near-heathrow-terminal-1': 'The Anchor pub with Terminal 1 planes overhead, perfect for travelers',
+  'near-heathrow-terminal-2': 'Convenient pub location near Terminal 2 with aircraft in background',
+  'near-heathrow-terminal-3': 'The Anchor pub garden with Terminal 3 flight path visible above',
+  'near-heathrow-terminal-4': 'Traditional British pub experience near Terminal 4 at The Anchor',
+  'near-heathrow-terminal-5': 'The Anchor pub exterior with Terminal 5 aircraft passing overhead'
+};
+
 /**
  * Gets the header image for a given page route
  * @param route - The page route (e.g., '/whats-on', '/food-menu')
@@ -43,10 +77,14 @@ export function getPageHeaderImage(route: string): HeaderImageConfig | null {
       return null;
     }
 
+    // Get descriptive alt text or fall back to a generated one
+    const altText = PAGE_HEADER_ALT_TEXT[folderName] || 
+      `The Anchor pub ${route === '/' ? 'homepage' : route.replace(/\//g, ' ').replace(/-/g, ' ').trim()} header image`;
+
     // Return the image configuration
     return {
       src: `/images/page-headers/${folderName}/${imageFile}`,
-      alt: `${route === '/' ? 'Home' : route.replace(/\//g, ' ').replace(/-/g, ' ').trim()} page header`
+      alt: altText
     };
   } catch (error) {
     console.error(`Error reading header image for route ${route}:`, error);
@@ -60,6 +98,6 @@ export function getPageHeaderImage(route: string): HeaderImageConfig | null {
 export function getDefaultHeaderImage(): HeaderImageConfig {
   return {
     src: '/images/hero/the-anchor-pub-interior-atmosphere.jpg',
-    alt: 'The Anchor pub interior'
+    alt: 'Warm and inviting interior of The Anchor pub with traditional wooden beams, cozy seating areas, and ambient lighting'
   };
 }

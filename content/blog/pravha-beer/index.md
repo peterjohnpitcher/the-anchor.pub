@@ -66,7 +66,7 @@ Pravha is renowned for its distinctive and refreshing flavour profile, and we’
 
   
 
-We know you’ll love enjoying Pravha with us – whether you’re catching up with friends or enjoying the sunshine in our outdoor seating area. Don’t just take our word for it, though; check out Pravha’s [official tasting notes](https://www.pravha.co.uk/#our-story) to see what the experts have to say.
+We know you’ll love enjoying Pravha with us – whether you’re catching up with friends or enjoying the sunshine in our outdoor seating area. Don’t just take our word for it, though; cheque out Pravha’s [official tasting notes](https://www.pravha.co.uk/#our-story) to see what the experts have to say.
 
   
 
@@ -108,7 +108,7 @@ When you come in to see us, we’re sure you’ll notice that Pravha offers some
 
 We’re thrilled to announce that Pravha is now available on tap right here at The Anchor! If you’re ready to taste this refreshing pilsner, come by and see us – we’d love to pour you a pint. Whether you’re catching up with friends, grabbing a quick drink after work, or spending the weekend with us, Pravha is the perfect beer to enjoy.
 
-So why wait? Visit us today at The Anchor and experience Pravha for yourself. We’re excited to share this delicious pilsner with you, and we’re confident it’ll become one of your favourites. Plus, you can check out more about Pravha’s unique qualities by visiting their [official website](https://www.pravha.co.uk/).
+So why wait? Visit us today at The Anchor and experience Pravha for yourself. We’re excited to share this delicious pilsner with you, and we’re confident it’ll become one of your favourites. Plus, you can cheque out more about Pravha’s unique qualities by visiting their [official website](https://www.pravha.co.uk/).
 
   
 
@@ -136,7 +136,7 @@ So why wait? Come visit us at The Anchor today and try Pravha for yourself – w
 - **Lower calorie option** for health-conscious drinkers
 - **Traditional pub atmosphere** near the airport
 - **Convenient for Heathrow staff** shifts
-- **Local favorite** in Stanwell Moor and Staines
+- **Local favourite** in Stanwell Moor and Staines
 - **Expert beer selection** including premium lagers
 
 *The Anchor - Your local Czech beer specialist near Heathrow Airport*

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
@@ -10,7 +10,8 @@ import { SectionHeader } from '@/components/SectionHeader'
 import { FeatureGrid } from '@/components/FeatureCard'
 import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
-import { CTASection } from '@/components/CTASection'
+import { CTASection } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 5 | The Anchor - 7 Minutes Away',
@@ -21,6 +22,11 @@ export const metadata: Metadata = {
     description: 'The closest traditional British pub to Terminal 5. Free parking and great food.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - 7 Minutes from Heathrow Terminal 5',
+    description: 'The closest traditional British pub to Terminal 5. Free parking and great food.',
+    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+  })
 }
 
 export default function Terminal5Page() {
@@ -39,21 +45,23 @@ export default function Terminal5Page() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Book a Table
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Book a Table
+      </Button>
+    </Link>
             
-            <CallToAction 
-              href="#directions"
-              variant="secondary"
-              size="lg"
-            >
-              📍 Get Directions
-            </CallToAction>
+            <Link href="#directions">
+      <Button 
+        variant="secondary"
+        size="lg"
+      >
+        📍 Get Directions
+      </Button>
+    </Link>
           </div>
         }
       />
@@ -168,14 +176,14 @@ export default function Terminal5Page() {
               <p className="text-gray-700 mb-6">
                 Click below for turn-by-turn directions from Terminal 5
               </p>
-              <CallToAction
-                href="https://maps.google.com/maps?saddr=Heathrow+Terminal+5&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                variant="primary"
-                size="lg"
-                external
-              >
-                Open in Google Maps
-              </CallToAction>
+              <Link href="https://maps.google.com/maps?saddr=Heathrow+Terminal+5&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        Open in Google Maps
+      </Button>
+    </Link>
             </div>
           </div>
         </div>
@@ -225,7 +233,7 @@ export default function Terminal5Page() {
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Live Terminal 5 Flight Information"
-              subtitle="Check flight times while you enjoy your meal or drink"
+              subtitle="Cheque flight times while you enjoy your meal or drink"
               align="center"
             />
             <FlightStatus terminal="5" type="both" limit={5} />
@@ -250,7 +258,7 @@ export default function Terminal5Page() {
               <h3 className="text-2xl font-bold text-anchor-green mb-4">Travel Tips</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <p className="font-semibold mb-2">Check-in Times:</p>
+                  <p className="font-semibold mb-2">Cheque-in Times:</p>
                   <ul className="space-y-1 text-gray-700 text-sm">
                     <li>• Short-haul: 2 hours before</li>
                     <li>• Long-haul: 3 hours before</li>

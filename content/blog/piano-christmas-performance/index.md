@@ -78,7 +78,7 @@ The Anchor's commitment to **live entertainment near Heathrow Airport** includes
 - Classical piano pieces
 - Contemporary arrangements
 - Film score interpretations
-- Festive favorites
+- Festive favourites
 - Original compositions
 
 ## Why Visit Our Christmas Market Near Terminal 5

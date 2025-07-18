@@ -223,7 +223,7 @@ Many visitors become regulars when in the area!
 **Seasonal Adjustments:**
 - Extended summer hours
 - Special holiday schedules
-- Check social media for updates
+- Cheque social media for updates
 
 **Location:** The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
 

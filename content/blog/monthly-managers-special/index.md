@@ -53,7 +53,7 @@ At The Anchor, we believe everyone deserves to enjoy **quality spirits** without
 
 This February, enjoy **25% off Gordon's White Peach Gin** - a sophisticated twist on the classic London Dry:
 
-**Flavor Profile:**
+**Flavour Profile:**
 - Smooth Gordon's base
 - Natural white peach infusion
 - Light, refreshing finish
@@ -118,7 +118,7 @@ Our **premium spirit selection** includes:
 - Captain Morgan varieties
 - Bacardi range
 - Premium aged rums
-- Flavored options
+- Flavoured options
 
 ## Perfect for Different Occasions
 
@@ -163,7 +163,7 @@ While we keep upcoming selections secret, expect:
 - **Premium whiskies** - Including single malts
 - **Craft gins** - Local and international
 - **Aged rums** - Caribbean classics
-- **Seasonal spirits** - Holiday favorites
+- **Seasonal spirits** - Holiday favourites
 - **Limited editions** - Rare opportunities
 
 **Insider Tip**: Visit regularly or follow our social media for hints about next month's selection!
@@ -212,7 +212,7 @@ Don't miss February's Gordon's White Peach Gin special:
 ### Manager's Special Conditions
 
 1. **Monthly product only** - Discount applies to featured spirit
-2. **Valid current month** - No extensions or rain checks
+2. **Valid current month** - No extensions or rain cheques
 3. **On-premise only** - No takeaway sales
 4. **Subject to availability** - While stocks last
 5. **Single serves only** - Not applicable to bottles

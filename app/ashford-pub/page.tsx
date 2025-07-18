@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -9,10 +9,11 @@ import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/e
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: `Ashford Pub Near Me | ${BRAND.name} - 10 Minutes from Ashford`,
-  description: `${BRAND.name} is the perfect traditional British pub just 10 minutes from Ashford. Free parking, Sunday roasts, quiz nights, and family-friendly atmosphere. Easy access from Ashford via A30.`,
+  description: `${BRAND.name} - traditional British pub 10 mins from Ashford. Free parking, Sunday roasts, quiz nights & family-friendly. Easy A30 access.`,
   keywords: 'ashford pub, pub near ashford, ashford surrey pub, pubs close to ashford, british pub ashford, traditional pub near ashford',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Ashford',
@@ -20,6 +21,11 @@ export const metadata: Metadata = {
     images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
     type: 'website',
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Traditional Pub Near Ashford',
+    description: 'Just 10 minutes from Ashford with free parking. Sunday roasts, British classics, and regular events.',
+    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 const localBusinessSchema = {
@@ -72,7 +78,7 @@ export default function AshfordPubPage() {
     'Ashford Surrey',
     'The Anchor Pub Stanwell Moor',
     [
-      'From Ashford town center, head west on Church Road/B377',
+      'From Ashford town centre, head west on Church Road/B377',
       'Continue onto Fordbridge Road',
       'At the roundabout, take the 2nd exit onto A30 (Staines Road West)',
       'Continue for about 2 miles',
@@ -97,20 +103,16 @@ export default function AshfordPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="primary"
-              size="lg"
-            >
-              📞 Call to Book
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-            >
-              🍽️ View Menu
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">
+                📞 Call to Book
+              </Button>
+            </Link>
+            <Link href="/food-menu">
+              <Button variant="secondary" size="lg">
+                🍽️ View Menu
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -120,7 +122,7 @@ export default function AshfordPubPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
-              title="Ashford's Favorite Traditional Pub Experience"
+              title="Ashford's Favourite Traditional Pub Experience"
               subtitle="Just a 10-minute drive from Ashford, The Anchor offers the perfect escape from busy town life. Enjoy traditional British hospitality, fantastic food, and a warm welcome in our historic Stanwell Moor location."
             />
             
@@ -185,7 +187,7 @@ export default function AshfordPubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">✓</span>
                     <div>
-                      <strong>Free parking always available</strong> - No meters, no stress, no charges
+                      <strong>Free parking always available</strong> - No metres, no stress, no charges
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -209,7 +211,7 @@ export default function AshfordPubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🐟</span>
                     <div>
-                      <strong>Friday Fish Special</strong> - 50% off for over 65s on chip shop favorites
+                      <strong>Friday Fish Special</strong> - 50% off for over 65s on chip shop favourites
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -278,9 +280,14 @@ export default function AshfordPubPage() {
               <p className="text-lg text-gray-700 mb-6">
                 Private areas available for Ashford groups - from intimate dinners to parties of 250!
               </p>
-              <CallToAction href="/book-event" variant="primary" size="lg">
-                Enquire About Private Hire
-              </CallToAction>
+              <Link href="/book-event">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        Enquire About Private Hire
+      </Button>
+    </Link>
             </div>
           </div>
         </div>
@@ -347,19 +354,30 @@ export default function AshfordPubPage() {
                 We love being part of the Ashford community.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <CallToAction href="/book-event" variant="primary" size="md">
-                  View All Event Options
-                </CallToAction>
-                <CallToAction href="tel:01753682707" variant="secondary" size="md">
-                  📞 Call: 01753 682707
-                </CallToAction>
-                <CallToAction 
-                  href="https://wa.me/441753682707?text=Hi,%20I'm%20from%20Ashford%20and%20interested%20in%20booking%20an%20event" 
-                  variant="secondary" 
-                  size="md"
-                >
-                  💬 WhatsApp Us
-                </CallToAction>
+                <Link href="/book-event">
+      <Button 
+        variant="primary"
+        size="md"
+      >
+        View All Event Options
+      </Button>
+    </Link>
+                <Link href="tel:01753682707">
+      <Button 
+        variant="secondary"
+        size="md"
+      >
+        📞 Call: 01753 682707
+      </Button>
+    </Link>
+                <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
+      <Button 
+        variant="secondary"
+        size="md"
+      >
+        💬 WhatsApp Us
+      </Button>
+    </Link>
               </div>
             </div>
           </div>
@@ -380,7 +398,7 @@ export default function AshfordPubPage() {
                 <ol className="space-y-3">
                   <li className="flex gap-3">
                     <span className="font-bold text-anchor-gold">1.</span>
-                    <span>From Ashford center, head west on Church Road</span>
+                    <span>From Ashford centre, head west on Church Road</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="font-bold text-anchor-gold">2.</span>
@@ -399,7 +417,7 @@ export default function AshfordPubPage() {
                     <span>The Anchor is on your right - look for our sign!</span>
                   </li>
                 </ol>
-                <p className="mt-4 text-sm text-gray-600">
+                <p className="mt-4 text-sm text-gray-700">
                   <strong>Journey time:</strong> 10 minutes in normal traffic
                 </p>
               </div>
@@ -424,13 +442,14 @@ export default function AshfordPubPage() {
             </div>
             
             <div className="mt-8 text-center">
-              <CallToAction 
-                href="https://maps.google.com/maps?saddr=Ashford+Surrey&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                variant="secondary"
-                external
-              >
-                📍 Get Directions from Ashford
-              </CallToAction>
+              <Link href="https://maps.google.com/maps?saddr=Ashford+Surrey&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
+      <Button 
+        variant="secondary"
+        size="md"
+      >
+        📍 Get Directions from Ashford
+      </Button>
+    </Link>
             </div>
           </div>
         </div>
@@ -477,7 +496,7 @@ export default function AshfordPubPage() {
             </div>
             
             <p className="text-lg text-gray-700">
-              Join the many Ashford residents who've discovered their new favorite pub!
+              Join the many Ashford residents who've discovered their new favourite pub!
             </p>
           </div>
         </div>
@@ -491,7 +510,7 @@ export default function AshfordPubPage() {
               title="Opening Hours"
             />
             <BusinessHours />
-            <p className="mt-4 text-gray-600">
+            <p className="mt-4 text-gray-700">
               Kitchen closes earlier - check times for food service
             </p>
           </div>
@@ -502,12 +521,12 @@ export default function AshfordPubPage() {
       <FAQAccordionWithSchema 
         faqs={[
           {
-            question: "How far is The Anchor from Ashford town center?",
-            answer: "The Anchor is approximately 3.5 miles from Ashford town center, which is about a 10-minute drive via the A30. We're located in Stanwell Moor, just past Ashford Hospital."
+            question: "How far is The Anchor from Ashford town centre?",
+            answer: "The Anchor is approximately 3.5 miles from Ashford town centre, which is about a 10-minute drive via the A30. We're located in Stanwell Moor, just past Ashford Hospital."
           },
           {
             question: "Is there parking at The Anchor for Ashford visitors?",
-            answer: "Yes! We have 20 free parking spaces available for all our guests. Unlike Ashford town center, you'll never have to worry about parking meters or charges here."
+            answer: "Yes! We have 20 free parking spaces available for all our guests. Unlike Ashford town centre, you'll never have to worry about parking metres or charges here."
           },
           {
             question: "What makes The Anchor different from pubs in Ashford?",
@@ -532,7 +551,7 @@ export default function AshfordPubPage() {
       {/* CTA Section */}
       <CTASection
         title="Worth the Trip from Ashford"
-        description="Join your Ashford neighbors who've discovered their new favorite pub"
+        description="Join your Ashford neighbours who've discovered their new favourite pub"
         buttons={[
           {
             text: "📞 Book a Table",

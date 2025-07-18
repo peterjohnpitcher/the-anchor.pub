@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { HeroWrapper } from '@/components/hero'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Sitemap | The Anchor Stanwell Moor',
@@ -10,6 +11,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  twitter: getTwitterMetadata({
+    title: 'Sitemap | The Anchor Stanwell Moor',
+    description: 'Complete sitemap of The Anchor pub website. Find all our pages including menus, events, location information and special offers.'
+  })
 }
 
 const sitemapSections = [
@@ -80,20 +85,16 @@ export default function SitemapPage() {
         showStatusBar={false}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="/"
-              variant="primary"
-              size="lg"
-            >
-              🏠 Back to Home
-            </CallToAction>
-            <CallToAction 
-              href="/find-us"
-              variant="secondary"
-              size="lg"
-            >
-              📍 Find Us
-            </CallToAction>
+            <Link href="/">
+              <Button variant="primary" size="lg">
+                🏠 Back to Home
+              </Button>
+            </Link>
+            <Link href="/find-us">
+              <Button variant="secondary" size="lg">
+                📍 Find Us
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -112,7 +113,7 @@ export default function SitemapPage() {
                     {section.links.map((link) => (
                       <li key={link.href}>
                         {link.note ? (
-                          <span className="text-gray-500">
+                          <span className="text-gray-700">
                             {link.label} <span className="text-sm">({link.note})</span>
                           </span>
                         ) : (
@@ -145,7 +146,7 @@ export default function SitemapPage() {
                 >
                   📞 01753 682707
                 </a>
-                <span className="text-gray-400">|</span>
+                <span className="text-gray-600">|</span>
                 <a 
                   href="mailto:manager@the-anchor.pub" 
                   className="text-lg font-semibold text-anchor-gold hover:text-anchor-gold-light"

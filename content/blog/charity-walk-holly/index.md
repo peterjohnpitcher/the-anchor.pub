@@ -32,7 +32,7 @@ The Anchor pub in **Stanwell Moor** proudly supports Jason West's incredible 65-
 
 ## Holly's Courageous Fight Against Cancer
 
-At just 12 years old, Holly from our **Stanwell Moor community** was diagnosed with Rhabdomyosarcoma, a rare and aggressive childhood cancer. Now 13, Holly continues her brave battle with the loving support of family, friends, and neighbors from across **Staines** and surrounding areas.
+At just 12 years old, Holly from our **Stanwell Moor community** was diagnosed with Rhabdomyosarcoma, a rare and aggressive childhood cancer. Now 13, Holly continues her brave battle with the loving support of family, friends, and neighbours from across **Staines** and surrounding areas.
 
 Throughout Holly's treatment, **Momentum Children's Charity** has provided invaluable support, arranging respite breaks and bringing moments of joy during hospital stays. The charity's work has been a lifeline for the West family.
 
@@ -66,7 +66,7 @@ As the starting point for this charity walk, **The Anchor pub** is proud to supp
 ### On Walk Day (March 21st)
 - **Special early opening** for all walkers (7am start)
 - **Send-off celebration** with the community
-- **Support vehicle** organized by local volunteers
+- **Support vehicle** organised by local volunteers
 - Join for any portion of the 65-mile journey
 
 ### Can't Walk? Other Ways to Support
@@ -122,7 +122,7 @@ Whether you're a **Stanwell Moor** local, visiting our **pub near Heathrow Airpo
 
 ## A Message from The Anchor
 
-"As the village pub at the heart of **Stanwell Moor**, we're honored to support Jason's walk for Holly. This is what community means - standing together when it matters most. From everyone at The Anchor, we're with you every step of the way."
+"As the village pub at the heart of **Stanwell Moor**, we're honoured to support Jason's walk for Holly. This is what community means - standing together when it matters most. From everyone at The Anchor, we're with you every step of the way."
 
 ---
 

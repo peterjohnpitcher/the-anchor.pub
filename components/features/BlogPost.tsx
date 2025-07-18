@@ -81,6 +81,41 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
         </Container>
       </Section>
 
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title,
+            "description": post.description,
+            "datePublished": post.date,
+            "dateModified": post.date,
+            "author": {
+              "@type": "Person",
+              "name": post.author
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "The Anchor",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://the-anchor.pub/blog/${post.slug}`
+            },
+            "image": post.hero 
+              ? `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}`
+              : "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+            "keywords": post.tags.join(", ")
+          })
+        }}
+      />
+
       {/* Content */}
       <article className="bg-white">
         <Section>
@@ -103,7 +138,7 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
                 /* Links */
                 prose-a:text-anchor-gold prose-a:font-semibold
                 prose-a:no-underline hover:prose-a:underline
-                prose-a:transition-colors hover:prose-a:text-anchor-gold-light
+                prose-a:transition-colours hover:prose-a:text-anchor-gold-light
                 
                 /* Strong/Bold */
                 prose-strong:text-anchor-green prose-strong:font-bold
@@ -121,7 +156,7 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
                 /* Blockquotes */
                 prose-blockquote:border-l-4 prose-blockquote:border-anchor-gold
                 prose-blockquote:pl-6 prose-blockquote:italic
-                prose-blockquote:text-gray-600 prose-blockquote:my-8
+                prose-blockquote:text-gray-700 prose-blockquote:my-8
                 
                 /* Code */
                 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1
@@ -147,7 +182,7 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
       {/* Share Section */}
       <Section spacing="sm" className="bg-gray-50">
         <Container size="md" className="text-center">
-          <p className="text-gray-600 mb-4">Enjoyed this article? Share it with your friends!</p>
+          <p className="text-gray-700 mb-4">Enjoyed this article? Share it with your friends!</p>
           <div className="flex justify-center gap-4">
             <Button 
               variant="secondary"
@@ -175,8 +210,8 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
               <Link href={`/blog/${prevPost.slug}`} className="group">
                 <Card variant="default" className="hover:shadow-md transition-shadow">
                   <CardBody>
-                    <p className="text-sm text-gray-600 mb-2">← Previous Post</p>
-                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colors">
+                    <p className="text-sm text-gray-700 mb-2">← Previous Post</p>
+                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colours">
                       {prevPost.title}
                     </h3>
                   </CardBody>
@@ -187,8 +222,8 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
               <Link href={`/blog/${nextPost.slug}`} className="group md:text-right">
                 <Card variant="default" className="hover:shadow-md transition-shadow">
                   <CardBody>
-                    <p className="text-sm text-gray-600 mb-2">Next Post →</p>
-                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colors">
+                    <p className="text-sm text-gray-700 mb-2">Next Post →</p>
+                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colours">
                       {nextPost.title}
                     </h3>
                   </CardBody>

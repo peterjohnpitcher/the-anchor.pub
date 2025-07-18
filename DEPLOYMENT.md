@@ -101,7 +101,7 @@ ENV PORT 3000
 CMD ["node", "server.js"]
 ```
 
-## Performance Optimization
+## Performance Optimisation
 
 ### Before Deployment
 
@@ -113,14 +113,14 @@ npm run start
 # Run Lighthouse audit
 ```
 
-2. Check bundle size:
+2. Cheque bundle size:
 ```bash
 npm run analyze
 ```
 
 ### CDN Setup
 
-1. Images are already optimized via Next.js Image component
+1. Images are already optimised via Next.js Image component
 2. Consider Cloudflare for additional caching
 3. Set cache headers in `next.config.js` if needed
 
@@ -129,7 +129,7 @@ npm run analyze
 - [x] Sitemap generated at `/sitemap.xml`
 - [x] Robots.txt configured
 - [x] Schema.org markup implemented
-- [x] Meta tags optimized
+- [x] Meta tags optimised
 - [x] Open Graph tags configured
 - [ ] Submit sitemap to Google Search Console
 - [ ] Submit to Bing Webmaster Tools
@@ -149,7 +149,7 @@ npm run analyze
 ## Post-Deployment
 
 1. Test all pages on production
-2. Check mobile responsiveness
+2. Cheque mobile responsiveness
 3. Verify API integration works
 4. Test contact forms and phone links
 5. Monitor Core Web Vitals
@@ -158,16 +158,16 @@ npm run analyze
 
 - Regular dependency updates: `npm update`
 - Monitor API key usage
-- Check for broken links monthly
+- Cheque for broken links monthly
 - Update content via API as needed
 
 ## Support
 
 For issues:
-- Check Vercel/hosting logs
+- Cheque Vercel/hosting logs
 - Review browser console for errors
 - Ensure environment variables are set
-- Check API endpoint connectivity
+- Cheque API endpoint connectivity
 
 ## Performance Targets
 

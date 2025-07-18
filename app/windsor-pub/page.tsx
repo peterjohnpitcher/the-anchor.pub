@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -9,10 +9,11 @@ import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/e
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: `Windsor Pub Near Me | ${BRAND.name} - 15 Minutes from Windsor`,
-  description: `${BRAND.name} is the perfect traditional pub just 15 minutes from Windsor. Outside ULEZ zone with free parking. Sunday roasts, quiz nights, drag shows, and authentic British atmosphere. Easy access via M4.`,
+  description: `${BRAND.name} - traditional pub 15 mins from Windsor. Outside ULEZ with free parking. Sunday roasts, quiz nights, drag shows. Easy M4 access.`,
   keywords: 'windsor pub, pub near windsor, windsor berkshire pub, pubs close to windsor, british pub windsor, traditional pub near windsor castle',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Windsor',
@@ -20,6 +21,11 @@ export const metadata: Metadata = {
     images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
     type: 'website',
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Traditional Pub Near Windsor',
+    description: 'Just 15 minutes from Windsor with free parking. Sunday roasts, British classics, and regular entertainment.',
+    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 const localBusinessSchema = {
@@ -76,7 +82,7 @@ export default function WindsorPubPage() {
     'Windsor Town Centre',
     'The Anchor Pub Stanwell Moor',
     [
-      'From Windsor town center, head east on High Street/A308',
+      'From Windsor town centre, head east on High Street/A308',
       'Continue onto Datchet Road/B376',
       'Turn left onto Horton Road/B376',
       'Continue for about 4 miles through Wraysbury',
@@ -101,20 +107,16 @@ export default function WindsorPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="primary"
-              size="lg"
-            >
-              📞 Call to Book
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-            >
-              🍽️ View Menu
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">
+                📞 Call to Book
+              </Button>
+            </Link>
+            <Link href="/food-menu">
+              <Button variant="secondary" size="lg">
+                🍽️ View Menu
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -124,7 +126,7 @@ export default function WindsorPubPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
-              title="Windsor's Favorite Traditional Pub Experience"
+              title="Windsor's Favourite Traditional Pub Experience"
               subtitle="Just a 15-minute drive from Windsor Castle, The Anchor offers authentic British hospitality without the tourist prices. Enjoy traditional pub atmosphere, fantastic food, and a warm welcome in our historic Stanwell Moor location."
             />
             
@@ -282,9 +284,11 @@ export default function WindsorPubPage() {
               <p className="text-lg text-gray-700 mb-6">
                 Private function room available for Windsor groups - from 20 to 250 guests
               </p>
-              <CallToAction href="/book-event" variant="primary" size="lg">
-                Enquire About Group Bookings
-              </CallToAction>
+              <Link href="/book-event">
+                <Button variant="primary" size="lg">
+                  Enquire About Group Bookings
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -346,13 +350,11 @@ export default function WindsorPubPage() {
             </div>
             
             <div className="mt-8 text-center">
-              <CallToAction 
-                href="https://maps.google.com/maps?saddr=Windsor+Castle&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                variant="secondary"
-                external
-              >
-                📍 Get Directions from Windsor
-              </CallToAction>
+              <Link href="https://maps.google.com/maps?saddr=Windsor+Castle&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
+                <Button variant="secondary" size="md">
+                  📍 Get Directions from Windsor
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -399,7 +401,7 @@ export default function WindsorPubPage() {
             </div>
             
             <p className="text-lg text-gray-700">
-              Join the many Windsor residents who've discovered their new favorite pub - 
+              Join the many Windsor residents who've discovered their new favourite pub - 
               where you're treated like a local, not a tourist!
             </p>
           </div>
@@ -454,7 +456,7 @@ export default function WindsorPubPage() {
 
       {/* CTA Section */}
       <CTASection
-        title="Discover Windsor's Favorite Local"
+        title="Discover Windsor's Favourite Local"
         description="Just 15 minutes from the castle - where Windsor locals escape the tourists"
         buttons={[
           {

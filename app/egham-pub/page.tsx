@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -8,16 +8,22 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Egham Pub | The Anchor - 12 Minutes Away | Surrey',
-  description: 'The Anchor pub is just 12 minutes from Egham. Traditional Surrey pub with free parking, great food, and regular events. A peaceful alternative to busy Egham high street, perfect for Royal Holloway students and staff.',
+  description: 'The Anchor - 12 mins from Egham. Traditional Surrey pub with free parking & great food. Perfect for Royal Holloway students. Peaceful alternative.',
   keywords: 'egham pub, pub near egham, egham surrey pub, royal holloway pub, pub near royal holloway, traditional pub egham',
   openGraph: {
     title: 'The Anchor - Your Local Pub Near Egham',
     description: 'Just 12 minutes from Egham with free parking and great food.',
     images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Your Local Pub Near Egham',
+    description: 'Just 12 minutes from Egham with free parking and great food.',
+    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 export default function EghamPubPage() {
@@ -83,20 +89,22 @@ export default function EghamPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Call to Book
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-            >
-              🍽️ View Menu
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Call to Book
+      </Button>
+    </Link>
+            <Link href="/food-menu">
+      <Button 
+        variant="secondary"
+        size="lg"
+      >
+        🍽️ View Menu
+      </Button>
+    </Link>
           </div>
         }
       />
@@ -320,11 +328,11 @@ export default function EghamPubPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <p className="font-semibold mb-2">Designated Drivers</p>
-                  <p className="text-gray-600">Free soft drinks for designated drivers in groups of 4+</p>
+                  <p className="text-gray-700">Free soft drinks for designated drivers in groups of 4+</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">Taxi Services</p>
-                  <p className="text-gray-600">We can arrange taxis back to Egham/Royal Holloway</p>
+                  <p className="text-gray-700">We can arrange taxis back to Egham/Royal Holloway</p>
                 </div>
               </div>
             </div>

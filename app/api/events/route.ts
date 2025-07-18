@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { createApiErrorResponse, logError } from '@/lib/error-handling'
 
 const API_KEY = process.env.ANCHOR_API_KEY
 const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
@@ -6,10 +7,7 @@ const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
 export async function GET(request: Request) {
   if (!API_KEY) {
     console.error('ANCHOR_API_KEY is not set in environment variables')
-    return NextResponse.json(
-      { error: 'API key not configured' },
-      { status: 500 }
-    )
+    return createApiErrorResponse('Service temporarily unavailable. Please try again later.', 503)
   }
 
   const { searchParams } = new URL(request.url)
@@ -50,10 +48,7 @@ export async function GET(request: Request) {
       
       if (response.status === 401) {
         console.error('Authentication failed - API key may be invalid or lack permissions')
-        return NextResponse.json(
-          { error: 'Authentication failed. Please check API key validity and permissions.' },
-          { status: 401 }
-        )
+        return createApiErrorResponse('Service temporarily unavailable. Please try again later.', 503)
       }
       
       const errorText = await response.text()
@@ -64,10 +59,10 @@ export async function GET(request: Request) {
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error('Failed to fetch events:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch events' },
-      { status: 500 }
+    logError('api/events', error)
+    return createApiErrorResponse(
+      'We couldn\'t load the events right now. Please try again in a moment.',
+      503
     )
   }
 }

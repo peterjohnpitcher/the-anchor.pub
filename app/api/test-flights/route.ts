@@ -6,7 +6,7 @@ export async function GET(request: Request) {
   const terminal = searchParams.get('terminal') || '5'
   
   try {
-    // Check if API key is set
+    // Cheque if API key is set
     const hasApiKey = !!process.env.NEXT_PUBLIC_AVIATIONSTACK_API_KEY
     
     if (!hasApiKey) {
@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     // Try to fetch departures
     const departures = await flightAPI.getDepartures(terminal, 10)
     
-    // Check if we have flights for the specific terminal
+    // Cheque if we have flights for the specific terminal
     const terminalFlights = departures.flights.filter(flight => 
       flight.departure.terminal === terminal || 
       flight.departure.terminal === `T${terminal}` ||

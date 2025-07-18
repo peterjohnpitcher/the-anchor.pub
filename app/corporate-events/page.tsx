@@ -1,22 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CONTACT, BRAND } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Corporate Venue Near Heathrow | Meeting Room Hire | The Anchor',
-  description: 'Professional corporate event venue 7 minutes from Heathrow. Meeting rooms, team building space, free parking. Perfect for business events, conferences, and corporate hospitality.',
+  description: 'Professional corporate venue 7 mins from Heathrow. Meeting rooms, team building space, free parking. Perfect for business events & conferences.',
   keywords: 'corporate venue near heathrow, meeting room heathrow, conference venue surrey, team building venue near heathrow, business meeting room staines, corporate events stanwell moor',
   openGraph: {
     title: 'Corporate Events & Meeting Rooms - The Anchor',
     description: 'Professional venue for business events near Heathrow. Free parking, flexible spaces, experienced team.',
     images: ['/images/events/corporate/the-anchor-meeting-room.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Corporate Events & Meeting Rooms - The Anchor',
+    description: 'Professional venue for business events near Heathrow. Free parking, flexible spaces, experienced team.',
+    images: ['/images/events/corporate/the-anchor-meeting-room.jpg']
+  })
 }
 
 // TODO: Add corporateEventSchema when generateEventSchema is available
@@ -75,20 +81,16 @@ export default function CorporateEventsPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="primary"
-              size="lg"
-            >
-              📞 Discuss Your Event
-            </CallToAction>
-            <CallToAction 
-              href="#packages"
-              variant="secondary"
-              size="lg"
-            >
-              💼 View Corporate Packages
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">
+                📞 Discuss Your Event
+              </Button>
+            </Link>
+            <Link href="#solutions">
+              <Button variant="secondary" size="lg">
+                💼 Explore Our Solutions
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -212,7 +214,7 @@ export default function CorporateEventsPage() {
                 Private space for confidential discussions, client meetings, and presentations. 
                 Configurable for boardroom or theatre style.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li>• 10-50 attendees</li>
                 <li>• Presentation facilities</li>
                 <li>• WiFi & power points</li>
@@ -227,7 +229,7 @@ export default function CorporateEventsPage() {
                 Bring your team together for workshops, training sessions, and team building 
                 activities in a relaxed environment.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Interactive spaces</li>
                 <li>• Breakout areas</li>
                 <li>• Team lunch options</li>
@@ -242,7 +244,7 @@ export default function CorporateEventsPage() {
                 Impress clients and reward staff with corporate entertainment, celebrations, 
                 and networking events.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
+              <ul className="text-sm text-gray-700 space-y-1">
                 <li>• Client entertainment</li>
                 <li>• Awards ceremonies</li>
                 <li>• Product launches</li>
@@ -276,96 +278,122 @@ export default function CorporateEventsPage() {
         </div>
       </section>
 
-      {/* Corporate Packages */}
-      <section id="packages" className="section-spacing bg-white">
+      {/* Corporate Solutions */}
+      <section id="solutions" className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Corporate Event Packages"
-            subtitle="Flexible options to suit your business needs and budget"
+            title="Tailored Corporate Event Solutions"
+            subtitle="Flexible venue hire pricing designed around your specific needs"
           />
           
-          <InfoBoxGrid
-            columns={3}
-            boxes={[
-              {
-                title: "Half Day Meeting",
-                content: (
-                  <>
-                    <p className="text-lg font-semibold text-anchor-gold mb-4">Morning or Afternoon Sessions</p>
-                    <ul className="space-y-2 mb-4">
-                      <li>✓ 4 hours venue use</li>
-                      <li>✓ Meeting room setup</li>
-                      <li>✓ Tea/coffee on arrival</li>
-                      <li>✓ Mid-session refreshments</li>
-                      <li>✓ WiFi & AV facilities</li>
-                      <li>✓ Free parking</li>
-                      <li>✓ 15-30 guests</li>
-                    </ul>
-                    <CallToAction href={`tel:${CONTACT.phone}`} variant="primary" fullWidth>
-                      Get Quote
-                    </CallToAction>
-                  </>
-                ),
-                variant: "default"
-              },
-              {
-                title: "Full Day Package",
-                content: (
-                  <>
-                    <div className="absolute top-0 right-0 bg-anchor-gold text-white px-3 py-1 text-sm font-semibold rounded-bl-lg">Most Popular</div>
-                    <p className="text-3xl font-bold text-anchor-green mb-2">£300</p>
-                    <p className="text-gray-600 mb-4">minimum spend</p>
-                    <ul className="space-y-2 mb-4">
-                      <li>✓ 8 hours venue use</li>
-                      <li>✓ Flexible room layouts</li>
-                      <li>✓ Arrival refreshments</li>
-                      <li>✓ Working lunch included</li>
-                      <li>✓ Afternoon refreshments</li>
-                      <li>✓ Full AV support</li>
-                      <li>✓ Breakout spaces</li>
-                      <li>✓ Up to 50 guests</li>
-                    </ul>
-                    <CallToAction href={`tel:${CONTACT.phone}`} variant="primary" fullWidth>
-                      Book Full Day
-                    </CallToAction>
-                  </>
-                ),
-                variant: "default",
-                className: "relative border-2 border-anchor-gold"
-              },
-              {
-                title: "Conference & Events",
-                content: (
-                  <>
-                    <p className="text-3xl font-bold text-anchor-green mb-2">£500+</p>
-                    <p className="text-gray-600 mb-4">tailored quote</p>
-                    <ul className="space-y-2 mb-4">
-                      <li>✓ Full venue access</li>
-                      <li>✓ Multiple room options</li>
-                      <li>✓ Welcome reception</li>
-                      <li>✓ Full catering service</li>
-                      <li>✓ Bar facilities</li>
-                      <li>✓ Evening options</li>
-                      <li>✓ Dedicated coordinator</li>
-                      <li>✓ 50-200 guests</li>
-                    </ul>
-                    <CallToAction href={`tel:${CONTACT.phone}`} variant="primary" fullWidth>
-                      Get Quote
-                    </CallToAction>
-                  </>
-                ),
-                variant: "default"
-              }
-            ]}
-          />
+          <div className="max-w-4xl mx-auto">
+            <InfoBoxGrid
+              columns={2}
+              boxes={[
+                {
+                  title: "What We Offer",
+                  content: (
+                    <>
+                      <p className="mb-4">Every corporate event is unique. We provide:</p>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-600">✓</span>
+                          <span><strong>Flexible timing</strong> - Half day, full day, or evening sessions</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-600">✓</span>
+                          <span><strong>Scalable spaces</strong> - Configure for 10-200 attendees</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-600">✓</span>
+                          <span><strong>Custom catering</strong> - From coffee breaks to formal dinners</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-600">✓</span>
+                          <span><strong>Professional support</strong> - AV equipment and dedicated coordinator</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-600">✓</span>
+                          <span><strong>Transparent pricing</strong> - Clear quotes with no hidden fees</span>
+                        </li>
+                      </ul>
+                    </>
+                  ),
+                  variant: "default"
+                },
+                {
+                  title: "How Our Pricing Works",
+                  content: (
+                    <>
+                      <p className="mb-4">We believe in fair, flexible pricing:</p>
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-2">
+                          <span className="text-anchor-gold">•</span>
+                          <span><strong>No venue hire fees</strong> - Just minimum spend requirements</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-anchor-gold">•</span>
+                          <span><strong>Weekday rates</strong> - More competitive for daytime events</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-anchor-gold">•</span>
+                          <span><strong>Bespoke quotes</strong> - Based on your specific requirements</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-anchor-gold">•</span>
+                          <span><strong>All-inclusive options</strong> - Know your total cost upfront</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-anchor-gold">•</span>
+                          <span><strong>Volume discounts</strong> - Better rates for regular bookings</span>
+                        </li>
+                      </ul>
+                    </>
+                  ),
+                  variant: "default"
+                }
+              ]}
+            />
 
-          <div className="mt-12 text-center">
-            <p className="text-lg text-gray-700 mb-6">
-              All packages can be customized. Flexible venue hire pricing to suit your budget and requirements.
-            </p>
-            <CallToAction href="/food-menu" variant="secondary" size="lg">
-              View Catering Options
-            </CallToAction>
+            <AlertBox
+              variant="info"
+              title="Get Your Personalised Quote"
+              className="mt-8"
+              content={
+                <div className="text-center">
+                  <p className="mb-4">
+                    Tell us about your event - date, duration, number of attendees, and requirements. 
+                    We'll create a tailored proposal that works for your budget.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Link href={CONTACT.phoneHref}>
+                      <Button variant="primary" size="lg">
+                        📞 Call to Discuss
+                      </Button>
+                    </Link>
+                    <Link href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20a%20quote%20for%20a%20corporate%20event" target="_blank" rel="noopener noreferrer">
+                      <Button variant="secondary" size="lg">
+                        💬 WhatsApp Us
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              }
+            />
+
+            <div className="mt-12 text-center">
+              <p className="text-lg text-gray-700 mb-6">
+                Want to see our full catering options? From working lunches to celebration dinners.
+              </p>
+              <Link href="/food-menu">
+                <Button 
+                  variant="secondary"
+                  size="lg"
+                >
+                  View Catering Menu
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -387,28 +415,28 @@ export default function CorporateEventsPage() {
                     <span className="text-anchor-gold text-xl">📡</span>
                     <div>
                       <strong>High-speed WiFi</strong>
-                      <p className="text-sm text-gray-600">Reliable connection for video calls and presentations</p>
+                      <p className="text-sm text-gray-700">Reliable connection for video calls and presentations</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🖥️</span>
                     <div>
                       <strong>Presentation Equipment</strong>
-                      <p className="text-sm text-gray-600">Projector/screen available, laptop connections</p>
+                      <p className="text-sm text-gray-700">Projector/screen available, laptop connections</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🔌</span>
                     <div>
                       <strong>Power Access</strong>
-                      <p className="text-sm text-gray-600">Multiple power points for devices</p>
+                      <p className="text-sm text-gray-700">Multiple power points for devices</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🎤</span>
                     <div>
                       <strong>Audio System</strong>
-                      <p className="text-sm text-gray-600">Microphone and speakers for larger groups</p>
+                      <p className="text-sm text-gray-700">Microphone and speakers for larger groups</p>
                     </div>
                   </li>
                 </ul>
@@ -421,28 +449,28 @@ export default function CorporateEventsPage() {
                     <span className="text-anchor-gold text-xl">🌡️</span>
                     <div>
                       <strong>Climate Control</strong>
-                      <p className="text-sm text-gray-600">Air conditioning and heating for year-round comfort</p>
+                      <p className="text-sm text-gray-700">Air conditioning and heating for year-round comfort</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">💡</span>
                     <div>
                       <strong>Natural Light</strong>
-                      <p className="text-sm text-gray-600">Bright spaces with blackout options available</p>
+                      <p className="text-sm text-gray-700">Bright spaces with blackout options available</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">♿</span>
                     <div>
                       <strong>Full Accessibility</strong>
-                      <p className="text-sm text-gray-600">Wheelchair access and accessible facilities</p>
+                      <p className="text-sm text-gray-700">Wheelchair access and accessible facilities</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🚻</span>
                     <div>
                       <strong>Private Facilities</strong>
-                      <p className="text-sm text-gray-600">Dedicated restrooms for your event</p>
+                      <p className="text-sm text-gray-700">Dedicated restrooms for your event</p>
                     </div>
                   </li>
                 </ul>
@@ -455,17 +483,17 @@ export default function CorporateEventsPage() {
                 <div className="text-center">
                   <div className="text-3xl mb-2">📋</div>
                   <h4 className="font-semibold mb-1">Event Planning</h4>
-                  <p className="text-sm text-gray-600">Dedicated coordinator to manage every detail</p>
+                  <p className="text-sm text-gray-700">Dedicated coordinator to manage every detail</p>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl mb-2">🍽️</div>
                   <h4 className="font-semibold mb-1">Bespoke Catering</h4>
-                  <p className="text-sm text-gray-600">Menus tailored to your requirements</p>
+                  <p className="text-sm text-gray-700">Menus tailored to your requirements</p>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl mb-2">🎪</div>
                   <h4 className="font-semibold mb-1">Outdoor Options</h4>
-                  <p className="text-sm text-gray-600">Garden space for breaks or evening BBQs</p>
+                  <p className="text-sm text-gray-700">Garden space for breaks or evening BBQs</p>
                 </div>
               </div>
             </div>
@@ -549,11 +577,11 @@ export default function CorporateEventsPage() {
           },
           {
             question: "What are your corporate catering options?",
-            answer: "We offer everything from working breakfasts and coffee breaks to buffet lunches and formal dinners. All menus can be customized to your requirements and dietary needs. We also provide drinks packages and bar tabs."
+            answer: "We offer everything from working breakfasts and coffee breaks to buffet lunches and formal dinners. All menus can be customised to your requirements and dietary needs. We also provide drinks packages and bar tabs."
           },
           {
             question: "How does venue hire pricing work for corporate events?",
-            answer: "We offer flexible venue hire pricing tailored to each corporate event. Our rates vary depending on the day, time, and size of your event. We're always willing to discuss your budget and requirements to find a solution that works for you. Contact us for a personalized quote."
+            answer: "We offer flexible venue hire pricing tailored to each corporate event. Our rates vary depending on the day, time, and size of your event. We're always willing to discuss your budget and requirements to find a solution that works for you. Contact us for a personalised quote."
           },
           {
             question: "How early can we access the venue for setup?",

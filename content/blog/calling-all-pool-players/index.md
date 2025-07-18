@@ -3,7 +3,7 @@ title: Pool League Near Heathrow Airport | Join Our Team at The Anchor Pub
 description: >-
   Join The Anchor's pool team in Stanwell Moor, just 7 minutes from Heathrow
   Terminal 5. We welcome all skill levels from beginners to pros. Regular league
-  matches, practice nights, and tournaments. Perfect for airport staff and
+  matches, practise nights, and tournaments. Perfect for airport staff and
   locals. Free parking, great atmosphere, and the best pool table near Heathrow.
 date: '2025-01-15'
 oldUrl: 'https://www.the-anchor.pub/post/calling-all-pool-players'
@@ -42,13 +42,13 @@ Looking for a **pool league near Heathrow**? The Anchor pub in **Stanwell Moor**
 
 ### Why Join Our Pool Team Near Heathrow?
 
-**Perfect for Airport Staff**: With flexible match times and practice sessions, our **pool team near Terminal 5** accommodates shift workers and airport employees.
+**Perfect for Airport Staff**: With flexible match times and practise sessions, our **pool team near Terminal 5** accommodates shift workers and airport employees.
 
 **All Skill Levels Welcome**: Whether you're a seasoned league player or just starting out, there's a place for you at The Anchor's pool team. We believe in developing talent and having fun!
 
 **Great Facilities**:
 - Professional-grade pool table
-- Dedicated practice nights
+- Dedicated practise nights
 - Free parking for all players
 - Team refreshments and post-match meals
 - Supportive, friendly atmosphere
@@ -57,7 +57,7 @@ Looking for a **pool league near Heathrow**? The Anchor pub in **Stanwell Moor**
 
 **Home Venue**: The Anchor, Town Lane, **Stanwell Moor** (near **Staines**)
 **League Play**: Local Surrey pool leagues
-**Practice Nights**: Regular team practice sessions
+**Practise Nights**: Regular team practise sessions
 **Match Nights**: Flexible scheduling to accommodate all players
 
 ### What We're Looking For
@@ -71,7 +71,7 @@ Looking for a **pool league near Heathrow**? The Anchor pub in **Stanwell Moor**
 ### Benefits of Joining The Anchor Pool Team
 
 **Social Connection**: Meet fellow pool enthusiasts from the local community and **Heathrow Airport**
-**Skill Development**: Improve your game with regular practice and competitive matches
+**Skill Development**: Improve your game with regular practise and competitive matches
 **Team Spirit**: Be part of Stanwell Moor's friendliest pub team
 **Convenient Location**: Just minutes from all Heathrow terminals with free parking
 

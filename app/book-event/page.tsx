@@ -1,19 +1,26 @@
-import { CallToAction } from '@/components/CallToAction'
+import Link from 'next/link'
+import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { eventBookingServiceSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CTASection, SectionHeader, InfoBoxGrid, FeatureGrid, QuickInfoGrid } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Event Venue Hire Near Me | The Anchor Stanwell Moor | Private Bookings',
-  description: 'Transform your special occasion into an unforgettable experience at The Anchor. Versatile venue spaces for 10-200 guests with comprehensive event services.',
+  description: 'Transform your special occasion into an unforgettable experience at The Anchor. Versatile venue spaces for 10-200 guests with full event services.',
   keywords: 'private venue hire stanwell moor, event space near heathrow, function room hire, wedding venue surrey, corporate events staines',
   openGraph: {
     title: 'Private Bookings at The Anchor',
     description: 'Versatile venue spaces and comprehensive event services for celebrations of all sizes.',
     images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Private Bookings at The Anchor',
+    description: 'Versatile venue spaces and comprehensive event services for celebrations of all sizes.',
+    images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 export default function BookEventPage() {
@@ -81,13 +88,14 @@ export default function BookEventPage() {
         size="medium"
         showStatusBar={false}
         cta={
-          <CallToAction 
-            href="tel:01753682707"
-            variant="primary"
-            size="lg"
-          >
-            📞 Call to Discuss: 01753 682707
-          </CallToAction>
+          <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Call to Discuss: 01753 682707
+      </Button>
+    </Link>
         }
       />
 
@@ -109,7 +117,7 @@ export default function BookEventPage() {
                   Our main event space, highly versatile and perfect for celebrations of all sizes. 
                   Can be arranged for formal dining, presentations, dancing, or cocktail receptions.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Flexible seating arrangements</li>
                   <li>• Natural lighting with dimming options</li>
                   <li>• Direct access to facilities</li>
@@ -122,7 +130,7 @@ export default function BookEventPage() {
                   Can be reserved exclusively for cocktail receptions and casual events. 
                   Perfect for informal gatherings and drinks parties.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Full bar service</li>
                   <li>• Standing reception setup</li>
                   <li>• Background music system</li>
@@ -135,7 +143,7 @@ export default function BookEventPage() {
                   Weather permitting, our outdoor space provides a beautiful setting for 
                   summer parties and alfresco dining.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Garden furniture available</li>
                   <li>• Covered areas</li>
                   <li>• Outdoor heating options</li>
@@ -148,7 +156,7 @@ export default function BookEventPage() {
                   For larger celebrations, exclusive use of the whole venue is available. 
                   Perfect for weddings, large corporate events, and milestone celebrations.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Complete privacy</li>
                   <li>• All spaces included</li>
                   <li>• Dedicated event team</li>
@@ -239,7 +247,7 @@ export default function BookEventPage() {
                 <p className="text-gray-700 mb-4">
                   Classic buffet-style dining perfect for relaxed gatherings where guests can mingle.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Hot and cold options</li>
                   <li>• Self-service setup</li>
                   <li>• Wide variety of choices</li>
@@ -251,7 +259,7 @@ export default function BookEventPage() {
                 <p className="text-gray-700 mb-4">
                   Formal plated service for elegant occasions with full table service.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Multiple course options</li>
                   <li>• Waiter service</li>
                   <li>• Pre-selected menus</li>
@@ -263,9 +271,9 @@ export default function BookEventPage() {
                 <p className="text-gray-700 mb-4">
                   Sophisticated bite-sized offerings ideal for cocktail parties.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Passed by staff</li>
-                  <li>• Variety of flavors</li>
+                  <li>• Variety of flavours</li>
                   <li>• Perfect for mingling</li>
                 </ul>
               </div>
@@ -275,7 +283,7 @@ export default function BookEventPage() {
                 <p className="text-gray-700 mb-4">
                   Casual and fun option perfect for birthday parties and informal celebrations.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Fresh made pizzas</li>
                   <li>• Variety of toppings</li>
                   <li>• Great for all ages</li>
@@ -287,7 +295,7 @@ export default function BookEventPage() {
                 <p className="text-gray-700 mb-4">
                   Comprehensive beverage solutions from welcome drinks to full bar service.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Welcome drinks</li>
                   <li>• Wine packages</li>
                   <li>• Bar tabs available</li>
@@ -299,7 +307,7 @@ export default function BookEventPage() {
                 <p className="text-gray-700 mb-4">
                   Bespoke menu creation to match your specific requirements.
                 </p>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="text-sm text-gray-700 space-y-1">
                   <li>• Tailored menus</li>
                   <li>• Special themes</li>
                   <li>• Chef consultation</li>
@@ -338,21 +346,21 @@ export default function BookEventPage() {
                     <span className="text-anchor-gold">🎵</span>
                     <div>
                       <strong>DJs</strong>
-                      <p className="text-gray-600">Professional disc jockeys for all music genres and event styles</p>
+                      <p className="text-gray-700">Professional disc jockeys for all music genres and event styles</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">🎸</span>
                     <div>
                       <strong>Live Bands</strong>
-                      <p className="text-gray-600">From acoustic duos to full bands covering various musical styles</p>
+                      <p className="text-gray-700">From acoustic duos to full bands covering various musical styles</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">🎭</span>
                     <div>
                       <strong>Special Entertainment</strong>
-                      <p className="text-gray-600">Magicians, comedians, and unique performers</p>
+                      <p className="text-gray-700">Magicians, comedians, and unique performers</p>
                     </div>
                   </li>
                 </ul>
@@ -365,35 +373,35 @@ export default function BookEventPage() {
                     <span className="text-anchor-gold">📸</span>
                     <div>
                       <strong>Photography</strong>
-                      <p className="text-gray-600">Capture every moment with our recommended photographers</p>
+                      <p className="text-gray-700">Capture every moment with our recommended photographers</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">🌺</span>
                     <div>
                       <strong>Floristry</strong>
-                      <p className="text-gray-600">Beautiful arrangements from simple centerpieces to elaborate displays</p>
+                      <p className="text-gray-700">Beautiful arrangements from simple centerpieces to elaborate displays</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">🎨</span>
                     <div>
                       <strong>Decoration</strong>
-                      <p className="text-gray-600">Transform our spaces with professional styling and theming</p>
+                      <p className="text-gray-700">Transform our spaces with professional styling and theming</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">🚗</span>
                     <div>
                       <strong>Transport</strong>
-                      <p className="text-gray-600">Reliable transportation solutions for your guests</p>
+                      <p className="text-gray-700">Reliable transportation solutions for your guests</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">🎤</span>
                     <div>
                       <strong>Equipment Rental</strong>
-                      <p className="text-gray-600">Audio/visual and lighting equipment for presentations or performances</p>
+                      <p className="text-gray-700">Audio/visual and lighting equipment for presentations or performances</p>
                     </div>
                   </li>
                 </ul>
@@ -508,7 +516,7 @@ export default function BookEventPage() {
                   hospitality made all the difference."
                 </p>
                 <p className="font-semibold text-anchor-green">- Emily & James Carter</p>
-                <p className="text-sm text-gray-600">Wedding Reception, 120 guests</p>
+                <p className="text-sm text-gray-700">Wedding Reception, 120 guests</p>
               </div>
               
               <div className="bg-white rounded-xl p-6 shadow-md">
@@ -523,7 +531,7 @@ export default function BookEventPage() {
                   the location near Heathrow is perfect for our international clients."
                 </p>
                 <p className="font-semibold text-anchor-green">- Richard Hughes, TechCorp UK</p>
-                <p className="text-sm text-gray-600">Quarterly Team Meetings</p>
+                <p className="text-sm text-gray-700">Quarterly Team Meetings</p>
               </div>
               
               <div className="bg-white rounded-xl p-6 shadow-md">
@@ -538,7 +546,7 @@ export default function BookEventPage() {
                   feel really special. Thank you!"
                 </p>
                 <p className="font-semibold text-anchor-green">- David Patterson</p>
-                <p className="text-sm text-gray-600">Milestone Birthday, 65 guests</p>
+                <p className="text-sm text-gray-700">Milestone Birthday, 65 guests</p>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import type { BaseComponentProps } from '../types'
 
 const checkboxVariants = cva(
-  'rounded border-gray-300 text-anchor-gold focus:ring-2 focus:ring-anchor-gold focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-colors',
+  'rounded border-gray-300 text-anchor-gold focus:ring-2 focus:ring-anchor-gold focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-colours',
   {
     variants: {
       size: {
@@ -85,7 +85,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 {label}
               </label>
               {helperText && !error && (
-                <p id={`${checkboxId}-helper`} className="text-sm text-gray-500">
+                <p id={`${checkboxId}-helper`} className="text-sm text-gray-700">
                   {helperText}
                 </p>
               )}
@@ -169,7 +169,7 @@ export const CheckboxGroup = forwardRef<HTMLFieldSetElement, CheckboxGroupProps>
         )}
         
         {helperText && !error && (
-          <p id={`${testId}-helper`} className="text-sm text-gray-500 mb-2">
+          <p id={`${testId}-helper`} className="text-sm text-gray-700 mb-2">
             {helperText}
           </p>
         )}

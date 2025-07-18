@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -9,10 +9,11 @@ import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/e
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: `M25 Junction 14 Pub Near Me | ${BRAND.name} - 5 Minutes from M25`,
-  description: `Traditional British pub just 5 minutes from M25 Junction 14. Perfect motorway stop with free parking, real food, and authentic atmosphere. Avoid service station prices. Outside ULEZ zone.`,
+  description: `Traditional British pub 5 mins from M25 Junction 14. Perfect motorway stop with free parking, real food & authentic atmosphere. Outside ULEZ zone.`,
   keywords: 'm25 junction 14 pub, pub near m25 junction 14, m25 motorway pub stop, traditional pub near m25, m25 j14 food stop',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near M25 Junction 14',
@@ -20,6 +21,11 @@ export const metadata: Metadata = {
     images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
     type: 'website',
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Traditional Pub Near M25 Junction 14',
+    description: 'Just 5 minutes from M25 J14. Free parking, proper food, real ales. The perfect motorway break.',
+    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 const localBusinessSchema = {
@@ -97,20 +103,16 @@ export default function M25Junction14PubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="primary"
-              size="lg"
-            >
-              📞 Call Ahead
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-            >
-              🍽️ View Menu
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">
+                📞 Call Ahead
+              </Button>
+            </Link>
+            <Link href="/food-menu">
+              <Button variant="secondary" size="lg">
+                🍽️ View Menu
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -239,7 +241,7 @@ export default function M25Junction14PubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">📶</span>
                     <div>
-                      <strong>Free WiFi</strong> - Check routes, emails, or relax
+                      <strong>Free WiFi</strong> - Cheque routes, emails, or relax
                     </div>
                   </li>
                 </ul>
@@ -298,9 +300,11 @@ export default function M25Junction14PubPage() {
               <p className="text-lg text-gray-700 mb-4">
                 Kitchen serves quick meals perfect for motorway breaks
               </p>
-              <CallToAction href="/food-menu" variant="primary" size="lg">
-                View Full Menu
-              </CallToAction>
+              <Link href="/food-menu">
+                <Button variant="primary" size="lg">
+                  View Full Menu
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -364,13 +368,11 @@ export default function M25Junction14PubPage() {
             </div>
             
             <div className="mt-8 text-center">
-              <CallToAction 
-                href="https://maps.google.com/maps?saddr=M25+Junction+14&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                variant="secondary"
-                external
-              >
-                📍 Get Sat Nav Directions
-              </CallToAction>
+              <Link href="https://maps.google.com/maps?saddr=M25+Junction+14&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
+                <Button variant="secondary" size="md">
+                  📍 Get Sat Nav Directions
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

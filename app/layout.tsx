@@ -8,9 +8,11 @@ import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
 import { FloatingActions } from '@/components/FloatingActions'
 import { FloatingEventCTA } from '@/components/FloatingEventCTA'
+import { ScrollToTop } from '@/components/ScrollToTop'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
 import { AnalyticsProvider } from '@/components/AnalyticsProvider'
 import { GoogleTagManager, GoogleTagManagerNoscript } from '@/components/GoogleTagManager'
+import { CanonicalLink } from '@/components/CanonicalLink'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
 /* Critical CSS for above-the-fold content */
@@ -177,31 +179,33 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} ${merriweather.variable}`}>
       <head>
         <GoogleTagManager gtmId={gtmId} />
+        
+        {/* Resource hints for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://management.orangejelly.co.uk" />
-        <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
+        <link rel="preconnect" href="https://openweathermap.org" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        
+        {/* Favicons and manifest */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Meta tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#005131" />
+        <meta name="format-detection" content="telephone=no" />
+        
+        {/* Canonical URL */}
+        <CanonicalLink />
+        
         {/* Inline critical CSS to prevent render blocking */}
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
-        {/* Preconnect to optimize external resources */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://openweathermap.org" />
-        <link rel="dns-prefetch" href="https://management.orangejelly.co.uk" />
         
-        {/* Preload critical fonts */}
-        <link 
-          rel="preload" 
-          href="/_next/static/media/outfit-latin-400-normal.woff2" 
-          as="font" 
-          type="font/woff2" 
-          crossOrigin="anonymous" 
-        />
+        {/* Next.js handles font preloading automatically when using next/font */}
         {/* Preload critical images */}
         <link 
           rel="preload" 
@@ -226,16 +230,28 @@ export default function RootLayout({
         <GoogleTagManagerNoscript gtmId={gtmId} />
         <AnalyticsProvider>
           <WebVitals />
-          <Navigation 
-            statusComponent={<StatusBar variant="navigation" />}
-            weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}
-          />
-          <main id="main-content" tabIndex={-1}>
+          {/* Skip Navigation Links for Accessibility */}
+          <a 
+            href="#main-content" 
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-anchor-gold focus:text-white focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-anchor-gold"
+          >
+            Skip to main content
+          </a>
+          <header role="banner">
+            <Navigation 
+              statusComponent={<StatusBar variant="navigation" />}
+              weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}
+            />
+          </header>
+          <main id="main-content" role="main">
             {children}
           </main>
-          <Footer />
+          <footer role="contentinfo">
+            <Footer />
+          </footer>
           <FloatingActions />
           <FloatingEventCTA />
+          <ScrollToTop />
         </AnalyticsProvider>
       </body>
     </html>

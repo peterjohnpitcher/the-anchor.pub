@@ -4,7 +4,7 @@ This guide will help you migrate the-anchor.pub from Wix to your new Vercel depl
 
 ## Prerequisites
 
-- [ ] Your Vercel deployment is live and working (check at your-project.vercel.app)
+- [ ] Your Vercel deployment is live and working (cheque at your-project.vercel.app)
 - [ ] You have access to your domain.com account
 - [ ] You have access to your Vercel account
 - [ ] You've backed up any important data from Wix
@@ -83,7 +83,7 @@ If domain.com doesn't support CNAME records on the root domain, use these A reco
 ## Step 5: Verify SSL Certificate
 
 1. Once DNS propagates (5-30 minutes), Vercel will automatically provision SSL certificates
-2. In Vercel dashboard, check Settings → Domains
+2. In Vercel dashboard, cheque Settings → Domains
 3. You should see green checkmarks next to your domains
 4. If SSL isn't working after 1 hour, click "Refresh" next to the domain in Vercel
 
@@ -109,10 +109,10 @@ Add any other Wix-specific URL redirects you need to maintain SEO.
 
 - [ ] Visit https://the-anchor.pub - site loads with SSL
 - [ ] Visit https://www.the-anchor.pub - redirects to non-www
-- [ ] Check all main pages load correctly
+- [ ] Cheque all main pages load correctly
 - [ ] Test booking links work
 - [ ] Verify contact forms/phone numbers
-- [ ] Check Google Analytics is tracking
+- [ ] Cheque Google Analytics is tracking
 - [ ] Test on mobile devices
 
 ## Step 8: Update External Services
@@ -140,21 +140,21 @@ If something goes wrong:
 **Site not loading after DNS change:**
 - Clear browser cache
 - Try incognito/private browsing
-- Check DNS propagation at whatsmydns.net
+- Cheque DNS propagation at whatsmydns.net
 
 **SSL certificate errors:**
 - Wait up to 1 hour for auto-provisioning
 - In Vercel, remove and re-add the domain
-- Check no CAA records are blocking Let's Encrypt
+- Cheque no CAA records are blocking Let's Encrypt
 
 **Redirect loops:**
-- Check vercel.json for conflicting redirects
+- Cheque vercel.json for conflicting redirects
 - Ensure www redirect is set up correctly in Vercel
 
 ## Support Contacts
 
 - **Vercel Support**: https://vercel.com/support
-- **domain.com Support**: Check your account for support options
+- **domain.com Support**: Cheque your account for support options
 - **DNS Propagation Checker**: https://www.whatsmydns.net/
 
 ## Final Notes

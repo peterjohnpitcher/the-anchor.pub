@@ -57,13 +57,13 @@ In honour of World Salami Day, we're slicing our prices in half. That's right! E
 
 ## A Slice of History: Tracing Pizza's Roots
 
-Before diving into our delicious menu, let's take a brief journey back in time. Pizza, in its most basic form - bread topped with oils and local flavors, has been a staple in Mediterranean cultures for centuries. However, the pizza that has captured the hearts and stomachs of so many worldwide has its roots in Naples, Italy.
+Before diving into our delicious menu, let's take a brief journey back in time. Pizza, in its most basic form - bread topped with oils and local flavours, has been a staple in Mediterranean cultures for centuries. However, the pizza that has captured the hearts and stomachs of so many worldwide has its roots in Naples, Italy.
 
 In the late 18th and early 19th centuries, this bustling Italian city saw its streets filled with the aroma of flatbreads adorned with tomatoes, cheese, oil, anchovies, and garlic. The classic combination of tomato, mozzarella, and basil - now featured in our Rustic Classic pizza - gained international fame and set the standard for what we now know as pizza.
 
   
 
-## Experience Flavorful Perfection: Our Menu and Recommended Pairings
+## Experience Flavourful Perfection: Our Menu and Recommended Pairings
 
 *   **Rustic classic**: An authentic combination of tangy tomato sauce and creamy fior di latte mozzarella. Recommended pairing: Counterpoint Shiraz.
     
@@ -73,17 +73,17 @@ In the late 18th and early 19th centuries, this bustling Italian city saw its st
     
 *   **Nice & spicy**: For those who enjoy a kick, this pizza boasts spicy Calabrian nduja sausage and chilli peppers. Douse the flames slightly with a refreshing San Miguel.
     
-*   **The garden club**: A vegetarian delight featuring tangy tomato sauce, crushed garlic, sweet red onions, soft roasted courgettes, and peppadew peppers. Enhance its flavors with Ara Marlborough Sauvignon Blanc.
+*   **The garden club**: A vegetarian delight featuring tangy tomato sauce, crushed garlic, sweet red onions, soft roasted courgettes, and peppadew peppers. Enhance its flavours with Ara Marlborough Sauvignon Blanc.
     
-*   **Smoked chilli chicken**: Dive into a fusion of tangy tomato sauce, crushed garlic, and fiery flavors, all topped off with fresh wild rocket. The Old Mout - Kiwi & Lime is a delightful cider pairing.
+*   **Smoked chilli chicken**: Dive into a fusion of tangy tomato sauce, crushed garlic, and fiery flavours, all topped off with fresh wild rocket. The Old Mout - Kiwi & Lime is a delightful cider pairing.
     
 *   **Chicken & pesto**: Our fresh take on this classic combo is accentuated with tender chicken and fresh basil pesto. Greene King IPA is our recommended ale for this dish.
     
-*   **Barbecue chicken**: A beautiful blend of juicy chicken, smoky barbecue sauce, speck ham, and a medley of melted cheeses. Complement its rich flavors with a Coors Light.
+*   **Barbecue chicken**: A beautiful blend of juicy chicken, smoky barbecue sauce, speck ham, and a medley of melted cheeses. Complement its rich flavours with a Coors Light.
     
-*   **Speck ham & parmesan**: A harmonious blend of salty speck ham, nutty parmesan cheese, and fresh rocket. Sip on a glass of Counterpoint Chardonnay for a full flavor experience.
+*   **Speck ham & parmesan**: A harmonious blend of salty speck ham, nutty parmesan cheese, and fresh rocket. Sip on a glass of Counterpoint Chardonnay for a full flavour experience.
     
-*   **Garlic bread**: Our freshly stone baked pizza base garlic breads make for an appetizing starter. Enhance its flavors with an Aperol Spritz.
+*   **Garlic bread**: Our freshly stone baked pizza base garlic breads make for an appetizing starter. Enhance its flavours with an Aperol Spritz.
     
 *   **Garlic bread with cheese**: A step up from our regular garlic bread, adorned with mozzarella and finished with a balsamic glaze. The I Heart Merlot is a perfect wine accompaniment.
     

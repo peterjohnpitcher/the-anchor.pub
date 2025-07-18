@@ -87,7 +87,7 @@ Our steadfast partnership with **Spelthorne Council's Food Hygiene team** has be
 - **Quality assurance** when trying local cuisine
 - **Trusted venue** near the airport
 
-## Our Hygiene Standards in Practice
+## Our Hygiene Standards in Practise
 
 - **Daily deep cleans** of all kitchen areas
 - **Temperature monitoring** of all stored foods
@@ -123,7 +123,7 @@ While our 5-star hygiene rating ensures safety, we also promise:
 - **Council approved** - Spelthorne's gold standard
 - **Transparent kitchen** - Nothing to hide
 - **Customer focused** - Your safety is our priority
-- **Local favorite** - Trusted by the community
+- **Local favourite** - Trusted by the community
 
 Join us in celebrating another year of trust, unmatched standards, and delightful dining experiences at The Anchor!
 

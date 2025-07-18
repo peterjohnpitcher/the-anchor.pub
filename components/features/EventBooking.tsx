@@ -101,12 +101,12 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         const response = await initiateEventBooking(event.id, formattedPhone)
         return response
       } catch (err: any) {
-        // Check if request was aborted
+        // Cheque if request was aborted
         if (err.name === 'AbortError') {
           throw err
         }
 
-        // Check if we should retry
+        // Cheque if we should retry
         const isRetryable = err?.status >= 500 || err?.message?.includes('network') || err?.message?.includes('timeout')
         
         if (isRetryable && attemptNumber < MAX_RETRIES) {
@@ -128,7 +128,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         setBookingResponse(response)
         setSuccess(true)
         setPhoneNumber('')
-        setStatusMessage('Booking initiated successfully! Check your messages for the confirmation link.')
+        setStatusMessage('Booking initiated successfully! Cheque your messages for the confirmation link.')
         
         // Track successful booking
         analytics.formSubmit('booking', event.name, 1)
@@ -141,7 +141,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         analytics.error('booking', `${event.name}: ${errorMsg}`)
       }
     } catch (err: any) {
-      // Check for specific error messages
+      // Cheque for specific error messages
       let errorMsg: string
       if (err?.message?.includes('temporarily unavailable') || err?.status === 503) {
         errorMsg = 'The booking system is temporarily unavailable. Please try again later or call us at 01753 682707.'
@@ -263,7 +263,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
             />
             
             {error && retryCount > 0 && (
-              <p className="text-xs text-red-600 mt-1">
+              <p className="text-sm sm:text-xs text-red-600 mt-1">
                 Failed after {retryCount} retry attempt{retryCount > 1 ? 's' : ''}
               </p>
             )}
@@ -287,7 +287,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         </form>
 
         <div className="mt-4 pt-4 border-t border-amber-200">
-          <p className="text-sm text-gray-600 text-center">
+          <p className="text-sm text-gray-700 text-center">
             Prefer to call? Ring us at{' '}
             <a href="tel:01753682707" className="font-semibold text-amber-700 underline">
               01753 682707

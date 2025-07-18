@@ -119,7 +119,7 @@ export async function UpcomingEvents() {
                       <div className="flex items-center justify-between mt-3">
                         {event.category && (
                           <span 
-                            className="inline-block px-3 py-1 text-xs font-semibold rounded-full"
+                            className="inline-block px-3 py-1 text-sm sm:text-xs font-semibold rounded-full"
                             style={{
                               backgroundColor: `${event.category.color}20`,
                               color: event.category.color
@@ -132,8 +132,8 @@ export async function UpcomingEvents() {
                           href={`/events/${event.slug || event.id}`}
                           className="inline-flex items-center text-anchor-gold hover:text-anchor-gold-light font-semibold text-sm"
                         >
-                          View Details
-                          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          View {event.name} Details
+                          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </Link>
@@ -153,8 +153,8 @@ export async function UpcomingEvents() {
     
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-        <p className="text-red-700 mb-2">Unable to load upcoming events at the moment.</p>
-        <p className="text-gray-600">Please try again later or contact us at 01753 682707.</p>
+        <p className="text-red-700 mb-2">We couldn't load the events right now. Please refresh the page or try again in a moment.</p>
+        <p className="text-gray-700 text-sm mt-2">Need help? <a href="tel:+441753682707" className="text-anchor-gold hover:text-anchor-gold-light font-semibold underline">Call us at 01753 682707</a></p>
       </div>
     )
   }

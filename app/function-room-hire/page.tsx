@@ -1,22 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CONTACT, BRAND } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Function Room Hire Near Heathrow | Venue Rental Staines | The Anchor',
-  description: 'Flexible function room hire for all events. 10-200 capacity, free parking, competitive rates. Perfect for meetings, parties, wakes & celebrations near Heathrow.',
+  description: 'Flexible function room hire for all events. 10-200 capacity, free parking, competitive rates. Perfect for meetings, parties, wakes & celebrations.',
   keywords: 'function room hire near heathrow, venue hire staines, private room hire surrey, event space near terminal 5, room rental stanwell moor, venue hire near m25',
   openGraph: {
     title: 'Function Room Hire - The Anchor Stanwell Moor',
     description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
     images: ['/images/events/function-room/the-anchor-function-room.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Function Room Hire - The Anchor Stanwell Moor',
+    description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
+    images: ['/images/events/function-room/the-anchor-function-room.jpg']
+  })
 }
 
 // TODO: Add functionRoomSchema when generateServiceSchema is available
@@ -75,20 +81,22 @@ export default function FunctionRoomHirePage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Call: 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20function%20room%20hire"
-              variant="secondary"
-              size="lg"
-            >
-              💬 WhatsApp Enquiry
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Call: 01753 682707
+      </Button>
+    </Link>
+            <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
+      <Button 
+        variant="secondary"
+        size="lg"
+      >
+        💬 WhatsApp Enquiry
+      </Button>
+    </Link>
           </div>
         }
       />
@@ -148,7 +156,7 @@ export default function FunctionRoomHirePage() {
               <p className="text-center">
                 We offer flexible venue hire pricing tailored to your event. 
                 Our competitive rates vary by day/time and we're always willing to discuss your needs. 
-                Contact us for a personalized quote.
+                Contact us for a personalised quote.
               </p>
             }
           />
@@ -539,7 +547,7 @@ export default function FunctionRoomHirePage() {
           },
           {
             question: "How does your venue hire pricing work?",
-            answer: "We offer flexible venue hire pricing that's tailored to each event. Our rates vary by day, time, and the type of event you're hosting. We're always willing to discuss your needs and work within your budget. Contact us for a personalized quote that suits your requirements."
+            answer: "We offer flexible venue hire pricing that's tailored to each event. Our rates vary by day, time, and the type of event you're hosting. We're always willing to discuss your needs and work within your budget. Contact us for a personalised quote that suits your requirements."
           },
           {
             question: "Can I view the function rooms before booking?",
@@ -571,7 +579,7 @@ export default function FunctionRoomHirePage() {
 
       {/* CTA Section */}
       <CTASection
-        title="Check Availability for Your Function"
+        title="Cheque Availability for Your Function"
         description="Competitive rates • Free parking • Professional service"
         buttons={[
           {

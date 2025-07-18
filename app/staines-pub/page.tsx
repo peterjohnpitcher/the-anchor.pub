@@ -1,5 +1,6 @@
+import Link from 'next/link'
 import Image from 'next/image'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -7,16 +8,22 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: `Staines Pub | ${BRAND.nameWithLocation} | Traditional British Pub Near Staines`,
-  description: 'The Anchor is a traditional British pub just 8 minutes from Staines. Enjoy Sunday roasts, BOGOF pizza deals, drag shows, and quiz nights. Free parking and dog-friendly.',
+  description: 'The Anchor - traditional British pub 8 mins from Staines. Sunday roasts, BOGOF pizza deals, drag shows & quiz nights. Free parking. Dog-friendly.',
   keywords: 'staines pub, pubs in staines, staines upon thames pub, traditional pub staines, british pub near staines, staines restaurants',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Staines',
     description: 'Just 8 minutes from Staines. Sunday roasts, entertainment, and free parking.',
     images: ['/images/the-anchor-pub-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Traditional Pub Near Staines',
+    description: 'Just 8 minutes from Staines. Sunday roasts, entertainment, and free parking.',
+    images: ['/images/the-anchor-pub-stanwell-moor.jpg']
+  })
 }
 
 // Schema for local SEO
@@ -81,12 +88,16 @@ export default function StainesPubPage() {
         ]}
         cta={
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <CallToAction href={CONTACT.phoneHref} variant="primary" size="lg">
-              📞 Call {CONTACT.phone}
-            </CallToAction>
-            <CallToAction href="/food-menu" variant="secondary" size="lg">
-              View Our Menu
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">
+                📞 Call {CONTACT.phone}
+              </Button>
+            </Link>
+            <Link href="/food-menu">
+              <Button variant="secondary" size="lg">
+                View Our Menu
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -255,7 +266,7 @@ export default function StainesPubPage() {
                   <h3 className="text-xl font-bold text-anchor-green">Monthly</h3>
                   <span className="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">DRAG</span>
                 </div>
-                <p className="text-gray-700">Fabulous drag shows with dinner. Check our events page for dates.</p>
+                <p className="text-gray-700">Fabulous drag shows with dinner. Cheque our events page for dates.</p>
               </div>
             </div>
           </div>
@@ -323,19 +334,21 @@ export default function StainesPubPage() {
                 We're always willing to discuss your needs and budget.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <CallToAction href="/book-event" variant="primary" size="md">
-                  View Event Options
-                </CallToAction>
-                <CallToAction href="tel:01753682707" variant="secondary" size="md">
-                  📞 Quick Enquiry
-                </CallToAction>
-                <CallToAction 
-                  href="https://wa.me/441753682707?text=Hi,%20I'm%20from%20Staines%20and%20interested%20in%20venue%20hire" 
-                  variant="secondary" 
-                  size="md"
-                >
-                  💬 WhatsApp
-                </CallToAction>
+                <Link href="/book-event">
+                  <Button variant="primary" size="md">
+                    View Event Options
+                  </Button>
+                </Link>
+                <Link href="tel:01753682707">
+                  <Button variant="secondary" size="md">
+                    📞 Quick Enquiry
+                  </Button>
+                </Link>
+                <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
+                  <Button variant="secondary" size="md">
+                    💬 WhatsApp
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

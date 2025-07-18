@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { formatEventDate, formatEventTime, type Event } from '@/lib/api'
 import { EventSchema } from '@/components/EventSchema'
+import { LoadingState } from '@/components/ui/LoadingState'
 
 export function NextEvent() {
   const [nextEvent, setNextEvent] = useState<Event | null>(null)
@@ -29,7 +30,7 @@ export function NextEvent() {
         }
       } catch (err) {
         // Error: Failed to fetch next event
-        setError('Unable to load event information')
+        setError('Unable to load the next event. Please check our events page for the latest information.')
       } finally {
         setLoading(false)
       }
@@ -41,23 +42,12 @@ export function NextEvent() {
   if (loading) {
     return (
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden animate-pulse">
-          <div className="bg-gray-300 h-[72px]"></div>
-          <div className="p-8">
-            <div className="flex items-start justify-between mb-4">
-              <div>
-                <div className="h-9 bg-gray-300 rounded w-64 mb-2"></div>
-                <div className="h-7 bg-gray-300 rounded w-32"></div>
-              </div>
-              <div className="h-7 bg-gray-300 rounded w-24"></div>
-            </div>
-            <div className="h-6 bg-gray-300 rounded w-full mb-2"></div>
-            <div className="h-6 bg-gray-300 rounded w-3/4 mb-6"></div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="h-12 bg-gray-300 rounded-full w-36"></div>
-              <div className="h-12 bg-gray-300 rounded-full w-36"></div>
-            </div>
-          </div>
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <LoadingState variant="skeleton" className="h-64 w-full" />
+        </div>
+        {/* Screen reader announcement */}
+        <div className="sr-only" aria-live="polite">
+          Loading next event information...
         </div>
       </div>
     )
@@ -72,7 +62,7 @@ export function NextEvent() {
           </p>
           <Link href="/whats-on" className="text-anchor-gold hover:text-anchor-gold-light font-semibold inline-flex items-center gap-2">
             Check our events calendar
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
@@ -127,21 +117,25 @@ export function NextEvent() {
               href={link}
               className="inline-flex items-center justify-center px-6 py-3 bg-anchor-gold text-white font-semibold rounded-full hover:bg-anchor-gold-light transition-colors gap-2"
             >
-              Learn More
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              View {nextEvent.name} Details
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
             
             <Link 
               href="/whats-on"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-anchor-green font-semibold rounded-full border-2 border-anchor-green hover:bg-anchor-green hover:text-white transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-anchor-green font-semibold rounded-full border-2 border-anchor-green hover:bg-anchor-green hover:text-white transition-colours"
             >
               View All Events
             </Link>
           </div>
         </div>
       </div>
+      </div>
+      {/* Screen reader announcement for loaded event */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        Next event: {nextEvent.name} on {eventDate} at {eventTime}
       </div>
     </>
   )

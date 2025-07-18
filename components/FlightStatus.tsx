@@ -2,6 +2,9 @@
 
 import { useEffect, useState, useRef, useCallback, memo } from 'react'
 import { flightAPI, FlightAPI, type Flight } from '@/lib/flights'
+import { FlightErrorDisplay } from '@/components/ui/ErrorDisplay'
+import { LoadingState } from '@/components/ui/LoadingState'
+import { useFlightError } from '@/hooks/useErrorHandler'
 
 interface FlightStatusProps {
   terminal: string
@@ -21,16 +24,16 @@ export function FlightStatus({
   const [departures, setDepartures] = useState<Flight[]>([])
   const [arrivals, setArrivals] = useState<Flight[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
   const [isVisible, setIsVisible] = useState(true)
   const containerRef = useRef<HTMLDivElement>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const { error, handleError, retry, retryCount } = useFlightError()
 
   const fetchFlights = useCallback(async () => {
     try {
       setLoading(true)
-      setError(null)
+      // Clear any previous errors
 
       if (type === 'departures' || type === 'both') {
         const deps = await flightAPI.getDepartures(terminal, limit * 2) // Get more to filter
@@ -57,12 +60,12 @@ export function FlightStatus({
       }
     } catch (err) {
       // Error: Failed to fetch flight data
-      setError('Unable to load flight information')
+      handleError(err)
     } finally {
       setLoading(false)
       setLastUpdate(new Date())
     }
-  }, [terminal, type, limit])
+  }, [terminal, type, limit, handleError])
 
   // Set up intersection observer for visibility detection
   useEffect(() => {
@@ -97,19 +100,12 @@ export function FlightStatus({
         clearInterval(intervalRef.current)
       }
     }
-  }, [terminal, type, limit, isVisible, refreshInterval, fetchFlights])
+  }, [terminal, type, limit, isVisible, refreshInterval, fetchFlights, retryCount])
 
   if (loading) {
     return (
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        <div className="animate-pulse">
-          <div className="h-6 bg-gray-200 rounded w-1/3 mb-4"></div>
-          <div className="space-y-3">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="h-16 bg-gray-100 rounded"></div>
-            ))}
-          </div>
-        </div>
+        <LoadingState variant="skeleton" className="h-32 w-full" />
       </div>
     )
   }
@@ -117,7 +113,7 @@ export function FlightStatus({
   if (error) {
     return (
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        <p className="text-gray-500 text-center">{error}</p>
+        <FlightErrorDisplay onRetry={retry} />
       </div>
     )
   }
@@ -187,7 +183,7 @@ export function FlightStatus({
             <h3 className="text-lg font-semibold flex items-center gap-2">
               ✈️ Departures from Terminal {terminal}
               {!isVisible && pauseWhenHidden && (
-                <span className="text-xs font-normal ml-auto">(Updates paused)</span>
+                <span className="text-sm sm:text-xs font-normal ml-auto">(Updates paused)</span>
               )}
             </h3>
           </div>
@@ -207,7 +203,7 @@ export function FlightStatus({
             <h3 className="text-lg font-semibold flex items-center gap-2">
               🛬 Arrivals to Terminal {terminal}
               {!isVisible && pauseWhenHidden && (
-                <span className="text-xs font-normal ml-auto">(Updates paused)</span>
+                <span className="text-sm sm:text-xs font-normal ml-auto">(Updates paused)</span>
               )}
             </h3>
           </div>
@@ -223,11 +219,11 @@ export function FlightStatus({
 
       {departures.length === 0 && arrivals.length === 0 && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <p className="text-gray-500 text-center">
+          <p className="text-gray-700 text-center">
             No flight information available for Terminal {terminal} at this time.
           </p>
-          <p className="text-xs text-gray-400 text-center mt-2">
-            Flight data may be limited on free API tier. Check console for details.
+          <p className="text-sm sm:text-xs text-gray-600 text-center mt-2">
+            Flight data may be limited. Check the Heathrow Airport website for live updates.
           </p>
         </div>
       )}
@@ -276,7 +272,7 @@ export const FlightDelayWidget = memo(function FlightDelayWidget({ terminal }: {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [terminal])
 
   useEffect(() => {
     fetchDelayInfo()

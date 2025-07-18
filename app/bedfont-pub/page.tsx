@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -8,16 +8,22 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Bedfont Pub | The Anchor - 5 Minutes Away | Surrey',
-  description: 'The Anchor pub is just 5 minutes from Bedfont. Your nearest traditional British pub with free parking, great food, and regular events. The perfect local for East and West Bedfont residents.',
+  description: 'The Anchor pub - 5 mins from Bedfont. Traditional British pub with free parking, great food & regular events. Perfect local for Bedfont residents.',
   keywords: 'bedfont pub, pub near bedfont, bedfont surrey pub, east bedfont pub, west bedfont pub, bedfont lakes pub',
   openGraph: {
     title: 'The Anchor - Your Local Pub Near Bedfont',
     description: 'Just 5 minutes from Bedfont with free parking and great food.',
     images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Your Local Pub Near Bedfont',
+    description: 'Just 5 minutes from Bedfont with free parking and great food.',
+    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 export default function BedfontPubPage() {
@@ -86,20 +92,22 @@ export default function BedfontPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Call to Book
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-            >
-              🍽️ View Menu
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Call to Book
+      </Button>
+    </Link>
+            <Link href="/food-menu">
+      <Button 
+        variant="secondary"
+        size="lg"
+      >
+        🍽️ View Menu
+      </Button>
+    </Link>
           </div>
         }
       />
@@ -247,10 +255,10 @@ export default function BedfontPubPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-8 rounded-xl">
                 <h3 className="font-bold text-xl text-anchor-green mb-4">Family Gatherings</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-700 mb-4">
                   The go-to venue for Bedfont family celebrations
                 </p>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-gray-700">
                   <li>• Children's menu available</li>
                   <li>• High chairs provided</li>
                   <li>• Family-friendly - children always welcome</li>
@@ -259,10 +267,10 @@ export default function BedfontPubPage() {
               </div>
               <div className="bg-gray-50 p-8 rounded-xl">
                 <h3 className="font-bold text-xl text-anchor-green mb-4">Local Groups Welcome</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-700 mb-4">
                   Home to many Bedfont clubs and societies
                 </p>
-                <ul className="space-y-2 text-gray-600">
+                <ul className="space-y-2 text-gray-700">
                   <li>• Monthly quiz nights with local teams</li>
                   <li>• Darts league participants</li>
                   <li>• Book clubs meet here</li>
@@ -276,15 +284,15 @@ export default function BedfontPubPage() {
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="bg-anchor-cream p-4 rounded-lg">
                   <p className="font-bold">Tuesday</p>
-                  <p className="text-gray-600">Pizza BOGOF Night</p>
+                  <p className="text-gray-700">Pizza BOGOF Night</p>
                 </div>
                 <div className="bg-anchor-cream p-4 rounded-lg">
                   <p className="font-bold">Wednesday</p>
-                  <p className="text-gray-600">Quiz Night</p>
+                  <p className="text-gray-700">Quiz Night</p>
                 </div>
                 <div className="bg-anchor-cream p-4 rounded-lg">
                   <p className="font-bold">Saturday</p>
-                  <p className="text-gray-600">Drag Shows</p>
+                  <p className="text-gray-700">Drag Shows</p>
                 </div>
               </div>
             </div>

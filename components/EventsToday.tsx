@@ -3,6 +3,9 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getTodaysEvents, formatEventTime, formatDoorTime, hasLimitedAvailability, type Event } from '@/lib/api'
+import { EventsErrorDisplay } from '@/components/ui/ErrorDisplay'
+import { LoadingState } from '@/components/ui/LoadingState'
+import { useEventsError } from '@/hooks/useErrorHandler'
 
 // Map API event data to our display format
 function mapEventToDisplay(event: Event) {
@@ -42,11 +45,12 @@ const fallbackEvents = [
 export function EventsToday() {
   const [events, setEvents] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const { error, handleError, retry, retryCount } = useEventsError()
 
   useEffect(() => {
     async function fetchEvents() {
       try {
+        setLoading(true)
         const apiEvents = await getTodaysEvents()
         
         if (apiEvents.length > 0) {
@@ -60,7 +64,7 @@ export function EventsToday() {
         }
       } catch (err) {
         // Error: Failed to fetch events
-        setError('Unable to load events')
+        handleError(err)
         // Use fallback events on error
         setEvents(fallbackEvents)
       } finally {
@@ -69,7 +73,7 @@ export function EventsToday() {
     }
 
     fetchEvents()
-  }, [])
+  }, [retryCount, handleError])
 
   // Day-specific events when no API events are available
   function getDaySpecificEvents(day: number) {
@@ -146,12 +150,7 @@ export function EventsToday() {
   if (loading) {
     return (
       <div className="text-center py-8">
-        <div className="loading-dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <p className="text-gray-600 mt-2">Loading today&apos;s events...</p>
+        <LoadingState variant="dots" text="Loading today's events..." />
       </div>
     )
   }
@@ -159,40 +158,41 @@ export function EventsToday() {
   if (error) {
     return (
       <div className="text-center py-8">
-        <div className="bg-red-50 rounded-2xl p-8 max-w-md mx-auto">
-          <p className="text-red-700 mb-4">{error}</p>
-          <Link href="/whats-on" className="text-anchor-gold hover:text-anchor-gold-light font-semibold">
-            View our regular events →
-          </Link>
-        </div>
+        <EventsErrorDisplay onRetry={retry} />
       </div>
     )
   }
 
   if (events.length === 0) {
     return (
-      <div className="text-center py-8">
-        <div className="bg-anchor-sand/30 rounded-2xl p-8 max-w-md mx-auto">
-          <p className="text-gray-700 text-lg mb-4">No special events today, but we&apos;re open as usual!</p>
-          <Link href="/whats-on" className="text-anchor-gold hover:text-anchor-gold-light font-semibold inline-flex items-center gap-2">
-            View all upcoming events
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+      <>
+        <div className="text-center py-8">
+          <div className="bg-anchor-sand/30 rounded-2xl p-8 max-w-md mx-auto">
+            <p className="text-gray-700 text-lg mb-4">No special events today, but we&apos;re open as usual!</p>
+            <Link href="/whats-on" className="text-anchor-gold hover:text-anchor-gold-light font-semibold inline-flex items-center gap-2">
+              View all upcoming events
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
-      </div>
+        <div className="sr-only" aria-live="polite">
+          No special events today, but we're open as usual
+        </div>
+      </>
     )
   }
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      {events.map((event) => (
+    <>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {events.map((event) => (
         <div key={event.id} className="card-warm bg-white border-2 border-anchor-sand p-6 group">
           <div className="mb-4">
             {event.category && (
               <span 
-                className="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-2"
+                className="inline-block px-3 py-1 text-sm sm:text-xs font-semibold rounded-full mb-2"
                 style={{
                   backgroundColor: `${event.category.color}20`,
                   color: event.category.color
@@ -205,13 +205,13 @@ export function EventsToday() {
             <div className="space-y-1">
               <p className="text-anchor-gold font-medium text-sm">{event.time}</p>
               {event.doorTime && (
-                <p className="text-gray-600 text-sm">{event.doorTime}</p>
+                <p className="text-gray-700 text-sm">{event.doorTime}</p>
               )}
               {event.performer && (
-                <p className="text-gray-600 text-sm">Featuring: {event.performer}</p>
+                <p className="text-gray-700 text-sm">Featuring: {event.performer}</p>
               )}
               {event.price && (
-                <p className={`text-sm mt-1 ${event.price === "0" ? "text-green-600 font-semibold" : "text-gray-600"}`}>
+                <p className={`text-sm mt-1 ${event.price === "0" ? "text-green-600 font-semibold" : "text-gray-700"}`}>
                   {event.price === "0" ? "FREE EVENT" : `From £${event.price}`}
                 </p>
               )}
@@ -226,20 +226,25 @@ export function EventsToday() {
               <p className="text-sm text-amber-600 font-semibold animate-pulse">LIMITED AVAILABILITY</p>
             )}
             {event.remainingSeats && event.remainingSeats > 0 && !event.limitedAvailability && (
-              <p className="text-sm text-gray-600">{event.remainingSeats} seats available</p>
+              <p className="text-sm text-gray-700">{event.remainingSeats} seats available</p>
             )}
           </div>
           <Link 
             href={event.link}
             className="inline-flex items-center text-anchor-gold font-semibold hover:text-anchor-gold-light transition-colors gap-2 mt-4"
           >
-            <span>Find out more</span>
-            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span>View details for {event.name}</span>
+            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>
       ))}
-    </div>
+      </div>
+      {/* Screen reader announcement for loaded events */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {events.length} {events.length === 1 ? 'event' : 'events'} happening today
+      </div>
+    </>
   )
 }

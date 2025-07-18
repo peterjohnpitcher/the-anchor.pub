@@ -60,7 +60,7 @@ Unlike crowded city markets or airport shopping, The Anchor's **festive market**
 Our carefully curated **Christmas shopping** experience features:
 
 #### Handmade Treasures
-- **Local jewelry makers** - Unique pieces for special gifts
+- **Local jewellery makers** - Unique pieces for special gifts
 - **Pottery and ceramics** - Beautiful homeware
 - **Knitted goods** - Cozy scarves, hats, and mittens
 - **Wooden crafts** - Decorations and toys
@@ -82,7 +82,7 @@ Our carefully curated **Christmas shopping** experience features:
 
 ## Festive Food and Drink at Our Market
 
-### Warm Up with Christmas Favorites
+### Warm Up with Christmas Favourites
 
 No **Christmas market near Heathrow** is complete without seasonal treats:
 
@@ -107,9 +107,9 @@ No **Christmas market near Heathrow** is complete without seasonal treats:
 Our **festive market** features:
 
 #### Live Piano Performance
-- **Christmas classics** - Sing along to favorites
+- **Christmas classics** - Sing along to favourites
 - **Festive ambiance** - Throughout the market
-- **Request your favorites** - Interactive entertainment
+- **Request your favourites** - Interactive entertainment
 - **Local pianist** - Supporting community talent
 
 #### Family Activities
@@ -125,7 +125,7 @@ Our **festive market** features:
 #### Heathrow Travelers
 - **Pre-flight shopping** - Unique British gifts
 - **Layover activity** - Better than airport terminals
-- **Crew favorite** - Where airline staff shop
+- **Crew favourite** - Where airline staff shop
 - **Hotel guests** - From nearby airport hotels
 
 #### Local Community

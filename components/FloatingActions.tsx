@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { CallToAction } from './CallToAction'
 
 export function FloatingActions() {
   const [isOpen, setIsOpen] = useState(false)
@@ -34,7 +33,7 @@ export function FloatingActions() {
               href="https://ordertab.menu/theanchor/bookings"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
+              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours"
               onClick={() => setIsOpen(false)}
               role="menuitem"
             >
@@ -44,7 +43,7 @@ export function FloatingActions() {
             
             <a
               href="tel:01753682707"
-              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
+              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours"
               onClick={() => setIsOpen(false)}
               role="menuitem"
             >
@@ -66,7 +65,7 @@ export function FloatingActions() {
             
             <a
               href="/find-us"
-              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
+              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours"
               onClick={() => setIsOpen(false)}
               role="menuitem"
             >
@@ -76,7 +75,7 @@ export function FloatingActions() {
             
             <a
               href="/food-menu"
-              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
+              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours"
               onClick={() => setIsOpen(false)}
               role="menuitem"
             >
@@ -105,6 +104,7 @@ export function FloatingActions() {
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path 
               strokeLinecap="round" 

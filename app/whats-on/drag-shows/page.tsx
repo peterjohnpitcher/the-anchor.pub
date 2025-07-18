@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { Metadata } from 'next'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Drag Shows | The Anchor Stanwell Moor | Monthly Entertainment',
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
     description: 'Join us for spectacular drag performances with Nikki Manfadge - check our What\'s On page for dates!',
     images: ['/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Monthly Drag Shows at The Anchor',
+    description: 'Join us for spectacular drag performances with Nikki Manfadge - check our What\'s On page for dates!',
+    images: ['/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg']
+  })
 }
 
 export default function DragShowsPage() {
@@ -27,6 +33,9 @@ export default function DragShowsPage() {
             fill
             className="object-cover"
             priority
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
           <div className="absolute inset-0 bg-gradient-to-b from-purple-900/80 via-pink-900/60 to-purple-900/80" />
         </div>
@@ -48,13 +57,14 @@ export default function DragShowsPage() {
               <span className="tag bg-white/90 backdrop-blur-sm">🍹 Themed Cocktails</span>
             </div>
             
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Book Your Table Now
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Book Your Table Now
+      </Button>
+    </Link>
           </div>
         </div>
       </section>
@@ -83,7 +93,7 @@ export default function DragShowsPage() {
                     </li>
                     <li className="flex gap-3">
                       <span className="text-pink-500">🎤</span>
-                      <span>Lip-sync performances to your favorite hits</span>
+                      <span>Lip-sync performances to your favourite hits</span>
                     </li>
                     <li className="flex gap-3">
                       <span className="text-pink-500">😂</span>
@@ -375,24 +385,28 @@ export default function DragShowsPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="white"
-              size="lg"
-            >
-              📞 Book Your Table: 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="/whats-on"
-              variant="white"
-              size="lg"
-            >
-              View All Events
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="secondary"
+        size="lg"
+        className="bg-white text-anchor-green hover:bg-gray-100"
+      >
+        📞 Book Your Table: 01753 682707
+      </Button>
+    </Link>
+            <Link href="/whats-on">
+      <Button 
+        variant="secondary"
+        size="lg"
+        className="bg-white text-anchor-green hover:bg-gray-100"
+      >
+        View All Events
+      </Button>
+    </Link>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-            <p className="font-semibold mb-2">Monthly Shows - Check What's On for Dates</p>
+            <p className="font-semibold mb-2">Monthly Shows - Cheque What's On for Dates</p>
             <p>Show starts at 9:00 PM</p>
             <p className="text-sm mt-2">The Anchor, Stanwell Moor</p>
           </div>

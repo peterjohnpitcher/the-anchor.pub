@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import type { BaseComponentProps } from '../types'
 
 const selectVariants = cva(
-  'w-full rounded-lg border bg-white px-4 py-2 text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed appearance-none cursor-pointer',
+  'w-full rounded-lg border bg-white px-4 py-2 text-gray-900 transition-colours focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed appearance-none cursor-pointer',
   {
     variants: {
       variant: {
@@ -103,7 +103,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </select>
           
           {/* Custom arrow icon */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-700">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
@@ -117,7 +117,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         )}
         
         {helperText && !error && (
-          <p id={`${selectId}-helper`} className="mt-1 text-sm text-gray-500">
+          <p id={`${selectId}-helper`} className="mt-1 text-sm text-gray-700">
             {helperText}
           </p>
         )}
@@ -278,7 +278,7 @@ export const SearchableSelect = forwardRef<HTMLDivElement, SearchableSelectProps
           />
           
           {/* Arrow icon */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-700">
             <svg 
               className={cn('w-5 h-5 transition-transform', isOpen && 'rotate-180')} 
               fill="none" 
@@ -293,7 +293,7 @@ export const SearchableSelect = forwardRef<HTMLDivElement, SearchableSelectProps
           {isOpen && (
             <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto">
               {loading ? (
-                <div className="px-4 py-8 text-center text-gray-500">
+                <div className="px-4 py-8 text-center text-gray-700">
                   <svg className="animate-spin h-5 w-5 mx-auto mb-2" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -301,7 +301,7 @@ export const SearchableSelect = forwardRef<HTMLDivElement, SearchableSelectProps
                   Loading...
                 </div>
               ) : filteredOptions.length === 0 ? (
-                <div className="px-4 py-8 text-center text-gray-500">
+                <div className="px-4 py-8 text-center text-gray-700">
                   No options found
                 </div>
               ) : (
@@ -312,7 +312,7 @@ export const SearchableSelect = forwardRef<HTMLDivElement, SearchableSelectProps
                       role="option"
                       aria-selected={option.value === value}
                       className={cn(
-                        'px-4 py-2 cursor-pointer transition-colors',
+                        'px-4 py-2 cursor-pointer transition-colours',
                         option.disabled && 'opacity-50 cursor-not-allowed',
                         option.value === value && 'bg-anchor-gold/10 text-anchor-gold font-medium',
                         index === highlightedIndex && 'bg-gray-100',
@@ -337,7 +337,7 @@ export const SearchableSelect = forwardRef<HTMLDivElement, SearchableSelectProps
         )}
         
         {helperText && !error && (
-          <p id={`${selectId}-helper`} className="mt-1 text-sm text-gray-500">
+          <p id={`${selectId}-helper`} className="mt-1 text-sm text-gray-700">
             {helperText}
           </p>
         )}

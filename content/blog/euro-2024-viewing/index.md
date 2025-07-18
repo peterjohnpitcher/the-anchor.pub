@@ -44,7 +44,7 @@ At The Anchor, we've created the ultimate **sports viewing experience near Heath
 - **Family zones** for watching with kids
 - **Beer garden viewing** in good weather
 
-Never miss a moment of the action at Stanwell Moor's favorite sports pub!
+Never miss a moment of the action at Stanwell Moor's favourite sports pub!
 
 ## What Sports We Show
 
@@ -81,7 +81,7 @@ Our **sports pub near Heathrow** covers everything:
 **Pre-Match:**
 - Doors open early
 - Team talk over coffee
-- Check our match predictions board
+- Cheque our match predictions board
 - Pre-match meals available during kitchen hours
 
 **During the Game:**
@@ -106,7 +106,7 @@ Keep energized throughout the match:
 - **Burgers & chips** - pub classics
 - **Sharing platters** - perfect for groups
 - **Pizza** - ideal for longer matches
-- **Wings & nachos** - crowd favorites
+- **Wings & nachos** - crowd favourites
 - **Pies** - traditional football food
 
 **Drinks Selection:**
@@ -177,7 +177,7 @@ Popular matches fill up fast! Here's how to guarantee your seat:
 - Friendly fixtures
 - Tournament qualifiers
 
-Check our website or social media for specific match times.
+Cheque our website or social media for specific match times.
 
 ## The Ultimate Derby Day Venue
 
@@ -234,7 +234,7 @@ Contact us for bespoke corporate packages.
 The Anchor celebrates sporting heritage:
 
 - Local team photos
-- Historic match programs
+- Historic match programmes
 - Signed memorabilia
 - Trophy cabinet
 - Prediction league board
@@ -280,7 +280,7 @@ Ready for the ultimate **sports viewing experience near Heathrow**? Join us at T
 📍 Location: Horton Road, Stanwell Moor, TW19 6AQ  
 📞 Bookings: 01753 682707  
 🚗 Parking: Free on-site  
-⏰ Open: Daily (check match times)  
+⏰ Open: Daily (cheque match times)  
 
 **Book your table now for the next big match!**
 

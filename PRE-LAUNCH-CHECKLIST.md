@@ -32,7 +32,7 @@
 - [x] API base URL correctly configured
 - [x] API client using proper authentication
 - [x] Error handling implemented for all API calls
-- [x] Fallback behavior for API failures
+- [x] Fallback behaviour for API failures
 
 ## SEO & Meta Tags ✅
 - [x] Default meta tags configured in layout
@@ -58,7 +58,7 @@
 - [x] Images using Next.js Image component
 - [x] Lazy loading implemented for non-critical components
 - [x] Critical CSS inlined
-- [x] Font optimization configured
+- [x] Font optimisation configured
 
 ## Hardcoded URLs ✅
 - [x] No localhost references in production code
@@ -86,7 +86,7 @@
    - Set Google Business Location ID if using Google integration
 
 ### Medium Priority
-1. Consider adding the missing preconnect tag for Google Fonts to optimize loading
+1. Consider adding the missing preconnect tag for Google Fonts to optimise loading
 2. Review the useCallback dependency in FlightStatus component
 
 ### Low Priority
@@ -98,23 +98,23 @@
    - Navigate through all main pages
    - Test all forms (event booking, contact)
    - Verify all images load correctly
-   - Check responsive design on mobile/tablet
+   - Cheque responsive design on mobile/tablet
    - Test in multiple browsers (Chrome, Safari, Firefox, Edge)
 
 2. **API Testing**:
    - Verify events load on What's On page
-   - Check business hours display
+   - Cheque business hours display
    - Test event booking flow
    - Verify weather widget works
 
 3. **SEO Testing**:
    - Run through Google's Mobile-Friendly Test
-   - Check with Google's Rich Results Test
+   - Cheque with Google's Rich Results Test
    - Verify all meta tags with a tool like metatags.io
 
 4. **Performance Testing**:
    - Run Lighthouse audit
-   - Check Core Web Vitals
+   - Cheque Core Web Vitals
    - Test on slow 3G connection
 
 5. **Analytics Testing**:

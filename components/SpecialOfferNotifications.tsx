@@ -118,12 +118,20 @@ export function SpecialOfferNotifications({ targetSection }: SpecialOfferNotific
               </div>
               
               {timeRemaining && (
-                <div className="text-center bg-white/20 rounded-lg px-4 py-2">
-                  <p className="text-sm font-semibold">Time Remaining:</p>
-                  <p className="text-xl font-bold">
-                    {timeRemaining.hours}h {timeRemaining.minutes}m
-                  </p>
-                </div>
+                <>
+                  <div className="text-center bg-white/20 rounded-lg px-4 py-2">
+                    <p className="text-sm font-semibold">Time Remaining:</p>
+                    <p className="text-xl font-bold">
+                      {timeRemaining.hours}h {timeRemaining.minutes}m
+                    </p>
+                  </div>
+                  {/* Announce deadline when getting close */}
+                  {timeRemaining.hours <= 1 && (
+                    <div className="sr-only" aria-live="polite" aria-atomic="true">
+                      {offer.title} deadline approaching: {timeRemaining.hours} hours and {timeRemaining.minutes} minutes remaining
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>

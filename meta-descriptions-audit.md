@@ -91,7 +91,7 @@ Some pages use template variables:
 
 1. **Consistency**: While uniqueness is good, ensure all dynamic variables are properly replaced during build time.
 
-2. **Length optimization**: A few descriptions could be trimmed to ensure they don't get truncated in search results (aim for 150-160 characters).
+2. **Length optimisation**: A few descriptions could be trimmed to ensure they don't get truncated in search results (aim for 150-160 characters).
 
 3. **Regular review**: As the site evolves, ensure new pages maintain this high standard of unique, targeted meta descriptions.
 

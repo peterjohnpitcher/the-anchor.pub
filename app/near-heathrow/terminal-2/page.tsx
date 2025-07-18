@@ -1,24 +1,30 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
-import { HeroWrapper } from '@/components/hero'
+import { Button } from '@/components/ui'
+import { HeroWrapper, Breadcrumbs } from '@/components/hero'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
 import { SectionHeader } from '@/components/SectionHeader'
 import { FeatureGrid } from '@/components/FeatureCard'
 import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
-import { CTASection } from '@/components/CTASection'
+import { CTASection } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 2 | The Anchor - 10 Minutes Away',
-  description: 'Traditional British pub just 10 minutes from Heathrow Terminal 2. Free parking, great food, and perfect for Star Alliance travelers. Your pre-flight dining destination.',
+  description: 'Traditional British pub 10 mins from Heathrow Terminal 2. Free parking, great food & perfect for Star Alliance travelers. Pre-flight dining.',
   keywords: 'pub near terminal 2, heathrow terminal 2 restaurant, closest pub to T2, star alliance terminal pub, queens terminal restaurant',
   openGraph: {
     title: 'The Anchor - 10 Minutes from Heathrow Terminal 2',
     description: 'The perfect traditional British pub near Terminal 2. Free parking and authentic pub food.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - 10 Minutes from Heathrow Terminal 2',
+    description: 'The perfect traditional British pub near Terminal 2. Free parking and authentic pub food.',
+    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+  })
 }
 
 export default function Terminal2Page() {
@@ -31,26 +37,33 @@ export default function Terminal2Page() {
         title="Your Local Pub Near Heathrow Terminal 2"
         description="Perfect for Star Alliance travelers • Free parking • Traditional British hospitality"
         size="large"
+        breadcrumbs={[
+          { name: 'Near Heathrow', href: '/near-heathrow' },
+          { name: 'Terminal 2' }
+        ]}
         tags={[
           { label: "Just 10 minutes away", variant: "warning" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Book a Table
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Book a Table
+      </Button>
+    </Link>
             
-            <CallToAction 
-              href="#directions"
-              variant="white"
-              size="lg"
-            >
-              📍 Get Directions
-            </CallToAction>
+            <Link href="#directions">
+      <Button 
+        variant="secondary"
+        size="lg"
+        className="bg-white text-anchor-green hover:bg-gray-100"
+      >
+        📍 Get Directions
+      </Button>
+    </Link>
           </div>
         }
       />
@@ -158,14 +171,14 @@ export default function Terminal2Page() {
               <p className="text-gray-700 mb-6">
                 Click below for turn-by-turn directions from Terminal 2
               </p>
-              <CallToAction
-                href="https://maps.google.com/maps?saddr=Heathrow+Terminal+2&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                variant="primary"
-                size="lg"
-                external
-              >
-                Open in Google Maps
-              </CallToAction>
+              <Link href="https://maps.google.com/maps?saddr=Heathrow+Terminal+2&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        Open in Google Maps
+      </Button>
+    </Link>
             </div>
           </div>
         </div>
@@ -225,7 +238,7 @@ export default function Terminal2Page() {
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Live Terminal 2 Flight Information"
-              subtitle="Check flight times while you enjoy your meal or drink"
+              subtitle="Cheque flight times while you enjoy your meal or drink"
               align="center"
             />
             <FlightStatus terminal="2" type="both" limit={5} />
@@ -319,7 +332,7 @@ export default function Terminal2Page() {
                   <h3 className="text-2xl font-bold text-anchor-green mb-4">Before Your Flight</h3>
                   <p className="mb-4">
                     Instead of paying premium prices for average food at the terminal, enjoy a proper meal 
-                    at The Anchor. Our traditional British menu offers everything from classic pub favorites 
+                    at The Anchor. Our traditional British menu offers everything from classic pub favourites 
                     to fish and chips, all at local pub prices during kitchen hours. With Terminal 2's 
                     recommendation to arrive 3 hours early for international flights, you'll have plenty 
                     of time to relax in our beer garden or cozy interior before heading to the gate.

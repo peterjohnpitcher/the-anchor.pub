@@ -17,7 +17,7 @@ interface OptimizedHeroSectionProps {
     priority?: boolean
     objectPosition?: string
     blurDataURL?: string
-    // New: Optimized image paths
+    // New: Optimised image paths
     optimized?: {
       mobile: string
       tablet: string

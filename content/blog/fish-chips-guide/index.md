@@ -28,7 +28,7 @@ images:
 
 ![A plate of fish and chips with peas and tartar sauce, promoting "Chip Shop Fridays" at The Anchor.](/content/blog/fish-chips-guide/hero.jpg)
 
-Looking for authentic **fish and chips near Heathrow**? The Anchor in Stanwell Moor serves traditional British chip shop favorites with **quality food** at local prices. Just 7 minutes from Terminal 5, skip the expensive **Heathrow food** and enjoy proper British comfort food at our **traditional pub**.
+Looking for authentic **fish and chips near Heathrow**? The Anchor in Stanwell Moor serves traditional British chip shop favourites with **quality food** at local prices. Just 7 minutes from Terminal 5, skip the expensive **Heathrow food** and enjoy proper British comfort food at our **traditional pub**.
 
 ## What Makes The Anchor's Chip Shop Experience Special
 
@@ -130,7 +130,7 @@ Skip expensive **terminal food** for authentic British cuisine:
 - **Layover dining** - Quick service, satisfying portions
 - **Arrival celebrations** - Welcome to Britain properly!
 
-### Local Favorites
+### Local Favourites
 Our **Staines** and **Stanwell Moor** regulars love:
 - **Family dinners** - Kids eat free on Tuesdays
 - **Quick lunches** - In and out in 30 minutes

@@ -43,7 +43,7 @@ export function InfoBox({
           variant === 'colored' && color?.includes('amber') ? 'text-amber-700' :
           variant === 'colored' && color?.includes('blue') ? 'text-blue-700' :
           variant === 'colored' && color?.includes('red') ? 'text-red-700' :
-          'text-gray-600'
+          'text-gray-700'
         }`}>
           {footnote}
         </p>

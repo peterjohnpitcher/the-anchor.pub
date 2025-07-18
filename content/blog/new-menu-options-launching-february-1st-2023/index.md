@@ -95,7 +95,7 @@ Our new Chickpea, sweet potato and spinach curry, paired with fluffy steamed ric
 
 ### Chicken and Pesto
 
-Our new Chicken and Pesto pizza, topped with tender chicken, fresh basil pesto, and melted mozzarella cheese, is a unique and delicious twist on a classic favorite.
+Our new Chicken and Pesto pizza, topped with tender chicken, fresh basil pesto, and melted mozzarella cheese, is a unique and delicious twist on a classic favourite.
 
   
 

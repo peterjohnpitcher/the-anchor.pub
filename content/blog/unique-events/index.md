@@ -74,7 +74,7 @@ Did you know that craft beer is one of the fastest-growing segments in the bever
 
   
 
-Regularly hosting food-themed events is another hallmark of The Anchor. For instance, the **Monthly Curry Night** draws in crowds eager to try unique curry dishes created by guest chefs. The combination of flavorful food and a friendly atmosphere makes this event a hit!
+Regularly hosting food-themed events is another hallmark of The Anchor. For instance, the **Monthly Curry Night** draws in crowds eager to try unique curry dishes created by guest chefs. The combination of flavourful food and a friendly atmosphere makes this event a hit!
 
   
 
@@ -126,7 +126,7 @@ Feedback from locals suggests that events at The Anchor create memorable experie
 
   
 
-Make sure to check the events calendar at [The Anchor](https://www.the-anchor.pub/our-events) for upcoming happenings. Some highlights on the horizon include:
+Make sure to cheque the events calendar at [The Anchor](https://www.the-anchor.pub/our-events) for upcoming happenings. Some highlights on the horizon include:
 
   
 
@@ -166,7 +166,7 @@ As you plan your next outing, consider checking out what's happening at The Anch
 - Quiz Night: Wednesdays from 8pm
 - Live Music: Fridays & Saturdays from 9pm
 - Family Days: Selected Sundays
-- Beer Tastings: Monthly (check calendar)
+- Beer Tastings: Monthly (cheque calendar)
 📞 **Bookings**: 01753 682707
 
 ### Why Choose The Anchor for Entertainment Near Terminal 5

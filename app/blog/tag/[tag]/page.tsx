@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllBlogPosts } from '@/lib/markdown'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -130,10 +130,10 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
                         {post.tags.map(t => (
                           <span 
                             key={t} 
-                            className={`text-xs px-2 py-1 rounded ${
+                            className={`text-sm sm:text-xs px-2 py-1 rounded ${
                               t === tag 
                                 ? 'bg-anchor-gold text-white' 
-                                : 'bg-gray-100 text-gray-600'
+                                : 'bg-gray-100 text-gray-700'
                             }`}
                           >
                             {t}
@@ -194,20 +194,16 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
             Experience everything we write about firsthand. Join us for great food, drinks, and atmosphere!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="/find-us"
-              variant="white"
-              size="lg"
-            >
-              Get Directions
-            </CallToAction>
-            <CallToAction 
-              href="/whats-on"
-              variant="white"
-              size="lg"
-            >
-              See What's On
-            </CallToAction>
+            <Link href="/find-us">
+              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+                Get Directions
+              </Button>
+            </Link>
+            <Link href="/whats-on">
+              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+                See What's On
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

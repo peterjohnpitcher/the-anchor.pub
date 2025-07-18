@@ -187,15 +187,15 @@ Add special offers that appear prominently:
 ## Best Practices
 
 1. **Always test locally** before deploying changes
-2. **Validate JSON** - Use a JSON validator to check syntax
-3. **Optimize images** before uploading (use tools like TinyPNG)
+2. **Validate JSON** - Use a JSON validator to cheque syntax
+3. **Optimise images** before uploading (use tools like TinyPNG)
 4. **Keep URLs consistent** - once published, avoid changing folder names
 5. **Update lastUpdated** when making menu changes
 6. **Use consistent formatting** across all content
 
 ## Troubleshooting
 
-- **Menu not updating?** Check JSON syntax is valid
+- **Menu not updating?** Cheque JSON syntax is valid
 - **Images not showing?** Ensure filenames match exactly (case-sensitive)
-- **Blog post not appearing?** Check the date isn't in the future
+- **Blog post not appearing?** Cheque the date isn't in the future
 - **Layout broken?** Verify the `style` property is either "grid" or "list"

@@ -97,7 +97,7 @@ Since June 2024, **Nikki Manfadge** has been transforming Friday nights at The A
 Located just **10 minutes from Heathrow Terminal 5**, The Anchor offers:
 
 - **Free parking** for all guests
-- **Full restaurant menu** with pub favorites
+- **Full restaurant menu** with pub favourites
 - **Welcoming atmosphere** for all audiences
 - **Regular entertainment** throughout the month
 - **Easy access** from Staines, Ashford, and surrounding areas

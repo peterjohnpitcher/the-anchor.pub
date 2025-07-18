@@ -88,7 +88,7 @@ Choose from our delicious selection:
 **Dietary Options**
 - Gluten-free bases available
 - Vegetarian choices
-- Customization welcomed
+- Customisation welcomed
 
 ### Wine Selection
 

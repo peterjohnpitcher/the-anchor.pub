@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getBlogPost, getAllBlogPosts, distributeImages } from '@/lib/markdown'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { Metadata } from 'next'
 
 export async function generateStaticParams() {
@@ -65,6 +65,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             fill
             className="object-cover"
             priority
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
         </div>
@@ -103,9 +106,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <div className="container mx-auto px-4">
           <nav className="flex items-center gap-2 text-sm">
             <Link href="/" className="text-gray-600 hover:text-anchor-green">Home</Link>
-            <span className="text-gray-400">/</span>
+            <span className="text-gray-600">/</span>
             <Link href="/blog" className="text-gray-600 hover:text-anchor-green">Blog</Link>
-            <span className="text-gray-400">/</span>
+            <span className="text-gray-600">/</span>
             <span className="text-anchor-green font-semibold">{post.title}</span>
           </nav>
         </div>
@@ -133,7 +136,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 /* Links */
                 prose-a:text-anchor-gold prose-a:font-semibold
                 prose-a:no-underline hover:prose-a:underline
-                prose-a:transition-colors hover:prose-a:text-anchor-gold-light
+                prose-a:transition-colours hover:prose-a:text-anchor-gold-light
                 
                 /* Strong/Bold */
                 prose-strong:text-anchor-green prose-strong:font-bold
@@ -180,22 +183,24 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-gray-600 mb-4">Enjoyed this article? Share it with your friends!</p>
             <div className="flex justify-center gap-4">
-              <CallToAction 
+              <Link 
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://the-anchor.pub/blog/${post.slug}`)}`}
-                variant="secondary"
-                size="sm"
-                external
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Share on Twitter
-              </CallToAction>
-              <CallToAction 
+                <Button variant="secondary" size="sm">
+                  Share on Twitter
+                </Button>
+              </Link>
+              <Link 
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://the-anchor.pub/blog/${post.slug}`)}`}
-                variant="secondary"
-                size="sm"
-                external
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Share on Facebook
-              </CallToAction>
+                <Button variant="secondary" size="sm">
+                  Share on Facebook
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -210,7 +215,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <Link href={`/blog/${prevPost.slug}`} className="group">
                   <div className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
                     <p className="text-sm text-gray-600 mb-2">← Previous Post</p>
-                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colors">
+                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colours">
                       {prevPost.title}
                     </h3>
                   </div>
@@ -220,7 +225,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <Link href={`/blog/${nextPost.slug}`} className="group md:text-right">
                   <div className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
                     <p className="text-sm text-gray-600 mb-2">Next Post →</p>
-                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colors">
+                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colours">
                       {nextPost.title}
                     </h3>
                   </div>
@@ -241,20 +246,16 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             Experience everything we write about firsthand. Join us for great food, drinks, and atmosphere!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="/find-us"
-              variant="white"
-              size="lg"
-            >
-              Get Directions
-            </CallToAction>
-            <CallToAction 
-              href="/blog"
-              variant="white"
-              size="lg"
-            >
-              More Stories
-            </CallToAction>
+            <Link href="/find-us">
+              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+                Get Directions
+              </Button>
+            </Link>
+            <Link href="/blog">
+              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+                More Stories
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

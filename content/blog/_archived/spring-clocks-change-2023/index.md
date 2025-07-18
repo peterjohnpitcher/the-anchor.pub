@@ -1,6 +1,6 @@
 ---
 title: "Spring Clocks Change 2023"
-description: "Explore the history and impact of British Summer Time in our latest blog. From its invention to misconceptions surrounding it, we delve into the origins of this practice and its significance. Learn about the history of British Summer Time today."
+description: "Explore the history and impact of British Summer Time in our latest blog. From its invention to misconceptions surrounding it, we delve into the origins of this practise and its significance. Learn about the history of British Summer Time today."
 date: "2023-03-04"
 oldUrl: "https://www.the-anchor.pub/post/spring-clocks-change-2023"
 author: "Billy"
@@ -31,7 +31,7 @@ As we welcome the spring season, it's time to prepare for the clocks to change. 
 
 ### Food and Drink Specials
 
-As the season changes, our menu's evolve! To celebrate the clocks changing, we're offering a special menu featuring seasonal ingredients and flavors. Our dishes are freshly prepared using locally-sourced ingredients wherever possible, so you can be sure you're getting the great quality food. Our menu features classic pub fare such as burgers and pies, as well as vegetarian and gluten-free options. We also have a range of mouth-watering desserts to satisfy your sweet tooth. And don't forget about the drinks! Our selection of beers, wines, and spirits will also be updated with a couple of fresh springtime options. Come and enjoy our refreshing cocktails, perfect for sipping in the garden on a sunny afternoon.
+As the season changes, our menu's evolve! To celebrate the clocks changing, we're offering a special menu featuring seasonal ingredients and flavours. Our dishes are freshly prepared using locally-sourced ingredients wherever possible, so you can be sure you're getting the great quality food. Our menu features classic pub fare such as burgers and pies, as well as vegetarian and gluten-free options. We also have a range of mouth-watering desserts to satisfy your sweet tooth. And don't forget about the drinks! Our selection of beers, wines, and spirits will also be updated with a couple of fresh springtime options. Come and enjoy our refreshing cocktails, perfect for sipping in the garden on a sunny afternoon.
 
 ![](https://static.wixstatic.com/media/1c749e_8bf9d4b5a8d2402592b395f4dabf3553~mv2.png/v1/fill/w_49,h_37,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/1c749e_8bf9d4b5a8d2402592b395f4dabf3553~mv2.png)
 
@@ -43,7 +43,7 @@ With the longer days and warmer weather that come with the clocks changing, ther
 
 ### Location
 
-The Anchor pub is conveniently located near Heathrow airport, making it a great stop-off point for travellers going to or from the airport. Whether you're looking for a quick pint or a leisurely meal, our friendly and welcoming atmosphere will make you feel at home. We're also proud to be a part of the local community and invite you to join us for a taste of village life. We offer a range of events and activities throughout the year, so be sure to check our website and social media for updates on upcoming celebrations.
+The Anchor pub is conveniently located near Heathrow airport, making it a great stop-off point for travellers going to or from the airport. Whether you're looking for a quick pint or a leisurely meal, our friendly and welcoming atmosphere will make you feel at home. We're also proud to be a part of the local community and invite you to join us for a taste of village life. We offer a range of events and activities throughout the year, so be sure to cheque our website and social media for updates on upcoming celebrations.
 
   
 
@@ -53,7 +53,7 @@ As we prepare for the spring clocks change, there's no better place to celebrate
 
 ### Why was British Summer Time invented?
 
-British Summer Time was first introduced during World War I as a way to save energy and make better use of daylight hours. The idea was that by shifting the clocks forward by one hour in the summer months, people would have an extra hour of daylight in the evening, reducing the need for artificial lighting and saving energy. The practice was later adopted permanently in the UK as a way to make the most of the longer summer days.
+British Summer Time was first introduced during World War I as a way to save energy and make better use of daylight hours. The idea was that by shifting the clocks forward by one hour in the summer months, people would have an extra hour of daylight in the evening, reducing the need for artificial lighting and saving energy. The practise was later adopted permanently in the UK as a way to make the most of the longer summer days.
 
 ![](https://static.wixstatic.com/media/1c749e_c440dac2f6db44d29578cc426f76aeaf~mv2.png/v1/fill/w_49,h_37,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/1c749e_c440dac2f6db44d29578cc426f76aeaf~mv2.png)
 
@@ -65,7 +65,7 @@ The concept of Daylight Saving Time (DST) was first proposed by New Zealand ento
 
 ### Why do Britain change the clocks?
 
-The primary reason for changing the clocks is to make better use of daylight hours and save energy. By moving the clocks forward in the summer, people can enjoy an extra hour of daylight in the evening, which reduces the need for artificial lighting and helps to conserve energy. However, some argue that the practice is outdated and no longer necessary in the modern world.
+The primary reason for changing the clocks is to make better use of daylight hours and save energy. By moving the clocks forward in the summer, people can enjoy an extra hour of daylight in the evening, which reduces the need for artificial lighting and helps to conserve energy. However, some argue that the practise is outdated and no longer necessary in the modern world.
 
   
 

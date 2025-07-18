@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -9,10 +9,11 @@ import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/e
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: `Heathrow Hotels Pub Near Me | ${BRAND.name} - Escape Airport Prices`,
-  description: `Traditional British pub just minutes from Heathrow hotels. Free parking, authentic food, real ale. Perfect escape from airport hotel restaurants. 7 mins from Premier Inn T5, Holiday Inn T4.`,
+  description: `Traditional British pub minutes from Heathrow hotels. Free parking, authentic food, real ale. Perfect escape from airport prices. Near all hotels.`,
   keywords: 'heathrow hotels pub, pub near heathrow hotels, british pub near premier inn heathrow, pub near holiday inn heathrow, escape airport hotel prices',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Heathrow Hotels',
@@ -20,6 +21,11 @@ export const metadata: Metadata = {
     images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
     type: 'website',
   },
+  twitter: getTwitterMetadata({
+    title: 'The Anchor - Traditional Pub Near Heathrow Hotels',
+    description: 'Escape expensive hotel restaurants! Authentic British pub with free parking, just minutes from all Heathrow hotels.',
+    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+  })
 }
 
 const localBusinessSchema = {
@@ -101,20 +107,16 @@ export default function HeathrowHotelsPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href={`tel:${CONTACT.phone}`}
-              variant="primary"
-              size="lg"
-            >
-              📞 Book a Table
-            </CallToAction>
-            <CallToAction 
-              href="/food-menu"
-              variant="secondary"
-              size="lg"
-            >
-              🍽️ View Menu
-            </CallToAction>
+            <Link href={CONTACT.phoneHref}>
+              <Button variant="primary" size="lg">
+                📞 Book a Table
+              </Button>
+            </Link>
+            <Link href="/food-menu">
+              <Button variant="secondary" size="lg">
+                🍽️ View Menu
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -320,12 +322,12 @@ export default function HeathrowHotelsPubPage() {
         </div>
       </section>
 
-      {/* Hotel Guest Favorites */}
+      {/* Hotel Guest Favourites */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <SectionHeader
-              title="Hotel Guest Favorites"
+              title="Hotel Guest Favourites"
             />
             
             <FeatureGrid
@@ -435,9 +437,11 @@ export default function HeathrowHotelsPubPage() {
                 Most hotel guests say the short journey is absolutely worth it for the authentic 
                 experience and massive savings compared to hotel dining!
               </p>
-              <CallToAction href="/find-us" variant="secondary" size="lg">
-                Get Detailed Directions
-              </CallToAction>
+              <Link href="/find-us">
+                <Button variant="secondary" size="lg">
+                  Get Detailed Directions
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -539,19 +543,21 @@ export default function HeathrowHotelsPubPage() {
                     Flexible timing for shift patterns, special crew rates available.
                   </p>
                   <div className="flex flex-wrap justify-center gap-4">
-                    <CallToAction href="/corporate-events" variant="primary" size="md">
-                      Corporate Events Info
-                    </CallToAction>
-                    <CallToAction href="tel:01753682707" variant="secondary" size="md">
-                      📞 Quick Quote
-                    </CallToAction>
-                    <CallToAction 
-                      href="https://wa.me/441753682707?text=Hi,%20we're%20a%20Heathrow%20company%20interested%20in%20corporate%20events" 
-                      variant="secondary" 
-                      size="md"
-                    >
-                      💬 WhatsApp
-                    </CallToAction>
+                    <Link href="/corporate-events">
+                      <Button variant="primary" size="md">
+                        Corporate Events Info
+                      </Button>
+                    </Link>
+                    <Link href="tel:01753682707">
+                      <Button variant="secondary" size="md">
+                        📞 Quick Quote
+                      </Button>
+                    </Link>
+                    <Link href="https://wa.me/441753682707?text=Hi,%20we" target="_blank" rel="noopener noreferrer">
+                      <Button variant="secondary" size="md">
+                        💬 WhatsApp
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               }

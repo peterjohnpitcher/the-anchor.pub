@@ -59,7 +59,7 @@ const defaultItems: NavigationItem[] = [
 
 const defaultLogo = {
   src: '/images/branding/the-anchor-pub-logo-white-transparent.png',
-  alt: 'The Anchor pub logo',
+  alt: 'The Anchor pub logo - traditional anchor symbol with elegant typography',
   width: 150,
   height: 60
 }
@@ -130,11 +130,11 @@ export function Navigation({
 
   const renderLink = (item: NavigationItem, isMobile = false) => {
     const linkClass = cn(
-      'font-medium transition-colors',
+      'font-medium transition-colours',
       'text-sm xl:text-base', // Responsive text sizing
       mergedTheme.text,
       mergedTheme.hoverText,
-      isMobile && 'block text-lg py-2'
+      isMobile && 'block text-lg py-3 min-h-[44px] flex items-center'
     )
 
     if (item.external) {
@@ -235,6 +235,7 @@ export function Navigation({
                 height={logo.height}
                 className="h-12 w-auto"
                 priority
+                sizes="150px"
               />
             </Link>
             {/* Status on desktop */}
@@ -267,7 +268,7 @@ export function Navigation({
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               {isMobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (

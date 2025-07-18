@@ -224,9 +224,9 @@ This strategy focuses on building high-quality, relevant backlinks to improve lo
 - OpenTable
 - Untappd (for beer selection)
 
-### Social Media Optimization
+### Social Media Optimisation
 - Instagram location tags
-- Facebook check-ins
+- Facebook cheque-ins
 - Twitter local hashtags:
   - #StanwellMoor
   - #HeathrowLocal
@@ -290,7 +290,7 @@ This strategy focuses on building high-quality, relevant backlinks to improve lo
 - Paid link schemes
 - Irrelevant directory submissions  
 - Reciprocal link farms
-- Over-optimized anchor text
+- Over-optimised anchor text
 - Spammy blog comments
 
 ## 💡 Quick Win Checklist

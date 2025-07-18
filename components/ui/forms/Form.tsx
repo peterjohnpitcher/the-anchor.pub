@@ -156,7 +156,7 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         )}
         
         {helperText && !error && (
-          <p id={`${name}-helper`} className="text-sm text-gray-500">
+          <p id={`${name}-helper`} className="text-sm text-gray-700">
             {helperText}
           </p>
         )}

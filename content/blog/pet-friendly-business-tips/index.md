@@ -84,7 +84,7 @@ Setting up your **pet-friendly business near Terminal 5** requires specific [ess
 Zoetis notes that establishing a [structured daily routine](https://www.zoetispetcare.com/blog/article/importance-routine-cat-dog) is vital for pet-friendly businesses:
 
 **Daily Procedures:**
-- Morning safety checks
+- Morning safety cheques
 - Regular water bowl cleaning
 - Scheduled rest areas cleaning
 - Staff training updates
@@ -165,7 +165,7 @@ Having pets in your venue can significantly [reduce stress levels](https://www.h
 To ensure [safety for all](https://www.warnergoodman.co.uk/site/blog/news/pets-in-the-workplace), implement:
 
 **Key Policies:**
-- Clear behavior expectations
+- Clear behaviour expectations
 - Vaccination requirements
 - Size or breed considerations
 - Maximum pets per party
@@ -215,7 +215,7 @@ As a thriving **dog-friendly pub near Heathrow**, we've discovered:
 - Partner with local services
 - Support pet charities
 - Create social media groups
-- Offer loyalty programs
+- Offer loyalty programmes
 - Celebrate pet birthdays
 - Share success stories
 

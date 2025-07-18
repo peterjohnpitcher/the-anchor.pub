@@ -151,7 +151,7 @@ Just 7 minutes from Terminal 5, we're the ideal stop for pet-traveling families.
 
 ### Quality Pub Food in a Dog-Friendly Setting
 
-Enjoy traditional pub favorites while your dog relaxes:
+Enjoy traditional pub favourites while your dog relaxes:
 
 **For Humans:**
 - Fresh, locally-sourced ingredients

@@ -1,7 +1,7 @@
 # Component Reusability Analysis Report
 
 ## Overview
-This report analyzes all React components in the `/components` directory to identify opportunities for improved reusability, TypeScript improvements, and code optimization.
+This report analyzes all React components in the `/components` directory to identify opportunities for improved reusability, TypeScript improvements, and code optimisation.
 
 ---
 
@@ -14,7 +14,7 @@ This report analyzes all React components in the `/components` directory to iden
 - Refresh interval (5 minutes)
 - Day order array
 - Time format (12h vs 24h)
-- Color schemes for different variants
+- Colour schemes for different variants
 - Fixed text messages ("We're Open!", "We're Closed", etc.)
 
 ### Missing TypeScript Interfaces:
@@ -24,7 +24,7 @@ This report analyzes all React components in the `/components` directory to iden
 1. Extract API endpoints to props with defaults
 2. Make refresh interval configurable
 3. Create a `TimeFormat` enum for 12h/24h support
-4. Extract color schemes to a theme configuration
+4. Extract colour schemes to a theme configuration
 5. Allow customizable status messages
 6. Extract the `FlightRow` pattern from FlightStatus as a reusable pattern
 
@@ -44,7 +44,7 @@ interface BusinessHoursProps {
     opensIn?: string
     closesIn?: string
   }
-  colors?: {
+  colours?: {
     openIndicator?: string
     closedIndicator?: string
   }
@@ -58,7 +58,7 @@ interface BusinessHoursProps {
 ### Current Reusability Status: **HIGH**
 
 ### Hardcoded Values That Should Be Props:
-- Color values in `variantClasses` (uses hardcoded Tailwind classes)
+- Colour values in `variantClasses` (uses hardcoded Tailwind classes)
 - Animation duration ('duration-200')
 - Border radius ('rounded-full')
 
@@ -66,7 +66,7 @@ interface BusinessHoursProps {
 - None - well typed
 
 ### Suggestions for Improvement:
-1. Allow custom color schemes through props
+1. Allow custom colour schemes through props
 2. Make animation duration configurable
 3. Add shape variant (rounded, square, pill)
 4. Add icon support (leading/trailing)
@@ -166,7 +166,7 @@ interface EventsTodayProps {
 - Refresh interval (5 minutes)
 - Terminal prefix variations ('T', 'Terminal')
 - UI text strings ('Departures from Terminal', etc.)
-- Color schemes for status indicators
+- Colour schemes for status indicators
 - Icon emojis (✈️, 🛬)
 
 ### Missing TypeScript Interfaces:
@@ -175,7 +175,7 @@ interface EventsTodayProps {
 ### Suggestions for Improvement:
 1. Extract `FlightRow` as a separate component
 2. Make terminal format handling more flexible
-3. Allow custom status color mapping
+3. Allow custom status colour mapping
 4. Support different icon systems (not just emojis)
 5. Make the delay widget more configurable
 
@@ -256,7 +256,7 @@ interface FooterProps {
 1. Make navigation items configurable
 2. Extract mobile menu as separate component
 3. Support different logo configurations
-4. Make scroll behavior optional
+4. Make scroll behaviour optional
 5. Support dropdown menus
 
 ### Refactoring Example:
@@ -293,7 +293,7 @@ interface NavigationProps {
 2. Make date formatting configurable
 3. Support custom event rendering
 4. Externalize text for i18n
-5. Add skeleton loader customization
+5. Add skeleton loader customisation
 
 ### Refactoring Example:
 ```typescript
@@ -350,7 +350,7 @@ interface OptimizedImageProps extends Omit<ImageProps, 'alt'> {
 - API endpoint '/api/business-hours'
 - Refresh interval (5 minutes)
 - All business logic for hours
-- Color schemes
+- Colour schemes
 - Text messages
 - Fallback business hours logic
 
@@ -375,7 +375,7 @@ interface StatusBarProps {
   refreshInterval?: number
   useBusinessHours?: () => BusinessHoursHook
   messages?: StatusMessages
-  colors?: StatusColors
+  colours?: StatusColors
 }
 ```
 
@@ -523,8 +523,8 @@ interface TimeDisplayProps {
 ### Medium Priority:
 1. Make Footer and Navigation configurable
 2. Extract business logic from components into hooks
-3. Create theme configuration for colors and spacing
-4. Add prop validation with runtime checks
+3. Create theme configuration for colours and spacing
+4. Add prop validation with runtime cheques
 
 ### Low Priority:
 1. Add i18n support for all text
@@ -537,7 +537,7 @@ interface TimeDisplayProps {
 1. **Time Formatting**: Used in BusinessHours, EventsToday, UpcomingEvents
 2. **API Fetching Pattern**: Repeated in multiple components
 3. **Loading States**: Similar animation patterns across components
-4. **Status Indicators**: Duplicate color dot patterns
+4. **Status Indicators**: Duplicate colour dot patterns
 5. **Error Handling**: Similar error UI patterns
 
 ## Conclusion

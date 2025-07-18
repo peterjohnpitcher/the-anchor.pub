@@ -1,22 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CallToAction } from '@/components/CallToAction'
+import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CONTACT, BRAND } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid } from '@/components/ui'
+import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'Private Party Venue Stanwell Moor | Birthday Parties | The Anchor',
-  description: 'Perfect private party venue for birthdays, anniversaries & celebrations. Flexible spaces for 10-200 guests, free parking, custom catering. Near Heathrow & Staines.',
+  description: 'Perfect private party venue for birthdays & celebrations. Flexible spaces for 10-200 guests, free parking, custom catering. Near Heathrow.',
   keywords: 'birthday party venue staines, birthday venue near heathrow, private party venue surrey, celebration venue stanwell moor, party room hire staines, anniversary party venue',
   openGraph: {
     title: 'Private Party Venue - The Anchor Stanwell Moor',
     description: 'Celebrate in style! Birthday parties, anniversaries, and special occasions. Free parking and flexible spaces.',
     images: ['/images/events/private-parties/the-anchor-party-venue.jpg'],
   },
+  twitter: getTwitterMetadata({
+    title: 'Private Party Venue - The Anchor Stanwell Moor',
+    description: 'Celebrate in style! Birthday parties, anniversaries, and special occasions. Free parking and flexible spaces.',
+    images: ['/images/events/private-parties/the-anchor-party-venue.jpg']
+  })
 }
 
 // TODO: Add privatePartySchema when generateEventSchema is available
@@ -75,20 +81,22 @@ export default function PrivatePartyVenuePage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CallToAction 
-              href="tel:01753682707"
-              variant="primary"
-              size="lg"
-            >
-              📞 Call: 01753 682707
-            </CallToAction>
-            <CallToAction 
-              href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20private%20party%20venue%20hire"
-              variant="secondary"
-              size="lg"
-            >
-              💬 WhatsApp Us
-            </CallToAction>
+            <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="lg"
+      >
+        📞 Call: 01753 682707
+      </Button>
+    </Link>
+            <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
+      <Button 
+        variant="secondary"
+        size="lg"
+      >
+        💬 WhatsApp Us
+      </Button>
+    </Link>
           </div>
         }
       >
@@ -231,7 +239,7 @@ export default function PrivatePartyVenuePage() {
             <div className="bg-white rounded-xl p-6 shadow-md">
               <h3 className="text-xl font-bold text-anchor-green mb-2">Casual Gathering</h3>
               <p className="text-3xl font-bold text-anchor-gold mb-1">From £15</p>
-              <p className="text-gray-600 mb-4">per person</p>
+              <p className="text-gray-700 mb-4">per person</p>
               <ul className="space-y-2 text-gray-700">
                 <li>• Reserved area</li>
                 <li>• Finger buffet options</li>
@@ -239,9 +247,15 @@ export default function PrivatePartyVenuePage() {
                 <li>• Decorated tables</li>
                 <li>• 10-30 guests</li>
               </ul>
-              <CallToAction href="tel:01753682707" variant="primary" fullWidth className="mt-6">
-                Enquire Now
-              </CallToAction>
+              <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="md"
+        className="mt-6"
+      >
+        Enquire Now
+      </Button>
+    </Link>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-md border-2 border-anchor-gold">
@@ -250,7 +264,7 @@ export default function PrivatePartyVenuePage() {
               </div>
               <h3 className="text-xl font-bold text-anchor-green mb-2">Classic Celebration</h3>
               <p className="text-3xl font-bold text-anchor-gold mb-1">From £20</p>
-              <p className="text-gray-600 mb-4">per person</p>
+              <p className="text-gray-700 mb-4">per person</p>
               <ul className="space-y-2 text-gray-700">
                 <li>• Private space</li>
                 <li>• Hot & cold buffet</li>
@@ -259,15 +273,21 @@ export default function PrivatePartyVenuePage() {
                 <li>• DJ space available</li>
                 <li>• 30-80 guests</li>
               </ul>
-              <CallToAction href="tel:01753682707" variant="primary" fullWidth className="mt-6">
-                Book This Package
-              </CallToAction>
+              <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="md"
+        className="mt-6"
+      >
+        Book This Package
+      </Button>
+    </Link>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-md">
               <h3 className="text-xl font-bold text-anchor-green mb-2">Premium Party</h3>
               <p className="text-3xl font-bold text-anchor-gold mb-1">From £30</p>
-              <p className="text-gray-600 mb-4">per person</p>
+              <p className="text-gray-700 mb-4">per person</p>
               <ul className="space-y-2 text-gray-700">
                 <li>• Exclusive venue use</li>
                 <li>• 3-course meal option</li>
@@ -277,9 +297,15 @@ export default function PrivatePartyVenuePage() {
                 <li>• Dedicated staff</li>
                 <li>• 80-200 guests</li>
               </ul>
-              <CallToAction href="tel:01753682707" variant="primary" fullWidth className="mt-6">
-                Premium Enquiry
-              </CallToAction>
+              <Link href="tel:01753682707">
+      <Button 
+        variant="primary"
+        size="md"
+        className="mt-6"
+      >
+        Premium Enquiry
+      </Button>
+    </Link>
             </div>
           </div>
 
@@ -311,35 +337,35 @@ export default function PrivatePartyVenuePage() {
                     <span className="text-anchor-gold">🏠</span>
                     <div>
                       <strong>Flexible Spaces</strong>
-                      <p className="text-sm text-gray-600">Configure for your party size and style</p>
+                      <p className="text-sm text-gray-700">Configure for your party size and style</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">🎵</span>
                     <div>
                       <strong>Music System</strong>
-                      <p className="text-sm text-gray-600">Connect your playlist or bring a DJ</p>
+                      <p className="text-sm text-gray-700">Connect your playlist or bring a DJ</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">🌟</span>
                     <div>
                       <strong>Party Lighting</strong>
-                      <p className="text-sm text-gray-600">Create the perfect atmosphere</p>
+                      <p className="text-sm text-gray-700">Create the perfect atmosphere</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">🚗</span>
                     <div>
                       <strong>Free Parking</strong>
-                      <p className="text-sm text-gray-600">20 spaces for your guests</p>
+                      <p className="text-sm text-gray-700">20 spaces for your guests</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">♿</span>
                     <div>
                       <strong>Full Accessibility</strong>
-                      <p className="text-sm text-gray-600">Everyone can join the celebration</p>
+                      <p className="text-sm text-gray-700">Everyone can join the celebration</p>
                     </div>
                   </li>
                 </ul>
@@ -352,35 +378,35 @@ export default function PrivatePartyVenuePage() {
                     <span className="text-anchor-gold">🍽️</span>
                     <div>
                       <strong>Buffet Service</strong>
-                      <p className="text-sm text-gray-600">Hot and cold options to suit all tastes</p>
+                      <p className="text-sm text-gray-700">Hot and cold options to suit all tastes</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">🍕</span>
                     <div>
                       <strong>Pizza Parties</strong>
-                      <p className="text-sm text-gray-600">Perfect for casual celebrations</p>
+                      <p className="text-sm text-gray-700">Perfect for casual celebrations</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">🥂</span>
                     <div>
                       <strong>Drinks Packages</strong>
-                      <p className="text-sm text-gray-600">From welcome drinks to full bar tabs</p>
+                      <p className="text-sm text-gray-700">From welcome drinks to full bar tabs</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">🎂</span>
                     <div>
                       <strong>Cake Service</strong>
-                      <p className="text-sm text-gray-600">We'll serve your celebration cake</p>
+                      <p className="text-sm text-gray-700">We'll serve your celebration cake</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">🌱</span>
                     <div>
                       <strong>Dietary Options</strong>
-                      <p className="text-sm text-gray-600">Vegetarian, vegan, and allergy-friendly</p>
+                      <p className="text-sm text-gray-700">Vegetarian, vegan, and allergy-friendly</p>
                     </div>
                   </li>
                 </ul>
@@ -402,22 +428,22 @@ export default function PrivatePartyVenuePage() {
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="text-3xl mb-3">🎈</div>
               <h4 className="font-bold mb-2">Decorations</h4>
-              <p className="text-sm text-gray-600">Balloons, banners, table decorations</p>
+              <p className="text-sm text-gray-700">Balloons, banners, table decorations</p>
             </div>
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="text-3xl mb-3">📸</div>
               <h4 className="font-bold mb-2">Photography</h4>
-              <p className="text-sm text-gray-600">Capture every special moment</p>
+              <p className="text-sm text-gray-700">Capture every special moment</p>
             </div>
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="text-3xl mb-3">🎭</div>
               <h4 className="font-bold mb-2">Entertainment</h4>
-              <p className="text-sm text-gray-600">DJs, live music, performers</p>
+              <p className="text-sm text-gray-700">DJs, live music, performers</p>
             </div>
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="text-3xl mb-3">🌺</div>
               <h4 className="font-bold mb-2">Flowers</h4>
-              <p className="text-sm text-gray-600">Beautiful arrangements and centerpieces</p>
+              <p className="text-sm text-gray-700">Beautiful arrangements and centerpieces</p>
             </div>
           </div>
         </div>
@@ -429,7 +455,7 @@ export default function PrivatePartyVenuePage() {
           <div className="max-w-3xl mx-auto">
             <SectionHeader
               title="Simple Party Planning Process"
-              subtitle="We make organizing your celebration easy"
+              subtitle="We make organising your celebration easy"
             />
             
             <div className="space-y-6">
@@ -518,17 +544,17 @@ export default function PrivatePartyVenuePage() {
                         <div>
                           <div className="text-2xl mb-2">🚗</div>
                           <h4 className="font-semibold mb-1">Free Parking</h4>
-                          <p className="text-sm text-gray-600">No expensive taxis needed - everyone can drive</p>
+                          <p className="text-sm text-gray-700">No expensive taxis needed - everyone can drive</p>
                         </div>
                         <div>
                           <div className="text-2xl mb-2">🚌</div>
                           <h4 className="font-semibold mb-1">Public Transport</h4>
-                          <p className="text-sm text-gray-600">Bus stops nearby for non-drivers</p>
+                          <p className="text-sm text-gray-700">Bus stops nearby for non-drivers</p>
                         </div>
                         <div>
                           <div className="text-2xl mb-2">🏘️</div>
                           <h4 className="font-semibold mb-1">Central Location</h4>
-                          <p className="text-sm text-gray-600">Easy for guests from multiple areas</p>
+                          <p className="text-sm text-gray-700">Easy for guests from multiple areas</p>
                         </div>
                       </div>
                     </div>

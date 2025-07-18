@@ -39,7 +39,7 @@ Looking for the perfect **Mother's Day lunch near Heathrow Airport**? The Anchor
 ### Annual Mother's Day Celebration
 
 **Every Mother's Day (March/April) at The Anchor:**
-- **Special set menu** featuring traditional favorites
+- **Special set menu** featuring traditional favourites
 - **Pre-booking essential** - we sell out every year
 - **Family-friendly atmosphere** perfect for all ages
 - **Free parking** available on-site
