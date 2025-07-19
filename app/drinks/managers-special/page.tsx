@@ -114,43 +114,50 @@ export default function ManagersSpecialPage() {
 
       {/* Special Pricing Section */}
       <FullWidthSection className="bg-gray-50 py-16 sm:py-20 lg:py-24">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
               Experience Islay's Wild Spirit
             </h2>
             
-            {/* Product Image */}
-            {(dynamicImagePath || spirit.image) && (
-              <div className="max-w-md mx-auto mb-12">
-                <img 
-                  src={dynamicImagePath || spirit.image} 
-                  alt={spirit.name}
-                  className="w-full h-auto rounded-2xl shadow-xl"
-                />
+            <div className="grid md:grid-cols-12 gap-8 items-center">
+              {/* Left side - Product Image (40% width) */}
+              {(dynamicImagePath || spirit.image) && (
+                <div className="md:col-span-5">
+                  <div className="max-w-md mx-auto md:mx-0">
+                    <img 
+                      src={dynamicImagePath || spirit.image} 
+                      alt={spirit.name}
+                      className="w-full h-auto rounded-2xl shadow-xl"
+                    />
+                  </div>
+                </div>
+              )}
+              
+              {/* Right side - Pricing (60% width) */}
+              <div className={`${(dynamicImagePath || spirit.image) ? 'md:col-span-7' : 'md:col-span-12'}`}>
+                <div className="grid sm:grid-cols-2 gap-6 mb-8">
+                  <PricingCard
+                    title="Single"
+                    volume="25ml"
+                    currentPrice={spirit.specialPrice}
+                    originalPrice={spirit.originalPrice}
+                    savings="92p per drink"
+                  />
+                  <PricingCard
+                    title="Double"
+                    volume="50ml"
+                    currentPrice={spirit.specialPriceDouble}
+                    originalPrice={spirit.originalPriceDouble}
+                    savings="£1.85 per drink"
+                    featured={true}
+                  />
+                </div>
+                <p className="text-center text-gray-700">
+                  Served with your choice of premium mixer<br />
+                  <span className="text-sm text-gray-600">(Mixers available from £1 additional)</span>
+                </p>
               </div>
-            )}
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-8 max-w-3xl mx-auto">
-              <PricingCard
-                title="Single"
-                volume="25ml"
-                currentPrice={spirit.specialPrice}
-                originalPrice={spirit.originalPrice}
-                savings="92p per drink"
-              />
-              <PricingCard
-                title="Double"
-                volume="50ml"
-                currentPrice={spirit.specialPriceDouble}
-                originalPrice={spirit.originalPriceDouble}
-                savings="£1.85 per drink"
-                featured={true}
-              />
             </div>
-            <p className="text-center text-gray-700">
-              Served with your choice of premium mixer<br />
-              <span className="text-sm text-gray-600">(Mixers available from £1 additional)</span>
-            </p>
           </div>
       </FullWidthSection>
 

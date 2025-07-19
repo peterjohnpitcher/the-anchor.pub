@@ -1,7 +1,7 @@
 interface FeatureCardProps {
   icon?: string | React.ReactNode
   title: string
-  description: string
+  description: string | React.ReactNode
   variant?: 'default' | 'cream' | 'colored'
   color?: string
   className?: string
@@ -35,7 +35,7 @@ export function FeatureCard({
     <div className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
       {renderIcon()}
       <h3 className="font-bold text-lg mb-2 text-anchor-green">{title}</h3>
-      <p className="text-gray-700">{description}</p>
+      <div className="text-gray-700">{description}</div>
     </div>
   )
 }

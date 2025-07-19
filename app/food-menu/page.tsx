@@ -126,15 +126,26 @@ export default async function FoodMenuPage() {
           { label: '🌱 Veggie Options', variant: 'default' }
         ]}
         cta={
-          <Link href="#menu">
-            <Button 
-              variant="secondary"
-              size="lg"
-              className="bg-white text-anchor-green hover:bg-gray-100"
-            >
-              📖 Jump to Menu
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="#menu">
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                📖 Jump to Menu
+              </Button>
+            </Link>
+            <Link href="/sunday-lunch">
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                🍖 Sunday Roast Menu
+              </Button>
+            </Link>
+          </div>
         }
       />
 
@@ -226,7 +237,16 @@ export default async function FoodMenuPage() {
                 {
                   icon: "🍖",
                   title: "Sunday Roasts",
-                  description: "The talk of Stanwell Moor - book early to avoid disappointment",
+                  description: (
+                    <>
+                      The talk of Stanwell Moor - book early to avoid disappointment
+                      <Link href="/sunday-lunch" className="block mt-2">
+                        <span className="text-anchor-gold font-semibold hover:text-anchor-green transition-colors">
+                          View Sunday Menu →
+                        </span>
+                      </Link>
+                    </>
+                  ),
                   variant: "default",
                   className: "bg-white rounded-lg p-6 shadow-md text-center"
                 }
