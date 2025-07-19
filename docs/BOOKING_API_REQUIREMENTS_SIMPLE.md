@@ -8,7 +8,6 @@
 We need to check:
 - Which Sundays are available (up to 8 weeks ahead)
 - Available time slots (12:00, 12:30, 1:00, 1:30, 2:00, 2:30, 3:00)
-- How many roast orders can still be taken per slot
 - Whether it's past the 1pm Saturday cutoff
 
 #### For Regular Tables
@@ -104,7 +103,6 @@ For Sunday lunch, we need current:
 
 ### After Checking Availability:
 - Is the date/time available?
-- How many spaces left?
 - Can we accept the booking?
 
 ### After Creating a Booking:
@@ -148,7 +146,7 @@ For Sunday lunch, we need current:
 2. **All internal comms via email** - No SMS to staff, only email addresses
 3. **Allergies are critical** - Must be clearly captured and highlighted
 4. **Party size vs orders** - Not everyone at a table might order Sunday lunch
-5. **Time slots have different capacities** - Lunch time busier than 3pm
+5. **Time slots may have different availability** - Lunch time busier than 3pm
 6. **Some customers will book weeks ahead** - System needs to handle future dates
 7. **Review requests boost business** - Automated follow-up is valuable
 
