@@ -80,11 +80,6 @@
     "permanent": true
   },
   {
-    "source": "/drinks/:drink+",
-    "destination": "/drinks",
-    "permanent": true
-  },
-  {
     "source": "/event-details/:event*",
     "destination": "/whats-on",
     "permanent": true

@@ -17,7 +17,7 @@ export function HeroBadge({
   const variantStyles = {
     new: 'bg-red-500 text-white',
     featured: 'bg-amber-500 text-white',
-    special: 'bg-green-600 text-white',
+    special: 'bg-white text-green-700 font-bold',
     limited: 'bg-purple-600 text-white'
   }
 

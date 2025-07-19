@@ -7,8 +7,6 @@ import { Footer } from '@/components/Footer'
 import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
 import { FloatingActions } from '@/components/FloatingActions'
-import { FloatingEventCTA } from '@/components/FloatingEventCTA'
-import { ScrollToTop } from '@/components/ScrollToTop'
 import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
 import { AnalyticsProvider } from '@/components/AnalyticsProvider'
 import { GoogleTagManager, GoogleTagManagerNoscript } from '@/components/GoogleTagManager'
@@ -250,8 +248,6 @@ export default function RootLayout({
             <Footer />
           </footer>
           <FloatingActions />
-          <FloatingEventCTA />
-          <ScrollToTop />
         </AnalyticsProvider>
       </body>
     </html>

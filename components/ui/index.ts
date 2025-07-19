@@ -13,6 +13,7 @@ export * from './feedback/Alert'
 export * from './layout/Card'
 export * from './layout/Container'
 export * from './layout/Grid'
+export { FullWidthSection } from './FullWidthSection'
 
 // Navigation components
 export * from './navigation/Tabs'

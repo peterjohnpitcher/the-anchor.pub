@@ -11,6 +11,54 @@
   padding-right: calc(50vw - 50% + 2rem);
 }
 
+/* Manager's Special Section in Spirits */
+#spirits .cocktails-featured {
+  background: linear-gradient(135deg, #004730 0%, #00593c 100%);
+  border-top: 4px solid #004730;
+  border-bottom: 4px solid #004730;
+  position: relative;
+}
+
+#spirits .cocktails-featured::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px);
+  pointer-events: none;
+}
+
+/* Force white text for Manager's Special */
+#spirits .cocktails-featured h3 {
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#spirits .cocktails-featured > p {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#spirits .cocktails-featured::before {
+  content: '🎯 MANAGER\'S SPECIAL 🎯';
+  background: linear-gradient(135deg, #004730, #00593c);
+  color: white;
+  border: 2px solid white;
+}
+
+/* Style the Manager's Special card */
+#spirits .cocktails-featured .bg-gradient-to-br {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: white !important;
+}
+
+#spirits .cocktails-featured .bg-gradient-to-br h3 {
+  color: #004730 !important;
+}
+
+#spirits .cocktails-featured .bg-gradient-to-br p {
+  color: #1a1a1a !important;
+}
+
 .cocktails-featured::before {
   content: '🍹 LIMITED TIME OFFER 🍹';
   position: absolute;

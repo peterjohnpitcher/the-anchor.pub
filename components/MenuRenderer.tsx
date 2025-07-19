@@ -4,6 +4,7 @@ import { useMemo, memo, useRef, useEffect, useState } from 'react'
 import { MenuData, MenuCategory, MenuSection, MenuItem } from '@/lib/menu-parser'
 import { SpecialOfferNotifications } from './SpecialOfferNotifications'
 import { HeroBadge } from './HeroBadge'
+import Link from 'next/link'
 
 interface MenuRendererProps {
   menuData: MenuData
@@ -133,15 +134,15 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
               <SpecialOfferNotifications targetSection={category.id} />
 
               {category.sections.map((section, sectionIndex) => (
-                <div key={sectionIndex} className={`mb-8 ${section.highlight && category.id === 'cocktails' ? 'cocktails-featured' : ''}`}>
+                <div key={sectionIndex} className={`mb-8 ${section.highlight ? 'cocktails-featured' : ''}`}>
                   {section.title && (
-                    <h3 className={`text-2xl font-bold mb-6 text-center ${section.highlight && category.id === 'cocktails' ? 'text-anchor-gold' : 'text-anchor-green'}`}>
+                    <h3 className={`text-2xl font-bold mb-6 text-center ${section.highlight && category.id === 'spirits' ? 'text-white' : section.highlight && category.id === 'cocktails' ? 'text-anchor-gold' : 'text-anchor-green'}`}>
                       {section.title}
                     </h3>
                   )}
                   
                   {section.description && (
-                    <p className={`text-center mb-6 ${section.highlight && category.id === 'cocktails' ? 'text-lg text-gray-800 font-medium' : 'text-gray-700'}`}>
+                    <p className={`text-center mb-6 ${section.highlight && category.id === 'spirits' ? 'text-lg text-white font-medium' : section.highlight && category.id === 'cocktails' ? 'text-lg text-gray-800 font-medium' : 'text-gray-700'}`}>
                       {section.description}
                     </p>
                   )}
@@ -214,10 +215,28 @@ interface MenuItemProps {
 }
 
 const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFocus, isHighlighted }: MenuItemProps) {
+  const isManagersSpecial = item.special === true
+  const [specialImagePath, setSpecialImagePath] = useState<string | null>(null)
+  
+  useEffect(() => {
+    if (isManagersSpecial) {
+      fetch('/api/managers-special-image')
+        .then(res => res.json())
+        .then(data => {
+          if (data.found && data.image) {
+            setSpecialImagePath(data.image)
+          }
+        })
+        .catch(err => console.error('Failed to fetch manager\'s special image:', err))
+    }
+  }, [isManagersSpecial])
+  
   const cardContent = (
     <div 
       className={`rounded-2xl shadow-md transition-all ${isFocused ? 'ring-2 ring-anchor-gold' : ''} ${
-        isHighlighted 
+        isManagersSpecial
+          ? 'bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-green-500 p-6 hover:shadow-xl hover:scale-105'
+          : isHighlighted 
           ? 'bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-300 p-6 hover:shadow-xl hover:scale-105' 
           : 'bg-white p-8'
       }`}
@@ -260,6 +279,62 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
         <HeroBadge text="NEW" variant="new" position="absolute" />
         {cardContent}
       </div>
+    )
+  }
+  
+  if (isManagersSpecial) {
+    return (
+      <Link href="/drinks/managers-special" className="relative md:col-span-2 block group">
+        <HeroBadge text="25% OFF" variant="special" position="absolute" />
+        <div 
+          className={`rounded-2xl shadow-md transition-all ${isFocused ? 'ring-2 ring-anchor-gold' : ''} ${
+            'bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-green-500 p-6 group-hover:shadow-xl group-hover:scale-105 cursor-pointer'
+          }`}
+          itemScope 
+          itemType="https://schema.org/MenuItem"
+          role="listitem"
+          data-menu-item
+          data-item-id={itemId}
+          aria-label={`${item.name}, ${item.price}${item.vegetarian ? ', vegetarian' : ''}`}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            {/* Left side - Image (25% width on desktop) */}
+            {specialImagePath && (
+              <div className="md:col-span-3">
+                <div className="bg-white rounded-lg p-2 shadow-md">
+                  <img 
+                    src={specialImagePath} 
+                    alt={item.name}
+                    className="w-full h-auto rounded"
+                  />
+                </div>
+              </div>
+            )}
+            
+            {/* Right side - Content (75% width on desktop) */}
+            <div className={specialImagePath ? "md:col-span-9" : "md:col-span-12"}>
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="font-bold text-xl text-anchor-green" itemProp="name">
+                  {item.name}
+                </h3>
+              </div>
+              <div className="font-bold text-lg text-green-700 mb-3" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+                <span itemProp="price" content={item.price.replace('£', '')}>{item.price}</span>
+                <meta itemProp="priceCurrency" content="GBP" />
+              </div>
+              {item.description && (
+                <p className="text-gray-700 mb-4" itemProp="description">{item.description}</p>
+              )}
+              <div className="text-sm font-semibold text-green-700 group-hover:text-green-800 flex items-center">
+                View Full Details & Tasting Notes
+                <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Link>
     )
   }
 

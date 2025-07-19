@@ -10,6 +10,7 @@ import { Metadata } from 'next'
 import { drinksMenuSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { ManagersSpecialHero } from '@/components/ManagersSpecialHero'
 import './cocktails.css'
 
 export const metadata: Metadata = {
@@ -121,6 +122,9 @@ export default async function DrinksMenuPage() {
           </div>
         }
       />
+
+      {/* Manager's Special */}
+      <ManagersSpecialHero />
 
       {/* Quick Links */}
       <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">

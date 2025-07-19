@@ -61,31 +61,51 @@ export function getPageHeaderImage(route: string): HeaderImageConfig | null {
 
   try {
     // Check if the folder exists
-    if (!fs.existsSync(pageFolderPath)) {
-      return null;
+    if (fs.existsSync(pageFolderPath)) {
+      // Read all files in the folder
+      const files = fs.readdirSync(pageFolderPath);
+      
+      // Find the first image file (any name, supported extension)
+      const imageFile = files.find(file => 
+        IMAGE_EXTENSIONS.some(ext => file.toLowerCase().endsWith(ext))
+      );
+
+      if (imageFile) {
+        // Get descriptive alt text or fall back to a generated one
+        const altText = PAGE_HEADER_ALT_TEXT[folderName] || 
+          `The Anchor pub ${route === '/' ? 'homepage' : route.replace(/\//g, ' ').replace(/-/g, ' ').trim()} header image`;
+
+        // Return the image configuration
+        return {
+          src: `/images/page-headers/${folderName}/${imageFile}`,
+          alt: altText
+        };
+      }
     }
 
-    // Read all files in the folder
-    const files = fs.readdirSync(pageFolderPath);
-    
-    // Find the first image file (any name, supported extension)
-    const imageFile = files.find(file => 
-      IMAGE_EXTENSIONS.some(ext => file.toLowerCase().endsWith(ext))
-    );
-
-    if (!imageFile) {
-      return null;
+    // If no image found for this route, check if it's a subpage and try to inherit from parent
+    if (route.includes('/') && route !== '/') {
+      const segments = route.split('/').filter(Boolean);
+      
+      // Try parent paths from most specific to least specific
+      for (let i = segments.length - 1; i > 0; i--) {
+        const parentRoute = '/' + segments.slice(0, i).join('/');
+        const parentImage = getPageHeaderImage(parentRoute);
+        
+        if (parentImage) {
+          // Adjust alt text for subpage
+          const subpageAltText = PAGE_HEADER_ALT_TEXT[folderName] || 
+            parentImage.alt.replace(' header image', '') + ` - ${segments[segments.length - 1].replace(/-/g, ' ')}`;
+          
+          return {
+            src: parentImage.src,
+            alt: subpageAltText
+          };
+        }
+      }
     }
 
-    // Get descriptive alt text or fall back to a generated one
-    const altText = PAGE_HEADER_ALT_TEXT[folderName] || 
-      `The Anchor pub ${route === '/' ? 'homepage' : route.replace(/\//g, ' ').replace(/-/g, ' ').trim()} header image`;
-
-    // Return the image configuration
-    return {
-      src: `/images/page-headers/${folderName}/${imageFile}`,
-      alt: altText
-    };
+    return null;
   } catch (error) {
     console.error(`Error reading header image for route ${route}:`, error);
     return null;
