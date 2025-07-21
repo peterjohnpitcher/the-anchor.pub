@@ -40,7 +40,7 @@ export function HeaderReviewBadge({
     return null
   }
 
-  const textColor = variant === 'dark' ? 'text-white' : 'text-anchor-charcoal'
+  const textColor = variant === 'dark' ? 'text-anchor-charcoal' : 'text-white'
   const starColor = 'text-yellow-400'
 
   return (

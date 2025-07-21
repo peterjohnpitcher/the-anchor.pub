@@ -90,7 +90,8 @@ const defaultContact: ContactInfo & { social?: SocialLink[] } = {
   address: 'Horton Road, Stanwell Moor, Surrey, TW19 6AQ',
   social: [
     { platform: 'facebook', href: 'https://www.facebook.com/theanchorpubsm/', label: 'Facebook' },
-    { platform: 'instagram', href: 'https://www.instagram.com/theanchor.pub/', label: 'Instagram' }
+    { platform: 'instagram', href: 'https://www.instagram.com/theanchor.pub/', label: 'Instagram' },
+    { platform: 'google', href: '/leave-review', label: 'Leave a Review' }
   ]
 }
 
