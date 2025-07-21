@@ -5,6 +5,7 @@ import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { ReviewSection } from '@/components/reviews'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
@@ -307,69 +308,12 @@ export default function SundayLunchPage() {
       </section>
 
       {/* Reviews */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <SectionHeader
-              title="What People Say About Our Sunday Roast"
-            />
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-anchor-gold">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">
-                  "Best Sunday roast in the area by far. The beef is always perfectly cooked 
-                  and the Yorkshires are massive! Book early though - it gets packed."
-                </p>
-                <p className="font-semibold text-anchor-green">- Sarah M.</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-anchor-gold">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">
-                  "We drive from Heathrow every Sunday for this roast. Worth every minute 
-                  of the journey. Proper pub, proper food, proper service."
-                </p>
-                <p className="font-semibold text-anchor-green">- Flight Crew Regular</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-anchor-gold">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">
-                  "Family tradition now - Sunday lunch at The Anchor. Kids love it, 
-                  great atmosphere, and the food is consistently excellent."
-                </p>
-                <p className="font-semibold text-anchor-green">- The Johnson Family</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-anchor-gold">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">
-                  "Vegetarian wellington was gorgeous! So nice to have a proper veggie 
-                  option that's not an afterthought. Will definitely be back."
-                </p>
-                <p className="font-semibold text-anchor-green">- Emma T.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ReviewSection 
+        title="What People Say About Our Sunday Roast"
+        subtitle="Real reviews from our Sunday lunch guests"
+        background="gray"
+        layout="carousel"
+      />
 
       {/* The Sunday Roast Tradition */}
       <section className="section-spacing bg-white">

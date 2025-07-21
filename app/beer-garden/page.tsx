@@ -7,6 +7,7 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { GoogleReviews } from '@/components/reviews'
 
 export const metadata: Metadata = {
   title: 'Beer Garden Near Me | Plane Spotting Pub | The Anchor Stanwell Moor',
@@ -172,12 +173,21 @@ export default function BeerGardenPage() {
               className="mb-12"
             />
             
-            <div className="bg-anchor-sand/30 rounded-2xl p-8 text-center">
-              <p className="text-lg text-gray-700 mb-4">
-                "The best plane spotting pub near Heathrow. Grab a pint, find a table, and enjoy the show!"
-              </p>
-              <p className="text-sm text-gray-600">- Regular visitor review</p>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews */}
+      <section className="section-spacing bg-anchor-sand/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
+              What Visitors Say About Our Beer Garden
+            </h2>
+            <GoogleReviews 
+              layout="carousel"
+              showTitle={false}
+            />
           </div>
         </div>
       </section>

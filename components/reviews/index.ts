@@ -1,0 +1,5 @@
+export { GoogleReviews } from './GoogleReviews'
+export { ReviewSection } from './ReviewSection'
+export { ReviewCard } from './ReviewCard'
+export { ReviewsCarousel } from './ReviewsCarousel'
+export { ReviewsBadge } from './ReviewsBadge'

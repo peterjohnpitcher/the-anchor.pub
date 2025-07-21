@@ -7,6 +7,7 @@ import { Suspense } from 'react'
 import { homepageFAQSchema } from '@/lib/enhanced-schemas'
 import { LazySection } from '@/components/LazySection'
 import { OptimizedHeroSection } from '@/components/hero/OptimizedHeroSection'
+import { ReviewSection } from '@/components/reviews'
 import { 
   Button, 
   Card, 
@@ -511,6 +512,14 @@ export default function HomePage() {
           </div>
         </Container>
       </div>
+
+      {/* Customer Reviews */}
+      <ReviewSection 
+        title="What Our Customers Say"
+        subtitle="Real reviews from our guests"
+        background="white"
+        layout="carousel"
+      />
 
       {/* Find Us Section */}
       <div id="visit-us" className="bg-anchor-green text-white py-16 sm:py-20 lg:py-24">
