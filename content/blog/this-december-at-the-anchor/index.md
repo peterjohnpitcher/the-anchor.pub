@@ -55,7 +55,7 @@ We'll be celebrating non-stop this December to make Christmas magical on The Moo
 - All abilities welcome
 
 **🎅 Weekend Entertainment**
-- Live music Fridays
+- Entertainment Fridays
 - DJ sets Saturdays
 - Family activities Sunday afternoons
 - Special guest appearances
@@ -152,17 +152,17 @@ Don't miss out on the festive fun at our **Christmas pub near Heathrow**! Spaces
 **How to Book:**
 📞 Call: 01753 682707  
 💬 Message: [Contact us on Facebook](http://m.me/theanchorpubsm)  
-📧 Email: events@the-anchor.pub  
+📧 Email: manager@the-anchor.pub  
 👥 Visit: Pop in to discuss your requirements
 
-## Special Offers for Heathrow Workers
+## Welcome Heathrow Workers
 
-Show your Heathrow ID for:
-- 10% off food Monday-Thursday
+We appreciate our Heathrow workers and offer:
 - Priority booking for parties
-- Special group rates
-- Flexible timing for shifts
-- Special drinks offers
+- Flexible timing to accommodate shifts
+- Group booking options
+- Convenient location near the airport
+- Free parking
 
 ## December Opening Hours
 

@@ -243,4 +243,4 @@ Whether you're catching a flight from **Heathrow**, live in **Stanwell Moor**, o
 🍔 **Order**: Visit for dine-in or takeaway
 📍 **Find us**: Just 7 minutes from Heathrow Terminal 5
 
-*Follow The Anchor on social media for burger specials and new menu items. Join our Burger Club for exclusive deals!*
+*Follow The Anchor on social media for burger specials and new menu items!*

@@ -70,7 +70,7 @@ But to ensure our vision aligns with your desires, we need your feedback.
 
 Our commitment to excellence has driven us to elevate our offerings:
 - **Revamped menu** with fresh, quality ingredients
-- **Regular events** including quiz nights and live music
+- **Regular events** including quiz nights and drag shows
 - **Garden renovation** creating a peaceful outdoor space
 - **5-star hygiene rating** maintained consistently
 - **Free parking** for easy access from Heathrow area

@@ -41,7 +41,6 @@ export const PARKING = {
 
 export const HEATHROW_TIMES = {
   // Consistent journey times to each terminal
-  terminal1: 12,
   terminal2: 11,
   terminal3: 11,
   terminal4: 12,

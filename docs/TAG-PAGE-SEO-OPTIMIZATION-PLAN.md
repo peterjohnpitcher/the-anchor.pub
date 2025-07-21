@@ -111,14 +111,6 @@ Each tag page should include:
 - Booking essential info
 - What to expect
 
-#### Live Music (1 post)
-**Target Keywords**: "live music pub stanwell moor", "bands near heathrow", "music venue surrey"
-**Content**:
-- Music calendar
-- Genre variety
-- How to perform here
-- Atmosphere description
-
 ### Location-Based Tags
 
 #### Heathrow Area (17 posts)
@@ -156,9 +148,8 @@ Each tag page should include:
 ### Phase 3: Event Categories (Week 5-6)
 1. Quiz Night - Detailed guide
 2. Drag Shows - Comprehensive info
-3. Live Music - Calendar focus
-4. Sports - Match day experience
-5. Tasting Events - Premium experiences
+3. Sports - Match day experience
+4. Tasting Events - Premium experiences
 
 ### Phase 4: Niche Tags (Week 7-8)
 1. Dog-Friendly - Pet policy and amenities

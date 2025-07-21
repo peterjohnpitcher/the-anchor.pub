@@ -47,7 +47,7 @@ As the premier **party venue near Heathrow Airport**, we offer comprehensive eve
 
 ### Birthday Parties & Milestone Celebrations Near Heathrow
 
-Whether you're celebrating a 21st birthday or your 50th, our **function room near Heathrow** provides the perfect setting. We'll help you find the right DJ or live music band through our trusted partners, creating unforgettable moments at the best **birthday party venue near Terminal 5**.
+Whether you're celebrating a 21st birthday or your 50th, our **function room near Heathrow** provides the perfect setting. We'll help you find the right DJ or entertainment through our trusted partners, creating unforgettable moments at the best **birthday party venue near Terminal 5**.
 
 ![a personal pub for personal celebrations image](/content/blog/a-personal-pub-for-personal-celebrations/image-2.png)
 

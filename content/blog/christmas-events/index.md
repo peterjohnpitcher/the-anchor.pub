@@ -184,7 +184,7 @@ Perfect for locals who want to celebrate without expensive taxis or Heathrow tra
 Don't miss out on Christmas at Stanwell Moor's favourite pub:
 
 📞 **Call**: 01753 682707
-📧 **Email**: bookings@the-anchor.pub
+📧 **Email**: manager@the-anchor.pub
 🏠 **Visit**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
 
 ### Booking Tips

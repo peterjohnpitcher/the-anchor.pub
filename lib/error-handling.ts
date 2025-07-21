@@ -30,7 +30,7 @@ const ERROR_MESSAGES: Record<string, Record<string, string>> = {
     fetch: "We couldn't load the latest flight information. Please try again or check directly with Heathrow Airport."
   },
   hours: {
-    load: "We couldn't load our opening hours. We're typically open 4pm-10pm Mon, 12pm-10pm Tue-Thu, 12pm-11pm Fri-Sat, and 12pm-9pm Sun.",
+    load: "We couldn't load our opening hours. We're typically CLOSED Mon, 4pm-11pm Tue-Thu, 4pm-12am Fri, 1pm-12am Sat, and 12pm-9pm Sun.",
     fetch: "Having trouble loading hours. Please call us at 01753 682707 for today's opening times."
   },
   general: {
@@ -53,12 +53,12 @@ export const FALLBACK_CONTENT = {
   hours: {
     title: "Opening Hours",
     regular: {
-      monday: "4:00 PM - 10:00 PM (Kitchen closed)",
-      tuesday: "12:00 PM - 10:00 PM",
-      wednesday: "12:00 PM - 10:00 PM",
-      thursday: "12:00 PM - 10:00 PM",
-      friday: "12:00 PM - 11:00 PM",
-      saturday: "12:00 PM - 11:00 PM",
+      monday: "CLOSED",
+      tuesday: "4:00 PM - 11:00 PM",
+      wednesday: "4:00 PM - 11:00 PM",
+      thursday: "4:00 PM - 11:00 PM",
+      friday: "4:00 PM - 12:00 AM",
+      saturday: "1:00 PM - 12:00 AM",
       sunday: "12:00 PM - 9:00 PM"
     }
   },

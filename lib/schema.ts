@@ -65,27 +65,21 @@ export const localBusinessSchema = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Monday",
-      "opens": "16:00",
-      "closes": "22:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Tuesday",
       "opens": "16:00",
-      "closes": "22:00"
+      "closes": "23:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Wednesday",
       "opens": "16:00",
-      "closes": "22:00"
+      "closes": "23:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Thursday",
       "opens": "16:00",
-      "closes": "22:00"
+      "closes": "23:00"
     },
     {
       "@type": "OpeningHoursSpecification",
@@ -96,14 +90,14 @@ export const localBusinessSchema = {
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Saturday",
-      "opens": "12:00",
+      "opens": "13:00",
       "closes": "00:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Sunday",
       "opens": "12:00",
-      "closes": "22:00"
+      "closes": "21:00"
     }
   ],
   "acceptsReservations": "true",

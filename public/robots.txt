@@ -1,0 +1,16 @@
+# Robots.txt for The Anchor Pub
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Disallow: /_api-diagnostics
+Disallow: /api-status
+Disallow: /api-test
+Disallow: /components
+Disallow: /demo-header
+Disallow: /test-reviews
+
+# Allow all other pages
+Allow: /
+
+# Sitemap location
+Sitemap: https://the-anchor.pub/sitemap.xml

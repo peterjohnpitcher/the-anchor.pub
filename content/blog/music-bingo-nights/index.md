@@ -129,7 +129,7 @@ Enjoy our full menu during **music bingo**:
 **Drinks Specials:**
 - Pre-bingo drink deals
 - Pitcher deals for tables
-- Soft drinks for drivers
+- Soft drinks available
 - Coffee for concentration
 
 ## The Music Bingo Experience

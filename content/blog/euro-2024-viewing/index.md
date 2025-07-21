@@ -115,7 +115,7 @@ Keep energized throughout the match:
 - Craft beers
 - Full wine list
 - Spirits & cocktails
-- Soft drinks for drivers
+- Soft drinks & mocktails
 
 **Match Day Deals:**
 - Burger & pint combo
@@ -151,7 +151,7 @@ Popular matches fill up fast! Here's how to guarantee your seat:
 - 📞 Call: 01753 682707
 - 💬 WhatsApp: [Message us](https://api.whatsapp.com/send?phone=4401753682707)
 - 🌐 Online: [Book your table](https://bit.ly/3VhJzzy)
-- 📧 Email: bookings@the-anchor.pub
+- 📧 Email: manager@the-anchor.pub
 
 **Group Bookings:**
 - Reserve areas for 10+ people

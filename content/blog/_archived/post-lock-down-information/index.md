@@ -1,6 +1,6 @@
 ---
 title: "Post Lock-Down Information"
-description: "As we prepare to open our doors after 14 weeks closed, we have a few updates around how the pub will need to comply to government guidelines. If you've got any questions about the information in this page, please email us at covid19@the-anchor.pub. • We have been told that we must collect personal details about anyone visiting us. We work to meet the minimum requirement to support the track and trace effort and do not use them for any other reason. We have not yet received communication from the"
+description: "As we prepare to open our doors after 14 weeks closed, we have a few updates around how the pub will need to comply to government guidelines. If you've got any questions about the information in this page, please email us at manager@the-anchor.pub. • We have been told that we must collect personal details about anyone visiting us. We work to meet the minimum requirement to support the track and trace effort and do not use them for any other reason. We have not yet received communication from the"
 date: "2020-06-29"
 oldUrl: "https://www.the-anchor.pub/post/post-lock-down-information"
 author: "Billy"
@@ -25,7 +25,7 @@ images:
 
 ![](https://static.wixstatic.com/media/1c749e_ee11fedd12c04e55a074447a41d80d4d~mv2.png/v1/fill/w_49,h_28,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/1c749e_ee11fedd12c04e55a074447a41d80d4d~mv2.png)
 
-As we prepare to open our doors after 14 weeks closed, we have a few updates around how the pub will need to comply to government guidelines. If you've got any questions about the information in this page, please email us at [covid19@the-anchor.pub](mailto:covid19@the-anchor.pub).
+As we prepare to open our doors after 14 weeks closed, we have a few updates around how the pub will need to comply to government guidelines. If you've got any questions about the information in this page, please email us at [manager@the-anchor.pub](mailto:manager@the-anchor.pub).
 
 *   We have been told that **we must collect personal details** about anyone visiting us. We work to meet the minimum requirement to support the track and trace effort and do not use them for any other reason. We have not yet received communication from the Government as to how the information will be collected.
     
@@ -88,7 +88,7 @@ Billy
 
 ## **Questions**
 
-We will be doing our best to answer any questions below as they come up. Please email your questions to us at [covid19@the-anchor.pub](mailto:covid19@the-anchor.pub).
+We will be doing our best to answer any questions below as they come up. Please email your questions to us at [manager@the-anchor.pub](mailto:manager@the-anchor.pub).
 
 *   **Will there be a queuing system to get into the pub?** We are not planning on implementing a queuing system at present, but may need to if we become very busy.
     

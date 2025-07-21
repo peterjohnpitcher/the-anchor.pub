@@ -49,12 +49,43 @@ const defaultTheme = {
 
 const defaultItems: NavigationItem[] = [
   { label: "What's On", href: '/whats-on' },
-  { label: 'Food', href: '/food-menu' },
+  { 
+    label: 'Food', 
+    href: '/food-menu',
+    items: [
+      { label: 'Full Menu', href: '/food-menu' },
+      { label: 'Sunday Lunch', href: '/sunday-lunch' },
+      { label: 'Pizza Menu', href: '/food/pizza' },
+      { label: 'Pizza Tuesday Deal', href: '/pizza-tuesday' }
+    ]
+  },
   { label: 'Drinks', href: '/drinks' },
-  { label: 'Events', href: '/book-event' },
+  { 
+    label: 'Events', 
+    href: '/book-event',
+    items: [
+      { label: 'Book an Event', href: '/book-event' },
+      { label: 'Private Parties', href: '/private-party-venue' },
+      { label: 'Corporate Events', href: '/corporate-events' },
+      { label: 'Christmas Parties', href: '/christmas-parties' },
+      { label: 'Function Room Hire', href: '/function-room-hire' }
+    ]
+  },
   { label: 'Blog', href: '/blog' },
   { label: 'Find Us', href: '/find-us' },
-  { label: 'Near Heathrow', href: '/near-heathrow' }
+  { 
+    label: 'Near Heathrow', 
+    href: '/near-heathrow',
+    items: [
+      { label: 'Overview', href: '/near-heathrow' },
+      { label: 'Terminal 2', href: '/near-heathrow/terminal-2' },
+      { label: 'Terminal 3', href: '/near-heathrow/terminal-3' },
+      { label: 'Terminal 4', href: '/near-heathrow/terminal-4' },
+      { label: 'Terminal 5', href: '/near-heathrow/terminal-5' },
+      { label: 'Heathrow Hotels', href: '/heathrow-hotels-pub' },
+      { label: 'M25 Junction 14', href: '/m25-junction-14-pub' }
+    ]
+  }
 ]
 
 const defaultLogo = {
@@ -128,6 +159,8 @@ export function Navigation({
     }
   }, [isMobileMenuOpen])
 
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+
   const renderLink = (item: NavigationItem, isMobile = false) => {
     const linkClass = cn(
       'font-medium transition-colours',
@@ -137,6 +170,72 @@ export function Navigation({
       isMobile && 'block text-lg py-3 min-h-[44px] flex items-center'
     )
 
+    // Handle dropdown items for desktop
+    if (!isMobile && item.items && item.items.length > 0) {
+      return (
+        <div 
+          key={item.href} 
+          className="relative group"
+          onMouseEnter={() => setOpenDropdown(item.label)}
+          onMouseLeave={() => setOpenDropdown(null)}
+        >
+          <Link
+            href={item.href}
+            className={cn(linkClass, 'flex items-center gap-1')}
+          >
+            {item.label}
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </Link>
+          <div className={cn(
+            'absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-anchor-green-dark ring-1 ring-black ring-opacity-5 transition-all duration-200',
+            openDropdown === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+          )}>
+            <div className="py-1">
+              {item.items.map((subItem) => (
+                <Link
+                  key={subItem.href}
+                  href={subItem.href}
+                  className="block px-4 py-2 text-sm text-white hover:bg-anchor-gold hover:text-white transition-colors"
+                >
+                  {subItem.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    // Handle mobile dropdown items
+    if (isMobile && item.items && item.items.length > 0) {
+      return (
+        <div key={item.href}>
+          <Link
+            href={item.href}
+            className={cn(linkClass, 'border-b border-anchor-green-light')}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            {item.label}
+          </Link>
+          <div className="pl-4">
+            {item.items.map((subItem) => (
+              <Link
+                key={subItem.href}
+                href={subItem.href}
+                className={cn(linkClass, 'text-base py-2')}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {subItem.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    // Regular link (no dropdown)
     if (item.external) {
       return (
         <a
@@ -255,7 +354,7 @@ export function Navigation({
               </div>
 
               {/* Desktop Navigation */}
-              <div className="flex items-center space-x-6 xl:space-x-8">
+              <div className="flex items-center space-x-6 xl:space-x-8 relative z-40">
                 {items.map(item => renderLink(item))}
                 {renderCTA()}
               </div>

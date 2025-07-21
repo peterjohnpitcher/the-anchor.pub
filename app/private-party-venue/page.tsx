@@ -415,7 +415,7 @@ export default function PrivatePartyVenuePage() {
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="text-3xl mb-3">🎭</div>
               <h4 className="font-bold mb-2">Entertainment</h4>
-              <p className="text-sm text-gray-700">DJs, live music, performers</p>
+              <p className="text-sm text-gray-700">DJs, performers, sound system</p>
             </div>
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="text-3xl mb-3">🌺</div>
@@ -573,7 +573,7 @@ export default function PrivatePartyVenuePage() {
           },
           {
             question: "Can we have music and dancing?",
-            answer: "Of course! You can connect your phone/device to our sound system, bring a DJ, or arrange live music. We have space for dancing and party lighting to create the right atmosphere."
+            answer: "Of course! You can connect your phone/device to our sound system or bring a DJ. We have space for dancing and party lighting to create the right atmosphere."
           },
           {
             question: "What time do private parties have to finish?",

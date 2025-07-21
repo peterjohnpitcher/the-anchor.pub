@@ -22,8 +22,7 @@ CATEGORIES = {
         "bingo": "Cash Bingo Nights",
         "british-celebrations": "British & Patriotic Celebrations",
         "karaoke": "Karaoke Entertainment",
-        "quiz-nights": "Pub Quiz Events",
-        "live-music": "Live Music Performances"
+        "quiz-nights": "Pub Quiz Events"
     },
     "food": {
         "mains": "Main Dishes & Traditional Pub Food",

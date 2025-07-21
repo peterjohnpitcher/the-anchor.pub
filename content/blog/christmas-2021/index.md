@@ -40,7 +40,7 @@ Planning your festive season near **Heathrow Airport**? The Anchor in **Stanwell
 
 **Christmas Jumper Party**
 - **When**: Second Saturday of December, 8pm onwards
-- **What**: Live music, festive cocktails, Christmas jumper competition
+- **What**: DJ entertainment, festive cocktails, Christmas jumper competition
 - **Perfect for**: Airport staff Christmas parties, local celebrations
 
 **Christmas Eve**

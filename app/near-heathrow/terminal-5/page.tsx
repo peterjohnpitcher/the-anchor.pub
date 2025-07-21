@@ -350,9 +350,6 @@ export default function Terminal5Page() {
                     <span>Traditional ales & home-cooked food</span>
                   </li>
                 </ul>
-                <p className="text-sm text-gray-600 italic">
-                  Ask about our special offers for hotel guests
-                </p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-sm">

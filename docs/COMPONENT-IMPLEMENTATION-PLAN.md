@@ -61,7 +61,6 @@ This document outlines the phased implementation of standardized components acro
 
 ### Phase 4: Terminal Pages & Others (Priority: MEDIUM)
 **Pages to update:**
-- `/app/near-heathrow/terminal-1/page.tsx`
 - `/app/near-heathrow/terminal-2/page.tsx`
 - `/app/near-heathrow/terminal-3/page.tsx`
 - `/app/near-heathrow/terminal-4/page.tsx`

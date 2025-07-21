@@ -82,7 +82,7 @@ During our Day of the Dead celebrations, enjoy:
 - **Premium tequila flights** to sample different varieties
 - **Traditional Mexican cocktails** including authentic margaritas
 - **Mezcal tastings** for the adventurous
-- **Non-alcoholic Mexican sodas** for designated drivers and children
+- **Non-alcoholic Mexican sodas** for all ages
 
 ## Key Day of the Dead Traditions That Reflect Mexican Culture
 

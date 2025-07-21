@@ -35,7 +35,7 @@ Welcome to The Anchor's blog, where we share the latest news, events, and happen
 Stay informed about new menu items, seasonal drinks, opening hours, and special announcements from The Anchor.
 
 ### 🎉 Upcoming Events
-From quiz nights to live music, drag cabaret to charity fundraisers - find out what's happening at your local pub.
+From quiz nights to drag cabaret to charity fundraisers - find out what's happening at your local pub.
 
 ### 🍕 Food & Drink Features
 Discover our latest culinary offerings, from traditional British pub classics to international cuisines, craft beers, and premium spirits.
@@ -65,7 +65,7 @@ Read about local happenings, charity events, and the people who make Stanwell Mo
 
 ## Popular Blog Categories
 
-- **Events & Entertainment** - Quiz nights, live music, special celebrations
+- **Events & Entertainment** - Quiz nights, drag shows, special celebrations
 - **Food & Menu Updates** - New dishes, seasonal specials, chef features
 - **Drinks & Bar News** - Craft beers, guest ales, cocktail specials
 - **Community & Charity** - Local causes, fundraisers, village life
@@ -77,7 +77,7 @@ Read about local happenings, charity events, and the people who make Stanwell Mo
 📞 **Phone**: 01753 682707
 ✈️ **From Heathrow**: Just 7 minutes from all terminals
 🚗 **Parking**: Free on-site parking
-📧 **Email**: info@the-anchor.pub
+📧 **Email**: manager@the-anchor.pub
 
 ### Stay Updated
 

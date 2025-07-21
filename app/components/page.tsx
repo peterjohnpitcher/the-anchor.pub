@@ -206,7 +206,7 @@ function ComponentsPageContent() {
                       <CheckboxGroup
                         label="Interests"
                         options={[
-                          { value: 'music', label: 'Live Music' },
+                          { value: 'entertainment', label: 'Entertainment' },
                           { value: 'food', label: 'Food & Drink' },
                           { value: 'events', label: 'Special Events' }
                         ]}

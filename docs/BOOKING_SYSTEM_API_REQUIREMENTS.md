@@ -361,7 +361,7 @@ Your system should trigger these emails:
    - Highlight allergies in red
    - Link to admin dashboard
 
-2. **Daily Summary** to kitchen@the-anchor.pub (Saturday 2pm)
+2. **Daily Summary** to manager@the-anchor.pub (Saturday 2pm)
    - All Sunday bookings
    - Grouped by time slot
    - Allergy report

@@ -141,6 +141,6 @@ The idea of Mother's Day as a holiday honouring mothers spread to other countrie
 
 **Contact us today to reserve your table:**
 - 📞 01753 682707
-- 📧 bookings@the-anchor.pub
+- 📧 manager@the-anchor.pub
 
 *Make this Mother's Day special at your local pub near Heathrow Airport!*

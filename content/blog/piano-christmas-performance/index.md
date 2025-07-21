@@ -18,7 +18,7 @@ keywords:
   - christmas market stanwell moor
   - piano performance heathrow airport
   - christmas entertainment near terminal 5
-  - live music stanwell moor
+  - christmas piano stanwell moor
   - festive events near heathrow
   - christmas market music staines
   - family entertainment heathrow
@@ -30,7 +30,6 @@ tags:
   - christmas-market
   - entertainment
   - events
-  - live-music
   - piano
 featured: true
 hero: hero.png
@@ -129,4 +128,4 @@ Skip the crowded **airport shopping** and discover authentic Christmas charm at 
 
 Follow us on social media for Christmas Market updates and performer announcements.
 
-**The Anchor** - Where Christmas magic meets live music, creating unforgettable moments just **7 minutes from Heathrow Airport**!
+**The Anchor** - Where Christmas magic meets live piano performances, creating unforgettable moments just **7 minutes from Heathrow Airport**!

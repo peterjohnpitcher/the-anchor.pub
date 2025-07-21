@@ -196,7 +196,7 @@ Our **tequila tasting near Heathrow** events sell out quickly:
 **How to Book:**
 📞 Call: 01753 682707  
 💬 WhatsApp: [Message us](https://api.whatsapp.com/send?phone=4401753682707)  
-📧 Email: bookings@the-anchor.pub
+📧 Email: manager@the-anchor.pub
 
 ## What's Included in Every Tasting
 

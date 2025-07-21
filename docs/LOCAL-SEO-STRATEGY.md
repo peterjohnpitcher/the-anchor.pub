@@ -75,15 +75,7 @@ This document outlines a comprehensive local SEO strategy for The Anchor pub bas
   - Local dog walking routes
   - Schema: FAQPage
 
-#### 5. Terminal 1 Landing Page
-- **URL**: `/near-heathrow/terminal-1`
-- **Complete terminal coverage (already have T2-T5)**
-- **Content Requirements**:
-  - Mirror structure of other terminal pages
-  - 12-minute journey time
-  - Terminal-specific information
-
-#### 6. Family Friendly Page
+#### 5. Family Friendly Page
 - **URL**: `/family-friendly`
 - **Target Keywords**: family friendly pub, family pub
 - **Monthly Search Volume**: 50+
@@ -150,7 +142,6 @@ Homepage
 │   └── /locations/tw19
 ├── Heathrow Pages
 │   ├── /restaurants-near-heathrow
-│   ├── /near-heathrow/terminal-1
 │   └── [existing terminal pages]
 ├── Feature Pages
 │   ├── /dog-friendly
@@ -211,7 +202,6 @@ Homepage
 
 ### Week 3-4
 - Create dog-friendly page
-- Create Terminal 1 page
 - Create family-friendly page
 - Internal linking optimization
 

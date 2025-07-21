@@ -41,9 +41,9 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
   // Phase 1: High-Priority Tags
   'events': {
     name: 'Events & Entertainment',
-    description: 'Live music, quiz nights, seasonal celebrations, and special events',
+    description: 'Quiz nights, drag shows, seasonal celebrations, and special events',
     metaTitle: 'Pub Events Stanwell Moor | What\'s On at The Anchor Near Heathrow',
-    metaDescription: 'Discover the best pub events in Stanwell Moor. Quiz nights, live music, drag shows & more at The Anchor, just 5 minutes from Heathrow Airport.',
+    metaDescription: 'Discover the best pub events in Stanwell Moor. Quiz nights, drag shows, seasonal celebrations & more at The Anchor, just 5 minutes from Heathrow Airport.',
     heroContent: 'Experience the best pub events in Stanwell Moor at The Anchor, your premier entertainment venue just minutes from Heathrow Airport. From monthly quiz nights to spectacular drag shows, we\'re the heart of local entertainment.',
     introContent: 'The Anchor is Stanwell Moor\'s premier destination for unforgettable events and entertainment. Our packed calendar features something for everyone - test your knowledge at our legendary monthly quiz nights, enjoy fabulous drag performances with Nikki Manfadge, or celebrate at our special events. With our warm atmosphere, excellent food and drinks, and convenient location near Heathrow, we\'re the perfect venue for a memorable night out.',
     valueProposition: 'Why settle for an ordinary night when you can experience extraordinary entertainment? Book your table today and discover why locals and visitors alike choose The Anchor for the best events in the area. With free parking, a welcoming atmosphere, and events throughout the week, your perfect night out is waiting.',
@@ -89,8 +89,8 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     metaTitle: 'Pub Deals Stanwell Moor | Special Offers at The Anchor Near Heathrow',
     metaDescription: 'Save with special offers at The Anchor Stanwell Moor. Lunch deals, quiz night specials & more. Best pub deals 5 minutes from Heathrow Airport.',
     heroContent: 'Make the most of your visit with our fantastic special offers at The Anchor. From daily deals to seasonal promotions, we\'re always finding ways to give our customers extra value.',
-    introContent: 'At The Anchor, we believe great experiences shouldn\'t break the bank. That\'s why we offer a variety of special deals throughout the week. Tuck into our value lunch menu Monday to Friday during kitchen hours, or take advantage of our monthly quiz night. We also run seasonal promotions and exclusive offers for our regular customers.',
-    valueProposition: 'Follow us on social media and sign up to our newsletter to be first to hear about new offers and exclusive deals. With something special every day of the week, there\'s always a great reason to visit The Anchor.',
+    introContent: 'At The Anchor, we believe great experiences shouldn\'t break the bank. That\'s why we offer a variety of special deals throughout the week. Tuck into our value lunch menu Monday to Friday during kitchen hours, or take advantage of our monthly quiz night. We also run seasonal promotions for all our customers.',
+    valueProposition: 'Follow us on social media and sign up to our newsletter to be first to hear about new offers and promotions. With something special every day of the week, there\'s always a great reason to visit The Anchor.',
     keywords: ['pub deals stanwell moor', 'pub offers near heathrow', 'pub offers surrey', 'special offers TW19', 'deals stanwell moor']
   },
 
@@ -151,17 +151,6 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     keywords: ['drag shows stanwell moor', 'drag queen events surrey', 'nikki manfadge shows', 'drag night near heathrow', 'entertainment TW19']
   },
 
-  'live-music': {
-    name: 'Live Music',
-    description: 'Live performances and musical entertainment',
-    metaTitle: 'Live Music Pub Stanwell Moor | Bands at The Anchor Near Heathrow',
-    metaDescription: 'Enjoy live music at The Anchor Stanwell Moor. Regular bands, acoustic sessions & music events. Great atmosphere, 5 minutes from Heathrow Airport.',
-    heroContent: 'Experience the best live music in Stanwell Moor at The Anchor. From acoustic sessions to full bands, we showcase talented musicians in an intimate pub setting.',
-    introContent: 'Music is at the heart of The Anchor\'s entertainment offering. Our carefully curated live music programme features local talent and touring acts across all genres - rock, pop, jazz, blues, and acoustic sets. The intimate atmosphere of our venue means you\'re never far from the action, creating memorable nights for music lovers.',
-    valueProposition: 'Cheque our events calendar for upcoming performances and book your table for dinner and a show. With great acoustics, a friendly crowd, and the best atmosphere near Heathrow, The Anchor is your destination for live music.',
-    keywords: ['live music pub stanwell moor', 'bands near heathrow', 'music venue surrey', 'acoustic nights TW19', 'live bands stanwell moor']
-  },
-
   'sports': {
     name: 'Sports & Fixtures',
     description: 'Live sports screenings, match days, and sporting events',
@@ -192,7 +181,7 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     metaDescription: 'The Anchor: Your local pub just 5 minutes from Heathrow Airport. Perfect for airport workers, flight crews & travelers. Free parking, great food & drinks.',
     heroContent: 'Located just 5 minutes from Heathrow Airport, The Anchor is the perfect pub for airport workers, flight crews, and travelers seeking authentic British hospitality.',
     introContent: 'The Anchor\'s proximity to Heathrow Airport makes us uniquely positioned to serve the airport community. We understand the irregular hours and international tastes of airport workers and travelers. That\'s why we offer a diverse menu suited to international palates during kitchen hours, and a warm welcome whether you\'re starting your shift or ending a long journey.',
-    valueProposition: 'With free parking, quick service for those on tight schedules, and special offers for airport workers, The Anchor is your home away from home near Heathrow. Show your airport ID for exclusive discounts.',
+    valueProposition: 'With free parking, quick service for those on tight schedules, and a warm welcome for airport workers, The Anchor is your home away from home near Heathrow.',
     keywords: ['pub near heathrow airport', 'bars near heathrow terminals', 'heathrow local pub', 'airport pub TW19', 'heathrow workers pub']
   },
 
@@ -322,9 +311,9 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     name: 'Entertainment',
     description: 'Live entertainment and performances',
     metaTitle: 'Pub Entertainment Stanwell Moor | Live Shows at The Anchor',
-    metaDescription: 'Experience great entertainment at The Anchor Stanwell Moor. Live music, comedy, drag shows & more. Your entertainment venue near Heathrow Airport.',
-    heroContent: 'The Anchor is Stanwell Moor\'s premier entertainment destination. From live music to comedy nights, we bring the best performers to your local pub.',
-    introContent: 'Entertainment is in our DNA at The Anchor. Our diverse programme ensures there\'s something for everyone - rock bands that get you dancing, intimate acoustic sets, hilarious comedy nights, spectacular drag performances, and special themed events throughout the year. Our venue provides the perfect intimate setting where you\'re close to the action.',
+    metaDescription: 'Experience great entertainment at The Anchor Stanwell Moor. Quiz nights, drag shows, themed events & more. Your entertainment venue near Heathrow Airport.',
+    heroContent: 'The Anchor is Stanwell Moor\'s premier entertainment destination. From quiz nights to drag shows, we bring the best entertainment to your local pub.',
+    introContent: 'Entertainment is in our DNA at The Anchor. Our diverse programme ensures there\'s something for everyone - legendary quiz nights, spectacular drag performances with Nikki Manfadge, special themed events throughout the year, and unforgettable holiday celebrations. Our venue provides the perfect intimate setting where you\'re close to the action.',
     valueProposition: 'Cheque our entertainment calendar and book your table for an unforgettable night out. With shows throughout the week, The Anchor is where Stanwell Moor comes to be entertained.',
     keywords: ['pub entertainment stanwell moor', 'live shows heathrow', 'entertainment venue surrey', 'shows TW19', 'live entertainment']
   },

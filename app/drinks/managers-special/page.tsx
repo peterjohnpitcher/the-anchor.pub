@@ -272,7 +272,7 @@ export default function ManagersSpecialPage() {
                   Exceptional Value
                 </h3>
                 <p className="text-gray-700">
-                  At 25% off, you're enjoying one of Scotland's most awarded gins at pub prices that beat even the supermarkets. Compare our £2.78 single to London's £6+ and you'll see why locals and Heathrow travelers alike are making The Anchor their gin destination.
+                  At 25% off, you're enjoying one of Scotland's most awarded gins at exceptional value. Compare our £2.78 single to London's £6+ and you'll see why locals and Heathrow travelers alike are making The Anchor their gin destination.
                 </p>
               </div>
             </div>
@@ -348,7 +348,7 @@ export default function ManagersSpecialPage() {
           },
           {
             question: "Is this offer available to Heathrow staff?",
-            answer: "Absolutely! We love serving the airport community. Show your airport ID for an extra warm welcome. The Botanist special is perfect for crews celebrating completed rosters or ground staff after a long shift."
+            answer: "Absolutely! We love serving the airport community. The Botanist special is perfect for crews celebrating completed rosters or ground staff after a long shift."
           },
           {
             question: "Will you have different spirits on special in future months?",

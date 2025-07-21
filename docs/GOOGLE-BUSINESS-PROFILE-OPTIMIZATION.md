@@ -14,7 +14,6 @@ This guide provides comprehensive instructions for optimizing The Anchor's Googl
 - [ ] Category Secondary: Add these:
   - "British restaurant"
   - "Bar"
-  - "Live music venue"
   - "Event venue"
 
 ### Business Hours

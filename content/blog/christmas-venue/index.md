@@ -180,7 +180,7 @@ We can arrange entertainment to suit your party style and budget.
 
 **Contact Us:**
 📞 Call: 01753 682707  
-📧 Email: christmas@the-anchor.pub  
+📧 Email: manager@the-anchor.pub  
 👥 Visit: In person to discuss
 
 ## Group Benefits
@@ -196,7 +196,6 @@ We can arrange entertainment to suit your party style and budget.
 - Late bar available
 
 **Early Booking Benefits:**
-- 10% off for November bookings
 - First choice of dates
 - Menu customisation
 - Payment plan options
@@ -222,7 +221,6 @@ We can provide recommendations and directions for your guests.
 - Taxi firms on speed dial
 - Near bus routes 441 & 442
 - Airport shuttles nearby
-- Designated driver rewards
 - Safe, well-lit location
 
 ## Corporate Christmas Solutions
@@ -273,7 +271,7 @@ Ready to plan your perfect **festive party near Heathrow**? Don't wait - our bes
 
 📞 Call now: 01753 682707  
 📍 Visit: The Anchor, Horton Road, Stanwell Moor  
-📧 Email: christmas@the-anchor.pub  
+📧 Email: manager@the-anchor.pub  
 💻 Download our Christmas brochure for full details
 
 *The Anchor - Where Christmas magic happens, just minutes from Heathrow Airport*

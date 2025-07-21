@@ -9,7 +9,7 @@ You have contact details for 14 major hotels near Heathrow. This is a goldmine f
 
 #### Digital Partnership Pack Contents:
 - **One-page PDF overview** of The Anchor
-- **Special hotel guest offers** (e.g., 10% discount with room key)
+- **Special hotel guest offers**
 - **Commission structure** for concierge referrals
 - **Transportation details** from each specific hotel
 - **Photo gallery** of food, atmosphere, and events
@@ -21,7 +21,7 @@ You have contact details for 14 major hotels near Heathrow. This is a goldmine f
 #### Tier 1 - Premium Hotels (Sofitel, Sheraton)
 - **Offer**: Exclusive "Sofitel Guest Menu" or "Sheraton Special"
 - **Commission**: 15% on all referred bookings
-- **Perks**: Complimentary dessert for hotel guests
+- **Perks**: Authentic pub experience
 - **Approach**: Professional email to GM, followed by in-person visit
 
 #### Tier 2 - Business Hotels (Hilton, Radisson)
@@ -44,11 +44,11 @@ Subject: Partnership Opportunity - Exclusive Dining Benefits for [Hotel Name] Gu
 
 Dear [Hotel Name] Team,
 
-The Anchor pub, just [X] minutes from your hotel, would like to propose a partnership that benefits your guests with authentic British dining experiences and exclusive perks.
+The Anchor pub, just [X] minutes from your hotel, would like to propose a partnership that benefits your guests with authentic British dining experiences.
 
 We're offering:
-- Complimentary welcome drink for your guests
-- 10% discount on all food
+- Authentic British pub experience for your guests
+- Traditional menu at reasonable prices
 - Priority reservations
 - Commission on referrals
 - Free transportation for groups of 6+

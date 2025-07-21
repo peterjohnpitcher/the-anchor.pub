@@ -56,7 +56,7 @@ Each month, our manager selects premium spirits for exclusive discounts at our *
     
 *   **Up to 25% off Selected Rums**
     
-*   **Exclusive Deals for Airport Staff and Locals**
+*   **Popular with Airport Staff and Locals**
     
       
     

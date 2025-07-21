@@ -68,7 +68,7 @@ Looking for a **warm winter retreat near Heathrow Airport**? The Anchor in **Sta
 
 **Regular Winter Activities:**
 - Quiz nights with warm prizes
-- Live music in heated areas
+- Entertainment in heated areas
 - Seasonal food specials
 - Football on big screens
 - Christmas and New Year celebrations

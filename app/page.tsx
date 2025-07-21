@@ -283,7 +283,7 @@ export default function HomePage() {
                       <li className="flex gap-3">
                         <span className="text-2xl">💰</span>
                         <div>
-                          <strong>Save Money:</strong> Airport food costs 3x more. Enjoy a proper meal for less.
+                          <strong>Save Money:</strong> Airport food costs 2x more. Enjoy a proper meal for less.
                         </div>
                       </li>
                       <li className="flex gap-3">

@@ -320,10 +320,6 @@ export default function CorporateEventsPage() {
                           <span className="text-anchor-gold">•</span>
                           <span><strong>All-inclusive options</strong> - Know your total cost upfront</span>
                         </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-anchor-gold">•</span>
-                          <span><strong>Volume discounts</strong> - Better rates for regular bookings</span>
-                        </li>
                       </ul>
                     </>
                   ),
@@ -570,7 +566,7 @@ export default function CorporateEventsPage() {
           },
           {
             question: "Can we book regular corporate events?",
-            answer: "Yes, many businesses use us for regular meetings, training sessions, or team events. We can arrange preferential rates for regular bookings and ensure consistency in setup and service."
+            answer: "Yes, many businesses use us for regular meetings, training sessions, or team events. We ensure consistency in setup and service for our regular clients."
           }
         ]}
         className="bg-gray-50"

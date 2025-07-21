@@ -43,7 +43,6 @@ const tagInfo: Record<string, { name: string; description: string; category: str
   'events': { name: 'Events', description: 'Live entertainment and special events', category: 'Primary' },
   'quiz-night': { name: 'Quiz Nights', description: 'Test your knowledge', category: 'Events' },
   'drag-shows': { name: 'Drag Shows', description: 'Fabulous drag entertainment', category: 'Events' },
-  'live-music': { name: 'Live Music', description: 'Live performances', category: 'Events' },
   'bingo': { name: 'Bingo', description: 'Fun-filled bingo nights', category: 'Events' },
   'karaoke': { name: 'Karaoke', description: 'Sing your heart out', category: 'Events' },
   

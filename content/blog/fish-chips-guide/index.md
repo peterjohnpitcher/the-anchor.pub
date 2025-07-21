@@ -167,7 +167,6 @@ Don't miss out on the best **fish and chips near Heathrow Airport**:
 - Phone ahead for collection
 - Ready in 15-20 minutes
 - Special packaging keeps food crispy
-- 10% discount on takeaway orders over £30
 
 ## Reviews from Our Chip Shop Fans
 

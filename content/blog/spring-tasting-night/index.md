@@ -139,7 +139,6 @@ Following our spring success, our next **tasting event** promises Caribbean vibe
 - Caribbean food pairings
 - Island music and atmosphere
 - Limited to 20 guests
-- Early bird pricing available
 
 **Date**: June 2025 (exact date TBC)
 **Time**: 6:30 PM - 9:30 PM
@@ -178,7 +177,7 @@ Our **pub events** sell out quickly due to limited capacity:
 1. **Follow us on social media** for announcement
 2. **Join our mailing list** for early access
 3. **Book directly** at the bar or by phone
-4. **Group bookings** - Reserve 4+ spots for 10% discount
+4. **Group bookings** - Reserve 4+ spots
 
 📞 **Call**: 01753 682707
 📍 **Visit**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
@@ -219,7 +218,7 @@ Host your own **private tasting event** at our **pub near Heathrow**:
 
 Beyond our spirit events, The Anchor hosts:
 - **Quiz nights** every Thursday
-- **Live music** weekends
+- **Weekend entertainment**
 - **Seasonal celebrations**
 - **Food pairing dinners**
 - **Meet the brewer** events

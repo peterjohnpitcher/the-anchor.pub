@@ -4,12 +4,12 @@ This document consolidates all fact-checking questions and answers for future re
 
 ## 1. OPENING HOURS & SERVICE TIMES
 
-### Bar Hours (CONFIRMED)
-- **Monday**: 4pm-10pm ✓
-- **Tuesday-Thursday**: 4pm-10pm ✓
+### Bar Hours (CONFIRMED - UPDATED JAN 2025)
+- **Monday**: CLOSED ✓
+- **Tuesday-Thursday**: 4pm-11pm ✓
 - **Friday**: 4pm-12am ✓
-- **Saturday**: 12pm-12am ✓
-- **Sunday**: 12pm-10pm ✓
+- **Saturday**: 1pm-12am ✓
+- **Sunday**: 12pm-9pm ✓
 
 ### Kitchen/Food Service Hours (CONFIRMED)
 - **Monday**: Closed ✓
@@ -139,9 +139,10 @@ This document consolidates all fact-checking questions and answers for future re
 - **Wait time**: 20-25 minutes ✓
 - **Dietary requirements**: Small kitchen, cannot guarantee no cross-contamination ✓
 
-### Special Offers (CONFIRMED)
+### Special Offers (CONFIRMED - UPDATED JAN 2025)
 - **Tuesday**: Pizza BOGOF (all pizzas, dine-in and takeaway, no restrictions) ✓
 - **Friday**: 50% off chip shop menu items for over 65s ✓
+- **Manager's Special**: 25% off featured premium spirit (changes monthly) ✓
 - **Happy Hour**: NO ✓
 - **Spirits**: Double Up offer - double for £2 extra (permanent offer) ✓
 
@@ -278,7 +279,7 @@ This document consolidates all fact-checking questions and answers for future re
 - **"Where Everyone's Local"** ✓
 - **"No boarding passes required"** ✓
 - **"Much better value than airport restaurants"** ✓
-- **"Airport food costs 3x more"** ✓
+- **"Airport food costs 2x more"** ✓
 - **"Stanwell Moor's village pub for generations"** ✓
 - **"Long before Heathrow grew into the giant it is today"** ✓
 

@@ -3,7 +3,7 @@ title: Events Near Heathrow | Entertainment at The Anchor Pub
 slug: unique-events
 description: >-
   Discover weekly events and entertainment at The Anchor pub near Heathrow
-  Airport. Live music, quiz nights, beer tastings in Stanwell Moor, just 7
+  Airport. Quiz nights, drag shows, beer tastings in Stanwell Moor, just 7
   minutes from Terminal 5. Perfect for Heathrow workers' nights out and Staines
   residents. Free parking, family-friendly events, seasonal celebrations near
   the airport.
@@ -15,7 +15,7 @@ keywords:
   - events near heathrow
   - pub entertainment stanwell moor
   - quiz night near terminal 5
-  - live music near airport
+  - drag shows near airport
   - beer tasting heathrow
   - the anchor events
   - family events staines
@@ -35,7 +35,7 @@ images: []
 
 ## Weekly Events and Entertainment Near Heathrow Airport
 
-Looking for entertainment near **Heathrow Terminal 5**? [The Anchor](https://www.the-anchor.pub/our-events) pub in **Stanwell Moor**, just **7 minutes from the airport**, offers weekly events perfect for **Heathrow workers**, **Staines residents**, and visitors. From live music to quiz nights, our traditional pub provides quality entertainment without airport prices or hassle.
+Looking for entertainment near **Heathrow Terminal 5**? [The Anchor](https://www.the-anchor.pub/our-events) pub in **Stanwell Moor**, just **7 minutes from the airport**, offers weekly events perfect for **Heathrow workers**, **Staines residents**, and visitors. From drag shows to quiz nights, our traditional pub provides quality entertainment without airport prices or hassle.
 
   
 
@@ -134,7 +134,7 @@ Make sure to cheque the events calendar at [The Anchor](https://www.the-anchor.p
     
       
     
-*   **Summer BBQ Festival**: A day dedicated to celebrating summer with good food, live music, and family-friendly activities.
+*   **Summer BBQ Festival**: A day dedicated to celebrating summer with good food, entertainment, and family-friendly activities.
     
       
     
@@ -155,7 +155,7 @@ Participating in events at The Anchor is not just about having a good time; it�
 
   
 
-As you plan your next outing, consider checking out what's happening at The Anchor. Whether it's a cozy evening of live music, a challenging quiz night with friends, or a delightful day filled with family fun, there's always an irresistible event waiting for you. So get out there and immerse yourself in the vibrant experiences that The Anchor has to offer!
+As you plan your next outing, consider checking out what's happening at The Anchor. Whether it's an entertaining evening with our drag shows, a challenging quiz night with friends, or a delightful day filled with family fun, there's always an irresistible event waiting for you. So get out there and immerse yourself in the vibrant experiences that The Anchor has to offer!
 
 ### Visit The Anchor for Events Near Heathrow
 
@@ -164,7 +164,7 @@ As you plan your next outing, consider checking out what's happening at The Anch
 🚗 **Parking**: Free on-site parking
 📅 **Regular Events**: 
 - Quiz Night: Wednesdays from 8pm
-- Live Music: Fridays & Saturdays from 9pm
+- Drag Shows: Selected Fridays from 8pm
 - Family Days: Selected Sundays
 - Beer Tastings: Monthly (cheque calendar)
 📞 **Bookings**: 01753 682707

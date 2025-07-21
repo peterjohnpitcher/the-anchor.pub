@@ -102,7 +102,7 @@ Heathrow Laundrette offers an excellent service with lots of added extras! Dry c
 
 **Link to Just-Eat Delivery:** [https://www.just-eat.co.uk/restaurants-polashtandoori/menu](https://www.just-eat.co.uk/restaurants-polashtandoori/menu)
 
-The Polash is a great takeaway that offers a wide range of Bangladeshi and Indian food. They’re open throughout the week and offer a 10% discount on collection orders over £10.00.
+The Polash is a great takeaway that offers a wide range of Bangladeshi and Indian food. They're open throughout the week.
 
   
 

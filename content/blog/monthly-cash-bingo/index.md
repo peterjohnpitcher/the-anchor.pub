@@ -180,7 +180,7 @@ While walk-ins are welcome, booking guarantees your seat:
 **Booking Options:**
 📞 Call: 01753 682707  
 💬 WhatsApp: [Message us](https://api.whatsapp.com/send?phone=4401753682707)  
-📧 Email: bookings@the-anchor.pub  
+📧 Email: manager@the-anchor.pub  
 🏠 In person at the bar
 
 **Group Bookings:**

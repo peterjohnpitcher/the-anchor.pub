@@ -115,7 +115,7 @@ Cards provide a flexible container for grouping related content:
     <CardTitle>Event Details</CardTitle>
   </CardHeader>
   <CardBody>
-    <p>Join us for live music this Friday!</p>
+    <p>Join us for our special event this Friday!</p>
     <p className="mt-2 text-gray-600">8:00 PM - 11:00 PM</p>
   </CardBody>
   <CardFooter className="flex justify-end gap-2">

@@ -120,7 +120,7 @@ Our quiz night attracts diverse groups:
 - Reserved tables for regular teams
 - Team name hall of fame
 - League table tracking
-- Special team discounts on food
+- Food and drink available throughout
 - Birthday team celebrations
 
 ## Food and Drink During Quiz

@@ -2,6 +2,7 @@ export interface NavigationItem {
   label: string
   href: string
   external?: boolean
+  items?: NavigationItem[] // For dropdown items
 }
 
 export interface SocialLink {

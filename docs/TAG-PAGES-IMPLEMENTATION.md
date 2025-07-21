@@ -28,7 +28,6 @@ Created comprehensive tag descriptions for better SEO:
 - `quiz-night` → "Quiz Nights"
 - `drag-shows` → "Drag Shows"
 - `tasting-events` → "Tasting Events"
-- `live-music` → "Live Music"
 
 **And many more...**
 

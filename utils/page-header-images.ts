@@ -35,7 +35,6 @@ const PAGE_HEADER_ALT_TEXT: Record<string, string> = {
   'bedfont-pub': 'Welcoming pub atmosphere at The Anchor for Bedfont community',
   'egham-pub': 'The Anchor traditional pub setting perfect for Egham visitors',
   'feltham-pub': 'Local favorite The Anchor pub serving Feltham community',
-  'near-heathrow-terminal-1': 'The Anchor pub with Terminal 1 planes overhead, perfect for travelers',
   'near-heathrow-terminal-2': 'Convenient pub location near Terminal 2 with aircraft in background',
   'near-heathrow-terminal-3': 'The Anchor pub garden with Terminal 3 flight path visible above',
   'near-heathrow-terminal-4': 'Traditional British pub experience near Terminal 4 at The Anchor',

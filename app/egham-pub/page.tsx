@@ -245,8 +245,8 @@ export default function EghamPubPage() {
               className="mt-8"
               content={
                 <>
-                  Organising a society event? We offer special rates for Royal Holloway societies and sports teams. 
-                  Perfect for end-of-term celebrations, social mixers, and team dinners. Contact us for group bookings.
+                  Organising a society event? We're the perfect venue for Royal Holloway societies and sports teams. 
+                  Ideal for end-of-term celebrations, social mixers, and team dinners. Contact us for group bookings.
                 </>
               }
             />
@@ -265,26 +265,26 @@ export default function EghamPubPage() {
               columns={2}
               boxes={[
                 {
-                  title: "Royal Holloway Specials",
+                  title: "Royal Holloway Gatherings",
                   content: (
                     <>
-                      <p className="mb-3">Show your Royal Holloway ID for exclusive offers</p>
+                      <p className="mb-3">Popular with Royal Holloway students and staff</p>
                       <ul className="space-y-2">
                         <li className="flex items-start">
                           <span className="text-amber-500 mr-2">•</span>
-                          10% off food (Mon-Thu)
+                          Perfect for society meetups
                         </li>
                         <li className="flex items-start">
                           <span className="text-amber-500 mr-2">•</span>
-                          Society booking discounts
+                          End-of-term celebrations
                         </li>
                         <li className="flex items-start">
                           <span className="text-amber-500 mr-2">•</span>
-                          End-of-term party packages
+                          Sports team dinners
                         </li>
                         <li className="flex items-start">
                           <span className="text-amber-500 mr-2">•</span>
-                          Quiz team entry discounts
+                          Quiz team headquarters
                         </li>
                       </ul>
                     </>
@@ -325,15 +325,9 @@ export default function EghamPubPage() {
 
             <div className="mt-8 text-center bg-anchor-cream p-8 rounded-xl">
               <h3 className="font-bold text-xl text-anchor-green mb-4">Transport Options</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <p className="font-semibold mb-2">Designated Drivers</p>
-                  <p className="text-gray-700">Free soft drinks for designated drivers in groups of 4+</p>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">Taxi Services</p>
-                  <p className="text-gray-700">We can arrange taxis back to Egham/Royal Holloway</p>
-                </div>
+              <div className="text-center">
+                <p className="font-semibold mb-2">Taxi Services</p>
+                <p className="text-gray-700">We can arrange taxis back to Egham/Royal Holloway</p>
               </div>
             </div>
           </div>
@@ -361,11 +355,11 @@ export default function EghamPubPage() {
           },
           {
             question: "Is The Anchor popular with Royal Holloway students?",
-            answer: "Yes! Many Royal Holloway students and staff visit The Anchor for our relaxed atmosphere, student-friendly prices, and regular events. We're just 15 minutes from the university campus."
+            answer: "Yes! Many Royal Holloway students and staff visit The Anchor for our relaxed atmosphere, great food, and regular events. We're just 15 minutes from the university campus."
           },
           {
             question: "Can you host Royal Holloway society events?",
-            answer: "Absolutely! We regularly host Royal Holloway society events, sports team celebrations, and end-of-term parties. We offer special group rates and can reserve areas for your society."
+            answer: "Absolutely! We regularly host Royal Holloway society events, sports team celebrations, and end-of-term parties. We can reserve areas for your society and help make your event special."
           }
         ]}
         className="bg-gray-50"

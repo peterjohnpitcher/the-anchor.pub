@@ -81,6 +81,20 @@ const defaultSections: FooterSection[] = [
       { label: 'Terminal 4', href: '/near-heathrow/terminal-4' },
       { label: 'Terminal 5', href: '/near-heathrow/terminal-5' }
     ]
+  },
+  {
+    title: 'Areas We Serve',
+    titleClass: 'text-anchor-gold',
+    items: [
+      { label: 'Ashford', href: '/ashford-pub' },
+      { label: 'Bedfont', href: '/bedfont-pub' },
+      { label: 'Egham', href: '/egham-pub' },
+      { label: 'Feltham', href: '/feltham-pub' },
+      { label: 'Heathrow Hotels', href: '/heathrow-hotels-pub' },
+      { label: 'M25 Junction 14', href: '/m25-junction-14-pub' },
+      { label: 'Stanwell', href: '/stanwell-pub' },
+      { label: 'Windsor', href: '/windsor-pub' }
+    ]
   }
 ]
 
@@ -158,7 +172,7 @@ export function Footer({
   return (
     <footer className={cn(mergedTheme.background, 'text-white py-12', className)}>
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-8">
           {/* Business Info */}
           <div>
             {businessInfo.logo && (

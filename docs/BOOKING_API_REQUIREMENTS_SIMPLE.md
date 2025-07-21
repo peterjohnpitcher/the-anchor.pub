@@ -87,7 +87,7 @@ For Sunday lunch, we need current:
    - Special requests
    - Phone number for quick contact
 
-2. **Kitchen Prep List** to kitchen@the-anchor.pub (Saturday 2pm for Sunday):
+2. **Kitchen Prep List** to manager@the-anchor.pub (Saturday 2pm for Sunday):
    - Total of each roast type needed
    - All allergies for the day
    - Time slot breakdown

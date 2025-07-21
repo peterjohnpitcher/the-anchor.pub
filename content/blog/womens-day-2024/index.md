@@ -70,7 +70,7 @@ This International Women's Day, we're hosting a range of activities that embrace
 - **Special menu items** featuring dishes inspired by iconic women from various cultures
 - **Purple-themed decorations** throughout the pub
 - **Storytelling sessions** sharing tales of inspirational local women
-- **Live music** featuring female artists from the area
+- **Special entertainment** throughout the evening
 - **Complimentary prosecco** for the first 50 women through the door
 - **Charity collection** for local women's organizations
 

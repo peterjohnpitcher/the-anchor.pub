@@ -350,7 +350,7 @@ export default function AshfordPubPage() {
             
             <div className="bg-blue-50 rounded-xl p-6 text-center">
               <p className="text-lg text-gray-800 mb-4">
-                <strong>Special rates for Ashford bookings!</strong> 
+                <strong>Book your Ashford event today!</strong> 
                 We love being part of the Ashford community.
               </p>
               <div className="flex flex-wrap justify-center gap-4">

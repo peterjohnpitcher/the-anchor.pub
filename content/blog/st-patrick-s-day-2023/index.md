@@ -2,7 +2,7 @@
 title: St Patrick's Day Pub Near Heathrow | Irish Celebration Stanwell Moor
 description: >-
   Celebrate St Patrick's Day at The Anchor pub near Heathrow Airport.
-  Traditional Irish food, Guinness, live music, and festive atmosphere just 7
+  Traditional Irish food, Guinness, festive entertainment, and atmosphere just 7
   minutes from Terminal 5. Join our annual March 17th celebration in Stanwell
   Moor with corned beef, Irish stew, and authentic pub craic.
 date: '2023-03-04'

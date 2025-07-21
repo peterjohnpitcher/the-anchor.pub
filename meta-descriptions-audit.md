@@ -28,15 +28,13 @@ The Anchor pub in Stanwell Moor, Surrey's best kept secret near Heathrow Airport
 ### Heathrow Terminal Pages
 1. **Near Heathrow (Main)** - The closest traditional British pub to Heathrow Airport in Surrey. Just 7 minutes from Terminal 5. Free parking, great food, and a warm welcome for travelers.
 
-2. **Terminal 1** - ${BRAND.name} is the closest traditional British pub to Heathrow Terminal 1, just ${HEATHROW_TIMES.terminal1} minutes drive. Perfect for pre-flight meals or airport staff. Free parking.
+2. **Terminal 2** - Traditional British pub just 10 minutes from Heathrow Terminal 2. Free parking, great food, and perfect for Star Alliance travelers. Your pre-flight dining destination.
 
-3. **Terminal 2** - Traditional British pub just 10 minutes from Heathrow Terminal 2. Free parking, great food, and perfect for Star Alliance travelers. Your pre-flight dining destination.
+3. **Terminal 3** - Family-friendly British pub just 10 minutes from Heathrow Terminal 3. Free parking, traditional food, perfect for Virgin Atlantic and Emirates travelers.
 
-4. **Terminal 3** - Family-friendly British pub just 10 minutes from Heathrow Terminal 3. Free parking, traditional food, perfect for Virgin Atlantic and Emirates travelers.
+4. **Terminal 4** - Traditional British pub just 12 minutes from Heathrow Terminal 4. Free parking, authentic food, perfect for SkyTeam and budget airline travelers.
 
-5. **Terminal 4** - Traditional British pub just 12 minutes from Heathrow Terminal 4. Free parking, authentic food, perfect for SkyTeam and budget airline travelers.
-
-6. **Terminal 5** - The closest pub to Heathrow Terminal 5 - just 7 minutes drive. Free parking, traditional British food, and a warm welcome. Perfect for BA travelers.
+5. **Terminal 5** - The closest pub to Heathrow Terminal 5 - just 7 minutes drive. Free parking, traditional British food, and a warm welcome. Perfect for BA travelers.
 
 ### Food & Drink Pages
 1. **Food Menu** - Enjoy traditional British pub food at The Anchor. Famous Sunday roasts, stone-baked pizzas, burgers, and family-friendly meals. Kitchen open Tuesday-Sunday.
@@ -85,7 +83,6 @@ Every page has a unique meta description specifically tailored to its content an
 ### 🔧 Dynamic Variables
 Some pages use template variables:
 - `${BRAND.name}` - Used in a few location pages
-- `${HEATHROW_TIMES.terminal1}` - Used in Terminal 1 page
 
 ## Recommendations
 

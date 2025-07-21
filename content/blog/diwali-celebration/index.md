@@ -117,7 +117,7 @@ At The Anchor **near Heathrow Airport**, we celebrate our diverse community with
 📅 **When**: October/November annually (cheque for dates)
 📍 **Location**: Horton Road, Stanwell Moor, TW19 6AQ
 ✈️ **From Heathrow**: Just 7 minutes from all terminals
-🎆 **Features**: Live music, food, activities, cultural performances
+🎆 **Features**: Entertainment, food, activities, cultural performances
 👨‍👩‍👧‍👦 **For**: All ages and backgrounds welcome
 📞 **Information**: 01753 682707
 

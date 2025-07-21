@@ -89,7 +89,7 @@ For more details, visit: [https://bit.ly/4aDMXNy](https://bit.ly/4aDMXNy)
     
       
     
-*   **"An Indian Summer" Event – A Cultural Celebration** In summer 2025, we’re launching a brand-new event – **"An Indian Summer"**! This special evening will feature live music from Sonia Panesar, an authentic Indian menu, and an atmosphere brimming with colour and festivity. Keep an eye on [the-anchor.pub](http://the-anchor.pub) and our social media for further updates.
+*   **"An Indian Summer" Event – A Cultural Celebration** In summer 2025, we’re launching a brand-new event – **"An Indian Summer"**! This special evening will feature performances by Sonia Panesar, an authentic Indian menu, and an atmosphere brimming with colour and festivity. Keep an eye on [the-anchor.pub](http://the-anchor.pub) and our social media for further updates.
     
     Details to be released soon.
     

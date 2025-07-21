@@ -447,12 +447,12 @@ export default function HeathrowHotelsPubPage() {
         </div>
       </section>
 
-      {/* Special Offers for Hotel Guests */}
+      {/* Special Times */}
       <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
-              title="Special Times for Hotel Guests"
+              title="Special Times at The Anchor"
             />
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -535,12 +535,12 @@ export default function HeathrowHotelsPubPage() {
             
             <AlertBox
               variant="info"
-              title="Special Rates for Airport Companies"
+              title="Perfect for Airport Companies"
               content={
                 <div className="text-center">
                   <p className="mb-4">
                     We understand the unique needs of airport businesses. 
-                    Flexible timing for shift patterns, special crew rates available.
+                    Flexible timing for shift patterns and crew requirements.
                   </p>
                   <div className="flex flex-wrap justify-center gap-4">
                     <Link href="/corporate-events">

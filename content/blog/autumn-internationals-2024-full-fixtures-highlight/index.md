@@ -61,7 +61,7 @@ Watch all these fixtures at The Anchor, your premier **sports pub near Heathrow 
 *   **Scotland v Fiji**, 5:40 pm - *Special match prices*
 
 ### **Week 2 - Friday, 8th to Sunday, 10th November 2024**
-*   **Ireland v New Zealand**, 8:10 pm (Friday) - *Live music after*
+*   **Ireland v New Zealand**, 8:10 pm (Friday) - *Entertainment after*
 *   **England v Australia**, 3:10 pm (Saturday) - *BBQ special*
 *   **Italy v Argentina**, 5:40 pm (Saturday)
 *   **France v Japan**, 8:10 pm (Saturday)

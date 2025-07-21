@@ -118,7 +118,7 @@ Everything is prepared fresh daily, providing the comfort food you crave in a co
 Your **local cosy pub** comes alive with regular events:
 
 - **Quiz nights** - Test your knowledge
-- **Live music** - Local bands and artists
+- **Drag shows** - Fabulous entertainment with Nikki Manfadge
 - **Sports viewing** - All major matches
 - **Seasonal celebrations** - Christmas, Easter, and more
 - **Community fundraisers** - Supporting local causes

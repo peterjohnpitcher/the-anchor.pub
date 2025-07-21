@@ -190,7 +190,7 @@ We'd love to hear what you think about our renovations:
 **Contact Us:**
 📞 01753 682707  
 💬 Facebook: @theanchorpubsm  
-📧 info@the-anchor.pub
+📧 manager@the-anchor.pub
 
 Thanks for your patience during our renovation journey. We're open as usual and can't wait to welcome you to our refreshed venue!
 
