@@ -117,16 +117,16 @@ export function StatusBar({
     }
     
     if (isOpen && closesIn) {
-      navMessage += ` • Closes ${closesIn.startsWith('in ') ? closesIn : `in ${closesIn}`}`
+      navMessage += ` • ${closesIn.replace('in ', '')}`
     } else if (!isOpen && opensIn) {
-      navMessage += ` • Opens ${opensIn.startsWith('in ') ? opensIn : `in ${opensIn}`}`
+      navMessage += ` • ${opensIn.replace('in ', '')}`
     }
     
     return (
       <>
-        <div className="flex items-center gap-2 text-sm">
+        <div className={cn("flex items-center gap-2 text-xs sm:text-sm", className)}>
           <StatusIndicator status={isOpen ? 'open' : 'closed'} size="sm" />
-          <span>{navMessage}</span>
+          <span className="whitespace-nowrap">{navMessage}</span>
         </div>
         {/* Screen reader announcement for status changes */}
         <div className="sr-only" aria-live="polite" aria-atomic="true">
