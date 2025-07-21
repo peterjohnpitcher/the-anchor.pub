@@ -227,8 +227,8 @@ export function Navigation({
           {/* Desktop Layout */}
           <div className="hidden lg:block">
             <div className="flex items-center justify-between h-20">
-              {/* Logo */}
-              <div className="flex items-center">
+              {/* Logo and Status Section */}
+              <div className="flex items-center gap-8">
                 <Link href="/" className="flex items-center">
                   <Image
                     src={logo.src}
@@ -240,14 +240,16 @@ export function Navigation({
                     sizes="150px"
                   />
                 </Link>
-              </div>
-
-              {/* Status and Weather */}
-              <div className={cn('flex items-center gap-6', mergedTheme.text)}>
-                {showStatus && statusComponent}
-                {showWeather && (
-                  <div className="border-l border-white/20 pl-6">
-                    {weatherComponent}
+                
+                {/* Status and Weather */}
+                {showStatus && (
+                  <div className={cn('flex items-center gap-6', mergedTheme.text)}>
+                    {statusComponent}
+                    {showWeather && (
+                      <div className="border-l border-white/20 pl-6">
+                        {weatherComponent}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
