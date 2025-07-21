@@ -18,7 +18,7 @@ export function StatusBarWrapper({ variant = 'default' }: { variant?: 'default' 
   return (
     <Suspense fallback={<StatusBarSkeleton />}>
       <div className="inline-block min-h-[44px]">
-        <StatusBar variant={variant} />
+        <StatusBar variant={variant} refreshInterval={60000} />
       </div>
     </Suspense>
   )

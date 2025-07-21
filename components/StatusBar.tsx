@@ -62,7 +62,14 @@ export function StatusBar({
   useEffect(() => {
     async function fetchHours() {
       try {
-        const response = await fetch(apiEndpoint)
+        // Add timestamp to prevent caching issues
+        const url = `${apiEndpoint}${apiEndpoint.includes('?') ? '&' : '?'}t=${Date.now()}`
+        const response = await fetch(url, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache'
+          }
+        })
         const data = await response.json()
         setHours(data)
       } catch (err) {

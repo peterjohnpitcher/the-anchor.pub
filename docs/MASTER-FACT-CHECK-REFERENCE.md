@@ -5,7 +5,7 @@ This document consolidates all fact-checking questions and answers for future re
 ## 1. OPENING HOURS & SERVICE TIMES
 
 ### Bar Hours (CONFIRMED - UPDATED JAN 2025)
-- **Monday**: CLOSED ✓
+- **Monday**: 4pm-10pm ✓
 - **Tuesday-Thursday**: 4pm-11pm ✓
 - **Friday**: 4pm-12am ✓
 - **Saturday**: 1pm-12am ✓
