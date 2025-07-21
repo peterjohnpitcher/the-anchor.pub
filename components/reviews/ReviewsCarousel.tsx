@@ -46,7 +46,7 @@ export function ReviewsCarousel({
         >
           {reviews.map((review, index) => (
             <div key={index} className="w-full flex-shrink-0 px-4">
-              <ReviewCard review={review} />
+              <ReviewCard review={review} index={index} />
             </div>
           ))}
         </div>

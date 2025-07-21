@@ -98,7 +98,7 @@ export function GoogleReviews({
       {layout === 'grid' && (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review, index) => (
-            <ReviewCard key={index} review={review} />
+            <ReviewCard key={index} review={review} index={index} />
           ))}
         </div>
       )}
@@ -106,7 +106,7 @@ export function GoogleReviews({
       {layout === 'list' && (
         <div className="space-y-4 max-w-4xl mx-auto">
           {reviews.map((review, index) => (
-            <ReviewCard key={index} review={review} variant="horizontal" />
+            <ReviewCard key={index} review={review} variant="horizontal" index={index} />
           ))}
         </div>
       )}

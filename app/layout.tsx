@@ -4,10 +4,10 @@ import './globals.css'
 import { WebVitals } from './web-vitals'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
-import { StatusBar } from '@/components/StatusBar'
 import { Weather } from '@/components/Weather'
+import { HeaderStatusSection } from '@/components/HeaderStatusSection'
 import { FloatingActions } from '@/components/FloatingActions'
-import { organizationSchema, localBusinessSchema, webSiteSchema } from '@/lib/schema'
+import { DynamicSchema } from '@/components/DynamicSchema'
 import { AnalyticsProvider } from '@/components/AnalyticsProvider'
 import { GoogleTagManager, GoogleTagManagerNoscript } from '@/components/GoogleTagManager'
 import { CanonicalLink } from '@/components/CanonicalLink'
@@ -217,12 +217,7 @@ export default function RootLayout({
           href="/images/branding/the-anchor-pub-logo-white-transparent.png"
           type="image/png"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationSchema, localBusinessSchema, webSiteSchema])
-          }}
-        />
+        <DynamicSchema />
       </head>
       <body className="font-sans antialiased">
         <GoogleTagManagerNoscript gtmId={gtmId} />
@@ -237,7 +232,7 @@ export default function RootLayout({
           </a>
           <header role="banner">
             <Navigation 
-              statusComponent={<StatusBar variant="navigation" />}
+              statusComponent={<HeaderStatusSection />}
               weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}
             />
           </header>
