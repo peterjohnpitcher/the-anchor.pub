@@ -183,7 +183,7 @@ export default function SundayLunchPage() {
                   roast potatoes, seasonal vegetables, Yorkshire pudding, and red wine gravy. Vegetarian gravy available on request.
                 </p>
                 <p className="text-sm text-gray-600 italic">
-                  Pair with: Counterpoint Shiraz – rich and full-bodied | Pint of Orchard Thieves Cider – crisp and fruity.
+                  Pair with: Counterpoint Shiraz – rich and full-bodied | Pint of Inches Cider – crisp and fruity.
                 </p>
               </div>
               

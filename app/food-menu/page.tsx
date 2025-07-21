@@ -280,7 +280,7 @@ export default async function FoodMenuPage() {
                   title: "🍕 With Our Pizzas",
                   content: (
                     <ul className="space-y-2 text-gray-700">
-                      <li><strong>Fully Loaded:</strong> Italian Peroni is the classic choice</li>
+                      <li><strong>Fully Loaded:</strong> Italian Birra Moretti is the classic choice</li>
                       <li><strong>Nice & Spicy:</strong> Smirnoff & lemonade cuts through the heat</li>
                       <li><strong>Garden Club:</strong> Light Pinot Grigio complements perfectly</li>
                     </ul>
@@ -290,7 +290,7 @@ export default async function FoodMenuPage() {
                   title: "🐟 With Fish & Chips",
                   content: (
                     <ul className="space-y-2 text-gray-700">
-                      <li><strong>Classic pairing:</strong> Greene King IPA or Abbot Ale</li>
+                      <li><strong>Classic pairing:</strong> A pint of bitter or Guinness</li>
                       <li><strong>Lighter option:</strong> Sauvignon Blanc cuts through the batter</li>
                       <li><strong>Traditional choice:</strong> A proper cup of tea!</li>
                     </ul>
@@ -300,9 +300,9 @@ export default async function FoodMenuPage() {
                   title: "🥘 With Sunday Roast",
                   content: (
                     <ul className="space-y-2 text-gray-700">
-                      <li><strong>Beef:</strong> Full-bodied Shiraz or a pint of bitter</li>
                       <li><strong>Chicken:</strong> Chardonnay or a smooth Carlsberg</li>
                       <li><strong>Lamb:</strong> Malbec brings out the flavours beautifully</li>
+                      <li><strong>Pork:</strong> Full-bodied Shiraz or a pint of bitter</li>
                     </ul>
                   )
                 }
