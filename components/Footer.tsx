@@ -263,16 +263,16 @@ export function Footer({
         
         {/* Copyright */}
         {copyright && (
-          <div className={cn('border-t pt-8 text-center text-gray-600', mergedTheme.borderColor)}>
+          <div className={cn('border-t pt-8 text-center text-white', mergedTheme.borderColor)}>
             <p>
               &copy; {copyright.year} {copyright.text}
             </p>
             {copyright.subtext && (
-              <p className="mt-2 text-sm text-gray-600">
+              <p className="mt-2 text-sm text-white/80">
                 {copyright.subtext}
               </p>
             )}
-            <p className="mt-3 text-sm text-gray-600">
+            <p className="mt-3 text-sm text-white/80">
               Serving Stanwell Moor, Staines, Ashford, Feltham, Bedfont, and surrounding Surrey areas
             </p>
           </div>

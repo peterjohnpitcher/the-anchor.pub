@@ -5,7 +5,7 @@ export interface NavigationItem {
 }
 
 export interface SocialLink {
-  platform: 'instagram' | 'facebook' | 'twitter' | 'youtube' | 'tiktok'
+  platform: 'instagram' | 'facebook' | 'twitter' | 'youtube' | 'tiktok' | 'google'
   href: string
   label?: string
 }

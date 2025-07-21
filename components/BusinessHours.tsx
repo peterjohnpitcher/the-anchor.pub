@@ -290,9 +290,9 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                 } ${hasSpecialHours ? 'ring-1 ring-yellow-400/50' : ''}`}
               >
                 <div className="flex items-center gap-3">
-                  <span className={`font-medium capitalize ${isToday ? 'text-anchor-gold' : 'text-white'}`}>
+                  <span className={`font-medium capitalize ${isToday ? 'text-white' : 'text-white'}`}>
                     {day}
-                    {isToday && <span className="text-sm sm:text-xs ml-2 text-anchor-gold">(Today)</span>}
+                    {isToday && <span className="text-sm sm:text-xs ml-2 text-white">(Today)</span>}
                     {hasSpecialHours && <span className="text-sm sm:text-xs ml-2 text-yellow-400">({specialHours.note || specialHours.reason || 'Special hours'})</span>}
                   </span>
                   {showWeather && dayForecast && (
@@ -370,12 +370,12 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
               <div 
                 key={day} 
                 className={`flex items-center justify-between px-3 py-1.5 rounded ${
-                  isToday ? 'bg-white/10 ring-1 ring-anchor-gold/30' : 'hover:bg-white/5'
+                  isToday ? 'bg-white/10 ring-1 ring-white/30' : 'hover:bg-white/5'
                 } ${hasSpecialHours ? 'ring-1 ring-yellow-400/50' : ''}`}
               >
                 {/* Left: Day & Weather */}
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className={`text-sm font-medium capitalize w-16 ${isToday ? 'text-anchor-gold' : 'text-white'}`}>
+                  <span className={`text-sm font-medium capitalize w-16 ${isToday ? 'text-white' : 'text-white'}`}>
                     {day.slice(0, 3)}
                     {isToday && <span className="text-sm sm:text-xs"> •</span>}
                   </span>
@@ -512,7 +512,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
               >
                 <span className={`font-medium capitalize ${isToday ? 'text-anchor-green' : ''}`} itemProp="dayOfWeek">
                   {day}
-                  {isToday && <span className="text-sm sm:text-xs ml-2 text-anchor-gold">(Today)</span>}
+                  {isToday && <span className="text-sm sm:text-xs ml-2 text-white">(Today)</span>}
                   {hasSpecialHours && <span className="text-sm sm:text-xs ml-2 text-yellow-600">({specialHours.note || specialHours.reason || 'Special hours'})</span>}
                 </span>
                 <div className="text-right">
