@@ -6,6 +6,7 @@ import { Metadata } from 'next'
 import { eventBookingServiceSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CTASection, SectionHeader, InfoBoxGrid, FeatureGrid, QuickInfoGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { ReviewSection } from '@/components/reviews'
 
 export const metadata: Metadata = {
   title: 'Event Venue Hire Near Me | The Anchor Stanwell Moor | Private Bookings',
@@ -495,63 +496,14 @@ export default function BookEventPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <SectionHeader
-              title="What Our Event Guests Say"
-            />
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-anchor-gold">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">
-                  "The Anchor made our wedding reception absolutely magical. From the initial planning 
-                  to the big day, everything was flawless. The team's attention to detail and warm 
-                  hospitality made all the difference."
-                </p>
-                <p className="font-semibold text-anchor-green">- Emily & James Carter</p>
-                <p className="text-sm text-gray-700">Wedding Reception, 120 guests</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-anchor-gold">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">
-                  "We use The Anchor for all our corporate events now. The flexibility of the spaces, 
-                  quality of the catering, and professional service make it our go-to venue. Plus, 
-                  the location near Heathrow is perfect for our international clients."
-                </p>
-                <p className="font-semibold text-anchor-green">- Richard Hughes, TechCorp UK</p>
-                <p className="text-sm text-gray-700">Quarterly Team Meetings</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-anchor-gold">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">
-                  "Celebrated my mum's 80th birthday here with family from all over. The staff couldn't 
-                  have been more helpful, the food was outstanding, and having our own space made it 
-                  feel really special. Thank you!"
-                </p>
-                <p className="font-semibold text-anchor-green">- David Patterson</p>
-                <p className="text-sm text-gray-700">Milestone Birthday, 65 guests</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Google Reviews */}
+      <ReviewSection
+        title="What Our Event Guests Say"
+        subtitle="Real feedback from Google Reviews"
+        layout="carousel"
+        filter={{ minRating: 4 }}
+        background="gray"
+      />
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

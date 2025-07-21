@@ -233,7 +233,7 @@ export default function RootLayout({
           <header role="banner">
             <Navigation 
               statusComponent={<HeaderStatusSection />}
-              weatherComponent={<Weather variant="compact" theme={{ text: 'text-white' }} />}
+              showWeather={false}
             />
           </header>
           <main id="main-content" role="main">

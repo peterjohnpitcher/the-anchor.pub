@@ -224,88 +224,83 @@ export function Navigation({
         itemType="https://schema.org/SiteNavigationElement"
       >
         <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
-                className="h-10 md:h-12 w-auto"
-                priority
-                sizes="(max-width: 768px) 120px, 150px"
-              />
-            </Link>
-          </div>
-
-          {/* Desktop Status and Weather */}
-          <div className={cn('hidden lg:flex items-center gap-6', mergedTheme.text)}>
-            {showStatus && statusComponent}
-            {showWeather && (
-              <div className="border-l border-white/20 pl-6">
-                {weatherComponent}
+          {/* Desktop Layout */}
+          <div className="hidden lg:block">
+            <div className="flex items-center justify-between h-20">
+              {/* Logo */}
+              <div className="flex items-center">
+                <Link href="/" className="flex items-center">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={logo.width}
+                    height={logo.height}
+                    className="h-12 w-auto"
+                    priority
+                    sizes="150px"
+                  />
+                </Link>
               </div>
-            )}
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className={cn('hidden lg:flex items-center lg:space-x-6 xl:space-x-8')}>
-            {items.map(item => renderLink(item))}
-            {renderCTA()}
-          </div>
-
-          {/* Mobile Actions */}
-          <div className="flex items-center gap-3 lg:hidden">
-            {/* Mobile CTA Button - Always visible */}
-            {ctaButton && (
-              <a
-                href={ctaButton.href}
-                className={cn(
-                  'hidden sm:inline-flex items-center px-3 py-1.5 text-xs font-semibold rounded-full',
-                  mergedTheme.ctaBackground,
-                  mergedTheme.ctaText,
-                  mergedTheme.ctaHoverBackground
+              {/* Status and Weather */}
+              <div className={cn('flex items-center gap-6', mergedTheme.text)}>
+                {showStatus && statusComponent}
+                {showWeather && (
+                  <div className="border-l border-white/20 pl-6">
+                    {weatherComponent}
+                  </div>
                 )}
-                target={ctaButton.external ? "_blank" : undefined}
-                rel={ctaButton.external ? "noopener noreferrer" : undefined}
+              </div>
+
+              {/* Desktop Navigation */}
+              <div className="flex items-center space-x-6 xl:space-x-8">
+                {items.map(item => renderLink(item))}
+                {renderCTA()}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Layout - Single Row */}
+          <div className="block lg:hidden">
+            <div className="flex items-center justify-between h-16 gap-2">
+              {/* Logo */}
+              <Link href="/" className="flex-shrink-0">
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                  className="h-8 w-auto"
+                  priority
+                  sizes="100px"
+                />
+              </Link>
+
+              {/* Status and Reviews */}
+              {showStatus && (
+                <div className={cn('flex-1 flex justify-center', mergedTheme.text)}>
+                  {statusComponent}
+                </div>
+              )}
+
+              {/* Menu Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={cn('flex-shrink-0 p-2', mergedTheme.text)}
+                aria-expanded={isMobileMenuOpen}
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               >
-                {ctaButton.icon && <span className="mr-1">{ctaButton.icon}</span>}
-                <span className="hidden sm:inline">Book</span>
-                <span className="sm:hidden">📅</span>
-              </a>
-            )}
-            
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={cn('p-2', mergedTheme.text)}
-              aria-expanded={isMobileMenuOpen}
-              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-        
-        {/* Mobile Status Bar - Below main nav */}
-        {(showStatus || showWeather) && (
-          <div className={cn(
-            'lg:hidden pb-3 -mt-2',
-            'flex flex-wrap items-center gap-2 text-xs',
-            mergedTheme.text
-          )}>
-            {showStatus && statusComponent}
-          </div>
-        )}
-      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -319,12 +314,6 @@ export function Navigation({
           aria-modal="true"
         >
           <div className="container mx-auto px-4 py-6 space-y-4">
-            {/* Status Bar for Mobile */}
-            {showStatus && statusComponent && (
-              <div className="pb-4 mb-4 border-b border-white/20">
-                {statusComponent}
-              </div>
-            )}
             {items.map(item => renderLink(item, true))}
             {renderCTA(true)}
           </div>

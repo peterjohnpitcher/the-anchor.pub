@@ -109,28 +109,38 @@ export function StatusBar({
   
   // Navigation variant - simple text
   if (variant === 'navigation') {
-    let navMessage = isOpen ? 'Open now' : 'Closed'
+    // Get today's hours
+    const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
+    const todayHours = hours.regularHours[today]
     
-    // Add special hours reason if available
-    if (todaySpecialHours?.note || todaySpecialHours?.reason) {
-      navMessage += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
+    // Format time helper
+    const formatTime = (time: string) => {
+      const [hours, minutes] = time.split(':')
+      const hour = parseInt(hours)
+      const ampm = hour >= 12 ? 'pm' : 'am'
+      const displayHour = hour % 12 || 12
+      return minutes === '00' ? `${displayHour}${ampm}` : `${displayHour}:${minutes}${ampm}`
     }
     
-    if (isOpen && closesIn) {
-      navMessage += ` • ${closesIn.replace('in ', '')}`
-    } else if (!isOpen && opensIn) {
-      navMessage += ` • ${opensIn.replace('in ', '')}`
+    let navMessage = ''
+    
+    if (todayHours?.is_closed || todaySpecialHours?.is_closed) {
+      navMessage = 'Closed today'
+    } else if (todayHours) {
+      // Show bar hours
+      const barHours = `${formatTime(todayHours.opens)} - ${formatTime(todayHours.closes)}`
+      
+      // Simplified for mobile - just show current status and hours
+      navMessage = `${isOpen ? 'Open' : 'Closed'} • ${formatTime(todayHours.opens)}-${formatTime(todayHours.closes)}`
     }
     
     return (
       <>
-        <div className={cn("flex items-center gap-2 text-xs sm:text-sm", className)}>
+        <div className={cn("flex items-center gap-1.5 text-xs", className)}>
           <StatusIndicator status={isOpen ? 'open' : 'closed'} size="sm" />
-          <span className="whitespace-nowrap">{navMessage}</span>
-        </div>
-        {/* Screen reader announcement for status changes */}
-        <div className="sr-only" aria-live="polite" aria-atomic="true">
-          {navMessage}
+          <span className="whitespace-nowrap">
+            {navMessage}
+          </span>
         </div>
       </>
     )

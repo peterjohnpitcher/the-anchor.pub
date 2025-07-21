@@ -300,34 +300,6 @@ export default function BeerGardenPage() {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <SectionHeader
-              title="What Plane Spotters Say"
-            />
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6">
-                <p className="text-gray-700 mb-4 italic">
-                  "Fantastic location for plane spotting! Aircraft pass so low you can read the registration. 
-                  Great beer selection and friendly staff who understand aviation enthusiasts."
-                </p>
-                <p className="font-semibold">- Aviation Photography UK</p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6">
-                <p className="text-gray-700 mb-4 italic">
-                  "Hidden gem for Heathrow plane spotting. Much more comfortable than standing at the fence, 
-                  plus you get table service! Dog loved it too."
-                </p>
-                <p className="font-semibold">- Local Plane Spotter</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
