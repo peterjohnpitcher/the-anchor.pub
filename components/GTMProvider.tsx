@@ -1,27 +1,35 @@
+'use client'
+
+import { useEffect } from 'react'
 import Script from 'next/script'
 
-interface GoogleTagManagerProps {
+interface GTMProviderProps {
   gtmId: string
+  children: React.ReactNode
 }
 
-export function GoogleTagManager({ gtmId }: GoogleTagManagerProps) {
-  if (!gtmId) return null
+export function GTMProvider({ gtmId, children }: GTMProviderProps) {
+  useEffect(() => {
+    if (!gtmId) return
+
+    // Initialize dataLayer
+    window.dataLayer = window.dataLayer || []
+    
+    // Push initial GTM event
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    })
+
+    // Log for debugging
+    console.log('GTM Provider initialized with ID:', gtmId)
+    console.log('DataLayer:', window.dataLayer)
+  }, [gtmId])
+
+  if (!gtmId) return <>{children}</>
 
   return (
     <>
-      {/* Initialize dataLayer */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-              'gtm.start': new Date().getTime(),
-              event: 'gtm.js'
-            });
-          `,
-        }}
-      />
-      {/* Google Tag Manager Script */}
       <Script
         id="gtm-script"
         strategy="afterInteractive"
@@ -35,12 +43,13 @@ export function GoogleTagManager({ gtmId }: GoogleTagManagerProps) {
           `,
         }}
       />
+      {children}
     </>
   )
 }
 
-// GTM noscript component for body
-export function GoogleTagManagerNoscript({ gtmId }: GoogleTagManagerProps) {
+// Separate noscript component for body
+export function GTMNoscript({ gtmId }: { gtmId: string }) {
   if (!gtmId) return null
 
   return (
@@ -53,11 +62,4 @@ export function GoogleTagManagerNoscript({ gtmId }: GoogleTagManagerProps) {
       />
     </noscript>
   )
-}
-
-// Type definitions for dataLayer
-declare global {
-  interface Window {
-    dataLayer: any[]
-  }
 }

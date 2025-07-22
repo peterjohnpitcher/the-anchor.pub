@@ -10,6 +10,7 @@ import { FloatingActions } from '@/components/FloatingActions'
 import { DynamicSchema } from '@/components/DynamicSchema'
 import { AnalyticsProvider } from '@/components/AnalyticsProvider'
 import { GoogleTagManager, GoogleTagManagerNoscript } from '@/components/GoogleTagManager'
+import { GTMProvider, GTMNoscript } from '@/components/GTMProvider'
 import { CanonicalLink } from '@/components/CanonicalLink'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
@@ -220,30 +221,32 @@ export default function RootLayout({
         <DynamicSchema />
       </head>
       <body className="font-sans antialiased">
-        <GoogleTagManagerNoscript gtmId={gtmId} />
-        <AnalyticsProvider>
-          <WebVitals />
-          {/* Skip Navigation Links for Accessibility */}
-          <a 
-            href="#main-content" 
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-anchor-gold focus:text-white focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-anchor-gold"
-          >
-            Skip to main content
-          </a>
-          <header role="banner">
-            <Navigation 
-              statusComponent={<HeaderStatusSection />}
-              showWeather={false}
-            />
-          </header>
-          <main id="main-content" role="main">
-            {children}
-          </main>
-          <footer role="contentinfo">
-            <Footer />
-          </footer>
-          <FloatingActions />
-        </AnalyticsProvider>
+        <GTMNoscript gtmId={gtmId} />
+        <GTMProvider gtmId={gtmId}>
+          <AnalyticsProvider>
+            <WebVitals />
+            {/* Skip Navigation Links for Accessibility */}
+            <a 
+              href="#main-content" 
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-anchor-gold focus:text-white focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-anchor-gold"
+            >
+              Skip to main content
+            </a>
+            <header role="banner">
+              <Navigation 
+                statusComponent={<HeaderStatusSection />}
+                showWeather={false}
+              />
+            </header>
+            <main id="main-content" role="main">
+              {children}
+            </main>
+            <footer role="contentinfo">
+              <Footer />
+            </footer>
+            <FloatingActions />
+          </AnalyticsProvider>
+        </GTMProvider>
       </body>
     </html>
   )

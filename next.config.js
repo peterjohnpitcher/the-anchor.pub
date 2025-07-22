@@ -139,7 +139,7 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   swcMinify: true,
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    // removeConsole: process.env.NODE_ENV === 'production', // Temporarily disabled for debugging
     // Remove unnecessary React properties
     reactRemoveProperties: process.env.NODE_ENV === 'production',
   },
