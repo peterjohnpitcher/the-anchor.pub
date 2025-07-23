@@ -431,7 +431,7 @@
   },
   {
     "source": "/post/drag-cabaret-nikki-manfadge-the-anchor",
-    "destination": "/whats-on/drag-shows",
+    "destination": "/whats-on",
     "permanent": true
   },
   {
@@ -541,7 +541,7 @@
   },
   {
     "source": "/post/company-celebrations-at-the-anchor-pub-stanwell-moor",
-    "destination": "/book-event",
+    "destination": "/whats-on",
     "permanent": true
   },
   {
@@ -662,6 +662,16 @@
   {
     "source": "/post/new-menu-options-launching-february-1st-2023",
     "destination": "/blog/new-menu-options-launching-february-1st-2023",
+    "permanent": true
+  },
+  {
+    "source": "/events/cash-bingo-2025-07-18",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/drinks/:drink*",
+    "destination": "/drinks",
     "permanent": true
   }
 ]

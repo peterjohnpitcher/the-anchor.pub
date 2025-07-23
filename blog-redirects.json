@@ -21,7 +21,7 @@
   },
   {
     "source": "/blog/celebrate-christmas-2023-at-the-anchor-events-and-",
-    "destination": "/blog/christmas-events-2023",
+    "destination": "/blog/christmas-events",
     "permanent": true
   },
   {
@@ -157,11 +157,6 @@
   {
     "source": "/blog/st-patrick-s-day-2024-celebrate-at-the-anchor-thea",
     "destination": "/blog/st-patricks-day-2024",
-    "permanent": true
-  },
-  {
-    "source": "/blog/christmas-events-2023",
-    "destination": "/blog/christmas-events",
     "permanent": true
   },
   {
