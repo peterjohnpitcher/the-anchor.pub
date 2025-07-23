@@ -24,12 +24,10 @@ import {
   trackFormComplete,
   pushToDataLayer
 } from '@/lib/gtm-events'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { InfoIcon, Phone, MessageCircle, Navigation, Calendar, Menu, Scroll, Star, Clock, Cloud, Plane, Form } from 'lucide-react'
-import WhatsAppLink from '@/components/WhatsAppLink'
-import BookTableButton from '@/components/BookTableButton'
+import { Button, Card, CardBody, CardHeader, CardTitle, Alert } from '@/components/ui'
+import { Info, Phone, MessageCircle, Navigation, Calendar, Menu, Scroll, Star, Clock, Cloud, Plane, FileText } from 'lucide-react'
+import { WhatsAppLink } from '@/components/WhatsAppLink'
+import { BookTableButton } from '@/components/BookTableButton'
 
 declare global {
   interface Window {
@@ -194,16 +192,14 @@ export default function TestTrackingPage() {
         <h1 className="text-4xl font-bold mb-8">GTM Tracking Test Page</h1>
         
         {/* Instructions */}
-        <Alert className="mb-8">
-          <InfoIcon className="h-4 w-4" />
-          <AlertTitle>Testing Instructions</AlertTitle>
-          <AlertDescription className="mt-2 space-y-2">
+        <Alert variant="info" className="mb-8" icon={<Info className="h-4 w-4" />} title="Testing Instructions">
+          <div className="space-y-2">
             <p>1. Open Google Tag Manager in Preview Mode</p>
             <p>2. Connect to this page using the preview URL</p>
             <p>3. Click the test buttons below to trigger events</p>
             <p>4. Check GTM Debug panel to see events firing</p>
             <p>5. Events will also appear in the console and the event log below</p>
-          </AlertDescription>
+          </div>
         </Alert>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -216,9 +212,9 @@ export default function TestTrackingPage() {
                   <Phone className="h-5 w-5" />
                   Contact Tracking
                 </CardTitle>
-                <CardDescription>Test phone, WhatsApp, and email tracking</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Test phone, WhatsApp, and email tracking</p>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardBody className="space-y-3">
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Phone Calls:</p>
                   <div className="flex flex-wrap gap-2">
@@ -251,7 +247,7 @@ export default function TestTrackingPage() {
                     </Button>
                   </div>
                   <div className="mt-2">
-                    <WhatsAppLink context="test-page" className="text-sm">
+                    <WhatsAppLink phone="01753 863970" source="test-page" className="text-sm">
                       Test WhatsApp Component
                     </WhatsAppLink>
                   </div>
@@ -267,7 +263,7 @@ export default function TestTrackingPage() {
                     info@the-anchor.pub
                   </a>
                 </div>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* Table Booking */}
@@ -277,9 +273,9 @@ export default function TestTrackingPage() {
                   <Calendar className="h-5 w-5" />
                   Table Booking
                 </CardTitle>
-                <CardDescription>Test table booking from different contexts</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Test table booking from different contexts</p>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardBody className="space-y-3">
                 <div className="flex flex-wrap gap-2">
                   <Button size="sm" onClick={() => testTableBooking('hero-section')}>
                     Hero Section
@@ -295,9 +291,9 @@ export default function TestTrackingPage() {
                   </Button>
                 </div>
                 <div className="mt-2">
-                  <BookTableButton context="test-page" />
+                  <BookTableButton source="test-page" context="test-page" />
                 </div>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* Navigation */}
@@ -307,9 +303,9 @@ export default function TestTrackingPage() {
                   <Navigation className="h-5 w-5" />
                   Navigation & Directions
                 </CardTitle>
-                <CardDescription>Test navigation clicks and directions</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Test navigation clicks and directions</p>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardBody className="space-y-3">
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Navigation Clicks:</p>
                   <div className="flex flex-wrap gap-2">
@@ -342,7 +338,7 @@ export default function TestTrackingPage() {
                     </Button>
                   </div>
                 </div>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* Menu & Content */}
@@ -352,9 +348,9 @@ export default function TestTrackingPage() {
                   <Menu className="h-5 w-5" />
                   Menu & Content Tracking
                 </CardTitle>
-                <CardDescription>Test menu views and content engagement</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Test menu views and content engagement</p>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardBody className="space-y-3">
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Menu Views:</p>
                   <div className="flex flex-wrap gap-2">
@@ -388,7 +384,7 @@ export default function TestTrackingPage() {
                   </div>
                   <p className="text-xs text-muted-foreground">Current scroll: {scrollDepth}%</p>
                 </div>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* Events & Reviews */}
@@ -398,9 +394,9 @@ export default function TestTrackingPage() {
                   <Star className="h-5 w-5" />
                   Events & Reviews
                 </CardTitle>
-                <CardDescription>Test event tracking and review interactions</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Test event tracking and review interactions</p>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardBody className="space-y-3">
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Event Tracking:</p>
                   <div className="flex flex-wrap gap-2">
@@ -427,7 +423,7 @@ export default function TestTrackingPage() {
                     </Button>
                   </div>
                 </div>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* Business Features */}
@@ -437,44 +433,44 @@ export default function TestTrackingPage() {
                   <Clock className="h-5 w-5" />
                   Business Features
                 </CardTitle>
-                <CardDescription>Test business-specific tracking</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Test business-specific tracking</p>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardBody className="space-y-3">
                 <Button size="sm" onClick={testBusinessFeatures}>
                   Test All Business Features
                 </Button>
                 <div className="text-xs text-muted-foreground">
                   Tests: Opening Hours, Weather, Flight Status
                 </div>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* Forms & Custom */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Form className="h-5 w-5" />
+                  <FileText className="h-5 w-5" />
                   Forms & Custom Events
                 </CardTitle>
-                <CardDescription>Test form tracking and custom events</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Test form tracking and custom events</p>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardBody className="space-y-3">
                 <Button size="sm" onClick={testFormTracking}>
                   Test Form Tracking
                 </Button>
                 <Button size="sm" onClick={testCustomEvent}>
                   Fire Custom Event
                 </Button>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* Social Media Links */}
             <Card>
               <CardHeader>
                 <CardTitle>Social Media Links</CardTitle>
-                <CardDescription>Test social media click tracking</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Test social media click tracking</p>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardBody className="space-y-3">
                 <div className="flex flex-wrap gap-2">
                   <a 
                     href="https://facebook.com/theanchorpub" 
@@ -504,7 +500,7 @@ export default function TestTrackingPage() {
                     Twitter
                   </a>
                 </div>
-              </CardContent>
+              </CardBody>
             </Card>
           </div>
 
@@ -514,7 +510,9 @@ export default function TestTrackingPage() {
             <Card className="h-[600px]">
               <CardHeader>
                 <CardTitle>Event Log</CardTitle>
-                <CardDescription>
+              </CardHeader>
+              <div className="px-6 py-2">
+                <p className="text-sm text-gray-600">
                   Recent GTM events (newest first)
                   <Button 
                     size="sm" 
@@ -524,9 +522,9 @@ export default function TestTrackingPage() {
                   >
                     Clear
                   </Button>
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="h-[500px] overflow-y-auto">
+                </p>
+              </div>
+              <CardBody className="h-[500px] overflow-y-auto pt-0">
                 <div className="space-y-2">
                   {events.length === 0 ? (
                     <p className="text-sm text-muted-foreground">No events yet. Click buttons to trigger events.</p>
@@ -546,27 +544,25 @@ export default function TestTrackingPage() {
                     ))
                   )}
                 </div>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* DataLayer Contents */}
             <Card>
               <CardHeader>
                 <CardTitle>Current DataLayer</CardTitle>
-                <CardDescription>Full contents of window.dataLayer</CardDescription>
+                <p className="text-sm text-gray-600 mt-1">Full contents of window.dataLayer</p>
               </CardHeader>
-              <CardContent className="max-h-[400px] overflow-y-auto">
+              <CardBody className="max-h-[400px] overflow-y-auto">
                 <pre className="text-xs">
                   {JSON.stringify(dataLayer, null, 2)}
                 </pre>
-              </CardContent>
+              </CardBody>
             </Card>
 
             {/* Console Instructions */}
-            <Alert>
-              <InfoIcon className="h-4 w-4" />
-              <AlertTitle>Console Debugging</AlertTitle>
-              <AlertDescription className="mt-2 space-y-2 text-sm">
+            <Alert variant="info" icon={<Info className="h-4 w-4" />} title="Console Debugging">
+              <div className="space-y-2 text-sm">
                 <p>Open browser console to see detailed event logs:</p>
                 <code className="block bg-muted p-2 rounded text-xs">
                   window.dataLayer
@@ -575,7 +571,7 @@ export default function TestTrackingPage() {
                 <code className="block bg-muted p-2 rounded text-xs">
                   {`window.dataLayer.push({ event: 'test_event', category: 'Test' })`}
                 </code>
-              </AlertDescription>
+              </div>
             </Alert>
           </div>
         </div>
