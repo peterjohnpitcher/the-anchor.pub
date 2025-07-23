@@ -1,3 +1,5 @@
+'use client'
+
 import { cn } from '@/lib/utils'
 import { CONTACT_INFO } from '@/lib/error-handling'
 import { EmailLink } from '@/components/EmailLink'
