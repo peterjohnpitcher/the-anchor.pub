@@ -1,4 +1,5 @@
 import React from 'react'
+import { PhoneLink } from '@/components/PhoneLink'
 
 interface Props {
   children: React.ReactNode
@@ -33,7 +34,7 @@ export class EventBookingErrorBoundary extends React.Component<Props, State> {
             We're experiencing technical difficulties with our booking system.
           </p>
           <p className="text-sm text-red-600">
-            Please call us at <a href="tel:01753682707" className="underline font-semibold">01753 682707</a> to book your spot.
+            Please call us at <PhoneLink phone="01753682707" source="event_booking_error" className="underline font-semibold" showIcon={false}>01753 682707</PhoneLink> to book your spot.
           </p>
           <button
             onClick={() => this.setState({ hasError: false, error: null })}

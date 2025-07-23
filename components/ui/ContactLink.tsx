@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import { CONTACT_INFO } from '@/lib/error-handling'
+import { EmailLink } from '@/components/EmailLink'
 
 interface ContactLinkProps {
   type?: 'phone' | 'email' | 'address'
@@ -47,16 +48,17 @@ export function ContactLink({
 
   if (type === 'email') {
     return (
-      <a
-        href={`mailto:${email}`}
+      <EmailLink
+        email={email}
+        source="contact_link_component"
         className={cn(
           'inline-flex items-center gap-1 text-anchor-gold hover:text-anchor-gold-light transition-colors',
           className
         )}
+        showIcon={showIcon}
       >
-        {showIcon && <span aria-hidden="true">{icons.email}</span>}
         {children || email}
-      </a>
+      </EmailLink>
     )
   }
 

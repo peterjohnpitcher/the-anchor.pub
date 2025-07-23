@@ -6,6 +6,8 @@ import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { BookTableButton } from '@/components/BookTableButton'
+import { MenuPageTracker } from '@/components/MenuPageTracker'
 
 export const metadata: Metadata = {
   title: 'Buy One Get One Free Pizza | The Anchor Stanwell Moor | BOGOF Deal',
@@ -93,6 +95,12 @@ const offerSchema = {
 export default function PizzaPage() {
   return (
     <>
+      <MenuPageTracker 
+        menuType="pizza"
+        specialOffers={[
+          "Buy One Get One Free - Every Tuesday"
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([pizzaMenuSchema, offerSchema]) }}
@@ -115,11 +123,14 @@ export default function PizzaPage() {
                 View Full Menu
               </Button>
             </Link>
-            <Link href="tel:01753682707">
-              <Button variant="primary" size="lg">
-                📞 Book a Table
-              </Button>
-            </Link>
+            <BookTableButton
+              source="pizza_menu_hero"
+              context="pizza_menu"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </BookTableButton>
           </div>
         }
       />

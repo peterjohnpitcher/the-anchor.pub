@@ -8,6 +8,10 @@ import { homepageFAQSchema } from '@/lib/enhanced-schemas'
 import { LazySection } from '@/components/LazySection'
 import { OptimizedHeroSection } from '@/components/hero/OptimizedHeroSection'
 import { ReviewSection } from '@/components/reviews'
+import { PhoneLinksSection, QuickEnquiryLinks } from '@/components/homepage/PhoneLinksSection'
+import { BookTableButton } from '@/components/BookTableButton'
+import { DirectionsButton } from '@/components/DirectionsButton'
+import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { 
   Button, 
   Card, 
@@ -47,6 +51,7 @@ function NextEventSkeleton() {
 export default function HomePage() {
   return (
     <>
+      <ScrollDepthTracker />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFAQSchema) }}
@@ -107,20 +112,13 @@ export default function HomePage() {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0 max-w-md mx-auto">
-          <Link
-            href="https://ordertab.menu/theanchor/bookings"
-            target="_blank"
-            rel="noopener noreferrer"
+          <BookTableButton
+            source="homepage_hero"
+            variant="primary"
+            size="lg"
+            fullWidth
             className="flex-1"
-          >
-            <Button 
-              variant="primary"
-              size="lg"
-              fullWidth
-            >
-              📅 Book a Table
-            </Button>
-          </Link>
+          />
           
           <Link
             href="/food-menu"
@@ -214,17 +212,7 @@ export default function HomePage() {
                 {
                   icon: "📞",
                   title: "Get in Touch",
-                  subtitle: (
-                    <>
-                      <a href="tel:01753682707" className="hover:text-anchor-gold transition-colors block">
-                        📞 01753 682707
-                      </a>
-                      <a href="https://wa.me/4401753682707" className="hover:text-anchor-gold transition-colors block mt-1">
-                        💬 WhatsApp
-                      </a>
-                      <span className="text-sm sm:text-xs">Call or message us</span>
-                    </>
-                  )
+                  subtitle: <PhoneLinksSection source="homepage_quickinfo" />
                 },
                 {
                   icon: "⭐",
@@ -493,17 +481,7 @@ export default function HomePage() {
                     <p className="text-sm text-gray-600">
                       <strong>Quick enquiry?</strong>
                     </p>
-                    <div className="flex flex-wrap justify-center gap-4">
-                      <a href="tel:01753682707" className="text-anchor-gold hover:text-anchor-gold-light font-semibold">
-                        📞 01753 682707
-                      </a>
-                      <a href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20hosting%20an%20event" className="text-anchor-gold hover:text-anchor-gold-light font-semibold">
-                        💬 WhatsApp
-                      </a>
-                      <a href="mailto:manager@the-anchor.pub?subject=Event%20Enquiry" className="text-anchor-gold hover:text-anchor-gold-light font-semibold">
-                        📧 Email Us
-                      </a>
-                    </div>
+                    <QuickEnquiryLinks />
                   </div>
                 </div>
               </Grid>
@@ -553,21 +531,15 @@ export default function HomePage() {
                   </ul>
                 </div>
                 
-                <Link
+                <DirectionsButton
                   href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto"
+                  source="home_footer_cta"
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
                 >
-                  <Button 
-                    variant="outline"
-                    size="lg"
-                    fullWidth
-                    className="bg-white text-anchor-green hover:bg-gray-100"
-                  >
-                    Get Directions on Google Maps
-                  </Button>
-                </Link>
+                  Get Directions on Google Maps
+                </DirectionsButton>
               </div>
               
               <div className="bg-white/10 rounded-lg p-4">

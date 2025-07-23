@@ -12,6 +12,7 @@ import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import type { Event } from '@/lib/api'
+import { BookTableButton } from '@/components/BookTableButton'
 
 export const metadata: Metadata = {
   title: `Pizza Tuesday BOGOF Deal Near Me | ${BRAND.name} Stanwell Moor`,
@@ -150,9 +151,14 @@ export default function PizzaTuesdayPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href={`tel:${CONTACT.phone}`}>
-              <Button variant="primary" size="lg">📞 Book Your Table</Button>
-            </Link>
+            <BookTableButton
+              source="pizza_tuesday_hero"
+              context="pizza_tuesday"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book Your Table
+            </BookTableButton>
             <Link href="/food/pizza">
               <Button variant="secondary" size="lg">
                 🍕 View Pizza Menu

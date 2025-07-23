@@ -6,6 +6,8 @@ import { useState, useEffect, ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import type { NavigationItem, BusinessInfo } from '@/lib/types'
 import { useFocusTrap } from '@/hooks/useFocusTrap'
+import { BookTableButton } from '@/components/BookTableButton'
+import { trackNavigationClick } from '@/lib/gtm-events'
 
 interface NavigationProps {
   logo?: {
@@ -182,6 +184,14 @@ export function Navigation({
           <Link
             href={item.href}
             className={cn(linkClass, 'flex items-center gap-1')}
+            onClick={() => trackNavigationClick({
+              label: item.label,
+              url: item.href,
+              level: 'main',
+              deviceType: 'desktop',
+              isExternal: false,
+              location: 'header'
+            })}
           >
             {item.label}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,6 +208,14 @@ export function Navigation({
                   key={subItem.href}
                   href={subItem.href}
                   className="block px-4 py-2 text-sm text-white hover:bg-anchor-gold hover:text-white transition-colors"
+                  onClick={() => trackNavigationClick({
+                    label: subItem.label,
+                    url: subItem.href,
+                    level: 'dropdown',
+                    deviceType: 'desktop',
+                    isExternal: false,
+                    location: 'header'
+                  })}
                 >
                   {subItem.label}
                 </Link>
@@ -215,7 +233,17 @@ export function Navigation({
           <Link
             href={item.href}
             className={cn(linkClass, 'border-b border-anchor-green-light')}
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              trackNavigationClick({
+                label: item.label,
+                url: item.href,
+                level: 'main',
+                deviceType: 'mobile',
+                isExternal: false,
+                location: 'mobile_menu'
+              })
+              setIsMobileMenuOpen(false)
+            }}
           >
             {item.label}
           </Link>
@@ -225,7 +253,17 @@ export function Navigation({
                 key={subItem.href}
                 href={subItem.href}
                 className={cn(linkClass, 'text-base py-2')}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  trackNavigationClick({
+                    label: subItem.label,
+                    url: subItem.href,
+                    level: 'dropdown',
+                    deviceType: 'mobile',
+                    isExternal: false,
+                    location: 'mobile_menu'
+                  })
+                  setIsMobileMenuOpen(false)
+                }}
               >
                 {subItem.label}
               </Link>
@@ -244,7 +282,17 @@ export function Navigation({
           className={linkClass}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+          onClick={() => {
+            trackNavigationClick({
+              label: item.label,
+              url: item.href,
+              level: 'main',
+              deviceType: isMobile ? 'mobile' : 'desktop',
+              isExternal: true,
+              location: isMobile ? 'mobile_menu' : 'header'
+            })
+            if (isMobile) setIsMobileMenuOpen(false)
+          }}
         >
           {item.label}
         </a>
@@ -256,7 +304,17 @@ export function Navigation({
         key={item.href}
         href={item.href}
         className={linkClass}
-        onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+        onClick={() => {
+          trackNavigationClick({
+            label: item.label,
+            url: item.href,
+            level: 'main',
+            deviceType: isMobile ? 'mobile' : 'desktop',
+            isExternal: false,
+            location: isMobile ? 'mobile_menu' : 'header'
+          })
+          if (isMobile) setIsMobileMenuOpen(false)
+        }}
       >
         {item.label}
       </Link>
@@ -266,6 +324,22 @@ export function Navigation({
   const renderCTA = (isMobile = false) => {
     if (!ctaButton) return null
 
+    // Check if this is a booking link
+    if (ctaButton.href.includes('ordertab.menu/theanchor/bookings')) {
+      return (
+        <BookTableButton
+          source={isMobile ? 'header_mobile' : 'header_desktop'}
+          variant="primary"
+          size={isMobile ? 'md' : 'sm'}
+          className={isMobile ? 'block w-full mt-4' : ''}
+          onClickAfterTracking={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+        >
+          {ctaButton.icon} {ctaButton.label}
+        </BookTableButton>
+      )
+    }
+
+    // For non-booking CTAs, use the original implementation
     const ctaClass = cn(
       'font-semibold transition-all rounded-full',
       'px-4 py-1.5 text-sm xl:px-6 xl:py-2 xl:text-base', // Responsive sizing
@@ -282,7 +356,17 @@ export function Navigation({
           className={ctaClass}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+          onClick={() => {
+            trackNavigationClick({
+              label: ctaButton.label,
+              url: ctaButton.href,
+              level: 'main',
+              deviceType: isMobile ? 'mobile' : 'desktop',
+              isExternal: true,
+              location: isMobile ? 'mobile_menu' : 'header'
+            })
+            if (isMobile) setIsMobileMenuOpen(false)
+          }}
         >
           {ctaButton.icon} {ctaButton.label}
         </a>
@@ -293,7 +377,17 @@ export function Navigation({
       <Link
         href={ctaButton.href}
         className={ctaClass}
-        onClick={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+        onClick={() => {
+          trackNavigationClick({
+            label: ctaButton.label,
+            url: ctaButton.href,
+            level: 'main',
+            deviceType: isMobile ? 'mobile' : 'desktop',
+            isExternal: false,
+            location: isMobile ? 'mobile_menu' : 'header'
+          })
+          if (isMobile) setIsMobileMenuOpen(false)
+        }}
       >
         {ctaButton.icon} {ctaButton.label}
       </Link>

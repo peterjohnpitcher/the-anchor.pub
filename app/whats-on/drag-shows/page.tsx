@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Drag Shows | The Anchor Stanwell Moor | Monthly Entertainment',
@@ -59,14 +60,14 @@ export default function DragShowsPage() {
               <span className="tag bg-white/90 backdrop-blur-sm">🍹 Themed Cocktails</span>
             </div>
             
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Book Your Table Now
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="drag_shows_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book Your Table Now
+            </PhoneButton>
           </div>
         </div>
       </section>
@@ -387,15 +388,15 @@ export default function DragShowsPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="secondary"
-        size="lg"
-        className="bg-white text-anchor-green hover:bg-gray-100"
-      >
-        📞 Book Your Table: 01753 682707
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="drag_shows_cta"
+              variant="secondary"
+              size="lg"
+              className="bg-white text-anchor-green hover:bg-gray-100"
+            >
+              📞 Book Your Table: 01753 682707
+            </PhoneButton>
             <Link href="/whats-on">
       <Button 
         variant="secondary"

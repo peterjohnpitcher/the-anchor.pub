@@ -1,6 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import { PhoneLink } from '@/components/PhoneLink'
+import { BookTableButton } from '@/components/BookTableButton'
+import { DirectionsLink } from '@/components/DirectionsButton'
+import { WhatsAppLink } from '@/components/WhatsAppLink'
 
 export function FloatingActions() {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,49 +33,49 @@ export function FloatingActions() {
           aria-labelledby="floating-action-button"
         >
           <div className="bg-white rounded-2xl shadow-2xl p-3 min-w-[200px] space-y-2">
-            <a
-              href="https://ordertab.menu/theanchor/bookings"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours"
-              onClick={() => setIsOpen(false)}
-              role="menuitem"
+            <BookTableButton
+              source="floating_actions"
+              variant="ghost"
+              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours w-full justify-start text-left"
+              onClickAfterTracking={() => setIsOpen(false)}
             >
               <span className="text-2xl" aria-hidden="true">📅</span>
               <span className="font-medium">Book a Table</span>
-            </a>
+            </BookTableButton>
             
-            <a
-              href="tel:01753682707"
+            <PhoneLink
+              phone="01753682707"
+              source="floating_actions"
               className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours"
+              showIcon={false}
               onClick={() => setIsOpen(false)}
               role="menuitem"
             >
               <span className="text-2xl" aria-hidden="true">📞</span>
               <span className="font-medium">Call Us</span>
-            </a>
+            </PhoneLink>
             
-            <a
-              href="https://wa.me/4401753682707"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors"
+            <WhatsAppLink
+              phone="01753682707"
+              source="floating_actions"
+              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colors w-full"
+              showIcon={false}
               onClick={() => setIsOpen(false)}
-              role="menuitem"
             >
               <span className="text-2xl" aria-hidden="true">💬</span>
               <span className="font-medium">WhatsApp</span>
-            </a>
+            </WhatsAppLink>
             
-            <a
-              href="/find-us"
-              className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours"
-              onClick={() => setIsOpen(false)}
-              role="menuitem"
-            >
-              <span className="text-2xl" aria-hidden="true">📍</span>
-              <span className="font-medium">Get Directions</span>
-            </a>
+            <div onClick={() => setIsOpen(false)} role="menuitem">
+              <DirectionsLink
+                href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                source="floating_actions"
+                className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours w-full"
+              >
+                <span className="text-2xl" aria-hidden="true">📍</span>
+                <span className="font-medium">Get Directions</span>
+              </DirectionsLink>
+            </div>
             
             <a
               href="/food-menu"

@@ -11,6 +11,8 @@ import { AlertBox } from '@/components/AlertBox'
 import { CTASection } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { DirectionsButton } from '@/components/DirectionsButton'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 3 Hotels | The Anchor - Local British Pub',
@@ -43,14 +45,14 @@ export default function Terminal3Page() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Book a Table
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="terminal_3_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </PhoneButton>
             
             <Link href="#directions">
       <Button 
@@ -168,14 +170,15 @@ export default function Terminal3Page() {
               <p className="text-gray-700 mb-6">
                 Click below for turn-by-turn directions from Terminal 3
               </p>
-              <Link href="https://maps.google.com/maps?saddr=Heathrow+Terminal+3&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        Open in Google Maps
-      </Button>
-    </Link>
+              <DirectionsButton
+                href="https://maps.google.com/maps?saddr=Heathrow+Terminal+3&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                source="terminal_3_directions"
+                variant="primary"
+                size="lg"
+                fromLocation="Heathrow Terminal 3"
+              >
+                Open in Google Maps
+              </DirectionsButton>
             </div>
           </div>
         </div>
@@ -400,11 +403,15 @@ export default function Terminal3Page() {
                 The Anchor offers a peaceful village pub atmosphere where you can 
                 relax, enjoy great food, and experience genuine British hospitality.
               </p>
-              <Link href="tel:01753682707">
-                <Button variant="secondary" size="lg" className="bg-white text-anchor-green hover:bg-gray-100">
-                  📞 Book Your Table: 01753 682707
-                </Button>
-              </Link>
+              <PhoneButton
+                phone="01753 682707"
+                source="terminal_3_hotel_cta"
+                variant="secondary"
+                size="lg"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                📞 Book Your Table: 01753 682707
+              </PhoneButton>
             </div>
           </div>
         </div>
@@ -450,6 +457,8 @@ export default function Terminal3Page() {
           {
             text: "📞 01753 682707",
             href: "tel:01753682707",
+            isPhone: true,
+            phoneSource: "terminal_3_cta_section",
             variant: "white",
             size: "lg"
           },

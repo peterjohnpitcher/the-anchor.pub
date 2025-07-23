@@ -2,6 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import type { NavigationItem, SocialLink, ContactInfo, BusinessInfo } from '@/lib/types'
+import { PhoneLink } from '@/components/PhoneLink'
+import { EmailLink } from '@/components/EmailLink'
+import { DirectionsLink } from '@/components/DirectionsButton'
+import { WhatsAppLink } from '@/components/WhatsAppLink'
+import { SocialLink as SocialLinkComponent } from '@/components/SocialLink'
+import { trackNavigationClick } from '@/lib/gtm-events'
 
 interface FooterSection {
   title: string
@@ -153,6 +159,14 @@ export function Footer({
             className={mergedTheme.linkHover}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackNavigationClick({
+              label: item.label,
+              url: item.href,
+              level: 'main',
+              deviceType: 'desktop',
+              isExternal: true,
+              location: 'footer'
+            })}
           >
             {item.label}
           </a>
@@ -162,7 +176,18 @@ export function Footer({
 
     return (
       <li key={item.href}>
-        <Link href={item.href} className={mergedTheme.linkHover}>
+        <Link 
+          href={item.href} 
+          className={mergedTheme.linkHover}
+          onClick={() => trackNavigationClick({
+            label: item.label,
+            url: item.href,
+            level: 'main',
+            deviceType: 'desktop',
+            isExternal: false,
+            location: 'footer'
+          })}
+        >
           {item.label}
         </Link>
       </li>
@@ -212,46 +237,61 @@ export function Footer({
                 {contact.phone && (
                   <>
                     <li>
-                      📞 <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className={mergedTheme.linkHover}>
-                        {contact.phone}
-                      </a>
+                      <PhoneLink 
+                        phone={contact.phone} 
+                        source="footer" 
+                        className={mergedTheme.linkHover}
+                      />
                     </li>
                     <li>
-                      💬 <a href={`https://wa.me/44${contact.phone.replace(/\s/g, '').replace(/^0/, '')}`} className={mergedTheme.linkHover} target="_blank" rel="noopener noreferrer">
+                      <WhatsAppLink
+                        phone={contact.phone}
+                        source="footer"
+                        className={mergedTheme.linkHover}
+                      >
                         WhatsApp Us
-                      </a>
+                      </WhatsAppLink>
                     </li>
                   </>
                 )}
                 {contact.email && (
                   <li>
-                    ✉️ <a href={`mailto:${contact.email}`} className={mergedTheme.linkHover}>
-                      {contact.email}
-                    </a>
+                    <EmailLink
+                      email={contact.email}
+                      source="footer"
+                      className={mergedTheme.linkHover}
+                      showIcon={true}
+                    />
                   </li>
                 )}
                 {contact.address && (
                   <li itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                    📍 <span itemProp="streetAddress">Horton Road</span>, 
-                    <span itemProp="addressLocality">Stanwell Moor</span>, 
-                    <span itemProp="addressRegion">Surrey</span>, 
-                    <span itemProp="postalCode">TW19 6AQ</span>
+                    📍 <DirectionsLink
+                      href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                      source="footer_address"
+                      className={mergedTheme.linkHover}
+                    >
+                      <span itemProp="streetAddress">Horton Road</span>, 
+                      <span itemProp="addressLocality">Stanwell Moor</span>, 
+                      <span itemProp="addressRegion">Surrey</span>, 
+                      <span itemProp="postalCode">TW19 6AQ</span>
+                    </DirectionsLink>
                   </li>
                 )}
                 {contact.social && contact.social.length > 0 && (
                   <li className="pt-2">
                     <div className="flex gap-4">
                       {contact.social.map(social => (
-                        <a 
+                        <SocialLinkComponent
                           key={social.platform}
-                          href={social.href} 
+                          platform={social.platform as any}
+                          href={social.href}
+                          source="footer"
                           className={cn(mergedTheme.linkHover, 'hover:text-anchor-gold')}
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          aria-label={`Visit our ${social.label || social.platform} page`}
+                          ariaLabel={`Visit our ${social.label || social.platform} page`}
                         >
                           {social.label || social.platform}
-                        </a>
+                        </SocialLinkComponent>
                       ))}
                     </div>
                   </li>

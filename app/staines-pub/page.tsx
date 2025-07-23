@@ -9,6 +9,7 @@ import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: `Staines Pub | ${BRAND.nameWithLocation} | Traditional British Pub Near Staines`,
@@ -88,11 +89,14 @@ export default function StainesPubPage() {
         ]}
         cta={
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href={CONTACT.phoneHref}>
-              <Button variant="primary" size="lg">
-                📞 Call {CONTACT.phone}
-              </Button>
-            </Link>
+            <PhoneButton
+              phone={CONTACT.phone}
+              source="staines_pub_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Call {CONTACT.phone}
+            </PhoneButton>
             <Link href="/food-menu">
               <Button variant="secondary" size="lg">
                 View Our Menu
@@ -339,11 +343,14 @@ export default function StainesPubPage() {
                     View Event Options
                   </Button>
                 </Link>
-                <Link href="tel:01753682707">
-                  <Button variant="secondary" size="md">
-                    📞 Quick Enquiry
-                  </Button>
-                </Link>
+                <PhoneButton
+                  phone="01753 682707"
+                  source="staines_pub_event_enquiry"
+                  variant="secondary"
+                  size="md"
+                >
+                  📞 Quick Enquiry
+                </PhoneButton>
                 <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
                   <Button variant="secondary" size="md">
                     💬 WhatsApp
@@ -395,6 +402,8 @@ export default function StainesPubPage() {
           {
             text: "📞 Book Your Table",
             href: CONTACT.phoneHref,
+            isPhone: true,
+            phoneSource: "staines_pub_cta",
             variant: "secondary"
           },
           {

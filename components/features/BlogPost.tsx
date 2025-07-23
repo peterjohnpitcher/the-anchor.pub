@@ -6,6 +6,7 @@ import { Card, CardBody } from '@/components/ui/layout/Card'
 import { Container, Section } from '@/components/ui/layout/Container'
 import { Breadcrumb } from '@/components/ui/navigation/Breadcrumb'
 import { Grid } from '@/components/ui/layout/Grid'
+import { BlogShareButtons } from '@/components/BlogShareButtons'
 
 interface BlogPostProps {
   post: {
@@ -183,22 +184,7 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
       <Section spacing="sm" className="bg-gray-50">
         <Container size="md" className="text-center">
           <p className="text-gray-700 mb-4">Enjoyed this article? Share it with your friends!</p>
-          <div className="flex justify-center gap-4">
-            <Button 
-              variant="secondary"
-              size="sm"
-              onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://the-anchor.pub/blog/${post.slug}`)}`, '_blank')}
-            >
-              Share on Twitter
-            </Button>
-            <Button 
-              variant="secondary"
-              size="sm"
-              onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://the-anchor.pub/blog/${post.slug}`)}`, '_blank')}
-            >
-              Share on Facebook
-            </Button>
-          </div>
+          <BlogShareButtons postTitle={post.title} postSlug={post.slug} />
         </Container>
       </Section>
 

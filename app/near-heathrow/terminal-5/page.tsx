@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { DirectionsButton } from '@/components/DirectionsButton'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
 import { TerminalNavigation } from '@/components/TerminalNavigation'
@@ -12,6 +13,7 @@ import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
 import { CTASection } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 5 Hotels | The Anchor - Local British Pub',
@@ -45,14 +47,14 @@ export default function Terminal5Page() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Book a Table
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="terminal_5_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </PhoneButton>
             
             <Link href="#directions">
       <Button 
@@ -176,14 +178,15 @@ export default function Terminal5Page() {
               <p className="text-gray-700 mb-6">
                 Click below for turn-by-turn directions from Terminal 5
               </p>
-              <Link href="https://maps.google.com/maps?saddr=Heathrow+Terminal+5&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        Open in Google Maps
-      </Button>
-    </Link>
+              <DirectionsButton
+                href="https://maps.google.com/maps?saddr=Heathrow+Terminal+5&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                source="terminal_5_directions"
+                variant="primary"
+                size="lg"
+                fromLocation="Heathrow Terminal 5"
+              >
+                Open in Google Maps
+              </DirectionsButton>
             </div>
           </div>
         </div>
@@ -427,11 +430,14 @@ export default function Terminal5Page() {
                 Join the savvy travelers who've discovered there's more to Heathrow 
                 dining than airport chains and hotel restaurants.
               </p>
-              <Link href="tel:01753682707">
-                <Button variant="primary" size="lg">
-                  📞 Reserve Your Table: 01753 682707
-                </Button>
-              </Link>
+              <PhoneButton
+                phone="01753 682707"
+                source="terminal_5_hotel_reserve"
+                variant="primary"
+                size="lg"
+              >
+                📞 Reserve Your Table: 01753 682707
+              </PhoneButton>
             </div>
           </div>
         </div>
@@ -489,6 +495,8 @@ export default function Terminal5Page() {
           {
             text: "📞 01753 682707",
             href: "tel:01753682707",
+            isPhone: true,
+            phoneSource: "terminal_5_cta_section",
             variant: "white",
             size: "lg"
           },

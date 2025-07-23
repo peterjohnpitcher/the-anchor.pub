@@ -12,6 +12,7 @@ import { AnalyticsProvider } from '@/components/AnalyticsProvider'
 import { GoogleTagManager, GoogleTagManagerNoscript } from '@/components/GoogleTagManager'
 import { GTMProvider, GTMNoscript } from '@/components/GTMProvider'
 import { CanonicalLink } from '@/components/CanonicalLink'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
 /* Critical CSS for above-the-fold content */
@@ -232,18 +233,24 @@ export default function RootLayout({
             >
               Skip to main content
             </a>
-            <header role="banner">
-              <Navigation 
-                statusComponent={<HeaderStatusSection />}
-                showWeather={false}
-              />
-            </header>
+            <ErrorBoundary context="navigation">
+              <header role="banner">
+                <Navigation 
+                  statusComponent={<HeaderStatusSection />}
+                  showWeather={false}
+                />
+              </header>
+            </ErrorBoundary>
             <main id="main-content" role="main">
-              {children}
+              <ErrorBoundary context="main-content">
+                {children}
+              </ErrorBoundary>
             </main>
-            <footer role="contentinfo">
-              <Footer />
-            </footer>
+            <ErrorBoundary context="footer">
+              <footer role="contentinfo">
+                <Footer />
+              </footer>
+            </ErrorBoundary>
             <FloatingActions />
           </AnalyticsProvider>
         </GTMProvider>

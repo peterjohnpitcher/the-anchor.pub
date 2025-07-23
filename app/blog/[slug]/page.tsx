@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import { getBlogPost, getAllBlogPosts, distributeImages } from '@/lib/markdown'
 import { Button } from '@/components/ui'
 import { Metadata } from 'next'
+import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
+import { BlogShareButtons } from '@/components/BlogShareButtons'
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
@@ -56,6 +58,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   return (
     <>
+      <ScrollDepthTracker />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-end mt-20">
         <div className="absolute inset-0">
@@ -182,26 +185,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-gray-600 mb-4">Enjoyed this article? Share it with your friends!</p>
-            <div className="flex justify-center gap-4">
-              <Link 
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://the-anchor.pub/blog/${post.slug}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="secondary" size="sm">
-                  Share on Twitter
-                </Button>
-              </Link>
-              <Link 
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://the-anchor.pub/blog/${post.slug}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="secondary" size="sm">
-                  Share on Facebook
-                </Button>
-              </Link>
-            </div>
+            <BlogShareButtons postTitle={post.title} postSlug={post.slug} />
           </div>
         </div>
       </section>

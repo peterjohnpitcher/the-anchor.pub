@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { logError } from '@/lib/error-handling'
 
 const API_KEY = 'bcf9b880cc9fe4615bd68090e88c6407d4ee7506'
 const API_URL = 'https://management.orangejelly.co.uk/api/business/hours'
@@ -15,7 +16,12 @@ export async function GET() {
     })
 
     if (!response.ok) {
-      throw new Error('Failed to fetch business hours')
+      const error = new Error(`Failed to fetch business hours: ${response.status} ${response.statusText}`)
+      logError('business-hours-api-external', error, {
+        status: response.status,
+        statusText: response.statusText
+      })
+      throw error
     }
 
     const data = await response.json()
@@ -107,7 +113,7 @@ export async function GET() {
       timezoneFix: 'Applied BST fix server-side'
     })
   } catch (error) {
-    console.error('Business hours API error:', error)
+    logError('business-hours-api', error)
     return NextResponse.json({ error: 'Unable to load business hours' }, { status: 500 })
   }
 }

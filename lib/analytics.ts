@@ -10,6 +10,8 @@ export type AnalyticsEvent =
   | { action: 'filter'; category: 'events'; label: string; value?: number }
   | { action: 'view_item'; category: 'event' | 'menu_item'; label: string; value?: number }
   | { action: 'share'; category: 'social'; label: string; value?: number }
+  | { action: 'phone_call_click'; category: 'phone'; label: string; value?: number; metadata?: Record<string, any> }
+  | { action: 'email_click'; category: 'email'; label: string; value?: number; metadata?: Record<string, any> }
 
 interface AnalyticsConfig {
   debug?: boolean
@@ -31,6 +33,8 @@ class Analytics {
   track(event: AnalyticsEvent) {
     if (!this.config.enabled) return
 
+    const metadata = 'metadata' in event ? event.metadata : undefined
+
     // Log in development
     if (this.config.debug) {
       console.log('[Analytics]', {
@@ -38,6 +42,7 @@ class Analytics {
         category: event.category,
         label: event.label,
         value: event.value,
+        metadata,
         timestamp: new Date().toISOString()
       })
     }
@@ -47,7 +52,8 @@ class Analytics {
       (window as any).gtag('event', event.action, {
         event_category: event.category,
         event_label: event.label,
-        value: event.value
+        value: event.value,
+        ...metadata
       })
     }
 
@@ -57,7 +63,8 @@ class Analytics {
         event: event.action,
         event_category: event.category,
         event_label: event.label,
-        value: event.value
+        value: event.value,
+        ...metadata
       })
     }
 
@@ -69,6 +76,7 @@ class Analytics {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...event,
+          metadata,
           timestamp: new Date().toISOString(),
           url: window.location.href,
           userAgent: navigator.userAgent
@@ -139,21 +147,34 @@ class Analytics {
       value: typeof itemId === 'number' ? itemId : undefined
     })
   }
+
+  phoneCall(phoneNumber: string, source: string, page?: string) {
+    this.track({
+      action: 'phone_call_click',
+      category: 'phone',
+      label: phoneNumber,
+      metadata: {
+        source,
+        page: page || (typeof window !== 'undefined' ? window.location.pathname : undefined),
+        timestamp: new Date().toISOString()
+      }
+    })
+  }
+
+  emailClick(email: string, source: string, subject?: string, page?: string) {
+    this.track({
+      action: 'email_click',
+      category: 'email',
+      label: email,
+      metadata: {
+        source,
+        subject,
+        page: page || (typeof window !== 'undefined' ? window.location.pathname : undefined),
+        timestamp: new Date().toISOString()
+      }
+    })
+  }
 }
 
 // Export singleton instance
 export const analytics = new Analytics()
-
-// React hook for analytics
-import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-
-export function useAnalytics() {
-  const pathname = usePathname()
-
-  useEffect(() => {
-    analytics.pageView(pathname)
-  }, [pathname])
-
-  return analytics
-}

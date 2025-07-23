@@ -5,11 +5,14 @@ import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { BookTableButton } from '@/components/BookTableButton'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: `Ashford Pub Near Me | ${BRAND.name} - 10 Minutes from Ashford`,
@@ -103,11 +106,14 @@ export default function AshfordPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={CONTACT.phoneHref}>
-              <Button variant="primary" size="lg">
-                📞 Call to Book
-              </Button>
-            </Link>
+            <BookTableButton
+              source="ashford_pub_hero"
+              context="location_ashford"
+              variant="primary"
+              size="lg"
+            >
+              📞 Call to Book
+            </BookTableButton>
             <Link href="/food-menu">
               <Button variant="secondary" size="lg">
                 🍽️ View Menu
@@ -362,14 +368,14 @@ export default function AshfordPubPage() {
         View All Event Options
       </Button>
     </Link>
-                <Link href="tel:01753682707">
-      <Button 
-        variant="secondary"
-        size="md"
-      >
-        📞 Call: 01753 682707
-      </Button>
-    </Link>
+                <PhoneButton
+                  phone="01753 682707"
+                  source="ashford_pub_event_cta"
+                  variant="secondary"
+                  size="md"
+                >
+                  📞 Call: 01753 682707
+                </PhoneButton>
                 <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
       <Button 
         variant="secondary"
@@ -442,14 +448,15 @@ export default function AshfordPubPage() {
             </div>
             
             <div className="mt-8 text-center">
-              <Link href="https://maps.google.com/maps?saddr=Ashford+Surrey&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
-      <Button 
-        variant="secondary"
-        size="md"
-      >
-        📍 Get Directions from Ashford
-      </Button>
-    </Link>
+              <DirectionsButton
+                href="https://maps.google.com/maps?saddr=Ashford+Surrey&daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                source="ashford_directions"
+                variant="secondary"
+                size="md"
+                fromLocation="Ashford Surrey"
+              >
+                📍 Get Directions from Ashford
+              </DirectionsButton>
             </div>
           </div>
         </div>
@@ -556,6 +563,8 @@ export default function AshfordPubPage() {
           {
             text: "📞 Book a Table",
             href: `tel:${CONTACT.phone}`,
+            isPhone: true,
+            phoneSource: "ashford_pub_cta_section",
             variant: "secondary"
           },
           {

@@ -10,6 +10,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Christmas Party Venue Near Heathrow | The Anchor Stanwell Moor | Book Now',
@@ -282,14 +283,14 @@ export default function ChristmasPartiesPage() {
               <p className="text-gray-700 mb-4">
                 Every party is unique - we'll create a package that works for your group size and budget
               </p>
-              <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Call for Pricing: 01753 682707
-      </Button>
-    </Link>
+              <PhoneButton
+                phone="01753 682707"
+                source="christmas_parties_cta"
+                variant="primary"
+                size="lg"
+              >
+                📞 Call for Pricing: 01753 682707
+              </PhoneButton>
             </div>
           </div>
         </div>
@@ -511,7 +512,8 @@ export default function ChristmasPartiesPage() {
           {
             text: "📧 Email Enquiry",
             href: `mailto:${CONTACT.email}?subject=Christmas Party Enquiry`,
-            variant: "secondary"
+            variant: "secondary",
+            emailSource: "christmas_parties_cta"
           }
         ]}
         variant="red"

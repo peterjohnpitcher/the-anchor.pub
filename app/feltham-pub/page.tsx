@@ -9,6 +9,7 @@ import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/e
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Feltham Pub | The Anchor - 10 Minutes Away | Surrey',
@@ -87,14 +88,14 @@ export default function FelthamPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Call to Book
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="feltham_pub_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Call to Book
+            </PhoneButton>
             <Link href="/food-menu">
       <Button 
         variant="secondary"
@@ -369,14 +370,14 @@ export default function FelthamPubPage() {
         Party Venue Info
       </Button>
     </Link>
-                <Link href="tel:01753682707">
-      <Button 
-        variant="secondary"
-        size="md"
-      >
-        📞 Quick Quote
-      </Button>
-    </Link>
+                <PhoneButton
+                  phone="01753 682707"
+                  source="feltham_pub_event_quote"
+                  variant="secondary"
+                  size="md"
+                >
+                  📞 Quick Quote
+                </PhoneButton>
                 <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
       <Button 
         variant="secondary"
@@ -430,6 +431,8 @@ export default function FelthamPubPage() {
           {
             text: "📞 Call: 01753 682707",
             href: "tel:01753682707",
+            isPhone: true,
+            phoneSource: "feltham_pub_cta",
             variant: "white"
           },
           {

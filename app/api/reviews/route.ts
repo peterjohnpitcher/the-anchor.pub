@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { getAnchorPlacesClient } from '@/lib/google/places-client'
 import { filterReviews, mockReviews } from '@/lib/google/review-utils'
 import { ReviewsFilter } from '@/lib/google/types'
+import { logError } from '@/lib/error-handling'
 
 export const dynamic = 'force-dynamic'
 
@@ -40,7 +41,10 @@ export async function GET(request: Request) {
 
     // Use mock data if API is not configured or returns no reviews
     if (reviews.length === 0) {
-      console.log('Using mock reviews (API not configured or no reviews returned)')
+      logError('reviews-api-fallback', new Error('No reviews returned from API, using mock data'), {
+        hasClient: !!client,
+        filter
+      })
       reviews = mockReviews
       source = 'mock'
       rating = 4.6
@@ -64,7 +68,7 @@ export async function GET(request: Request) {
     }, { headers })
 
   } catch (error) {
-    console.error('Error fetching reviews:', error)
+    logError('reviews-api', error)
     return NextResponse.json(
       { error: 'Failed to fetch reviews' },
       { status: 500 }

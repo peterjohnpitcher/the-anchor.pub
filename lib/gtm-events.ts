@@ -180,6 +180,40 @@ export function trackFlightStatusCheck(terminal: string) {
   })
 }
 
+// Navigation tracking
+export function trackNavigationClick(data: {
+  label: string
+  url: string
+  level: 'main' | 'dropdown'
+  deviceType: 'mobile' | 'desktop'
+  isExternal: boolean
+  location?: 'header' | 'footer' | 'mobile_menu'
+}) {
+  pushToDataLayer({
+    event: 'navigation_click',
+    event_category: 'Navigation',
+    event_label: data.label,
+    navigation_url: data.url,
+    navigation_level: data.level,
+    device_type: data.deviceType,
+    link_type: data.isExternal ? 'external' : 'internal',
+    click_location: data.location || 'header_navigation'
+  })
+}
+
+// Scroll depth tracking
+export function trackScrollDepth(milestone: number) {
+  pushToDataLayer({
+    event: 'scroll_depth',
+    event_category: 'Engagement',
+    event_label: document.title,
+    value: milestone,
+    scroll_depth: milestone,
+    page_location: window.location.href,
+    page_title: document.title,
+  })
+}
+
 // Error tracking
 export function trackError(errorType: string, errorMessage: string, context?: string) {
   pushToDataLayer({

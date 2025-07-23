@@ -1,6 +1,8 @@
 // The Anchor API Service
 // Handles all API calls to the management system
 
+import { logError } from '@/lib/error-handling'
+
 // Use internal API routes to avoid CORS issues and keep API key secure
 const API_BASE_URL = typeof window === 'undefined' 
   ? 'https://management.orangejelly.co.uk/api'  // Server-side: direct API calls
@@ -322,7 +324,11 @@ export class AnchorAPI {
 
       return response.json()
     } catch (error) {
-      console.error('API Error:', error)
+      logError('api-request', error, { 
+        endpoint, 
+        url,
+        method: options.method || 'GET' 
+      })
       // Re-throw the error with proper structure
       throw error
     }
@@ -464,7 +470,7 @@ export async function getBusinessHours(): Promise<BusinessHours | null> {
   try {
     return await anchorAPI.getBusinessHours()
   } catch (error) {
-    console.error('Failed to fetch business hours:', error)
+    logError('api-business-hours', error)
     return null
   }
 }
@@ -478,7 +484,7 @@ export async function getUpcomingEvents(limit: number = 10): Promise<Event[]> {
     })
     return response.events || []
   } catch (error) {
-    console.error('Failed to fetch upcoming events:', error)
+    logError('api-upcoming-events', error, { limit })
     return []
   }
 }
@@ -488,7 +494,7 @@ export async function getTodaysEvents(): Promise<Event[]> {
     const response = await anchorAPI.getTodaysEvents()
     return response.events || []
   } catch (error) {
-    console.error('Failed to fetch today\'s events:', error)
+    logError('api-todays-events', error)
     return []
   }
 }
@@ -501,7 +507,7 @@ export async function getEventsByCategory(category: string, limit: number = 20):
     })
     return response.events || []
   } catch (error) {
-    console.error(`Failed to fetch events for category ${category}:`, error)
+    logError('api-events-by-category', error, { category, limit })
     return []
   }
 }
@@ -618,7 +624,7 @@ export async function checkEventAvailability(eventId: string, seats: number = 1)
   try {
     return await anchorAPI.checkEventAvailability(eventId, seats)
   } catch (error) {
-    console.error('Failed to check event availability:', error)
+    logError('api-check-availability', error, { eventId, seats })
     return null
   }
 }
@@ -630,7 +636,7 @@ export async function initiateEventBooking(eventId: string, mobileNumber: string
       mobile_number: mobileNumber,
     })
   } catch (error: any) {
-    console.error('Failed to initiate booking:', error)
+    logError('api-initiate-booking', error, { eventId })
     // Re-throw the error so the component can handle it
     throw error
   }
@@ -642,7 +648,7 @@ export async function getEventCategories(): Promise<EventCategory[]> {
     const response = await anchorAPI.getEventCategories()
     return response.categories || []
   } catch (error) {
-    console.error('Failed to fetch event categories:', error)
+    logError('api-event-categories', error)
     return []
   }
 }

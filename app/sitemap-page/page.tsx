@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 import { HeroWrapper } from '@/components/hero'
 import { Button } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneLink } from '@/components/PhoneLink'
+import { EmailLink } from '@/components/EmailLink'
 
 export const metadata: Metadata = {
   title: 'Sitemap | The Anchor Stanwell Moor',
@@ -140,19 +142,21 @@ export default function SitemapPage() {
                 Give us a call and we'll be happy to help
               </p>
               <div className="flex flex-wrap justify-center gap-6">
-                <a 
-                  href="tel:01753682707" 
+                <PhoneLink 
+                  phone="01753 682707" 
+                  source="sitemap_contact"
                   className="text-lg font-semibold text-anchor-gold hover:text-anchor-gold-light"
+                  showIcon={false}
                 >
                   📞 01753 682707
-                </a>
+                </PhoneLink>
                 <span className="text-gray-600">|</span>
-                <a 
-                  href="mailto:manager@the-anchor.pub" 
+                <EmailLink
+                  email="manager@the-anchor.pub"
+                  source="sitemap_contact"
                   className="text-lg font-semibold text-anchor-gold hover:text-anchor-gold-light"
-                >
-                  ✉️ manager@the-anchor.pub
-                </a>
+                  showIcon={true}
+                />
               </div>
             </div>
           </div>

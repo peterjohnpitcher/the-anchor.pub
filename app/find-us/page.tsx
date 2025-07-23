@@ -9,6 +9,11 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { findUsPlaceSchema, generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneLink } from '@/components/PhoneLink'
+import { EmailLink } from '@/components/EmailLink'
+import { PhoneButton } from '@/components/PhoneButton'
+import { DirectionsButton } from '@/components/DirectionsButton'
+import { WhatsAppLink } from '@/components/WhatsAppLink'
 
 export const metadata: Metadata = {
   title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
@@ -65,26 +70,22 @@ export default function FindUsPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <DirectionsButton
               href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ"
-              target="_blank"
-              rel="noopener noreferrer"
+              source="find_us_hero"
+              variant="primary"
+              size="lg"
             >
-              <Button 
-                variant="primary"
-                size="lg"
-              >
-                📍 Get Directions
-              </Button>
-            </Link>
-            <Link href="tel:01753682707">
-              <Button 
-                variant="secondary"
-                size="lg"
-              >
-                📞 Call Us
-              </Button>
-            </Link>
+              📍 Get Directions
+            </DirectionsButton>
+            <PhoneButton 
+              phone="01753682707" 
+              source="find_us_hero"
+              variant="secondary"
+              size="lg"
+            >
+              📞 Call Us
+            </PhoneButton>
           </div>
         }
       />
@@ -163,19 +164,29 @@ export default function FindUsPage() {
                   <div className="mt-6 pt-6 border-t border-gray-300">
                     <p className="font-bold text-anchor-green mb-3">Contact</p>
                     <p className="mb-2">
-                      <a href="tel:01753682707" className="text-anchor-gold hover:text-anchor-gold-light">
-                        📞 01753 682707
-                      </a>
+                      <PhoneLink 
+                        phone="01753682707" 
+                        source="find_us_contact"
+                        className="text-anchor-gold hover:text-anchor-gold-light"
+                      />
                     </p>
                     <p className="mb-2">
-                      <a href="https://wa.me/441753682707" className="text-anchor-gold hover:text-anchor-gold-light" target="_blank" rel="noopener noreferrer">
+                      <WhatsAppLink
+                        phone="01753682707"
+                        source="find_us_page"
+                        className="text-anchor-gold hover:text-anchor-gold-light"
+                        showIcon={false}
+                      >
                         💬 WhatsApp: 01753682707
-                      </a>
+                      </WhatsAppLink>
                     </p>
                     <p>
-                      <a href="mailto:manager@the-anchor.pub" className="text-anchor-gold hover:text-anchor-gold-light">
-                        ✉️ manager@the-anchor.pub
-                      </a>
+                      <EmailLink
+                        email="manager@the-anchor.pub"
+                        source="find_us_contact"
+                        className="text-anchor-gold hover:text-anchor-gold-light"
+                        showIcon={true}
+                      />
                     </p>
                   </div>
                 </div>
@@ -496,19 +507,25 @@ export default function FindUsPage() {
             text: "📍 Google Maps",
             href: "https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor+TW19+6AQ",
             variant: "white",
-            external: true
+            external: true,
+            isDirections: true,
+            directionsSource: "find_us_cta_google"
           },
           {
             text: "📍 Apple Maps",
             href: "https://maps.apple.com/?q=The+Anchor+Stanwell+Moor+TW19+6AQ",
             variant: "white",
-            external: true
+            external: true,
+            isDirections: true,
+            directionsSource: "find_us_cta_apple"
           },
           {
             text: "📍 Waze",
             href: "https://www.waze.com/ul?q=The+Anchor+Stanwell+Moor+TW19+6AQ",
             variant: "white",
-            external: true
+            external: true,
+            isDirections: true,
+            directionsSource: "find_us_cta_waze"
           }
         ]}
         variant="green"

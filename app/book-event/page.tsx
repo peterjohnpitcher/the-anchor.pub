@@ -7,6 +7,7 @@ import { eventBookingServiceSchema, generateBreadcrumbSchema } from '@/lib/enhan
 import { CTASection, SectionHeader, InfoBoxGrid, FeatureGrid, QuickInfoGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ReviewSection } from '@/components/reviews'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Event Venue Hire Near Me | The Anchor Stanwell Moor | Private Bookings',
@@ -89,14 +90,14 @@ export default function BookEventPage() {
         size="medium"
         showStatusBar={false}
         cta={
-          <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Call to Discuss: 01753 682707
-      </Button>
-    </Link>
+          <PhoneButton
+            phone="01753 682707"
+            source="book_event_hero"
+            variant="primary"
+            size="lg"
+          >
+            📞 Call to Discuss: 01753 682707
+          </PhoneButton>
         }
       />
 
@@ -639,12 +640,15 @@ export default function BookEventPage() {
           {
             text: "📞 Call: 01753 682707",
             href: "tel:01753682707",
+            isPhone: true,
+            phoneSource: "book_event_cta",
             variant: "white"
           },
           {
             text: "✉️ Email Us",
             href: "mailto:manager@the-anchor.pub?subject=Event Enquiry",
-            variant: "white"
+            variant: "white",
+            emailSource: "book_event_cta"
           }
         ]}
         variant="green"

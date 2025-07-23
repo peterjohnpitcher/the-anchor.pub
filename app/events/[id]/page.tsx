@@ -8,6 +8,7 @@ import EventBooking from '@/components/EventBooking'
 import EventAvailability from '@/components/EventAvailability'
 import { anchorAPI, formatEventDate, formatEventTime, formatPrice, isEventFree, isEventSoldOut, formatDoorTime, formatEventDuration, hasLimitedAvailability } from '@/lib/api'
 import { EventPageTracker } from '@/components/EventPageTracker'
+import { PhoneButton } from '@/components/PhoneButton'
 
 type Props = {
   params: { id: string }
@@ -353,16 +354,17 @@ export default async function EventPage({ params }: Props) {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center max-w-md mx-auto sm:max-w-none">
-            <Link href="tel:01753682707" className="w-full sm:w-auto">
-              <Button 
+            <div className="w-full sm:w-auto">
+              <PhoneButton 
+                phone="01753682707" 
+                source={`event_page_${params.id}`}
                 variant="secondary"
                 size="lg"
-                fullWidth
-                className="bg-white text-anchor-green hover:bg-gray-100 sm:w-auto"
+                className="bg-white text-anchor-green hover:bg-gray-100 w-full sm:w-auto"
               >
                 📞 Call: 01753 682707
-              </Button>
-            </Link>
+              </PhoneButton>
+            </div>
             
             <Link href="/whats-on" className="w-full sm:w-auto">
               <Button 

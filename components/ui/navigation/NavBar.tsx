@@ -7,6 +7,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import { Button } from '../primitives/Button'
 import type { BaseComponentProps, WithChildren } from '../types'
+import { trackNavigationClick } from '@/lib/gtm-events'
 
 // Navigation link type
 export interface NavItem {
@@ -160,7 +161,7 @@ export const NavBar = ({
             {/* Desktop Navigation */}
             <ul className={cn(breakpointShowClass, 'items-center gap-6')}>
               {items.map((item) => (
-                <NavItem key={item.href} item={item} variant={variant || 'default'} />
+                <NavItem key={item.href} item={item} variant={variant || 'default'} isMobile={false} />
               ))}
             </ul>
 
@@ -207,9 +208,10 @@ interface NavItemProps {
   item: NavItem
   variant?: 'default' | 'light' | 'transparent'
   onClick?: () => void
+  isMobile?: boolean
 }
 
-const NavItem = ({ item, variant = 'default', onClick }: NavItemProps) => {
+const NavItem = ({ item, variant = 'default', onClick, isMobile = false }: NavItemProps) => {
   const linkClasses = cn(
     'font-medium transition-colours flex items-center gap-2',
     variant === 'default' && 'text-white hover:text-anchor-gold',
@@ -237,7 +239,17 @@ const NavItem = ({ item, variant = 'default', onClick }: NavItemProps) => {
           className={linkClasses}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={onClick}
+          onClick={() => {
+            trackNavigationClick({
+              label: item.label,
+              url: item.href,
+              level: 'main',
+              deviceType: isMobile ? 'mobile' : 'desktop',
+              isExternal: true,
+              location: isMobile ? 'mobile_menu' : 'header'
+            })
+            onClick?.()
+          }}
         >
           {content}
         </a>
@@ -247,7 +259,21 @@ const NavItem = ({ item, variant = 'default', onClick }: NavItemProps) => {
 
   return (
     <li>
-      <Link href={item.href} className={linkClasses} onClick={onClick}>
+      <Link 
+        href={item.href} 
+        className={linkClasses} 
+        onClick={() => {
+          trackNavigationClick({
+            label: item.label,
+            url: item.href,
+            level: 'main',
+            deviceType: isMobile ? 'mobile' : 'desktop',
+            isExternal: false,
+            location: isMobile ? 'mobile_menu' : 'header'
+          })
+          onClick?.()
+        }}
+      >
         {content}
       </Link>
     </li>
@@ -288,6 +314,7 @@ const MobileMenu = ({ isOpen, items, actions, variant = 'default', onClose }: Mo
               item={item} 
               variant={variant} 
               onClick={onClose}
+              isMobile={true}
             />
           ))}
         </ul>

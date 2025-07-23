@@ -12,6 +12,8 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/component
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
+import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
+import { SocialLink } from '@/components/SocialLink'
 
 export const metadata: Metadata = {
   title: "What's On Near Me | The Anchor Stanwell Moor | Events & Entertainment",
@@ -36,6 +38,7 @@ type WhatsOnPageProps = {
 export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
   return (
     <>
+      <ScrollDepthTracker />
       {/* Hero Section */}
       <HeroWrapper
         route="/whats-on"
@@ -316,22 +319,22 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         variant="green"
       >
         <div className="flex justify-center gap-6 mb-8">
-          <a 
-            href="https://www.facebook.com/theanchorpubsm/" 
+          <SocialLink
+            platform="facebook"
+            href="https://www.facebook.com/theanchorpubsm/"
+            source="whats_on_page"
             className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colors text-white"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Facebook
-          </a>
-          <a 
-            href="https://www.instagram.com/theanchor.pub/" 
+          </SocialLink>
+          <SocialLink
+            platform="instagram"
+            href="https://www.instagram.com/theanchor.pub/"
+            source="whats_on_page"
             className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colours text-white"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Instagram
-          </a>
+          </SocialLink>
         </div>
         <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
           <p className="font-semibold mb-2 text-white">Event Enquiries</p>

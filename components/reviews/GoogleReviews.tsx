@@ -5,6 +5,7 @@ import { GoogleReview } from '@/lib/google/types'
 import { ReviewCard } from './ReviewCard'
 import { ReviewsCarousel } from './ReviewsCarousel'
 import { ReviewsBadge } from './ReviewsBadge'
+import { logError } from '@/lib/error-handling'
 
 interface GoogleReviewsProps {
   layout?: 'grid' | 'carousel' | 'badge' | 'list'
@@ -57,7 +58,10 @@ export function GoogleReviews({
       setRating(data.rating)
       setTotalReviews(data.totalReviews)
     } catch (err) {
-      console.error('Error fetching reviews:', err)
+      logError('google-reviews-fetch', err, { 
+        filter,
+        params: params.toString() 
+      })
       setError(err instanceof Error ? err.message : 'Failed to load reviews')
     } finally {
       setLoading(false)

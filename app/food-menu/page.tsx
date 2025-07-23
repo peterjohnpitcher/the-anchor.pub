@@ -11,6 +11,8 @@ import { getBusinessHours } from '@/lib/api'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { MenuPageTracker } from '@/components/MenuPageTracker'
+import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 
 export const metadata: Metadata = {
   title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Pub Food',
@@ -105,6 +107,14 @@ export default async function FoodMenuPage() {
 
   return (
     <>
+      <MenuPageTracker 
+        menuType="food" 
+        specialOffers={[
+          "Buy One Get One Free Pizza - Every Tuesday",
+          "50% Off Fish & Chips for Over 65s - Every Friday"
+        ]}
+      />
+      <ScrollDepthTracker />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([menuSchema, pizzaBOGOFSchema, fridayFishOfferSchema]) }}

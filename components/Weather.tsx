@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { LoadingState } from '@/components/ui/LoadingState'
+import { logError } from '@/lib/error-handling'
 
 interface WeatherData {
   temp: number
@@ -118,6 +119,10 @@ export function Weather({
         }))
       } catch (err) {
         // Error: Failed to fetch weather
+        logError('weather-fetch', err, { 
+          endpoint: apiEndpoint,
+          location 
+        })
         setError("We couldn't get the current weather. Don't worry, we're still open during our regular hours!")
       } finally {
         setLoading(false)
@@ -137,6 +142,13 @@ export function Weather({
       return `${Math.round(temp * 9/5 + 32)}°F`
     }
     return `${temp}°C`
+  }
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    logError('weather-image-load', new Error('Failed to load weather icon'), {
+      src: e.currentTarget.src,
+      location
+    })
   }
 
   if (loading) {
@@ -188,6 +200,7 @@ export function Weather({
             className="w-8 h-8"
             sizes="32px"
             loading="lazy"
+            onError={handleImageError}
           />
           <span className={cn('font-medium', mergedTheme.text)}>
             {formatTemp(weather.temp)}
@@ -225,6 +238,7 @@ export function Weather({
           className="w-16 h-16"
           sizes="64px"
           loading="lazy"
+          onError={handleImageError}
         />
         
         <div className="flex-1">

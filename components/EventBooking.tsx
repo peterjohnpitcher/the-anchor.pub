@@ -8,6 +8,7 @@ import { analytics } from '@/lib/analytics'
 import { EventBookingErrorBoundary } from './EventBookingErrorBoundary'
 import { trackEventBookingStart, trackFormStart } from '@/lib/gtm-events'
 import { CONTACT_INFO } from '@/lib/error-handling'
+import { PhoneLink } from '@/components/PhoneLink'
 
 interface EventBookingProps {
   event: Event
@@ -178,7 +179,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       <div className={`bg-red-50 border border-red-200 rounded-lg p-4 ${className}`}>
         <p className="text-red-800 font-semibold">This event is sold out</p>
         <p className="text-red-600 text-sm mt-1">
-          Please call us at <a href="tel:01753682707" className="underline">01753 682707</a> to join the waiting list.
+          Please call us at <PhoneLink phone="01753682707" source="event_booking_soldout" className="underline" showIcon={false}>01753 682707</PhoneLink> to join the waiting list.
         </p>
       </div>
     )
@@ -297,9 +298,14 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       <div className="mt-4 pt-4 border-t border-amber-200">
         <p className="text-sm text-gray-600">
           Prefer to call? Ring us at{' '}
-          <a href="tel:01753682707" className="font-semibold text-amber-700 underline">
+          <PhoneLink 
+            phone="01753682707" 
+            source="event_booking_form" 
+            className="font-semibold text-amber-700 underline"
+            showIcon={false}
+          >
             01753 682707
-          </a>
+          </PhoneLink>
         </p>
       </div>
     </div>

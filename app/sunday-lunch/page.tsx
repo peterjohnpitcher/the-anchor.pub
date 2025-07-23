@@ -6,6 +6,8 @@ import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ReviewSection } from '@/components/reviews'
+import { BookTableButton } from '@/components/BookTableButton'
+import { MenuPageTracker } from '@/components/MenuPageTracker'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
@@ -26,6 +28,12 @@ export const metadata: Metadata = {
 export default function SundayLunchPage() {
   return (
     <>
+      <MenuPageTracker 
+        menuType="sunday_lunch"
+        specialOffers={[
+          "Pre-order required by 1pm Saturday"
+        ]}
+      />
       
       {/* Hero Section */}
       <HeroWrapper
@@ -39,14 +47,14 @@ export default function SundayLunchPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Book Your Table Now
-      </Button>
-    </Link>
+            <BookTableButton
+              source="sunday_lunch_hero"
+              context="sunday_roast"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book Your Table Now
+            </BookTableButton>
             
             <Link href="#menu">
       <Button 

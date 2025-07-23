@@ -11,6 +11,8 @@ import { drinksMenuSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schem
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ManagersSpecialHero } from '@/components/ManagersSpecialHero'
+import { MenuPageTracker } from '@/components/MenuPageTracker'
+import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import './cocktails.css'
 
 export const metadata: Metadata = {
@@ -83,6 +85,13 @@ export default async function DrinksMenuPage() {
 
   return (
     <>
+      <MenuPageTracker 
+        menuType="drinks"
+        specialOffers={[
+          "Manager's Special - 25% OFF The Botanist Gin"
+        ]}
+      />
+      <ScrollDepthTracker />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([enhancedDrinksMenuSchema, breadcrumbSchema]) }}

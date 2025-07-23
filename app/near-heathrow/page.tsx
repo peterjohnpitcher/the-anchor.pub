@@ -6,6 +6,7 @@ import { HeroWrapper, Breadcrumbs } from '@/components/hero'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList, DirectionsCard } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { BookTableButton } from '@/components/BookTableButton'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Airport | The Anchor Stanwell Moor | 7 Minutes from All Terminals',
@@ -45,14 +46,14 @@ export default function NearHeathrowPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Book a Table: 01753 682707
-      </Button>
-    </Link>
+            <BookTableButton
+              source="near_heathrow_hero"
+              context="heathrow_traveler"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table: 01753 682707
+            </BookTableButton>
             
             <Link href="#terminals">
       <Button 

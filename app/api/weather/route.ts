@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { logError } from '@/lib/error-handling'
 
 // The Anchor pub, Stanwell Moor coordinates
 const LATITUDE = 51.462482
@@ -11,8 +12,9 @@ export async function GET(request: Request) {
   
   try {
     if (!API_KEY) {
-      console.error('OpenWeatherMap API key not found')
-      throw new Error('Weather API configuration error')
+      const error = new Error('Weather API configuration error: Missing API key')
+      logError('weather-api-config', error)
+      throw error
     }
 
     if (type === 'forecast') {
@@ -21,8 +23,12 @@ export async function GET(request: Request) {
       const forecastResponse = await fetch(forecastUrl)
       
       if (!forecastResponse.ok) {
-        console.error('OpenWeatherMap forecast API error:', forecastResponse.status, forecastResponse.statusText)
-        throw new Error(`Weather API error: ${forecastResponse.status}`)
+        const error = new Error(`Weather forecast API error: ${forecastResponse.status} ${forecastResponse.statusText}`)
+        logError('weather-api-forecast', error, {
+          status: forecastResponse.status,
+          statusText: forecastResponse.statusText
+        })
+        throw error
       }
       
       const forecastData = await forecastResponse.json()
@@ -61,8 +67,12 @@ export async function GET(request: Request) {
     const weatherResponse = await fetch(weatherUrl)
     
     if (!weatherResponse.ok) {
-      console.error('OpenWeatherMap current weather API error:', weatherResponse.status, weatherResponse.statusText)
-      throw new Error(`Weather API error: ${weatherResponse.status}`)
+      const error = new Error(`Weather current API error: ${weatherResponse.status} ${weatherResponse.statusText}`)
+      logError('weather-api-current', error, {
+        status: weatherResponse.status,
+        statusText: weatherResponse.statusText
+      })
+      throw error
     }
     
     const weatherData = await weatherResponse.json()
@@ -78,7 +88,7 @@ export async function GET(request: Request) {
     
     return NextResponse.json(currentWeather)
   } catch (error) {
-    console.error('Weather API error:', error)
+    logError('weather-api', error, { type })
     return NextResponse.json({ error: 'Unable to load weather' }, { status: 500 })
   }
 }

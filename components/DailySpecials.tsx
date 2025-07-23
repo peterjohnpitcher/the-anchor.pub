@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { usePathname } from 'next/navigation'
+import { PhoneButton } from '@/components/PhoneButton'
 
 interface DailySpecialsProps {
   isOpen: boolean
@@ -129,11 +130,14 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
               Don't miss out on our famous Sunday roasts
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="tel:01753682707">
-                <Button variant="warning" size="lg">
-                  📞 Call Now to Book
-                </Button>
-              </Link>
+              <PhoneButton 
+                phone="01753682707" 
+                source="daily_specials_saturday"
+                variant="warning"
+                size="lg"
+              >
+                📞 Call Now to Book
+              </PhoneButton>
               <Link href="/sunday-lunch">
                 <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
                   View Sunday Menu

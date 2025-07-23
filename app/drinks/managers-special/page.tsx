@@ -12,6 +12,8 @@ import { BotanicalsGrid } from '@/components/BotanicalsGrid'
 import { FeatureGrid } from '@/components/ui'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { getManagersSpecialImage } from '@/lib/managers-special-image'
+import { MenuPageTracker } from '@/components/MenuPageTracker'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: "Manager's Special - 25% OFF The Botanist Gin | The Anchor Stanwell Moor",
@@ -71,6 +73,12 @@ export default function ManagersSpecialPage() {
 
   return (
     <>
+      <MenuPageTracker 
+        menuType="managers_special"
+        specialOffers={[
+          `${spirit.discount} ${spirit.name} - Valid until ${new Date(promotion.validUntil).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' })}`
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([productSchema, breadcrumbSchema]) }}
@@ -100,14 +108,14 @@ export default function ManagersSpecialPage() {
                 📖 View Full Drinks Menu
               </Button>
             </Link>
-            <Link href="tel:01753682707">
-              <Button 
-                variant="secondary"
-                size="lg"
-              >
-                📞 Reserve Your Table
-              </Button>
-            </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="managers_special_hero"
+              variant="secondary"
+              size="lg"
+            >
+              📞 Reserve Your Table
+            </PhoneButton>
           </div>
         }
       />
@@ -394,15 +402,15 @@ export default function ManagersSpecialPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience The Botanist Today</h2>
             <p className="text-xl mb-8 text-emerald-100">Join us for Islay's wild spirit with 25% off throughout July</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button 
+              <PhoneButton
+                phone="01753 682707"
+                source="managers_special_reserve"
                 size="lg"
                 className="bg-white text-anchor-green hover:bg-gray-100"
-                asChild
+                showIcon={false}
               >
-                <Link href="tel:01753682707">
-                  <span className="mr-2">📞</span> Reserve Your Table
-                </Link>
-              </Button>
+                <span className="mr-2">📞</span> Reserve Your Table
+              </PhoneButton>
               <Button 
                 size="lg"
                 variant="outline"

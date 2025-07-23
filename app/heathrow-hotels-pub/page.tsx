@@ -10,6 +10,7 @@ import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: `Heathrow Hotels Pub Near Me | ${BRAND.name} - Escape Airport Prices`,
@@ -107,11 +108,14 @@ export default function HeathrowHotelsPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={CONTACT.phoneHref}>
-              <Button variant="primary" size="lg">
-                📞 Book a Table
-              </Button>
-            </Link>
+            <PhoneButton
+              phone={CONTACT.phone}
+              source="heathrow_hotels_pub_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Book a Table
+            </PhoneButton>
             <Link href="/food-menu">
               <Button variant="secondary" size="lg">
                 🍽️ View Menu
@@ -548,11 +552,14 @@ export default function HeathrowHotelsPubPage() {
                         Corporate Events Info
                       </Button>
                     </Link>
-                    <Link href="tel:01753682707">
-                      <Button variant="secondary" size="md">
-                        📞 Quick Quote
-                      </Button>
-                    </Link>
+                    <PhoneButton
+                      phone="01753 682707"
+                      source="heathrow_hotels_corporate_quote"
+                      variant="secondary"
+                      size="md"
+                    >
+                      📞 Quick Quote
+                    </PhoneButton>
                     <Link href="https://wa.me/441753682707?text=Hi,%20we" target="_blank" rel="noopener noreferrer">
                       <Button variant="secondary" size="md">
                         💬 WhatsApp
@@ -620,6 +627,8 @@ export default function HeathrowHotelsPubPage() {
           {
             text: "📞 Book a Table",
             href: `tel:${CONTACT.phone}`,
+            isPhone: true,
+            phoneSource: "heathrow_hotels_pub_cta",
             variant: "secondary"
           },
           {

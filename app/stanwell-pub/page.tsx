@@ -5,6 +5,7 @@ import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
@@ -338,11 +339,14 @@ export default function StanwellPubPage() {
             </div>
             
             <div className="mt-8 text-center">
-              <Link href="https://maps.google.com/maps?daddr=The+Anchor+Stanwell+Moor+TW19+6AQ" target="_blank" rel="noopener noreferrer">
-                <Button variant="secondary" size="md">
-                  📍 Get Directions
-                </Button>
-              </Link>
+              <DirectionsButton
+                href="https://maps.google.com/maps?daddr=The+Anchor+Stanwell+Moor+TW19+6AQ"
+                source="stanwell_directions"
+                variant="secondary"
+                size="md"
+              >
+                📍 Get Directions
+              </DirectionsButton>
             </div>
           </div>
         </div>

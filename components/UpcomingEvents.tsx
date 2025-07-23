@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getUpcomingEvents, formatEventDate, formatEventTime, formatPrice, getEventShortDescription, formatDoorTime, hasLimitedAvailability } from '@/lib/api'
 import { EventSchema } from '@/components/EventSchema'
+import { PhoneLink } from '@/components/PhoneLink'
 
 export async function UpcomingEvents() {
   try {
@@ -154,7 +155,7 @@ export async function UpcomingEvents() {
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
         <p className="text-red-700 mb-2">We couldn't load the events right now. Please refresh the page or try again in a moment.</p>
-        <p className="text-gray-700 text-sm mt-2">Need help? <a href="tel:+441753682707" className="text-anchor-gold hover:text-anchor-gold-light font-semibold underline">Call us at 01753 682707</a></p>
+        <p className="text-gray-700 text-sm mt-2">Need help? <PhoneLink phone="+441753682707" source="upcoming_events_error" className="text-anchor-gold hover:text-anchor-gold-light font-semibold underline" showIcon={false}>Call us at 01753 682707</PhoneLink></p>
       </div>
     )
   }

@@ -2,6 +2,8 @@
  * User-friendly error message mappings and utilities
  */
 
+import { analytics } from '@/lib/analytics'
+
 export interface ErrorContext {
   feature: 'events' | 'booking' | 'weather' | 'flights' | 'hours' | 'general'
   action: 'load' | 'submit' | 'fetch' | 'process'
@@ -116,15 +118,27 @@ export function createApiErrorResponse(
 /**
  * Log error for monitoring while keeping user messages friendly
  */
-export function logError(context: string, error: unknown) {
+export function logError(context: string, error: unknown, additionalInfo?: Record<string, any>) {
   const errorDetails = {
     context,
     timestamp: new Date().toISOString(),
     error: error instanceof Error ? {
       message: error.message,
       stack: error.stack
-    } : error
+    } : error,
+    ...additionalInfo
   }
+
+  // Track error in analytics
+  const errorCategory = context.includes('api') ? 'api' : 
+                       context.includes('booking') ? 'booking' : 
+                       context.includes('form') ? 'form' : 'api'
+  
+  const errorLabel = error instanceof Error ? 
+    `${context}: ${error.message}` : 
+    `${context}: ${JSON.stringify(error)}`
+  
+  analytics.error(errorCategory as any, errorLabel)
 
   // In production, this would send to error monitoring service
   console.error(`[${context}] Error:`, errorDetails)

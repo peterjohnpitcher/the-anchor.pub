@@ -10,6 +10,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInf
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Private Party Venue Stanwell Moor | Birthday Parties | The Anchor',
@@ -58,14 +59,14 @@ export default function PrivatePartyVenuePage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Call: 01753 682707
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="private_party_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Call: 01753 682707
+            </PhoneButton>
             <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
       <Button 
         variant="secondary"
@@ -224,15 +225,15 @@ export default function PrivatePartyVenuePage() {
                 <li>• Decorated tables</li>
                 <li>• 10-30 guests</li>
               </ul>
-              <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="md"
-        className="mt-6"
-      >
-        Enquire Now
-      </Button>
-    </Link>
+              <PhoneButton
+                phone="01753 682707"
+                source="private_party_intimate_enquiry"
+                variant="primary"
+                size="md"
+                className="mt-6"
+              >
+                Enquire Now
+              </PhoneButton>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-md border-2 border-anchor-gold">
@@ -250,15 +251,15 @@ export default function PrivatePartyVenuePage() {
                 <li>• DJ space available</li>
                 <li>• 30-80 guests</li>
               </ul>
-              <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="md"
-        className="mt-6"
-      >
-        Book This Package
-      </Button>
-    </Link>
+              <PhoneButton
+                phone="01753 682707"
+                source="private_party_classic_book"
+                variant="primary"
+                size="md"
+                className="mt-6"
+              >
+                Book This Package
+              </PhoneButton>
             </div>
             
             <div className="bg-white rounded-xl p-6 shadow-md">
@@ -274,15 +275,15 @@ export default function PrivatePartyVenuePage() {
                 <li>• Dedicated staff</li>
                 <li>• 80-200 guests</li>
               </ul>
-              <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="md"
-        className="mt-6"
-      >
-        Premium Enquiry
-      </Button>
-    </Link>
+              <PhoneButton
+                phone="01753 682707"
+                source="private_party_premium_enquiry"
+                variant="primary"
+                size="md"
+                className="mt-6"
+              >
+                Premium Enquiry
+              </PhoneButton>
             </div>
           </div>
 
@@ -591,6 +592,8 @@ export default function PrivatePartyVenuePage() {
           {
             text: "📞 Call: 01753 682707",
             href: "tel:01753682707",
+            isPhone: true,
+            phoneSource: "private_party_cta",
             variant: "white"
           },
           {
@@ -602,7 +605,8 @@ export default function PrivatePartyVenuePage() {
             text: "📧 Email Enquiry",
             href: "mailto:manager@the-anchor.pub?subject=Private Party Enquiry",
             variant: "outline",
-            className: "!text-white !border-white hover:!bg-white hover:!text-pink-600"
+            className: "!text-white !border-white hover:!bg-white hover:!text-pink-600",
+            emailSource: "private_party_cta"
           }
         ]}
         variant="red"

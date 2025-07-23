@@ -5,6 +5,7 @@ import { MenuData, MenuCategory, MenuSection, MenuItem } from '@/lib/menu-parser
 import { SpecialOfferNotifications } from './SpecialOfferNotifications'
 import { HeroBadge } from './HeroBadge'
 import Link from 'next/link'
+import { logError } from '@/lib/error-handling'
 
 interface MenuRendererProps {
   menuData: MenuData
@@ -306,6 +307,14 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
                     src={specialImagePath} 
                     alt={item.name}
                     className="w-full h-auto rounded"
+                    onError={(e) => {
+                      logError('menu-image-load', new Error('Failed to load menu image'), {
+                        src: e.currentTarget.src,
+                        itemName: item.name
+                      })
+                      // Hide the image container on error
+                      e.currentTarget.parentElement?.parentElement?.remove()
+                    }}
                   />
                 </div>
               </div>

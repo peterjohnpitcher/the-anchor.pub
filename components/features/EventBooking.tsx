@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/primitives/Button'
 import { Input } from '@/components/ui/primitives/Input'
 import { Alert } from '@/components/ui/feedback/Alert'
 import { Badge } from '@/components/ui/primitives/Badge'
+import { PhoneLink } from '@/components/PhoneLink'
 
 interface EventBookingProps {
   event: Event
@@ -180,7 +181,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       <Alert variant="error" className={className}>
         <strong>This event is sold out</strong>
         <p className="mt-1">
-          Please call us at <a href="tel:01753682707" className="underline font-semibold">01753 682707</a> to join the waiting list.
+          Please call us at <PhoneLink phone="01753682707" source="event_booking_features_soldout" className="underline font-semibold" showIcon={false}>01753 682707</PhoneLink> to join the waiting list.
         </p>
       </Alert>
     )
@@ -289,9 +290,14 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         <div className="mt-4 pt-4 border-t border-amber-200">
           <p className="text-sm text-gray-700 text-center">
             Prefer to call? Ring us at{' '}
-            <a href="tel:01753682707" className="font-semibold text-amber-700 underline">
+            <PhoneLink 
+              phone="01753682707" 
+              source="event_booking_features_form" 
+              className="font-semibold text-amber-700 underline"
+              showIcon={false}
+            >
               01753 682707
-            </a>
+            </PhoneLink>
           </p>
         </div>
       </CardBody>

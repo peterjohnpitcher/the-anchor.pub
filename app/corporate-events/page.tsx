@@ -591,7 +591,8 @@ export default function CorporateEventsPage() {
             text: "📧 Email Enquiry",
             href: "mailto:manager@the-anchor.pub?subject=Corporate Event Enquiry",
             variant: "outline",
-            className: "!text-white !border-white hover:!bg-white hover:!text-blue-600"
+            className: "!text-white !border-white hover:!bg-white hover:!text-blue-600",
+            emailSource: "corporate_events_cta"
           }
         ]}
         variant="dark"

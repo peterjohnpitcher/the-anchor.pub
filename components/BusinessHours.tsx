@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { type BusinessHours } from '@/lib/api'
 import { StatusBar } from './StatusBar'
-import { FALLBACK_CONTENT, CONTACT_INFO } from '@/lib/error-handling'
+import { FALLBACK_CONTENT, CONTACT_INFO, logError } from '@/lib/error-handling'
 import { LoadingState } from '@/components/ui/LoadingState'
 
 interface WeatherForecast {
@@ -120,6 +120,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
         }
       } catch (err) {
         // Error: Failed to fetch data
+        logError('business-hours-fetch', err, { variant, showWeather })
         setError(`We couldn't load our opening hours. We're typically open 4pm-10pm Mon, 12pm-10pm Tue-Thu, 12pm-11pm Fri-Sat, and 12pm-9pm Sun. Call us at ${CONTACT_INFO.phone} for today's hours.`)
       } finally {
         setLoading(false)

@@ -9,6 +9,7 @@ import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/e
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Egham Pub | The Anchor - 12 Minutes Away | Surrey',
@@ -89,14 +90,14 @@ export default function EghamPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Call to Book
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="egham_pub_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Call to Book
+            </PhoneButton>
             <Link href="/food-menu">
       <Button 
         variant="secondary"
@@ -373,6 +374,8 @@ export default function EghamPubPage() {
           {
             text: "📞 Call: 01753 682707",
             href: "tel:01753682707",
+            isPhone: true,
+            phoneSource: "egham_pub_cta",
             variant: "white"
           },
           {

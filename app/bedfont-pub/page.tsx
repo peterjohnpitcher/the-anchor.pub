@@ -9,6 +9,7 @@ import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/e
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Bedfont Pub | The Anchor - 5 Minutes Away | Surrey',
@@ -92,14 +93,14 @@ export default function BedfontPubPage() {
         showStatusBar={true}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Call to Book
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="bedfont_pub_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Call to Book
+            </PhoneButton>
             <Link href="/food-menu">
       <Button 
         variant="secondary"
@@ -339,6 +340,8 @@ export default function BedfontPubPage() {
           {
             text: "📞 Call: 01753 682707",
             href: "tel:01753682707",
+            isPhone: true,
+            phoneSource: "bedfont_pub_cta",
             variant: "white"
           },
           {

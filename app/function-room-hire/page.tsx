@@ -8,6 +8,7 @@ import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CONTACT, BRAND } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PhoneButton } from '@/components/PhoneButton'
 
 export const metadata: Metadata = {
   title: 'Function Room Hire Near Heathrow | Venue Rental Staines | The Anchor',
@@ -81,14 +82,14 @@ export default function FunctionRoomHirePage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="tel:01753682707">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        📞 Call: 01753 682707
-      </Button>
-    </Link>
+            <PhoneButton
+              phone="01753 682707"
+              source="function_room_hero"
+              variant="primary"
+              size="lg"
+            >
+              📞 Call: 01753 682707
+            </PhoneButton>
             <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
       <Button 
         variant="secondary"
@@ -585,6 +586,8 @@ export default function FunctionRoomHirePage() {
           {
             text: "📞 Call: 01753 682707",
             href: "tel:01753682707",
+            isPhone: true,
+            phoneSource: "function_room_cta",
             variant: "white"
           },
           {
@@ -596,7 +599,8 @@ export default function FunctionRoomHirePage() {
             text: "📧 Email Enquiry",
             href: "mailto:manager@the-anchor.pub?subject=Function Room Hire Enquiry",
             variant: "outline",
-            className: "!text-white !border-white hover:!bg-white hover:!text-green-700"
+            className: "!text-white !border-white hover:!bg-white hover:!text-green-700",
+            emailSource: "function_room_cta"
           }
         ]}
         variant="green"
