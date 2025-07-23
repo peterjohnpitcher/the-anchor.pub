@@ -82,7 +82,7 @@ export function DirectionsButton({
       onClick={handleClick}
     >
       <Button 
-        variant={variant}
+        variant={variant === 'link' ? 'ghost' : variant}
         size={size}
         className={className}
       >

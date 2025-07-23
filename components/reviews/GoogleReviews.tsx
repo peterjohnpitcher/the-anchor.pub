@@ -38,9 +38,10 @@ export function GoogleReviews({
   }, [filter])
 
   const fetchReviews = async () => {
+    const params = new URLSearchParams()
+    
     try {
       setLoading(true)
-      const params = new URLSearchParams()
       
       if (filter?.minRating) params.append('minRating', filter.minRating.toString())
       if (filter?.keywords) params.append('keywords', filter.keywords.join(','))

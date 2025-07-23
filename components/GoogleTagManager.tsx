@@ -54,10 +54,3 @@ export function GoogleTagManagerNoscript({ gtmId }: GoogleTagManagerProps) {
     </noscript>
   )
 }
-
-// Type definitions for dataLayer
-declare global {
-  interface Window {
-    dataLayer: any[]
-  }
-}

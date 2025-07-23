@@ -130,7 +130,10 @@ export function CTASection({
             
             if (isDirectionsLink) {
               // Map "white" variant to appropriate button variant
-              const directionsVariant = button.variant === 'white' ? 'secondary' : (button.variant || 'primary')
+              const directionsVariant = button.variant === 'white' ? 'secondary' : 
+                                       button.variant === 'danger' ? 'primary' :
+                                       button.variant === 'warning' ? 'primary' :
+                                       (button.variant as 'primary' | 'secondary' | 'outline' | 'ghost' | 'link' || 'primary')
               const directionsClassName = button.variant === 'white' 
                 ? `flex-1 bg-white text-anchor-green hover:bg-gray-100 ${button.className || ''}`
                 : `flex-1 ${button.className || ''}`

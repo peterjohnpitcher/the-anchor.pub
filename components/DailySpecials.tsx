@@ -133,7 +133,7 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
               <PhoneButton 
                 phone="01753682707" 
                 source="daily_specials_saturday"
-                variant="warning"
+                variant="primary"
                 size="lg"
               >
                 📞 Call Now to Book

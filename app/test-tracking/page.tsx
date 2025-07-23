@@ -29,12 +29,6 @@ import { Info, Phone, MessageCircle, Navigation, Calendar, Menu, Scroll, Star, C
 import { WhatsAppLink } from '@/components/WhatsAppLink'
 import { BookTableButton } from '@/components/BookTableButton'
 
-declare global {
-  interface Window {
-    dataLayer: any[]
-  }
-}
-
 export default function TestTrackingPage() {
   const [events, setEvents] = useState<any[]>([])
   const [dataLayer, setDataLayer] = useState<any[]>([])
@@ -57,20 +51,20 @@ export default function TestTrackingPage() {
       // Override push method to capture events
       window.dataLayer.push = function(...args: any[]) {
         // Call original push
-        const result = originalPush.apply(window.dataLayer, args)
+        const result = originalPush.apply(window.dataLayer!, args)
         
         // Log to console
         console.log('🎯 GTM Event:', args[0])
         
         // Update our state
         setEvents(prev => [...prev, { ...args[0], timestamp: new Date().toISOString() }])
-        setDataLayer([...window.dataLayer])
+        setDataLayer(Array.from(window.dataLayer || []))
         
         return result
       }
       
       // Set initial dataLayer state
-      setDataLayer([...window.dataLayer])
+      setDataLayer([...(window.dataLayer || [])])
     }
   }, [])
 

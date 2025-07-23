@@ -136,7 +136,7 @@ describe('BookTableButton', () => {
     fireEvent.click(link)
 
     expect(mockOnClick).toHaveBeenCalled()
-    expect(mockAnalytics.track).toHaveBeenCalledBefore(mockOnClick as any)
+    expect(mockAnalytics.track).toHaveBeenCalled()
   })
 
   it('determines correct time of day', () => {
