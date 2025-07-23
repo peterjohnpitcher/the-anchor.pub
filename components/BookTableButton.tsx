@@ -65,22 +65,7 @@ export const BookTableButton = forwardRef<HTMLAnchorElement, BookTableButtonProp
         action: 'click',
         category: 'booking',
         label: trackingLabel,
-        value: 1,
-        metadata: {
-          source,
-          context,
-          eventName,
-          page: pathname,
-          device: isMobile ? 'mobile' : 'desktop',
-          timeOfDay,
-          dayOfWeek: new Date().toLocaleDateString('en-US', { weekday: 'long' }),
-          timestamp: new Date().toISOString(),
-          buttonLocation: source,
-          userAgent: navigator.userAgent,
-          screenWidth: window.innerWidth,
-          screenHeight: window.innerHeight,
-          referrer: document.referrer || 'direct'
-        }
+        value: 1
       })
 
       // Also send a specific table_booking_click event for easier filtering

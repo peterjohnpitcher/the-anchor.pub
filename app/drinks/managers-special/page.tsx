@@ -407,7 +407,6 @@ export default function ManagersSpecialPage() {
                 source="managers_special_reserve"
                 size="lg"
                 className="bg-white text-anchor-green hover:bg-gray-100"
-                showIcon={false}
               >
                 <span className="mr-2">📞</span> Reserve Your Table
               </PhoneButton>

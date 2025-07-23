@@ -69,7 +69,11 @@ export function CTASection({
                 `${phone.slice(0, 5)} ${phone.slice(5)}` : phone
               
               // Map "white" variant to appropriate button variant
-              const phoneVariant = button.variant === 'white' ? 'secondary' : (button.variant || 'primary')
+              const phoneVariant = button.variant === 'white' ? 'secondary' : 
+                                   button.variant === 'ghost' ? 'outline' :
+                                   button.variant === 'danger' ? 'primary' :
+                                   button.variant === 'warning' ? 'primary' :
+                                   (button.variant as 'primary' | 'secondary' | 'outline' || 'primary')
               const phoneClassName = button.variant === 'white' 
                 ? `flex-1 bg-white text-anchor-green hover:bg-gray-100 ${button.className || ''}`
                 : `flex-1 ${button.className || ''}`
@@ -80,7 +84,7 @@ export function CTASection({
                   phone={formattedPhone}
                   source={button.phoneSource || 'cta_section'}
                   variant={phoneVariant}
-                  size={button.size || 'lg'}
+                  size={button.size === 'xs' ? 'sm' : (button.size as 'sm' | 'md' | 'lg' || 'lg')}
                   className={phoneClassName}
                 >
                   {button.text}
@@ -137,7 +141,7 @@ export function CTASection({
                   href={button.href}
                   source={button.directionsSource || 'cta_section'}
                   variant={directionsVariant}
-                  size={button.size || 'lg'}
+                  size={button.size === 'xs' ? 'sm' : (button.size as 'sm' | 'md' | 'lg' || 'lg')}
                   className={directionsClassName}
                 >
                   {button.text}
@@ -159,7 +163,7 @@ export function CTASection({
                   context={button.bookingContext || 'regular'}
                   eventName={button.eventName}
                   variant={bookingVariant}
-                  size={button.size || 'lg'}
+                  size={button.size === 'xs' ? 'sm' : (button.size as 'sm' | 'md' | 'lg' || 'lg')}
                   className="flex-1"
                   trackingLabel={button.text}
                 >

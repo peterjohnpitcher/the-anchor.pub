@@ -37,8 +37,9 @@ export function MenuPageTracker({ menuType, specialOffers = [] }: MenuPageTracke
     analytics.viewItem('menu_item', `${menuType} menu`)
 
     // Track time spent on page when user leaves
+    const mountTime = mountTimeRef.current
     return () => {
-      const timeSpent = Math.round((Date.now() - mountTimeRef.current) / 1000) // in seconds
+      const timeSpent = Math.round((Date.now() - mountTime) / 1000) // in seconds
       
       pushToDataLayer({
         event: 'menu_page_exit',
