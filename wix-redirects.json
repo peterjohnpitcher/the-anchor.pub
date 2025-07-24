@@ -760,11 +760,6 @@
     "permanent": true
   },
   {
-    "source": "/drinks/:product*",
-    "destination": "/drinks",
-    "permanent": true
-  },
-  {
     "source": "/_api/:path*",
     "destination": "/",
     "permanent": true
