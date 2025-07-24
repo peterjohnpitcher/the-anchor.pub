@@ -183,7 +183,14 @@ export default function HomePage() {
               {
                 icon: "🎉",
                 title: "Events & Entertainment",
-                description: "Spectacular Saturday drag shows with Nikki Manfadge, monthly quiz nights, and special events throughout the year.",
+                description: (
+                  <>
+                    <Link href="/whats-on/drag-shows" className="text-anchor-gold hover:text-anchor-gold-light underline font-semibold">
+                      Spectacular Saturday drag shows
+                    </Link>{" "}
+                    with Nikki Manfadge, monthly quiz nights, and special events throughout the year.
+                  </>
+                ),
                 variant: "colored",
                 color: "bg-anchor-sand/30",
                 className: "card-warm p-8 text-center"

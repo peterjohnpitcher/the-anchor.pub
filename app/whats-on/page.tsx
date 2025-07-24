@@ -110,8 +110,61 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         </Container>
       </div>
 
+      {/* Featured Events */}
+      <div className="bg-gradient-to-r from-purple-50 to-pink-50 section-spacing-md">
+        <Container>
+          <SectionHeader
+            title="Monthly Highlights"
+            subtitle="Our most popular regular events"
+          />
+          
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <Link href="/whats-on/drag-shows" className="group">
+              <Card variant="default" className="h-full transition-all hover:shadow-lg hover:scale-105 bg-gradient-to-br from-purple-100 to-pink-100">
+                <CardBody className="text-center p-8">
+                  <div className="text-5xl mb-4">👑</div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-3 group-hover:text-purple-700">
+                    Drag Shows with Nikki Manfadge
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Spectacular Saturday entertainment with games, karaoke, and fierce performances.
+                  </p>
+                  <p className="text-purple-700 font-semibold">Learn more →</p>
+                </CardBody>
+              </Card>
+            </Link>
+            
+            <Card variant="default" className="h-full bg-gradient-to-br from-blue-50 to-green-50">
+              <CardBody className="text-center p-8">
+                <div className="text-5xl mb-4">🧠</div>
+                <h3 className="text-2xl font-bold text-anchor-green mb-3">
+                  Quiz Night
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Test your knowledge monthly. £3 entry, great prizes, and brilliant atmosphere.
+                </p>
+                <p className="text-sm text-gray-600">Check calendar for dates</p>
+              </CardBody>
+            </Card>
+            
+            <Card variant="default" className="h-full bg-gradient-to-br from-yellow-50 to-orange-50">
+              <CardBody className="text-center p-8">
+                <div className="text-5xl mb-4">🎱</div>
+                <h3 className="text-2xl font-bold text-anchor-green mb-3">
+                  Cash Prize Bingo
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Monthly bingo nights with cash prizes. £10 per book, jackpot on the last game!
+                </p>
+                <p className="text-sm text-gray-600">Check calendar for dates</p>
+              </CardBody>
+            </Card>
+          </div>
+        </Container>
+      </div>
+
       {/* Entertainment & Games */}
-      <div className="bg-anchor-sand/20 section-spacing-md">
+      <div className="bg-white section-spacing-md">
         <Container>
           <SectionHeader
             title="Daily Entertainment & Games"
@@ -298,7 +351,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         faqs={[
           {
             question: "When are the drag shows at The Anchor?",
-            answer: "Our fabulous drag shows run monthly, alternating between Nikki's Games Night (starting at 7pm) and Nikki's Karaoke Night (starting at 8pm). While there's no age restriction, please note there may be adult language. Entry is FREE but we recommend arriving early to get a good seat!"
+            answer: "Our fabulous drag shows run monthly, alternating between Nikki's Games Night and Nikki's Karaoke Night (both starting at 7pm). While there's no age restriction, please note there may be adult language. Entry is FREE but we recommend arriving early to get a good seat!"
           },
           {
             question: "What time is quiz night at The Anchor?",

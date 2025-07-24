@@ -56,7 +56,7 @@ export default function DragShowsPage() {
             </p>
             
             <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="tag bg-white/90 backdrop-blur-sm">👑 9PM Start</span>
+              <span className="tag bg-white/90 backdrop-blur-sm">👑 7PM Start</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🎭 Live Performance</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🏳️‍🌈 Everyone Welcome</span>
               <span className="tag bg-white/90 backdrop-blur-sm">🍹 Themed Cocktails</span>
@@ -325,11 +325,11 @@ export default function DragShowsPage() {
                   </div>
                   <div className="flex justify-between items-center pb-3 border-b border-gray-300">
                     <span className="font-semibold">Pre-Show Dining</span>
-                    <span>Until 9:00 PM</span>
+                    <span>Until 7:00 PM</span>
                   </div>
                   <div className="flex justify-between items-center pb-3 border-b border-gray-300">
                     <span className="font-semibold">Show Starts</span>
-                    <span>9:00 PM Sharp!</span>
+                    <span>7:00 PM Sharp!</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold">Show Ends</span>
@@ -396,9 +396,9 @@ export default function DragShowsPage() {
             </h2>
             
             <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
-              <h3 className="text-2xl font-bold text-purple-700 mb-6">Gameshow House Party</h3>
+              <h3 className="text-2xl font-bold text-purple-700 mb-6">Nikki's Games Night</h3>
               <p className="text-lg text-gray-700 mb-4 italic">
-                "Right then, you lot! Welcome to my Gameshow House Party - where the prizes are dubious, 
+                "Right then, you lot! Welcome to my Nikki's Games Night - where the prizes are dubious, 
                 the games are ridiculous, and the laughs are guaranteed!"
               </p>
               <p className="text-gray-700 mb-4">
@@ -578,7 +578,7 @@ export default function DragShowsPage() {
                   part of our extended family.
                 </p>
                 <p className="text-gray-700">
-                  When Nikki Manfadge takes the stage at 9pm sharp, the transformation is complete. 
+                  When Nikki Manfadge takes the stage at 7pm sharp, the transformation is complete. 
                   For the next two and a half hours, you're transported to a world of glamour, 
                   laughter, and jaw-dropping performances. It's not just a drag show - it's the 
                   highlight of Stanwell Moor's social calendar.
@@ -766,7 +766,7 @@ export default function DragShowsPage() {
           
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
             <p className="font-semibold mb-2">Monthly Shows - Check What's On for Dates</p>
-            <p>Show starts at 9:00 PM Sharp!</p>
+            <p>Show starts at 7:00 PM Sharp!</p>
             <p className="text-sm mt-2">The Anchor, Stanwell Moor</p>
             <p className="text-xs mt-4 italic">
               "And remember - if you're not living your life in full colour, 
