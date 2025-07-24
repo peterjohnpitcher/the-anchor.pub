@@ -413,7 +413,7 @@ export default function HomePage() {
                 <Card variant="default" className="h-full transition-all hover:shadow-lg hover:scale-105">
                   <CardBody className="text-center">
                     <div className="text-4xl mb-4">💼</div>
-                    <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Corporate Events</h3>
+                    <h2 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Corporate Events</h2>
                     <p className="text-gray-700 mb-4">
                       Professional venue for meetings, team building, and conferences. 
                       7 minutes from Heathrow with free parking.
@@ -427,7 +427,7 @@ export default function HomePage() {
                 <Card variant="default" className="h-full transition-all hover:shadow-lg hover:scale-105 bg-red-50">
                   <CardBody className="text-center">
                     <div className="text-4xl mb-4">🎄</div>
-                    <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Christmas Parties</h3>
+                    <h2 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Christmas Parties</h2>
                   <p className="text-gray-700 mb-4">
                     Book your festive celebration now! Traditional menus, 
                     festive atmosphere, and memorable celebrations.
@@ -441,7 +441,7 @@ export default function HomePage() {
                 <Card variant="default" className="h-full transition-all hover:shadow-lg hover:scale-105 bg-pink-50">
                   <CardBody className="text-center">
                     <div className="text-4xl mb-4">🎉</div>
-                    <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Private Parties</h3>
+                    <h2 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Private Parties</h2>
                     <p className="text-gray-700 mb-4">
                       Birthdays, anniversaries, and celebrations. 
                       Flexible spaces, custom menus, your music.
@@ -456,7 +456,7 @@ export default function HomePage() {
               <CardBody>
                 <Grid cols={2} gap="lg" align="center">
                 <div>
-                  <h3 className="text-2xl font-bold text-anchor-green mb-4">Why Choose The Anchor?</h3>
+                  <h2 className="text-2xl font-bold text-anchor-green mb-4">Why Choose The Anchor?</h2>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <span className="text-green-600">✓</span>

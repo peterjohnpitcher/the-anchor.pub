@@ -12,16 +12,16 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
-  title: 'Beer Garden Near Me | Plane Spotting Pub | The Anchor Stanwell Moor',
-  description: 'Unique beer garden under Heathrow flight path. Best plane spotting pub with outdoor seating, dog-friendly space & aircraft views every 90 seconds.',
-  keywords: 'plane spotting heathrow, beer garden stanwell moor, pub garden heathrow, plane spotting pub, outdoor dining heathrow, best places for plane spotting, heathrow flight path pub',
+  title: 'Beer Garden Near Me | Plane Spotting | The Anchor Stanwell Moor',
+  description: 'Unique beer garden under Heathrow flight path. Best plane spotting location with outdoor seating, dog-friendly space & aircraft views every 90 seconds.',
+  keywords: 'plane spotting heathrow, beer garden stanwell moor, beer garden heathrow, plane spotting venue, outdoor dining heathrow, best places for plane spotting, heathrow flight path',
   openGraph: {
-    title: 'Beer Garden & Plane Spotting - The Anchor Pub',
+    title: 'Beer Garden & Plane Spotting - The Anchor',
     description: 'Watch planes overhead every 90 seconds while enjoying drinks in our unique beer garden',
     images: ['/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Beer Garden & Plane Spotting - The Anchor Pub',
+    title: 'Beer Garden & Plane Spotting - The Anchor',
     description: 'Watch planes overhead every 90 seconds while enjoying drinks in our unique beer garden',
     images: ['/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg']
   })
@@ -31,7 +31,7 @@ const planeSpottingSchema = {
   "@context": "https://schema.org",
   "@type": "TouristAttraction",
   "name": "The Anchor Beer Garden - Heathrow Plane Spotting",
-  "description": "Unique pub beer garden directly under Heathrow flight path offering spectacular plane spotting opportunities",
+  "description": "Unique beer garden directly under Heathrow flight path offering spectacular plane spotting opportunities",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Horton Road",

@@ -33,8 +33,8 @@ export const BRAND = {
 }
 
 export const PARKING = {
-  // Update this after verifying actual capacity
-  capacity: 30, // Needs verification - currently shows "20 spaces" on Find Us page
+  // Verified capacity from Find Us page
+  capacity: 20, // 20 spaces available for pub guests
   description: 'Free parking available',
   extendedDescription: 'Free on-site parking with extended parking available nearby'
 }

@@ -118,11 +118,11 @@ const merriweather = Merriweather({
 export const metadata: Metadata = {
   metadataBase: new URL('https://the-anchor.pub'),
   title: {
-    default: 'Traditional Pub Near Me | The Anchor Stanwell Moor | Surrey Pub Near Heathrow',
+    default: 'Traditional Bar Near Me | The Anchor Stanwell Moor | Surrey Bar Near Heathrow',
     template: '%s | The Anchor Stanwell Moor'
   },
-  description: 'The Anchor pub in Stanwell Moor, Surrey\'s best kept secret near Heathrow Airport. Traditional British pub with drag shows, quiz nights & more. Dog-friendly beer garden under the flight path.',
-  keywords: ['pub near me', 'pub near Heathrow', 'Stanwell Moor pub', 'drag shows near me', 'pub quiz', 'dog friendly pub', 'beer garden', 'TW19 pub'],
+  description: 'The Anchor in Stanwell Moor, Surrey\'s best kept secret near Heathrow Airport. Traditional British venue with drag shows, quiz nights & more. Dog-friendly beer garden under the flight path.',
+  keywords: ['bar near me', 'bar near Heathrow', 'Stanwell Moor bar', 'drag shows near me', 'quiz night', 'dog friendly bar', 'beer garden', 'TW19 bar'],
   authors: [{ name: 'The Anchor' }],
   creator: 'The Anchor',
   publisher: 'The Anchor',
@@ -132,16 +132,16 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'The Anchor Pub - Stanwell Moor\'s Premier Entertainment Venue',
-    description: 'Traditional British pub near Heathrow with drag shows, live entertainment & great food. Dog-friendly beer garden.',
+    title: 'The Anchor - Stanwell Moor\'s Premier Entertainment Venue',
+    description: 'Traditional British venue near Heathrow with drag shows, live entertainment & great food. Dog-friendly beer garden.',
     url: 'https://the-anchor.pub',
     siteName: 'The Anchor',
     images: [
       {
-        url: '/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg',
+        url: '/images/venue/the-anchor-exterior-stanwell-moor.jpg',
         width: 1200,
         height: 630,
-        alt: 'The Anchor Pub in Stanwell Moor',
+        alt: 'The Anchor in Stanwell Moor',
       },
     ],
     locale: 'en_GB',
@@ -149,9 +149,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Anchor Pub - Near Heathrow Airport',
-    description: 'Traditional pub with modern entertainment. Drag shows, quiz nights, great food & more.',
-    images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    title: 'The Anchor - Near Heathrow Airport',
+    description: 'Traditional venue with modern entertainment. Drag shows, quiz nights, great food & more.',
+    images: ['/images/venue/the-anchor-exterior-stanwell-moor.jpg'],
   },
   robots: {
     index: true,
@@ -217,7 +217,7 @@ export default function RootLayout({
         <link 
           rel="preload" 
           as="image" 
-          href="/images/branding/the-anchor-pub-logo-white-transparent.png"
+          href="/images/branding/the-anchor-logo-white-transparent.png"
           type="image/png"
         />
         <DynamicSchema />

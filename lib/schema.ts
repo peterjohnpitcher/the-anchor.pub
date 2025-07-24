@@ -316,3 +316,229 @@ export const bingoEventSeries = {
     "@id": "https://the-anchor.pub/#organization"
   }
 }
+
+// Parking Facility Schema
+export const parkingFacilitySchema = {
+  "@context": "https://schema.org",
+  "@type": "ParkingFacility",
+  "@id": "https://the-anchor.pub/#parking",
+  "name": "The Anchor Free Car Park",
+  "description": "Free customer parking available on-site with ample spaces for pub visitors",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Horton Road",
+    "addressLocality": "Stanwell Moor",
+    "addressRegion": "Surrey",
+    "postalCode": "TW19 6AQ",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.462509,
+    "longitude": -0.502067
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
+      "opens": "16:00",
+      "closes": "23:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "16:00",
+      "closes": "00:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "13:00",
+      "closes": "00:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "12:00",
+      "closes": "21:30"
+    }
+  ],
+  "maximumVehicleHeight": {
+    "@type": "QuantitativeValue",
+    "value": 2.5,
+    "unitCode": "MTR"
+  },
+  "petsAllowed": true,
+  "isAccessibleForFree": true,
+  "numberOfSpaces": {
+    "@type": "QuantitativeValue",
+    "value": 50
+  },
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Wheelchair Accessible Spaces",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Well Lit",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "CCTV Monitored",
+      "value": true
+    }
+  ],
+  "operator": {
+    "@id": "https://the-anchor.pub/#organization"
+  }
+}
+
+// Individual Review Schema Generator
+export const createReviewSchema = (review: {
+  author: string;
+  datePublished: string;
+  reviewBody: string;
+  reviewRating: number;
+}) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": review.author
+    },
+    "datePublished": review.datePublished,
+    "reviewBody": review.reviewBody,
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": review.reviewRating,
+      "bestRating": 5,
+      "worstRating": 1
+    },
+    "itemReviewed": {
+      "@id": "https://the-anchor.pub/#business"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Google Reviews"
+    }
+  }
+}
+
+// Image Object Schema Generator
+export const createImageObjectSchema = (image: {
+  url: string;
+  name: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  datePublished?: string;
+}) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "contentUrl": image.url,
+    "name": image.name,
+    "caption": image.caption || image.name,
+    "description": image.caption || image.name,
+    "width": image.width || 1200,
+    "height": image.height || 800,
+    "datePublished": image.datePublished || new Date().toISOString(),
+    "uploadDate": image.datePublished || new Date().toISOString(),
+    "copyrightHolder": {
+      "@id": "https://the-anchor.pub/#organization"
+    },
+    "contentLocation": {
+      "@type": "Place",
+      "name": "The Anchor",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Horton Road",
+        "addressLocality": "Stanwell Moor",
+        "addressRegion": "Surrey",
+        "postalCode": "TW19 6AQ",
+        "addressCountry": "GB"
+      }
+    },
+    "license": "https://the-anchor.pub/terms",
+    "acquireLicensePage": "https://the-anchor.pub/contact"
+  }
+}
+
+// Food Establishment Reservation Schema Generator
+export const createReservationSchema = (reservation: {
+  reservationId: string;
+  reservationStatus: 'ReservationConfirmed' | 'ReservationPending' | 'ReservationCancelled';
+  startTime: string;
+  endTime: string;
+  partySize: number;
+  reservationFor?: {
+    name: string;
+    email?: string;
+    telephone?: string;
+  };
+  bookingTime?: string;
+  modifiedTime?: string;
+  specialRequests?: string;
+}) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishmentReservation",
+    "reservationId": reservation.reservationId,
+    "reservationStatus": `https://schema.org/${reservation.reservationStatus}`,
+    "startTime": reservation.startTime,
+    "endTime": reservation.endTime,
+    "partySize": reservation.partySize,
+    "reservationFor": reservation.reservationFor ? {
+      "@type": "Person",
+      "name": reservation.reservationFor.name,
+      "email": reservation.reservationFor.email,
+      "telephone": reservation.reservationFor.telephone
+    } : undefined,
+    "bookingTime": reservation.bookingTime || new Date().toISOString(),
+    "modifiedTime": reservation.modifiedTime,
+    "provider": {
+      "@id": "https://the-anchor.pub/#business"
+    },
+    "programMembershipUsed": {
+      "@type": "ProgramMembership",
+      "programName": "The Anchor Booking System",
+      "url": "https://the-anchor.pub/book"
+    },
+    "bookingAgent": {
+      "@type": "Organization",
+      "name": "The Anchor Online Booking",
+      "url": "https://the-anchor.pub"
+    },
+    "specialRequests": reservation.specialRequests,
+    "potentialAction": [
+      {
+        "@type": "ConfirmAction",
+        "name": "Confirm Reservation",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `https://the-anchor.pub/reservations/confirm/${reservation.reservationId}`,
+          "actionPlatform": [
+            "https://schema.org/DesktopWebPlatform",
+            "https://schema.org/MobileWebPlatform"
+          ]
+        }
+      },
+      {
+        "@type": "CancelAction",
+        "name": "Cancel Reservation",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `https://the-anchor.pub/reservations/cancel/${reservation.reservationId}`,
+          "actionPlatform": [
+            "https://schema.org/DesktopWebPlatform",
+            "https://schema.org/MobileWebPlatform"
+          ]
+        }
+      }
+    ]
+  }
+}

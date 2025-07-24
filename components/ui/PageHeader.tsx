@@ -24,7 +24,7 @@ export function PageHeader({
   children
 }: PageHeaderProps) {
   return (
-    <section className={`relative ${minHeight} flex items-center justify-center mt-20 overflow-hidden`}>
+    <section className={`relative ${minHeight} flex items-center justify-center overflow-hidden`}>
       <div className="absolute inset-0">
         <Image
           src={imageSrc}

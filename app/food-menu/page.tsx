@@ -18,17 +18,17 @@ import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
 
 export const metadata: Metadata = {
-  title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Pub Food',
-  description: 'Enjoy traditional British pub food at The Anchor. Famous Sunday roasts, stone-baked pizzas, burgers, and family-friendly meals. Kitchen open Tuesday-Sunday.',
-  keywords: 'pub food stanwell moor, sunday roast near heathrow, british pub menu, family restaurant stanwell',
+  title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Food',
+  description: 'Enjoy traditional British food at The Anchor. Famous Sunday roasts, stone-baked pizzas, burgers, and family-friendly meals. Kitchen open Tuesday-Sunday.',
+  keywords: 'food stanwell moor, sunday roast near heathrow, british menu, family restaurant stanwell',
   openGraph: {
-    title: 'Food Menu - The Anchor Pub',
-    description: 'Traditional British pub food, famous Sunday roasts, and family-friendly dining near Heathrow.',
+    title: 'Food Menu - The Anchor',
+    description: 'Traditional British food, famous Sunday roasts, and family-friendly dining near Heathrow.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Food Menu - The Anchor Pub',
-    description: 'Traditional British pub food, famous Sunday roasts, and family-friendly dining near Heathrow.',
+    title: 'Food Menu - The Anchor',
+    description: 'Traditional British food, famous Sunday roasts, and family-friendly dining near Heathrow.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg']
   })
 }
@@ -86,7 +86,7 @@ export default async function FoodMenuPage() {
     "@context": "https://schema.org",
     "@type": "Offer",
     "name": "50% Off Fish & Chips for Over 65s - Every Friday",
-    "description": "Half price fish and chips for senior citizens every Friday at The Anchor pub.",
+    "description": "Half price fish and chips for senior citizens every Friday at The Anchor.",
     "url": "https://the-anchor.pub/food-menu#mains",
     "priceCurrency": "GBP",
     "eligibleRegion": {
@@ -170,7 +170,7 @@ export default async function FoodMenuPage() {
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
-            Food Menu - The Anchor Pub Restaurant
+            Food Menu - The Anchor Restaurant
           </PageTitle>
         </Container>
       </section>
@@ -219,7 +219,7 @@ export default async function FoodMenuPage() {
                   content: (
                     <>
                       <ul className="space-y-3 text-gray-700">
-                        <li>• Proper portions at pub prices</li>
+                        <li>• Proper portions at local prices</li>
                         <li>• Relaxed atmosphere without the rush</li>
                         <li>• Real food, freshly cooked to order</li>
                         <li>• Free WiFi to check flight status</li>
@@ -242,8 +242,8 @@ export default async function FoodMenuPage() {
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
-              title="Staines' Favourite Traditional Pub Food"
-              subtitle="Serving Stanwell Moor, Staines, and surrounding areas with proper British pub grub since opening our doors. Where Heathrow workers grab lunch, families gather for Sunday roasts, and locals know they'll always get a warm welcome."
+              title="Staines' Favourite Traditional British Food"
+              subtitle="Serving Stanwell Moor, Staines, and surrounding areas with proper British food since opening our doors. Where Heathrow workers grab lunch, families gather for Sunday roasts, and locals know they'll always get a warm welcome."
             />
             <SpeakableContent selector="menu-highlights" priority="high">
               <FeatureGrid
@@ -403,7 +403,7 @@ export default async function FoodMenuPage() {
           },
           {
             question: "What's the best pub food near Heathrow Airport?",
-            answer: "The Anchor is just 7 minutes from Terminal 5 and serves traditional British pub food at local prices - much better value than airport restaurants! We're perfect for pre-flight meals with free parking and quick service."
+            answer: "The Anchor is just 7 minutes from Terminal 5 and serves traditional British food at local prices - much better value than airport restaurants! We're perfect for pre-flight meals with free parking and quick service."
           },
           {
             question: "What payment methods are accepted at The Anchor?",
@@ -441,7 +441,7 @@ export default async function FoodMenuPage() {
               "@context": "https://schema.org",
               "@type": "Menu",
               "name": "The Anchor Food Menu",
-              "description": "Traditional British pub food menu",
+              "description": "Traditional British food menu",
               "hasMenuSection": menuData.categories.map(category => ({
                 "@type": "MenuSection",
                 "name": category.title,

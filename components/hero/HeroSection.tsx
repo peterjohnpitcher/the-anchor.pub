@@ -83,7 +83,6 @@ export function HeroSection({
       className={cn(
         'relative overflow-hidden',
         heightClasses[size],
-        'mt-20', // Consistent top margin for fixed nav
         className
       )}
     >

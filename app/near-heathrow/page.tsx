@@ -95,7 +95,7 @@ export default function NearHeathrowPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">🚗</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Free Parking</h3>
+              <h2 className="text-2xl font-bold text-anchor-green mb-3">Free Parking</h2>
               <p className="text-gray-700">
                 20 free parking spaces for pub guests. No stress, no fees. 
                 Perfect for meeting arriving passengers.
@@ -104,7 +104,7 @@ export default function NearHeathrowPage() {
 
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">🍺</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Proper British Pub</h3>
+              <h2 className="text-2xl font-bold text-anchor-green mb-3">Proper British Pub</h2>
               <p className="text-gray-700">
                 Traditional pub atmosphere with real ales, hearty food, and genuine 
                 British hospitality. A taste of local life.
@@ -113,7 +113,7 @@ export default function NearHeathrowPage() {
 
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">⏰</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Flexible Hours</h3>
+              <h2 className="text-2xl font-bold text-anchor-green mb-3">Flexible Hours</h2>
               <p className="text-gray-700">
                 Open late Fridays & Saturdays. Kitchen hours designed around flight 
                 times. Call ahead for early/late arrangements.
@@ -122,7 +122,7 @@ export default function NearHeathrowPage() {
 
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">💼</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Business Friendly</h3>
+              <h2 className="text-2xl font-bold text-anchor-green mb-3">Business Friendly</h2>
               <p className="text-gray-700">
                 Free WiFi throughout, dining room with power points at tables, 
                 quiet corners for meetings, and proper coffee. Popular with flight 
@@ -132,7 +132,7 @@ export default function NearHeathrowPage() {
 
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">🎒</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">Luggage Welcome</h3>
+              <h2 className="text-2xl font-bold text-anchor-green mb-3">Luggage Welcome</h2>
               <p className="text-gray-700">
                 Plenty of space for bags and cases. Safe luggage storage available. 
                 No cramped city pub experience here - we&apos;ve got room for travelers.
@@ -141,7 +141,7 @@ export default function NearHeathrowPage() {
 
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">🌍</div>
-              <h3 className="text-2xl font-bold text-anchor-green mb-3">All Welcome</h3>
+              <h2 className="text-2xl font-bold text-anchor-green mb-3">All Welcome</h2>
               <p className="text-gray-700">
                 International menu options alongside British classics. 
                 Dietary requirements catered for. Everyone&apos;s local.
@@ -165,7 +165,7 @@ export default function NearHeathrowPage() {
             <Link href="/near-heathrow/terminal-2" className="block group">
               <div className="card-warm bg-white p-6 h-full group-hover:shadow-lg transition-all">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Terminal 2</h3>
+                  <h2 className="text-2xl font-bold text-anchor-green">Terminal 2</h2>
                   <span className="text-anchor-gold font-semibold">10 mins</span>
                 </div>
                 <p className="text-gray-700 mb-4">The Queen&apos;s Terminal</p>
@@ -184,7 +184,7 @@ export default function NearHeathrowPage() {
             <Link href="/near-heathrow/terminal-3" className="block group">
               <div className="card-warm bg-white p-6 h-full group-hover:shadow-lg transition-all">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Terminal 3</h3>
+                  <h2 className="text-2xl font-bold text-anchor-green">Terminal 3</h2>
                   <span className="text-anchor-gold font-semibold">10 mins</span>
                 </div>
                 <p className="text-gray-700 mb-4">Virgin Atlantic & Emirates</p>
@@ -203,7 +203,7 @@ export default function NearHeathrowPage() {
             <Link href="/near-heathrow/terminal-4" className="block group">
               <div className="card-warm bg-white p-6 h-full group-hover:shadow-lg transition-all">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Terminal 4</h3>
+                  <h2 className="text-2xl font-bold text-anchor-green">Terminal 4</h2>
                   <span className="text-anchor-gold font-semibold">12 mins</span>
                 </div>
                 <p className="text-gray-700 mb-4">Alliance Hub</p>
@@ -222,7 +222,7 @@ export default function NearHeathrowPage() {
             <Link href="/near-heathrow/terminal-5" className="block group">
               <div className="card-warm bg-white p-6 h-full group-hover:shadow-lg transition-all">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-anchor-green">Terminal 5</h3>
+                  <h2 className="text-2xl font-bold text-anchor-green">Terminal 5</h2>
                   <span className="text-anchor-gold font-semibold">7 mins</span>
                 </div>
                 <p className="text-gray-700 mb-4">British Airways Home</p>
@@ -240,7 +240,7 @@ export default function NearHeathrowPage() {
             {/* General/Taxi */}
             <div className="card-warm bg-white p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-anchor-green">By Taxi</h3>
+                <h2 className="text-2xl font-bold text-anchor-green">By Taxi</h2>
                 <span className="text-anchor-gold font-semibold">£25</span>
               </div>
               <p className="text-gray-700 mb-4">All terminals</p>
@@ -255,7 +255,7 @@ export default function NearHeathrowPage() {
             {/* Bus */}
             <div className="card-warm bg-white p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-anchor-green">By Bus</h3>
+                <h2 className="text-2xl font-bold text-anchor-green">By Bus</h2>
                 <span className="text-anchor-gold font-semibold">442</span>
               </div>
               <p className="text-gray-700 mb-4">From Central Bus Station</p>

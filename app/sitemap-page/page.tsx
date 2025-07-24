@@ -9,14 +9,14 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Sitemap | The Anchor Stanwell Moor',
-  description: 'Complete sitemap of The Anchor pub website. Find all our pages including menus, events, location information and special offers.',
+  description: 'Complete sitemap of The Anchor website. Find all our pages including menus, events, location information and special offers.',
   robots: {
     index: true,
     follow: true,
   },
   twitter: getTwitterMetadata({
     title: 'Sitemap | The Anchor Stanwell Moor',
-    description: 'Complete sitemap of The Anchor pub website. Find all our pages including menus, events, location information and special offers.'
+    description: 'Complete sitemap of The Anchor website. Find all our pages including menus, events, location information and special offers.'
   })
 }
 
@@ -69,8 +69,8 @@ const sitemapSections = [
   {
     title: 'Location Pages',
     links: [
-      { label: 'Staines Pub', href: '/staines-pub', note: 'Coming Soon' },
-      { label: 'Stanwell Moor Pub', href: '/stanwell-moor-pub', note: 'Coming Soon' },
+      { label: 'Staines Location', href: '/staines-pub', note: 'Coming Soon' },
+      { label: 'Stanwell Moor Location', href: '/stanwell-moor-pub', note: 'Coming Soon' },
       { label: 'TW19 Area', href: '/locations/tw19', note: 'Coming Soon' },
     ]
   }
@@ -106,7 +106,7 @@ export default function SitemapPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
-            Sitemap - The Anchor Pub
+            Sitemap - The Anchor
           </PageTitle>
         </div>
       </section>

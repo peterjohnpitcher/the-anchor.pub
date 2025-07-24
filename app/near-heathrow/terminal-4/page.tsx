@@ -14,6 +14,7 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { DirectionsButton } from '@/components/DirectionsButton'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { PARKING } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 4 Hotels | The Anchor - Local British Pub',
@@ -438,7 +439,7 @@ export default function Terminal4Page() {
           },
           {
             question: "Do you have parking for Terminal 4 travelers?",
-            answer: "Yes! We offer free parking with space for 30 cars. Much more affordable than airport parking for short stays."
+            answer: `Yes! We offer free parking with space for ${PARKING.capacity} cars. Much more affordable than airport parking for short stays.`
           },
           {
             question: "What time should I leave for Terminal 4?",

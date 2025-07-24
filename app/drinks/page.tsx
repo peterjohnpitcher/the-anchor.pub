@@ -18,15 +18,15 @@ import './cocktails.css'
 
 export const metadata: Metadata = {
   title: 'Drinks Menu Near Me | The Anchor Stanwell Moor | Real Ales & Premium Spirits',
-  description: 'Extensive drinks selection at The Anchor pub in Surrey. Real ales, craft beers, premium spirits, wines & cocktails. Great atmosphere near Heathrow.',
-  keywords: 'drinks menu stanwell moor, real ale pub, cocktails heathrow, craft beer stanwell',
+  description: 'Extensive drinks selection at The Anchor in Surrey. Real ales, craft beers, premium spirits, wines & cocktails. Great atmosphere near Heathrow.',
+  keywords: 'drinks menu stanwell moor, real ale, cocktails heathrow, craft beer stanwell',
   openGraph: {
-    title: 'Drinks Menu - The Anchor Pub',
+    title: 'Drinks Menu - The Anchor',
     description: 'Real ales, premium spirits, and extensive drinks selection. Something for everyone!',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: ['/images/hero/the-anchor-interior-atmosphere.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Drinks Menu - The Anchor Pub',
+    title: 'Drinks Menu - The Anchor',
     description: 'Real ales, premium spirits, and extensive drinks selection. Something for everyone!',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
   })
@@ -52,7 +52,7 @@ export default async function DrinksMenuPage() {
     "@context": "https://schema.org",
     "@type": "Menu",
     "name": "The Anchor Drinks Menu",
-    "description": "Full bar service with real ales, craft beers, wines, spirits and soft drinks at The Anchor pub in Stanwell Moor, Surrey",
+    "description": "Full bar service with real ales, craft beers, wines, spirits and soft drinks at The Anchor in Stanwell Moor, Surrey",
     "hasMenuSection": menuData.categories.map(category => ({
       "@type": "MenuSection",
       "name": category.title,
@@ -243,7 +243,7 @@ export default async function DrinksMenuPage() {
                   title: "🎯 Local Institution",
                   content: (
                     <>
-                      <p className="text-gray-700 mb-4">Serving Stanwell Moor and Staines for generations. Where locals meet, airport workers unwind, and visitors become regulars. Your neighbourhood pub with a global touch.</p>
+                      <p className="text-gray-700 mb-4">Serving Stanwell Moor and Staines for generations. Where locals meet, airport workers unwind, and visitors become regulars. Your neighbourhood bar with a global touch.</p>
                       <p className="text-sm text-gray-700">Ask about our locals' card for exclusive offers!</p>
                     </>
                   ),
