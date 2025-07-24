@@ -1,16 +1,65 @@
-# Robots.txt for The Anchor Pub
+# Robots.txt for The Anchor
 # https://www.robotstxt.org/robotstxt.html
 
 User-agent: *
+
+# Block Next.js static assets
+Disallow: /_next/
+Disallow: /_buildManifest.js
+Disallow: /_ssgManifest.js
+
+# Block API and serverless endpoints
+Disallow: /api/
+Disallow: /_api/
+Disallow: /_serverless/
+
+# Block development/test pages
 Disallow: /_api-diagnostics
 Disallow: /api-status
 Disallow: /api-test
 Disallow: /components
 Disallow: /demo-header
 Disallow: /test-reviews
+Disallow: /test-tracking
+Disallow: /heel-of-fortune-admin
+
+# Block legacy URLs (these should 301 redirect)
+Disallow: /post/
+Disallow: /event-details/
+Disallow: /drinks/
+Disallow: /celebrating-sport-at-the-anchor
+Disallow: /company-christmas-party-venue
+
+# Block paginated blog pages beyond page 5 (for crawl budget optimization)
+Disallow: /blog/page/6
+Disallow: /blog/page/7
+Disallow: /blog/page/8
+Disallow: /blog/page/9
+Disallow: /blog/page/1*
+Disallow: /blog/page/2*
+Disallow: /blog/page/3*
+
+# Block URL parameters
+Disallow: /*?dpl=
+Disallow: /*?utm_
+Disallow: /*?ver=
+Disallow: /*?id=
+Disallow: /*?items=
+Disallow: /*?container=
+
+# Block image optimization variants (only index originals)
+Disallow: /images/*/optimized/
+
+# Block dynamic resources
+Disallow: /icon?*
+Disallow: /manifest.json
 
 # Allow all other pages
 Allow: /
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://the-anchor.pub/sitemap.xml
+Sitemap: https://the-anchor.pub/sitemap-priority.xml
+
+# Crawl delay for politeness (optional)
+Crawl-delay: 1

@@ -16,6 +16,7 @@ import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
+import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
 import { 
   Button, 
   Card, 
@@ -513,6 +514,13 @@ export default function HomePage() {
         subtitle="Real reviews from our guests"
         background="white"
         layout="carousel"
+      />
+
+      {/* Internal Links for SEO */}
+      <InternalLinkingSection 
+        title="Explore More"
+        links={commonLinkGroups.mainPages}
+        className="section-spacing-md"
       />
 
       {/* Find Us Section */}

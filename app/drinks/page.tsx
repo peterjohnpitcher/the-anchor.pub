@@ -14,6 +14,7 @@ import { ManagersSpecialHero } from '@/components/ManagersSpecialHero'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
 import './cocktails.css'
 
 export const metadata: Metadata = {
@@ -315,6 +316,12 @@ export default async function DrinksMenuPage() {
       <div id="menu">
         <MenuRenderer menuData={menuData} accentColor="anchor-green" />
       </div>
+
+      {/* Internal Links for SEO */}
+      <InternalLinkingSection 
+        links={commonLinkGroups.dining}
+        className="section-spacing-md"
+      />
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

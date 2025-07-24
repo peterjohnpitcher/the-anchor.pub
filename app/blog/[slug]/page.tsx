@@ -6,6 +6,7 @@ import { Button } from '@/components/ui'
 import { Metadata } from 'next'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { BlogShareButtons } from '@/components/BlogShareButtons'
+import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
@@ -56,8 +57,69 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     ? distributeImages(post.htmlContent || '', post.images, post.slug)
     : post.htmlContent || ''
 
+  // Article structured data for better SEO
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.description,
+    "author": {
+      "@type": "Person",
+      "name": post.author
+    },
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Anchor",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-white-transparent.png"
+      }
+    },
+    "image": post.hero 
+      ? `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}` 
+      : "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://the-anchor.pub/blog/${post.slug}`
+    },
+    "keywords": post.keywords.join(", "),
+    "articleSection": post.tags[0] || "News",
+    "wordCount": post.htmlContent ? post.htmlContent.split(' ').length : 500
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://the-anchor.pub"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://the-anchor.pub/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `https://the-anchor.pub/blog/${post.slug}`
+      }
+    ]
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
+      />
       <ScrollDepthTracker />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-end mt-20">
@@ -219,6 +281,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </div>
         </div>
       </section>
+
+      {/* Internal Linking for Better SEO */}
+      <InternalLinkingSection 
+        links={commonLinkGroups.events}
+        className="section-spacing-md"
+      />
 
       {/* CTA Section */}
       <section className="section-spacing bg-anchor-green text-white">

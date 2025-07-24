@@ -17,6 +17,7 @@ import { SocialLink } from '@/components/SocialLink'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
+import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
 
 export const metadata: Metadata = {
   title: "What's On Near Me | The Anchor Stanwell Moor | Events & Entertainment",
@@ -286,6 +287,13 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
       </div>
 
       {/* FAQ Section */}
+      {/* Internal Links for SEO */}
+      <InternalLinkingSection 
+        title="Discover More at The Anchor"
+        links={[...commonLinkGroups.dining, { href: '/blog', title: 'Latest News', description: 'Updates and announcements' }]}
+        className="section-spacing-md"
+      />
+
       <FAQAccordionWithSchema 
         faqs={[
           {
