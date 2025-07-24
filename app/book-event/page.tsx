@@ -8,6 +8,8 @@ import { CTASection, SectionHeader, InfoBoxGrid, FeatureGrid, QuickInfoGrid } fr
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ReviewSection } from '@/components/reviews'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { Container } from '@/components/ui/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Event Venue Hire Near Me | The Anchor Stanwell Moor | Private Bookings',
@@ -100,6 +102,15 @@ export default function BookEventPage() {
           </PhoneButton>
         }
       />
+
+      {/* Page Title */}
+      <div className="bg-white py-8">
+        <Container>
+          <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
+            Book Your Event - The Anchor Venue Hire
+          </PageTitle>
+        </Container>
+      </div>
 
       {/* Venue Spaces */}
       <section className="section-spacing bg-white">

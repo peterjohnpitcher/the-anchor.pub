@@ -78,7 +78,7 @@ export function GalleryImage({
         quality={75}
         placeholder="blur"
         blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(width, height))}`}
-        onLoadingComplete={() => setIsLoaded(true)}
+        onLoad={() => setIsLoaded(true)}
       />
       
       {caption && (

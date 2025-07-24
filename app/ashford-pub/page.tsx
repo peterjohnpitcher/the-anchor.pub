@@ -9,10 +9,11 @@ import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, Container } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: `Ashford Pub Near Me | ${BRAND.name} - 10 Minutes from Ashford`,
@@ -123,9 +124,29 @@ export default function AshfordPubPage() {
         }
       />
 
+      {/* Page Title */}
+      <section className="py-8 bg-white">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center">
+            <PageTitle
+              seo={{
+                structured: true,
+                speakable: true
+              }}
+              className="text-anchor-green mb-4"
+            >
+              Ashford Pub - Traditional British Pub Near Ashford
+            </PageTitle>
+            <p className="text-lg text-gray-700">
+              Your local traditional pub just 10 minutes from Ashford with free parking
+            </p>
+          </div>
+        </Container>
+      </section>
+
       {/* Welcome Section */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <section className="section-spacing bg-gray-50">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Ashford's Favourite Traditional Pub Experience"
@@ -163,12 +184,12 @@ export default function AshfordPubPage() {
               className="mb-8"
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Why Ashford Residents Choose Us */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Why Ashford Residents Love The Anchor"
@@ -247,12 +268,12 @@ export default function AshfordPubPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Popular with Ashford Groups */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Popular with Ashford Groups"
@@ -296,12 +317,12 @@ export default function AshfordPubPage() {
     </Link>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Event Venue for Ashford */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Event Venue for Ashford Celebrations"
@@ -387,12 +408,12 @@ export default function AshfordPubPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Getting Here from Ashford */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Getting to The Anchor from Ashford"
@@ -459,12 +480,12 @@ export default function AshfordPubPage() {
               </DirectionsButton>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Local Connections */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Ashford to The Anchor - Local Connections"
@@ -506,12 +527,12 @@ export default function AshfordPubPage() {
               Join the many Ashford residents who've discovered their new favourite pub!
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-2xl mx-auto text-center">
             <SectionHeader
               title="Opening Hours"
@@ -521,7 +542,7 @@ export default function AshfordPubPage() {
               Kitchen closes earlier - check times for food service
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

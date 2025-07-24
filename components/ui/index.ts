@@ -11,7 +11,8 @@ export * from './feedback/Alert'
 
 // Layout components
 export * from './layout/Card'
-export * from './layout/Container'
+export { Container } from './layout/Container'
+export { Section, PageSection, HeroSection } from './layout/Section'
 export * from './layout/Grid'
 export { FullWidthSection } from './FullWidthSection'
 
@@ -21,8 +22,8 @@ export * from './navigation/Breadcrumb'
 export * from './navigation/NavBar'
 
 // Form components
-export * from './forms/Form'
-export * from './forms/Select'
+export { Form, FormSection, FormField } from './forms/Form'
+export { Select } from './forms/Select'
 export * from './forms/Checkbox'
 export * from './forms/Radio'
 export * from './forms/DatePicker'
@@ -37,13 +38,23 @@ export * from './overlays/Popover'
 // Feedback components (Loading)
 export * from './feedback/Loading'
 
+// Accessibility components
+export { LiveRegion, announceToScreenReader, useLiveRegion } from './LiveRegion'
+
+// Image components
+export { MobileOptimizedImage, ResponsivePicture, HeroImage, GalleryImage } from './MobileOptimizedImage'
+
 // Utility components
 export { IconText } from './IconText'
-export { JourneyTime } from './JourneyTime'
+export { JourneyTime, JourneyTimes } from './JourneyTime'
 export { ContactLink } from './ContactLink'
 export { EventMetadata } from './EventMetadata'
 export { PriceDisplay } from './PriceDisplay'
 export { OpeningStatus } from './OpeningStatus'
+export { Price, PriceRange } from './Price'
+export { OpeningHours, OpenStatus } from './OpeningHours'
+export { Icon, type IconName } from './Icon'
+export * from './Icon' // Export all icon components
 export { ErrorDisplay, EventsErrorDisplay, BookingErrorDisplay, WeatherErrorDisplay, FlightErrorDisplay } from './ErrorDisplay'
 export { LoadingState, CardSkeleton, EventCardSkeleton, TableRowSkeleton } from './LoadingState'
 

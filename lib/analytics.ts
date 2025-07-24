@@ -1,6 +1,8 @@
 // Analytics tracking utility
 // This provides a centralized way to track events across the application
 
+import { canUseCookieCategory } from './cookies'
+
 export type AnalyticsEvent = 
   | { action: 'page_view'; category: 'navigation'; label: string; value?: number }
   | { action: 'click'; category: 'cta' | 'navigation' | 'social' | 'booking'; label: string; value?: number }
@@ -32,6 +34,14 @@ class Analytics {
 
   track(event: AnalyticsEvent) {
     if (!this.config.enabled) return
+
+    // Check if analytics cookies are allowed
+    if (typeof window !== 'undefined' && !canUseCookieCategory('analytics')) {
+      if (this.config.debug) {
+        console.log('[Analytics] Tracking blocked - no consent for analytics cookies')
+      }
+      return
+    }
 
     const metadata = 'metadata' in event ? event.metadata : undefined
 
@@ -178,3 +188,8 @@ class Analytics {
 
 // Export singleton instance
 export const analytics = new Analytics()
+
+// Export convenience function for backward compatibility
+export function trackEvent(event: AnalyticsEvent) {
+  analytics.track(event)
+}

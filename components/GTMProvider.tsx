@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import Script from 'next/script'
+import { initializeConsentMode, getConsentStatus, hasUserConsented } from '@/lib/cookies'
 
 interface GTMProviderProps {
   gtmId: string
@@ -12,8 +13,14 @@ export function GTMProvider({ gtmId, children }: GTMProviderProps) {
   useEffect(() => {
     if (!gtmId) return
 
-    // Initialize dataLayer
+    // Initialize dataLayer and gtag
     window.dataLayer = window.dataLayer || []
+    window.gtag = window.gtag || function() {
+      window.dataLayer!.push(arguments)
+    }
+    
+    // Initialize Google consent mode before GTM loads
+    initializeConsentMode()
     
     // Push initial GTM event
     window.dataLayer.push({
@@ -24,6 +31,21 @@ export function GTMProvider({ gtmId, children }: GTMProviderProps) {
     // Log for debugging
     console.log('GTM Provider initialized with ID:', gtmId)
     console.log('DataLayer:', window.dataLayer)
+    
+    // Listen for consent updates
+    const handleConsentUpdate = () => {
+      const consent = getConsentStatus()
+      if (consent) {
+        window.gtag!('consent', 'update', {
+          'analytics_storage': consent.analytics ? 'granted' : 'denied',
+          'ad_storage': consent.marketing ? 'granted' : 'denied',
+          'personalization_storage': consent.preferences ? 'granted' : 'denied'
+        })
+      }
+    }
+    
+    window.addEventListener('cookieConsentUpdate', handleConsentUpdate)
+    return () => window.removeEventListener('cookieConsentUpdate', handleConsentUpdate)
   }, [gtmId])
 
   if (!gtmId) return <>{children}</>

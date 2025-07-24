@@ -7,6 +7,10 @@ import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList, DirectionsCard } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
+import { SpeakableContent } from '@/components/voice/SpeakableContent'
+import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Airport | The Anchor Stanwell Moor | 7 Minutes from All Terminals',
@@ -27,6 +31,7 @@ export const metadata: Metadata = {
 export default function NearHeathrowPage() {
   return (
     <>
+      <SpeakableSchema />
       {/* Hero Section */}
       <HeroWrapper
         route="/near-heathrow"
@@ -66,6 +71,18 @@ export default function NearHeathrowPage() {
           </div>
         }
       />
+
+      {/* Page Title for SEO */}
+      <section className="bg-white py-8">
+        <div className="container mx-auto px-4">
+          <PageTitle 
+            className="text-center text-anchor-green"
+            seo={{ structured: true, speakable: true }}
+          >
+            The Anchor - Pub Near Heathrow Airport
+          </PageTitle>
+        </div>
+      </section>
 
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">
@@ -142,7 +159,8 @@ export default function NearHeathrowPage() {
             subtitle="We're the closest traditional pub to all Heathrow terminals"
           />
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <SpeakableContent selector="travel-times" priority="high">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Terminal 2 */}
             <Link href="/near-heathrow/terminal-2" className="block group">
               <div className="card-warm bg-white p-6 h-full group-hover:shadow-lg transition-all">
@@ -246,6 +264,7 @@ export default function NearHeathrowPage() {
               </p>
             </div>
           </div>
+          </SpeakableContent>
         </div>
       </section>
 
@@ -598,36 +617,39 @@ export default function NearHeathrowPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Restaurant",
-            "name": "The Anchor - Pub Near Heathrow Airport",
-            "description": "The closest traditional British pub to Heathrow Airport. Just 7 minutes from Terminal 5.",
-            "image": "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Horton Road",
-              "addressLocality": "Stanwell Moor",
-              "addressRegion": "Surrey",
-              "postalCode": "TW19 6AQ",
-              "addressCountry": "GB"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              "name": "The Anchor - Pub Near Heathrow Airport",
+              "description": "The closest traditional British pub to Heathrow Airport. Just 7 minutes from Terminal 5.",
+              "image": "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Horton Road",
+                "addressLocality": "Stanwell Moor",
+                "addressRegion": "Surrey",
+                "postalCode": "TW19 6AQ",
+                "addressCountry": "GB"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.4745,
+                "longitude": -0.4713
+              },
+              "url": "https://the-anchor.pub/near-heathrow",
+              "telephone": "+441753682707",
+              "priceRange": "££",
+              "servesCuisine": ["British", "Pub Food"],
+              "amenityFeature": [
+                {"@type": "LocationFeatureSpecification", "name": "Free Parking"},
+                {"@type": "LocationFeatureSpecification", "name": "Free WiFi"},
+                {"@type": "LocationFeatureSpecification", "name": "Wheelchair Accessible"},
+                {"@type": "LocationFeatureSpecification", "name": "Dog Friendly"}
+              ]
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 51.4745,
-              "longitude": -0.4713
-            },
-            "url": "https://the-anchor.pub/near-heathrow",
-            "telephone": "+441753682707",
-            "priceRange": "££",
-            "servesCuisine": ["British", "Pub Food"],
-            "amenityFeature": [
-              {"@type": "LocationFeatureSpecification", "name": "Free Parking"},
-              {"@type": "LocationFeatureSpecification", "name": "Free WiFi"},
-              {"@type": "LocationFeatureSpecification", "name": "Wheelchair Accessible"},
-              {"@type": "LocationFeatureSpecification", "name": "Dog Friendly"}
-            ]
-          })
+            parkingFacilitySchema
+          ])
         }}
       />
     </>

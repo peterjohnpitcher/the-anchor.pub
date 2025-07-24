@@ -9,6 +9,7 @@ import { EventBookingErrorBoundary } from './EventBookingErrorBoundary'
 import { trackEventBookingStart, trackFormStart } from '@/lib/gtm-events'
 import { CONTACT_INFO } from '@/lib/error-handling'
 import { PhoneLink } from '@/components/PhoneLink'
+import { Button, LiveRegion, useLiveRegion } from '@/components/ui'
 
 interface EventBookingProps {
   event: Event
@@ -31,6 +32,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
   const [retryCount, setRetryCount] = useState(0)
   const errorRef = useRef<HTMLDivElement>(null)
   const abortControllerRef = useRef<AbortController | null>(null)
+  const { message: liveMessage, announce } = useLiveRegion('polite')
 
   const validatePhoneNumber = useCallback((phone: string): boolean => {
     // Remove spaces and special characters
@@ -68,6 +70,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       const errorMsg = 'Please enter your mobile number'
       setError(errorMsg)
       setStatusMessage(errorMsg)
+      announce(errorMsg, 'assertive')
       return
     }
 
@@ -75,12 +78,14 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       const errorMsg = 'Please enter a valid UK mobile number'
       setError(errorMsg)
       setStatusMessage(errorMsg)
+      announce(errorMsg, 'assertive')
       return
     }
 
     setIsBooking(true)
     setStatusMessage('Processing your booking request...')
     setRetryCount(0)
+    announce('Processing your booking request', 'polite')
     
     // Track booking start for remarketing
     trackEventBookingStart({
@@ -108,8 +113,10 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         
         if (isRetryable && attemptNumber < MAX_RETRIES) {
           const delay = RETRY_DELAY * Math.pow(2, attemptNumber) // Exponential backoff
-          setStatusMessage(`Connection issue. Retrying... (attempt ${attemptNumber + 1}/${MAX_RETRIES})`)
+          const retryMsg = `Connection issue. Retrying... (attempt ${attemptNumber + 1}/${MAX_RETRIES})`
+          setStatusMessage(retryMsg)
           setRetryCount(attemptNumber + 1)
+          announce(retryMsg, 'polite')
           await sleep(delay)
           return attemptBooking(attemptNumber + 1)
         }
@@ -125,7 +132,9 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         setBookingResponse(response)
         setSuccess(true)
         setPhoneNumber('')
-        setStatusMessage('Booking initiated successfully! Check your messages for the confirmation link.')
+        const successMsg = 'Booking initiated successfully! Check your messages for the confirmation link.'
+        setStatusMessage(successMsg)
+        announce(successMsg, 'assertive')
         
         // Track successful booking
         analytics.formSubmit('booking', event.name, 1)
@@ -133,6 +142,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         const errorMsg = `We couldn't process your booking online. Please call us at ${CONTACT_INFO.phone} and we'll reserve your spot right away.`
         setError(errorMsg)
         setStatusMessage(errorMsg)
+        announce(errorMsg, 'assertive')
         
         // Track error
         analytics.error('booking', `${event.name}: ${errorMsg}`)
@@ -202,17 +212,19 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         )}
         <p className="text-sm text-green-600 mt-4">
           The confirmation link expires in 24 hours. Didn't receive the message? 
-          <button 
+          <Button 
             onClick={() => {
               setSuccess(false)
               setBookingResponse(null)
               setStatusMessage('')
             }}
-            className="ml-1 underline font-semibold"
+            variant="ghost"
+            size="sm"
+            className="ml-1"
             aria-label="Try booking again"
           >
             Try again
-          </button>
+          </Button>
         </p>
       </div>
     )
@@ -220,10 +232,8 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
 
   return (
     <div className={`bg-amber-50 border border-amber-200 rounded-lg p-6 ${className}`}>
-      {/* Screen reader only live region for status announcements */}
-      <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">
-        {statusMessage}
-      </div>
+      {/* Live region for status announcements */}
+      <LiveRegion message={liveMessage} type="polite" />
       <h3 className="text-lg font-semibold text-amber-900 mb-4">Book Your Spot</h3>
       
       {event.remainingAttendeeCapacity && event.remainingAttendeeCapacity < 10 && (
@@ -276,23 +286,27 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
           </div>
         )}
 
-        <button
+        <Button
           type="submit"
           disabled={isBooking}
-          className="w-full bg-amber-600 text-white py-3 px-4 rounded-md font-semibold hover:bg-amber-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          variant="primary"
+          size="lg"
+          fullWidth
+          className="bg-amber-600 hover:bg-amber-700"
           aria-busy={isBooking}
           aria-label={isBooking ? 'Sending booking confirmation' : `Book your spot for ${event.name}`}
         >
           {isBooking ? (
             <span className="flex items-center justify-center">
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-label="Loading" role="status">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
+              <span className="sr-only">Loading...</span>
               {retryCount > 0 ? `Retrying... (${retryCount}/${MAX_RETRIES})` : 'Sending confirmation...'}
             </span>
           ) : 'Book Now'}
-        </button>
+        </Button>
       </form>
 
       <div className="mt-4 pt-4 border-t border-amber-200">

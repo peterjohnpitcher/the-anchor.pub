@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Leave a Review - The Anchor Stanwell Moor',
@@ -15,7 +16,9 @@ export default function LeaveReviewPage() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
-        <h1 className="text-2xl font-bold mb-4">Redirecting to Google Reviews...</h1>
+        <PageTitle className="text-2xl font-bold mb-4" seo={{ structured: true, speakable: true }}>
+          Leave a Review - The Anchor Pub
+        </PageTitle>
         <p className="text-gray-600">
           You're being redirected to leave a review for The Anchor on Google.
         </p>

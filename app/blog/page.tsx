@@ -5,6 +5,7 @@ import { Button, Container, Section, Card, CardBody, Badge, Grid, GridItem } fro
 import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Blog | The Anchor Stanwell Moor | News & Updates',
@@ -76,10 +77,10 @@ export default async function BlogPage({
   return (
     <>
       {/* Hero Section */}
-      <Section className="relative min-h-[50vh] flex items-center justify-center mt-20">
+      <section className="relative min-h-[50vh] flex items-center justify-center mt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-anchor-green to-anchor-green-dark" />
         
-        <Container className="relative z-10 text-center">
+        <div className="relative z-10 w-full px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
               The Anchor Blog
@@ -106,6 +107,26 @@ export default async function BlogPage({
                 Page {currentPage} of {totalPages}
               </p>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Page Title */}
+      <Section className="py-8 bg-white">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center">
+            <PageTitle
+              seo={{
+                structured: true,
+                speakable: true
+              }}
+              className="text-anchor-green mb-4"
+            >
+              The Anchor Blog - News & Updates
+            </PageTitle>
+            <p className="text-lg text-gray-700">
+              Stay connected with the latest news, events, and stories from your favourite local pub
+            </p>
           </div>
         </Container>
       </Section>
@@ -154,7 +175,7 @@ export default async function BlogPage({
 
       {/* Featured Post (only on first page) */}
       {featuredPost && currentPage === 1 && (
-        <div className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="bg-white section-spacing-md">
           <Container>
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8">Featured Story</h2>
@@ -211,7 +232,7 @@ export default async function BlogPage({
       )}
 
       {/* Other Posts */}
-      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="bg-gray-50 section-spacing-md">
         <Container>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8">
@@ -353,7 +374,7 @@ export default async function BlogPage({
       </div>
 
       {/* CTA Section */}
-      <div className="bg-anchor-green text-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-green text-white section-spacing-md">
         <Container className="text-center">
           <h2 className="text-3xl font-bold mb-8">
             Stay Connected

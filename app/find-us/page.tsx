@@ -14,6 +14,10 @@ import { EmailLink } from '@/components/EmailLink'
 import { PhoneButton } from '@/components/PhoneButton'
 import { DirectionsButton } from '@/components/DirectionsButton'
 import { WhatsAppLink } from '@/components/WhatsAppLink'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
+import { SpeakableContent } from '@/components/voice/SpeakableContent'
+import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
   title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
@@ -53,9 +57,10 @@ export default function FindUsPage() {
 
   return (
     <>
+      <SpeakableSchema />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([findUsPlaceSchema, breadcrumbSchema, howToFromHeathrowSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([findUsPlaceSchema, breadcrumbSchema, howToFromHeathrowSchema, parkingFacilitySchema]) }}
       />
       {/* Hero Section */}
       <HeroWrapper
@@ -90,8 +95,20 @@ export default function FindUsPage() {
         }
       />
 
+      {/* Page Title for SEO */}
+      <div className="bg-white py-8">
+        <Container>
+          <PageTitle 
+            className="text-center text-anchor-green"
+            seo={{ structured: true, speakable: true }}
+          >
+            Find The Anchor Pub - Directions from Heathrow
+          </PageTitle>
+        </Container>
+      </div>
+
       {/* Quick Info */}
-      <div className="bg-anchor-cream py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-cream section-spacing-md">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
             <div className="bg-white p-4 rounded-lg text-center">
@@ -144,7 +161,7 @@ export default function FindUsPage() {
       </div>
 
       {/* Address & Contact */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
@@ -153,42 +170,44 @@ export default function FindUsPage() {
                   title="Our Address"
                 />
                 <div className="bg-anchor-cream rounded-2xl p-8">
-                  <address className="not-italic text-lg space-y-2">
-                    <p className="font-bold text-xl text-anchor-green">The Anchor</p>
-                    <p>Horton Road</p>
-                    <p>Stanwell Moor</p>
-                    <p>Surrey</p>
-                    <p className="font-bold">TW19 6AQ</p>
-                  </address>
-                  
-                  <div className="mt-6 pt-6 border-t border-gray-300">
-                    <p className="font-bold text-anchor-green mb-3">Contact</p>
-                    <p className="mb-2">
-                      <PhoneLink 
-                        phone="01753682707" 
-                        source="find_us_contact"
-                        className="text-anchor-gold hover:text-anchor-gold-light"
-                      />
-                    </p>
-                    <p className="mb-2">
-                      <WhatsAppLink
-                        phone="01753682707"
-                        source="find_us_page"
-                        className="text-anchor-gold hover:text-anchor-gold-light"
-                        showIcon={false}
-                      >
-                        💬 WhatsApp: 01753682707
-                      </WhatsAppLink>
-                    </p>
-                    <p>
-                      <EmailLink
-                        email="manager@the-anchor.pub"
-                        source="find_us_contact"
-                        className="text-anchor-gold hover:text-anchor-gold-light"
-                        showIcon={true}
-                      />
-                    </p>
-                  </div>
+                  <SpeakableContent selector="contact-info" priority="high">
+                    <address className="not-italic text-lg space-y-2">
+                      <p className="font-bold text-xl text-anchor-green">The Anchor</p>
+                      <p>Horton Road</p>
+                      <p>Stanwell Moor</p>
+                      <p>Surrey</p>
+                      <p className="font-bold">TW19 6AQ</p>
+                    </address>
+                    
+                    <div className="mt-6 pt-6 border-t border-gray-300">
+                      <p className="font-bold text-anchor-green mb-3">Contact</p>
+                      <p className="mb-2">
+                        <PhoneLink 
+                          phone="01753682707" 
+                          source="find_us_contact"
+                          className="text-anchor-gold hover:text-anchor-gold-light"
+                        />
+                      </p>
+                      <p className="mb-2">
+                        <WhatsAppLink
+                          phone="01753682707"
+                          source="find_us_page"
+                          className="text-anchor-gold hover:text-anchor-gold-light"
+                          showIcon={false}
+                        >
+                          💬 WhatsApp: 01753682707
+                        </WhatsAppLink>
+                      </p>
+                      <p>
+                        <EmailLink
+                          email="manager@the-anchor.pub"
+                          source="find_us_contact"
+                          className="text-anchor-gold hover:text-anchor-gold-light"
+                          showIcon={true}
+                        />
+                      </p>
+                    </div>
+                  </SpeakableContent>
                 </div>
               </div>
               
@@ -233,16 +252,18 @@ export default function FindUsPage() {
               <SectionHeader
                 title="Hours & Weather"
               />
-              <div className="bg-anchor-green/95 rounded-2xl shadow-lg p-6 max-w-2xl mx-auto">
-                <BusinessHours variant="condensed" showKitchen={true} showWeather={true} />
-              </div>
+              <SpeakableContent selector="opening-hours" priority="high">
+                <div className="bg-anchor-green/95 rounded-2xl shadow-lg p-6 max-w-2xl mx-auto">
+                  <BusinessHours variant="condensed" showKitchen={true} showWeather={true} />
+                </div>
+              </SpeakableContent>
             </div>
           </div>
         </Container>
       </div>
 
       {/* Directions */}
-      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="bg-gray-50 section-spacing-md">
         <Container>
           <SectionHeader
             title="Directions from Popular Locations"
@@ -328,7 +349,7 @@ export default function FindUsPage() {
       </div>
 
       {/* Parking Information */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
@@ -361,7 +382,7 @@ export default function FindUsPage() {
       </div>
 
       {/* Facilities */}
-      <div className="bg-anchor-sand/20 py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-sand/20 section-spacing-md">
         <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader

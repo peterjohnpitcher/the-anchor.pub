@@ -11,6 +11,7 @@ import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, DirectionsCard, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: `Stanwell Pub Near Me | ${BRAND.name} - Your Local Village Pub`,
@@ -113,8 +114,28 @@ export default function StanwellPubPage() {
         }
       />
 
+      {/* Page Title */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <PageTitle
+              seo={{
+                structured: true,
+                speakable: true
+              }}
+              className="text-anchor-green mb-4"
+            >
+              Stanwell Pub - Traditional British Pub in Stanwell Moor
+            </PageTitle>
+            <p className="text-lg text-gray-700">
+              Your local village pub serving the Stanwell community for generations
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Welcome Section */}
-      <section className="section-spacing bg-white">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader

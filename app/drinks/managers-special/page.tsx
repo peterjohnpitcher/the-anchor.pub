@@ -14,6 +14,7 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { getManagersSpecialImage } from '@/lib/managers-special-image'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: "Manager's Special - 25% OFF The Botanist Gin | The Anchor Stanwell Moor",
@@ -120,8 +121,26 @@ export default function ManagersSpecialPage() {
         }
       />
 
+      {/* Page Title */}
+      <FullWidthSection className="bg-white py-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <PageTitle
+              seo={{
+                structured: true,
+                speakable: true
+              }}
+              className="text-anchor-green mb-4"
+            >
+              Manager's Special - Premium Wine Selection
+            </PageTitle>
+            <p className="text-lg text-gray-700">
+              Discover exceptional value on premium spirits each month at The Anchor
+            </p>
+          </div>
+      </FullWidthSection>
+
       {/* Special Pricing Section */}
-      <FullWidthSection className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <FullWidthSection className="bg-gray-50 section-spacing-md">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
               Experience Islay's Wild Spirit
@@ -170,7 +189,7 @@ export default function ManagersSpecialPage() {
       </FullWidthSection>
 
       {/* About The Botanist */}
-      <FullWidthSection className="bg-white py-16 sm:py-20 lg:py-24">
+      <FullWidthSection className="bg-white section-spacing-md">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About {spirit.name}</h2>
@@ -190,7 +209,7 @@ export default function ManagersSpecialPage() {
       </FullWidthSection>
 
       {/* Tasting Notes */}
-      <FullWidthSection className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <FullWidthSection className="bg-gray-50 section-spacing-md">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Tasting Experience</h2>
             <div className="grid md:grid-cols-2 gap-12">
@@ -227,7 +246,7 @@ export default function ManagersSpecialPage() {
       </FullWidthSection>
 
       {/* 22 Botanicals */}
-      <FullWidthSection className="bg-white py-16 sm:py-20 lg:py-24">
+      <FullWidthSection className="bg-white section-spacing-md">
           <div className="max-w-5xl mx-auto">
             <BotanicalsGrid
               title="22 Hand-Foraged Botanicals"
@@ -239,7 +258,7 @@ export default function ManagersSpecialPage() {
       </FullWidthSection>
 
       {/* The Story Behind The Botanist */}
-      <FullWidthSection className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <FullWidthSection className="bg-gray-50 section-spacing-md">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
               The Heritage of Islay's Wild Spirit
@@ -259,7 +278,7 @@ export default function ManagersSpecialPage() {
       </FullWidthSection>
 
       {/* Why This Month's Special */}
-      <FullWidthSection className="bg-white py-16 sm:py-20 lg:py-24">
+      <FullWidthSection className="bg-white section-spacing-md">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
               Why The Botanist for July?
@@ -294,7 +313,7 @@ export default function ManagersSpecialPage() {
       </FullWidthSection>
 
       {/* Food Pairing Suggestions */}
-      <FullWidthSection className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <FullWidthSection className="bg-gray-50 section-spacing-md">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
               Food Pairings to Enhance Your Botanist Experience
@@ -368,7 +387,7 @@ export default function ManagersSpecialPage() {
       />
 
       {/* Local Area Connection */}
-      <FullWidthSection className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <FullWidthSection className="bg-gray-50 section-spacing-md">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
               Your Premium Gin Destination Near Heathrow
@@ -388,7 +407,7 @@ export default function ManagersSpecialPage() {
       </FullWidthSection>
 
       {/* CTA Section */}
-      <FullWidthSection className="bg-gradient-to-br from-anchor-green to-emerald-800 text-white py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+      <FullWidthSection className="bg-gradient-to-br from-anchor-green to-emerald-800 text-white section-spacing-md relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)`

@@ -6,6 +6,7 @@ import { MenuRenderer } from '@/components/MenuRenderer'
 import { DailySpecials } from '@/components/DailySpecials'
 import { HeroWrapper, Breadcrumbs } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { parseMenuMarkdown } from '@/lib/menu-parser'
 import { getBusinessHours } from '@/lib/api'
 import { Metadata } from 'next'
@@ -13,6 +14,8 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
+import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
+import { SpeakableContent } from '@/components/voice/SpeakableContent'
 
 export const metadata: Metadata = {
   title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Pub Food',
@@ -107,6 +110,7 @@ export default async function FoodMenuPage() {
 
   return (
     <>
+      <SpeakableSchema />
       <MenuPageTracker 
         menuType="food" 
         specialOffers={[
@@ -159,11 +163,25 @@ export default async function FoodMenuPage() {
         }
       />
 
+      {/* Page Title for SEO */}
+      <section className="bg-white py-8">
+        <Container>
+          <PageTitle 
+            className="text-center text-anchor-green"
+            seo={{ structured: true, speakable: true }}
+          >
+            Food Menu - The Anchor Pub Restaurant
+          </PageTitle>
+        </Container>
+      </section>
+
       {/* Daily Specials - Shows only on relevant days */}
-      <DailySpecials isOpen={isOpen} />
+      <SpeakableContent selector="special-offers" priority="high">
+        <DailySpecials isOpen={isOpen} />
+      </SpeakableContent>
 
       {/* Perfect Pre-Flight Meal Section */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -220,54 +238,56 @@ export default async function FoodMenuPage() {
       </div>
 
       {/* Staines & Local Authority Content */}
-      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="bg-gray-50 section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Staines' Favourite Traditional Pub Food"
               subtitle="Serving Stanwell Moor, Staines, and surrounding areas with proper British pub grub since opening our doors. Where Heathrow workers grab lunch, families gather for Sunday roasts, and locals know they'll always get a warm welcome."
             />
-            <FeatureGrid
-              columns={3}
-              features={[
-                {
-                  icon: "🐟",
-                  title: "Famous Fish & Chips",
-                  description: "Beer-battered to order, served with proper mushy peas",
-                  variant: "default",
-                  className: "bg-white rounded-lg p-6 shadow-md text-center"
-                },
-                {
-                  icon: "🥧",
-                  title: "Homestyle Pies",
-                  description: "Beef & ale, chicken & mushroom - proper comfort food",
-                  variant: "default",
-                  className: "bg-white rounded-lg p-6 shadow-md text-center"
-                },
-                {
-                  icon: "🍖",
-                  title: "Sunday Roasts",
-                  description: (
-                    <>
-                      The talk of Stanwell Moor - book early to avoid disappointment
-                      <Link href="/sunday-lunch" className="block mt-2">
-                        <span className="text-anchor-gold font-semibold hover:text-anchor-green transition-colors">
-                          View Sunday Menu →
-                        </span>
-                      </Link>
-                    </>
-                  ),
-                  variant: "default",
-                  className: "bg-white rounded-lg p-6 shadow-md text-center"
-                }
-              ]}
-            />
+            <SpeakableContent selector="menu-highlights" priority="high">
+              <FeatureGrid
+                columns={3}
+                features={[
+                  {
+                    icon: "🐟",
+                    title: "Famous Fish & Chips",
+                    description: "Beer-battered to order, served with proper mushy peas",
+                    variant: "default",
+                    className: "bg-white rounded-lg p-6 shadow-md text-center"
+                  },
+                  {
+                    icon: "🥧",
+                    title: "Homestyle Pies",
+                    description: "Beef & ale, chicken & mushroom - proper comfort food",
+                    variant: "default",
+                    className: "bg-white rounded-lg p-6 shadow-md text-center"
+                  },
+                  {
+                    icon: "🍖",
+                    title: "Sunday Roasts",
+                    description: (
+                      <>
+                        The talk of Stanwell Moor - book early to avoid disappointment
+                        <Link href="/sunday-lunch" className="block mt-2">
+                          <span className="text-anchor-gold font-semibold hover:text-anchor-green transition-colors">
+                            View Sunday Menu →
+                          </span>
+                        </Link>
+                      </>
+                    ),
+                    variant: "default",
+                    className: "bg-white rounded-lg p-6 shadow-md text-center"
+                  }
+                ]}
+              />
+            </SpeakableContent>
           </div>
         </Container>
       </div>
 
       {/* Food & Drink Pairings */}
-      <div className="bg-anchor-gold/10 py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-gold/10 section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -331,7 +351,7 @@ export default async function FoodMenuPage() {
       </div>
 
       {/* Additional Information */}
-      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="bg-gray-50 section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <Alert

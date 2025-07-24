@@ -11,6 +11,8 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { Container } from '@/components/ui/layout/Container'
 
 export const metadata: Metadata = {
   title: 'Christmas Party Venue Near Heathrow | The Anchor Stanwell Moor | Book Now',
@@ -87,6 +89,15 @@ export default function ChristmasPartiesPage() {
           }
         />
       </HeroWrapper>
+
+      {/* Page Title */}
+      <div className="bg-white py-8">
+        <Container>
+          <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
+            Christmas Parties - Book Your Festive Event
+          </PageTitle>
+        </Container>
+      </div>
 
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">

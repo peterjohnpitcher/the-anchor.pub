@@ -3,7 +3,7 @@ import { Container, SectionHeader } from '@/components/ui'
 
 export default function TestReviewsPage() {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen section-spacing-md">
       <Container>
         <SectionHeader
           title="Google Reviews Integration Test"

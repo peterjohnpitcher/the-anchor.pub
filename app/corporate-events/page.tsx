@@ -10,6 +10,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Corporate Venue Near Heathrow | Meeting Room Hire | The Anchor',
@@ -72,8 +73,28 @@ export default function CorporateEventsPage() {
         }
       />
 
+      {/* Page Title */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <PageTitle
+              seo={{
+                structured: true,
+                speakable: true
+              }}
+              className="text-anchor-green mb-4"
+            >
+              Corporate Events - Business Venue Near Heathrow
+            </PageTitle>
+            <p className="text-lg text-gray-700">
+              Professional meeting rooms and event spaces for businesses, just 7 minutes from Terminal 5
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose The Anchor for Business */}
-      <section className="section-spacing bg-white">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Why Leading Companies Choose The Anchor"

@@ -13,6 +13,7 @@ import { GoogleTagManager, GoogleTagManagerNoscript } from '@/components/GoogleT
 import { GTMProvider, GTMNoscript } from '@/components/GTMProvider'
 import { CanonicalLink } from '@/components/CanonicalLink'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
+import CookieBanner from '@/components/CookieBanner'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
 /* Critical CSS for above-the-fold content */
@@ -252,6 +253,7 @@ export default function RootLayout({
               </footer>
             </ErrorBoundary>
             <FloatingActions />
+            <CookieBanner />
           </AnalyticsProvider>
         </GTMProvider>
       </body>

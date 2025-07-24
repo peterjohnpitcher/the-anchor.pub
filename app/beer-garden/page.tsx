@@ -8,6 +8,8 @@ import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { GoogleReviews } from '@/components/reviews'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
   title: 'Beer Garden Near Me | Plane Spotting Pub | The Anchor Stanwell Moor',
@@ -73,7 +75,7 @@ export default function BeerGardenPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([planeSpottingSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([planeSpottingSchema, parkingFacilitySchema]) }}
       />
       
       {/* Hero Section */}
@@ -114,6 +116,18 @@ export default function BeerGardenPage() {
           ✈️ DIRECTLY UNDER THE FLIGHT PATH ✈️
         </div>
       </HeroWrapper>
+
+      {/* Page Title for SEO */}
+      <section className="bg-white py-8">
+        <div className="container mx-auto px-4">
+          <PageTitle 
+            className="text-center text-anchor-green"
+            seo={{ structured: true, speakable: true }}
+          >
+            Beer Garden - Outdoor Dining & Plane Spotting
+          </PageTitle>
+        </div>
+      </section>
 
       {/* Plane Spotting Paradise */}
       <section className="section-spacing bg-white">

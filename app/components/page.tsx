@@ -166,40 +166,45 @@ function ComponentsPageContent() {
                   <CardTitle>Form Components</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Form onSubmit={async (data) => {
-                    console.log('Form data:', Object.fromEntries(data))
+                  <Form onSubmit={async (formData) => {
+                    console.log('Form data:', Object.fromEntries(formData))
                     toast({
                       variant: 'success',
                       title: 'Form submitted',
-                      description: 'Cheque console for form data'
+                      description: 'Check console for form data'
                     })
                   }}>
                     <FormSection title="Text Inputs">
                       <Grid cols={2} gap="md">
-                        <FormField name="name" label="Name" required>
-                          <Input name="name" placeholder="Enter your name" />
+                        <FormField>
+                          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+                          <Input id="name" name="name" placeholder="Enter your name" required />
                         </FormField>
-                        <FormField name="email" label="Email" required>
-                          <Input name="email" type="email" placeholder="email@example.com" />
+                        <FormField>
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                          <Input id="email" name="email" type="email" placeholder="email@example.com" required />
                         </FormField>
                       </Grid>
                     </FormSection>
 
                     <FormSection title="Selection Controls">
                       <Grid cols={2} gap="md">
-                        <FormField name="country" label="Country">
+                        <FormField>
+                          <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">Country</label>
                           <Select
+                            id="country"
                             name="country"
-                            options={[
-                              { value: 'uk', label: 'United Kingdom' },
-                              { value: 'us', label: 'United States' },
-                              { value: 'ca', label: 'Canada' }
-                            ]}
-                            placeholder="Choose a country"
-                          />
+                            defaultValue=""
+                          >
+                            <option value="">Choose a country</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                          </Select>
                         </FormField>
-                        <FormField name="date" label="Date">
-                          <DatePicker name="date" />
+                        <FormField>
+                          <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                          <DatePicker id="date" name="date" />
                         </FormField>
                       </Grid>
 

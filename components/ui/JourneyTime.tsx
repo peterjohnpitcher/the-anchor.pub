@@ -1,75 +1,184 @@
+import { forwardRef, HTMLAttributes } from 'react'
 import { cn } from '@/lib/utils'
+import type { BaseComponentProps } from './types'
+import { CarIcon, ClockIcon } from './Icon'
 
-interface JourneyTimeProps {
-  minutes: number
-  from?: string
-  to?: string
-  mode?: 'car' | 'walk' | 'transit' | 'taxi'
-  className?: string
+export interface JourneyTimeProps
+  extends BaseComponentProps,
+    Omit<HTMLAttributes<HTMLDivElement>, 'className'> {
+  from: string
+  to: string
+  duration: number // in minutes
+  distance?: number // in miles
+  variant?: 'default' | 'compact' | 'detailed'
   showIcon?: boolean
+  highlight?: boolean
 }
 
-const modeIcons = {
-  car: '🚗',
-  walk: '🚶',
-  transit: '🚂',
-  taxi: '🚕'
-}
-
-const modeLabels = {
-  car: 'drive',
-  walk: 'walk',
-  transit: 'transit',
-  taxi: 'taxi'
-}
-
-/**
- * JourneyTime component for displaying travel times
- * Formats minutes into human-readable text with optional transport mode
- */
-export function JourneyTime({
-  minutes,
-  from,
-  to,
-  mode = 'car',
-  className,
-  showIcon = true
-}: JourneyTimeProps) {
-  const formatTime = (mins: number): string => {
-    if (mins < 60) {
-      return `${mins} min${mins !== 1 ? 's' : ''}`
+export const JourneyTime = forwardRef<HTMLDivElement, JourneyTimeProps>(
+  ({ 
+    from,
+    to,
+    duration,
+    distance,
+    variant = 'default',
+    showIcon = true,
+    highlight = false,
+    className,
+    testId,
+    ...props 
+  }, ref) => {
+    const formatDuration = (minutes: number) => {
+      if (minutes < 60) {
+        return `${minutes} min${minutes !== 1 ? 's' : ''}`
+      }
+      const hours = Math.floor(minutes / 60)
+      const mins = minutes % 60
+      return `${hours}h ${mins}m`
     }
-    const hours = Math.floor(mins / 60)
-    const remainingMins = mins % 60
-    
-    if (remainingMins === 0) {
-      return `${hours} hour${hours !== 1 ? 's' : ''}`
+
+    if (variant === 'compact') {
+      return (
+        <div
+          ref={ref}
+          className={cn(
+            'flex justify-between items-center p-3 rounded-lg',
+            highlight ? 'bg-amber-50 border border-amber-200' : 'bg-gray-50',
+            className
+          )}
+          data-testid={testId}
+          {...props}
+        >
+          <span className="font-semibold text-gray-900">{to}</span>
+          <span className={cn(
+            'font-bold',
+            highlight ? 'text-amber-600' : 'text-anchor-gold'
+          )}>
+            {formatDuration(duration)}
+          </span>
+        </div>
+      )
     }
-    
-    return `${hours}h ${remainingMins}m`
-  }
 
-  const timeText = formatTime(minutes)
-  const modeText = modeLabels[mode]
-  
-  let fullText = timeText
-  if (from && to) {
-    fullText = `${timeText} ${modeText} from ${from} to ${to}`
-  } else if (from) {
-    fullText = `${timeText} ${modeText} from ${from}`
-  } else if (to) {
-    fullText = `${timeText} ${modeText} to ${to}`
-  } else {
-    fullText = `${timeText} ${modeText}`
-  }
+    if (variant === 'detailed') {
+      return (
+        <div
+          ref={ref}
+          className={cn(
+            'p-4 rounded-lg',
+            highlight ? 'bg-amber-50 border border-amber-200' : 'bg-gray-50',
+            className
+          )}
+          data-testid={testId}
+          {...props}
+        >
+          <div className="flex items-start gap-3">
+            {showIcon && (
+              <div className="mt-1">
+                <CarIcon className="h-5 w-5 text-gray-600" />
+              </div>
+            )}
+            <div className="flex-1">
+              <div className="flex items-center justify-between mb-2">
+                <div>
+                  <p className="text-sm text-gray-600">From: {from}</p>
+                  <p className="font-semibold text-gray-900">To: {to}</p>
+                </div>
+                <div className="text-right">
+                  <p className={cn(
+                    'text-lg font-bold',
+                    highlight ? 'text-amber-600' : 'text-anchor-gold'
+                  )}>
+                    {formatDuration(duration)}
+                  </p>
+                  {distance && (
+                    <p className="text-sm text-gray-600">{distance} miles</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
 
-  return (
-    <span className={cn('inline-flex items-center gap-1', className)}>
-      {showIcon && (
-        <span aria-hidden="true">{modeIcons[mode]}</span>
-      )}
-      <span>{timeText}</span>
-      <span className="sr-only">{fullText}</span>
-    </span>
-  )
+    // Default variant
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'inline-flex items-center gap-2',
+          className
+        )}
+        data-testid={testId}
+        {...props}
+      >
+        {showIcon && <CarIcon className="h-4 w-4 text-gray-600" />}
+        <span className="text-gray-700">{to}:</span>
+        <span className={cn(
+          'font-semibold',
+          highlight ? 'text-amber-600' : 'text-anchor-gold'
+        )}>
+          {formatDuration(duration)}
+        </span>
+        {distance && (
+          <span className="text-sm text-gray-600">({distance} miles)</span>
+        )}
+      </div>
+    )
+  }
+)
+JourneyTime.displayName = 'JourneyTime'
+
+// Compound component for multiple journey times
+export interface JourneyTimesProps
+  extends BaseComponentProps,
+    Omit<HTMLAttributes<HTMLDivElement>, 'className'> {
+  title?: string
+  from: string
+  destinations: Array<{
+    to: string
+    duration: number
+    distance?: number
+    highlight?: boolean
+  }>
+  variant?: 'default' | 'compact' | 'detailed'
 }
+
+export const JourneyTimes = forwardRef<HTMLDivElement, JourneyTimesProps>(
+  ({ 
+    title,
+    from,
+    destinations,
+    variant = 'compact',
+    className,
+    testId,
+    ...props 
+  }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn('space-y-3', className)}
+        data-testid={testId}
+        {...props}
+      >
+        {title && (
+          <h3 className="text-lg font-semibold text-gray-900 mb-3">{title}</h3>
+        )}
+        {destinations.map((dest, index) => (
+          <JourneyTime
+            key={`${dest.to}-${index}`}
+            from={from}
+            to={dest.to}
+            duration={dest.duration}
+            distance={dest.distance}
+            highlight={dest.highlight}
+            variant={variant}
+            showIcon={variant === 'detailed'}
+          />
+        ))}
+      </div>
+    )
+  }
+)
+JourneyTimes.displayName = 'JourneyTimes'

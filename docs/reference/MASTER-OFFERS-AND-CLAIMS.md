@@ -77,6 +77,7 @@ The following have been removed from the website as they are NOT offered:
 - ❌ "Save 50% vs service stations" (corrected to 25%)
 - ❌ "Airport food costs 3x more" (corrected to 2x)
 - ❌ Any "exclusive discounts" language
+- ❌ "Christmas packages from £19.95pp" - No specific pricing offered
 
 ## 📋 GUIDELINES FOR CONTENT
 

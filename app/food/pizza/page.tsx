@@ -8,6 +8,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Buy One Get One Free Pizza | The Anchor Stanwell Moor | BOGOF Deal',
@@ -135,8 +136,20 @@ export default function PizzaPage() {
         }
       />
 
+      {/* Page Title for SEO */}
+      <section className="bg-white py-8">
+        <Container>
+          <PageTitle 
+            className="text-center text-anchor-green"
+            seo={{ structured: true, speakable: true }}
+          >
+            Pizza Menu - Tuesday BOGOF Deal | The Anchor
+          </PageTitle>
+        </Container>
+      </section>
+
       {/* Offer Details */}
-      <div className="bg-anchor-sand/20 py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-sand/20 section-spacing-md">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <SectionHeader
@@ -177,7 +190,7 @@ export default function PizzaPage() {
       </div>
 
       {/* Pizza Menu */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
@@ -249,7 +262,7 @@ export default function PizzaPage() {
       </div>
 
       {/* Local SEO Section */}
-      <div className="bg-anchor-sand/20 py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-sand/20 section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader

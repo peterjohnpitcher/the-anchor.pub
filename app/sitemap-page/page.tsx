@@ -5,6 +5,7 @@ import { Button } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneLink } from '@/components/PhoneLink'
 import { EmailLink } from '@/components/EmailLink'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Sitemap | The Anchor Stanwell Moor',
@@ -101,8 +102,17 @@ export default function SitemapPage() {
         }
       />
 
-      {/* Sitemap Links */}
+      {/* Page Title */}
       <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
+            Sitemap - The Anchor Pub
+          </PageTitle>
+        </div>
+      </section>
+
+      {/* Sitemap Links */}
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

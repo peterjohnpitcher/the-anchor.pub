@@ -6,6 +6,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Drag Shows | The Anchor Stanwell Moor | Monthly Entertainment',
@@ -46,9 +47,9 @@ export default function DragShowsPage() {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <p className="text-pink-300 text-lg mb-4 drop-shadow">Monthly Special Events</p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+            <div className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
               Drag Shows at The Anchor
-            </h1>
+            </div>
             <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
               Featuring the fabulous Nikki Manfadge and special guests
             </p>
@@ -69,6 +70,15 @@ export default function DragShowsPage() {
               📞 Book Your Table Now
             </PhoneButton>
           </div>
+        </div>
+      </section>
+
+      {/* Page Title */}
+      <section className="bg-white py-8">
+        <div className="container mx-auto px-4">
+          <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
+            Drag Shows - Saturday Night Entertainment
+          </PageTitle>
         </div>
       </section>
 

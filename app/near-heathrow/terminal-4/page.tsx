@@ -13,6 +13,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { DirectionsButton } from '@/components/DirectionsButton'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 4 Hotels | The Anchor - Local British Pub',
@@ -66,6 +67,15 @@ export default function Terminal4Page() {
           </div>
         }
       />
+
+      {/* Page Title */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
+            Pub Near Heathrow Terminal 4 - The Anchor
+          </PageTitle>
+        </div>
+      </section>
 
       {/* Quick Info Cards */}
       <section className="section-spacing bg-gray-50">

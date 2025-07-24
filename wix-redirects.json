@@ -670,8 +670,108 @@
     "permanent": true
   },
   {
-    "source": "/drinks/:drink*",
+    "source": "/company-christmas-party-venue",
+    "destination": "/christmas-parties",
+    "permanent": true
+  },
+  {
+    "source": "/post/a-personal-pub-for-personal-celebrations",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/post/hope-of-opening-getting-closer",
+    "destination": "/blog/reopening-2021",
+    "permanent": true
+  },
+  {
+    "source": "/post/this-december-at-the-anchor",
+    "destination": "/blog/christmas-events",
+    "permanent": true
+  },
+  {
+    "source": "/post/opening-times-are-changing-from-april-1st",
+    "destination": "/blog/opening-hours-update",
+    "permanent": true
+  },
+  {
+    "source": "/post/post-lock-down-information",
+    "destination": "/blog/reopening-2021",
+    "permanent": true
+  },
+  {
+    "source": "/post/new-rules-from-september-24th-2020",
+    "destination": "/blog/covid-updates",
+    "permanent": true
+  },
+  {
+    "source": "/post/tabs-are-changing",
+    "destination": "/blog/service-updates",
+    "permanent": true
+  },
+  {
+    "source": "/post/christmas-2021",
+    "destination": "/blog/christmas-events",
+    "permanent": true
+  },
+  {
+    "source": "/post/changes-to-food-until-mid-april-2019",
+    "destination": "/blog/menu-updates",
+    "permanent": true
+  },
+  {
+    "source": "/post/calling-all-pool-players",
+    "destination": "/blog/pool-league",
+    "permanent": true
+  },
+  {
+    "source": "/post/curry-club",
+    "destination": "/blog/curry-club-the-anchor",
+    "permanent": true
+  },
+  {
+    "source": "/post/winter-closing-hours",
+    "destination": "/blog/opening-hours-update",
+    "permanent": true
+  },
+  {
+    "source": "/post/reopening-update-april-2021",
+    "destination": "/blog/reopening-2021",
+    "permanent": true
+  },
+  {
+    "source": "/post/covid-19-updates",
+    "destination": "/blog/covid-updates",
+    "permanent": true
+  },
+  {
+    "source": "/post/valentines-day-meal-offer",
+    "destination": "/blog/valentines-day-celebration",
+    "permanent": true
+  },
+  {
+    "source": "/post/restrictions-update-july-2021",
+    "destination": "/blog/covid-updates",
+    "permanent": true
+  },
+  {
+    "source": "/post/celebrate-with-us-the-anchor-pub-welcomes-small-and-medium-companies-all-year-round",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/drinks/:product*",
     "destination": "/drinks",
+    "permanent": true
+  },
+  {
+    "source": "/_api/:path*",
+    "destination": "/",
+    "permanent": true
+  },
+  {
+    "source": "/_serverless/:path*",
+    "destination": "/",
     "permanent": true
   }
 ]

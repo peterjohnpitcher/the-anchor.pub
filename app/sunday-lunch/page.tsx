@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
+import { Button, Container } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
@@ -8,6 +8,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ReviewSection } from '@/components/reviews'
 import { BookTableButton } from '@/components/BookTableButton'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
@@ -80,6 +81,18 @@ export default function SundayLunchPage() {
           </p>
         </div>
       </HeroWrapper>
+
+      {/* Page Title for SEO */}
+      <section className="bg-white py-8">
+        <Container>
+          <PageTitle 
+            className="text-center text-anchor-green"
+            seo={{ structured: true, speakable: true }}
+          >
+            Sunday Lunch - Traditional Roasts | The Anchor
+          </PageTitle>
+        </Container>
+      </section>
 
       {/* Why Our Roasts Are Special */}
       <section className="section-spacing bg-white">

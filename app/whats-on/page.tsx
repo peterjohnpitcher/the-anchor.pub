@@ -14,6 +14,9 @@ import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { SocialLink } from '@/components/SocialLink'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
+import { SpeakableContent } from '@/components/voice/SpeakableContent'
 
 export const metadata: Metadata = {
   title: "What's On Near Me | The Anchor Stanwell Moor | Events & Entertainment",
@@ -38,6 +41,7 @@ type WhatsOnPageProps = {
 export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
   return (
     <>
+      <SpeakableSchema />
       <ScrollDepthTracker />
       {/* Hero Section */}
       <HeroWrapper
@@ -75,27 +79,38 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         }
       />
 
+      {/* Page Title */}
+      <div className="bg-white py-8">
+        <Container>
+          <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
+            What's On - Events & Entertainment at The Anchor
+          </PageTitle>
+        </Container>
+      </div>
+
       {/* Upcoming Events from API */}
-      <div id="upcoming-events" className="bg-white py-16 sm:py-20 lg:py-24">
+      <div id="upcoming-events" className="bg-white section-spacing-md">
         <Container>
           <SectionHeader
             title="Upcoming Events"
             subtitle="Live updates from our events calendar"
           />
           
-          <div className="max-w-5xl mx-auto">
-            <Suspense fallback={<div className="text-center py-8">Loading events...</div>}>
-              <CategoryFilter />
-            </Suspense>
-            <Suspense fallback={<div className="text-center py-8">Loading events...</div>}>
-              <FilteredUpcomingEvents categorySlug={searchParams.category} />
-            </Suspense>
-          </div>
+          <SpeakableContent selector="events-list" priority="high">
+            <div className="max-w-5xl mx-auto">
+              <Suspense fallback={<div className="text-center py-8">Loading events...</div>}>
+                <CategoryFilter />
+              </Suspense>
+              <Suspense fallback={<div className="text-center py-8">Loading events...</div>}>
+                <FilteredUpcomingEvents categorySlug={searchParams.category} />
+              </Suspense>
+            </div>
+          </SpeakableContent>
         </Container>
       </div>
 
       {/* Entertainment & Games */}
-      <div className="bg-anchor-sand/20 py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-sand/20 section-spacing-md">
         <Container>
           <SectionHeader
             title="Daily Entertainment & Games"
@@ -153,37 +168,39 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
 
 
       {/* Special Events */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <SectionHeader
             title="Special Events & Celebrations"
             subtitle="Throughout the year, we host special themed events and celebrations"
           />
           
-          <FeatureGrid
-            columns={3}
-            features={[
-              {
-                icon: "🎄",
-                title: "Christmas Parties",
-                description: "Festive menu, decorations, and party atmosphere. Book your Christmas do with us!",
-                className: "text-center"
-              },
-              {
-                icon: "🎃",
-                title: "Halloween Spectacular",
-                description: "Costume contests, spooky decorations, themed drinks, and DJ entertainment. Best dressed wins prizes!",
-                className: "text-center"
-              },
-              {
-                icon: "🎉",
-                title: "New Year's Eve",
-                description: "Ring in the new year with DJ entertainment, champagne, and midnight celebrations.",
-                className: "text-center"
-              }
-            ]}
-            className="max-w-5xl mx-auto"
-          />
+          <SpeakableContent selector="special-events" priority="medium">
+            <FeatureGrid
+              columns={3}
+              features={[
+                {
+                  icon: "🎄",
+                  title: "Christmas Parties",
+                  description: "Festive menu, decorations, and party atmosphere. Book your Christmas do with us!",
+                  className: "text-center"
+                },
+                {
+                  icon: "🎃",
+                  title: "Halloween Spectacular",
+                  description: "Costume contests, spooky decorations, themed drinks, and DJ entertainment. Best dressed wins prizes!",
+                  className: "text-center"
+                },
+                {
+                  icon: "🎉",
+                  title: "New Year's Eve",
+                  description: "Ring in the new year with DJ entertainment, champagne, and midnight celebrations.",
+                  className: "text-center"
+                }
+              ]}
+              className="max-w-5xl mx-auto"
+            />
+          </SpeakableContent>
           
           <InfoBoxGrid
             columns={1}
@@ -225,7 +242,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
       </div>
 
       {/* Private Events */}
-      <div className="bg-anchor-cream py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-cream section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader

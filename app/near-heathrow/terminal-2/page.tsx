@@ -8,11 +8,12 @@ import { SectionHeader } from '@/components/SectionHeader'
 import { FeatureGrid } from '@/components/FeatureCard'
 import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
-import { CTASection } from '@/components/ui'
+import { CTASection, Container } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { DirectionsButton } from '@/components/DirectionsButton'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 2 Hotels | The Anchor - Local British Pub',
@@ -71,9 +72,18 @@ export default function Terminal2Page() {
         }
       />
 
+      {/* Page Title */}
+      <section className="section-spacing bg-white">
+        <Container>
+          <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
+            Pub Near Heathrow Terminal 2 - The Anchor
+          </PageTitle>
+        </Container>
+      </section>
+
       {/* Quick Info Cards */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <FeatureGrid
             columns={4}
             features={[
@@ -100,13 +110,12 @@ export default function Terminal2Page() {
             ]}
             className="max-w-4xl mx-auto"
           />
-        </div>
+        </Container>
       </section>
 
       {/* Detailed Directions */}
       <section id="directions" className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+        <Container size="md">
             <SectionHeader
               title="How to Get Here from Terminal 2"
               align="center"
@@ -184,14 +193,12 @@ export default function Terminal2Page() {
                 Open in Google Maps
               </DirectionsButton>
             </div>
-          </div>
-        </div>
+        </Container>
       </section>
 
       {/* Why Visit */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+        <Container size="md">
             <SectionHeader
               title="Why Terminal 2 Travelers Choose The Anchor"
               align="center"
@@ -232,28 +239,24 @@ export default function Terminal2Page() {
                 }
               ]}
             />
-          </div>
-        </div>
+        </Container>
       </section>
 
       {/* Live Flight Information */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+        <Container size="md">
             <SectionHeader
               title="Live Terminal 2 Flight Information"
               subtitle="Cheque flight times while you enjoy your meal or drink"
               align="center"
             />
             <FlightStatus terminal="2" type="both" limit={5} />
-          </div>
-        </div>
+        </Container>
       </section>
 
       {/* Terminal 2 Specific Info */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+        <Container size="md">
             <SectionHeader
               title="Terminal 2 Travel Tips"
               align="center"
@@ -312,14 +315,12 @@ export default function Terminal2Page() {
                 </ul>
               }
             />
-          </div>
-        </div>
+        </Container>
       </section>
 
       {/* Perfect for Terminal 2 Travelers */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+        <Container size="md">
             <SectionHeader
               title="Your Perfect Stop Near Terminal 2"
               align="center"
@@ -379,14 +380,12 @@ export default function Terminal2Page() {
                 know you're in good hands.
               </p>
             </div>
-          </div>
-        </div>
+        </Container>
       </section>
 
       {/* Hotel Guest Section */}
       <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+        <Container size="md">
             <SectionHeader
               title="Staying Near Terminal 2?"
               subtitle="Escape your hotel for a genuine British pub experience"
@@ -494,8 +493,7 @@ export default function Terminal2Page() {
                 📞 Book Your Table: 01753 682707
               </PhoneButton>
             </div>
-          </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

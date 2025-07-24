@@ -16,9 +16,9 @@ export function middleware(request: NextRequest) {
   
   if (pathname === '/') {
     // Push critical resources for homepage
-    response.headers.append('Link', '</images/page-headers/home/optimized/hero-mobile.webp>; rel=preload; as=image; media="(max-width: 640px)"')
-    response.headers.append('Link', '</images/page-headers/home/optimized/hero-tablet.webp>; rel=preload; as=image; media="(max-width: 1024px) and (min-width: 641px)"')
-    response.headers.append('Link', '</images/page-headers/home/optimized/hero-desktop.webp>; rel=preload; as=image; media="(min-width: 1025px)"')
+    response.headers.append('Link', '</images/page-headers/home/optimized/hero-mobile.webp>; rel=preload; as=image; type="image/webp"; media="(max-width: 640px)"')
+    response.headers.append('Link', '</images/page-headers/home/optimized/hero-tablet.webp>; rel=preload; as=image; type="image/webp"; media="(max-width: 1024px) and (min-width: 641px)"')
+    response.headers.append('Link', '</images/page-headers/home/optimized/hero-desktop.webp>; rel=preload; as=image; type="image/webp"; media="(min-width: 1025px)"')
   }
   
   // Add cache headers for static assets

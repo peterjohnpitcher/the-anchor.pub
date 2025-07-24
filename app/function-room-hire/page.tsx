@@ -9,6 +9,7 @@ import { CONTACT, BRAND } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Function Room Hire Near Heathrow | Venue Rental Staines | The Anchor',
@@ -102,8 +103,17 @@ export default function FunctionRoomHirePage() {
         }
       />
 
-      {/* Spaces Overview */}
+      {/* Page Title */}
       <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
+            Function Room Hire - Private Events at The Anchor
+          </PageTitle>
+        </div>
+      </section>
+
+      {/* Spaces Overview */}
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Flexible Spaces for Every Event"

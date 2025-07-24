@@ -250,11 +250,11 @@ export default function TestTrackingPage() {
                 <div className="space-y-2">
                   <p className="text-sm font-medium">Email:</p>
                   <a 
-                    href="mailto:info@the-anchor.pub" 
+                    href="mailto:manager@the-anchor.pub" 
                     onClick={() => console.log('📧 Email link clicked')}
                     className="text-sm text-blue-600 hover:underline"
                   >
-                    info@the-anchor.pub
+                    manager@the-anchor.pub
                   </a>
                 </div>
               </CardBody>

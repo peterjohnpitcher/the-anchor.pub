@@ -10,6 +10,7 @@ import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: `Staines Pub | ${BRAND.nameWithLocation} | Traditional British Pub Near Staines`,
@@ -105,6 +106,18 @@ export default function StainesPubPage() {
           </div>
         }
       />
+
+      {/* Page Title for SEO */}
+      <section className="bg-white py-8">
+        <div className="container mx-auto px-4">
+          <PageTitle 
+            className="text-center text-anchor-green"
+            seo={{ structured: true, speakable: true }}
+          >
+            Pub in Staines Area - The Anchor Stanwell Moor
+          </PageTitle>
+        </div>
+      </section>
 
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">

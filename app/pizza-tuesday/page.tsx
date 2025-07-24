@@ -13,6 +13,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import type { Event } from '@/lib/api'
 import { BookTableButton } from '@/components/BookTableButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: `Pizza Tuesday BOGOF Deal Near Me | ${BRAND.name} Stanwell Moor`,
@@ -171,8 +172,17 @@ export default function PizzaTuesdayPage() {
       {/* Status Bar */}
       <StatusBar />
 
-      {/* The Deal Section */}
+      {/* Page Title */}
       <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
+            Pizza Tuesday - BOGOF Deal at The Anchor
+          </PageTitle>
+        </div>
+      </section>
+
+      {/* The Deal Section */}
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <SectionHeader

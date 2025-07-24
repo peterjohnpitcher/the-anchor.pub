@@ -13,6 +13,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ManagersSpecialHero } from '@/components/ManagersSpecialHero'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 import './cocktails.css'
 
 export const metadata: Metadata = {
@@ -135,8 +136,28 @@ export default async function DrinksMenuPage() {
       {/* Manager's Special */}
       <ManagersSpecialHero />
 
+      {/* Page Title */}
+      <Section className="py-8 bg-white">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center">
+            <PageTitle
+              seo={{
+                structured: true,
+                speakable: true
+              }}
+              className="text-anchor-green mb-4"
+            >
+              Drinks Menu - Beers, Wines & Spirits
+            </PageTitle>
+            <p className="text-lg text-gray-700">
+              Explore our extensive selection of real ales, craft beers, premium spirits, wines, and cocktails
+            </p>
+          </div>
+        </Container>
+      </Section>
+
       {/* Quick Links */}
-      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="bg-gray-50 section-spacing-md">
         <Container>
           <div className="flex flex-wrap justify-center gap-4">
             {menuData.categories.map((category) => (
@@ -153,7 +174,7 @@ export default async function DrinksMenuPage() {
       </div>
 
       {/* Your Local After Landing */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -187,7 +208,7 @@ export default async function DrinksMenuPage() {
       </div>
 
       {/* Why The Anchor for Drinks */}
-      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="bg-gray-50 section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -247,7 +268,7 @@ export default async function DrinksMenuPage() {
       </div>
 
       {/* Seasonal Highlights */}
-      <div className="bg-anchor-gold/10 py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-gold/10 section-spacing-md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader

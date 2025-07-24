@@ -5,6 +5,7 @@ import { StatusBarWrapper } from '@/components/StatusBarWrapper'
 import { NextEventServer } from '@/components/NextEventServer'
 import { Suspense } from 'react'
 import { homepageFAQSchema } from '@/lib/enhanced-schemas'
+import { parkingFacilitySchema } from '@/lib/schemas/parking'
 import { LazySection } from '@/components/LazySection'
 import { OptimizedHeroSection } from '@/components/hero/OptimizedHeroSection'
 import { ReviewSection } from '@/components/reviews'
@@ -12,6 +13,9 @@ import { PhoneLinksSection, QuickEnquiryLinks } from '@/components/homepage/Phon
 import { BookTableButton } from '@/components/BookTableButton'
 import { DirectionsButton } from '@/components/DirectionsButton'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
+import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { 
   Button, 
   Card, 
@@ -52,9 +56,10 @@ export default function HomePage() {
   return (
     <>
       <ScrollDepthTracker />
+      <SpeakableSchema />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFAQSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([homepageFAQSchema, parkingFacilitySchema]) }}
       />
       {/* Custom Hero Section with Logo */}
       <OptimizedHeroSection
@@ -135,8 +140,20 @@ export default function HomePage() {
         </div>
       </OptimizedHeroSection>
 
+      {/* Main Page Title for SEO */}
+      <div className="bg-white pt-12 pb-8">
+        <Container>
+          <PageTitle 
+            className="text-center text-anchor-green"
+            seo={{ structured: true, speakable: true }}
+          >
+            The Anchor - Pub & Restaurant Near Heathrow Airport
+          </PageTitle>
+        </Container>
+      </div>
+
       {/* What Makes Us Special */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <SectionHeader
             title="What Makes Us Special"
@@ -177,7 +194,7 @@ export default function HomePage() {
       </div>
 
       {/* Key Information */}
-      <div className="bg-anchor-cream py-16 sm:py-20 lg:py-24">
+      <div className="bg-anchor-cream section-spacing-md">
         <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
@@ -191,22 +208,22 @@ export default function HomePage() {
                   icon: "📍",
                   title: "Location",
                   subtitle: (
-                    <>
+                    <SpeakableContent selector="contact-info" priority="high">
                       Horton Road, Stanwell Moor<br />
                       Surrey TW19 6AQ<br />
                       <span className="text-anchor-gold font-semibold">7 mins from Heathrow T5</span>
-                    </>
+                    </SpeakableContent>
                   )
                 },
                 {
                   icon: "🕐",
                   title: "Opening Hours",
                   subtitle: (
-                    <>
+                    <SpeakableContent selector="opening-hours" priority="high">
                       Live hours shown above<br />
                       Including kitchen times<br />
                       <span className="text-sm sm:text-xs">May vary on holidays</span>
-                    </>
+                    </SpeakableContent>
                   )
                 },
                 {
@@ -239,7 +256,7 @@ export default function HomePage() {
       </div>
 
       {/* Next Event */}
-      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="bg-gray-50 section-spacing-md">
         <Container>
           <SectionHeader
             title="Next Event at The Anchor"
@@ -253,7 +270,7 @@ export default function HomePage() {
 
 
       {/* Heathrow Travelers Section */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
@@ -300,8 +317,7 @@ export default function HomePage() {
                       </li>
                     </ul>
                   ),
-                  variant: "default",
-                  className: "bg-white rounded-2xl p-8 shadow-sm"
+                  variant: "default"
                 },
                 {
                   title: "Journey Times by Car",
@@ -322,16 +338,16 @@ export default function HomePage() {
                         </div>
                       </div>
                       <div className="mt-6 text-center">
-                        <Link href="/near-heathrow">
-                          <Button variant="primary" size="lg">
-                            Get Directions From Your Terminal
+                        <Link href="/near-heathrow" className="block">
+                          <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                            <span className="hidden sm:inline">Get Directions From Your Terminal</span>
+                            <span className="sm:hidden">Get Directions</span>
                           </Button>
                         </Link>
                       </div>
                     </>
                   ),
-                  variant: "default",
-                  className: "bg-white rounded-2xl p-8 shadow-sm"
+                  variant: "default"
                 }
               ]}
               className="mb-12"
@@ -341,7 +357,7 @@ export default function HomePage() {
       </div>
 
       {/* Photo Gallery */}
-      <div className="bg-gray-50 py-16 sm:py-20 lg:py-24">
+      <div className="bg-gray-50 section-spacing-md">
         <Container>
           <SectionHeader
             title="Life at The Anchor"
@@ -384,7 +400,7 @@ export default function HomePage() {
       </div>
 
       {/* Private Events Section */}
-      <div className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="bg-white section-spacing-md">
         <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
@@ -414,7 +430,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-anchor-green mb-2 group-hover:text-anchor-gold">Christmas Parties</h3>
                   <p className="text-gray-700 mb-4">
                     Book your festive celebration now! Traditional menus, 
-                    festive atmosphere, packages from £19.95pp.
+                    festive atmosphere, and memorable celebrations.
                   </p>
                   <p className="text-anchor-gold font-semibold">Cheque availability →</p>
                   </CardBody>
@@ -500,7 +516,7 @@ export default function HomePage() {
       />
 
       {/* Find Us Section */}
-      <div id="visit-us" className="bg-anchor-green text-white py-16 sm:py-20 lg:py-24">
+      <div id="visit-us" className="bg-anchor-green text-white section-spacing-lg">
         <Container>
           <div className="max-w-6xl mx-auto flex flex-col justify-center">
             <div className="text-center mb-12">

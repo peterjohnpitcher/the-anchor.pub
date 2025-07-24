@@ -25,7 +25,7 @@ export function InfoBox({
   }
 
   return (
-    <div className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
+    <div className={`${baseClasses} ${variantClasses[variant]} overflow-hidden ${className}`}>
       <h3 className={`text-xl font-bold mb-4 ${
         variant === 'colored' && color?.includes('amber') ? 'text-amber-800' :
         variant === 'colored' && color?.includes('blue') ? 'text-blue-800' :

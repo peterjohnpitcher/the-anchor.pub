@@ -10,6 +10,7 @@ import { Metadata } from 'next'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Bedfont Pub | The Anchor - 5 Minutes Away | Surrey',
@@ -113,8 +114,28 @@ export default function BedfontPubPage() {
         }
       />
 
+      {/* Page Title */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <PageTitle
+              seo={{
+                structured: true,
+                speakable: true
+              }}
+              className="text-anchor-green mb-4"
+            >
+              Bedfont Pub - Traditional British Pub Near Bedfont
+            </PageTitle>
+            <p className="text-lg text-gray-700">
+              Your local traditional pub just 5 minutes from Bedfont with free parking
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Distance & Benefits */}
-      <section className="section-spacing bg-white">
+      <section className="section-spacing bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <SectionHeader

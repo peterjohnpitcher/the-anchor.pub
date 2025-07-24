@@ -50,10 +50,10 @@ const heightClasses: Record<HeroSize, string> = {
 
 // Standardized padding system
 const paddingClasses: Record<HeroSize, string> = {
-  small: 'py-12 sm:py-16 md:py-20',
-  medium: 'py-16 sm:py-20 md:py-24',
-  large: 'py-20 sm:py-24 md:py-32',
-  hero: 'py-24 sm:py-32 md:py-40'
+  small: 'py-8 sm:py-10 md:py-12',
+  medium: 'py-10 sm:py-12 md:py-14',
+  large: 'py-12 sm:py-14 md:py-16',
+  hero: 'py-14 sm:py-16 md:py-20'
 }
 
 // Consistent overlay options

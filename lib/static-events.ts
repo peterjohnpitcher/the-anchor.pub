@@ -155,7 +155,7 @@ export const staticEvents = {
       '/images/events/christmas/the-anchor-christmas-party-venue.jpg',
       '/images/events/christmas/festive-dining-the-anchor.jpg'
     ],
-    price: 'From £19.95',
+    price: 'Contact for pricing',
     duration: 'PT4H',
     category: {
       id: 'seasonal',

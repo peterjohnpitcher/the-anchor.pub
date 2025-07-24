@@ -2,10 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* Enhanced focus styles for better accessibility */
+  *:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  
+  /* Visible focus for keyboard navigation */
+  *:focus-visible {
+    outline: 2px solid var(--anchor-gold);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(139, 105, 20, 0.1);
+  }
+  
+  /* Specific focus styles for different elements */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--anchor-gold);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(139, 105, 20, 0.1);
+  }
+  
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--anchor-gold);
+    outline-offset: 0;
+    border-color: var(--anchor-gold);
+  }
+  
+  /* Skip to content link */
+  .skip-link:focus {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    background: var(--anchor-green);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    outline: 2px solid var(--anchor-gold);
+    outline-offset: 2px;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    *:focus-visible {
+      outline-width: 3px;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
 @layer components {
   /* Standard section spacing used throughout the site */
   .section-spacing {
     @apply py-10 md:py-12;
+  }
+  
+  /* Improved section spacing system */
+  .section-spacing-sm {
+    @apply py-8 md:py-10;
+  }
+  
+  .section-spacing-md {
+    @apply py-10 md:py-12 lg:py-14;
+  }
+  
+  .section-spacing-lg {
+    @apply py-12 md:py-14 lg:py-16;
+  }
+  
+  /* Use these for sections that need to feel connected */
+  .section-spacing-tight {
+    @apply py-6 md:py-8;
   }
 }
 
@@ -76,6 +156,24 @@ a {
 
 .btn-friendly:active {
   transform: translateY(0);
+}
+
+/* Interactive elements focus enhancement */
+.interactive-card:focus-within {
+  outline: 2px solid var(--anchor-gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(139, 105, 20, 0.1);
+}
+
+/* Ensure interactive elements inside cards are accessible */
+.card-link:focus {
+  outline: none;
+}
+
+.card-link:focus-visible .card-warm {
+  outline: 2px solid var(--anchor-gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(139, 105, 20, 0.1);
 }
 
 /* Warm card styles */

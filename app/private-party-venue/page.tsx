@@ -6,11 +6,12 @@ import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { CONTACT, BRAND } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid } from '@/components/ui'
+import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid, Container } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
+import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Private Party Venue Stanwell Moor | Birthday Parties | The Anchor',
@@ -90,9 +91,29 @@ export default function PrivatePartyVenuePage() {
         />
       </HeroWrapper>
 
+      {/* Page Title */}
+      <section className="py-8 bg-white">
+        <Container size="md">
+          <div className="text-center">
+            <PageTitle
+              seo={{
+                structured: true,
+                speakable: true
+              }}
+              className="text-anchor-green mb-4"
+            >
+              Private Party Venue - Celebrations at The Anchor
+            </PageTitle>
+            <p className="text-lg text-gray-700">
+              Create unforgettable memories with flexible spaces for birthdays, anniversaries, and special occasions
+            </p>
+          </div>
+        </Container>
+      </section>
+
       {/* Perfect For Section */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <section className="section-spacing bg-gray-50">
+        <Container>
           <SectionHeader
             title="Perfect for Every Celebration"
             subtitle="From milestone birthdays to surprise parties, we make your special day unforgettable"
@@ -202,12 +223,12 @@ export default function PrivatePartyVenuePage() {
               }
             ]}
           />
-        </div>
+        </Container>
       </section>
 
       {/* Party Packages */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Party Packages to Suit Every Budget"
             subtitle="Flexible options from simple gatherings to full celebrations"
@@ -296,13 +317,12 @@ export default function PrivatePartyVenuePage() {
               </p>
             }
           />
-        </div>
+        </Container>
       </section>
 
       {/* What's Included */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
+        <Container size="md">
             <SectionHeader
               title="Everything You Need for a Perfect Party"
             />
@@ -390,13 +410,12 @@ export default function PrivatePartyVenuePage() {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
+        </Container>
       </section>
 
       {/* Add-On Services */}
       <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Make It Extra Special"
             subtitle="Additional services to enhance your celebration"
@@ -424,13 +443,12 @@ export default function PrivatePartyVenuePage() {
               <p className="text-sm text-gray-700">Beautiful arrangements and centerpieces</p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Party Planning Timeline */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
+        <Container size="sm">
             <SectionHeader
               title="Simple Party Planning Process"
               subtitle="We make organising your celebration easy"
@@ -485,14 +503,13 @@ export default function PrivatePartyVenuePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+        </Container>
       </section>
 
       {/* Location Benefits */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+        <Container size="md">
+          <div className="text-center">
             <SectionHeader
               title="Easy to Reach from Everywhere"
               subtitle="Central location with free parking makes party planning simple"
@@ -542,7 +559,7 @@ export default function PrivatePartyVenuePage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}
