@@ -337,11 +337,11 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         <div className="text-sm">
                           <span className="text-gray-400 mr-2">Kitchen:</span>
                           {(() => {
-                            const status = getKitchenStatus(dayHours.kitchen)
-                            if (status === 'open' && isKitchenOpen(dayHours.kitchen)) {
+                            const status = dayHours.kitchen ? getKitchenStatus(dayHours.kitchen) : null
+                            if (status === 'open' && dayHours.kitchen && isKitchenOpen(dayHours.kitchen)) {
                               return (
                                 <span className="text-white">
-                                  {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
+                                  {formatTime(dayHours.kitchen!.opens)} - {formatTime(dayHours.kitchen!.closes)}
                                 </span>
                               )
                             } else if (status === 'closed') {
@@ -443,11 +443,11 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         <div className="text-xs">
                           <span className="text-white/60 mr-1">Kitchen:</span>
                           {(() => {
-                            const status = getKitchenStatus(dayHours.kitchen)
-                            if (status === 'open' && isKitchenOpen(dayHours.kitchen)) {
+                            const status = dayHours.kitchen ? getKitchenStatus(dayHours.kitchen) : null
+                            if (status === 'open' && dayHours.kitchen && isKitchenOpen(dayHours.kitchen)) {
                               return (
                                 <span className="text-white/80">
-                                  {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
+                                  {formatTime(dayHours.kitchen!.opens)} - {formatTime(dayHours.kitchen!.closes)}
                                 </span>
                               )
                             } else if (status === 'closed') {
@@ -569,11 +569,11 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         <div className="text-sm">
                           <span className="text-gray-500 mr-2">Kitchen:</span>
                           {(() => {
-                            const status = getKitchenStatus(dayHours.kitchen)
-                            if (status === 'open' && isKitchenOpen(dayHours.kitchen)) {
+                            const status = dayHours.kitchen ? getKitchenStatus(dayHours.kitchen) : null
+                            if (status === 'open' && dayHours.kitchen && isKitchenOpen(dayHours.kitchen)) {
                               return (
                                 <span>
-                                  {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
+                                  {formatTime(dayHours.kitchen!.opens)} - {formatTime(dayHours.kitchen!.closes)}
                                 </span>
                               )
                             } else if (status === 'closed') {

@@ -171,6 +171,7 @@ export default function ManagersSpecialPage() {
               </Button>
             </Link>
             <PhoneButton
+              phone="01753 682707"
               variant="secondary"
               size="lg"
               className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
@@ -214,7 +215,15 @@ export default function ManagersSpecialPage() {
             </div>
 
             {/* Product Info */}
-            <ProductDetails spirit={spirit} promotion={promotion} />
+            <ProductDetails 
+              title="Spirit Details"
+              details={[
+                { label: "ABV", value: spirit.abv },
+                { label: "Origin", value: spirit.origin },
+                { label: "Distillery", value: spirit.distillery },
+                { label: "Category", value: spirit.category }
+              ]}
+            />
           </div>
         </Container>
       </FullWidthSection>
@@ -232,14 +241,21 @@ export default function ManagersSpecialPage() {
               </p>
             </div>
 
-            <PricingCard
-              originalPrice={spirit.originalPrice}
-              specialPrice={spirit.specialPrice}
-              originalPriceDouble={spirit.originalPriceDouble}
-              specialPriceDouble={spirit.specialPriceDouble}
-              discount={spirit.discount}
-              validUntil={currentPromotion.endDate}
-            />
+            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <PricingCard
+                title="Single Measure"
+                currentPrice={spirit.specialPrice}
+                originalPrice={spirit.originalPrice}
+                savings={spirit.discount}
+                featured={true}
+              />
+              <PricingCard
+                title="Double Measure"
+                currentPrice={spirit.specialPriceDouble}
+                originalPrice={spirit.originalPriceDouble}
+                savings={spirit.discount}
+              />
+            </div>
           </div>
         </Container>
       </Section>
@@ -253,7 +269,7 @@ export default function ManagersSpecialPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Tasting Notes</h2>
                 <div className="space-y-4">
-                  {spirit.tastingNotes.map((note, index) => (
+                  {spirit.tastingNotes.map((note: string, index: number) => (
                     <div key={index} className="flex items-start bg-white rounded-xl shadow-sm p-6">
                       <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
                         <span className="text-purple-600 font-bold">{index + 1}</span>
@@ -268,7 +284,7 @@ export default function ManagersSpecialPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Perfect Serves</h2>
                 <div className="space-y-4">
-                  {spirit.servingsuggestions.map((suggestion, index) => (
+                  {spirit.servingsuggestions.map((suggestion: string, index: number) => (
                     <div key={index} className="bg-gradient-to-r from-amber-50 to-amber-100 rounded-xl p-6 border border-amber-200">
                       <div className="flex items-center mb-2">
                         <span className="text-2xl mr-3">🍸</span>
@@ -311,7 +327,7 @@ export default function ManagersSpecialPage() {
         <Container>
           <div className="max-w-4xl mx-auto">
             <FeatureGrid
-              columns={1}
+              columns={3}
               features={[
                 {
                   icon: "🌿",
@@ -382,6 +398,7 @@ export default function ManagersSpecialPage() {
                 </Button>
               </Link>
               <PhoneButton
+                phone="01753 682707"
                 size="lg"
                 variant="secondary"
                 className="bg-purple-700 text-white hover:bg-purple-600"

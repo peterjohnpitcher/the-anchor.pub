@@ -138,7 +138,7 @@ export function StatusBar({
     }
     
     // Handle the three kitchen status formats
-    const kitchenStatus = getKitchenStatus(todayHours.kitchen)
+    const kitchenStatus = todayHours.kitchen ? getKitchenStatus(todayHours.kitchen) : 'no-service'
     
     if (kitchenStatus === 'no-service') {
       // Kitchen is null - no kitchen service
@@ -151,7 +151,7 @@ export function StatusBar({
     }
     
     // Kitchen has open/close times
-    if (!isKitchenOpen(todayHours.kitchen)) {
+    if (!todayHours.kitchen || !isKitchenOpen(todayHours.kitchen)) {
       return { isOpen: false, message: 'closed', status: 'no-service' }
     }
     
@@ -161,8 +161,8 @@ export function StatusBar({
     const currentMinutes = now.getMinutes()
     const currentTime = currentHour + currentMinutes / 60
     
-    const [kitchenOpenHour, kitchenOpenMin] = todayHours.kitchen.opens.split(':').map(Number)
-    const [kitchenCloseHour, kitchenCloseMin] = todayHours.kitchen.closes.split(':').map(Number)
+    const [kitchenOpenHour, kitchenOpenMin] = todayHours.kitchen.opens!.split(':').map(Number)
+    const [kitchenCloseHour, kitchenCloseMin] = todayHours.kitchen.closes!.split(':').map(Number)
     
     const kitchenOpenTime = kitchenOpenHour + kitchenOpenMin / 60
     const kitchenCloseTime = kitchenCloseHour + kitchenCloseMin / 60

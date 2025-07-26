@@ -113,10 +113,11 @@ export function getPageHeaderImage(route: string): HeaderImageConfig | null {
 
 /**
  * Gets a default header image if page-specific image is not found
+ * Uses the homepage hero image as the default
  */
 export function getDefaultHeaderImage(): HeaderImageConfig {
   return {
-    src: '/images/hero/the-anchor-pub-interior-atmosphere.jpg',
-    alt: 'Warm and inviting interior of The Anchor pub with traditional wooden beams, cozy seating areas, and ambient lighting'
+    src: '/images/page-headers/home/Page Headers - Homepage.jpg',
+    alt: 'The Anchor pub entrance with warm lighting and traditional British pub signage'
   };
 }

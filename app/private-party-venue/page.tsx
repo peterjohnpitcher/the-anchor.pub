@@ -226,99 +226,6 @@ export default function PrivatePartyVenuePage() {
         </Container>
       </section>
 
-      {/* Party Packages */}
-      <section className="section-spacing bg-gray-50">
-        <Container>
-          <SectionHeader
-            title="Party Packages to Suit Every Budget"
-            subtitle="Flexible options from simple gatherings to full celebrations"
-          />
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-            <div className="bg-white rounded-xl p-6 shadow-md">
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Casual Gathering</h3>
-              <p className="text-3xl font-bold text-anchor-gold mb-1">From £15</p>
-              <p className="text-gray-700 mb-4">per person</p>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Reserved area</li>
-                <li>• Finger buffet options</li>
-                <li>• Background music</li>
-                <li>• Decorated tables</li>
-                <li>• 10-30 guests</li>
-              </ul>
-              <PhoneButton
-                phone="01753 682707"
-                source="private_party_intimate_enquiry"
-                variant="primary"
-                size="md"
-                className="mt-6"
-              >
-                Enquire Now
-              </PhoneButton>
-            </div>
-            
-            <div className="bg-white rounded-xl p-6 shadow-md border-2 border-anchor-gold">
-              <div className="bg-anchor-gold text-white text-sm font-semibold px-3 py-1 rounded-full inline-block mb-2">
-                MOST POPULAR
-              </div>
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Classic Celebration</h3>
-              <p className="text-3xl font-bold text-anchor-gold mb-1">From £20</p>
-              <p className="text-gray-700 mb-4">per person</p>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Private space</li>
-                <li>• Hot & cold buffet</li>
-                <li>• Welcome drink</li>
-                <li>• Party decorations</li>
-                <li>• DJ space available</li>
-                <li>• 30-80 guests</li>
-              </ul>
-              <PhoneButton
-                phone="01753 682707"
-                source="private_party_classic_book"
-                variant="primary"
-                size="md"
-                className="mt-6"
-              >
-                Book This Package
-              </PhoneButton>
-            </div>
-            
-            <div className="bg-white rounded-xl p-6 shadow-md">
-              <h3 className="text-xl font-bold text-anchor-green mb-2">Premium Party</h3>
-              <p className="text-3xl font-bold text-anchor-gold mb-1">From £30</p>
-              <p className="text-gray-700 mb-4">per person</p>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Exclusive venue use</li>
-                <li>• 3-course meal option</li>
-                <li>• Drinks package</li>
-                <li>• Premium decorations</li>
-                <li>• Entertainment space</li>
-                <li>• Dedicated staff</li>
-                <li>• 80-200 guests</li>
-              </ul>
-              <PhoneButton
-                phone="01753 682707"
-                source="private_party_premium_enquiry"
-                variant="primary"
-                size="md"
-                className="mt-6"
-              >
-                Premium Enquiry
-              </PhoneButton>
-            </div>
-          </div>
-
-          <AlertBox
-            variant="info"
-            title="Bespoke Packages Available"
-            content={
-              <p className="text-center">
-                We create personalised packages for every celebration. Tell us about your party and we'll provide a custom quote that works for your budget.
-              </p>
-            }
-          />
-        </Container>
-      </section>
 
       {/* What's Included */}
       <section className="section-spacing bg-white">
@@ -578,8 +485,8 @@ export default function PrivatePartyVenuePage() {
             answer: "You're welcome to bring your own celebration cake - we'll provide plates and serve it for you. All other food must be provided by us for food safety reasons, but we're very flexible with menu options."
           },
           {
-            question: "What's included in the party packages?",
-            answer: "All packages include exclusive use of your party space, basic decorations, dedicated staff, and setup/cleanup. Food and drink are priced per person based on your menu choices. We offer flexible venue hire pricing tailored to your celebration."
+            question: "What's included in venue hire?",
+            answer: "Venue hire includes exclusive use of your party space, basic decorations, dedicated staff, and setup/cleanup. Food and drink are priced per person based on your menu choices. We offer flexible pricing tailored to your celebration."
           },
           {
             question: "Can children attend parties at The Anchor?",

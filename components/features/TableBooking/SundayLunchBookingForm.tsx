@@ -760,10 +760,10 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
               Processing...
             </>
           ) : (
-            <>
-              <Icon name="creditCard" className="mr-2" />
-              Proceed to Payment (£{depositAmount.toFixed(2)} deposit)
-            </>
+            <span className="inline-flex items-center whitespace-nowrap">
+              <Icon name="creditCard" className="mr-2 flex-shrink-0" />
+              <span>Proceed to Payment (£{depositAmount.toFixed(2)} deposit)</span>
+            </span>
           )}
         </Button>
         

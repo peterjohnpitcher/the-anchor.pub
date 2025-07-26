@@ -49,9 +49,9 @@ export default function SundayLunchPage() {
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="primary" size="lg" asChild>
-              <Link href="/book-table?tab=sunday">
-                <Icon name="calendar" className="mr-2" />
-                Book Your Table Now
+              <Link href="/book-table?tab=sunday" className="inline-flex items-center whitespace-nowrap">
+                <Icon name="calendar" className="mr-2 flex-shrink-0" />
+                <span>Book Your Table Now</span>
               </Link>
             </Button>
             

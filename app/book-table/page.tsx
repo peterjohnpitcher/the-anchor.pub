@@ -72,9 +72,9 @@ export default function BookTablePage({
         }
         tags={
           <div className="flex flex-wrap gap-2 justify-center">
-            <HeroTag label="📅 Easy Online Booking" variant="default" />
-            <HeroTag label="✅ Instant Confirmation" variant="default" />
-            <HeroTag label="🍽️ Sunday Roasts" variant="default" />
+            <HeroTag variant="default">📅 Easy Online Booking</HeroTag>
+            <HeroTag variant="default">✅ Instant Confirmation</HeroTag>
+            <HeroTag variant="default">🍽️ Sunday Roasts</HeroTag>
           </div>
         }
         cta={
@@ -195,10 +195,10 @@ export default function BookTablePage({
                 <p className="text-sm text-muted-foreground mb-4">
                   Planning a special event or need a private space?
                 </p>
-                <Button variant="outline" size="lg" asChild>
-                  <a href="/private-party-venue" className="whitespace-nowrap">
-                    <Icon name="sparkles" className="mr-2" />
-                    View Private Hire
+                <Button variant="outline" size="lg" asChild className="w-auto">
+                  <a href="/private-party-venue" className="inline-flex items-center whitespace-nowrap">
+                    <Icon name="sparkles" className="mr-2 flex-shrink-0" />
+                    <span className="whitespace-nowrap">View Private Hire</span>
                   </a>
                 </Button>
               </div>

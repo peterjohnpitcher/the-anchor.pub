@@ -3,20 +3,26 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
-import managersSpecialData from '@/content/managers-special.json'
+import { getCurrentPromotionClient } from '@/lib/managers-special-utils'
 
 export function ManagersSpecialHero() {
-  const [isActive, setIsActive] = useState(false)
+  const [currentPromotion, setCurrentPromotion] = useState<any>(null)
   const [imagePath, setImagePath] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
   
   useEffect(() => {
-    if (managersSpecialData.active && managersSpecialData.promotion.validUntil) {
-      const validUntil = new Date(managersSpecialData.promotion.validUntil)
-      const now = new Date()
-      setIsActive(now <= validUntil)
-    } else {
-      setIsActive(managersSpecialData.active)
-    }
+    // Get current promotion from API
+    getCurrentPromotionClient()
+      .then(promo => {
+        if (promo) {
+          setCurrentPromotion(promo)
+        }
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error('Failed to fetch current promotion:', err)
+        setLoading(false)
+      })
     
     // Fetch the dynamic image path
     fetch('/api/managers-special-image')
@@ -29,9 +35,9 @@ export function ManagersSpecialHero() {
       .catch(err => console.error('Failed to fetch manager\'s special image:', err))
   }, [])
 
-  if (!isActive) return null
+  if (loading || !currentPromotion) return null
 
-  const { spirit, promotion } = managersSpecialData
+  const { spirit, promotion } = currentPromotion
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-anchor-green to-emerald-800">
@@ -107,7 +113,7 @@ export function ManagersSpecialHero() {
                   </Button>
                   <div className="text-white">
                     <span className="text-sm">Valid until</span>
-                    <span className="block text-lg font-bold">{new Date(promotion.validUntil).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                    <span className="block text-lg font-bold">{new Date(currentPromotion.endDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                   </div>
                 </div>
               </div>
