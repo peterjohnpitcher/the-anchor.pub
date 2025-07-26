@@ -23,10 +23,6 @@ interface BookTableButtonProps extends Omit<ButtonProps, 'href' | 'onClick'> {
    */
   trackingLabel?: string
   /**
-   * Whether to open in a new tab (default: true)
-   */
-  external?: boolean
-  /**
    * Custom onClick handler (called after tracking)
    */
   onClickAfterTracking?: (event: MouseEvent<HTMLAnchorElement>) => void
@@ -38,7 +34,6 @@ export const BookTableButton = forwardRef<HTMLAnchorElement, BookTableButtonProp
     context = 'regular',
     eventName,
     trackingLabel = 'Book a Table',
-    external = true,
     onClickAfterTracking,
     children = '📅 Book a Table',
     variant = 'primary',
@@ -47,6 +42,10 @@ export const BookTableButton = forwardRef<HTMLAnchorElement, BookTableButtonProp
     ...props 
   }, ref) => {
     const pathname = usePathname()
+    
+    // Always use internal booking page
+    const bookingUrl = '/book-table'
+    const isExternal = false
 
     const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
       // Detect device type
@@ -92,9 +91,7 @@ export const BookTableButton = forwardRef<HTMLAnchorElement, BookTableButtonProp
     return (
       <a
         ref={ref}
-        href="https://ordertab.menu/theanchor/bookings"
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
+        href={bookingUrl}
         onClick={handleClick}
         className={className}
       >

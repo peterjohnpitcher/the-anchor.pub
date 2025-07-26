@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import { PhoneLink } from '@/components/PhoneLink'
-import { BookTableButton } from '@/components/BookTableButton'
 import { DirectionsLink } from '@/components/DirectionsButton'
 import { WhatsAppLink } from '@/components/WhatsAppLink'
+import { trackTableBookingClick } from '@/lib/gtm-events'
 
 export function FloatingActions() {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,15 +33,18 @@ export function FloatingActions() {
           aria-labelledby="floating-action-button"
         >
           <div className="bg-white rounded-2xl shadow-2xl p-3 min-w-[200px] space-y-2">
-            <BookTableButton
-              source="floating_actions"
-              variant="ghost"
+            <a
+              href="/book-table"
+              onClick={() => {
+                trackTableBookingClick('floating_actions')
+                setIsOpen(false)
+              }}
               className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours w-full justify-start text-left"
-              onClickAfterTracking={() => setIsOpen(false)}
+              role="menuitem"
             >
               <span className="text-2xl" aria-hidden="true">📅</span>
               <span className="font-medium">Book a Table</span>
-            </BookTableButton>
+            </a>
             
             <PhoneLink
               phone="01753682707"
@@ -119,6 +122,7 @@ export function FloatingActions() {
           </svg>
         </button>
       </div>
+
     </>
   )
 }

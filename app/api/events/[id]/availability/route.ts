@@ -32,7 +32,6 @@ export async function POST(
         method: 'POST',
         headers: {
           'X-API-Key': API_KEY,
-          'Authorization': `Bearer ${API_KEY}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ seats })
@@ -57,8 +56,7 @@ export async function POST(
         `${API_BASE_URL}/events/${params.id}`,
         {
           headers: {
-            'X-API-Key': API_KEY,
-            'Authorization': `Bearer ${API_KEY}`
+            'X-API-Key': API_KEY
           }
         }
       )
@@ -72,8 +70,7 @@ export async function POST(
           `${API_BASE_URL}/events?limit=100`,
           {
             headers: {
-              'X-API-Key': API_KEY,
-              'Authorization': `Bearer ${API_KEY}`
+              'X-API-Key': API_KEY
             }
           }
         )
@@ -142,8 +139,7 @@ export async function POST(
         `${API_BASE_URL}/events?limit=100`,
         {
           headers: {
-            'X-API-Key': API_KEY,
-            'Authorization': `Bearer ${API_KEY}`
+            'X-API-Key': API_KEY
           }
         }
       )

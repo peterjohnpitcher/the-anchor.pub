@@ -1,6 +1,6 @@
 'use client'
 
-import { forwardRef, InputHTMLAttributes, useState, useRef, useEffect } from 'react'
+import { forwardRef, InputHTMLAttributes, useState, useRef, useEffect, useCallback } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import type { BaseComponentProps } from '../types'
@@ -57,6 +57,40 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     const datePickerId = id || label?.toLowerCase().replace(/\s+/g, '-')
     const errorVariant = error ? 'error' : variant
     const inputType = showTime ? 'datetime-local' : 'date'
+    const [isMobile, setIsMobile] = useState(false)
+    const inputRef = useRef<HTMLInputElement>(null)
+    
+    // Detect mobile device
+    useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || 
+                   ('ontouchstart' in window) ||
+                   (window.innerWidth < 768))
+      }
+      checkMobile()
+      window.addEventListener('resize', checkMobile)
+      return () => window.removeEventListener('resize', checkMobile)
+    }, [])
+    
+    // Handle mobile click to prevent immediate closing
+    const handleMobileClick = useCallback((e: React.MouseEvent<HTMLInputElement>) => {
+      if (isMobile) {
+        e.stopPropagation()
+        // Force the input to stay focused
+        const input = e.currentTarget
+        setTimeout(() => {
+          input.focus()
+          input.click()
+        }, 10)
+      }
+    }, [isMobile])
+    
+    // Prevent touch events from closing the picker
+    const handleTouchStart = useCallback((e: React.TouchEvent<HTMLInputElement>) => {
+      if (isMobile) {
+        e.stopPropagation()
+      }
+    }, [isMobile])
 
     return (
       <div className="w-full">
@@ -71,7 +105,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         
         <div className="relative">
           <input
-            ref={ref}
+            ref={ref || inputRef}
             id={datePickerId}
             type={inputType}
             min={minDate}
@@ -83,15 +117,17 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             data-testid={testId}
             aria-invalid={!!error}
             aria-describedby={error ? `${datePickerId}-error` : helperText ? `${datePickerId}-helper` : undefined}
+            onClick={handleMobileClick}
+            onTouchStart={handleTouchStart}
+            onFocus={(e) => {
+              // Prevent blur on mobile
+              if (isMobile) {
+                e.persist()
+              }
+              props.onFocus?.(e)
+            }}
             {...props}
           />
-          
-          {/* Calendar icon */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-700">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
         </div>
         
         {error && (

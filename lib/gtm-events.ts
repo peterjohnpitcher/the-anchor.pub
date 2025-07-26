@@ -84,6 +84,176 @@ export function trackTableBookingClick(source: string) {
   })
 }
 
+// Table booking funnel tracking
+export function trackTableBookingView(data: {
+  source: string
+  deviceType: 'mobile' | 'desktop'
+}) {
+  pushToDataLayer({
+    event: 'table_booking_view',
+    event_category: 'Table Booking',
+    event_label: 'Form Viewed',
+    booking_source: data.source,
+    device_type: data.deviceType
+  })
+}
+
+export function trackTableBookingStart(data: {
+  source: string
+  deviceType: 'mobile' | 'desktop'
+}) {
+  pushToDataLayer({
+    event: 'table_booking_start',
+    event_category: 'Table Booking',
+    event_label: 'Booking Started',
+    booking_source: data.source,
+    device_type: data.deviceType
+  })
+}
+
+export function trackTableBookingAvailabilityCheck(data: {
+  partySize: number
+  bookingDate: string
+  bookingTime: string
+  source: string
+  deviceType: 'mobile' | 'desktop'
+}) {
+  pushToDataLayer({
+    event: 'table_booking_availability_check',
+    event_category: 'Table Booking',
+    event_label: 'Availability Checked',
+    party_size: data.partySize,
+    booking_date: data.bookingDate,
+    booking_time: data.bookingTime,
+    booking_source: data.source,
+    device_type: data.deviceType
+  })
+}
+
+export function trackTableBookingDetailsEntered(data: {
+  partySize: number
+  bookingDate: string
+  bookingTime: string
+  source: string
+  deviceType: 'mobile' | 'desktop'
+}) {
+  pushToDataLayer({
+    event: 'table_booking_details_entered',
+    event_category: 'Table Booking',
+    event_label: 'Details Entered',
+    party_size: data.partySize,
+    booking_date: data.bookingDate,
+    booking_time: data.bookingTime,
+    booking_source: data.source,
+    device_type: data.deviceType
+  })
+}
+
+export function trackTableBookingSubmit(data: {
+  partySize: number
+  bookingDate: string
+  bookingTime: string
+  source: string
+  deviceType: 'mobile' | 'desktop'
+}) {
+  pushToDataLayer({
+    event: 'table_booking_submit',
+    event_category: 'Table Booking',
+    event_label: 'Booking Submitted',
+    party_size: data.partySize,
+    booking_date: data.bookingDate,
+    booking_time: data.bookingTime,
+    booking_source: data.source,
+    device_type: data.deviceType
+  })
+}
+
+export function trackTableBookingSuccess(data: {
+  partySize: number
+  bookingDate: string
+  bookingTime: string
+  bookingReference?: string
+  source: string
+  deviceType: 'mobile' | 'desktop'
+}) {
+  pushToDataLayer({
+    event: 'table_booking_success',
+    event_category: 'Table Booking',
+    event_label: 'Booking Confirmed',
+    party_size: data.partySize,
+    booking_date: data.bookingDate,
+    booking_time: data.bookingTime,
+    booking_reference: data.bookingReference,
+    booking_source: data.source,
+    device_type: data.deviceType
+  })
+}
+
+export function trackTableBookingError(data: {
+  errorType: string
+  errorMessage: string
+  partySize?: number
+  bookingDate?: string
+  bookingTime?: string
+  source: string
+  deviceType: 'mobile' | 'desktop'
+}) {
+  pushToDataLayer({
+    event: 'table_booking_error',
+    event_category: 'Table Booking',
+    event_label: 'Booking Error',
+    error_type: data.errorType,
+    error_message: data.errorMessage,
+    party_size: data.partySize,
+    booking_date: data.bookingDate,
+    booking_time: data.bookingTime,
+    booking_source: data.source,
+    device_type: data.deviceType
+  })
+}
+
+// Comprehensive table booking funnel tracking
+export function trackTableBookingFunnel(data: {
+  step: 'view' | 'start' | 'availability_check' | 'details_entered' | 'submit' | 'success' | 'error'
+  partySize?: number
+  bookingDate?: string
+  bookingTime?: string
+  bookingReference?: string
+  errorType?: string
+  errorMessage?: string
+  source: string
+  deviceType: 'mobile' | 'desktop'
+}) {
+  const stepLabels = {
+    view: 'Form Viewed',
+    start: 'Booking Started',
+    availability_check: 'Availability Checked',
+    details_entered: 'Details Entered',
+    submit: 'Booking Submitted',
+    success: 'Booking Confirmed',
+    error: 'Booking Error'
+  }
+
+  const eventData: GTMEvent = {
+    event: 'table_booking_funnel',
+    event_category: 'Table Booking Funnel',
+    event_label: stepLabels[data.step],
+    funnel_step: data.step,
+    booking_source: data.source,
+    device_type: data.deviceType
+  }
+
+  // Add optional data if provided
+  if (data.partySize) eventData.party_size = data.partySize
+  if (data.bookingDate) eventData.booking_date = data.bookingDate
+  if (data.bookingTime) eventData.booking_time = data.bookingTime
+  if (data.bookingReference) eventData.booking_reference = data.bookingReference
+  if (data.errorType) eventData.error_type = data.errorType
+  if (data.errorMessage) eventData.error_message = data.errorMessage
+
+  pushToDataLayer(eventData)
+}
+
 export function trackMenuView(menuType: 'food' | 'drinks' | 'sunday') {
   pushToDataLayer({
     event: 'view_menu',

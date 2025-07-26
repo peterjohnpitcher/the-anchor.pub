@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { Button, Container } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { Icon } from '@/components/ui/Icon'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ReviewSection } from '@/components/reviews'
-import { BookTableButton } from '@/components/BookTableButton'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
@@ -48,24 +48,22 @@ export default function SundayLunchPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <BookTableButton
-              source="sunday_lunch_hero"
-              context="sunday_roast"
-              variant="primary"
-              size="lg"
-            >
-              📞 Book Your Table Now
-            </BookTableButton>
+            <Button variant="primary" size="lg" asChild>
+              <Link href="/book-table?tab=sunday">
+                <Icon name="calendar" className="mr-2" />
+                Book Your Table Now
+              </Link>
+            </Button>
             
             <Link href="#menu">
-      <Button 
-        variant="secondary"
-        size="lg"
-        className="bg-white text-anchor-green hover:bg-gray-100"
-      >
-        View Sunday Menu
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                View Sunday Menu
+              </Button>
+            </Link>
           </div>
         }
       >
@@ -254,6 +252,19 @@ export default function SundayLunchPage() {
               </div>
             </div>
             
+            {/* Booking CTA within menu section */}
+            <div className="text-center mb-12">
+              <Button variant="primary" size="lg" className="w-full" asChild>
+                <Link href="/book-table?tab=sunday">
+                  <Icon name="calendar" className="mr-2" />
+                  Reserve Your Sunday Roast
+                </Link>
+              </Button>
+              <p className="text-sm text-gray-600 mt-3">
+                Remember: Pre-order required by 1pm Saturday
+              </p>
+            </div>
+            
             {/* Allergen Notice */}
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 text-center">
               <p className="text-sm text-gray-700">
@@ -321,6 +332,14 @@ export default function SundayLunchPage() {
                     <span className="font-semibold">5:00pm</span>
                     <span className="text-gray-700">Last orders for roasts</span>
                   </div>
+                </div>
+                <div className="mt-6">
+                  <Button variant="primary" size="md" fullWidth asChild>
+                    <Link href="/book-table?tab=sunday">
+                      <Icon name="calendar" className="mr-2" />
+                      Book Your Table
+                    </Link>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -423,27 +442,48 @@ export default function SundayLunchPage() {
       </section>
 
       {/* Booking CTA */}
-      <CTASection
-        title="Don't Miss Out on Sunday Roast"
-        description="Sunday roasts must be pre-ordered and paid for by 1pm on Saturday."
-        buttons={[
-          {
-            text: "📞 Book Now: 01753 682707",
-            href: "tel:01753682707",
-            variant: "white"
-          }
-        ]}
-        variant="green"
-      >
-        <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
-          Can't pre-order? Our regular menu is available on Sundays too!
-        </p>
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-          <h3 className="font-bold text-xl mb-3 text-white">Sunday Roast Service</h3>
-          <p className="mb-2 text-white">Every Sunday: 12:00 PM - 5:00 PM</p>
-          <p className="text-sm text-white/90">Last orders 4:30 PM</p>
-        </div>
-      </CTASection>
+      <section className="section-spacing bg-anchor-green text-white">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Don't Miss Out on Sunday Roast
+            </h2>
+            <p className="text-lg mb-8">
+              Sunday roasts must be pre-ordered and paid for by 1pm on Saturday.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button variant="secondary" size="lg" className="bg-white text-anchor-green hover:bg-gray-100 border-white" asChild>
+                <Link href="/book-table?tab=sunday">
+                  <Icon name="calendar" className="mr-2" />
+                  Book Your Sunday Roast
+                </Link>
+              </Button>
+              
+              <Link href="tel:01753682707">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-anchor-green"
+                >
+                  <Icon name="phone" className="mr-2" />
+                  Call: 01753 682707
+                </Button>
+              </Link>
+            </div>
+            
+            <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
+              Can't pre-order? Our regular menu is available on Sundays too!
+            </p>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
+              <h3 className="font-bold text-xl mb-3 text-white">Sunday Roast Service</h3>
+              <p className="mb-2 text-white">Every Sunday: 12:00 PM - 5:00 PM</p>
+              <p className="text-sm text-white/90">Last orders 4:30 PM</p>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* JSON-LD Schema */}
       <script

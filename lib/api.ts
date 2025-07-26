@@ -8,6 +8,23 @@ const API_BASE_URL = typeof window === 'undefined'
   ? 'https://management.orangejelly.co.uk/api'  // Server-side: direct API calls
   : '/api'  // Client-side: use Next.js API routes
 
+// API Response wrapper types
+export interface ApiSuccessResponse<T> {
+  success: true
+  data: T
+}
+
+export interface ApiErrorResponse {
+  success: false
+  error: {
+    code: string
+    message: string
+    details?: any
+  }
+}
+
+export type ApiResponse<T> = ApiSuccessResponse<T> | ApiErrorResponse
+
 // Types based on API documentation
 export interface Event {
   '@type': 'Event'
@@ -253,6 +270,113 @@ export interface BusinessHours {
   lastUpdated: string
 }
 
+// Table Booking Types
+export interface TableAvailabilitySlot {
+  time: string
+  available?: boolean
+  available_capacity: number
+  reason?: string
+  requires_prepayment?: boolean
+}
+
+export interface TableAvailabilityResponse {
+  date: string
+  day?: string
+  available: boolean
+  time_slots: TableAvailabilitySlot[]
+  kitchen_hours?: {
+    opens: string
+    closes: string
+  } | null
+  message?: string
+  time?: string
+  party_size?: number
+  remaining_capacity?: number
+}
+
+export interface TableBookingRequest {
+  // Required fields
+  booking_type: 'regular' | 'sunday_lunch'
+  date: string
+  time: string
+  party_size: number
+  customer: {
+    first_name: string
+    last_name: string
+    email?: string
+    mobile_number: string
+    sms_opt_in?: boolean
+  }
+  // Optional fields
+  duration_minutes?: number  // 60-240, default: 120
+  special_requirements?: string
+  dietary_requirements?: string[]  // Array of dietary needs
+  allergies?: string[]  // Array of allergies
+  celebration_type?: string  // birthday, anniversary, etc.
+  source?: string  // website, phone, walk-in, social_media (default: website)
+  // Legacy fields for backward compatibility
+  customer_name?: string
+  customer_first_name?: string
+  customer_last_name?: string
+  customer_phone?: string
+  occasion?: string  // UI field that gets mapped to celebration_type
+  marketing_opt_in?: boolean
+}
+
+export interface TableBookingResponse {
+  booking_id: string
+  booking_reference: string
+  status: 'confirmed' | 'pending' | 'cancelled' | 'pending_payment'
+  customer_id?: string
+  // New API format uses confirmation_details instead of booking_details
+  confirmation_details?: {
+    date: string
+    time: string
+    party_size: number
+    duration_minutes: number
+    special_requirements?: string
+    occasion?: string
+  }
+  // Keep booking_details for backward compatibility
+  booking_details?: {
+    date: string
+    time: string
+    party_size: number
+    duration_minutes: number
+    special_requirements?: string
+    occasion?: string
+  }
+  confirmation_sent: boolean
+  sms_status?: string
+  payment_details?: {
+    amount: number
+    currency: string
+    payment_url: string
+    expires_at: string
+  }
+  cancellation_policy?: string
+}
+
+export interface SundayLunchMenuItem {
+  name: string
+  description?: string
+  price: number
+  dietary?: string[]
+}
+
+export interface SundayLunchMenuResponse {
+  menu: {
+    starters: SundayLunchMenuItem[]
+    mains: SundayLunchMenuItem[]
+    desserts: SundayLunchMenuItem[]
+  }
+  service_times: {
+    start: string
+    end: string
+  }
+  last_updated: string
+}
+
 export class AnchorAPI {
   private baseURL: string
   private apiKey: string
@@ -412,6 +536,45 @@ export class AnchorAPI {
 
   async getDietaryMenu(type: 'vegetarian' | 'vegan' | 'gluten-free' | 'dairy-free' | 'nut-free'): Promise<MenuResponse> {
     return this.request<MenuResponse>(`/menu/dietary/${type}`)
+  }
+
+  // Table Bookings
+  async checkTableAvailability(params: {
+    date: string
+    time: string
+    party_size: number
+    duration?: number
+  }): Promise<TableAvailabilityResponse> {
+    const query = new URLSearchParams({
+      date: params.date,
+      time: params.time,
+      party_size: params.party_size.toString(),
+      ...(params.duration && { duration: params.duration.toString() })
+    })
+    
+    return this.request<TableAvailabilityResponse>(`/table-bookings/availability?${query}`)
+  }
+
+  async createTableBooking(data: TableBookingRequest): Promise<TableBookingResponse> {
+    return this.request<TableBookingResponse>('/table-bookings/create', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+  }
+
+  async getTableBooking(reference: string): Promise<TableBookingResponse> {
+    return this.request<TableBookingResponse>(`/table-bookings/${reference}`)
+  }
+
+  async cancelTableBooking(reference: string, reason?: string): Promise<{ success: boolean; message: string }> {
+    return this.request(`/table-bookings/${reference}/cancel`, {
+      method: 'POST',
+      body: JSON.stringify({ reason }),
+    })
+  }
+
+  async getSundayLunchMenu(): Promise<SundayLunchMenuResponse> {
+    return this.request<SundayLunchMenuResponse>('/table-bookings/menu/sunday-lunch')
   }
 
   // Business Information

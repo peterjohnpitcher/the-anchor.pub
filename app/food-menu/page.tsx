@@ -16,6 +16,7 @@ import { MenuPageTracker } from '@/components/MenuPageTracker'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
+import { StickyBookingBar } from '@/components/StickyBookingBar'
 
 export const metadata: Metadata = {
   title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Food',
@@ -119,6 +120,12 @@ export default async function FoodMenuPage() {
         ]}
       />
       <ScrollDepthTracker />
+      
+      {/* Sticky Booking Bar - Desktop Only */}
+      <StickyBookingBar 
+        source="food_menu_sticky"
+        incentiveMessage="Hungry? Book your table now"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([menuSchema, pizzaBOGOFSchema, fridayFishOfferSchema]) }}

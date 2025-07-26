@@ -111,11 +111,10 @@ This is the comprehensive master reference document for The Anchor website. It c
 ## 🕐 OPENING HOURS
 
 ### Bar Hours
-- **Monday**: 4pm-10pm
-- **Tuesday-Thursday**: 4pm-11pm
+- **Monday-Thursday**: 4pm-10pm
 - **Friday**: 4pm-12am
-- **Saturday**: 1pm-12am
-- **Sunday**: 12pm-9pm
+- **Saturday**: 12pm-12am
+- **Sunday**: 12pm-10pm
 
 ### Kitchen/Food Service Hours
 - **Monday**: CLOSED

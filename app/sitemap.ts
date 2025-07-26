@@ -39,6 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/m25-junction-14-pub',
     '/stanwell-pub',
     '/windsor-pub',
+    '/book-table',
   ]
 
   // Get all blog posts
@@ -54,8 +55,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticSitemap = staticRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: (route === '' ? 'daily' : route === '/blog' ? 'daily' : 'weekly') as 'daily' | 'weekly',
-    priority: route === '' ? 1.0 : route.includes('near-heathrow') ? 0.9 : route === '/blog' ? 0.9 : 0.8,
+    changeFrequency: (route === '' ? 'daily' : route === '/blog' ? 'daily' : route === '/book-table' ? 'daily' : 'weekly') as 'daily' | 'weekly',
+    priority: route === '' ? 1.0 : route === '/book-table' ? 0.95 : route.includes('near-heathrow') ? 0.9 : route === '/blog' ? 0.9 : 0.8,
   }))
 
   // Map blog post routes

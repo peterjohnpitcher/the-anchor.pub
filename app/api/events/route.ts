@@ -37,8 +37,7 @@ export async function GET(request: Request) {
       `${API_BASE_URL}${endpoint}`,
       {
         headers: {
-          'X-API-Key': API_KEY,
-          'Authorization': `Bearer ${API_KEY}`
+          'X-API-Key': API_KEY
         }
       }
     )

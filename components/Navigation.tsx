@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import type { NavigationItem, BusinessInfo } from '@/lib/types'
 import { useFocusTrap } from '@/hooks/useFocusTrap'
 import { BookTableButton } from '@/components/BookTableButton'
-import { trackNavigationClick } from '@/lib/gtm-events'
+import { trackNavigationClick, trackTableBookingClick } from '@/lib/gtm-events'
 
 interface NavigationProps {
   logo?: {
@@ -162,6 +162,8 @@ export function Navigation({
   }, [isMobileMenuOpen])
 
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+
+
 
   const renderLink = (item: NavigationItem, isMobile = false) => {
     const linkClass = cn(
@@ -332,7 +334,11 @@ export function Navigation({
           variant="primary"
           size={isMobile ? 'md' : 'sm'}
           className={isMobile ? 'block w-full mt-4' : ''}
-          onClickAfterTracking={isMobile ? () => setIsMobileMenuOpen(false) : undefined}
+          onClickAfterTracking={() => {
+            if (isMobile) {
+              setIsMobileMenuOpen(false)
+            }
+          }}
         >
           {ctaButton.icon} {ctaButton.label}
         </BookTableButton>
@@ -450,6 +456,8 @@ export function Navigation({
               {/* Desktop Navigation */}
               <div className="flex items-center space-x-6 xl:space-x-8 relative z-40">
                 {items.map(item => renderLink(item))}
+                
+                
                 {renderCTA()}
               </div>
             </div>
@@ -515,6 +523,7 @@ export function Navigation({
         </div>
       )}
       </nav>
+
     </>
   )
 }

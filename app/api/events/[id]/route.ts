@@ -20,8 +20,7 @@ export async function GET(
       `${API_BASE_URL}/events/${params.id}`,
       {
         headers: {
-          'X-API-Key': API_KEY,
-          'Authorization': `Bearer ${API_KEY}`
+          'X-API-Key': API_KEY
         }
       }
     )

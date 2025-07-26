@@ -7,14 +7,14 @@ import { cn } from '@/lib/utils'
 import type { BaseComponentProps } from '../types'
 
 const modalVariants = cva(
-  'relative bg-white rounded-lg shadow-xl',
+  'relative bg-white rounded-lg shadow-xl mx-auto',
   {
     variants: {
       size: {
-        sm: 'max-w-md',
-        md: 'max-w-lg',
-        lg: 'max-w-2xl',
-        xl: 'max-w-4xl',
+        sm: 'max-w-md w-full',
+        md: 'max-w-lg w-full',
+        lg: 'max-w-2xl w-full',
+        xl: 'max-w-4xl w-full',
         fullscreen: 'max-w-full min-h-screen m-0 rounded-none'
       }
     },
@@ -25,7 +25,7 @@ const modalVariants = cva(
 )
 
 const overlayVariants = cva(
-  'fixed inset-0 z-50 flex items-center justify-center p-4',
+  'fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto',
   {
     variants: {
       backdrop: {
@@ -188,7 +188,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       >
         <div
           ref={modalRef}
-          className={cn(modalVariants({ size }), className)}
+          className={cn(modalVariants({ size }), 'my-8', className)}
           onClick={(e) => e.stopPropagation()}
           role={role}
           aria-modal="true"

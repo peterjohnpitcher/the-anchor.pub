@@ -18,6 +18,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
+import { TableBookingWithTracking } from '@/components/features/TableBooking'
 
 export const metadata: Metadata = {
   title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
@@ -376,6 +377,88 @@ export default function FindUsPage() {
               <p className="mt-6 text-gray-700 italic">
                 Free parking for pub guests. Paid parking for longer term stays coming soon.
               </p>
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      {/* Book Your Visit Section */}
+      <div className="bg-anchor-green section-spacing-md">
+        <Container>
+          <div className="max-w-6xl mx-auto">
+            <SectionHeader
+              title="Found us? Book your visit"
+              subtitle="Reserve your table now and enjoy The Anchor experience"
+              className="text-white"
+            />
+            
+            <div className="grid lg:grid-cols-2 gap-8 items-start">
+              {/* Booking Form - Mobile: First */}
+              <div className="order-1 lg:order-1">
+                <TableBookingWithTracking source="find_us_page" />
+              </div>
+              
+              {/* Opening Hours & Info - Mobile: Second */}
+              <div className="order-2 lg:order-2">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                  <h3 className="text-2xl font-bold text-white mb-6">Plan Your Visit</h3>
+                  
+                  {/* Opening Hours */}
+                  <div className="mb-8">
+                    <h4 className="text-lg font-semibold text-white mb-4">Opening Hours</h4>
+                    <BusinessHours variant="dark" showKitchen={false} />
+                  </div>
+                  
+                  {/* Quick Info */}
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-semibold text-white mb-3">Good to Know</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <span className="text-anchor-gold text-xl mt-0.5">🚗</span>
+                        <div>
+                          <p className="text-white font-medium">Free Parking</p>
+                          <p className="text-white/80 text-sm">20 spaces available for guests</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-anchor-gold text-xl mt-0.5">🍴</span>
+                        <div>
+                          <p className="text-white font-medium">Kitchen Closed Mondays</p>
+                          <p className="text-white/80 text-sm">Bar service available all day</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-anchor-gold text-xl mt-0.5">👨‍👩‍👧‍👦</span>
+                        <div>
+                          <p className="text-white font-medium">Family Friendly</p>
+                          <p className="text-white/80 text-sm">Children welcome until 9pm</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-anchor-gold text-xl mt-0.5">🐕</span>
+                        <div>
+                          <p className="text-white font-medium">Dogs Welcome</p>
+                          <p className="text-white/80 text-sm">In bar area and garden</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Contact Alternative */}
+                  <div className="mt-8 pt-6 border-t border-white/20">
+                    <p className="text-white/90 mb-3">Prefer to book by phone?</p>
+                    <PhoneButton
+                      phone="01753682707"
+                      source="find_us_booking_alternative"
+                      variant="outline"
+                      size="sm"
+                      className="w-full !bg-white !text-anchor-green hover:!bg-white/90"
+                    >
+                      📞 Call: 01753 682707
+                    </PhoneButton>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
