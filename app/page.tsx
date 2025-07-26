@@ -13,7 +13,6 @@ import { PhoneLinksSection, QuickEnquiryLinks } from '@/components/homepage/Phon
 import { PhoneLink } from '@/components/PhoneLink'
 import { BookTableButton } from '@/components/BookTableButton'
 import { DirectionsButton } from '@/components/DirectionsButton'
-import { TableBookingForm } from '@/components/features/TableBooking'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
@@ -156,62 +155,6 @@ export default function HomePage() {
         </Container>
       </div>
 
-      {/* Table Booking Section - Subtle Integration */}
-      <div className="bg-white py-8 md:py-12">
-        <Container>
-          <div className="max-w-3xl mx-auto">
-            {/* Compact booking widget */}
-            <Card variant="outlined" className="border-2 border-anchor-gold/20 overflow-hidden">
-              <div className="bg-anchor-gold/10 px-6 py-4 border-b border-anchor-gold/20">
-                <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div>
-                    <h3 className="text-lg font-semibold text-anchor-green">Book Your Table</h3>
-                    <p className="text-sm text-gray-600 mt-1">Quick & easy online booking</p>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-600">
-                    <span className="flex items-center gap-1">
-                      <span className="text-green-600">●</span>
-                      Walk-ins welcome
-                    </span>
-                    <span className="hidden sm:flex items-center gap-1">
-                      <span className="text-anchor-gold">🍽️</span>
-                      No booking fee
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <CardBody className="p-6">
-                <TableBookingForm 
-                  className="shadow-none border-0"
-                  compact={true}
-                />
-              </CardBody>
-            </Card>
-            
-            {/* Quick info bar */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
-              <span className="flex items-center gap-2">
-                <span className="text-anchor-gold">📞</span>
-                <PhoneLink phone="01753682707" source="homepage_booking_info" showIcon={false}>
-                  01753 682707
-                </PhoneLink>
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="text-anchor-gold">🚗</span>
-                Free parking
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="text-anchor-gold">👨‍👩‍👧‍👦</span>
-                Groups welcome
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="text-anchor-gold">🎉</span>
-                Special occasions
-              </span>
-            </div>
-          </div>
-        </Container>
-      </div>
 
       {/* What Makes Us Special */}
       <div className="bg-white section-spacing-md">
