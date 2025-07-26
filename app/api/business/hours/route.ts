@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { logError } from '@/lib/error-handling'
+import { isKitchenOpen, getKitchenStatus } from '@/lib/api'
 
 const API_KEY = 'bcf9b880cc9fe4615bd68090e88c6407d4ee7506'
 const API_URL = 'https://management.orangejelly.co.uk/api/business/hours'
@@ -95,13 +96,21 @@ export async function GET() {
       
       // Check kitchen status
       if (currentHours.kitchen && data.currentStatus.isOpen) {
-        const [kitchenOpenHour, kitchenOpenMin] = currentHours.kitchen.opens.split(':').map(Number)
-        const [kitchenCloseHour, kitchenCloseMin] = currentHours.kitchen.closes.split(':').map(Number)
+        const kitchenStatus = getKitchenStatus(currentHours.kitchen)
         
-        const kitchenOpenTime = kitchenOpenHour + kitchenOpenMin / 60
-        const kitchenCloseTime = kitchenCloseHour + kitchenCloseMin / 60
-        
-        data.currentStatus.kitchenOpen = currentTime >= kitchenOpenTime && currentTime < kitchenCloseTime
+        if (kitchenStatus === 'open' && isKitchenOpen(currentHours.kitchen)) {
+          const [kitchenOpenHour, kitchenOpenMin] = currentHours.kitchen.opens.split(':').map(Number)
+          const [kitchenCloseHour, kitchenCloseMin] = currentHours.kitchen.closes.split(':').map(Number)
+          
+          const kitchenOpenTime = kitchenOpenHour + kitchenOpenMin / 60
+          const kitchenCloseTime = kitchenCloseHour + kitchenCloseMin / 60
+          
+          data.currentStatus.kitchenOpen = currentTime >= kitchenOpenTime && currentTime < kitchenCloseTime
+        } else {
+          data.currentStatus.kitchenOpen = false
+        }
+      } else {
+        data.currentStatus.kitchenOpen = false
       }
     }
     

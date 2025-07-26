@@ -10,6 +10,7 @@ import { Icon } from '@/components/ui/Icon'
 import { PhoneLink } from '@/components/PhoneLink'
 import { getBusinessHours } from '@/lib/api'
 import type { BusinessHours } from '@/lib/api'
+import { isKitchenOpen, isKitchenClosed, getKitchenStatus } from '@/lib/api'
 import { trackFormStart } from '@/lib/gtm-events'
 
 export interface BookingDatePickerProps {
@@ -116,18 +117,29 @@ export default function BookingDatePicker({
 
     // Check if time is within kitchen hours
     if (dayHours?.kitchen) {
-      const [openHour, openMin] = dayHours.kitchen.opens.split(':').map(Number)
-      const [closeHour, closeMin] = dayHours.kitchen.closes.split(':').map(Number)
-      const [selectedHour, selectedMin] = time.split(':').map(Number)
+      const kitchenStatus = getKitchenStatus(dayHours.kitchen)
+      
+      // If kitchen is closed or no service, no bookings available
+      if (kitchenStatus === 'closed' || kitchenStatus === 'no-service') {
+        return false
+      }
+      
+      // If kitchen has open hours, check if time is within them
+      if (kitchenStatus === 'open' && isKitchenOpen(dayHours.kitchen)) {
+        const [openHour, openMin] = dayHours.kitchen.opens.split(':').map(Number)
+        const [closeHour, closeMin] = dayHours.kitchen.closes.split(':').map(Number)
+        const [selectedHour, selectedMin] = time.split(':').map(Number)
 
-      const openMinutes = openHour * 60 + openMin
-      const closeMinutes = closeHour * 60 + closeMin
-      const selectedMinutes = selectedHour * 60 + selectedMin
+        const openMinutes = openHour * 60 + openMin
+        const closeMinutes = closeHour * 60 + closeMin
+        const selectedMinutes = selectedHour * 60 + selectedMin
 
-      return selectedMinutes >= openMinutes && selectedMinutes <= closeMinutes
+        return selectedMinutes >= openMinutes && selectedMinutes <= closeMinutes
+      }
     }
 
-    return true
+    // No kitchen hours means no table bookings
+    return false
   }, [businessHours])
 
   // Get kitchen hours for selected date
@@ -138,19 +150,26 @@ export default function BookingDatePicker({
     const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
     const dayHours = businessHours.regularHours[dayOfWeek]
     
-    // Monday - kitchen closed
-    if (dayOfWeek === 'monday') {
-      return 'Kitchen closed on Mondays'
+    if (!dayHours) return 'No service today'
+    
+    if (dayHours.is_closed) {
+      return 'Closed today'
     }
-
-    if (dayHours?.kitchen) {
+    
+    if (!dayHours.kitchen) {
+      // Monday or no kitchen service
+      return dayOfWeek === 'monday' ? 'No kitchen service on Mondays (bar open)' : 'No kitchen service'
+    }
+    
+    const kitchenStatus = getKitchenStatus(dayHours.kitchen)
+    
+    if (kitchenStatus === 'open' && isKitchenOpen(dayHours.kitchen)) {
       return `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
-    } else if (dayHours && !dayHours.is_closed) {
-      // If no specific kitchen hours but restaurant is open, show estimated hours
-      return 'Kitchen: 12pm - 9pm (estimated)'
+    } else if (kitchenStatus === 'closed') {
+      return 'Kitchen closed but bar is open for drinks'
+    } else {
+      return 'No kitchen service'
     }
-
-    return 'Kitchen closed'
   }, [businessHours])
 
   const formatTime = (time: string): string => {
@@ -215,19 +234,27 @@ export default function BookingDatePicker({
       return
     }
     
-    // Special case: Kitchen closed on Mondays (kitchen is null)
+    // Check kitchen status
     if (!dayHours.kitchen) {
       setAvailableTimeSlots([])
       return
     }
-
-    // Use kitchen hours - they are required for table bookings
-    const hoursToUse = dayHours.kitchen
     
-    if (!hoursToUse || !hoursToUse.opens || !hoursToUse.closes) {
+    const kitchenStatus = getKitchenStatus(dayHours.kitchen)
+    
+    // No bookings if kitchen is closed or no service
+    if (kitchenStatus === 'closed' || kitchenStatus === 'no-service') {
       setAvailableTimeSlots([])
       return
     }
+    
+    // Kitchen must be open with hours
+    if (!isKitchenOpen(dayHours.kitchen)) {
+      setAvailableTimeSlots([])
+      return
+    }
+    
+    const hoursToUse = dayHours.kitchen
 
     // Parse hours - handle HH:mm:ss format
     const openParts = hoursToUse.opens.split(':')
@@ -347,10 +374,16 @@ export default function BookingDatePicker({
       {selectedDate && selectedTime && !isDateTimeAvailable(selectedDate, selectedTime) && (
         <Alert variant="warning" className="mt-4">
           <Badge variant="warning" dot>
-            Kitchen closed at this time
+            Kitchen not available
           </Badge>
           <p className="mt-2 text-sm">
-            Please select a different time when our kitchen is open.
+            {(() => {
+              const dayOfWeek = new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
+              if (dayOfWeek === 'monday') {
+                return 'No kitchen service on Mondays. The bar is open for drinks - please visit us for drinks or try another day for food.'
+              }
+              return 'Kitchen is closed at this time but the bar is open for drinks. Please select a different time for table dining.'
+            })()}
           </p>
         </Alert>
       )}

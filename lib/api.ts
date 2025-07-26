@@ -240,15 +240,24 @@ export interface MenuResponse {
   hasMenuSection: MenuSection[]
 }
 
+// Kitchen status types
+export type KitchenOpen = {
+  opens: string
+  closes: string
+}
+
+export type KitchenClosed = {
+  is_closed: true
+}
+
+export type KitchenStatus = KitchenOpen | KitchenClosed | null
+
 export interface BusinessHours {
   regularHours: {
     [key: string]: {
       opens: string
       closes: string
-      kitchen?: {
-        opens: string
-        closes: string
-      } | null
+      kitchen?: KitchenStatus
       is_closed: boolean
     }
   }
@@ -814,6 +823,21 @@ export async function getEventCategories(): Promise<EventCategory[]> {
     logError('api-event-categories', error)
     return []
   }
+}
+
+// Type guards for kitchen status
+export const isKitchenOpen = (kitchen: any): kitchen is KitchenOpen => {
+  return kitchen && typeof kitchen === 'object' && 'opens' in kitchen && 'closes' in kitchen
+}
+
+export const isKitchenClosed = (kitchen: any): kitchen is KitchenClosed => {
+  return kitchen && typeof kitchen === 'object' && 'is_closed' in kitchen && kitchen.is_closed === true
+}
+
+export const getKitchenStatus = (kitchen: KitchenStatus): 'open' | 'closed' | 'no-service' => {
+  if (isKitchenOpen(kitchen)) return 'open'
+  if (isKitchenClosed(kitchen)) return 'closed'
+  return 'no-service'
 }
 
 // Helper to format door time

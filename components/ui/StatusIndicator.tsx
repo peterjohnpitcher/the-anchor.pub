@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 
 interface StatusIndicatorProps {
-  status: 'open' | 'closed' | 'busy' | 'quiet'
+  status: 'open' | 'closed' | 'busy' | 'quiet' | 'warning'
   size?: 'sm' | 'md' | 'lg'
   className?: string
   showPulse?: boolean
@@ -11,7 +11,8 @@ const statusColors = {
   open: 'bg-green-400',
   closed: 'bg-red-400',
   busy: 'bg-yellow-400',
-  quiet: 'bg-blue-400'
+  quiet: 'bg-blue-400',
+  warning: 'bg-amber-400'
 }
 
 const sizes = {

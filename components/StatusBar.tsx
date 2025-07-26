@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { StatusIndicator } from '@/components/ui/StatusIndicator'
 import { LoadingState } from '@/components/ui/LoadingState'
 import type { BusinessHours } from '@/lib/api'
+import { isKitchenOpen, isKitchenClosed, getKitchenStatus } from '@/lib/api'
 
 interface StatusBarProps {
   variant?: 'default' | 'compact' | 'navigation'
@@ -40,6 +41,8 @@ const defaultLabels = {
   barClosed: 'Bar closed',
   kitchenOpen: 'Kitchen',
   kitchenClosed: 'Kitchen closed',
+  kitchenClosedBarOpen: 'Bar Open • Kitchen Closed',
+  noKitchenService: 'No Kitchen Service',
   opens: 'opens',
   closes: 'closes'
 }
@@ -114,98 +117,42 @@ export function StatusBar({
   const today = new Date().toISOString().split('T')[0]
   const todaySpecialHours = hours.specialHours?.find(sh => sh.date === today)
   
-  // Navigation variant - simple text
-  if (variant === 'navigation') {
-    // Get today's hours
-    const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
-    const todayHours = hours.regularHours[today]
-    
-    // Format time helper
-    const formatTime = (time: string) => {
-      const [hours, minutes] = time.split(':')
-      const hour = parseInt(hours)
-      const ampm = hour >= 12 ? 'pm' : 'am'
-      const displayHour = hour % 12 || 12
-      return minutes === '00' ? `${displayHour}${ampm}` : `${displayHour}:${minutes}${ampm}`
-    }
-    
-    let navMessage = ''
-    
-    if (todayHours?.is_closed || todaySpecialHours?.is_closed) {
-      navMessage = 'Closed today'
-    } else if (todayHours) {
-      // Show bar hours
-      const barHours = `${formatTime(todayHours.opens)} - ${formatTime(todayHours.closes)}`
-      
-      // Simplified for mobile - just show current status and hours
-      navMessage = `${isOpen ? 'Open' : 'Closed'} • ${formatTime(todayHours.opens)}-${formatTime(todayHours.closes)}`
-    }
-    
-    return (
-      <>
-        <div className={cn("flex items-center gap-1.5 text-xs", className)}>
-          <StatusIndicator status={isOpen ? 'open' : 'closed'} size="sm" />
-          <span className="whitespace-nowrap">
-            {navMessage}
-          </span>
-        </div>
-      </>
-    )
-  }
-
-  // Compact variant - smaller padding, bar status only
-  if (variant === 'compact') {
-    let message = ''
-    if (isOpen) {
-      message = mergedLabels.barOpen
-      if (todaySpecialHours?.note || todaySpecialHours?.reason) {
-        message += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
-      }
-      if (closesIn) {
-        message += ` • ${closesIn.startsWith('in ') ? closesIn : `in ${closesIn}`}`
-      }
-    } else {
-      message = mergedLabels.barClosed
-      if (todaySpecialHours?.note || todaySpecialHours?.reason) {
-        message += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
-      }
-      if (opensIn) {
-        message += ` • ${opensIn.startsWith('in ') ? opensIn : `in ${opensIn}`}`
-      }
-    }
-    
-    return (
-      <div className={cn(
-        'inline-block rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-md',
-        mergedTheme.background,
-        mergedTheme.border,
-        className
-      )}>
-        <div className={cn('flex items-center gap-2 text-xs sm:text-sm font-medium', mergedTheme.text)}>
-          <StatusIndicator status={isOpen ? 'open' : 'closed'} size="sm" />
-          <span>{message}</span>
-        </div>
-      </div>
-    )
-  }
 
   // Default variant - full size with separate bar and kitchen info
   const getKitchenHours = () => {
     // Check if we have special hours that might affect kitchen
     if (todaySpecialHours) {
       if (todaySpecialHours.is_closed) {
-        return { isOpen: false, message: 'closed' }
+        return { isOpen: false, message: 'closed', status: 'no-service' }
       }
       // For special hours, we can't determine kitchen hours precisely
-      return { isOpen: false, message: 'check special hours' }
+      return { isOpen: false, message: 'check special hours', status: 'no-service' }
     }
     
     // Get today's hours from the API data
     const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
     const todayHours = hours.regularHours[today]
     
-    if (!todayHours || !todayHours.kitchen) {
-      return { isOpen: false, message: 'closed' }
+    if (!todayHours) {
+      return { isOpen: false, message: 'closed', status: 'no-service' }
+    }
+    
+    // Handle the three kitchen status formats
+    const kitchenStatus = getKitchenStatus(todayHours.kitchen)
+    
+    if (kitchenStatus === 'no-service') {
+      // Kitchen is null - no kitchen service
+      return { isOpen: false, message: mergedLabels.noKitchenService, status: 'no-service' }
+    }
+    
+    if (kitchenStatus === 'closed') {
+      // Kitchen has is_closed: true - kitchen closed but bar open
+      return { isOpen: false, message: 'closed', status: 'closed' }
+    }
+    
+    // Kitchen has open/close times
+    if (!isKitchenOpen(todayHours.kitchen)) {
+      return { isOpen: false, message: 'closed', status: 'no-service' }
     }
     
     // Calculate kitchen closes in / opens at
@@ -226,9 +173,9 @@ export function StatusBar({
       const minutesUntilClose = Math.round((kitchenCloseTime - currentTime - hoursUntilClose) * 60)
       
       if (hoursUntilClose > 0) {
-        return { isOpen: true, message: `${mergedLabels.closes} ${hoursUntilClose}h ${minutesUntilClose}m` }
+        return { isOpen: true, message: `${mergedLabels.closes} ${hoursUntilClose}h ${minutesUntilClose}m`, status: 'open' }
       } else {
-        return { isOpen: true, message: `${mergedLabels.closes} ${minutesUntilClose}m` }
+        return { isOpen: true, message: `${mergedLabels.closes} ${minutesUntilClose}m`, status: 'open' }
       }
     } else if (currentTime < kitchenOpenTime) {
       // Kitchen opens later today
@@ -236,57 +183,95 @@ export function StatusBar({
       const minutesUntilOpen = Math.round((kitchenOpenTime - currentTime - hoursUntilOpen) * 60)
       
       if (hoursUntilOpen > 0) {
-        return { isOpen: false, message: `${mergedLabels.opens} ${hoursUntilOpen}h ${minutesUntilOpen}m` }
+        return { isOpen: false, message: `${mergedLabels.opens} ${hoursUntilOpen}h ${minutesUntilOpen}m`, status: 'closed' }
       } else {
-        return { isOpen: false, message: `${mergedLabels.opens} ${minutesUntilOpen}m` }
+        return { isOpen: false, message: `${mergedLabels.opens} ${minutesUntilOpen}m`, status: 'closed' }
       }
     } else {
       // Kitchen closed for today
-      return { isOpen: false, message: 'closed today' }
+      return { isOpen: false, message: 'closed today', status: 'closed' }
     }
   }
   
   const kitchenInfo = showKitchen ? getKitchenHours() : null
   
-  let barMessage = ''
+  // Build bar status message
+  let barStatus = ''
   if (isOpen) {
-    barMessage = mergedLabels.barOpen
-    if (todaySpecialHours?.note || todaySpecialHours?.reason) {
-      barMessage += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
-    }
     if (closesIn) {
-      barMessage += ` ${mergedLabels.closes} ${closesIn.startsWith('in ') ? closesIn : `in ${closesIn}`}`
+      barStatus = `Bar: ${mergedLabels.closes} ${closesIn.startsWith('in ') ? closesIn : `in ${closesIn}`}`
+    } else {
+      barStatus = 'Bar: Open'
     }
   } else {
-    barMessage = mergedLabels.barClosed
-    if (todaySpecialHours?.note || todaySpecialHours?.reason) {
-      barMessage += ` (${todaySpecialHours.note || todaySpecialHours.reason})`
-    }
     if (opensIn) {
-      barMessage += ` ${mergedLabels.opens} ${opensIn.startsWith('in ') ? opensIn : `in ${opensIn}`}`
+      barStatus = `Bar: ${mergedLabels.opens} ${opensIn.startsWith('in ') ? opensIn : `in ${opensIn}`}`
+    } else {
+      barStatus = 'Bar: Closed'
+    }
+  }
+  
+  // Build kitchen status message
+  let kitchenStatus = ''
+  if (kitchenInfo) {
+    if (kitchenInfo.status === 'no-service') {
+      kitchenStatus = 'Kitchen: No service'
+    } else if (kitchenInfo.status === 'closed') {
+      kitchenStatus = 'Kitchen: Closed'
+    } else if (kitchenInfo.isOpen) {
+      kitchenStatus = `Kitchen: ${kitchenInfo.message}`
+    } else {
+      kitchenStatus = `Kitchen: ${kitchenInfo.message}`
     }
   }
 
+  // Determine overall status for background color
+  const overallStatus = isOpen ? (kitchenInfo?.isOpen ? 'open' : 'partial') : 'closed'
+  const backgroundClass = overallStatus === 'partial' ? 'bg-amber-500' : mergedTheme.background
+
+  // Variant-specific styling
+  const containerClasses = {
+    default: 'inline-flex rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-md min-h-[40px] sm:min-h-[44px] items-center',
+    compact: 'inline-flex rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-md items-center',
+    navigation: 'inline-flex items-center gap-2'
+  }
+  
+  const textClasses = {
+    default: 'flex flex-col sm:flex-row items-center gap-1 sm:gap-3 text-sm sm:text-base font-medium',
+    compact: 'flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium',
+    navigation: 'flex items-center gap-2 text-xs'
+  }
+  
+  const indicatorSize = variant === 'navigation' || variant === 'compact' ? 'sm' : 'md'
+
   return (
     <div className={cn(
-      'inline-flex rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-md min-h-[40px] sm:min-h-[44px] items-center',
-      mergedTheme.background,
-      mergedTheme.border,
+      containerClasses[variant],
+      variant !== 'navigation' && backgroundClass,
+      variant !== 'navigation' && mergedTheme.border,
       className
     )}>
-      <div className={cn('flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-sm sm:text-base font-medium', mergedTheme.text)}>
-        <div className="flex items-center gap-2">
-          <StatusIndicator status={isOpen ? 'open' : 'closed'} />
-          <span>{barMessage}</span>
+      <div className={cn(textClasses[variant], mergedTheme.text)}>
+        {/* Bar Status */}
+        <div className="flex items-center gap-1.5">
+          <StatusIndicator status={isOpen ? 'open' : 'closed'} size={indicatorSize} />
+          <span className="whitespace-nowrap">{barStatus}</span>
         </div>
-        {showKitchen && (
-          <>
-            <span className={cn(mergedTheme.accentText, 'hidden sm:inline')}>•</span>
-            <div className="flex items-center gap-2">
-              <StatusIndicator status={kitchenInfo?.isOpen ? 'open' : 'closed'} />
-              <span>{mergedLabels.kitchenOpen} {kitchenInfo ? kitchenInfo.message : 'closed'}</span>
-            </div>
-          </>
+        
+        {/* Separator */}
+        {showKitchen && kitchenStatus && (
+          <span className={cn(mergedTheme.accentText, variant === 'navigation' ? '' : 'hidden sm:inline')}>•</span>
+        )}
+        
+        {/* Kitchen Status */}
+        {showKitchen && kitchenStatus && (
+          <div className="flex items-center gap-1.5">
+            <StatusIndicator 
+              status={kitchenInfo?.isOpen ? 'open' : kitchenInfo?.status === 'closed' ? 'warning' : 'closed'} 
+              size={indicatorSize}
+            />
+            <span className="whitespace-nowrap">{kitchenStatus}</span>
+          </div>
         )}
       </div>
     </div>

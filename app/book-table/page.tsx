@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { HeroWrapper } from '@/components/hero/HeroWrapper'
+import { OptimizedHeroSection } from '@/components/hero/OptimizedHeroSection'
 import { Container } from '@/components/ui/layout/Container'
 import { Section } from '@/components/ui/layout/Section'
 import { Card, CardBody } from '@/components/ui/layout/Card'
@@ -14,6 +14,9 @@ import { Badge } from '@/components/ui/primitives/Badge'
 import { StickyBookingBar } from '@/components/StickyBookingBar'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { InfoBoxGrid } from '@/components/ui'
+import { StatusBarWrapper } from '@/components/StatusBarWrapper'
+import { Breadcrumbs } from '@/components/hero/Breadcrumbs'
+import { HeroTag } from '@/components/hero/HeroTag'
 
 export const metadata: Metadata = {
   title: 'Book a Table | The Anchor Stanwell Moor',
@@ -43,20 +46,42 @@ export default function BookTablePage({
         incentiveMessage="Ready to book? Select a date below"
       />
       
-      <HeroWrapper
-        route="/book-table"
+      <OptimizedHeroSection
+        size="medium"
         title="Book a Table"
         description="Reserve your spot for great food and drinks"
-        size="small"
-        showStatusBar={true}
-        breadcrumbs={[
-          { name: 'Booking' }
-        ]}
-        tags={[
-          { label: '📅 Easy Online Booking', variant: 'default' },
-          { label: '✅ Instant Confirmation', variant: 'default' },
-          { label: '🍽️ Sunday Roasts', variant: 'default' }
-        ]}
+        image={{
+          src: "/images/page-headers/home/Page Headers - Homepage.jpg",
+          alt: "The Anchor pub entrance with warm lighting and traditional British pub signage",
+          priority: true,
+          optimized: {
+            mobile: "/images/page-headers/home/optimized/hero-mobile",
+            tablet: "/images/page-headers/home/optimized/hero-tablet",
+            desktop: "/images/page-headers/home/optimized/hero-desktop"
+          }
+        }}
+        alignment="center"
+        overlay="gradient"
+        breadcrumbs={
+          <Breadcrumbs
+            items={[
+              { name: 'Home', href: '/' },
+              { name: 'Booking' }
+            ]}
+          />
+        }
+        tags={
+          <div className="flex flex-wrap gap-2 justify-center">
+            <HeroTag label="📅 Easy Online Booking" variant="default" />
+            <HeroTag label="✅ Instant Confirmation" variant="default" />
+            <HeroTag label="🍽️ Sunday Roasts" variant="default" />
+          </div>
+        }
+        cta={
+          <div className="mt-6">
+            <StatusBarWrapper />
+          </div>
+        }
       />
 
       <Section className="py-8 md:py-12">
