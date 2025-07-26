@@ -1,7 +1,6 @@
 'use client'
 
-import { useState, useId } from 'react'
-import Script from 'next/script'
+import { useState } from 'react'
 
 interface FAQItem {
   question: string
@@ -22,14 +21,13 @@ export function FAQAccordionWithSchema({
   renderSchema = true
 }: FAQAccordionWithSchemaProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const schemaId = useId()
 
   const toggleQuestion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
   // Generate FAQ schema
-  const faqSchema = {
+  const faqSchema = renderSchema ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": faqs.map(faq => ({
@@ -40,14 +38,13 @@ export function FAQAccordionWithSchema({
         "text": faq.answer
       }
     }))
-  }
+  } : null
 
   return (
     <>
       {/* Inject FAQ schema - only if renderSchema is true */}
-      {renderSchema && (
-        <Script
-          id={`faq-schema-${schemaId}`}
+      {renderSchema && faqSchema && (
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
@@ -60,14 +57,12 @@ export function FAQAccordionWithSchema({
               {title}
             </h2>
             
-            <div className="space-y-4" itemScope itemType="https://schema.org/FAQPage">
+            {/* Removed microdata markup to prevent duplicate schemas */}
+            <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <div 
                   key={index}
                   className="bg-white rounded-xl shadow-md overflow-hidden"
-                  itemScope
-                  itemProp="mainEntity"
-                  itemType="https://schema.org/Question"
                 >
                   <button
                     onClick={() => toggleQuestion(index)}
@@ -75,7 +70,7 @@ export function FAQAccordionWithSchema({
                     aria-expanded={openIndex === index}
                     aria-controls={`faq-answer-${index}`}
                   >
-                    <h3 className="font-bold text-lg text-anchor-green pr-4" itemProp="name">
+                    <h3 className="font-bold text-lg text-anchor-green pr-4">
                       {faq.question}
                     </h3>
                     <svg 
@@ -105,11 +100,8 @@ export function FAQAccordionWithSchema({
                     style={{
                       maxHeight: openIndex === index ? '500px' : '0',
                     }}
-                    itemScope
-                    itemProp="acceptedAnswer"
-                    itemType="https://schema.org/Answer"
                   >
-                    <p className="text-gray-700" itemProp="text">
+                    <p className="text-gray-700">
                       {faq.answer}
                     </p>
                   </div>

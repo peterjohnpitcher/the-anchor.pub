@@ -3,30 +3,40 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { HeroBadge } from './HeroBadge'
-import managersSpecialData from '@/content/managers-special.json'
 
 interface ManagersSpecialProps {
   variant?: 'full' | 'compact'
   className?: string
 }
 
+interface PromotionData {
+  active: boolean
+  promotion?: any
+  image?: string | null
+}
+
 export function ManagersSpecial({ variant = 'full', className = '' }: ManagersSpecialProps) {
-  const [isActive, setIsActive] = useState(false)
+  const [promotionData, setPromotionData] = useState<PromotionData | null>(null)
+  const [loading, setLoading] = useState(true)
   
   useEffect(() => {
-    // Check if the promotion is still valid
-    if (managersSpecialData.active && managersSpecialData.promotion.validUntil) {
-      const validUntil = new Date(managersSpecialData.promotion.validUntil)
-      const now = new Date()
-      setIsActive(now <= validUntil)
-    } else {
-      setIsActive(managersSpecialData.active)
-    }
+    // Fetch current promotion from API
+    fetch('/api/managers-special')
+      .then(res => res.json())
+      .then(data => {
+        setPromotionData(data)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error('Failed to fetch promotion:', err)
+        setLoading(false)
+      })
   }, [])
 
-  if (!isActive) return null
+  if (loading) return null
+  if (!promotionData?.active || !promotionData.promotion) return null
 
-  const { spirit, promotion } = managersSpecialData
+  const { spirit, promotion } = promotionData.promotion
 
   if (variant === 'compact') {
     return (
@@ -121,7 +131,7 @@ export function ManagersSpecial({ variant = 'full', className = '' }: ManagersSp
                 <div className="mb-8">
                   <h4 className="text-2xl font-bold text-gray-900 mb-4">Tasting Notes</h4>
                   <ul className="space-y-2">
-                    {spirit.tastingNotes.map((note, index) => (
+                    {spirit.tastingNotes.map((note: string, index: number) => (
                       <li key={index} className="flex items-start">
                         <span className="text-amber-500 mr-2">•</span>
                         <span className="text-gray-700">{note}</span>
@@ -134,7 +144,7 @@ export function ManagersSpecial({ variant = 'full', className = '' }: ManagersSp
                 <div className="mb-8">
                   <h4 className="text-2xl font-bold text-gray-900 mb-4">Perfect Serves</h4>
                   <div className="space-y-3">
-                    {spirit.servingsuggestions.map((suggestion, index) => (
+                    {spirit.servingsuggestions.map((suggestion: string, index: number) => (
                       <div key={index} className="bg-white rounded-lg p-3 shadow-sm">
                         <p className="text-gray-700">{suggestion}</p>
                       </div>
@@ -143,19 +153,29 @@ export function ManagersSpecial({ variant = 'full', className = '' }: ManagersSp
                 </div>
 
                 {/* Botanicals */}
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">22 Hand-Foraged Botanicals</h4>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {spirit.botanicals.join(' • ')}
-                    </p>
+                {spirit.botanicals && spirit.botanicals.length > 0 && (
+                  <div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">
+                      {spirit.botanicals.length === 22 ? '22 Hand-Foraged ' : ''}Botanicals
+                    </h4>
+                    <div className="bg-white rounded-lg p-4 shadow-sm">
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {spirit.botanicals.join(' • ')}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* CTA */}
                 <div className="mt-8 text-center">
                   <p className="text-2xl font-bold text-amber-600 mb-2">{promotion.ctaText}</p>
-                  <p className="text-sm text-gray-600">Valid until {promotion.validUntil}</p>
+                  <p className="text-sm text-gray-600">
+                    Valid until {new Date(promotionData.promotion.endDate).toLocaleDateString('en-GB', { 
+                      day: 'numeric', 
+                      month: 'long',
+                      year: 'numeric'
+                    })}
+                  </p>
                 </div>
               </div>
             </div>

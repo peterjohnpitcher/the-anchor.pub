@@ -107,13 +107,8 @@ export function EventSchema({ event }: EventSchemaProps) {
         "name": `${event.name} - Promotional Video`
       }
     }),
-    ...(event.faq && event.faq.length > 0 && {
-      "subEvent": {
-        "@type": "FAQPage",
-        "mainEntity": event.faq
-      }
-    }),
-    ...(event.faqPage && !event.faq && { "about": event.faqPage })
+    // Removed incorrect FAQPage as subEvent - FAQPage should never be a subEvent of Event
+    // FAQ content can be included in the event description or as a separate FAQPage on the event page
   }
 
   return (

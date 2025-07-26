@@ -7,29 +7,23 @@ export async function GET() {
     
     if (!currentPromotion) {
       return NextResponse.json({ 
-        found: false,
-        image: null 
-      })
+        active: false,
+        message: 'No active promotion' 
+      }, { status: 404 })
     }
     
+    // Get the image for this promotion
     const imagePath = getPromotionImage(currentPromotion.imageFolder)
     
-    if (!imagePath) {
-      return NextResponse.json({ 
-        found: false,
-        image: null 
-      })
-    }
-    
     return NextResponse.json({
-      found: true,
+      active: true,
+      promotion: currentPromotion,
       image: imagePath
     })
   } catch (error) {
-    console.error('Error in managers-special-image API:', error)
+    console.error('Error in managers-special API:', error)
     return NextResponse.json({ 
-      found: false,
-      image: null 
+      error: 'Failed to load promotion' 
     }, { status: 500 })
   }
 }

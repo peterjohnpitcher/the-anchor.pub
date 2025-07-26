@@ -1,0 +1,128 @@
+{
+  "promotions": [
+    {
+      "id": "botanist-july-2025",
+      "startDate": "2025-07-01",
+      "endDate": "2025-07-31",
+      "imageFolder": "july-2025",
+      "active": true,
+      "spirit": {
+        "name": "The Botanist",
+        "category": "Islay Dry Gin",
+        "originalPrice": "£3.70",
+        "specialPrice": "£2.78",
+        "originalPriceDouble": "£7.40",
+        "specialPriceDouble": "£5.55",
+        "discount": "25% OFF",
+        "description": "The Botanist is a gin of layered complexity. A progressive exploration of the botanical heritage of our Isle of Islay.",
+        "longDescription": "Hand-foraged on the windswept hills of Islay, The Botanist features 22 local botanicals that are gently distilled in our unique Lomond pot still. This artisanal Islay gin is a rare expression of the heart and soul of our remote Scottish island home.",
+        "tastingNotes": [
+          "Delicate menthol and floral notes",
+          "Apple mint and spring woodlands",
+          "Juniper, citrus and wildflower meadows",
+          "Long, luxurious finish"
+        ],
+        "servingsuggestions": [
+          "Premium tonic water with a twist of lemon peel",
+          "Elderflower tonic with fresh thyme",
+          "Classic dry martini (3:1 ratio)",
+          "Neat over ice to appreciate the complexity"
+        ],
+        "botanicals": [
+          "Angelica Root",
+          "Apple Mint",
+          "Birch Leaves",
+          "Bog Myrtle",
+          "Cassia Bark",
+          "Chamomile",
+          "Cinnamon Bark",
+          "Coriander Seed",
+          "Creeping Thistle",
+          "Elder",
+          "Gorse",
+          "Heather",
+          "Hawthorn",
+          "Juniper",
+          "Lady's Bedstraw",
+          "Lemon Balm",
+          "Liquorice Root",
+          "Meadowsweet",
+          "Mugwort",
+          "Orris Root",
+          "Peppermint",
+          "Red Clover",
+          "Sweet Cicely",
+          "Tansy",
+          "Thyme",
+          "Water Mint",
+          "White Clover",
+          "Wood Sage"
+        ],
+        "abv": "46%",
+        "origin": "Islay, Scotland",
+        "distillery": "Bruichladdich"
+      },
+      "promotion": {
+        "headline": "Manager's Special - July",
+        "subheadline": "Experience Islay's Wild Spirit",
+        "offerText": "Enjoy 25% off all serves of The Botanist throughout July",
+        "ctaText": "Try it today for just £2.78",
+        "metaTitle": "Manager's Special - 25% OFF The Botanist Gin | The Anchor Stanwell Moor",
+        "metaDescription": "Enjoy 25% off The Botanist Islay Dry Gin throughout July at The Anchor pub. Singles £2.78 (was £3.70), Doubles £5.55 (was £7.40). Limited time offer."
+      }
+    },
+    {
+      "id": "warners-august-2025",
+      "startDate": "2025-08-01",
+      "endDate": "2025-08-31",
+      "imageFolder": "august-2025",
+      "active": true,
+      "spirit": {
+        "name": "Warners Elderflower Gin",
+        "category": "Elderflower Gin",
+        "originalPrice": "£3.80",
+        "specialPrice": "£2.85",
+        "originalPriceDouble": "£7.60",
+        "specialPriceDouble": "£5.70",
+        "discount": "25% OFF",
+        "description": "Warners Elderflower gin captures everything we love about British summertime in a glass. Made on a working farm in Northamptonshire, infused with fresh elderflowers handpicked from the hedgerows.",
+        "longDescription": "Warners Elderflower gin is infused with fresh elderflowers handpicked from the hedgerows surrounding Falls Farm. When you sip a Warners Elderflower G&T, you're tasting the countryside at its finest. Every bottle contains ingredients grown on their farm, and that connection to the land shines through in every sip.",
+        "tastingNotes": [
+          "Fresh elderflower blossoms",
+          "Delicate floral sweetness",
+          "Classic juniper backbone",
+          "Citrus zest and summer meadows"
+        ],
+        "servingsuggestions": [
+          "Schweppes Slimline Elderflower tonic with fresh lime",
+          "Premium tonic with cucumber ribbon",
+          "Elderflower Collins with lemon and soda",
+          "Neat over ice to appreciate the floral notes"
+        ],
+        "botanicals": [
+          "Juniper",
+          "Elderflower",
+          "Coriander Seed",
+          "Angelica Root",
+          "Orange Peel",
+          "Lemon Peel",
+          "Cinnamon",
+          "Nutmeg",
+          "Black Pepper",
+          "Cardamom"
+        ],
+        "abv": "40%",
+        "origin": "Northamptonshire, England",
+        "distillery": "Warners Distillery"
+      },
+      "promotion": {
+        "headline": "August's Manager's Special",
+        "subheadline": "Summer's Perfect Finale",
+        "offerText": "Celebrate summer's grand finale with Warners Elderflower gin at just £2.85 a single all August",
+        "ctaText": "Try it today for just £2.85",
+        "metaTitle": "Warners Elderflower Gin Special Offer August 2025 | The Anchor Stanwell Moor",
+        "metaDescription": "Celebrate summer's grand finale with Warners Elderflower gin at just £2.85 a single all August at The Anchor pub in Stanwell Moor. Fresh, floral, and perfect for sunny days. Dog-friendly Surrey pub near Heathrow."
+      }
+    }
+  ]
+}
