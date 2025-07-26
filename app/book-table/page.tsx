@@ -11,6 +11,9 @@ import { PhoneLink } from '@/components/PhoneLink'
 import { Alert } from '@/components/ui/feedback/Alert'
 import { Button } from '@/components/ui/primitives/Button'
 import { Badge } from '@/components/ui/primitives/Badge'
+import { StickyBookingBar } from '@/components/StickyBookingBar'
+import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
+import { InfoBoxGrid } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Book a Table | The Anchor Stanwell Moor',
@@ -32,66 +35,36 @@ export default function BookTablePage({
   
   return (
     <>
+      <ScrollDepthTracker />
+      
+      {/* Sticky Booking Bar - Desktop Only */}
+      <StickyBookingBar 
+        source="book_table_sticky"
+        incentiveMessage="Ready to book? Select a date below"
+      />
+      
       <HeroWrapper
         route="/book-table"
         title="Book a Table"
         description="Reserve your spot for great food and drinks"
         size="small"
+        showStatusBar={true}
+        breadcrumbs={[
+          { name: 'Booking' }
+        ]}
+        tags={[
+          { label: '📅 Easy Online Booking', variant: 'default' },
+          { label: '✅ Instant Confirmation', variant: 'default' },
+          { label: '🍽️ Sunday Roasts', variant: 'default' }
+        ]}
       />
 
-      <Section className="section-spacing">
+      <Section className="py-8 md:py-12">
         <Container>
-          {/* Quick info cards */}
-          <div className="grid gap-6 md:grid-cols-3 mb-12">
-            <Card variant="outlined">
-              <CardBody className="text-center">
-                <Icon name="clock" className="h-8 w-8 mx-auto mb-3 text-primary" />
-                <h3 className="font-semibold mb-2">Opening Hours</h3>
-                <p className="text-sm text-muted-foreground">
-                  Mon-Thu: 4pm-10pm<br />
-                  Friday: 4pm-12am<br />
-                  Saturday: 12pm-12am<br />
-                  Sunday: 12pm-10pm
-                </p>
-              </CardBody>
-            </Card>
-
-            <Card variant="outlined">
-              <CardBody className="text-center">
-                <Icon name="utensils" className="h-8 w-8 mx-auto mb-3 text-primary" />
-                <h3 className="font-semibold mb-2">Kitchen Hours</h3>
-                <p className="text-sm text-muted-foreground">
-                  Monday: CLOSED<br />
-                  Tue-Fri: 6pm-9pm<br />
-                  Saturday: 1pm-7pm<br />
-                  Sunday: 12pm-5pm
-                </p>
-              </CardBody>
-            </Card>
-
-            <Card variant="outlined">
-              <CardBody className="text-center">
-                <Icon name="phone" className="h-8 w-8 mx-auto mb-3 text-primary" />
-                <h3 className="font-semibold mb-2">Need Help?</h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  Call us directly to book
-                </p>
-                <PhoneLink
-                  phone="01753682707"
-                  source="booking_page_help"
-                  showIcon
-                  className="inline-flex items-center text-primary hover:text-primary-dark font-medium"
-                >
-                  01753 682707
-                </PhoneLink>
-              </CardBody>
-            </Card>
-          </div>
-
           {/* Booking tabs */}
           <div className="w-full md:max-w-3xl md:mx-auto">
             <Tabs defaultValue={defaultTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsList className="grid w-full grid-cols-2 mb-6">
                 <TabsTrigger value="regular">
                   <Icon name="calendar" className="mr-2 h-4 w-4" />
                   Regular Booking
@@ -159,7 +132,7 @@ export default function BookTablePage({
           </div>
 
           {/* Additional information */}
-          <div className="mt-16 border-t pt-12">
+          <div className="mt-8 border-t pt-8">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl font-bold mb-6 text-center">Booking Information</h2>
               
@@ -198,13 +171,82 @@ export default function BookTablePage({
                   Planning a special event or need a private space?
                 </p>
                 <Button variant="outline" size="lg" asChild>
-                  <a href="/private-party-venue">
+                  <a href="/private-party-venue" className="whitespace-nowrap">
                     <Icon name="sparkles" className="mr-2" />
-                    Explore Private Hire Options
+                    View Private Hire
                   </a>
                 </Button>
               </div>
             </div>
+          </div>
+          
+          {/* Info Cards - Opening Hours, Kitchen Hours, Need Help */}
+          <div className="mt-8 max-w-5xl mx-auto">
+            <InfoBoxGrid
+              columns={3}
+              boxes={[
+                {
+                  title: "🕐 Opening Hours",
+                  content: (
+                    <>
+                      <p className="font-medium mb-2">Bar Opening Times:</p>
+                      <ul className="space-y-1 text-sm text-gray-700">
+                        <li>Mon-Thu: 3pm-11pm</li>
+                        <li>Friday: 12pm-12am</li>
+                        <li>Saturday: 12pm-12am</li>
+                        <li>Sunday: 12pm-10pm</li>
+                      </ul>
+                      <p className="text-sm text-gray-600 mt-3 italic">Live hours shown in header</p>
+                    </>
+                  ),
+                  variant: "colored",
+                  color: "bg-gray-50"
+                },
+                {
+                  title: "🍴 Kitchen Hours",
+                  content: (
+                    <>
+                      <p className="font-medium mb-2">Food Service:</p>
+                      <ul className="space-y-1 text-sm text-gray-700">
+                        <li>Monday: CLOSED</li>
+                        <li>Tue-Fri: 6pm-9pm</li>
+                        <li>Saturday: 1pm-7pm</li>
+                        <li>Sunday: 12pm-5pm</li>
+                      </ul>
+                      <p className="text-sm text-amber-700 mt-3 font-medium">Sunday roasts require pre-order</p>
+                    </>
+                  ),
+                  variant: "colored",
+                  color: "bg-gray-50"
+                },
+                {
+                  title: "❓ Need Help?",
+                  content: (
+                    <>
+                      <p className="text-sm text-gray-700 mb-3">Can't find what you're looking for? We're here to help!</p>
+                      <div className="space-y-2">
+                        <div>
+                          <PhoneLink
+                            phone="01753682707"
+                            source="booking_help_card"
+                            className="text-primary hover:text-primary-dark font-medium"
+                          >
+                            📞 Call: 01753 682707
+                          </PhoneLink>
+                        </div>
+                        <div>
+                          <a href="mailto:info@theanchorpub.co.uk" className="text-primary hover:text-primary-dark font-medium">
+                            ✉️ Email us
+                          </a>
+                        </div>
+                      </div>
+                    </>
+                  ),
+                  variant: "colored",
+                  color: "bg-gray-50"
+                }
+              ]}
+            />
           </div>
         </Container>
       </Section>
