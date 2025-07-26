@@ -89,7 +89,7 @@ export default function BookTablePage({
           </div>
 
           {/* Booking tabs */}
-          <div className="max-w-3xl mx-auto">
+          <div className="w-full md:max-w-3xl md:mx-auto">
             <Tabs defaultValue={defaultTab} className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-8">
                 <TabsTrigger value="regular">

@@ -407,7 +407,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
   }
   
   return (
-    <form onSubmit={handleSubmit} className={className}>
+    <form onSubmit={handleSubmit} className={`w-full ${className || ''}`}>
       {/* Pre-order reminder */}
       <Alert variant="warning" className="mb-6">
         <Icon name="alert" className="h-4 w-4" />
@@ -434,11 +434,11 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
       </Alert>
       
       {/* Booking details */}
-      <Card variant="outlined" className="mb-6">
-        <CardBody>
-          <h3 className="font-semibold mb-4">Booking Details</h3>
+      <Card variant="outlined" className="mb-6 border-0 rounded-none md:border md:rounded-lg">
+        <CardBody className="p-0 md:p-6">
+          <h3 className="font-semibold mb-4 px-4 pt-4 md:px-0 md:pt-0">Booking Details</h3>
           
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-3 px-4 pb-4 md:px-0 md:pb-0">
             <div>
               <label htmlFor="date" className="block text-sm font-medium mb-2">
                 Date
@@ -510,10 +510,10 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
       </Card>
       
       {/* Menu selections */}
-      <Card variant="outlined" className="mb-6">
-        <CardBody>
-          <h3 className="font-semibold mb-4">Menu Selections</h3>
-          <p className="text-sm text-muted-foreground mb-4">
+      <Card variant="outlined" className="mb-6 border-0 rounded-none md:border md:rounded-lg">
+        <CardBody className="p-0 md:p-6">
+          <h3 className="font-semibold mb-4 px-4 pt-4 md:px-0 md:pt-0">Menu Selections</h3>
+          <p className="text-sm text-muted-foreground mb-4 px-4 md:px-0">
             Please select a main course for each guest. All mains include{' '}
             {menu && menu.sides
               .filter(side => side.included)
@@ -522,7 +522,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
           </p>
           
           {menuSelections.map((selection, index) => (
-            <div key={index} className="mb-6 pb-6 border-b last:border-0">
+            <div key={index} className="mb-6 pb-6 border-b last:border-0 px-4 md:px-0">
               <div className="space-y-4">
                 <div>
                   <label htmlFor={`guest_name_${index}`} className="block text-sm font-medium mb-2">
@@ -583,7 +583,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
           
           {/* Optional Sides Section */}
           {menu && menu.sides && menu.sides.filter(s => !s.included).length > 0 && (
-            <div className="mt-6 pt-6 border-t">
+            <div className="mt-6 pt-6 border-t px-4 md:px-0">
               <h4 className="font-semibold mb-4">Optional Sides</h4>
               <p className="text-sm text-muted-foreground mb-4">
                 Add extra sides for the whole table to share.
@@ -628,7 +628,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
             </div>
           )}
           
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+          <div className="mt-6 mx-4 p-4 bg-gray-50 rounded-lg md:mx-0">
             <div className="flex justify-between items-center mb-2">
               <span className="font-medium">Main Courses:</span>
               <span>£{mainCoursesTotal.toFixed(2)}</span>
@@ -656,11 +656,11 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
       </Card>
       
       {/* Customer details */}
-      <Card variant="outlined" className="mb-6">
-        <CardBody>
-          <h3 className="font-semibold mb-4">Your Details</h3>
+      <Card variant="outlined" className="mb-6 border-0 rounded-none md:border md:rounded-lg">
+        <CardBody className="p-0 md:p-6">
+          <h3 className="font-semibold mb-4 px-4 pt-4 md:px-0 md:pt-0">Your Details</h3>
           
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 px-4 md:px-0">
             <div>
               <label htmlFor="first_name" className="block text-sm font-medium mb-2">
                 First Name *
@@ -705,7 +705,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
             </div>
           </div>
           
-          <div className="mt-4">
+          <div className="mt-4 px-4 md:px-0">
             <label htmlFor="special_requirements" className="block text-sm font-medium mb-2">
               Special Requirements (optional)
             </label>
@@ -719,7 +719,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
             />
           </div>
           
-          <div className="mt-4 flex items-center">
+          <div className="mt-4 px-4 pb-4 md:px-0 md:pb-0 flex items-center">
             <input
               type="checkbox"
               id="sms_opt_in"
