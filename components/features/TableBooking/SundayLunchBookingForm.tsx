@@ -593,33 +593,35 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 {menu.sides.filter(side => !side.included).map((side, index) => {
                   const sideSelection = sideSelections.find(s => s.menu_item_id === side.id)
                   return (
-                    <div key={side.id} className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <span className="font-medium">{side.name}</span>
-                        <span className="text-sm text-muted-foreground ml-2">£{side.price.toFixed(2)} each</span>
-                        {side.description && (
-                          <p className="text-sm text-muted-foreground">{side.description}</p>
-                        )}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <label htmlFor={`side_${side.id}`} className="text-sm">Quantity:</label>
-                        <select
-                          id={`side_${side.id}`}
-                          value={sideSelection?.quantity || 0}
-                          onChange={(e) => {
-                            const newSideSelections = [...sideSelections]
-                            const idx = newSideSelections.findIndex(s => s.menu_item_id === side.id)
-                            if (idx >= 0) {
-                              newSideSelections[idx].quantity = parseInt(e.target.value)
-                              setSideSelections(newSideSelections)
-                            }
-                          }}
-                          className="border rounded-md px-3 py-2 text-base"
-                        >
-                          {[0, 1, 2, 3, 4, 5].map(qty => (
-                            <option key={qty} value={qty}>{qty}</option>
-                          ))}
-                        </select>
+                    <div key={side.id} className="space-y-2">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1">
+                          <div className="font-medium">{side.name}</div>
+                          <div className="text-sm text-muted-foreground">£{side.price.toFixed(2)} each</div>
+                          {side.description && (
+                            <p className="text-sm text-muted-foreground mt-1">{side.description}</p>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                          <label htmlFor={`side_${side.id}`} className="text-sm">Quantity:</label>
+                          <select
+                            id={`side_${side.id}`}
+                            value={sideSelection?.quantity || 0}
+                            onChange={(e) => {
+                              const newSideSelections = [...sideSelections]
+                              const idx = newSideSelections.findIndex(s => s.menu_item_id === side.id)
+                              if (idx >= 0) {
+                                newSideSelections[idx].quantity = parseInt(e.target.value)
+                                setSideSelections(newSideSelections)
+                              }
+                            }}
+                            className="border rounded-md px-3 py-2 text-base"
+                          >
+                            {[0, 1, 2, 3, 4, 5].map(qty => (
+                              <option key={qty} value={qty}>{qty}</option>
+                            ))}
+                          </select>
+                        </div>
                       </div>
                     </div>
                   )
