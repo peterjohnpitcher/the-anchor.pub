@@ -440,7 +440,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
           
           <div className="grid gap-4 md:grid-cols-3">
             <div>
-              <label htmlFor="date" className="block text-sm font-medium mb-1">
+              <label htmlFor="date" className="block text-sm font-medium mb-2">
                 Date
               </label>
               <select
@@ -448,7 +448,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border rounded-md px-4 py-3 text-base"
               >
                 <option value="">Select Sunday</option>
                 {getAvailableSundays().map(sunday => (
@@ -464,7 +464,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
             </div>
             
             <div>
-              <label htmlFor="time" className="block text-sm font-medium mb-1">
+              <label htmlFor="time" className="block text-sm font-medium mb-2">
                 Time
               </label>
               <select
@@ -472,7 +472,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border rounded-md px-4 py-3 text-base"
               >
                 <option value="12:00">12:00 PM</option>
                 <option value="12:30">12:30 PM</option>
@@ -488,7 +488,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
             </div>
             
             <div>
-              <label htmlFor="party_size" className="block text-sm font-medium mb-1">
+              <label htmlFor="party_size" className="block text-sm font-medium mb-2">
                 Party Size
               </label>
               <select
@@ -496,7 +496,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 value={partySize}
                 onChange={(e) => setPartySize(parseInt(e.target.value))}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border rounded-md px-4 py-3 text-base"
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map(size => (
                   <option key={size} value={size}>
@@ -523,9 +523,9 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
           
           {menuSelections.map((selection, index) => (
             <div key={index} className="mb-6 pb-6 border-b last:border-0">
-              <div className="grid gap-4 md:grid-cols-2">
+              <div className="space-y-4">
                 <div>
-                  <label htmlFor={`guest_name_${index}`} className="block text-sm font-medium mb-1">
+                  <label htmlFor={`guest_name_${index}`} className="block text-sm font-medium mb-2">
                     Guest Name
                   </label>
                   <input
@@ -534,13 +534,13 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                     value={selection.guest_name}
                     onChange={(e) => updateMenuSelection(index, 'guest_name', e.target.value)}
                     required
-                    className="w-full border rounded-md px-3 py-2"
+                    className="w-full border rounded-md px-4 py-3 text-base"
                     placeholder={`Guest ${index + 1}`}
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor={`menu_item_${index}`} className="block text-sm font-medium mb-1">
+                  <label htmlFor={`menu_item_${index}`} className="block text-sm font-medium mb-2">
                     Main Course Selection
                   </label>
                   <select
@@ -548,7 +548,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                     value={selection.menu_item_id}
                     onChange={(e) => updateMenuSelection(index, 'menu_item_id', e.target.value)}
                     required
-                    className="w-full border rounded-md px-3 py-2"
+                    className="w-full border rounded-md px-4 py-3 text-base"
                   >
                     <option value="">Select a main course</option>
                     
@@ -614,7 +614,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                               setSideSelections(newSideSelections)
                             }
                           }}
-                          className="border rounded-md px-2 py-1"
+                          className="border rounded-md px-3 py-2 text-base"
                         >
                           {[0, 1, 2, 3, 4, 5].map(qty => (
                             <option key={qty} value={qty}>{qty}</option>
@@ -662,7 +662,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
           
           <div className="grid gap-4 md:grid-cols-2">
             <div>
-              <label htmlFor="first_name" className="block text-sm font-medium mb-1">
+              <label htmlFor="first_name" className="block text-sm font-medium mb-2">
                 First Name *
               </label>
               <input
@@ -671,12 +671,12 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border rounded-md px-4 py-3 text-base"
               />
             </div>
             
             <div>
-              <label htmlFor="last_name" className="block text-sm font-medium mb-1">
+              <label htmlFor="last_name" className="block text-sm font-medium mb-2">
                 Last Name *
               </label>
               <input
@@ -685,12 +685,12 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border rounded-md px-4 py-3 text-base"
               />
             </div>
             
-            <div>
-              <label htmlFor="mobile" className="block text-sm font-medium mb-1">
+            <div className="md:col-span-2">
+              <label htmlFor="mobile" className="block text-sm font-medium mb-2">
                 Mobile Number *
               </label>
               <input
@@ -700,13 +700,13 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 onChange={(e) => setMobile(e.target.value)}
                 required
                 placeholder="07700900000"
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border rounded-md px-4 py-3 text-base"
               />
             </div>
           </div>
           
           <div className="mt-4">
-            <label htmlFor="special_requirements" className="block text-sm font-medium mb-1">
+            <label htmlFor="special_requirements" className="block text-sm font-medium mb-2">
               Special Requirements (optional)
             </label>
             <textarea
@@ -714,7 +714,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
               value={specialRequirements}
               onChange={(e) => setSpecialRequirements(e.target.value)}
               rows={3}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-md px-4 py-3 text-base"
               placeholder="Any special requests, dietary requirements, or allergies..."
             />
           </div>
