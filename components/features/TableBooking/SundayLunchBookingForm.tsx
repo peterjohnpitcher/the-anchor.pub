@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { 
   trackTableBookingView, 
@@ -67,6 +67,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
   const [success, setSuccess] = useState(false)
   const [businessHours, setBusinessHours] = useState<BusinessHours | null>(null)
   const [hoursLoading, setHoursLoading] = useState(true)
+  const isMountedRef = useRef(true)
   
   // Form state
   const [date, setDate] = useState('')
@@ -92,23 +93,36 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         deviceType: window.innerWidth >= 768 ? 'desktop' : 'mobile'
       })
     }
+    
+    // Cleanup function to mark component as unmounted
+    return () => {
+      isMountedRef.current = false
+    }
   }, [])
   
   // Fetch business hours
   useEffect(() => {
     const fetchBusinessHours = async () => {
       try {
-        setHoursLoading(true)
+        if (isMountedRef.current) {
+          setHoursLoading(true)
+        }
         const response = await fetch('/api/business/hours')
         const data = await response.json()
         
         if (data && !data.error) {
-          setBusinessHours(data)
+          // Extract data from wrapper if present
+          const businessHoursData = data.success && data.data ? data.data : data
+          if (isMountedRef.current) {
+            setBusinessHours(businessHoursData)
+          }
         }
       } catch (err) {
         console.error('Failed to fetch business hours:', err)
       } finally {
-        setHoursLoading(false)
+        if (isMountedRef.current) {
+          setHoursLoading(false)
+        }
       }
     }
     
@@ -119,7 +133,9 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        setMenuLoading(true)
+        if (isMountedRef.current) {
+          setMenuLoading(true)
+        }
         const response = await fetch('/api/table-bookings/menu/sunday-lunch')
         const data = await response.json()
         
@@ -136,14 +152,22 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
             cutoff_time: menuData.cutoff_time
           }
           
-          setMenu(processedMenu)
+          if (isMountedRef.current) {
+            setMenu(processedMenu)
+          }
         } else {
-          setMenuError('Could not load Sunday lunch menu')
+          if (isMountedRef.current) {
+            setMenuError('Could not load Sunday lunch menu')
+          }
         }
       } catch (err) {
-        setMenuError('Failed to load menu. Please try again.')
+        if (isMountedRef.current) {
+          setMenuError('Failed to load menu. Please try again.')
+        }
       } finally {
-        setMenuLoading(false)
+        if (isMountedRef.current) {
+          setMenuLoading(false)
+        }
       }
     }
     
@@ -208,12 +232,16 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setError(null)
+    if (isMountedRef.current) {
+      setError(null)
+    }
     
     // Validate menu selections
     const invalidSelections = menuSelections.filter(s => !s.menu_item_id || !s.guest_name)
     if (invalidSelections.length > 0) {
-      setError('Please select a menu item for each guest')
+      if (isMountedRef.current) {
+        setError('Please select a menu item for each guest')
+      }
       return
     }
     
@@ -225,7 +253,9 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
       })
     }
     
-    setLoading(true)
+    if (isMountedRef.current) {
+      setLoading(true)
+    }
     
     try {
       // Track details entered
@@ -314,7 +344,9 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         window.location.href = data.payment_details.payment_url
       } else {
         // Booking confirmed without payment (shouldn't happen for Sunday lunch)
-        setSuccess(true)
+        if (isMountedRef.current) {
+          setSuccess(true)
+        }
         if (typeof window !== 'undefined') {
           trackTableBookingSuccess({
             partySize,
@@ -328,7 +360,9 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
       }
     } catch (err: any) {
       const errorMessage = err.message || 'Failed to create booking. Please try again.'
-      setError(errorMessage)
+      if (isMountedRef.current) {
+        setError(errorMessage)
+      }
       
       // Track error
       if (typeof window !== 'undefined') {
@@ -343,7 +377,9 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         })
       }
     } finally {
-      setLoading(false)
+      if (isMountedRef.current) {
+        setLoading(false)
+      }
     }
   }
   
@@ -384,7 +420,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
       const dateStr = date.toISOString().split('T')[0]
       
       // Check if kitchen is open on this Sunday
-      if (businessHours) {
+      if (businessHours && businessHours.regularHours) {
         const sundayHours = businessHours.regularHours.sunday
         
         // Skip if the day is closed

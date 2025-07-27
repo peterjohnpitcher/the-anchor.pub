@@ -98,43 +98,61 @@ export function OptimizedHeroSection({
     >
       {/* Background Image */}
       <div className="absolute inset-0">
-        {hasOptimized ? (
-          <picture>
-            {/* AVIF format (best compression) */}
-            <source
-              media="(max-width: 640px)"
-              srcSet={`${image.optimized!.mobile}.avif`}
-              type="image/avif"
-            />
-            <source
-              media="(max-width: 1024px)"
-              srcSet={`${image.optimized!.tablet}.avif`}
-              type="image/avif"
-            />
-            <source
-              srcSet={`${image.optimized!.desktop}.avif`}
-              type="image/avif"
-            />
-            
-            {/* WebP format (good compression, wider support) */}
-            <source
-              media="(max-width: 640px)"
-              srcSet={`${image.optimized!.mobile}.webp`}
-              type="image/webp"
-            />
-            <source
-              media="(max-width: 1024px)"
-              srcSet={`${image.optimized!.tablet}.webp`}
-              type="image/webp"
-            />
-            <source
-              srcSet={`${image.optimized!.desktop}.webp`}
-              type="image/webp"
-            />
-            
-            {/* JPEG fallback */}
+        <div className="relative w-full h-full">
+          {hasOptimized ? (
+            <picture>
+              {/* AVIF format (best compression) */}
+              <source
+                media="(max-width: 640px)"
+                srcSet={`${image.optimized!.mobile}.avif`}
+                type="image/avif"
+              />
+              <source
+                media="(max-width: 1024px)"
+                srcSet={`${image.optimized!.tablet}.avif`}
+                type="image/avif"
+              />
+              <source
+                srcSet={`${image.optimized!.desktop}.avif`}
+                type="image/avif"
+              />
+              
+              {/* WebP format (good compression, wider support) */}
+              <source
+                media="(max-width: 640px)"
+                srcSet={`${image.optimized!.mobile}.webp`}
+                type="image/webp"
+              />
+              <source
+                media="(max-width: 1024px)"
+                srcSet={`${image.optimized!.tablet}.webp`}
+                type="image/webp"
+              />
+              <source
+                srcSet={`${image.optimized!.desktop}.webp`}
+                type="image/webp"
+              />
+              
+              {/* JPEG fallback */}
+              <Image
+                src={`${image.optimized!.desktop}.jpg`}
+                alt={image.alt}
+                fill
+                className="object-cover"
+                priority={image.priority !== false}
+                sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
+                quality={82}
+                placeholder={image.blurDataURL ? "blur" : "empty"}
+                blurDataURL={image.blurDataURL}
+                style={{
+                  objectPosition: image.objectPosition || '50% 50%'
+                }}
+              />
+            </picture>
+          ) : (
+            // Fallback to regular image
             <Image
-              src={`${image.optimized!.desktop}.jpg`}
+              src={image.src}
               alt={image.alt}
               fill
               className="object-cover"
@@ -142,29 +160,13 @@ export function OptimizedHeroSection({
               sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
               quality={82}
               placeholder={image.blurDataURL ? "blur" : "empty"}
-              blurDataURL={image.blurDataURL}
+              blurDataURL={image.blurDataURL || "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="}
               style={{
                 objectPosition: image.objectPosition || '50% 50%'
               }}
             />
-          </picture>
-        ) : (
-          // Fallback to regular image
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className="object-cover"
-            priority={image.priority !== false}
-            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
-            quality={82}
-            placeholder={image.blurDataURL ? "blur" : "empty"}
-            blurDataURL={image.blurDataURL || "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="}
-            style={{
-              objectPosition: image.objectPosition || '50% 50%'
-            }}
-          />
-        )}
+          )}
+        </div>
       </div>
       
       {/* Overlay */}
