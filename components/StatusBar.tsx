@@ -90,20 +90,20 @@ export function StatusBar({
   const todayHours = hours.regularHours[today]
   
   // Build bar status message
-  let barStatus = ''
+  let barStatus = 'Bar: '
   if (isOpen) {
     if (todayHours && todayHours.closes) {
       const closingTime = formatTime12Hour(todayHours.closes)
-      barStatus = `Bar • ${mergedLabels.closes} ${closingTime}`
+      barStatus += `Open until ${closingTime}`
     } else {
-      barStatus = 'Bar open'
+      barStatus += 'Open'
     }
   } else {
     if (todayHours && todayHours.opens) {
       const openingTime = formatTime12Hour(todayHours.opens)
-      barStatus = `Bar • ${mergedLabels.opens} ${openingTime}`
+      barStatus += `Opens at ${openingTime}`
     } else {
-      barStatus = 'Bar closed'
+      barStatus += 'Closed'
     }
   }
   
@@ -112,26 +112,21 @@ export function StatusBar({
   let kitchenIndicatorStatus: 'open' | 'warning' | 'closed' = 'closed'
   
   if (showKitchen && kitchen) {
+    kitchenStatus = 'Kitchen: '
     if (kitchen.status === 'no-service') {
-      kitchenStatus = 'Kitchen • No service'
+      kitchenStatus += 'Closed today'
       kitchenIndicatorStatus = 'closed'
     } else if (kitchen.status === 'open') {
-      // Show kitchen closing time
       if (kitchen.closesAt) {
         const closingTime = formatTime12Hour(kitchen.closesAt)
-        kitchenStatus = `Kitchen • ${mergedLabels.closes} ${closingTime}`
+        kitchenStatus += `Open until ${closingTime}`
       } else {
-        kitchenStatus = 'Kitchen open'
+        kitchenStatus += 'Open'
       }
       kitchenIndicatorStatus = 'open'
     } else {
       // Kitchen is closed
-      if (kitchen.opensAt) {
-        const openingTime = formatTime12Hour(kitchen.opensAt)
-        kitchenStatus = `Kitchen • ${mergedLabels.opens} ${openingTime}`
-      } else {
-        kitchenStatus = 'Kitchen closed'
-      }
+      kitchenStatus += 'Closed today'
       kitchenIndicatorStatus = isOpen ? 'warning' : 'closed'
     }
   }
@@ -163,26 +158,44 @@ export function StatusBar({
       className
     )}>
       <div className={cn(textClasses[variant], mergedTheme.text)}>
-        {/* Bar Status */}
-        <div className="flex items-center gap-1.5">
-          <StatusIndicator status={isOpen ? 'open' : 'closed'} size={indicatorSize} />
-          <span className="whitespace-nowrap">{barStatus}</span>
-        </div>
-        
-        {/* Separator - only for non-navigation variants on larger screens */}
-        {showKitchen && kitchenStatus && variant !== 'navigation' && (
-          <span className={cn(mergedTheme.accentText, 'hidden sm:inline')}>•</span>
-        )}
-        
-        {/* Kitchen Status */}
-        {showKitchen && kitchenStatus && (
-          <div className="flex items-center gap-1.5">
-            <StatusIndicator 
-              status={kitchenIndicatorStatus} 
-              size={indicatorSize}
-            />
-            <span className="whitespace-nowrap">{kitchenStatus}</span>
-          </div>
+        {variant === 'navigation' ? (
+          // Navigation variant: show on two lines
+          <>
+            <div className="flex items-center gap-1.5">
+              <StatusIndicator status={isOpen ? 'open' : 'closed'} size={indicatorSize} />
+              <span className="whitespace-nowrap">{barStatus}</span>
+            </div>
+            {showKitchen && kitchenStatus && (
+              <div className="flex items-center gap-1.5">
+                <StatusIndicator 
+                  status={kitchenIndicatorStatus} 
+                  size={indicatorSize}
+                />
+                <span className="whitespace-nowrap">{kitchenStatus}</span>
+              </div>
+            )}
+          </>
+        ) : (
+          // Default/compact variants: show on one line with separator
+          <>
+            <div className="flex items-center gap-1.5">
+              <StatusIndicator status={isOpen ? 'open' : 'closed'} size={indicatorSize} />
+              <span className="whitespace-nowrap">{barStatus}</span>
+            </div>
+            
+            {showKitchen && kitchenStatus && (
+              <>
+                <span className={cn(mergedTheme.accentText, 'hidden sm:inline')}>•</span>
+                <div className="flex items-center gap-1.5">
+                  <StatusIndicator 
+                    status={kitchenIndicatorStatus} 
+                    size={indicatorSize}
+                  />
+                  <span className="whitespace-nowrap">{kitchenStatus}</span>
+                </div>
+              </>
+            )}
+          </>
         )}
       </div>
     </div>
