@@ -44,7 +44,8 @@ export default function AvailabilityChecker({
         date,
         time,
         party_size: partySize,
-        duration: 120 // Default 2 hours
+        duration: 120, // Default 2 hours
+        booking_type: 'food' // Check kitchen availability
       })
       
       // Validate response format
@@ -193,8 +194,8 @@ export default function AvailabilityChecker({
                 <Alert variant="error" className="mt-4">
                   <strong>No tables available</strong>
                   <p className="mt-1">
-                    Unfortunately, we don't have any tables available for your party size on this date.
-                    Please try a different date or call us at 01753 682707.
+                    {availability.message || 
+                     'Unfortunately, we don\'t have any tables available for your party size on this date. Please try a different date or call us at 01753 682707.'}
                   </p>
                 </Alert>
               )}

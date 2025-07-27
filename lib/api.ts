@@ -715,12 +715,14 @@ export class AnchorAPI {
     time: string
     party_size: number
     duration?: number
+    booking_type?: 'regular' | 'sunday_lunch' | 'food'
   }): Promise<TableAvailabilityResponse> {
     const query = new URLSearchParams({
       date: params.date,
       time: params.time,
       party_size: params.party_size.toString(),
-      ...(params.duration && { duration: params.duration.toString() })
+      ...(params.duration && { duration: params.duration.toString() }),
+      ...(params.booking_type && { booking_type: params.booking_type })
     })
     
     return this.request<TableAvailabilityResponse>(`/table-bookings/availability?${query}`)

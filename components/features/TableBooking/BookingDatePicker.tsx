@@ -135,7 +135,7 @@ export default function BookingDatePicker({
       setKitchenMessage(null)
       
       try {
-        const response = await fetch(`/api/table-bookings/availability?date=${selectedDate}&party_size=${partySize}`)
+        const response = await fetch(`/api/table-bookings/availability?date=${selectedDate}&party_size=${partySize}&booking_type=food`)
         const data = await response.json()
         
         if (!response.ok) {

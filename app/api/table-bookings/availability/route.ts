@@ -15,6 +15,7 @@ export async function GET(request: Request) {
   const partySize = searchParams.get('party_size')
   const time = searchParams.get('time') // Optional for specific time check
   const duration = searchParams.get('duration')
+  const bookingType = searchParams.get('booking_type') // 'regular' or 'sunday_lunch'
 
   // Validate required parameters
   if (!date || !partySize) {
@@ -25,6 +26,70 @@ export async function GET(request: Request) {
   }
 
   try {
+    // First, check kitchen status if this is a food-related booking
+    if (bookingType === 'sunday_lunch' || bookingType === 'food') {
+      // Fetch business hours to check kitchen status
+      const businessHoursResponse = await fetch(
+        `${API_BASE_URL}/business/hours`,
+        {
+          headers: {
+            'X-API-Key': API_KEY
+          }
+        }
+      )
+      
+      if (businessHoursResponse.ok) {
+        const hoursData = await businessHoursResponse.json()
+        const businessHours = hoursData.data || hoursData
+        
+        // Get day of week from the requested date
+        const requestedDate = new Date(date)
+        const dayOfWeek = requestedDate.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
+        const dayHours = businessHours.regularHours[dayOfWeek]
+        
+        // Check if kitchen is closed on this day
+        if (!dayHours || dayHours.is_closed || !dayHours.kitchen || dayHours.kitchen === null) {
+          return NextResponse.json({
+            success: true,
+            data: {
+              available: false,
+              message: 'Kitchen is closed on this day. No food service available.',
+              time_slots: []
+            }
+          })
+        }
+        
+        // Check if kitchen has is_closed flag
+        if ('is_closed' in dayHours.kitchen && dayHours.kitchen.is_closed === true) {
+          return NextResponse.json({
+            success: true,
+            data: {
+              available: false,
+              message: 'Kitchen is closed on this day. Bar service only.',
+              time_slots: []
+            }
+          })
+        }
+        
+        // Check for special closures
+        if (businessHours.specialHours) {
+          const specialDay = businessHours.specialHours.find((sh: any) => 
+            sh.date === date && (sh.is_closed || sh.kitchen === null || ('is_closed' in sh.kitchen && sh.kitchen.is_closed))
+          )
+          if (specialDay) {
+            return NextResponse.json({
+              success: true,
+              data: {
+                available: false,
+                message: specialDay.note || 'Kitchen is closed on this date due to special circumstances.',
+                time_slots: []
+              }
+            })
+          }
+        }
+      }
+    }
+    
     // Build query parameters
     const query = new URLSearchParams({
       date,
