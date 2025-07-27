@@ -51,7 +51,7 @@ export function StatusBar({
   variant = 'default', 
   showKitchen = true,
   className = '',
-  apiEndpoint = '/api/business-hours',
+  apiEndpoint = '/api/business/hours',
   refreshInterval = 5 * 60 * 1000, // 5 minutes
   theme = defaultTheme,
   labels = defaultLabels

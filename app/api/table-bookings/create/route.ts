@@ -45,6 +45,61 @@ export async function POST(request: Request) {
     const body: BookingRequest = await request.json()
     console.log('Table booking request body:', JSON.stringify(body, null, 2))
     
+    // Check kitchen status for food-related bookings
+    if (body.booking_type === 'sunday_lunch' || body.booking_type === 'regular') {
+      try {
+        const businessHoursResponse = await fetch(
+          `${API_BASE_URL}/business/hours`,
+          {
+            headers: {
+              'X-API-Key': API_KEY
+            }
+          }
+        )
+        
+        if (businessHoursResponse.ok) {
+          const hoursData = await businessHoursResponse.json()
+          const businessHours = hoursData.data || hoursData
+          
+          // Get day of week from the requested date
+          const requestedDate = new Date(body.date)
+          const dayOfWeek = requestedDate.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
+          const dayHours = businessHours.regularHours[dayOfWeek]
+          
+          // Check if kitchen is closed on this day
+          const isKitchenClosed = !dayHours || dayHours.is_closed || !dayHours.kitchen || 
+                                  dayHours.kitchen === null || 
+                                  ('is_closed' in dayHours.kitchen && dayHours.kitchen.is_closed === true)
+          
+          if (isKitchenClosed) {
+            return createApiErrorResponse(
+              dayOfWeek === 'monday' 
+                ? 'Kitchen is closed on Mondays. Bar service only - please call 01753 682707 for drinks-only reservations.'
+                : `Kitchen is closed on ${dayOfWeek}s. No food service available.`,
+              400
+            )
+          }
+          
+          // Check for special closures
+          if (businessHours.specialHours) {
+            const specialDay = businessHours.specialHours.find((sh: any) => 
+              sh.date === body.date && (sh.is_closed || sh.kitchen === null || 
+              ('is_closed' in sh.kitchen && sh.kitchen.is_closed))
+            )
+            if (specialDay) {
+              return createApiErrorResponse(
+                specialDay.note || 'Kitchen is closed on this date due to special circumstances.',
+                400
+              )
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Failed to check kitchen status:', err)
+        // Continue with booking if we can't verify kitchen status
+      }
+    }
+    
     // Validate required fields
     const missingFields: string[] = []
     

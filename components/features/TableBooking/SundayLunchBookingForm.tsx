@@ -99,7 +99,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
     const fetchBusinessHours = async () => {
       try {
         setHoursLoading(true)
-        const response = await fetch('/api/business-hours')
+        const response = await fetch('/api/business/hours')
         const data = await response.json()
         
         if (data && !data.error) {

@@ -23,7 +23,7 @@ interface UseBusinessHoursReturn {
 export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusinessHoursReturn {
   const {
     refreshInterval = 5 * 60 * 1000, // 5 minutes default
-    apiEndpoint = '/api/business-hours'
+    apiEndpoint = '/api/business/hours'
   } = options
 
   const [hours, setHours] = useState<BusinessHours | null>(null)

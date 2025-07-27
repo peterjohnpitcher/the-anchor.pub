@@ -8,7 +8,7 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/api/business-hours')
+    fetch('/api/business/hours')
       .then(res => res.json())
       .then(result => {
         console.log('StatusBarSimple received:', result)
