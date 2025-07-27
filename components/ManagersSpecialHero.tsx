@@ -37,10 +37,18 @@ export function ManagersSpecialHero() {
 
   if (loading || !currentPromotion) return null
 
-  const { spirit, promotion } = currentPromotion
+  // The API returns { active: true, promotion: {...}, image: "..." }
+  // currentPromotion.promotion contains the full promotion data from JSON
+  if (!currentPromotion.promotion) {
+    return null
+  }
+  
+  const { spirit, promotion } = currentPromotion.promotion
   
   // Ensure spirit and promotion exist
-  if (!spirit || !promotion) return null
+  if (!spirit || !promotion) {
+    return null
+  }
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-anchor-green to-emerald-800">

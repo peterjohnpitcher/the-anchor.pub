@@ -10,11 +10,6 @@
     "permanent": true
   },
   {
-    "source": "/drinks/:slug",
-    "destination": "/drinks",
-    "permanent": true
-  },
-  {
     "source": "/company-christmas-party-venue",
     "destination": "/christmas-parties",
     "permanent": true
