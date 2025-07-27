@@ -217,7 +217,7 @@ export default function RootLayout({
         <link 
           rel="preload" 
           as="image" 
-          href="/images/branding/the-anchor-logo-white-transparent.png"
+          href="/images/branding/the-anchor-pub-logo-white-transparent.png"
           type="image/png"
         />
         <DynamicSchema />

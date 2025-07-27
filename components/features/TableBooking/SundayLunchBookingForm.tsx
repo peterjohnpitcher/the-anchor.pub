@@ -415,6 +415,54 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
     return sundays
   }
   
+  // Get kitchen closure information for display
+  const getKitchenClosureInfo = () => {
+    if (!businessHours) return []
+    
+    const closures: Array<{ date: string; reason: string }> = []
+    const today = new Date()
+    const currentDay = today.getDay()
+    
+    // Check next 8 Sundays for closures
+    for (let i = 0; i < 8; i++) {
+      const date = new Date(today)
+      const daysToAdd = ((7 - currentDay) % 7 || 7) + (i * 7)
+      date.setDate(today.getDate() + daysToAdd)
+      const dateStr = date.toISOString().split('T')[0]
+      
+      // Check for special closures with notes
+      if (businessHours.specialHours) {
+        const specialHour = businessHours.specialHours.find(sh => 
+          sh.date.startsWith(dateStr) && sh.is_closed
+        )
+        if (specialHour && (specialHour.note || specialHour.reason)) {
+          closures.push({
+            date: dateStr,
+            reason: specialHour.note || specialHour.reason || 'Kitchen Closed'
+          })
+          continue
+        }
+      }
+      
+      // Check regular Sunday hours for kitchen closure
+      const sundayHours = businessHours.regularHours.sunday
+      const kitchenStatus = sundayHours.kitchen ? getKitchenStatus(sundayHours.kitchen) : 'no-service'
+      if (kitchenStatus === 'no-service' || kitchenStatus === 'closed') {
+        // Only add if it's within our booking window
+        const cutoffDate = new Date(today)
+        cutoffDate.setDate(today.getDate() + 56) // 8 weeks
+        if (date <= cutoffDate) {
+          closures.push({
+            date: dateStr,
+            reason: 'Kitchen Closed'
+          })
+        }
+      }
+    }
+    
+    return closures
+  }
+  
   // Get available times for a specific date
   const getAvailableTimesForDate = (selectedDate: string) => {
     if (!businessHours || !selectedDate) {
@@ -571,6 +619,53 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
           </div>
         </Alert>
       )}
+      
+      {/* Display kitchen closure notes */}
+      {businessHours && (() => {
+        const closures = getKitchenClosureInfo()
+        const availableSundays = getAvailableSundays()
+        
+        // Only show if we have closures and some Sundays are available
+        if (closures.length > 0 && availableSundays.length > 0) {
+          return (
+            <Alert variant="info" className="mb-4">
+              <Icon name="info" className="h-4 w-4" />
+              <div>
+                <p className="font-medium">Kitchen Closure Information</p>
+                <p className="text-sm mt-1">
+                  Please note the following Sundays have limited or no kitchen service:
+                </p>
+                <ul className="text-sm mt-2 space-y-1">
+                  {closures.slice(0, 3).map((closure, index) => {
+                    const date = new Date(closure.date)
+                    const formattedDate = date.toLocaleDateString('en-GB', { 
+                      day: 'numeric', 
+                      month: 'long' 
+                    })
+                    return (
+                      <li key={index} className="flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>
+                          <strong>{formattedDate}:</strong> {closure.reason}
+                        </span>
+                      </li>
+                    )
+                  })}
+                  {closures.length > 3 && (
+                    <li className="flex items-start">
+                      <span className="mr-2">•</span>
+                      <span className="italic">
+                        ...and {closures.length - 3} more dates
+                      </span>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            </Alert>
+          )
+        }
+        return null
+      })()}
       
       {/* Booking details */}
       <Card variant="outlined" className="mb-4 border-0 rounded-none md:border md:rounded-lg">

@@ -120,6 +120,9 @@ export function StatusBar({
 
   // Default variant - full size with separate bar and kitchen info
   const getKitchenHours = () => {
+    // Use the kitchenOpen status from the API which is already calculated in UK time
+    const isKitchenCurrentlyOpen = hours.currentStatus.kitchenOpen
+    
     // Check if we have special hours that might affect kitchen
     if (todaySpecialHours) {
       if (todaySpecialHours.is_closed) {
@@ -155,41 +158,11 @@ export function StatusBar({
       return { isOpen: false, message: 'closed', status: 'no-service' }
     }
     
-    // Calculate kitchen closes in / opens at
-    const now = new Date()
-    const currentHour = now.getHours()
-    const currentMinutes = now.getMinutes()
-    const currentTime = currentHour + currentMinutes / 60
-    
-    const [kitchenOpenHour, kitchenOpenMin] = todayHours.kitchen.opens!.split(':').map(Number)
-    const [kitchenCloseHour, kitchenCloseMin] = todayHours.kitchen.closes!.split(':').map(Number)
-    
-    const kitchenOpenTime = kitchenOpenHour + kitchenOpenMin / 60
-    const kitchenCloseTime = kitchenCloseHour + kitchenCloseMin / 60
-    
-    if (currentTime >= kitchenOpenTime && currentTime < kitchenCloseTime) {
-      // Kitchen is open
-      const hoursUntilClose = Math.floor(kitchenCloseTime - currentTime)
-      const minutesUntilClose = Math.round((kitchenCloseTime - currentTime - hoursUntilClose) * 60)
-      
-      if (hoursUntilClose > 0) {
-        return { isOpen: true, message: `${mergedLabels.closes} ${hoursUntilClose}h ${minutesUntilClose}m`, status: 'open' }
-      } else {
-        return { isOpen: true, message: `${mergedLabels.closes} ${minutesUntilClose}m`, status: 'open' }
-      }
-    } else if (currentTime < kitchenOpenTime) {
-      // Kitchen opens later today
-      const hoursUntilOpen = Math.floor(kitchenOpenTime - currentTime)
-      const minutesUntilOpen = Math.round((kitchenOpenTime - currentTime - hoursUntilOpen) * 60)
-      
-      if (hoursUntilOpen > 0) {
-        return { isOpen: false, message: `${mergedLabels.opens} ${hoursUntilOpen}h ${minutesUntilOpen}m`, status: 'closed' }
-      } else {
-        return { isOpen: false, message: `${mergedLabels.opens} ${minutesUntilOpen}m`, status: 'closed' }
-      }
+    // Use the API's calculated status
+    if (isKitchenCurrentlyOpen) {
+      return { isOpen: true, message: 'open', status: 'open' }
     } else {
-      // Kitchen closed for today
-      return { isOpen: false, message: 'closed today', status: 'closed' }
+      return { isOpen: false, message: 'closed', status: 'closed' }
     }
   }
   

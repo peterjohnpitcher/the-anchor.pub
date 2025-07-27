@@ -38,6 +38,9 @@ export function ManagersSpecialHero() {
   if (loading || !currentPromotion) return null
 
   const { spirit, promotion } = currentPromotion
+  
+  // Ensure spirit and promotion exist
+  if (!spirit || !promotion) return null
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-anchor-green to-emerald-800">
@@ -53,12 +56,12 @@ export function ManagersSpecialHero() {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 items-center">
               {/* Left side - Product Image (33% width) */}
-              {(imagePath || spirit.image) && (
+              {(imagePath || spirit?.image) && (
                 <div className="md:col-span-4">
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border-2 border-white/20 max-w-sm mx-auto md:mx-0">
                     <img 
-                      src={imagePath || spirit.image} 
-                      alt={spirit.name}
+                      src={imagePath || spirit?.image} 
+                      alt={spirit?.name || 'Manager\'s Special'}
                       className="w-full h-auto rounded-lg shadow-lg"
                     />
                   </div>
@@ -66,39 +69,41 @@ export function ManagersSpecialHero() {
               )}
               
               {/* Right side - Text content & Pricing (67% width) */}
-              <div className={`${(imagePath || spirit.image) ? 'md:col-span-8' : 'md:col-span-12'} text-white`}>
+              <div className={`${(imagePath || spirit?.image) ? 'md:col-span-8' : 'md:col-span-12'} text-white`}>
                 <div className="mb-4">
                   <span className="inline-block px-4 py-2 bg-red-600 text-white font-bold rounded-full text-sm uppercase tracking-wide">
-                    {promotion.headline}
+                    {promotion?.headline || 'Manager\'s Special'}
                   </span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-                  {spirit.discount} {spirit.name}
+                  {spirit?.discount || ''} {spirit?.name || 'Featured Spirit'}
                 </h2>
                 <p className="text-xl mb-6 text-emerald-100">
-                  {spirit.category} • {spirit.abv} • {spirit.origin}
+                  {spirit?.category || ''} {spirit?.category && spirit?.abv ? '•' : ''} {spirit?.abv || ''} {spirit?.abv && spirit?.origin ? '•' : ''} {spirit?.origin || ''}
                 </p>
                 <p className="text-lg mb-8 text-emerald-50">
-                  {spirit.description}
+                  {spirit?.description || ''}
                 </p>
                 
                 {/* Pricing Info */}
-                <div className="flex flex-wrap gap-6 mb-8">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/20">
-                    <span className="text-sm text-emerald-100">Single (25ml)</span>
-                    <div>
-                      <span className="text-gray-300 line-through text-sm mr-2">{spirit.originalPrice}</span>
-                      <span className="text-2xl font-bold text-white">{spirit.specialPrice}</span>
+                {spirit?.specialPrice && (
+                  <div className="flex flex-wrap gap-6 mb-8">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/20">
+                      <span className="text-sm text-emerald-100">Single (25ml)</span>
+                      <div>
+                        <span className="text-gray-300 line-through text-sm mr-2">{spirit?.originalPrice || ''}</span>
+                        <span className="text-2xl font-bold text-white">{spirit?.specialPrice || ''}</span>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/20">
+                      <span className="text-sm text-emerald-100">Double (50ml)</span>
+                      <div>
+                        <span className="text-gray-300 line-through text-sm mr-2">{spirit?.originalPriceDouble || ''}</span>
+                        <span className="text-2xl font-bold text-white">{spirit?.specialPriceDouble || ''}</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/20">
-                    <span className="text-sm text-emerald-100">Double (50ml)</span>
-                    <div>
-                      <span className="text-gray-300 line-through text-sm mr-2">{spirit.originalPriceDouble}</span>
-                      <span className="text-2xl font-bold text-white">{spirit.specialPriceDouble}</span>
-                    </div>
-                  </div>
-                </div>
+                )}
                 
                 {/* CTA Button */}
                 <div className="flex flex-wrap gap-4 items-center">
@@ -113,7 +118,11 @@ export function ManagersSpecialHero() {
                   </Button>
                   <div className="text-white">
                     <span className="text-sm">Valid until</span>
-                    <span className="block text-lg font-bold">{new Date(currentPromotion.endDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                    <span className="block text-lg font-bold">
+                      {currentPromotion?.endDate 
+                        ? new Date(currentPromotion.endDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+                        : 'While stocks last'}
+                    </span>
                   </div>
                 </div>
               </div>
