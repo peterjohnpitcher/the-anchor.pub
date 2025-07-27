@@ -21,7 +21,15 @@ export function NextEvent() {
         }
         
         const data = await response.json()
-        const events = data.events || []
+        
+        // Handle wrapped response format
+        if (data.success === false) {
+          throw new Error(data.error?.message || 'Failed to fetch events')
+        }
+        
+        // Extract events from response
+        const eventsData = data.data || data
+        const events = eventsData.events || eventsData || []
         
         if (events.length > 0) {
           setNextEvent(events[0])

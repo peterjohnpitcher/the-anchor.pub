@@ -5,7 +5,7 @@ import { WebVitals } from './web-vitals'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { Weather } from '@/components/Weather'
-import { HeaderStatusSection } from '@/components/HeaderStatusSection'
+import { HeaderStatusSectionDirect } from '@/components/HeaderStatusSectionDirect'
 import { FloatingActions } from '@/components/FloatingActions'
 import { DynamicSchema } from '@/components/DynamicSchema'
 import { AnalyticsProvider } from '@/components/AnalyticsProvider'
@@ -234,20 +234,20 @@ export default function RootLayout({
             >
               Skip to main content
             </a>
-            <ErrorBoundary context="navigation">
+            <ErrorBoundary>
               <header role="banner">
                 <Navigation 
-                  statusComponent={<HeaderStatusSection />}
+                  statusComponent={<HeaderStatusSectionDirect />}
                   showWeather={false}
                 />
               </header>
             </ErrorBoundary>
             <main id="main-content" role="main">
-              <ErrorBoundary context="main-content">
+              <ErrorBoundary>
                 {children}
               </ErrorBoundary>
             </main>
-            <ErrorBoundary context="footer">
+            <ErrorBoundary>
               <footer role="contentinfo">
                 <Footer />
               </footer>

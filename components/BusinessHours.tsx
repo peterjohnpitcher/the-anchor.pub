@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { type BusinessHours } from '@/lib/api'
-import { isKitchenOpen, isKitchenClosed, getKitchenStatus } from '@/lib/api'
 import { StatusBar } from './StatusBar'
 import { FALLBACK_CONTENT, CONTACT_INFO, logError } from '@/lib/error-handling'
 import { LoadingState } from '@/components/ui/LoadingState'
+import { parseApiDuration } from '@/lib/time-utils'
 
 interface WeatherForecast {
   date: string
@@ -37,90 +37,17 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
           showWeather && (variant === 'dark' || variant === 'condensed') ? fetch('/api/weather?type=forecast').then(r => r.json()) : Promise.resolve(null)
         ])
         
-        const hoursData = await hoursResponse.json()
+        const hoursResponseData = await hoursResponse.json()
         
-        if (hoursData.error) {
-          throw new Error(hoursData.error)
+        // Handle new API response format
+        if (hoursResponseData.success === false && hoursResponseData.error) {
+          throw new Error(hoursResponseData.error.message || 'Failed to load business hours')
         }
         
-        // Add client-side calculation fallback if API status seems incorrect
-        const enrichedData = { ...hoursData }
+        // Extract the actual data from the response
+        const hoursData = hoursResponseData.data || hoursResponseData
         
-        // Calculate current status client-side as fallback
-        const now = new Date()
-        const dayName = now.toLocaleDateString('en-GB', { weekday: 'long' }).toLowerCase()
-        const currentHours = hoursData.regularHours[dayName]
-        
-        if (currentHours && !currentHours.is_closed) {
-          const currentTime = now.getHours() + now.getMinutes() / 60
-          const [openHour, openMin] = currentHours.opens.split(':').map(Number)
-          const [closeHour, closeMin] = currentHours.closes.split(':').map(Number)
-          
-          const openTime = openHour + openMin / 60
-          let closeTime = closeHour + closeMin / 60
-          
-          // Handle closing after midnight
-          if (closeTime < openTime) {
-            if (currentTime < closeTime) {
-              // We're in the early hours after midnight, still "yesterday's" opening
-              enrichedData.currentStatus.isOpen = true
-            } else {
-              // Normal day hours
-              enrichedData.currentStatus.isOpen = currentTime >= openTime
-            }
-          } else {
-            // Normal hours (close before midnight)
-            enrichedData.currentStatus.isOpen = currentTime >= openTime && currentTime < closeTime
-          }
-          
-          // Calculate opens/closes in
-          if (enrichedData.currentStatus.isOpen) {
-            // Calculate closes in
-            const minutesUntilClose = closeTime === 0 
-              ? (24 - currentTime) * 60  // Closing at midnight
-              : closeTime < openTime && currentTime < closeTime 
-              ? (closeTime - currentTime) * 60
-              : (closeTime - currentTime) * 60
-            
-            if (minutesUntilClose > 60) {
-              const hours = Math.floor(minutesUntilClose / 60)
-              const mins = Math.round(minutesUntilClose % 60)
-              enrichedData.currentStatus.closesIn = `in ${hours}h ${mins}m`
-            } else {
-              enrichedData.currentStatus.closesIn = `in ${Math.round(minutesUntilClose)}m`
-            }
-          } else if (currentTime < openTime) {
-            // Calculate opens in
-            const minutesUntilOpen = (openTime - currentTime) * 60
-            
-            if (minutesUntilOpen > 60) {
-              const hours = Math.floor(minutesUntilOpen / 60)
-              const mins = Math.round(minutesUntilOpen % 60)
-              enrichedData.currentStatus.opensIn = `in ${hours}h ${mins}m`
-            } else {
-              enrichedData.currentStatus.opensIn = `in ${Math.round(minutesUntilOpen)}m`
-            }
-          }
-          
-          // Check kitchen status
-          if (currentHours.kitchen && enrichedData.currentStatus.isOpen) {
-            const kitchenStatus = getKitchenStatus(currentHours.kitchen)
-            
-            if (kitchenStatus === 'open' && isKitchenOpen(currentHours.kitchen)) {
-              const [kitchenOpenHour, kitchenOpenMin] = currentHours.kitchen.opens.split(':').map(Number)
-              const [kitchenCloseHour, kitchenCloseMin] = currentHours.kitchen.closes.split(':').map(Number)
-              
-              const kitchenOpenTime = kitchenOpenHour + kitchenOpenMin / 60
-              const kitchenCloseTime = kitchenCloseHour + kitchenCloseMin / 60
-              
-              enrichedData.currentStatus.kitchenOpen = currentTime >= kitchenOpenTime && currentTime < kitchenCloseTime
-            } else {
-              enrichedData.currentStatus.kitchenOpen = false
-            }
-          }
-        }
-        
-        setHours(enrichedData)
+        setHours(hoursData)
         
         if (weatherData && weatherData.forecast) {
           setForecast(weatherData.forecast)
@@ -210,9 +137,9 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
         <span className={`inline-block w-2 h-2 rounded-full ${hours.currentStatus.isOpen ? 'bg-green-500' : 'bg-red-500'}`} />
         <span className="text-sm">
           {hours.currentStatus.isOpen ? (
-            <>Open now • Closes {hours.currentStatus.closesIn}</>
+            <>Open now • Closes {parseApiDuration(hours.currentStatus.closesIn) || hours.currentStatus.closesIn}</>
           ) : (
-            <>Closed • Opens {hours.currentStatus.opensIn}</>
+            <>Closed • Opens {parseApiDuration(hours.currentStatus.opensIn) || hours.currentStatus.opensIn}</>
           )}
         </span>
       </div>
@@ -236,7 +163,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
           )}
         </div>
         {hours.currentStatus.isOpen && hours.currentStatus.closesIn && (
-          <p className="text-sm sm:text-xs text-gray-700 mt-1">Closes in {hours.currentStatus.closesIn}</p>
+          <p className="text-sm sm:text-xs text-gray-700 mt-1">Closes in {parseApiDuration(hours.currentStatus.closesIn) || hours.currentStatus.closesIn}</p>
         )}
       </div>
     )
@@ -256,10 +183,10 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
               </span>
             </div>
             {hours.currentStatus.isOpen && hours.currentStatus.closesIn && (
-              <span className="text-sm text-gray-600">Closes in {hours.currentStatus.closesIn}</span>
+              <span className="text-sm text-gray-600">Closes in {parseApiDuration(hours.currentStatus.closesIn) || hours.currentStatus.closesIn}</span>
             )}
             {!hours.currentStatus.isOpen && hours.currentStatus.opensIn && (
-              <span className="text-sm text-gray-600">Opens in {hours.currentStatus.opensIn}</span>
+              <span className="text-sm text-gray-600">Opens in {parseApiDuration(hours.currentStatus.opensIn) || hours.currentStatus.opensIn}</span>
             )}
           </div>
           {showKitchen && (
@@ -337,15 +264,16 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         <div className="text-sm">
                           <span className="text-gray-400 mr-2">Kitchen:</span>
                           {(() => {
-                            const status = dayHours.kitchen ? getKitchenStatus(dayHours.kitchen) : null
-                            if (status === 'open' && dayHours.kitchen && isKitchenOpen(dayHours.kitchen)) {
+                            if (!dayHours.kitchen || dayHours.kitchen === null) {
+                              return <span className="text-gray-500">No service</span>
+                            } else if ('is_closed' in dayHours.kitchen && dayHours.kitchen.is_closed === true) {
+                              return <span className="text-amber-400">Closed</span>
+                            } else if ('opens' in dayHours.kitchen && 'closes' in dayHours.kitchen) {
                               return (
                                 <span className="text-white">
-                                  {formatTime(dayHours.kitchen!.opens)} - {formatTime(dayHours.kitchen!.closes)}
+                                  {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
                                 </span>
                               )
-                            } else if (status === 'closed') {
-                              return <span className="text-amber-400">Closed</span>
                             } else {
                               return <span className="text-gray-500">No service</span>
                             }
@@ -443,15 +371,16 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         <div className="text-xs">
                           <span className="text-white/60 mr-1">Kitchen:</span>
                           {(() => {
-                            const status = dayHours.kitchen ? getKitchenStatus(dayHours.kitchen) : null
-                            if (status === 'open' && dayHours.kitchen && isKitchenOpen(dayHours.kitchen)) {
+                            if (!dayHours.kitchen || dayHours.kitchen === null) {
+                              return <span className="text-white/50">No service</span>
+                            } else if ('is_closed' in dayHours.kitchen && dayHours.kitchen.is_closed === true) {
+                              return <span className="text-amber-400">Closed</span>
+                            } else if ('opens' in dayHours.kitchen && 'closes' in dayHours.kitchen) {
                               return (
                                 <span className="text-white/80">
-                                  {formatTime(dayHours.kitchen!.opens)} - {formatTime(dayHours.kitchen!.closes)}
+                                  {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
                                 </span>
                               )
-                            } else if (status === 'closed') {
-                              return <span className="text-amber-400">Closed</span>
                             } else {
                               return <span className="text-white/50">No service</span>
                             }
@@ -500,10 +429,10 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
             </span>
           </div>
           {hours.currentStatus.isOpen && hours.currentStatus.closesIn && (
-            <span className="text-sm text-gray-700">Closes in {hours.currentStatus.closesIn}</span>
+            <span className="text-sm text-gray-700">Closes in {parseApiDuration(hours.currentStatus.closesIn) || hours.currentStatus.closesIn}</span>
           )}
           {!hours.currentStatus.isOpen && hours.currentStatus.opensIn && (
-            <span className="text-sm text-gray-700">Opens in {hours.currentStatus.opensIn}</span>
+            <span className="text-sm text-gray-700">Opens in {parseApiDuration(hours.currentStatus.opensIn) || hours.currentStatus.opensIn}</span>
           )}
         </div>
         {showKitchen && (
@@ -569,15 +498,16 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                         <div className="text-sm">
                           <span className="text-gray-500 mr-2">Kitchen:</span>
                           {(() => {
-                            const status = dayHours.kitchen ? getKitchenStatus(dayHours.kitchen) : null
-                            if (status === 'open' && dayHours.kitchen && isKitchenOpen(dayHours.kitchen)) {
+                            if (!dayHours.kitchen || dayHours.kitchen === null) {
+                              return <span className="text-gray-500">No service</span>
+                            } else if ('is_closed' in dayHours.kitchen && dayHours.kitchen.is_closed === true) {
+                              return <span className="text-amber-600 font-medium">Closed</span>
+                            } else if ('opens' in dayHours.kitchen && 'closes' in dayHours.kitchen) {
                               return (
                                 <span>
-                                  {formatTime(dayHours.kitchen!.opens)} - {formatTime(dayHours.kitchen!.closes)}
+                                  {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
                                 </span>
                               )
-                            } else if (status === 'closed') {
-                              return <span className="text-amber-600 font-medium">Closed</span>
                             } else {
                               return <span className="text-gray-500">No service</span>
                             }

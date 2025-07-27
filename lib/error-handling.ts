@@ -5,7 +5,7 @@
 import { analytics } from '@/lib/analytics'
 
 export interface ErrorContext {
-  feature: 'events' | 'booking' | 'weather' | 'flights' | 'hours' | 'general'
+  feature: 'events' | 'booking' | 'weather' | 'flights' | 'hours' | 'business-hours' | 'general'
   action: 'load' | 'submit' | 'fetch' | 'process'
   showContactInfo?: boolean
   showRetry?: boolean
@@ -34,6 +34,11 @@ const ERROR_MESSAGES: Record<string, Record<string, string>> = {
   hours: {
     load: "We couldn't load our opening hours. We're typically CLOSED Mon, 4pm-11pm Tue-Thu, 4pm-12am Fri, 1pm-12am Sat, and 12pm-9pm Sun.",
     fetch: "Having trouble loading hours. Please call us at 01753 682707 for today's opening times."
+  },
+  'business-hours': {
+    load: "Unable to load current status. We're typically open 9am-10pm (kitchen hours vary). Call 01753 682707 for today's hours.",
+    fetch: "Having trouble checking if we're open. Please call 01753 682707 or check our regular hours.",
+    process: "Can't determine current status. We're usually open Tue-Sun. Call 01753 682707 to confirm."
   },
   general: {
     load: "Something went wrong. Please refresh the page and try again.",

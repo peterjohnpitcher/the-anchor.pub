@@ -16,7 +16,58 @@ import { MenuPageTracker } from '@/components/MenuPageTracker'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
-import { StickyBookingBar } from '@/components/StickyBookingBar'
+import { KitchenHoursDisplay } from '@/components/KitchenHoursDisplay'
+import { formatTime12Hour } from '@/lib/time-utils'
+import { isKitchenOpen, BusinessHours } from '@/lib/api'
+
+// Helper function to build kitchen schedule string from business hours
+function buildKitchenSchedule(hours: BusinessHours): string {
+  const schedule: string[] = []
+  
+  // Check Tuesday to Friday
+  const weekdays = ['tuesday', 'wednesday', 'thursday', 'friday']
+  const weekdayHours = weekdays.map(day => {
+    const dayHours = hours.regularHours[day]
+    if (!dayHours || !dayHours.kitchen || !isKitchenOpen(dayHours.kitchen)) return null
+    return {
+      day,
+      opens: formatTime12Hour(dayHours.kitchen.opens),
+      closes: formatTime12Hour(dayHours.kitchen.closes)
+    }
+  }).filter(Boolean)
+  
+  // Check if all weekdays have same hours
+  if (weekdayHours.length === 4 && weekdayHours.every(h => 
+    h?.opens === weekdayHours[0]?.opens && h?.closes === weekdayHours[0]?.closes
+  )) {
+    schedule.push(`Tuesday to Friday from ${weekdayHours[0]?.opens}-${weekdayHours[0]?.closes}`)
+  } else {
+    // Add individually
+    weekdayHours.forEach(h => {
+      if (h) {
+        schedule.push(`${h.day.charAt(0).toUpperCase() + h.day.slice(1)} from ${h.opens}-${h.closes}`)
+      }
+    })
+  }
+  
+  // Saturday
+  const saturdayHours = hours.regularHours.saturday
+  if (saturdayHours?.kitchen && isKitchenOpen(saturdayHours.kitchen)) {
+    const opens = formatTime12Hour(saturdayHours.kitchen.opens)
+    const closes = formatTime12Hour(saturdayHours.kitchen.closes)
+    schedule.push(`Saturday from ${opens}-${closes}`)
+  }
+  
+  // Sunday
+  const sundayHours = hours.regularHours.sunday
+  if (sundayHours?.kitchen && isKitchenOpen(sundayHours.kitchen)) {
+    const opens = formatTime12Hour(sundayHours.kitchen.opens)
+    const closes = formatTime12Hour(sundayHours.kitchen.closes)
+    schedule.push(`Sunday from ${opens}-${closes}`)
+  }
+  
+  return schedule.join(', ') || "Please check our current hours"
+}
 
 export const metadata: Metadata = {
   title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Food',
@@ -39,6 +90,10 @@ export default async function FoodMenuPage() {
     parseMenuMarkdown('food'),
     getBusinessHours()
   ])
+  
+  // Build dynamic kitchen schedule string
+  const kitchenSchedule = businessHours ? buildKitchenSchedule(businessHours) : 
+    "Tuesday to Friday from 6pm-9pm, Saturday from 1pm-7pm, and Sunday from 12pm-5pm"
   
   if (!menuData) {
     return (
@@ -120,12 +175,6 @@ export default async function FoodMenuPage() {
         ]}
       />
       <ScrollDepthTracker />
-      
-      {/* Sticky Booking Bar - Desktop Only */}
-      <StickyBookingBar 
-        source="food_menu_sticky"
-        incentiveMessage="Hungry? Book your table now"
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([menuSchema, pizzaBOGOFSchema, fridayFishOfferSchema]) }}
@@ -382,7 +431,7 @@ export default async function FoodMenuPage() {
         faqs={[
           {
             question: "What time is the kitchen open at The Anchor?",
-            answer: "Our kitchen is open Tuesday to Friday from 6pm-9pm, Saturday from 1pm-7pm, and Sunday from 12pm-5pm for our famous Sunday roasts. The kitchen is closed Mondays. During busy periods we recommend booking ahead."
+            answer: `Our kitchen is open ${kitchenSchedule} for our famous Sunday roasts. The kitchen is closed Mondays. During busy periods we recommend booking ahead.`
           },
           {
             question: "Do you serve Sunday roast at The Anchor?",

@@ -1,17 +1,9 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { Button } from '@/components/ui/primitives/Button'
-import { Select } from '@/components/ui/forms/Select'
-import { DatePicker } from '@/components/ui/forms/DatePicker'
-import { Alert } from '@/components/ui/feedback/Alert'
-import { Badge } from '@/components/ui/primitives/Badge'
-import { Icon } from '@/components/ui/Icon'
-import { PhoneLink } from '@/components/PhoneLink'
-import { getBusinessHours } from '@/lib/api'
-import type { BusinessHours } from '@/lib/api'
-import { isKitchenOpen, isKitchenClosed, getKitchenStatus } from '@/lib/api'
-import { trackFormStart } from '@/lib/gtm-events'
+import { DatePicker, Select, Button, ErrorDisplay } from '@/components/ui'
+import { getBusinessHours, BusinessHours, isKitchenClosed } from '@/lib/api'
+import { trackTableBookingClick, trackFormStart } from '@/lib/gtm-events'
 
 export interface BookingDatePickerProps {
   onDateTimeSelect: (date: string, time: string, partySize: number) => void
@@ -21,37 +13,12 @@ export interface BookingDatePickerProps {
   className?: string
 }
 
-// Generate time slots based on kitchen hours
-const generateTimeSlots = (
-  startHour: number = 12,
-  endHour: number = 21,
-  endMinute: number = 30
-): { value: string; label: string }[] => {
-  const slots = []
-  
-  // Handle case where end time is before start time (crosses midnight)
-  const actualEndHour = endHour < startHour ? endHour + 24 : endHour
-  
-  for (let hour = startHour; hour <= actualEndHour; hour++) {
-    const displayHour = hour > 24 ? hour - 24 : hour
-    
-    for (let minute = 0; minute < 60; minute += 30) {
-      // Stop if we've reached the end time
-      if (hour === actualEndHour && minute > endMinute) break
-      
-      const hourStr = displayHour.toString().padStart(2, '0')
-      const minuteStr = minute.toString().padStart(2, '0')
-      const value = `${hourStr}:${minuteStr}`
-      
-      const hour12 = displayHour > 12 ? displayHour - 12 : displayHour === 0 ? 12 : displayHour
-      const period = displayHour >= 12 ? 'pm' : 'am'
-      const label = `${hour12}:${minuteStr}${period}`
-      
-      slots.push({ value, label })
-    }
-  }
-  
-  return slots
+// Format time for display (HH:mm to h:mm am/pm)
+const formatTime = (time: string): string => {
+  const [hour, minute] = time.split(':').map(Number)
+  const period = hour >= 12 ? 'pm' : 'am'
+  const displayHour = hour % 12 || 12
+  return `${displayHour}:${minute.toString().padStart(2, '0')}${period}`
 }
 
 // Party size options - limited to 6 for immediate confirmation
@@ -77,9 +44,11 @@ export default function BookingDatePicker({
   const [partySize, setPartySize] = useState<string>(defaultPartySize.toString())
   const [businessHours, setBusinessHours] = useState<BusinessHours | null>(null)
   const [loadingHours, setLoadingHours] = useState(true)
+  const [loadingSlots, setLoadingSlots] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [hasInteracted, setHasInteracted] = useState(false)
   const [availableTimeSlots, setAvailableTimeSlots] = useState<{ value: string; label: string }[]>([])
+  const [kitchenMessage, setKitchenMessage] = useState<string | null>(null)
 
   // Fetch business hours
   useEffect(() => {
@@ -97,57 +66,24 @@ export default function BookingDatePicker({
     fetchHours()
   }, [])
 
-  // Check if selected date/time is available
-  const isDateTimeAvailable = useCallback((dateStr: string, time: string): boolean => {
-    if (!dateStr || !time || !businessHours) return true // Assume available if we can't check
-
-    const date = new Date(dateStr)
-    const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
-    const dayHours = businessHours.regularHours[dayOfWeek]
-
-    if (dayHours?.is_closed) {
-      return false
-    }
-
-    // Check special hours for the specific date
-    const specialDay = businessHours.specialHours.find(sh => sh.date === dateStr)
-    if (specialDay?.is_closed) {
-      return false
-    }
-
-    // Check if time is within kitchen hours
-    if (dayHours?.kitchen) {
-      const kitchenStatus = getKitchenStatus(dayHours.kitchen)
-      
-      // If kitchen is closed or no service, no bookings available
-      if (kitchenStatus === 'closed' || kitchenStatus === 'no-service') {
-        return false
-      }
-      
-      // If kitchen has open hours, check if time is within them
-      if (kitchenStatus === 'open' && isKitchenOpen(dayHours.kitchen)) {
-        const [openHour, openMin] = dayHours.kitchen.opens.split(':').map(Number)
-        const [closeHour, closeMin] = dayHours.kitchen.closes.split(':').map(Number)
-        const [selectedHour, selectedMin] = time.split(':').map(Number)
-
-        const openMinutes = openHour * 60 + openMin
-        const closeMinutes = closeHour * 60 + closeMin
-        const selectedMinutes = selectedHour * 60 + selectedMin
-
-        return selectedMinutes >= openMinutes && selectedMinutes <= closeMinutes
-      }
-    }
-
-    // No kitchen hours means no table bookings
-    return false
-  }, [businessHours])
-
-  // Get kitchen hours for selected date
-  const getKitchenHours = useCallback((dateStr: string): string | null => {
+  // Get kitchen hours message for selected date
+  const getKitchenMessage = useCallback((dateStr: string): string | null => {
     if (!dateStr || !businessHours) return null
 
     const date = new Date(dateStr)
     const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
+    
+    // Check for special hours first
+    const specialDay = businessHours.specialHours?.find(sh => sh.date === dateStr)
+    if (specialDay) {
+      if (specialDay.is_closed || specialDay.status === 'closed') {
+        return specialDay.note || 'Closed for special event'
+      }
+      if (specialDay.kitchen && isKitchenClosed(specialDay.kitchen)) {
+        return 'Kitchen closed but bar is open for drinks'
+      }
+    }
+    
     const dayHours = businessHours.regularHours[dayOfWeek]
     
     if (!dayHours) return 'No service today'
@@ -157,38 +93,17 @@ export default function BookingDatePicker({
     }
     
     if (!dayHours.kitchen) {
-      // Monday or no kitchen service
       return dayOfWeek === 'monday' ? 'No kitchen service on Mondays (bar open)' : 'No kitchen service'
     }
     
-    const kitchenStatus = getKitchenStatus(dayHours.kitchen)
-    
-    if (kitchenStatus === 'open' && isKitchenOpen(dayHours.kitchen)) {
-      return `Kitchen: ${formatTime(dayHours.kitchen.opens)} - ${formatTime(dayHours.kitchen.closes)}`
-    } else if (kitchenStatus === 'closed') {
-      return 'Kitchen closed but bar is open for drinks'
-    } else {
-      return 'No kitchen service'
-    }
+    return null
   }, [businessHours])
-
-  const formatTime = (time: string): string => {
-    const [hour, minute] = time.split(':').map(Number)
-    const period = hour >= 12 ? 'pm' : 'am'
-    const displayHour = hour > 12 ? hour - 12 : hour || 12
-    return minute === 0 ? `${displayHour}${period}` : `${displayHour}:${minute.toString().padStart(2, '0')}${period}`
-  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
     if (!selectedDate || !selectedTime) {
       setError('Please select both date and time')
-      return
-    }
-
-    if (!isDateTimeAvailable(selectedDate, selectedTime)) {
-      setError('The kitchen is closed at this time. Please select another time.')
       return
     }
 
@@ -207,82 +122,73 @@ export default function BookingDatePicker({
     }
   }
 
-  // Update available time slots when date changes
+  // Fetch available time slots when date and party size change
   useEffect(() => {
-    if (!selectedDate || !businessHours) {
+    if (!selectedDate || !partySize || partySize === '7+') {
       setAvailableTimeSlots([])
       return
     }
 
-    const date = new Date(selectedDate)
-    const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
-    
-    // Check for special hours first
-    const specialDay = businessHours.specialHours?.find(sh => sh.date === selectedDate)
-    if (specialDay) {
-      if (specialDay.is_closed) {
+    async function fetchAvailableSlots() {
+      setLoadingSlots(true)
+      setError(null)
+      setKitchenMessage(null)
+      
+      try {
+        const response = await fetch(`/api/table-bookings/availability?date=${selectedDate}&party_size=${partySize}`)
+        const data = await response.json()
+        
+        if (!response.ok) {
+          if (data.error) {
+            setError(data.error.message || 'Unable to check availability')
+          }
+          setAvailableTimeSlots([])
+          return
+        }
+        
+        // Handle the API response
+        if (data.success === false && data.error) {
+          setError(data.error.message)
+          setAvailableTimeSlots([])
+          return
+        }
+        
+        // Extract the actual data
+        const availabilityData = data.success && data.data ? data.data : data
+        
+        if (!availabilityData.available) {
+          // Set kitchen message if no availability
+          const message = getKitchenMessage(selectedDate) || availabilityData.message || 'No table bookings available for this date'
+          setKitchenMessage(message)
+          setAvailableTimeSlots([])
+          return
+        }
+        
+        // Format time slots from API
+        const slots = availabilityData.time_slots
+          ?.filter((slot: any) => slot.available || slot.available_capacity > 0)
+          ?.map((slot: any) => ({
+            value: slot.time,
+            label: formatTime(slot.time)
+          })) || []
+        
+        setAvailableTimeSlots(slots)
+        
+        // Reset time selection if it's no longer valid
+        if (selectedTime && !slots.find((s: any) => s.value === selectedTime)) {
+          setSelectedTime('')
+        }
+      } catch (err) {
+        console.error('Failed to fetch available slots:', err)
+        setError('Unable to check availability. Please try again.')
         setAvailableTimeSlots([])
-        return
+      } finally {
+        setLoadingSlots(false)
       }
-      // TODO: Handle special hours when kitchen hours are provided
     }
-    
-    const dayHours = businessHours.regularHours?.[dayOfWeek]
 
-    if (!dayHours || dayHours.is_closed) {
-      setAvailableTimeSlots([])
-      return
-    }
-    
-    // Check kitchen status
-    if (!dayHours.kitchen) {
-      setAvailableTimeSlots([])
-      return
-    }
-    
-    const kitchenStatus = getKitchenStatus(dayHours.kitchen)
-    
-    // No bookings if kitchen is closed or no service
-    if (kitchenStatus === 'closed' || kitchenStatus === 'no-service') {
-      setAvailableTimeSlots([])
-      return
-    }
-    
-    // Kitchen must be open with hours
-    if (!isKitchenOpen(dayHours.kitchen)) {
-      setAvailableTimeSlots([])
-      return
-    }
-    
-    const hoursToUse = dayHours.kitchen
-
-    // Parse hours - handle HH:mm:ss format
-    const openParts = hoursToUse.opens.split(':')
-    const closeParts = hoursToUse.closes.split(':')
-    
-    const openHour = parseInt(openParts[0])
-    const openMin = parseInt(openParts[1])
-    const closeHour = parseInt(closeParts[0])
-    const closeMin = parseInt(closeParts[1])
-    
-    // Generate slots based on kitchen hours
-    // We want to stop taking bookings 30 minutes before kitchen closes
-    let lastSlotMinute = closeMin - 30
-    let lastSlotHour = closeHour
-    
-    if (lastSlotMinute < 0) {
-      lastSlotMinute = 30
-      lastSlotHour = closeHour - 1
-    }
-    
-    const slots = generateTimeSlots(openHour, lastSlotHour, lastSlotMinute)
-    setAvailableTimeSlots(slots)
-    
-    // Reset time selection if it's no longer valid
-    if (selectedTime && !slots.find(s => s.value === selectedTime)) {
-      setSelectedTime('')
-    }
-  }, [selectedDate, businessHours, selectedTime])
+    fetchAvailableSlots()
+  }, [selectedDate, partySize, getKitchenMessage])
 
   return (
     <form onSubmit={handleSubmit} className={`space-y-4 ${className}`}>
@@ -301,7 +207,6 @@ export default function BookingDatePicker({
             maxDate={maxDate?.toISOString().split('T')[0]}
             disabled={loadingHours}
             error={error && !selectedTime ? 'Please select a date' : undefined}
-            helperText={selectedDate ? getKitchenHours(selectedDate) || undefined : undefined}
           />
         </div>
 
@@ -317,11 +222,13 @@ export default function BookingDatePicker({
               setError(null)
               handleFormInteraction()
             }}
-            disabled={!selectedDate || loadingHours}
+            disabled={!selectedDate || loadingHours || loadingSlots}
             error={!!(error && selectedDate && !selectedTime)}
           >
             <option value="">Choose a time</option>
-            {availableTimeSlots.length === 0 && selectedDate ? (
+            {loadingSlots ? (
+              <option disabled>Loading available times...</option>
+            ) : availableTimeSlots.length === 0 && selectedDate ? (
               <option disabled>No times available</option>
             ) : (
               availableTimeSlots.map(slot => (
@@ -331,6 +238,20 @@ export default function BookingDatePicker({
           </Select>
         </div>
       </div>
+      
+      {/* Show prominent message when no times available */}
+      {selectedDate && !loadingSlots && availableTimeSlots.length === 0 && kitchenMessage && (
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+          <p className="text-sm text-amber-900 font-medium">
+            {kitchenMessage}
+          </p>
+          {kitchenMessage.toLowerCase().includes('monday') && (
+            <p className="text-sm text-amber-700 mt-1">
+              The bar is open for drinks. Call us at <a href="tel:01753682707" className="font-medium underline">01753 682707</a> for drinks-only reservations.
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
@@ -347,59 +268,34 @@ export default function BookingDatePicker({
             disabled={loadingHours}
           >
             {PARTY_SIZE_OPTIONS.map(option => (
-              <option key={option.value} value={option.value}>{option.label}</option>
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
             ))}
           </Select>
+          {partySize === '7+' && (
+            <p className="mt-1 text-sm text-gray-600">
+              Please call us at 01753 682707 for larger parties
+            </p>
+          )}
         </div>
 
         <div className="flex items-end">
           <Button
             type="submit"
             variant="primary"
-            fullWidth
-            size="lg"
-            disabled={!selectedDate || !selectedTime || loadingHours}
+            className="w-full"
+            disabled={!selectedDate || !selectedTime || loadingHours || loadingSlots || partySize === '7+'}
+            onClick={() => {
+              trackTableBookingClick('booking_date_picker')
+            }}
           >
-            Check Availability
+            Continue to Details
           </Button>
         </div>
       </div>
 
-      {error && (
-        <Alert variant="error" className="mt-4">
-          {error}
-        </Alert>
-      )}
-
-      {selectedDate && selectedTime && !isDateTimeAvailable(selectedDate, selectedTime) && (
-        <Alert variant="warning" className="mt-4">
-          <Badge variant="warning" dot>
-            Kitchen not available
-          </Badge>
-          <p className="mt-2 text-sm">
-            {(() => {
-              const dayOfWeek = new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
-              if (dayOfWeek === 'monday') {
-                return 'No kitchen service on Mondays. The bar is open for drinks - please visit us for drinks or try another day for food.'
-              }
-              return 'Kitchen is closed at this time but the bar is open for drinks. Please select a different time for table dining.'
-            })()}
-          </p>
-        </Alert>
-      )}
-
-      {partySize === '7+' && (
-        <Alert variant="info" className="mt-4">
-          <p className="font-medium mb-1">Large Party Booking</p>
-          <p className="text-sm">
-            For parties larger than 6, please call us at{' '}
-            <PhoneLink phone="01753682707" source="table_booking_large_party" className="font-semibold underline">
-              01753 682707
-            </PhoneLink>{' '}
-            to discuss your requirements. We may need to arrange a pre-order for your group.
-          </p>
-        </Alert>
-      )}
+      {error && <ErrorDisplay message={error} />}
     </form>
   )
 }

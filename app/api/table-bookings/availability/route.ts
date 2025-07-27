@@ -12,14 +12,14 @@ export async function GET(request: Request) {
 
   const { searchParams } = new URL(request.url)
   const date = searchParams.get('date')
-  const time = searchParams.get('time')
   const partySize = searchParams.get('party_size')
+  const time = searchParams.get('time') // Optional for specific time check
   const duration = searchParams.get('duration')
 
   // Validate required parameters
-  if (!date || !time || !partySize) {
+  if (!date || !partySize) {
     return createApiErrorResponse(
-      'Missing required parameters: date, time, and party_size are required',
+      'Missing required parameters: date and party_size are required',
       400
     )
   }
@@ -28,9 +28,12 @@ export async function GET(request: Request) {
     // Build query parameters
     const query = new URLSearchParams({
       date,
-      time,
       party_size: partySize
     })
+    
+    if (time) {
+      query.append('time', time)
+    }
     
     if (duration) {
       query.append('duration', duration)
@@ -82,7 +85,12 @@ export async function GET(request: Request) {
     
     // Extract data from success response
     const availabilityData = data.data || data
-    return NextResponse.json(availabilityData)
+    
+    // Return with success wrapper format for consistency
+    return NextResponse.json({
+      success: true,
+      data: availabilityData
+    })
   } catch (error) {
     logError('api/table-bookings/availability', error, {
       date,

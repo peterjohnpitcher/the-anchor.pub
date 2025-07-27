@@ -147,12 +147,10 @@ export interface Event {
 
 export interface EventsResponse {
   events: Event[]
-  meta: {
+  pagination: {
     total: number
     limit: number
     offset: number
-    has_more?: boolean
-    lastUpdated?: string
   }
 }
 
@@ -266,14 +264,120 @@ export interface BusinessHours {
     opens?: string
     closes?: string
     is_closed: boolean
+    status?: 'closed' | 'modified'
     reason?: string
     note?: string
+    kitchen?: KitchenStatus
   }>
   currentStatus: {
     isOpen: boolean
     kitchenOpen: boolean
     closesIn: string | null
     opensIn: string | null
+    // Optional new fields for future API version
+    currentTime?: string
+    timestamp?: string
+    services?: {
+      venue: {
+        open: boolean
+        closesIn: string | null
+      }
+      kitchen: {
+        open: boolean
+        closesIn: string | null
+      }
+      bookings: {
+        accepting: boolean
+        availableSlots: string[]
+      }
+    }
+    capacity?: {
+      total: number
+      available: number
+      percentageFull: number
+    }
+  }
+  // Optional new fields for future API version
+  today?: {
+    date: string
+    dayName: string
+    summary: string
+    isSpecialHours: boolean
+    events: Array<{
+      title: string
+      time: string
+      affectsCapacity: boolean
+    }>
+  }
+  upcomingWeek?: Array<{
+    date: string
+    dayName: string
+    status: 'normal' | 'modified' | 'closed'
+    summary: string
+    note: string | null
+  }>
+  patterns?: {
+    regularClosures: string[]
+    typicalBusyTimes: {
+      [key: string]: string[]
+    }
+    quietTimes: {
+      [key: string]: string[]
+    }
+  }
+  services?: {
+    kitchen: {
+      lunch?: {
+        start: string
+        end: string
+      }
+      dinner?: {
+        start: string
+        end: string
+      }
+      sundayLunch?: {
+        available: boolean
+        slots: string[]
+        bookingRequired: boolean
+        lastOrderTime: string
+      }
+    }
+    bar: {
+      happyHour?: {
+        days: string[]
+        start: string
+        end: string
+      }
+    }
+    privateHire: {
+      available: boolean
+      minimumNotice: string
+      spaces: string[]
+    }
+  }
+  planning?: {
+    nextClosure?: {
+      date: string
+      reason: string
+    }
+    nextModifiedHours?: {
+      date: string
+      reason: string
+      changes: string
+    }
+    seasonalChanges?: {
+      summerHours?: {
+        active: boolean
+        period: string
+        changes: string
+      }
+    }
+  }
+  integration?: {
+    bookingApi: string
+    eventsApi: string
+    lastUpdated: string
+    updateFrequency: string
   }
   timezone: string
   lastUpdated: string
@@ -431,11 +535,19 @@ export class AnchorAPI {
       })
 
       if (!response.ok) {
+        let errorCode = 'UNKNOWN_ERROR'
         let errorMessage = `API request failed: ${response.status}`
+        let errorDetails: any = {}
         
         try {
           const errorData = await response.json()
-          if (errorData.error) {
+          
+          // Handle API error wrapper format
+          if (errorData.success === false && errorData.error) {
+            errorCode = errorData.error.code || errorCode
+            errorMessage = errorData.error.message || errorMessage
+            errorDetails = errorData.error.details || {}
+          } else if (errorData.error) {
             errorMessage = errorData.error
           } else if (errorData.message) {
             errorMessage = errorData.message
@@ -445,25 +557,75 @@ export class AnchorAPI {
           errorMessage = `${response.status} ${response.statusText}`
         }
         
-        // Log specific error codes for debugging
+        // Map HTTP status to error codes
         if (response.status === 401) {
+          errorCode = 'UNAUTHORIZED'
           console.error('Authentication failed. Check ANCHOR_API_KEY environment variable.')
+        } else if (response.status === 403) {
+          errorCode = 'FORBIDDEN'
+        } else if (response.status === 404) {
+          errorCode = 'NOT_FOUND'
         } else if (response.status === 429) {
+          errorCode = 'RATE_LIMIT_EXCEEDED'
           console.error('Rate limit exceeded. Please try again later.')
+        } else if (response.status >= 500) {
+          errorCode = 'INTERNAL_ERROR'
         }
         
-        throw { message: errorMessage, status: response.status }
+        throw { 
+          code: errorCode,
+          message: errorMessage, 
+          status: response.status,
+          details: errorDetails
+        }
       }
 
-      return response.json()
-    } catch (error) {
-      logError('api-request', error, { 
+      const data = await response.json()
+      
+      // Handle API success wrapper format
+      if (data.success === false && data.error) {
+        throw {
+          code: data.error.code || 'API_ERROR',
+          message: data.error.message || 'API request failed',
+          status: response.status,
+          details: data.error.details || {}
+        }
+      }
+      
+      // Extract data from wrapper if present
+      if (data.success === true && data.data) {
+        return data.data
+      }
+      
+      // Some endpoints return data directly without wrapper (legacy format)
+      // Check if this looks like valid data (not an error)
+      if (!data.error && !data.success) {
+        return data
+      }
+      
+      // If no wrapper format and no direct data, this is likely an error
+      throw {
+        code: 'INVALID_RESPONSE',
+        message: 'Invalid API response format',
+        status: response.status,
+        details: { response: data }
+      }
+    } catch (error: any) {
+      // Ensure error has proper structure
+      const structuredError = {
+        code: error.code || 'NETWORK_ERROR',
+        message: error.message || 'Network request failed',
+        status: error.status || 0,
+        details: error.details || {}
+      }
+      
+      logError('api-request', structuredError, { 
         endpoint, 
         url,
         method: options.method || 'GET' 
       })
-      // Re-throw the error with proper structure
-      throw error
+      
+      throw structuredError
     }
   }
 

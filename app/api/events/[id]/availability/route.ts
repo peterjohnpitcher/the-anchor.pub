@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { createApiErrorResponse, logError } from '@/lib/error-handling'
 
 const API_KEY = process.env.ANCHOR_API_KEY
 const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
@@ -12,10 +13,7 @@ export async function POST(
   
   if (!API_KEY) {
     console.error('ANCHOR_API_KEY is not set in environment variables')
-    return NextResponse.json(
-      { error: 'API key not configured' },
-      { status: 500 }
-    )
+    return createApiErrorResponse('Service temporarily unavailable. Please try again later.', 503)
   }
 
   try {
@@ -43,10 +41,7 @@ export async function POST(
     // Handle authentication errors specifically
     if (response.status === 401) {
       console.error('Authentication failed - API key may be invalid or lack permissions')
-      return NextResponse.json(
-        { error: 'Authentication failed. Please check API key validity and permissions.' },
-        { status: 401 }
-      )
+      return createApiErrorResponse('Service temporarily unavailable. Please try again later.', 503)
     }
     
     // If check-availability doesn't exist or errors, fall back to getting the full event
@@ -82,14 +77,15 @@ export async function POST(
         }
         
         const eventsData = await eventsResponse.json()
-        const event = eventsData.events?.find((e: any) => e.id === params.id || e.slug === params.id)
+        
+        // Handle wrapped response format
+        const eventsList = eventsData.success && eventsData.data ? eventsData.data : eventsData
+        const events = eventsList.events || eventsList
+        const event = events?.find((e: any) => e.id === params.id || e.slug === params.id)
         
         if (!event) {
           console.error('Event not found in events list')
-          return NextResponse.json(
-            { error: 'Event not found' },
-            { status: 404 }
-          )
+          return createApiErrorResponse('Event not found', 404)
         }
         
         // Create availability response from event data
@@ -108,7 +104,17 @@ export async function POST(
       }
 
       const eventData = await eventResponse.json()
-      const event = eventData.event || eventData
+      
+      // Handle wrapped response format
+      if (eventData.success === false) {
+        return createApiErrorResponse(
+          eventData.error?.message || 'Unable to check availability',
+          400,
+          eventData.error
+        )
+      }
+      
+      const event = eventData.data || eventData.event || eventData
       
       // Create availability response from event data using correct field names
       const availability = {
@@ -131,6 +137,17 @@ export async function POST(
 
     const data = await response.json()
     
+    // Handle wrapped response format
+    if (data.success === false) {
+      return createApiErrorResponse(
+        data.error?.message || 'Unable to check availability',
+        400,
+        data.error
+      )
+    }
+    
+    const availabilityData = data.data || data
+    
     // Try to get capacity info from the events list
     let maximumCapacity = 100
     
@@ -146,7 +163,11 @@ export async function POST(
       
       if (eventsResponse.ok) {
         const eventsData = await eventsResponse.json()
-        const event = eventsData.events?.find((e: any) => e.id === params.id)
+        
+        // Handle wrapped response format  
+        const eventsList = eventsData.success && eventsData.data ? eventsData.data : eventsData
+        const events = eventsList.events || eventsList
+        const event = events?.find((e: any) => e.id === params.id)
         if (event && event.maximumAttendeeCapacity) {
           maximumCapacity = event.maximumAttendeeCapacity
         }
@@ -157,20 +178,24 @@ export async function POST(
     
     // Map the API response to our expected format
     const availability = {
-      available: data.available,
-      event_id: data.event?.id || params.id,
+      available: availabilityData.available,
+      event_id: availabilityData.event?.id || params.id,
       capacity: maximumCapacity,
-      booked: maximumCapacity - (data.available_seats || 0),
-      remaining: data.available_seats || 0,
-      percentage_full: maximumCapacity ? Math.round(((maximumCapacity - (data.available_seats || 0)) / maximumCapacity) * 100) : 0
+      booked: maximumCapacity - (availabilityData.available_seats || 0),
+      remaining: availabilityData.available_seats || 0,
+      percentage_full: maximumCapacity ? Math.round(((maximumCapacity - (availabilityData.available_seats || 0)) / maximumCapacity) * 100) : 0
     }
     
-    return NextResponse.json(availability)
+    // Return with success wrapper format for consistency
+    return NextResponse.json({
+      success: true,
+      data: availability
+    })
   } catch (error) {
-    console.error('Failed to check event availability:', error)
-    return NextResponse.json(
-      { error: 'Failed to check availability' },
-      { status: 500 }
+    logError('api/events/[id]/availability', error, { id: params.id })
+    return createApiErrorResponse(
+      'We couldn\'t check availability for this event. Please try again later.',
+      503
     )
   }
 }

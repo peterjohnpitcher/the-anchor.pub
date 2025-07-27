@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { createApiErrorResponse, logError } from '@/lib/error-handling'
 
 const API_KEY = process.env.ANCHOR_API_KEY
 const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
@@ -9,10 +10,7 @@ export async function GET(
 ) {
   if (!API_KEY) {
     console.error('ANCHOR_API_KEY is not set in environment variables')
-    return NextResponse.json(
-      { error: 'API key not configured' },
-      { status: 500 }
-    )
+    return createApiErrorResponse('Service temporarily unavailable. Please try again later.', 503)
   }
 
   try {
@@ -30,17 +28,11 @@ export async function GET(
       
       if (response.status === 401) {
         console.error('Authentication failed - API key may be invalid or lack permissions')
-        return NextResponse.json(
-          { error: 'Authentication failed. Please check API key validity and permissions.' },
-          { status: 401 }
-        )
+        return createApiErrorResponse('Service temporarily unavailable. Please try again later.', 503)
       }
       
       if (response.status === 404) {
-        return NextResponse.json(
-          { error: 'Event not found' },
-          { status: 404 }
-        )
+        return createApiErrorResponse('Event not found', 404)
       }
       
       const errorText = await response.text()
@@ -49,12 +41,30 @@ export async function GET(
     }
 
     const data = await response.json()
-    return NextResponse.json(data)
+    
+    // Check if the response has the expected format
+    if (data.success === false) {
+      console.error('API returned error:', data.error)
+      return createApiErrorResponse(
+        data.error?.message || 'Unable to retrieve event',
+        400,
+        data.error
+      )
+    }
+    
+    // Extract data from success response
+    const eventData = data.data || data
+    
+    // Return with success wrapper format for consistency
+    return NextResponse.json({
+      success: true,
+      data: eventData
+    })
   } catch (error) {
-    console.error('Failed to fetch event:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch event' },
-      { status: 500 }
+    logError('api/events/[id]', error, { id: params.id })
+    return createApiErrorResponse(
+      'We couldn\'t load this event. Please try again later.',
+      503
     )
   }
 }

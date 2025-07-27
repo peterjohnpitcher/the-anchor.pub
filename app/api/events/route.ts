@@ -56,7 +56,25 @@ export async function GET(request: Request) {
     }
 
     const data = await response.json()
-    return NextResponse.json(data)
+    
+    // Check if the response has the expected format
+    if (data.success === false) {
+      console.error('API returned error:', data.error)
+      return createApiErrorResponse(
+        data.error?.message || 'Unable to load events',
+        400,
+        data.error
+      )
+    }
+    
+    // Extract data from success response
+    const eventsData = data.data || data
+    
+    // Return with success wrapper format for consistency
+    return NextResponse.json({
+      success: true,
+      data: eventsData
+    })
   } catch (error) {
     logError('api/events', error)
     return createApiErrorResponse(

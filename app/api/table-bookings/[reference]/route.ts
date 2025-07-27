@@ -50,7 +50,25 @@ export async function GET(
     }
 
     const data = await response.json()
-    return NextResponse.json(data)
+    
+    // Check if the response has the expected format
+    if (data.success === false) {
+      console.error('API returned error:', data.error)
+      return createApiErrorResponse(
+        data.error?.message || 'Unable to retrieve booking',
+        400,
+        data.error
+      )
+    }
+    
+    // Extract data from success response
+    const bookingData = data.data || data
+    
+    // Return with success wrapper format for consistency
+    return NextResponse.json({
+      success: true,
+      data: bookingData
+    })
   } catch (error) {
     logError('api/table-bookings/[reference]', error, { reference })
     return createApiErrorResponse(
@@ -127,7 +145,25 @@ export async function DELETE(
     }
 
     const data = await response.json()
-    return NextResponse.json(data)
+    
+    // Check if the response has the expected format
+    if (data.success === false) {
+      console.error('API returned error:', data.error)
+      return createApiErrorResponse(
+        data.error?.message || 'Unable to cancel booking',
+        400,
+        data.error
+      )
+    }
+    
+    // Extract data from success response
+    const cancellationData = data.data || data
+    
+    // Return with success wrapper format for consistency
+    return NextResponse.json({
+      success: true,
+      data: cancellationData
+    })
   } catch (error) {
     logError('api/table-bookings/[reference]/cancel', error, { reference })
     return createApiErrorResponse(

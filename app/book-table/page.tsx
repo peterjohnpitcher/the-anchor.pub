@@ -11,7 +11,6 @@ import { PhoneLink } from '@/components/PhoneLink'
 import { Alert } from '@/components/ui/feedback/Alert'
 import { Button } from '@/components/ui/primitives/Button'
 import { Badge } from '@/components/ui/primitives/Badge'
-import { StickyBookingBar } from '@/components/StickyBookingBar'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { InfoBoxGrid } from '@/components/ui'
 import { StatusBarWrapper } from '@/components/StatusBarWrapper'
@@ -39,12 +38,6 @@ export default function BookTablePage({
   return (
     <>
       <ScrollDepthTracker />
-      
-      {/* Sticky Booking Bar - Desktop Only */}
-      <StickyBookingBar 
-        source="book_table_sticky"
-        incentiveMessage="Ready to book? Select a date below"
-      />
       
       <OptimizedHeroSection
         size="medium"
@@ -195,12 +188,12 @@ export default function BookTablePage({
                 <p className="text-sm text-muted-foreground mb-4">
                   Planning a special event or need a private space?
                 </p>
-                <Button variant="outline" size="lg" asChild className="w-auto">
-                  <a href="/private-party-venue" className="inline-flex items-center whitespace-nowrap">
+                <a href="/private-party-venue">
+                  <Button variant="outline" size="lg" className="w-auto inline-flex items-center whitespace-nowrap">
                     <Icon name="sparkles" className="mr-2 flex-shrink-0" />
                     <span className="whitespace-nowrap">View Private Hire</span>
-                  </a>
-                </Button>
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
