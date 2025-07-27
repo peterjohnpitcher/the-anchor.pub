@@ -11,9 +11,10 @@ import {
   trackTableBookingSuccess,
   trackTableBookingError 
 } from '@/lib/gtm-events'
-import { type BusinessHours, type TableAvailabilityResponse } from '@/lib/api'
+import { type BusinessHours, type TableAvailabilityResponse, getKitchenStatus } from '@/lib/api'
 import { LoadingState } from '@/components/ui/LoadingState'
 import { Icon } from '@/components/ui/Icon'
+import { Alert } from '@/components/ui/feedback/Alert'
 
 interface StickyBookingBarProps {
   source?: string
@@ -105,6 +106,37 @@ export function StickyBookingBar({
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Get kitchen closure info for selected date
+  const getKitchenClosureForDate = (selectedDate: string) => {
+    if (!businessHours) return null
+    
+    // Check for special hours with kitchen closure notes
+    const specialHour = businessHours.specialHours?.find(sh => 
+      sh.date.startsWith(selectedDate) && sh.is_closed
+    )
+    
+    if (specialHour) {
+      return specialHour.note || specialHour.reason || 'Kitchen Closed'
+    }
+    
+    // Check regular hours for kitchen status
+    const date = new Date(selectedDate)
+    const dayName = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
+    const dayHours = businessHours.regularHours[dayName]
+    
+    if (!dayHours || dayHours.is_closed) {
+      return 'Closed All Day'
+    }
+    
+    // Check kitchen status
+    const kitchenStatus = dayHours.kitchen ? getKitchenStatus(dayHours.kitchen) : 'no-service'
+    if (kitchenStatus === 'no-service' || kitchenStatus === 'closed') {
+      return 'Kitchen Closed'
+    }
+    
+    return null
+  }
 
   // Get available times for selected date
   const getAvailableTimes = () => {
@@ -248,6 +280,19 @@ export function StickyBookingBar({
                 </span>
               )}
             </div>
+
+            {/* Kitchen Closure Alert */}
+            {date && getKitchenClosureForDate(date) && (
+              <Alert variant="warning" className="mb-3">
+                <Icon name="alert" className="h-4 w-4" />
+                <div>
+                  <p className="font-medium">
+                    {new Date(date).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })}
+                  </p>
+                  <p className="text-sm">{getKitchenClosureForDate(date)}</p>
+                </div>
+              </Alert>
+            )}
 
             {/* Form Fields */}
             <div className="flex items-center gap-3">
