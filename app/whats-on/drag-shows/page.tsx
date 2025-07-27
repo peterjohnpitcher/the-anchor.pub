@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { Metadata } from 'next'
@@ -7,6 +6,7 @@ import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 
 export const metadata: Metadata = {
   title: 'Drag Shows | The Anchor Stanwell Moor | Monthly Entertainment',
@@ -29,50 +29,34 @@ export default function DragShowsPage() {
     <>
       
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"
-            alt="Nikki Manfadge performing at The Anchor drag show"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-900/80 via-pink-900/60 to-purple-900/80" />
-        </div>
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-pink-300 text-lg mb-4 drop-shadow">Monthly Special Events</p>
-            <div className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Nikki Manfadge Presents:<br/>
-              <span className="text-3xl md:text-5xl lg:text-6xl">Drag Royalty at The Anchor</span>
-            </div>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow italic">
-              "Where Stanwell Moor meets Vegas, darling!"
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="tag bg-white/90 backdrop-blur-sm">👑 7PM Start</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🎭 Live Performance</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🏳️‍🌈 Everyone Welcome</span>
-              <span className="tag bg-white/90 backdrop-blur-sm">🍹 Themed Cocktails</span>
-            </div>
-            
-            <PhoneButton
-              phone="01753 682707"
-              source="drag_shows_hero"
-              variant="primary"
-              size="lg"
-            >
-              📞 Book Your Table Now
-            </PhoneButton>
-          </div>
-        </div>
-      </section>
+      <HeroWrapper
+        route="/whats-on/drag-shows"
+        title={
+          <>
+            Nikki Manfadge Presents:<br/>
+            <span className="text-3xl md:text-5xl lg:text-6xl">Drag Royalty at The Anchor</span>
+          </>
+        }
+        description="Where Stanwell Moor meets Vegas, darling!"
+        overlay="gradient"
+        className="min-h-[70vh]"
+        tags={[
+          { label: '👑 7PM Start', variant: 'default' },
+          { label: '🎭 Live Performance', variant: 'default' },
+          { label: '🏳️‍🌈 Everyone Welcome', variant: 'default' },
+          { label: '🍹 Themed Cocktails', variant: 'default' }
+        ]}
+        cta={
+          <PhoneButton
+            phone="01753 682707"
+            source="drag_shows_hero"
+            variant="primary"
+            size="lg"
+          >
+            📞 Book Your Table Now
+          </PhoneButton>
+        }
+      />
 
       {/* Page Title */}
       <section className="bg-white py-8">

@@ -7,6 +7,7 @@ import { Metadata } from 'next'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { BlogShareButtons } from '@/components/BlogShareButtons'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
@@ -122,24 +123,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       />
       <ScrollDepthTracker />
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-end mt-20">
-        <div className="absolute inset-0">
-          <Image
-            src={post.hero ? `/content/blog/${post.slug}/${post.hero}` : '/images/hero/the-anchor-pub-interior-atmosphere.jpg'}
-            alt={post.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-        </div>
-        
-        <div className="relative z-10 container mx-auto px-4 pb-12">
-          <div className="max-w-4xl">
-            <div className="flex flex-wrap gap-2 mb-4">
+      <HeroWrapper
+        route={`/blog/${params.slug}`}
+        title={post.title}
+        description={
+          <div className="space-y-4">
+            <div className="flex flex-wrap gap-2">
               {post.tags.map(tag => (
                 <Link 
                   key={tag} 
@@ -150,9 +139,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 </Link>
               ))}
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-              {post.title}
-            </h1>
             <div className="flex items-center gap-4 text-white/90">
               <span>{post.author}</span>
               <span>•</span>
@@ -163,8 +149,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               })}</time>
             </div>
           </div>
-        </div>
-      </section>
+        }
+        overlay="gradient"
+        className="min-h-[60vh]"
+        alignment="left"
+      />
 
       {/* Breadcrumb */}
       <section className="py-4 bg-gray-50">

@@ -16,6 +16,7 @@ import { Card, CardBody } from '@/components/ui/layout/Card'
 import { Alert } from '@/components/ui/feedback/Alert'
 import { Icon } from '@/components/ui/Icon'
 import { PhoneLink } from '@/components/PhoneLink'
+import { type BusinessHours, isKitchenOpen, getKitchenStatus } from '@/lib/api'
 
 interface MenuItem {
   id: string
@@ -64,10 +65,12 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
   const [menuError, setMenuError] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
+  const [businessHours, setBusinessHours] = useState<BusinessHours | null>(null)
+  const [hoursLoading, setHoursLoading] = useState(true)
   
   // Form state
   const [date, setDate] = useState('')
-  const [time, setTime] = useState('13:00')
+  const [time, setTime] = useState('')
   const [partySize, setPartySize] = useState(2)
   const [menuSelections, setMenuSelections] = useState<MenuSelection[]>([])
   const [sideSelections, setSideSelections] = useState<SideSelection[]>([])
@@ -89,6 +92,27 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         deviceType: window.innerWidth >= 768 ? 'desktop' : 'mobile'
       })
     }
+  }, [])
+  
+  // Fetch business hours
+  useEffect(() => {
+    const fetchBusinessHours = async () => {
+      try {
+        setHoursLoading(true)
+        const response = await fetch('/api/business-hours')
+        const data = await response.json()
+        
+        if (data && !data.error) {
+          setBusinessHours(data)
+        }
+      } catch (err) {
+        console.error('Failed to fetch business hours:', err)
+      } finally {
+        setHoursLoading(false)
+      }
+    }
+    
+    fetchBusinessHours()
   }, [])
   
   // Fetch menu data
@@ -153,6 +177,11 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
       setSideSelections(newSideSelections)
     }
   }, [menu])
+  
+  // Reset time when date changes
+  useEffect(() => {
+    setTime('') // Reset time selection when date changes
+  }, [date])
   
   // Calculate deposit amount (£5 per person)
   const depositAmount = partySize * 5
@@ -335,7 +364,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
     return nextSunday.toISOString().split('T')[0]
   }
   
-  // Get available Sundays (next 8 weeks)
+  // Get available Sundays (next 8 weeks) - filtered by kitchen availability
   const getAvailableSundays = () => {
     const sundays = []
     const today = new Date()
@@ -352,18 +381,102 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
       const date = new Date(today)
       const daysToAdd = ((7 - currentDay) % 7 || 7) + (i * 7)
       date.setDate(today.getDate() + daysToAdd)
-      sundays.push(date.toISOString().split('T')[0])
+      const dateStr = date.toISOString().split('T')[0]
+      
+      // Check if kitchen is open on this Sunday
+      if (businessHours) {
+        const sundayHours = businessHours.regularHours.sunday
+        
+        // Skip if the day is closed
+        if (sundayHours.is_closed) {
+          continue
+        }
+        
+        // Skip if kitchen is not available
+        const kitchenStatus = sundayHours.kitchen ? getKitchenStatus(sundayHours.kitchen) : 'no-service'
+        if (kitchenStatus === 'no-service' || kitchenStatus === 'closed') {
+          continue
+        }
+        
+        // Check for special closures
+        if (businessHours.specialHours) {
+          const specialHour = businessHours.specialHours.find(sh => 
+            sh.date.startsWith(dateStr) && sh.is_closed
+          )
+          if (specialHour) {
+            continue // Skip this date due to special closure
+          }
+        }
+      }
+      
+      sundays.push(dateStr)
     }
     
     return sundays
   }
   
-  if (menuLoading) {
+  // Get available times for a specific date
+  const getAvailableTimesForDate = (selectedDate: string) => {
+    if (!businessHours || !selectedDate) {
+      // Return default times if no business hours loaded
+      return [
+        "12:00", "12:30", "13:00", "13:30", "14:00", 
+        "14:30", "15:00", "15:30", "16:00", "16:30"
+      ]
+    }
+    
+    const sundayHours = businessHours.regularHours.sunday
+    
+    // Check for special hours on this date
+    let kitchenHours = sundayHours.kitchen
+    if (businessHours.specialHours) {
+      const specialHour = businessHours.specialHours.find(sh => 
+        sh.date.startsWith(selectedDate)
+      )
+      if (specialHour && !specialHour.is_closed && 'kitchen' in specialHour) {
+        kitchenHours = (specialHour as any).kitchen
+      }
+    }
+    
+    if (!kitchenHours || !isKitchenOpen(kitchenHours)) {
+      return [] // No times available if kitchen is closed
+    }
+    
+    // Parse kitchen hours
+    const [openHour, openMin] = kitchenHours.opens!.split(':').map(Number)
+    const [closeHour, closeMin] = kitchenHours.closes!.split(':').map(Number)
+    
+    const availableTimes = []
+    const minBookingTime = 90 // Minimum 90 minutes before kitchen closes
+    
+    // Generate 30-minute slots
+    for (let hour = openHour; hour <= closeHour; hour++) {
+      for (let min = 0; min < 60; min += 30) {
+        // Skip if before opening time
+        if (hour === openHour && min < openMin) continue
+        
+        // Calculate if there's enough time before kitchen closes
+        const slotTime = hour + min / 60
+        const closeTime = closeHour + closeMin / 60
+        const minutesBeforeClose = (closeTime - slotTime) * 60
+        
+        // Skip if less than minimum booking time before close
+        if (minutesBeforeClose < minBookingTime) continue
+        
+        const timeStr = `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`
+        availableTimes.push(timeStr)
+      }
+    }
+    
+    return availableTimes
+  }
+  
+  if (menuLoading || hoursLoading) {
     return (
       <div className="text-center py-8">
         <div className="inline-flex items-center gap-2">
           <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary"></div>
-          <span>Loading Sunday lunch menu...</span>
+          <span>Loading Sunday lunch booking options...</span>
         </div>
       </div>
     )
@@ -433,6 +546,32 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         </div>
       </Alert>
       
+      {/* Kitchen closure warning */}
+      {businessHours && getAvailableSundays().length === 0 && (
+        <Alert variant="error" className="mb-4">
+          <Icon name="alert" className="h-4 w-4" />
+          <div>
+            <p className="font-medium">No Sunday lunch service available</p>
+            <p className="text-sm mt-1">
+              Unfortunately, we don't have any Sunday lunch slots available at the moment. 
+              This may be due to kitchen closures or special events.
+            </p>
+            <p className="text-sm mt-1">
+              Please call us on{' '}
+              <PhoneLink
+                phone="01753682707"
+                source="sunday_lunch_no_availability"
+                className="text-red-700 underline font-medium"
+                showIcon={false}
+              >
+                01753 682707
+              </PhoneLink>
+              {' '}to check availability.
+            </p>
+          </div>
+        </Alert>
+      )}
+      
       {/* Booking details */}
       <Card variant="outlined" className="mb-4 border-0 rounded-none md:border md:rounded-lg">
         <CardBody className="p-0 md:p-6">
@@ -451,15 +590,25 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 className="w-full border rounded-md px-4 py-3 text-base"
               >
                 <option value="">Select Sunday</option>
-                {getAvailableSundays().map(sunday => (
-                  <option key={sunday} value={sunday}>
-                    {new Date(sunday).toLocaleDateString('en-GB', { 
-                      weekday: 'long', 
-                      day: 'numeric', 
-                      month: 'long' 
-                    })}
-                  </option>
-                ))}
+                {(() => {
+                  const availableSundays = getAvailableSundays()
+                  if (availableSundays.length === 0) {
+                    return (
+                      <option value="" disabled>
+                        No Sunday bookings available - please call us
+                      </option>
+                    )
+                  }
+                  return availableSundays.map(sunday => (
+                    <option key={sunday} value={sunday}>
+                      {new Date(sunday).toLocaleDateString('en-GB', { 
+                        weekday: 'long', 
+                        day: 'numeric', 
+                        month: 'long' 
+                      })}
+                    </option>
+                  ))
+                })()}
               </select>
             </div>
             
@@ -472,18 +621,25 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
-                className="w-full border rounded-md px-4 py-3 text-base"
+                disabled={!date}
+                className="w-full border rounded-md px-4 py-3 text-base disabled:bg-gray-100"
               >
-                <option value="12:00">12:00 PM</option>
-                <option value="12:30">12:30 PM</option>
-                <option value="13:00">1:00 PM</option>
-                <option value="13:30">1:30 PM</option>
-                <option value="14:00">2:00 PM</option>
-                <option value="14:30">2:30 PM</option>
-                <option value="15:00">3:00 PM</option>
-                <option value="15:30">3:30 PM</option>
-                <option value="16:00">4:00 PM</option>
-                <option value="16:30">4:30 PM</option>
+                <option value="">Select time</option>
+                {date && getAvailableTimesForDate(date).map(timeSlot => {
+                  const [hour, min] = timeSlot.split(':').map(Number)
+                  const displayHour = hour > 12 ? hour - 12 : hour
+                  const amPm = hour >= 12 ? 'PM' : 'AM'
+                  const displayTime = `${displayHour}:${min.toString().padStart(2, '0')} ${amPm}`
+                  
+                  return (
+                    <option key={timeSlot} value={timeSlot}>
+                      {displayTime}
+                    </option>
+                  )
+                })}
+                {date && getAvailableTimesForDate(date).length === 0 && (
+                  <option value="" disabled>No times available for this date</option>
+                )}
               </select>
             </div>
             

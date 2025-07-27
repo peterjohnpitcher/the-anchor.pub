@@ -6,6 +6,7 @@ import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getTagSEOContent } from '@/lib/tag-seo-content'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
@@ -60,34 +61,22 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-anchor-green to-anchor-green-dark" />
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-4">
-              <Link 
-                href="/blog" 
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                ← Back to Blog
-              </Link>
-            </div>
-            
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
-              {displayName}
-            </h1>
-            
-            <p className="text-lg md:text-xl text-white/90 mb-6 drop-shadow">
-              {seoContent.heroContent}
-            </p>
-            
-            <p className="text-white/80">
-              {taggedPosts.length} {taggedPosts.length === 1 ? 'post' : 'posts'}
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroWrapper
+        route={`/blog/tag/${params.tag}`}
+        title={displayName}
+        description={seoContent.heroContent}
+        overlay="gradient"
+        className="min-h-[40vh]"
+        breadcrumbs={[
+          { name: 'Blog', href: '/blog' },
+          { name: displayName }
+        ]}
+        cta={
+          <p className="text-white/80 mt-4">
+            {taggedPosts.length} {taggedPosts.length === 1 ? 'post' : 'posts'}
+          </p>
+        }
+      />
 
       {/* SEO Content Section */}
       <section className="py-12 bg-white">

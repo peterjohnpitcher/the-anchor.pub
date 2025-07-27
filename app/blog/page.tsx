@@ -6,6 +6,7 @@ import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 
 export const metadata: Metadata = {
   title: 'Blog | The Anchor Stanwell Moor | News & Updates',
@@ -77,39 +78,21 @@ export default async function BlogPage({
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-anchor-green to-anchor-green-dark" />
-        
-        <div className="relative z-10 w-full px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              The Anchor Blog
-            </h1>
-            
-            {/* Status Bar */}
-            <div className="flex justify-center mb-6">
-              <StatusBar 
-                theme={{
-                  background: 'bg-white/10 backdrop-blur-md',
-                  border: 'border-2 border-white/20',
-                  text: 'text-white',
-                  accentText: 'text-white/60'
-                }}
-              />
-            </div>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              News, events, and stories from your local pub
+      <HeroWrapper
+        route="/blog"
+        title="The Anchor Blog"
+        description="News, events, and stories from your local pub"
+        overlay="gradient"
+        className="min-h-[50vh]"
+        showStatusBar={true}
+        cta={
+          currentPage > 1 ? (
+            <p className="text-lg text-white/80 mt-4">
+              Page {currentPage} of {totalPages}
             </p>
-            
-            {currentPage > 1 && (
-              <p className="text-lg text-white/80">
-                Page {currentPage} of {totalPages}
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
+          ) : undefined
+        }
+      />
 
       {/* Page Title */}
       <Section className="py-8 bg-white">
