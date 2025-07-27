@@ -323,55 +323,47 @@ export default function ManagersSpecialPage() {
       )}
 
       {/* Story Section */}
-      <Section className="py-12 md:py-20 bg-white">
-        <Container>
-          <div className="max-w-4xl mx-auto">
-            <FeatureGrid
-              columns={3}
-              features={[
-                {
-                  icon: "🌿",
-                  title: `The ${spirit.name} Story`,
-                  description: (
-                    <div className="space-y-4 text-gray-700">
-                      <p className="text-lg leading-relaxed">{spirit.longDescription}</p>
-                      {spirit.name.includes('Botanist') ? (
-                        <>
-                          <p>
-                            Created at the Bruichladdich Distillery on Islay, The Botanist represents a unique 
-                            approach to gin-making. Master Distiller Jim McEwan set out to create a gin that 
-                            would reflect the wild, untamed nature of the Hebridean island.
-                          </p>
-                          <p>
-                            The result is a gin that tells the story of Islay in every sip - from the coastal 
-                            herbs that face the Atlantic storms to the delicate flowers found in sheltered glens.
-                          </p>
-                        </>
-                      ) : (
-                        <>
-                          <p>
-                            Founded by farmer Tom Warner, Warners Distillery began as a way to use surplus 
-                            produce from Falls Farm. What started in a barn has grown into one of Britain's 
-                            most celebrated craft distilleries.
-                          </p>
-                          <p>
-                            The elderflowers are picked at their peak in early summer, when the hedgerows are 
-                            heavy with creamy white blossoms. These are then infused into their award-winning 
-                            gin, creating that distinctive floral character.
-                          </p>
-                        </>
-                      )}
-                    </div>
-                  ),
-                  variant: "default",
-                  className: "bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200"
-                }
-              ]}
-              className="mb-0"
-            />
+      <FullWidthSection className="py-12 md:py-20 bg-gradient-to-br from-purple-50 to-purple-100">
+        <div className="w-full px-4 md:px-8 lg:px-12">
+          <div className="bg-white border-2 border-purple-200 rounded-xl p-8 md:p-12 lg:p-16">
+            <div className="flex items-center justify-center mb-6">
+              <span className="text-5xl">🌿</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-anchor-green mb-8">
+              The {spirit.name} Story
+            </h2>
+            <div className="space-y-6 text-gray-700 max-w-none">
+              <p className="text-lg md:text-xl leading-relaxed">{spirit.longDescription}</p>
+              {spirit.name.includes('Botanist') ? (
+                <>
+                  <p className="text-lg leading-relaxed">
+                    Created at the Bruichladdich Distillery on Islay, The Botanist represents a unique 
+                    approach to gin-making. Master Distiller Jim McEwan set out to create a gin that 
+                    would reflect the wild, untamed nature of the Hebridean island.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    The result is a gin that tells the story of Islay in every sip - from the coastal 
+                    herbs that face the Atlantic storms to the delicate flowers found in sheltered glens.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="text-lg leading-relaxed">
+                    Founded by farmer Tom Warner, Warners Distillery began as a way to use surplus 
+                    produce from Falls Farm. What started in a barn has grown into one of Britain's 
+                    most celebrated craft distilleries.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    The elderflowers are picked at their peak in early summer, when the hedgerows are 
+                    heavy with creamy white blossoms. These are then infused into their award-winning 
+                    gin, creating that distinctive floral character.
+                  </p>
+                </>
+              )}
+            </div>
           </div>
-        </Container>
-      </Section>
+        </div>
+      </FullWidthSection>
 
       {/* FAQs */}
       <FAQAccordionWithSchema 

@@ -265,21 +265,6 @@ export default async function DrinksMenuPage() {
               ]}
             />
             
-            {/* Drag Show Saturday Special */}
-            <div className="mt-8 bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-8 shadow-lg">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-anchor-green mb-4">
-                  👑 Saturday Night Special
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Join us for <Link href="/whats-on/drag-shows" className="text-purple-700 hover:text-purple-800 underline font-semibold">spectacular drag shows with Nikki Manfadge</Link>! 
-                  Themed cocktails, table service, and an unforgettable night of entertainment.
-                </p>
-                <p className="text-sm text-gray-700">
-                  Book early - Saturday nights with Nikki get busy!
-                </p>
-              </div>
-            </div>
           </div>
         </Container>
       </div>

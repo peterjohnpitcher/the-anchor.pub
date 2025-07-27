@@ -22,12 +22,19 @@ interface BookingRequest {
   allergies?: string | string[]  // Frontend might send either
   celebration_type?: string
   source?: string
-  // For Sunday lunch bookings
+  // For Sunday lunch bookings - supports both old and new format
   menu_selections?: Array<{
     guest_name: string
     menu_item_id: string
     item_type: 'starter' | 'main' | 'dessert'
     quantity: number
+    price_at_booking: number
+  }>
+  menu_items?: Array<{
+    custom_item_name: string
+    item_type: string
+    quantity: number
+    guest_name: string
     price_at_booking: number
   }>
 }
@@ -131,21 +138,37 @@ export async function POST(request: Request) {
     
     // Validate Sunday lunch specific requirements
     if (body.booking_type === 'sunday_lunch') {
-      if (!body.menu_selections || body.menu_selections.length === 0) {
+      // Check for either menu_items (new format) or menu_selections (old format)
+      if ((!body.menu_items || body.menu_items.length === 0) && 
+          (!body.menu_selections || body.menu_selections.length === 0)) {
         return createApiErrorResponse(
           'Menu selections are required for Sunday lunch bookings',
           400
         )
       }
       
-      // Validate each menu selection
-      for (const selection of body.menu_selections) {
-        if (!selection.guest_name || !selection.menu_item_id || !selection.item_type || 
-            !selection.quantity || !selection.price_at_booking) {
-          return createApiErrorResponse(
-            'Invalid menu selection. Each selection must include guest name, menu item, type, quantity, and price',
-            400
-          )
+      // Validate new format if present
+      if (body.menu_items && body.menu_items.length > 0) {
+        for (const item of body.menu_items) {
+          if (!item.custom_item_name || !item.item_type || !item.quantity || 
+              item.price_at_booking === undefined || !item.guest_name) {
+            return createApiErrorResponse(
+              'Invalid menu item. Each item must include name, type, quantity, guest name, and price',
+              400
+            )
+          }
+        }
+      }
+      // Validate old format if present
+      else if (body.menu_selections) {
+        for (const selection of body.menu_selections) {
+          if (!selection.guest_name || !selection.menu_item_id || !selection.item_type || 
+              !selection.quantity || selection.price_at_booking === undefined) {
+            return createApiErrorResponse(
+              'Invalid menu selection. Each selection must include guest name, menu item, type, quantity, and price',
+              400
+            )
+          }
         }
       }
     }
@@ -194,9 +217,21 @@ export async function POST(request: Request) {
       apiPayload.celebration_type = body.celebration_type
     }
     
-    // Add menu selections for Sunday lunch bookings
-    if (body.booking_type === 'sunday_lunch' && body.menu_selections) {
-      apiPayload.menu_selections = body.menu_selections
+    // Add menu items for Sunday lunch bookings
+    if (body.booking_type === 'sunday_lunch') {
+      // Prefer new format (menu_items) over old format (menu_selections)
+      if (body.menu_items && body.menu_items.length > 0) {
+        apiPayload.menu_items = body.menu_items
+      } else if (body.menu_selections && body.menu_selections.length > 0) {
+        // Convert old format to new format for API
+        apiPayload.menu_items = body.menu_selections.map(selection => ({
+          custom_item_name: selection.menu_item_id, // This will be replaced by actual name in future
+          item_type: selection.item_type,
+          quantity: selection.quantity,
+          guest_name: selection.guest_name,
+          price_at_booking: selection.price_at_booking
+        }))
+      }
     }
     
     console.log('Transformed API payload:', JSON.stringify(apiPayload, null, 2))

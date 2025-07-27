@@ -269,19 +269,62 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         })
       }
       
-      // Combine main course selections with side selections
-      const allMenuSelections: MenuSelection[] = [
-        ...menuSelections,
-        ...sideSelections
-          .filter(side => side.quantity > 0)
-          .map(side => ({
-            guest_name: 'Table',
-            menu_item_id: side.menu_item_id,
-            item_type: 'side' as const,
-            quantity: side.quantity,
-            price_at_booking: side.price_at_booking
-          }))
-      ]
+      // Convert menu selections to the required API format
+      const menuItems: Array<{
+        custom_item_name: string
+        item_type: string
+        quantity: number
+        guest_name: string
+        price_at_booking: number
+      }> = []
+      
+      // Add main courses
+      menuSelections.forEach((selection) => {
+        if (selection.menu_item_id && menu) {
+          const mainItem = menu.mains.find(m => m.id === selection.menu_item_id)
+          if (mainItem) {
+            menuItems.push({
+              custom_item_name: mainItem.name,
+              item_type: 'main',
+              quantity: 1,
+              guest_name: selection.guest_name,
+              price_at_booking: mainItem.price
+            })
+            
+            // Add included sides for each guest
+            menu.sides
+              .filter(side => side.included)
+              .forEach(side => {
+                menuItems.push({
+                  custom_item_name: side.name,
+                  item_type: 'side',
+                  quantity: 1,
+                  guest_name: selection.guest_name,
+                  price_at_booking: 0
+                })
+              })
+          }
+        }
+      })
+      
+      // Add optional extras (like cauliflower cheese)
+      sideSelections
+        .filter(side => side.quantity > 0)
+        .forEach(sideSelection => {
+          const sideItem = menu?.sides.find(s => s.id === sideSelection.menu_item_id)
+          if (sideItem) {
+            // Add one entry per quantity
+            for (let i = 0; i < sideSelection.quantity; i++) {
+              menuItems.push({
+                custom_item_name: sideItem.name,
+                item_type: 'extra',
+                quantity: 1,
+                guest_name: `Table`, // Shared by all guests
+                price_at_booking: sideItem.price
+              })
+            }
+          }
+        })
       
       const bookingData = {
         booking_type: 'sunday_lunch' as const,
@@ -297,7 +340,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         special_requirements: specialRequirements,
         dietary_requirements: dietaryRequirements,
         allergies: allergies,
-        menu_selections: allMenuSelections,
+        menu_items: menuItems, // Changed from menu_selections to menu_items
         source: 'website'
       }
       
