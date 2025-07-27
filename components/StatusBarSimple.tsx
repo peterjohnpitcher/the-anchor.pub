@@ -35,19 +35,40 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
     return null
   }
 
-  const { currentStatus } = data.data
+  const { currentStatus, regularHours } = data.data
   const isOpen = currentStatus.isOpen
   const kitchenOpen = currentStatus.kitchenOpen
+  
+  // Get today's hours
+  const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
+  const todayHours = regularHours[today]
+  
+  // Format time (HH:mm:ss to h:mma)
+  const formatTime = (time: string) => {
+    const [hour, minute] = time.split(':').map(Number)
+    const period = hour >= 12 ? 'pm' : 'am'
+    const displayHour = hour > 12 ? hour - 12 : hour || 12
+    return `${displayHour}${minute === 0 ? '' : `:${minute.toString().padStart(2, '0')}`}${period}`
+  }
 
   if (variant === 'navigation') {
     return (
-      <div className="flex items-center gap-2 text-sm">
-        <span className={cn('inline-block w-2 h-2 rounded-full', isOpen ? 'bg-green-400' : 'bg-red-400')} />
-        <span className="text-white">
-          Bar • {isOpen ? 'Open' : 'Closed'}
-          {currentStatus.closesIn && ` • Closes in ${currentStatus.closesIn}`}
-          {currentStatus.opensIn && ` • Opens in ${currentStatus.opensIn}`}
-        </span>
+      <div className="flex flex-col gap-0.5 text-xs">
+        <div className="flex items-center gap-1.5">
+          <span className={cn('inline-block w-2 h-2 rounded-full', isOpen ? 'bg-green-400' : 'bg-red-400')} />
+          <span className="text-white">
+            Bar: {isOpen ? `Open until ${formatTime(todayHours.closes)}` : todayHours?.opens ? `Opens at ${formatTime(todayHours.opens)}` : 'Closed'}
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className={cn('inline-block w-2 h-2 rounded-full', 
+            kitchenOpen ? 'bg-green-400' : isOpen ? 'bg-amber-400' : 'bg-red-400'
+          )} />
+          <span className="text-white">
+            Kitchen: {!todayHours?.kitchen || todayHours.kitchen === null ? 'Closed today' : 
+                     kitchenOpen ? `Open until ${formatTime(todayHours.kitchen.closes)}` : 'Closed today'}
+          </span>
+        </div>
       </div>
     )
   }
