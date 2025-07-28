@@ -13,7 +13,7 @@ import { generateNutritionInfo, generateSuitableForDiet } from '@/lib/schema-uti
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
-  description: 'Our renowned Sunday roasts at The Anchor pub in Surrey. Traditional British roast dinners served 12-5pm every Sunday. Pre-order required. Near Heathrow Airport.',
+  description: 'Our renowned Sunday roasts at The Anchor pub in Surrey. Traditional British roast dinners served 12-5pm every Sunday. Pre-order with £5 deposit required. Near Heathrow Airport.',
   keywords: 'sunday roast stanwell moor, sunday lunch near heathrow, best roast dinner surrey, traditional sunday lunch',
   openGraph: {
     title: 'Famous Sunday Roasts at The Anchor',
@@ -70,10 +70,10 @@ export default function SundayLunchPage() {
       >
         <div className="mt-6 bg-red-600/90 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
           <p className="text-white font-bold text-lg mb-1">
-            ⚠️ IMPORTANT: Pre-order & Payment Required
+            ⚠️ IMPORTANT: Pre-order & £5 Deposit Required
           </p>
           <p className="text-white text-sm">
-            Sunday roasts must be pre-ordered and paid for by 1pm on Saturday
+            Sunday roasts must be pre-ordered with a £5 per person deposit by 1pm on Saturday
           </p>
           <p className="text-white/90 text-sm sm:text-xs mt-2">
             Regular menu also available on Sundays without pre-order
@@ -143,10 +143,34 @@ export default function SundayLunchPage() {
                 <>
                   <p className="text-gray-700 mb-4">
                     Our Sunday dinners are made from scratch and to order. <strong>All Sunday roasts must be 
-                    pre-ordered and paid for by 1pm on Saturday.</strong> This ensures we can prepare your meal 
-                    fresh to order - a delicious 'like home' Sunday lunch.
+                    pre-ordered with a £5 per person deposit by 1pm on Saturday.</strong> The remaining balance 
+                    is paid on the day.
                   </p>
-                  <div className="bg-white rounded-lg p-4 mt-4">
+                  <div className="bg-green-50 rounded-lg p-4 mb-4">
+                    <h4 className="font-semibold text-green-900 mb-2">🌱 Why We Require Pre-Orders</h4>
+                    <ul className="space-y-2 text-sm text-green-800">
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-600">✓</span>
+                        <span><strong>Fresh preparation:</strong> We make your gorgeous Sunday lunch from scratch, ready when you sit down</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-600">✓</span>
+                        <span><strong>Reduced waste:</strong> Making meals to order helps us minimize food waste and be more sustainable</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-600">✓</span>
+                        <span><strong>Better prices:</strong> Less waste means we can keep our Sunday lunch prices affordable</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-green-600">✓</span>
+                        <span><strong>Guaranteed quality:</strong> Every roast is fresh and delicious, not sitting under heat lamps</span>
+                      </li>
+                    </ul>
+                    <p className="text-xs text-green-700 mt-3 italic">
+                      This system helps us continue offering Sunday lunches close to Heathrow without raising prices.
+                    </p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4">
                     <p className="text-sm text-gray-600 text-center">
                       <strong>Can't pre-order?</strong> No problem! Our regular menu is also available on 
                       Sundays without pre-order requirement.
@@ -253,6 +277,17 @@ export default function SundayLunchPage() {
               </div>
             </div>
             
+            {/* Deposit Information */}
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-8 text-center">
+              <h4 className="text-lg font-bold text-blue-900 mb-2">💳 Deposit Information</h4>
+              <p className="text-blue-800">
+                <strong>£5 per person deposit</strong> required when booking (by 1pm Saturday)
+              </p>
+              <p className="text-blue-700 text-sm mt-1">
+                Balance payable on the day • Prices shown are total per person
+              </p>
+            </div>
+            
             {/* Booking CTA within menu section */}
             <div className="text-center mb-12">
               <Button variant="primary" size="lg" className="w-full" asChild>
@@ -262,7 +297,7 @@ export default function SundayLunchPage() {
                 </Link>
               </Button>
               <p className="text-sm text-gray-600 mt-3">
-                Remember: Pre-order required by 1pm Saturday
+                Deadline: 1pm Saturday • £5 deposit per person
               </p>
             </div>
             
@@ -397,12 +432,20 @@ export default function SundayLunchPage() {
                     are fresh, not frozen. The roast potatoes are par-boiled then roasted in goose fat 
                     until golden and crispy. The Yorkshire puddings? Made from scratch, naturally.
                   </p>
-                  <p>
+                  <p className="mb-4">
                     This attention to detail is why we introduced our pre-order system. By knowing 
                     exactly how many roasts we're serving, we can prepare each one fresh to order, 
                     ensuring every plate meets our exacting standards. It's more work for us, but 
                     the results speak for themselves.
                   </p>
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+                    <h4 className="font-semibold text-green-900 mb-2">🌱 Our Commitment to Sustainability</h4>
+                    <p className="text-sm text-green-800">
+                      The £5 deposit ensures we prepare exactly what's needed, reducing food waste significantly. 
+                      This sustainable approach allows us to maintain quality and affordability - keeping our 
+                      Sunday roasts accessible to the community we serve.
+                    </p>
+                  </div>
                 </div>
               </div>
               
@@ -450,7 +493,7 @@ export default function SundayLunchPage() {
               Don't Miss Out on Sunday Roast
             </h2>
             <p className="text-lg mb-8">
-              Sunday roasts must be pre-ordered and paid for by 1pm on Saturday.
+              Sunday roasts must be pre-ordered with a £5 per person deposit by 1pm on Saturday.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -524,7 +567,7 @@ export default function SundayLunchPage() {
                 "description": "Sunday roasts must be pre-ordered by 1pm Saturday"
               },
               "acceptsReservations": "required",
-              "reservationPolicy": "Pre-order required by 1pm Saturday. Payment required at time of booking.",
+              "reservationPolicy": "Pre-order required by 1pm Saturday. £5 per person deposit required at time of booking, balance due on arrival.",
             "hasMenu": {
               "@type": "Menu",
               "name": "Sunday Roast Menu",
@@ -593,7 +636,7 @@ export default function SundayLunchPage() {
             "@context": "https://schema.org",
             "@type": "Offer",
             "name": "Sunday Roast Pre-Order Special",
-            "description": "Traditional British Sunday roast dinners with all the trimmings. Must be pre-ordered and paid for by 1pm Saturday.",
+            "description": "Traditional British Sunday roast dinners with all the trimmings. Must be pre-ordered with a £5 per person deposit by 1pm Saturday.",
             "url": "https://the-anchor.pub/sunday-lunch",
             "priceCurrency": "GBP",
             "priceRange": "£14.99 - £15.99",
@@ -627,6 +670,26 @@ export default function SundayLunchPage() {
             "availabilityEnds": "2025-12-31",
             "seller": {
               "@id": "https://the-anchor.pub/#business"
+            },
+            "priceSpecification": {
+              "@type": "CompoundPriceSpecification",
+              "priceComponent": [
+                {
+                  "@type": "UnitPriceSpecification",
+                  "name": "Deposit",
+                  "price": "5.00",
+                  "priceCurrency": "GBP",
+                  "unitText": "per person",
+                  "description": "Required at time of booking"
+                },
+                {
+                  "@type": "UnitPriceSpecification",
+                  "name": "Balance",
+                  "priceCurrency": "GBP",
+                  "unitText": "per person",
+                  "description": "Payable on arrival"
+                }
+              ]
             }
           },
           {
