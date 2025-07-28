@@ -340,7 +340,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         special_requirements: specialRequirements,
         dietary_requirements: dietaryRequirements,
         allergies: allergies,
-        menu_items: menuItems, // Changed from menu_selections to menu_items
+        menu_selections: menuItems, // API expects menu_selections, not menu_items
         source: 'website'
       }
       

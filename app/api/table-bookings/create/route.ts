@@ -138,34 +138,46 @@ export async function POST(request: Request) {
     
     // Validate Sunday lunch specific requirements
     if (body.booking_type === 'sunday_lunch') {
-      // Check for either menu_items (new format) or menu_selections (old format)
-      if ((!body.menu_items || body.menu_items.length === 0) && 
-          (!body.menu_selections || body.menu_selections.length === 0)) {
+      // Check for either menu_selections or menu_items
+      if ((!body.menu_selections || body.menu_selections.length === 0) && 
+          (!body.menu_items || body.menu_items.length === 0)) {
         return createApiErrorResponse(
           'Menu selections are required for Sunday lunch bookings',
           400
         )
       }
       
-      // Validate new format if present
-      if (body.menu_items && body.menu_items.length > 0) {
-        for (const item of body.menu_items) {
-          if (!item.custom_item_name || !item.item_type || !item.quantity || 
-              item.price_at_booking === undefined || !item.guest_name) {
+      // Get the array to validate
+      const selectionsToValidate = body.menu_selections || body.menu_items || []
+      
+      // Validate each selection
+      for (const selection of selectionsToValidate) {
+        // Check if it's new format (custom_item_name) or old format (menu_item_id)
+        const hasCustomName = 'custom_item_name' in selection
+        const hasMenuId = 'menu_item_id' in selection
+        
+        if (!hasCustomName && !hasMenuId) {
+          return createApiErrorResponse(
+            'Invalid menu selection. Each selection must include either custom_item_name or menu_item_id',
+            400
+          )
+        }
+        
+        if (hasCustomName) {
+          // New format validation
+          if (!selection.custom_item_name || !selection.item_type || !selection.quantity || 
+              selection.price_at_booking === undefined || !selection.guest_name) {
             return createApiErrorResponse(
-              'Invalid menu item. Each item must include name, type, quantity, guest name, and price',
+              'Invalid menu selection. Each selection must include name, type, quantity, guest name, and price',
               400
             )
           }
-        }
-      }
-      // Validate old format if present
-      else if (body.menu_selections) {
-        for (const selection of body.menu_selections) {
-          if (!selection.guest_name || !selection.menu_item_id || !selection.item_type || 
-              !selection.quantity || selection.price_at_booking === undefined) {
+        } else {
+          // Old format validation
+          if (!selection.menu_item_id || !selection.item_type || !selection.quantity || 
+              selection.price_at_booking === undefined || !selection.guest_name) {
             return createApiErrorResponse(
-              'Invalid menu selection. Each selection must include guest name, menu item, type, quantity, and price',
+              'Invalid menu selection. Each selection must include menu item ID, type, quantity, guest name, and price',
               400
             )
           }
@@ -217,20 +229,22 @@ export async function POST(request: Request) {
       apiPayload.celebration_type = body.celebration_type
     }
     
-    // Add menu items for Sunday lunch bookings
+    // Add menu selections for Sunday lunch bookings
     if (body.booking_type === 'sunday_lunch') {
-      // Prefer new format (menu_items) over old format (menu_selections)
-      if (body.menu_items && body.menu_items.length > 0) {
-        apiPayload.menu_items = body.menu_items
-      } else if (body.menu_selections && body.menu_selections.length > 0) {
-        // Convert old format to new format for API
-        apiPayload.menu_items = body.menu_selections.map(selection => ({
-          custom_item_name: selection.menu_item_id, // This will be replaced by actual name in future
-          item_type: selection.item_type,
-          quantity: selection.quantity,
-          guest_name: selection.guest_name,
-          price_at_booking: selection.price_at_booking
-        }))
+      // Handle new format with custom_item_name
+      if (body.menu_selections && body.menu_selections.length > 0) {
+        // Check if it's the new format (has custom_item_name) or old format (has menu_item_id)
+        const firstItem = body.menu_selections[0]
+        if ('custom_item_name' in firstItem) {
+          // New format - pass through as is
+          apiPayload.menu_selections = body.menu_selections
+        } else {
+          // Old format - keep for backward compatibility
+          apiPayload.menu_selections = body.menu_selections
+        }
+      } else if (body.menu_items && body.menu_items.length > 0) {
+        // Support menu_items as fallback
+        apiPayload.menu_selections = body.menu_items
       }
     }
     
