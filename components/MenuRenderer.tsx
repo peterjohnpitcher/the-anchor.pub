@@ -6,6 +6,7 @@ import { SpecialOfferNotifications } from './SpecialOfferNotifications'
 import { HeroBadge } from './HeroBadge'
 import Link from 'next/link'
 import { logError } from '@/lib/error-handling'
+import { ALLERGEN_TYPES } from '@/hooks/useAllergenFilter'
 
 interface MenuRendererProps {
   menuData: MenuData
@@ -267,6 +268,7 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
       {item.description && (
         <p className={`${isHighlighted ? 'text-gray-800 text-sm leading-relaxed' : 'text-gray-700'}`} itemProp="description">{item.description}</p>
       )}
+      <AllergenInfo item={item} />
       {item.vegetarian && (
         <meta itemProp="suitableForDiet" content="https://schema.org/VegetarianDiet" />
       )}
@@ -334,7 +336,8 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
               {item.description && (
                 <p className="text-gray-700 mb-4" itemProp="description">{item.description}</p>
               )}
-              <div className="text-sm font-semibold text-green-700 group-hover:text-green-800 flex items-center">
+              <AllergenInfo item={item} />
+              <div className="text-sm font-semibold text-green-700 group-hover:text-green-800 flex items-center mt-3">
                 View Full Details & Tasting Notes
                 <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -350,6 +353,34 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
   return cardContent
 })
 
+// Helper component to display allergen information
+const AllergenInfo = memo(function AllergenInfo({ item }: { item: MenuItem }) {
+  if (!item.allergens || item.allergens.length === 0) {
+    return null
+  }
+
+  return (
+    <div className="mt-2 text-sm text-gray-600">
+      <span className="font-medium">Contains: </span>
+      {item.allergens.map((allergen, index) => {
+        const allergenInfo = ALLERGEN_TYPES[allergen as keyof typeof ALLERGEN_TYPES]
+        return (
+          <span key={allergen}>
+            {index > 0 && ', '}
+            {allergenInfo ? (
+              <span className="inline-flex items-center">
+                {allergenInfo.icon} {allergenInfo.label}
+              </span>
+            ) : (
+              allergen
+            )}
+          </span>
+        )
+      })}
+    </div>
+  )
+})
+
 const MenuItemList = memo(function MenuItemList({ item, itemId, isFocused, onFocus }: MenuItemProps) {
   return (
     <div 
@@ -362,14 +393,23 @@ const MenuItemList = memo(function MenuItemList({ item, itemId, isFocused, onFoc
       data-item-id={itemId}
       aria-label={`${item.name}, ${item.price}${item.vegetarian ? ', vegetarian' : ''}`}
     >
-      <span itemProp="name">
-        {item.name}
-        {item.vegetarian && <span className="text-sm text-green-600 ml-1">(V)</span>}
-      </span>
-      <span className="text-anchor-gold font-semibold" itemProp="offers" itemScope itemType="https://schema.org/Offer">
-        <span itemProp="price" content={item.price.replace('£', '')}>{item.price}</span>
-        <meta itemProp="priceCurrency" content="GBP" />
-      </span>
+      <div className="flex-1">
+        <div className="flex justify-between items-center">
+          <span itemProp="name">
+            {item.name}
+            {item.vegetarian && <span className="text-sm text-green-600 ml-1">(V)</span>}
+          </span>
+          <span className="text-anchor-gold font-semibold ml-4" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+            <span itemProp="price" content={item.price.replace('£', '')}>{item.price}</span>
+            <meta itemProp="priceCurrency" content="GBP" />
+          </span>
+        </div>
+        {item.allergens && item.allergens.length > 0 && (
+          <div className="text-xs text-gray-500 mt-1">
+            <span>Contains: {item.allergens.join(', ')}</span>
+          </div>
+        )}
+      </div>
       {item.vegetarian && (
         <meta itemProp="suitableForDiet" content="https://schema.org/VegetarianDiet" />
       )}

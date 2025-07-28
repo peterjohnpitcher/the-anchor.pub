@@ -20,12 +20,16 @@
             {
               "name": "Chicken Goujon Wrap with Chips",
               "price": "£9.99",
-              "description": "Crispy chicken goujons in a wrap with salad & chips."
+              "description": "Crispy chicken goujons in a wrap with salad & chips.",
+              "allergens": ["gluten"],
+              "vegetarian": false
             },
             {
               "name": "Fish Finger Wrap with Chips",
               "price": "£9.99",
-              "description": "Golden fish fingers in a soft wrap with salad & chips."
+              "description": "Golden fish fingers in a soft wrap with salad & chips.",
+              "allergens": ["gluten", "fish"],
+              "vegetarian": false
             }
           ]
         },
@@ -36,24 +40,31 @@
             {
               "name": "Chips",
               "price": "£3.49",
+              "allergens": [],
               "vegetarian": true
             },
             {
               "name": "Chunky Chips",
-              "price": "£4.49"
+              "price": "£4.49",
+              "allergens": [],
+              "vegetarian": true
             },
             {
               "name": "Cheesy Chips",
-              "price": "£4.99"
+              "price": "£4.99",
+              "allergens": ["milk"],
+              "vegetarian": true
             },
             {
               "name": "Sweet Potato Fries",
               "price": "£4.49",
+              "allergens": [],
               "vegetarian": true
             },
             {
               "name": "6 Onion Rings",
               "price": "£3.49",
+              "allergens": ["gluten"],
               "vegetarian": true
             }
           ]
@@ -73,17 +84,23 @@
             {
               "name": "4 Chicken Goujons with Chips",
               "price": "£7.49",
-              "description": ""
+              "description": "",
+              "allergens": ["gluten"],
+              "vegetarian": false
             },
             {
               "name": "5 Salt & Chilli Squid with Chips",
               "price": "£7.49",
-              "description": ""
+              "description": "",
+              "allergens": ["gluten", "molluscs"],
+              "vegetarian": false
             },
             {
               "name": "3 Fish Fingers with Chips",
               "price": "£7.49",
-              "description": ""
+              "description": "",
+              "allergens": ["gluten", "fish"],
+              "vegetarian": false
             }
           ]
         }
@@ -101,43 +118,57 @@
             {
               "name": "Beef & Ale Pie",
               "price": "£14.99",
-              "description": "Tender slow-cooked beef in a hearty ale gravy, wrapped in golden pastry. Served with buttery mash and seasonal vegetables."
+              "description": "Tender slow-cooked beef in a hearty ale gravy, wrapped in golden pastry. Served with buttery mash and seasonal vegetables.",
+              "allergens": ["celery", "gluten", "eggs", "milk"],
+              "vegetarian": false
             },
             {
               "name": "Chicken Katsu Curry",
               "price": "£13.99",
-              "description": "Crispy breaded chicken served on fluffy rice, smothered in aromatic katsu curry sauce. A fusion of British and Japanese flavours."
+              "description": "Crispy breaded chicken served on fluffy rice, smothered in aromatic katsu curry sauce. A fusion of British and Japanese flavours.",
+              "allergens": ["gluten", "milk", "sulphites"],
+              "vegetarian": false
             },
             {
               "name": "Chicken & Wild Mushroom Pie",
               "price": "£14.99",
-              "description": "Succulent chicken and wild mushrooms in a creamy sauce, encased in flaky pastry. Served with smooth mash and fresh seasonal veg."
+              "description": "Succulent chicken and wild mushrooms in a creamy sauce, encased in flaky pastry. Served with smooth mash and fresh seasonal veg.",
+              "allergens": ["gluten", "eggs", "milk", "nuts"],
+              "vegetarian": false
             },
             {
               "name": "Sausage & Mash",
               "price": "£13.99",
-              "description": "Three juicy sausages on creamy mash, topped with crispy onions and rich gravy. A comforting British classic, full of flavour."
+              "description": "Three juicy sausages on creamy mash, topped with crispy onions and rich gravy. A comforting British classic, full of flavour.",
+              "allergens": ["gluten", "milk", "sulphites"],
+              "vegetarian": false
             },
             {
               "name": "Lamb Shank",
               "price": "£14.99",
-              "description": "Slow-cooked lamb shank, served with smooth mash and seasonal veg. Finished with a rich mint-infused gravy for a perfect balance."
+              "description": "Slow-cooked lamb shank, served with smooth mash and seasonal veg. Finished with a rich mint-infused gravy for a perfect balance.",
+              "allergens": ["milk"],
+              "vegetarian": false
             },
             {
               "name": "Spinach & Ricotta Cannelloni",
               "price": "£13.99",
               "description": "Pasta tubes filled with creamy ricotta and spinach, baked in rich tomato sauce. Served with garlic bread and crisp mixed salad.",
+              "allergens": ["gluten", "eggs", "milk"],
               "vegetarian": true
             },
             {
               "name": "Lasagne",
               "price": "£14.99",
-              "description": "Layers of pasta, rich meat sauce, and creamy béchamel, baked until golden. Served with crisp salad and warm garlic bread."
+              "description": "Layers of pasta, rich meat sauce, and creamy béchamel, baked until golden. Served with crisp salad and warm garlic bread.",
+              "allergens": ["gluten", "eggs", "milk"],
+              "vegetarian": false
             },
             {
               "name": "Mac 'N Cheese",
               "price": "£13.99",
               "description": "Creamy macaroni in a rich cheese sauce, topped with crispy onions. Served with garlic bread and fresh salad for extra indulgence.",
+              "allergens": ["gluten", "milk", "mustard"],
               "vegetarian": true
             }
           ]
@@ -150,22 +181,84 @@
             {
               "name": "Fish & Chips",
               "price": "£14.99",
-              "description": "Beer-battered fish, crispy golden chips, mushy peas, tartar sauce, and a fresh lemon wedge for a classic taste."
+              "description": "Beer-battered fish, crispy golden chips, mushy peas, tartar sauce, and a fresh lemon wedge for a classic taste.",
+              "allergens": ["gluten", "fish"],
+              "vegetarian": false
             },
             {
               "name": "Half Fish & Chips",
               "price": "£11.99",
-              "description": "Half-sized battered fish with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge—light but satisfying."
+              "description": "Half-sized battered fish with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge—light but satisfying.",
+              "allergens": ["gluten", "fish"],
+              "vegetarian": false
             },
             {
               "name": "Scampi & Chips",
               "price": "£12.99",
-              "description": "Golden, crispy scampi served with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge for balance."
+              "description": "Golden, crispy scampi served with chunky chips, mushy peas, tartar sauce, and a fresh lemon wedge for balance.",
+              "allergens": ["gluten", "crustaceans", "eggs"],
+              "vegetarian": false
             },
             {
               "name": "Jumbo Sausage & Chips",
               "price": "£12.99",
-              "description": "Jumbo sausage with chunky chips, mushy peas, and your choice of sauce—perfect for a hearty, no-fuss meal."
+              "description": "Jumbo sausage with chunky chips, mushy peas, and your choice of sauce—perfect for a hearty, no-fuss meal.",
+              "allergens": ["gluten", "soya", "sulphites"],
+              "vegetarian": false
+            }
+          ]
+        },
+        {
+          "title": "Sauces & Condiments",
+          "style": "list",
+          "items": [
+            {
+              "name": "Bisto Gravy",
+              "price": "",
+              "allergens": [],
+              "vegetarian": true
+            },
+            {
+              "name": "Mayonnaise",
+              "price": "",
+              "allergens": ["eggs", "milk"],
+              "vegetarian": true
+            },
+            {
+              "name": "Garlic Mayonnaise",
+              "price": "",
+              "allergens": ["eggs", "milk"],
+              "vegetarian": true
+            },
+            {
+              "name": "Ketchup",
+              "price": "",
+              "allergens": [],
+              "vegetarian": true
+            },
+            {
+              "name": "English Mustard",
+              "price": "",
+              "allergens": ["gluten"],
+              "vegetarian": true
+            },
+            {
+              "name": "Tartar Sauce",
+              "price": "",
+              "allergens": ["eggs", "milk"],
+              "vegetarian": true
+            },
+            {
+              "name": "Mint Sauce",
+              "price": "",
+              "allergens": [],
+              "vegetarian": true
+            },
+            {
+              "name": "Cranberry Sauce",
+              "price": "",
+              "allergens": [],
+              "vegetarian": true
             }
           ]
         }
@@ -184,22 +277,29 @@
             {
               "name": "Beef Burger",
               "price": "£9.99",
-              "description": "Classic beef patty with all the trimmings"
+              "description": "Classic beef patty with all the trimmings",
+              "allergens": ["gluten", "peanuts"],
+              "vegetarian": false
             },
             {
               "name": "Spicy Chicken Burger",
               "price": "£9.99",
-              "description": "Crispy coated chicken with a spicy kick"
+              "description": "Crispy coated chicken with a spicy kick",
+              "allergens": ["gluten"],
+              "vegetarian": false
             },
             {
               "name": "Chicken Burger",
               "price": "£9.99",
-              "description": "Juicy grilled chicken breast"
+              "description": "Juicy grilled chicken breast",
+              "allergens": ["gluten", "milk"],
+              "vegetarian": false
             },
             {
               "name": "Vegetable Burger",
               "price": "£9.99",
               "description": "Plant-based patty packed with flavour",
+              "allergens": ["gluten", "soya"],
               "vegetarian": true
             }
           ]
@@ -212,27 +312,60 @@
             {
               "name": "Katsu Chicken Burger",
               "price": "£12.99",
-              "description": "Crispy chicken fillet topped with rich katsu curry sauce, fresh cucumber, and golden chips. A bold twist!"
+              "description": "Crispy chicken fillet topped with rich katsu curry sauce, fresh cucumber, and golden chips. A bold twist!",
+              "allergens": ["gluten", "milk"],
+              "vegetarian": false
             },
             {
               "name": "Beef Stack",
               "price": "£12.99",
-              "description": "Double beef patties, fresh salad, crispy onion ring, and golden chips. Customise with cheese or bacon!"
+              "description": "Double beef patties, fresh salad, crispy onion ring, and golden chips. Customise with cheese or bacon!",
+              "allergens": ["gluten", "peanuts"],
+              "vegetarian": false
             },
             {
               "name": "Spicy Chicken Stack",
               "price": "£12.99",
-              "description": "Crispy, spicy chicken with fresh salad, a crunchy hash brown, and golden chips. Add your favourite sauce!"
+              "description": "Crispy, spicy chicken with fresh salad, a crunchy hash brown, and golden chips. Add your favourite sauce!",
+              "allergens": ["gluten"],
+              "vegetarian": false
             },
             {
               "name": "Chicken Stack",
               "price": "£12.99",
-              "description": "Breaded chicken fillet, crisp salad, hash brown, and golden chips. A hearty choice—perfect with sauce!"
+              "description": "Breaded chicken fillet, crisp salad, hash brown, and golden chips. A hearty choice—perfect with sauce!",
+              "allergens": ["gluten", "milk"],
+              "vegetarian": false
             },
             {
               "name": "Veggie Stack",
               "price": "£12.99",
               "description": "A tasty veggie patty with fresh salad, a crispy onion ring, and golden chips. A satisfying meat-free treat!",
+              "allergens": ["gluten", "soya", "sulphites"],
+              "vegetarian": true
+            }
+          ]
+        },
+        {
+          "title": "Burger Sauces & Extras",
+          "style": "list",
+          "items": [
+            {
+              "name": "BBQ Sauce",
+              "price": "",
+              "allergens": ["gluten", "peanuts"],
+              "vegetarian": true
+            },
+            {
+              "name": "Burger Sauce",
+              "price": "",
+              "allergens": ["eggs", "milk"],
+              "vegetarian": true
+            },
+            {
+              "name": "Sweet Chilli Dipping Sauce",
+              "price": "",
+              "allergens": [],
               "vegetarian": true
             }
           ]
@@ -253,48 +386,64 @@
               "name": "Rustic Classic",
               "price": "£7.49 / £10.49",
               "description": "Rich tomato sauce, creamy mozzarella, crisp stone-baked crust—a timeless favourite.",
+              "allergens": ["gluten", "milk", "soya"],
               "vegetarian": true
             },
             {
               "name": "Simply Salami",
               "price": "£8.49 / £12.99",
-              "description": "Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection."
+              "description": "Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection.",
+              "allergens": ["gluten", "milk", "soya"],
+              "vegetarian": false
             },
             {
               "name": "Fully Loaded",
               "price": "£9.49 / £13.99",
-              "description": "Napoli salami, speck ham, fennel salami, mozzarella on a bold stone-baked base."
+              "description": "Napoli salami, speck ham, fennel salami, mozzarella on a bold stone-baked base.",
+              "allergens": ["gluten", "milk", "soya"],
+              "vegetarian": false
             },
             {
               "name": "Nice & Spicy",
               "price": "£8.49 / £13.49",
-              "description": "'Nduja, Ventricina, roquito peppers, mozzarella—fiery flavours on a crisp crust."
+              "description": "'Nduja, Ventricina, roquito peppers, mozzarella—fiery flavours on a crisp crust.",
+              "allergens": ["gluten", "milk", "soya"],
+              "vegetarian": false
             },
             {
               "name": "The Garden Club",
               "price": "£8.99 / £12.99",
               "description": "Roasted courgettes, caramelised onions, rocket, and mozzarella on a rich tomato base.",
+              "allergens": ["gluten", "milk", "soya", "sulphites"],
               "vegetarian": true
             },
             {
               "name": "Smoked Chilli Chicken",
               "price": "£8.99 / £13.49",
-              "description": "Smoky paprika base with chicken, mozzarella, and roquito peppers for a spicy-savoury bite."
+              "description": "Smoky paprika base with chicken, mozzarella, and roquito peppers for a spicy-savoury bite.",
+              "allergens": ["gluten", "milk", "soya"],
+              "vegetarian": false
             },
             {
               "name": "Chicken & Pesto",
               "price": "£9.49 / £13.49",
-              "description": "Tender chicken, basil pesto, and melted mozzarella on a crisp, stone-baked crust."
+              "description": "Tender chicken, basil pesto, and melted mozzarella on a crisp, stone-baked crust.",
+              "allergens": ["gluten", "milk", "soya"],
+              "vegetarian": false
             },
             {
               "name": "Barbecue Chicken",
               "price": "£9.99 / £13.99",
-              "description": "Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust."
+              "description": "Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust.",
+              "allergens": ["gluten", "milk", "soya", "sulphites"],
+              "vegetarian": false
             },
             {
               "name": "Speck Ham & Parmesan",
               "price": "£9.99 / £13.99",
-              "description": "Thinly sliced speck ham, shaved parmesan, and mozzarella on rich tomato sauce."
+              "description": "Thinly sliced speck ham, shaved parmesan, and mozzarella on rich tomato sauce.",
+              "allergens": ["gluten", "crustaceans", "milk", "soya"],
+              "vegetarian": false
             }
           ]
         },
@@ -306,12 +455,14 @@
               "name": "Garlic Bread",
               "price": "£7.49 / £9.49",
               "description": "Stone-baked bread brushed with garlic butter, warm and crispy every time.",
+              "allergens": ["gluten", "milk", "soya"],
               "vegetarian": true
             },
             {
               "name": "Garlic Bread with Mozzarella",
               "price": "£9.49 / £11.49",
               "description": "Warm garlic bread crowned with melted mozzarella for pure indulgence.",
+              "allergens": ["gluten", "milk", "soya"],
               "vegetarian": true
             }
           ]
@@ -330,22 +481,60 @@
             {
               "name": "Apple Crumble",
               "price": "£5.99",
-              "description": "Spiced apple crumble served warm with custard or ice cream."
+              "description": "Spiced apple crumble served warm with custard or ice cream.",
+              "allergens": ["gluten"],
+              "vegetarian": true
             },
             {
               "name": "Chocolate Fudge Brownie",
               "price": "£5.99",
-              "description": "Gooey chocolate brownie, ideal with custard or ice cream."
+              "description": "Gooey chocolate brownie, ideal with custard or ice cream.",
+              "allergens": ["eggs", "milk", "soya"],
+              "vegetarian": true
             },
             {
               "name": "Sticky Toffee Pudding",
               "price": "£5.99",
-              "description": "Rich sponge pudding in toffee sauce, perfect with custard."
+              "description": "Rich sponge pudding in toffee sauce, perfect with custard.",
+              "allergens": ["eggs"],
+              "vegetarian": true
             },
             {
               "name": "Ice Cream Sundae",
               "price": "£4.99",
-              "description": "Three scoops of ice cream with chocolate or strawberry sauce."
+              "description": "Three scoops of ice cream with chocolate or strawberry sauce.",
+              "allergens": ["milk"],
+              "vegetarian": true
+            }
+          ]
+        },
+        {
+          "title": "Dessert Sauces",
+          "style": "list",
+          "items": [
+            {
+              "name": "Chocolate Sauce",
+              "price": "",
+              "allergens": [],
+              "vegetarian": true
+            },
+            {
+              "name": "Strawberry Sauce",
+              "price": "",
+              "allergens": [],
+              "vegetarian": true
+            },
+            {
+              "name": "Toffee Sauce",
+              "price": "",
+              "allergens": ["milk"],
+              "vegetarian": true
+            },
+            {
+              "name": "Balsamic Dressing",
+              "price": "",
+              "allergens": ["sulphites"],
+              "vegetarian": true
             }
           ]
         }
@@ -362,24 +551,34 @@
           "items": [
             {
               "name": "Americano",
-              "price": "£2.10"
+              "price": "£2.10",
+              "allergens": [],
+              "vegetarian": true
             },
             {
               "name": "Latte",
-              "price": "£2.50"
+              "price": "£2.50",
+              "allergens": ["milk"],
+              "vegetarian": true
             },
             {
               "name": "Cappuccino",
-              "price": "£2.50"
+              "price": "£2.50",
+              "allergens": ["milk"],
+              "vegetarian": true
             },
             {
               "name": "Hot Chocolate",
-              "price": "£2.40"
+              "price": "£2.40",
+              "allergens": ["milk"],
+              "vegetarian": true
             },
             {
               "name": "Individual Pot of Tea",
               "price": "£2.20",
-              "description": "Tetley Tea, Decaffeinated, Earl gray, Green Tea, Green Tea with Lemon, Mint Fusion, Raspberry Pomegranate"
+              "description": "Tetley Tea, Decaffeinated, Earl gray, Green Tea, Green Tea with Lemon, Mint Fusion, Raspberry Pomegranate",
+              "allergens": [],
+              "vegetarian": true
             }
           ]
         }

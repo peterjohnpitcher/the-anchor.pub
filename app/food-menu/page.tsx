@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button, Container, Section, Card, CardBody, Alert } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
-import { MenuRenderer } from '@/components/MenuRenderer'
+import { FilteredMenuRenderer } from '@/components/FilteredMenuRenderer'
 import { DailySpecials } from '@/components/DailySpecials'
 import { HeroWrapper, Breadcrumbs } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
@@ -403,7 +403,7 @@ export default async function FoodMenuPage() {
 
       {/* Menu Content */}
       <div id="menu">
-        <MenuRenderer menuData={menuData} />
+        <FilteredMenuRenderer menuData={menuData} />
       </div>
 
       {/* Additional Information */}
