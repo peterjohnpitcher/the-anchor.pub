@@ -7,6 +7,7 @@ import { StatusBar } from './StatusBar'
 import { FALLBACK_CONTENT, CONTACT_INFO, logError } from '@/lib/error-handling'
 import { LoadingState } from '@/components/ui/LoadingState'
 import { parseApiDuration } from '@/lib/time-utils'
+import { useBusinessHours } from '@/hooks/useBusinessHours'
 
 interface WeatherForecast {
   date: string
@@ -24,46 +25,39 @@ interface BusinessHoursProps {
 }
 
 export function BusinessHours({ variant = 'full', showKitchen = true, showWeather = false }: BusinessHoursProps) {
-  const [hours, setHours] = useState<BusinessHours | null>(null)
   const [forecast, setForecast] = useState<WeatherForecast[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [weatherLoading, setWeatherLoading] = useState(false)
+  
+  // Use the useBusinessHours hook instead of manual fetching
+  const { hours, loading, error } = useBusinessHours({
+    refreshInterval: 5 * 60 * 1000 // 5 minutes
+  })
 
+  // Fetch weather data separately if needed
   useEffect(() => {
-    async function fetchData() {
+    async function fetchWeather() {
+      if (!showWeather || (variant !== 'dark' && variant !== 'condensed')) {
+        return
+      }
+      
       try {
-        const [hoursResponse, weatherData] = await Promise.all([
-          fetch('/api/business-hours'),
-          showWeather && (variant === 'dark' || variant === 'condensed') ? fetch('/api/weather?type=forecast').then(r => r.json()) : Promise.resolve(null)
-        ])
-        
-        const hoursResponseData = await hoursResponse.json()
-        
-        // Handle new API response format
-        if (hoursResponseData.success === false && hoursResponseData.error) {
-          throw new Error(hoursResponseData.error.message || 'Failed to load business hours')
-        }
-        
-        // Extract the actual data from the response
-        const hoursData = hoursResponseData.data || hoursResponseData
-        
-        setHours(hoursData)
+        setWeatherLoading(true)
+        const weatherData = await fetch('/api/weather?type=forecast').then(r => r.json())
         
         if (weatherData && weatherData.forecast) {
           setForecast(weatherData.forecast)
         }
       } catch (err) {
-        // Error: Failed to fetch data
-        logError('business-hours-fetch', err, { variant, showWeather })
-        setError(`We couldn't load our opening hours. We're typically open 4pm-10pm Mon, 12pm-10pm Tue-Thu, 12pm-11pm Fri-Sat, and 12pm-9pm Sun. Call us at ${CONTACT_INFO.phone} for today's hours.`)
+        logError('weather-fetch', err, { variant })
+        // Weather is optional, so we don't set an error state
       } finally {
-        setLoading(false)
+        setWeatherLoading(false)
       }
     }
 
-    fetchData()
-    // Refresh every 5 minutes
-    const interval = setInterval(fetchData, 5 * 60 * 1000)
+    fetchWeather()
+    // Refresh weather every 30 minutes
+    const interval = setInterval(fetchWeather, 30 * 60 * 1000)
     return () => clearInterval(interval)
   }, [showWeather, variant])
 
@@ -75,6 +69,8 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
   }
 
   if (error || !hours) {
+    const errorMessage = error?.message || `We couldn't load our opening hours. We're typically open 4pm-10pm Mon, 12pm-10pm Tue-Thu, 12pm-11pm Fri-Sat, and 12pm-9pm Sun. Call us at ${CONTACT_INFO.phone} for today's hours.`
+    
     if (variant === 'status') {
       return (
         <span className="text-sm text-red-600">
@@ -87,7 +83,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
     // Show fallback hours
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-        <p className="text-red-700 text-sm mb-2">{error || "Couldn't load hours"}</p>
+        <p className="text-red-700 text-sm mb-2">{errorMessage}</p>
         <div className="text-sm text-gray-700">
           <p className="font-semibold mb-1">Regular Hours:</p>
           <ul className="space-y-1 text-sm">

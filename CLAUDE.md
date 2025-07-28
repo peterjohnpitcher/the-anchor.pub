@@ -2,6 +2,36 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Collaboration Guidelines
+
+When working on this codebase:
+
+### 1. Scope Management
+- **Only make changes explicitly requested** - no "while I'm here" improvements
+- **List planned changes before executing** - get confirmation first
+- **Stick to the exact scope** - resist adding extras like comments, reorganization, or "cleanup"
+
+### 2. Communication Pattern
+Before making changes:
+1. Clearly state what files will be modified
+2. List the specific changes to be made
+3. Wait for confirmation before proceeding
+4. Use TodoWrite tool to track each requested change
+
+### 3. Avoid Unsolicited Changes
+Do NOT:
+- Add comments unless specifically asked
+- Reorganize code structure
+- "Improve" code style or formatting
+- Add documentation unless requested
+- Create new files unless explicitly required
+
+### 4. Ask Before Assuming
+When unsure:
+- "Should I also update X?"
+- "This might affect Y - should I address it?"
+- "I noticed Z - would you like me to fix that separately?"
+
 ## Commands
 
 ### Development
