@@ -133,7 +133,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                 {event.highlights && event.highlights.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-3">
                     {event.highlights.slice(0, 3).map((highlight, idx) => (
-                      <span key={idx} className="text-sm sm:text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-700">
+                      <span key={idx} className="text-sm sm:text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-700 whitespace-nowrap">
                         {highlight}
                       </span>
                     ))}
