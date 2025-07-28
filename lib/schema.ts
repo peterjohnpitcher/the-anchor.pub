@@ -222,7 +222,6 @@ export const specialAnnouncementSchema = {
   "text": "The Anchor is closed every Monday. Kitchen is also closed on Mondays.",
   "datePosted": "2024-01-01",
   "expires": "2025-12-31",
-  "category": "https://www.wikidata.org/wiki/Q7692202",
   "announcementLocation": {
     "@id": "https://the-anchor.pub/#business"
   },

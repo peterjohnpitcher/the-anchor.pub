@@ -127,7 +127,14 @@ export default async function FoodMenuPage() {
     "itemOffered": {
       "@type": "Product",
       "name": "Stone-Baked Pizzas",
-      "category": "Pizza"
+      "category": "Pizza",
+      "offers": {
+        "@type": "Offer",
+        "name": "Tuesday Pizza BOGOF",
+        "description": "Buy one get one free on all pizzas every Tuesday",
+        "price": "9.99",
+        "priceCurrency": "GBP"
+      }
     },
     "seller": {
       "@type": "LocalBusiness",
