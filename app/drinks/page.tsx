@@ -15,6 +15,7 @@ import { MenuPageTracker } from '@/components/MenuPageTracker'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
+import { generateNutritionInfo } from '@/lib/schema-utils'
 import './cocktails.css'
 
 export const metadata: Metadata = {
@@ -52,36 +53,151 @@ export default async function DrinksMenuPage() {
   const enhancedDrinksMenuSchema = {
     "@context": "https://schema.org",
     "@type": "Menu",
+    "@id": "https://the-anchor.pub/drinks#menu",
     "name": "The Anchor Drinks Menu",
     "description": "Full bar service with real ales, craft beers, wines, spirits and soft drinks at The Anchor in Stanwell Moor, Surrey",
     "hasMenuSection": menuData.categories.map(category => ({
       "@type": "MenuSection",
       "name": category.title,
+      "description": `${category.title} selection at The Anchor`,
       "hasMenuItem": category.sections.flatMap(section => 
         section.items.map(item => ({
           "@type": "MenuItem",
           "name": item.name,
-          "description": item.description,
+          "description": item.description || item.name,
           "offers": {
             "@type": "Offer",
             "price": item.price.replace(/[£$]/, '').split(' / ')[0],
-            "priceCurrency": "GBP"
-          }
+            "priceCurrency": "GBP",
+            "availability": "https://schema.org/InStock"
+          },
+          ...(category.title.toLowerCase().includes('cocktail') && {
+            "nutrition": generateNutritionInfo(item.name, 'cocktails')
+          })
         }))
       )
     })),
     "inLanguage": "en-GB",
     "provider": {
       "@type": "BarOrPub",
+      "@id": "https://the-anchor.pub/#business",
       "name": "The Anchor",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Horton Road",
         "addressLocality": "Stanwell Moor",
         "addressRegion": "Surrey",
-        "postalCode": "TW19 6AQ"
-      }
+        "postalCode": "TW19 6AQ",
+        "addressCountry": "GB"
+      },
+      "priceRange": "££",
+      "servesCuisine": ["British"],
+      "telephone": "+441753682707",
+      "url": "https://the-anchor.pub"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://the-anchor.pub/drinks"
     }
+  }
+
+  // Manager's Special Offer Schema
+  const managersSpecialSchema = {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": "Manager's Special - 25% OFF The Botanist Gin",
+    "description": "Save 25% on The Botanist Gin. Premium Islay gin at a special price.",
+    "url": "https://the-anchor.pub/drinks#managers-special",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "3.00",
+      "priceCurrency": "GBP",
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "unitText": "single measure"
+      }
+    },
+    "itemOffered": {
+      "@type": "Product",
+      "name": "The Botanist Gin",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bruichladdich Distillery"
+      },
+      "description": "Premium Islay gin with 22 hand-foraged botanicals"
+    },
+    "seller": {
+      "@id": "https://the-anchor.pub/#business"
+    },
+    "validFrom": new Date().toISOString(),
+    "validThrough": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString()
+  }
+
+  // BarOrPub specific schema
+  const barSchema = {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "@id": "https://the-anchor.pub/#bar",
+    "name": "The Anchor Bar",
+    "description": "Traditional British pub bar with extensive drinks selection",
+    "hasMenu": {
+      "@id": "https://the-anchor.pub/drinks#menu"
+    },
+    "servesCuisine": "British",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
+        "opens": "16:00",
+        "closes": "23:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "16:00",
+        "closes": "00:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "13:00",
+        "closes": "00:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "12:00",
+        "closes": "21:00"
+      }
+    ],
+    "amenityFeature": [
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Real Ales",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Craft Beers",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Premium Spirits",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Wine Selection",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Cocktail Menu",
+        "value": true
+      }
+    ]
   }
 
 
@@ -96,7 +212,7 @@ export default async function DrinksMenuPage() {
       <ScrollDepthTracker />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([enhancedDrinksMenuSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([enhancedDrinksMenuSchema, barSchema, managersSpecialSchema, breadcrumbSchema]) }}
       />
       {/* Hero Section */}
       <HeroWrapper

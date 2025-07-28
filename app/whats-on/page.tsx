@@ -18,6 +18,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
+import { quizNightEventSeries, dragShowEventSeries, bingoEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: "What's On Near Me | The Anchor Stanwell Moor | Events & Entertainment",
@@ -44,6 +45,67 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
     <>
       <SpeakableSchema />
       <ScrollDepthTracker />
+      {/* JSON-LD Event Series Schemas */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ 
+          __html: JSON.stringify([
+            quizNightEventSeries,
+            dragShowEventSeries,
+            bingoEventSeries,
+            {
+              "@context": "https://schema.org",
+              "@type": "EventVenue",
+              "@id": "https://the-anchor.pub/#event-venue",
+              "name": "The Anchor Event Space",
+              "description": "Versatile event space hosting drag shows, quiz nights, bingo, and live entertainment",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Horton Road",
+                "addressLocality": "Stanwell Moor",
+                "addressRegion": "Surrey",
+                "postalCode": "TW19 6AQ",
+                "addressCountry": "GB"
+              },
+              "maximumAttendeeCapacity": 100,
+              "amenityFeature": [
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Stage Area",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Sound System",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Lighting",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Bar Service",
+                  "value": true
+                }
+              ],
+              "publicAccess": true,
+              "isAccessibleForFree": false,
+              "currenciesAccepted": "GBP",
+              "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                  "opens": "16:00",
+                  "closes": "23:00"
+                }
+              ]
+            }
+          ])
+        }}
+      />
       {/* Hero Section */}
       <HeroWrapper
         route="/whats-on"
@@ -422,10 +484,6 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         </div>
       </CTASection>
 
-      {/* Event Schemas for Monthly Events */}
-      <EventSchema event={staticEvents.dragShows} />
-      <EventSchema event={staticEvents.quizNight} />
-      <EventSchema event={staticEvents.bingoNight} />
     </>
   )
 }

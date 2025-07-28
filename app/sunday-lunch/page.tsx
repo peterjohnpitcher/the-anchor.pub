@@ -9,6 +9,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ReviewSection } from '@/components/reviews'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { generateNutritionInfo, generateSuitableForDiet } from '@/lib/schema-utils'
 
 export const metadata: Metadata = {
   title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
@@ -489,12 +490,41 @@ export default function SundayLunchPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Restaurant",
-            "@id": "https://the-anchor.pub/#restaurant",
-            "name": "The Anchor - Sunday Roast",
-            "servesCuisine": ["British", "Sunday Roast"],
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              "@id": "https://the-anchor.pub/#sunday-roast",
+              "name": "The Anchor - Sunday Roast",
+              "servesCuisine": ["British", "Sunday Roast"],
+              "priceRange": "££",
+              "telephone": "+441753682707",
+              "url": "https://the-anchor.pub/sunday-lunch",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Horton Road",
+                "addressLocality": "Stanwell Moor",
+                "addressRegion": "Surrey",
+                "postalCode": "TW19 6AQ",
+                "addressCountry": "GB"
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "Sunday",
+                  "opens": "12:00",
+                  "closes": "17:00",
+                  "description": "Sunday Roast service hours"
+                }
+              ],
+              "advanceBookingRequirement": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "unitCode": "DAY",
+                "description": "Sunday roasts must be pre-ordered by 1pm Saturday"
+              },
+              "acceptsReservations": "required",
+              "reservationPolicy": "Pre-order required by 1pm Saturday. Payment required at time of booking.",
             "hasMenu": {
               "@type": "Menu",
               "name": "Sunday Roast Menu",
@@ -511,8 +541,10 @@ export default function SundayLunchPage() {
                     "offers": {
                       "@type": "Offer",
                       "price": "14.99",
-                      "priceCurrency": "GBP"
-                    }
+                      "priceCurrency": "GBP",
+                      "availability": "https://schema.org/PreOrder"
+                    },
+                    "nutrition": generateNutritionInfo("Roasted Chicken", "sunday-roast")
                   },
                   {
                     "@type": "MenuItem",
@@ -556,7 +588,66 @@ export default function SundayLunchPage() {
               "bestRating": "5",
               "worstRating": "1"
             }
-          })
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Offer",
+            "name": "Sunday Roast Pre-Order Special",
+            "description": "Traditional British Sunday roast dinners with all the trimmings. Must be pre-ordered and paid for by 1pm Saturday.",
+            "url": "https://the-anchor.pub/sunday-lunch",
+            "priceCurrency": "GBP",
+            "priceRange": "£14.99 - £15.99",
+            "eligibleRegion": {
+              "@type": "Place",
+              "name": "Stanwell Moor and surrounding areas"
+            },
+            "availableAtOrFrom": {
+              "@type": "Place",
+              "name": "The Anchor",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Horton Road",
+                "addressLocality": "Stanwell Moor",
+                "addressRegion": "Surrey",
+                "postalCode": "TW19 6AQ"
+              }
+            },
+            "itemOffered": {
+              "@type": "MenuItem",
+              "name": "Sunday Roast Selection",
+              "description": "Choice of roasted meats served with Yorkshire pudding, roast potatoes, seasonal vegetables and gravy"
+            },
+            "validFrom": "12:00",
+            "validThrough": "17:00",
+            "eligibleDuration": {
+              "@type": "Duration",
+              "description": "Available Sundays only"
+            },
+            "availabilityStarts": "2025-01-01",
+            "availabilityEnds": "2025-12-31",
+            "seller": {
+              "@id": "https://the-anchor.pub/#business"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://the-anchor.pub"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Sunday Lunch",
+                "item": "https://the-anchor.pub/sunday-lunch"
+              }
+            ]
+          }
+        ])
         }}
       />
     </>

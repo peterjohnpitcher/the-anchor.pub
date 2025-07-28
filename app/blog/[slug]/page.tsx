@@ -58,15 +58,17 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     ? distributeImages(post.htmlContent || '', post.images, post.slug)
     : post.htmlContent || ''
 
-  // Article structured data for better SEO
-  const articleSchema = {
+  // BlogPosting structured data for better SEO
+  const blogPostingSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": post.title,
+    "alternativeHeadline": post.description,
     "description": post.description,
     "author": {
       "@type": "Person",
-      "name": post.author
+      "name": post.author,
+      "url": "https://the-anchor.pub/blog"
     },
     "datePublished": post.date,
     "dateModified": post.date,
@@ -75,19 +77,62 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       "name": "The Anchor",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-white-transparent.png"
+        "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-white-transparent.png",
+        "width": 320,
+        "height": 320
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Horton Road",
+        "addressLocality": "Stanwell Moor",
+        "addressRegion": "Surrey",
+        "postalCode": "TW19 6AQ",
+        "addressCountry": "GB"
       }
     },
-    "image": post.hero 
-      ? `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}` 
-      : "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+    "image": {
+      "@type": "ImageObject",
+      "url": post.hero 
+        ? `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}` 
+        : "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+      "width": 1200,
+      "height": 630
+    },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `https://the-anchor.pub/blog/${post.slug}`
     },
     "keywords": post.keywords.join(", "),
-    "articleSection": post.tags[0] || "News",
-    "wordCount": post.htmlContent ? post.htmlContent.split(' ').length : 500
+    "articleSection": post.tags[0] || "Pub News",
+    "articleBody": post.htmlContent?.replace(/<[^>]*>/g, '') || post.description,
+    "wordCount": post.htmlContent ? post.htmlContent.split(' ').length : 500,
+    "inLanguage": "en-GB",
+    "url": `https://the-anchor.pub/blog/${post.slug}`,
+    "isAccessibleForFree": true,
+    "genre": post.tags[0] || "Blog",
+    "about": {
+      "@type": "LocalBusiness",
+      "name": "The Anchor",
+      "@id": "https://the-anchor.pub/#organization"
+    }
+  }
+
+  // Blog schema to establish blog context
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "The Anchor Blog",
+    "description": "News, events, and updates from The Anchor pub in Stanwell Moor",
+    "url": "https://the-anchor.pub/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Anchor",
+      "@id": "https://the-anchor.pub/#organization"
+    },
+    "blogPost": {
+      "@type": "BlogPosting",
+      "@id": `https://the-anchor.pub/blog/${post.slug}#blogposting`
+    }
   }
 
   const breadcrumbSchema = {
@@ -119,7 +164,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([blogPostingSchema, blogSchema, breadcrumbSchema]) }}
       />
       <ScrollDepthTracker />
       {/* Hero Section */}
@@ -127,32 +172,34 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         route={`/blog/${params.slug}`}
         title={post.title}
         description={
-          <div className="space-y-4">
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map(tag => (
-                <Link 
-                  key={tag} 
-                  href={`/blog/tag/${tag}`}
-                  className="text-sm bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full hover:bg-white/30 transition-colors"
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
-            <div className="flex items-center gap-4 text-white/90">
-              <span>{post.author}</span>
-              <span>•</span>
-              <time>{new Date(post.date).toLocaleDateString('en-GB', { 
+          <div className="text-center">
+            <p className="text-white/90 mb-2">
+              By {post.author} • {new Date(post.date).toLocaleDateString('en-GB', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric' 
-              })}</time>
-            </div>
+              })}
+            </p>
+            <p className="text-lg text-white/80">
+              {post.description}
+            </p>
           </div>
         }
-        overlay="gradient"
-        className="min-h-[60vh]"
-        alignment="left"
+        size="medium"
+        showStatusBar={true}
+        tags={post.tags.map(tag => ({
+          label: tag,
+          variant: 'default' as const,
+          href: `/blog/tag/${tag}`
+        }))}
+        cta={
+          <div className="flex justify-center">
+            <BlogShareButtons 
+              postSlug={post.slug}
+              postTitle={post.title}
+            />
+          </div>
+        }
       />
 
       {/* Breadcrumb */}

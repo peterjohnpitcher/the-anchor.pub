@@ -65,6 +65,12 @@ export const localBusinessSchema = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Monday",
+      "opens": "00:00",
+      "closes": "00:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Tuesday",
       "opens": "16:00",
       "closes": "23:00"
@@ -98,6 +104,15 @@ export const localBusinessSchema = {
       "dayOfWeek": "Sunday",
       "opens": "12:00",
       "closes": "21:00"
+    }
+  ],
+  "specialOpeningHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Monday",
+      "opens": "00:00",
+      "closes": "00:00",
+      "description": "Closed - Kitchen closed all day"
     }
   ],
   "acceptsReservations": "true",
@@ -168,7 +183,58 @@ export const localBusinessSchema = {
   "currenciesAccepted": "GBP",
   "publicAccess": true,
   "isAccessibleForFree": true,
-  "maximumAttendeeCapacity": 250
+  "maximumAttendeeCapacity": 250,
+  "smokingAllowed": false,
+  "keywords": "pub near Heathrow, restaurant Stanwell Moor, British food Surrey, beer garden, dog friendly pub",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+44-1753-682707",
+      "contactType": "customer service",
+      "areaServed": "GB",
+      "availableLanguage": ["English"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+44-1753-682707",
+      "contactType": "reservations",
+      "areaServed": "GB",
+      "availableLanguage": ["English"]
+    }
+  ],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.462509,
+      "longitude": -0.502067
+    },
+    "geoRadius": "16000"
+  }
+}
+
+// Special Announcement for Monday Closure
+export const specialAnnouncementSchema = {
+  "@context": "https://schema.org",
+  "@type": "SpecialAnnouncement",
+  "@id": "https://the-anchor.pub/#monday-closure",
+  "name": "Monday Closure",
+  "text": "The Anchor is closed every Monday. Kitchen is also closed on Mondays.",
+  "datePosted": "2024-01-01",
+  "expires": "2025-12-31",
+  "category": "https://www.wikidata.org/wiki/Q7692202",
+  "announcementLocation": {
+    "@id": "https://the-anchor.pub/#business"
+  },
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "The Anchor",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Stanwell Moor",
+      "addressRegion": "Surrey"
+    }
+  }
 }
 
 export const webSiteSchema = {

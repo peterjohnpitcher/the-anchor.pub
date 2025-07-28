@@ -19,6 +19,8 @@ import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { KitchenHoursDisplay } from '@/components/KitchenHoursDisplay'
 import { formatTime12Hour } from '@/lib/time-utils'
 import { isKitchenOpen, BusinessHours } from '@/lib/api'
+import { generateSuitableForDiet, generateNutritionInfo, generateMenuItemOffer } from '@/lib/schema-utils'
+import { specialAnnouncementSchema } from '@/lib/schema'
 
 // Helper function to build kitchen schedule string from business hours
 function buildKitchenSchedule(hours: BusinessHours): string {
@@ -175,10 +177,6 @@ export default async function FoodMenuPage() {
         ]}
       />
       <ScrollDepthTracker />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([menuSchema, pizzaBOGOFSchema, fridayFishOfferSchema]) }}
-      />
       {/* Hero Section */}
       <HeroWrapper
         route="/food-menu"
@@ -496,23 +494,36 @@ export default async function FoodMenuPage() {
             {
               "@context": "https://schema.org",
               "@type": "Menu",
+              "@id": "https://the-anchor.pub/food-menu#menu",
               "name": "The Anchor Food Menu",
-              "description": "Traditional British food menu",
+              "description": "Traditional British food menu with allergen information",
               "hasMenuSection": menuData.categories.map(category => ({
                 "@type": "MenuSection",
                 "name": category.title,
+                "description": `${category.title} options at The Anchor`,
+                "image": category.emoji ? `https://the-anchor.pub/images/menu-categories/${category.title.toLowerCase().replace(' ', '-')}.jpg` : undefined,
                 "hasMenuItem": category.sections.flatMap(section => 
                   section.items.map(item => ({
                     "@type": "MenuItem",
                     "name": item.name,
-                    "description": item.description,
-                    "offers": {
+                    "description": item.description || item.name,
+                    "offers": item.price && !item.price.includes('sauces') ? {
                       "@type": "Offer",
                       "price": item.price.replace(/[£$]/, '').split(' / ')[0],
-                      "priceCurrency": "GBP"
-                    },
-                    ...(item.vegetarian && {
-                      "suitableForDiet": ["https://schema.org/VegetarianDiet"]
+                      "priceCurrency": "GBP",
+                      "availability": "https://schema.org/InStock",
+                      ...(generateMenuItemOffer(item, new Date().toLocaleDateString('en-US', { weekday: 'long' }))?.[0] || {})
+                    } : undefined,
+                    "nutrition": item.price && !item.price.includes('sauces') ? generateNutritionInfo(item.name, category.title) : undefined,
+                    "suitableForDiet": generateSuitableForDiet(item),
+                    ...(item.allergens && item.allergens.length > 0 && {
+                      "additionalProperty": [
+                        {
+                          "@type": "PropertyValue",
+                          "name": "allergens",
+                          "value": item.allergens.join(", ")
+                        }
+                      ]
                     })
                   }))
                 )
@@ -520,16 +531,95 @@ export default async function FoodMenuPage() {
               "inLanguage": "en-GB",
               "provider": {
                 "@type": "Restaurant",
+                "@id": "https://the-anchor.pub/#business",
                 "name": "The Anchor",
                 "address": {
                   "@type": "PostalAddress",
                   "streetAddress": "Horton Road",
                   "addressLocality": "Stanwell Moor",
                   "addressRegion": "Surrey",
-                  "postalCode": "TW19 6AQ"
-                }
+                  "postalCode": "TW19 6AQ",
+                  "addressCountry": "GB"
+                },
+                "servesCuisine": ["British", "Pizza", "Pub Food"],
+                "priceRange": "££",
+                "acceptsReservations": "true",
+                "telephone": "+441753682707",
+                "url": "https://the-anchor.pub"
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://the-anchor.pub/food-menu"
               }
-            }
+            },
+            specialAnnouncementSchema,
+            {
+              "@context": "https://schema.org",
+              "@type": "FoodEstablishment",
+              "@id": "https://the-anchor.pub/#food-establishment",
+              "name": "The Anchor Restaurant",
+              "description": "Traditional British pub restaurant near Heathrow Airport",
+              "servesCuisine": ["British", "Pizza", "Pub Food"],
+              "hasMenu": {
+                "@id": "https://the-anchor.pub/food-menu#menu"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Horton Road",
+                "addressLocality": "Stanwell Moor",
+                "addressRegion": "Surrey",
+                "postalCode": "TW19 6AQ",
+                "addressCountry": "GB"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.462509,
+                "longitude": -0.502067
+              },
+              "openingHoursSpecification": businessHours ? [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "name": "Kitchen Hours",
+                  "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+                  "opens": "18:00",
+                  "closes": "21:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "name": "Kitchen Hours",
+                  "dayOfWeek": "Saturday",
+                  "opens": "13:00",
+                  "closes": "19:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "name": "Kitchen Hours",
+                  "dayOfWeek": "Sunday",
+                  "opens": "12:00",
+                  "closes": "17:00"
+                }
+              ] : [],
+              "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "American Express"],
+              "amenityFeature": [
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Allergen Information Available",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Vegetarian Options",
+                  "value": true
+                },
+                {
+                  "@type": "LocationFeatureSpecification",
+                  "name": "Children's Menu",
+                  "value": true
+                }
+              ]
+            },
+            pizzaBOGOFSchema,
+            fridayFishOfferSchema
           ])
         }}
       />

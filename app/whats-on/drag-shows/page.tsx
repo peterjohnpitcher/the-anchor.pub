@@ -7,6 +7,7 @@ import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
+import { dragShowEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Drag Shows | The Anchor Stanwell Moor | Monthly Entertainment',
@@ -761,7 +762,52 @@ export default function DragShowsPage() {
       </section>
 
       {/* JSON-LD Schema */}
-      <EventSchema event={staticEvents.dragShows} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ 
+          __html: JSON.stringify([
+            dragShowEventSeries,
+            {
+              "@context": "https://schema.org",
+              "@type": "PerformingGroup",
+              "@id": "https://the-anchor.pub/#nikki-manfadge",
+              "name": "Nikki Manfadge",
+              "description": "Professional drag queen and entertainer bringing Vegas-style shows to Stanwell Moor",
+              "genre": ["Drag", "Comedy", "Cabaret"],
+              "performerIn": {
+                "@id": "https://the-anchor.pub/#drag-show-series"
+              },
+              "sameAs": [
+                "https://www.instagram.com/nikkimanfadge/"
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://the-anchor.pub"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "What's On",
+                  "item": "https://the-anchor.pub/whats-on"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Drag Shows",
+                  "item": "https://the-anchor.pub/whats-on/drag-shows"
+                }
+              ]
+            }
+          ])
+        }}
+      />
     </>
   )
 }
