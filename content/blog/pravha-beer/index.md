@@ -66,7 +66,7 @@ Pravha is renowned for its distinctive and refreshing flavour profile, and we’
 
   
 
-We know you’ll love enjoying Pravha with us – whether you’re catching up with friends or enjoying the sunshine in our outdoor seating area. Don’t just take our word for it, though; cheque out Pravha’s [official tasting notes](https://www.pravha.co.uk/#our-story) to see what the experts have to say.
+We know you’ll love enjoying Pravha with us – whether you’re catching up with friends or enjoying the sunshine in our outdoor seating area. Don’t just take our word for it, though; check out Pravha's [official tasting notes](https://www.pravha.co.uk/#our-story) to see what the experts have to say.
 
   
 
