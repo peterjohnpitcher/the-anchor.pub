@@ -90,7 +90,7 @@ Whether you're supporting England at Twickenham or following the away matches, T
 
 ## Join Us for Six Nations Rugby Near Heathrow
 
-The Six Nations Championship runs every year from February to March, bringing the best of European rugby to your local pub. Cheque our events page for this year's fixtures and special match day offers.
+The Six Nations Championship runs every year from February to March, bringing the best of European rugby to your local pub. Check our events page for this year's fixtures and special match day offers.
 
 ![six nations rugby at the anchor 2023 image](/content/blog/six-nations-rugby-at-the-anchor-2023/image-3.png)
 

@@ -85,7 +85,7 @@ export default function APITestPage() {
       </div>
       
       <div className="mt-8 text-sm text-gray-600">
-        <p>Environment Cheque:</p>
+        <p>Environment Check:</p>
         <ul>
           <li>API Base URL: {typeof window === 'undefined' ? 'Server' : 'Client'} mode</li>
           <li>API Key: {process.env.ANCHOR_API_KEY ? '✅ Set' : '❌ Not available (expected on client)'}</li>

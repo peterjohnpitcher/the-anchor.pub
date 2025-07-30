@@ -12,7 +12,7 @@ import { CTASection } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { DirectionsButton } from '@/components/DirectionsButton'
-import { PhoneButton } from '@/components/PhoneButton'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PARKING } from '@/lib/constants'
 
@@ -47,14 +47,14 @@ export default function Terminal4Page() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PhoneButton
-              phone="01753 682707"
+            <BookTableButton
               source="terminal_4_hero"
+              context="heathrow_terminal_4"
               variant="primary"
               size="lg"
             >
-              📞 Book a Table
-            </PhoneButton>
+              📅 Book a Table Online
+            </BookTableButton>
             
             <Link href="#directions">
       <Button 
@@ -443,15 +443,15 @@ export default function Terminal4Page() {
                 The Anchor offers a peaceful village pub atmosphere where you can 
                 relax, enjoy great food, and experience genuine British hospitality.
               </p>
-              <PhoneButton
-                phone="01753 682707"
+              <BookTableButton
                 source="terminal_4_hotel_cta"
+                context="heathrow_terminal_4_hotels"
                 variant="secondary"
                 size="lg"
                 className="bg-white text-anchor-green hover:bg-gray-100"
               >
-                📞 Book Your Table: 01753 682707
-              </PhoneButton>
+                📅 Book Your Table Online
+              </BookTableButton>
             </div>
           </div>
         </div>

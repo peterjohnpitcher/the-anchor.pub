@@ -98,7 +98,7 @@ Many pieces from our events become treasured family heirlooms, engagement rings,
 ### Planning Your Visit
 
 **Essential Information:**
-- **Regular Events**: Cheque our events calendar
+- **Regular Events**: Check our events calendar
 - **Time**: Usually 11 AM - 4 PM
 - **Entry**: Free admission
 - **Payment**: Cash only (ATM nearby)

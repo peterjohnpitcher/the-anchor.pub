@@ -126,7 +126,7 @@ Feedback from locals suggests that events at The Anchor create memorable experie
 
   
 
-Make sure to cheque the events calendar at [The Anchor](https://www.the-anchor.pub/our-events) for upcoming happenings. Some highlights on the horizon include:
+Make sure to check the events calendar at [The Anchor](https://www.the-anchor.pub/our-events) for upcoming happenings. Some highlights on the horizon include:
 
   
 
@@ -166,7 +166,7 @@ As you plan your next outing, consider checking out what's happening at The Anch
 - Quiz Night: Wednesdays from 8pm
 - Drag Shows: Selected Fridays from 8pm
 - Family Days: Selected Sundays
-- Beer Tastings: Monthly (cheque calendar)
+- Beer Tastings: Monthly (check calendar)
 📞 **Bookings**: 01753 682707
 
 ### Why Choose The Anchor for Entertainment Near Terminal 5

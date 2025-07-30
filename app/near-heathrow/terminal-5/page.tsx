@@ -13,7 +13,7 @@ import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
 import { CTASection } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
-import { PhoneButton } from '@/components/PhoneButton'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
@@ -48,14 +48,14 @@ export default function Terminal5Page() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PhoneButton
-              phone="01753 682707"
+            <BookTableButton
               source="terminal_5_hero"
+              context="heathrow_terminal_5"
               variant="primary"
               size="lg"
             >
-              📞 Book a Table
-            </PhoneButton>
+              📅 Book a Table Online
+            </BookTableButton>
             
             <Link href="#directions">
       <Button 
@@ -462,14 +462,14 @@ export default function Terminal5Page() {
                 Join the savvy travelers who've discovered there's more to Heathrow 
                 dining than airport chains and hotel restaurants.
               </p>
-              <PhoneButton
-                phone="01753 682707"
+              <BookTableButton
                 source="terminal_5_hotel_reserve"
+                context="heathrow_terminal_5_hotels"
                 variant="primary"
                 size="lg"
               >
-                📞 Reserve Your Table: 01753 682707
-              </PhoneButton>
+                📅 Reserve Your Table Online
+              </BookTableButton>
             </div>
           </div>
         </div>

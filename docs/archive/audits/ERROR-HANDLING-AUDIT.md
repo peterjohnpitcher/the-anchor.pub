@@ -69,8 +69,8 @@ Components that fail without user notification:
 
 ### 5. Spelling/Grammar Issues
 
-- **lib/api.ts**: `console.error('Failed to cheque event availability:')` (should be "check")
-- **EventAvailability.tsx**: `// Error: Failed to cheque availability` (should be "check")
+- **lib/api.ts**: `console.error('Failed to check event availability:')` (should be "check")
+- **EventAvailability.tsx**: `// Error: Failed to check availability` (should be "check")
 
 ### 6. Components with Better Error Handling
 

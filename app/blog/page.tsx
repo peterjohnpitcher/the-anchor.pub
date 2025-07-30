@@ -344,7 +344,7 @@ export default async function BlogPage({
               </>
             ) : (
               <div className="text-center py-12">
-                <p className="text-gray-600 mb-4">No blog posts yet. Cheque back soon!</p>
+                <p className="text-gray-600 mb-4">No blog posts yet. Check back soon!</p>
                 <Link href="/">
                   <Button variant="primary">
                     Back to Home

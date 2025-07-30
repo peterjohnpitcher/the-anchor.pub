@@ -26,7 +26,7 @@ The API client (`lib/api.ts`) has been updated to:
 
 ## Next Steps
 1. Verify the API key is active and valid
-2. Cheque if the API service is operational
+2. Check if the API service is operational
 3. The application currently shows static/fallback content when API is unavailable
 4. Once API access is restored, dynamic content will automatically appear
 

@@ -81,7 +81,7 @@ Our **sports pub near Heathrow** covers everything:
 **Pre-Match:**
 - Doors open early
 - Team talk over coffee
-- Cheque our match predictions board
+- Check our match predictions board
 - Pre-match meals available during kitchen hours
 
 **During the Game:**
@@ -177,7 +177,7 @@ Popular matches fill up fast! Here's how to guarantee your seat:
 - Friendly fixtures
 - Tournament qualifiers
 
-Cheque our website or social media for specific match times.
+Check our website or social media for specific match times.
 
 ## The Ultimate Derby Day Venue
 
@@ -280,7 +280,7 @@ Ready for the ultimate **sports viewing experience near Heathrow**? Join us at T
 📍 Location: Horton Road, Stanwell Moor, TW19 6AQ  
 📞 Bookings: 01753 682707  
 🚗 Parking: Free on-site  
-⏰ Open: Daily (cheque match times)  
+⏰ Open: Daily (check match times)  
 
 **Book your table now for the next big match!**
 

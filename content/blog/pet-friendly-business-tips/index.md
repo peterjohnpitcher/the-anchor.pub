@@ -84,7 +84,7 @@ Setting up your **pet-friendly business near Terminal 5** requires specific [ess
 Zoetis notes that establishing a [structured daily routine](https://www.zoetispetcare.com/blog/article/importance-routine-cat-dog) is vital for pet-friendly businesses:
 
 **Daily Procedures:**
-- Morning safety cheques
+- Morning safety checks
 - Regular water bowl cleaning
 - Scheduled rest areas cleaning
 - Staff training updates

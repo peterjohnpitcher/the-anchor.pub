@@ -226,7 +226,7 @@ This strategy focuses on building high-quality, relevant backlinks to improve lo
 
 ### Social Media Optimisation
 - Instagram location tags
-- Facebook cheque-ins
+- Facebook check-ins
 - Twitter local hashtags:
   - #StanwellMoor
   - #HeathrowLocal

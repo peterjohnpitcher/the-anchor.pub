@@ -81,6 +81,6 @@ Read about local happenings, charity events, and the people who make Stanwell Mo
 
 ### Stay Updated
 
-Cheque back regularly for the latest news and updates from The Anchor. Whether you're a Heathrow worker looking for your new local, a Stanwell Moor resident keeping up with village life, or a visitor seeking authentic British pub experiences, our blog keeps you connected to everything happening at The Anchor.
+Check back regularly for the latest news and updates from The Anchor. Whether you're a Heathrow worker looking for your new local, a Stanwell Moor resident keeping up with village life, or a visitor seeking authentic British pub experiences, our blog keeps you connected to everything happening at The Anchor.
 
 **The Anchor Blog - Where village life meets Heathrow convenience**

@@ -1,7 +1,7 @@
 ---
 title: Winter Opening Hours Near Heathrow | Cozy Pub The Anchor
 description: >-
-  Cheque winter opening hours at The Anchor pub near Heathrow Airport. Cozy
+  Check winter opening hours at The Anchor pub near Heathrow Airport. Cozy
   atmosphere, warm fires, and adjusted seasonal hours in Stanwell Moor. Perfect
   winter retreat just 7 minutes from Terminal 5. Your local pub for cold
   evenings near Staines.

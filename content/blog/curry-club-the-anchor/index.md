@@ -150,7 +150,7 @@ Our **curry night near Terminal 5** attracts:
 
 ## When is Curry Club?
 
-**Monthly Curry Nights** - Cheque our events page for dates
+**Monthly Curry Nights** - Check our events page for dates
 **Booking Essential** - Limited spaces available
 **Time**: 6:30 PM - 9:30 PM
 **Price**: £12.99 per thali

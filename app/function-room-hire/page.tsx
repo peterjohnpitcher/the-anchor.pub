@@ -590,7 +590,7 @@ export default function FunctionRoomHirePage() {
 
       {/* CTA Section */}
       <CTASection
-        title="Cheque Availability for Your Function"
+        title="Check Availability for Your Function"
         description="Competitive rates • Free parking • Professional service"
         buttons={[
           {

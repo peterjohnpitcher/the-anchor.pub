@@ -81,7 +81,7 @@ For those who appreciate the subtle artistry of botanicals, **Hendrick's Flora A
 
 ### An Exotic Burst at the Spring Tasting Night
 
-Embrace a delightful twist on a timeless classic with **Gordon's Passionfruit Gin**. Infused with the zesty essence of passionfruit, this gin offers an exotic burst of flavour that is as refreshing as it is unexpected. Its bright, citrus-infused character dances on the palate, inviting you to explore layers of taste that evoke both tradition and innovation. For a deeper dive into this dynamic spirit, cheque out the [Gordon's Gin website](https://www.gordonsgin.com).
+Embrace a delightful twist on a timeless classic with **Gordon's Passionfruit Gin**. Infused with the zesty essence of passionfruit, this gin offers an exotic burst of flavour that is as refreshing as it is unexpected. Its bright, citrus-infused character dances on the palate, inviting you to explore layers of taste that evoke both tradition and innovation. For a deeper dive into this dynamic spirit, check out the [Gordon's Gin website](https://www.gordonsgin.com).
 
   
 

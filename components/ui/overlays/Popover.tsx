@@ -167,7 +167,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       const viewportWidth = window.innerWidth
       const viewportHeight = window.innerHeight
 
-      // Cheque if popover fits in viewport
+      // Check if popover fits in viewport
       const fitsTop = top >= padding + scrollY
       const fitsBottom = top + popoverRect.height <= viewportHeight + scrollY - padding
       const fitsLeft = left >= padding + scrollX

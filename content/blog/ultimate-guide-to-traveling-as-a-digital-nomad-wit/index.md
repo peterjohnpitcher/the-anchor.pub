@@ -180,7 +180,7 @@ The Anchor welcomes **digital nomads with dogs**, offering:
 
 **Contact & Planning:**
 - **Call ahead**: 01753 682707
-- **Cheque events**: Some days busier than others
+- **Check events**: Some days busier than others
 - **Group bookings**: Can arrange quiet area
 - **Long stays**: Very welcome
 

@@ -244,6 +244,6 @@ Don't miss out on **Stanwell Moor's best quiz night**! Whether you're a quiz vet
 
 📞 Call: 01753 682707  
 📍 Visit: The Anchor, Horton Road, Stanwell Moor  
-⏰ Monthly quiz nights - cheque What's On for dates
+⏰ Monthly quiz nights - check What's On for dates
 
 *The Anchor - Where knowledge meets fun at our monthly quiz nights!*

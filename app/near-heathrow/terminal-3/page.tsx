@@ -441,15 +441,15 @@ export default function Terminal3Page() {
                 The Anchor offers a peaceful village pub atmosphere where you can 
                 relax, enjoy great food, and experience genuine British hospitality.
               </p>
-              <PhoneButton
-                phone="01753 682707"
+              <BookTableButton
                 source="terminal_3_hotel_cta"
+                context="heathrow_terminal_3_hotels"
                 variant="secondary"
                 size="lg"
                 className="bg-white text-anchor-green hover:bg-gray-100"
               >
-                📞 Book Your Table: 01753 682707
-              </PhoneButton>
+                📅 Book Your Table Online
+              </BookTableButton>
             </div>
           </div>
         </div>

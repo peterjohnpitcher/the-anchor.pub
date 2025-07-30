@@ -114,7 +114,7 @@ At The Anchor **near Heathrow Airport**, we celebrate our diverse community with
 
 ### Event Details:
 🎪 **Venue**: Stanwell Moor Village Hall & The Anchor Pub
-📅 **When**: October/November annually (cheque for dates)
+📅 **When**: October/November annually (check for dates)
 📍 **Location**: Horton Road, Stanwell Moor, TW19 6AQ
 ✈️ **From Heathrow**: Just 7 minutes from all terminals
 🎆 **Features**: Entertainment, food, activities, cultural performances

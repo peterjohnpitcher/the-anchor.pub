@@ -77,7 +77,7 @@ If you prefer, you can use CNAME for www subdomain:
 
 ## Step 4: Remove Old Wix Configuration
 
-Since your current records show "none" for www and @, you likely don't have active Wix IPs. But double-cheque:
+Since your current records show "none" for www and @, you likely don't have active Wix IPs. But double-check:
 - Look for any A records with IPs like 23.235.33.229 or 23.235.47.133
 - Look for any CNAME records pointing to wixdns.net
 - Remove only these if found
@@ -100,7 +100,7 @@ Since your current records show "none" for www and @, you likely don't have acti
 **Email Tests (CRITICAL):**
 - [ ] Send a test email TO your @the-anchor.pub address
 - [ ] Send a test email FROM your @the-anchor.pub address
-- [ ] Cheque webmail still works at webmail.the-anchor.pub
+- [ ] Check webmail still works at webmail.the-anchor.pub
 - [ ] Verify email clients (Outlook, Mail app) still connect
 
 ## Step 7: Set Up Redirects
@@ -118,12 +118,12 @@ Since you're keeping the same domain, you mainly need to handle any Wix-specific
 
 **Website not loading:**
 - Clear browser cache
-- Cheque DNS propagation at whatsmydns.net
+- Check DNS propagation at whatsmydns.net
 - Verify you used IP 76.76.21.21 for both www and @
 
 **Email stops working:**
 - IMMEDIATELY revert the @ and www records back to "none"
-- Double-cheque you didn't modify any email-related records
+- Double-check you didn't modify any email-related records
 - Contact Register.com support if needed
 
 **SSL errors:**
@@ -155,6 +155,6 @@ This ensures your website points to Vercel while email continues through Registe
 
 - **Register.com Support**: Available in your account
 - **Vercel Support**: https://vercel.com/support
-- **DNS Cheque**: https://mxtoolbox.com/ (to verify email records)
+- **DNS Check**: https://mxtoolbox.com/ (to verify email records)
 
 Good luck! Your email will stay safe with this approach. 🚀

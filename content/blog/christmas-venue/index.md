@@ -166,7 +166,7 @@ We can arrange entertainment to suit your party style and budget.
 ### Secure Your Christmas Date
 
 **How to Book:**
-1. Cheque availability for your date
+1. Check availability for your date
 2. Choose your package
 3. Confirm numbers
 4. Select menu options
@@ -249,7 +249,7 @@ Perfect for small to medium businesses near Heathrow.
 - New Year's Eve: 12pm-1am
 - New Year's Day: 12pm-6pm
 
-Cheque our website for specific dates.
+Check our website for specific dates.
 
 ## Make This Christmas Special
 

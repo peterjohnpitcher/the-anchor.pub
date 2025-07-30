@@ -28,15 +28,15 @@ Set up custom reports to track:
 
 ## Week 1 Monitoring
 
-### Daily Cheques
+### Daily Checks
 1. **Google Search Console**
-   - Cheque Coverage report for new errors
+   - Check Coverage report for new errors
    - Monitor "Page with redirect" status
    - Review any crawl errors
 
 2. **Analytics**
    - Monitor organic traffic levels
-   - Cheque for unusual bounce rates
+   - Check for unusual bounce rates
    - Review landing page performance
 
 3. **Manual Testing**
@@ -90,7 +90,7 @@ Based on monitoring data:
 
 3. **SEO Health**
    - Monitor keyword rankings recovery
-   - Cheque for any penalties
+   - Check for any penalties
    - Review Core Web Vitals
 
 ## Tools for Monitoring
@@ -114,19 +114,19 @@ Based on monitoring data:
 ### Useful Chrome Extensions
 - Redirect Path
 - Link Redirect Trace
-- Cheque My Links
+- Check My Links
 
 ## Emergency Response Plan
 
 If traffic drops significantly:
 1. **Immediate Actions**
-   - Cheque for site-wide issues
+   - Check for site-wide issues
    - Verify redirects are working
    - Review server logs
 
 2. **Within 24 Hours**
    - Submit updated sitemap
-   - Cheque for manual penalties
+   - Check for manual penalties
    - Review competitor changes
 
 3. **Within 48 Hours**
@@ -175,9 +175,9 @@ Next Week Focus:
 ## Contact for Issues
 
 If you encounter significant issues:
-1. Cheque this guide first
+1. Check this guide first
 2. Review redirect implementation in next.config.js
 3. Test specific redirects manually
-4. Cheque server logs for errors
+4. Check server logs for errors
 
 Remember: Most traffic fluctuations in the first month are normal. Focus on fixing errors and ensuring all redirects work correctly.

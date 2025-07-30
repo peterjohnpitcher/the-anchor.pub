@@ -181,7 +181,7 @@ Every month at The Anchor brings new manager's specials and exciting rum offers.
 
   
 
-✨ **Cheque our current monthly specials** - Ask at the bar or call 01753 682707
+✨ **Check our current monthly specials** - Ask at the bar or call 01753 682707
 
 🎟️ **Join our next rum tasting night** - Regular events featuring Caribbean spirits
 

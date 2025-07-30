@@ -108,7 +108,7 @@ When you come in to see us, we’re sure you’ll notice that Pravha offers some
 
 We’re thrilled to announce that Pravha is now available on tap right here at The Anchor! If you’re ready to taste this refreshing pilsner, come by and see us – we’d love to pour you a pint. Whether you’re catching up with friends, grabbing a quick drink after work, or spending the weekend with us, Pravha is the perfect beer to enjoy.
 
-So why wait? Visit us today at The Anchor and experience Pravha for yourself. We’re excited to share this delicious pilsner with you, and we’re confident it’ll become one of your favourites. Plus, you can cheque out more about Pravha’s unique qualities by visiting their [official website](https://www.pravha.co.uk/).
+So why wait? Visit us today at The Anchor and experience Pravha for yourself. We’re excited to share this delicious pilsner with you, and we’re confident it’ll become one of your favourites. Plus, you can check out more about Pravha’s unique qualities by visiting their [official website](https://www.pravha.co.uk/).
 
   
 

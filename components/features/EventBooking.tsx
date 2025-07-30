@@ -102,12 +102,12 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         const response = await initiateEventBooking(event.id, formattedPhone)
         return response
       } catch (err: any) {
-        // Cheque if request was aborted
+        // Check if request was aborted
         if (err.name === 'AbortError') {
           throw err
         }
 
-        // Cheque if we should retry
+        // Check if we should retry
         const isRetryable = err?.status >= 500 || err?.message?.includes('network') || err?.message?.includes('timeout')
         
         if (isRetryable && attemptNumber < MAX_RETRIES) {
@@ -129,7 +129,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         setBookingResponse(response)
         setSuccess(true)
         setPhoneNumber('')
-        setStatusMessage('Booking initiated successfully! Cheque your messages for the confirmation link.')
+        setStatusMessage('Booking initiated successfully! Check your messages for the confirmation link.')
         
         // Track successful booking
         analytics.formSubmit('booking', event.name, 1)
@@ -142,7 +142,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
         analytics.error('booking', `${event.name}: ${errorMsg}`)
       }
     } catch (err: any) {
-      // Cheque for specific error messages
+      // Check for specific error messages
       let errorMsg: string
       if (err?.message?.includes('temporarily unavailable') || err?.status === 503) {
         errorMsg = 'The booking system is temporarily unavailable. Please try again later or call us at 01753 682707.'

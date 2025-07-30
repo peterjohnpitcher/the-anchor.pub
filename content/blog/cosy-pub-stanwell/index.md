@@ -123,7 +123,7 @@ Your **local cosy pub** comes alive with regular events:
 - **Seasonal celebrations** - Christmas, Easter, and more
 - **Community fundraisers** - Supporting local causes
 
-Cheque our events calendar to see what's on during your visit!
+Check our events calendar to see what's on during your visit!
 
 ## Perfect for Every Occasion
 

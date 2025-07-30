@@ -145,7 +145,7 @@ Spaces are limited to 25 guests—don't miss your chance to be part of this unfo
 📍 **Location**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ
 ✈️ **From Heathrow**: Just 7 minutes from all terminals
 🚗 **Parking**: Free on-site parking
-📅 **Date**: Cheque website for next event
+📅 **Date**: Check website for next event
 ⏰ **Time**: 7 PM - 10 PM
 💷 **Price**: £30 per person (all inclusive)
 👥 **Capacity**: Limited to 25 guests

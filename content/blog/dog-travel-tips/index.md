@@ -95,7 +95,7 @@ Leverage technology to enhance your travel experience with your dog. Apps for fi
 
 **\- What are the best dog-friendly hotels?** 
 
-Cheque out [BringFido](https://www.bringfido.com/) for a comprehensive list of dog-friendly hotels worldwide.
+Check out [BringFido](https://www.bringfido.com/) for a comprehensive list of dog-friendly hotels worldwide.
 
 **\- How to keep a dog calm during a road trip?** 
 
@@ -103,7 +103,7 @@ Use [vet-recommended calming aids](https://www.akc.org/expert-advice/health/calm
 
 **\- Can dogs travel on all airlines?** 
 
-Not all airlines allow pets, and each has specific policies. Always cheque [airline pet travel policies](https://www.pettravel.com/airline_rules.cfm) before booking.
+Not all airlines allow pets, and each has specific policies. Always check [airline pet travel policies](https://www.pettravel.com/airline_rules.cfm) before booking.
 
   
 

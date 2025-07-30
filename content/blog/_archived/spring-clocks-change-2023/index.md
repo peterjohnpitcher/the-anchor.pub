@@ -43,7 +43,7 @@ With the longer days and warmer weather that come with the clocks changing, ther
 
 ### Location
 
-The Anchor pub is conveniently located near Heathrow airport, making it a great stop-off point for travellers going to or from the airport. Whether you're looking for a quick pint or a leisurely meal, our friendly and welcoming atmosphere will make you feel at home. We're also proud to be a part of the local community and invite you to join us for a taste of village life. We offer a range of events and activities throughout the year, so be sure to cheque our website and social media for updates on upcoming celebrations.
+The Anchor pub is conveniently located near Heathrow airport, making it a great stop-off point for travellers going to or from the airport. Whether you're looking for a quick pint or a leisurely meal, our friendly and welcoming atmosphere will make you feel at home. We're also proud to be a part of the local community and invite you to join us for a taste of village life. We offer a range of events and activities throughout the year, so be sure to check our website and social media for updates on upcoming celebrations.
 
   
 

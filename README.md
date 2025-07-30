@@ -93,7 +93,7 @@ npm run dev      # Start development server
 npm run build    # Build for production
 npm run start    # Start production server
 npm run lint     # Run ESLint
-npm run type     # Type cheque with TypeScript
+npm run type     # Type check with TypeScript
 ```
 
 ### API Integration
@@ -172,13 +172,13 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 1. Create a feature branch
 2. Make your changes
 3. Test on mobile and desktop
-4. Run linting and type cheques
+4. Run linting and type checks
 5. Submit a pull request
 
 ## Support
 
 For issues or questions:
-- Technical: Cheque deployment logs
+- Technical: Check deployment logs
 - Content: Use the management API
 - Design: Follow brand guidelines
 

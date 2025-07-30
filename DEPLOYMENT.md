@@ -113,7 +113,7 @@ npm run start
 # Run Lighthouse audit
 ```
 
-2. Cheque bundle size:
+2. Check bundle size:
 ```bash
 npm run analyze
 ```
@@ -149,7 +149,7 @@ npm run analyze
 ## Post-Deployment
 
 1. Test all pages on production
-2. Cheque mobile responsiveness
+2. Check mobile responsiveness
 3. Verify API integration works
 4. Test contact forms and phone links
 5. Monitor Core Web Vitals
@@ -158,16 +158,16 @@ npm run analyze
 
 - Regular dependency updates: `npm update`
 - Monitor API key usage
-- Cheque for broken links monthly
+- Check for broken links monthly
 - Update content via API as needed
 
 ## Support
 
 For issues:
-- Cheque Vercel/hosting logs
+- Check Vercel/hosting logs
 - Review browser console for errors
 - Ensure environment variables are set
-- Cheque API endpoint connectivity
+- Check API endpoint connectivity
 
 ## Performance Targets
 

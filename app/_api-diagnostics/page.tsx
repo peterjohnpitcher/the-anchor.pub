@@ -46,7 +46,7 @@ export default function APIDiagnosticsPage() {
 
     const tests = [
       {
-        name: 'Health Cheque',
+        name: 'Health Check',
         endpoint: '/api/health',
         method: 'GET',
         test: async () => {
@@ -86,7 +86,7 @@ export default function APIDiagnosticsPage() {
         }
       },
       {
-        name: 'Cheque Availability',
+        name: 'Check Availability',
         endpoint: '/api/events/{id}/availability',
         method: 'POST',
         test: async () => {

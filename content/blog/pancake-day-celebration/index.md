@@ -116,7 +116,7 @@ Don't miss out on our annual Pancake Day festivities at The Anchor! Come in for 
 
 ### Visit The Anchor for Pancake Day Near Terminal 5
 
-📅 **When**: Every Shrove Tuesday (cheque dates annually)
+📅 **When**: Every Shrove Tuesday (check dates annually)
 ⏰ **Offer Time**: 6pm - 9pm
 🥞 **Deal**: Free pancakes with any main meal
 📍 **Location**: The Anchor, Horton Road, Stanwell Moor, TW19 6AQ

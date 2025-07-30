@@ -44,7 +44,7 @@ The difference isn’t just about a new set of questions. It’s about atmospher
 
   
 
-If you want tips and insights from the broader quiz scene, you might cheque out resources like [Time Out London’s guide to top pub quizzes](https://www.timeout.com/london/bars-and-pubs/best-pub-quizzes-in-london). But be warned: Pub Pursuit Live is carving its own lane, offering something you can’t replicate with standard quiz templates.
+If you want tips and insights from the broader quiz scene, you might check out resources like [Time Out London’s guide to top pub quizzes](https://www.timeout.com/london/bars-and-pubs/best-pub-quizzes-in-london). But be warned: Pub Pursuit Live is carving its own lane, offering something you can’t replicate with standard quiz templates.
 
   
 
@@ -108,7 +108,7 @@ If your local is running a night soon and you’re still on the fence, what more
 
   
 
-## Cheque Out Upcoming Events
+## Check Out Upcoming Events
 
 To see which dates are on the horizon for 2025, don’t forget to pop over to our [Facebook event page](https://fb.me/e/748fxuY2n). You can scope out upcoming sessions, invite friends, and secure your spot before tables fill up. It’s also a good shout for seeing any new features or themes teased for future nights.
 

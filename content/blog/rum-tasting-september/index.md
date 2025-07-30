@@ -5,7 +5,7 @@ description: >-
   Read about our spectacular rum tasting event at The Anchor pub near Heathrow Airport.
   A special evening with 5-star reviews in Stanwell Moor, just 7
   minutes from Terminal 5. Limited to 25 guests with Caribbean food pairings.
-  Cheque back for future special events.
+  Check back for future special events.
 date: '2024-06-15'
 oldUrl: >-
   https://www.the-anchor.pub/post/rum-tasting-night-success-book-september-s-mystery

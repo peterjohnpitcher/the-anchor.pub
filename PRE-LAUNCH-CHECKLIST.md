@@ -98,23 +98,23 @@
    - Navigate through all main pages
    - Test all forms (event booking, contact)
    - Verify all images load correctly
-   - Cheque responsive design on mobile/tablet
+   - Check responsive design on mobile/tablet
    - Test in multiple browsers (Chrome, Safari, Firefox, Edge)
 
 2. **API Testing**:
    - Verify events load on What's On page
-   - Cheque business hours display
+   - Check business hours display
    - Test event booking flow
    - Verify weather widget works
 
 3. **SEO Testing**:
    - Run through Google's Mobile-Friendly Test
-   - Cheque with Google's Rich Results Test
+   - Check with Google's Rich Results Test
    - Verify all meta tags with a tool like metatags.io
 
 4. **Performance Testing**:
    - Run Lighthouse audit
-   - Cheque Core Web Vitals
+   - Check Core Web Vitals
    - Test on slow 3G connection
 
 5. **Analytics Testing**:
