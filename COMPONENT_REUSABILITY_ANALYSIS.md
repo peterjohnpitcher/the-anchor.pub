@@ -524,7 +524,7 @@ interface TimeDisplayProps {
 1. Make Footer and Navigation configurable
 2. Extract business logic from components into hooks
 3. Create theme configuration for colours and spacing
-4. Add prop validation with runtime cheques
+4. Add prop validation with runtime checks
 
 ### Low Priority:
 1. Add i18n support for all text

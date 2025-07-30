@@ -212,7 +212,7 @@ Don't miss February's Gordon's White Peach Gin special:
 ### Manager's Special Conditions
 
 1. **Monthly product only** - Discount applies to featured spirit
-2. **Valid current month** - No extensions or rain cheques
+2. **Valid current month** - No extensions or rain checks
 3. **On-premise only** - No takeaway sales
 4. **Subject to availability** - While stocks last
 5. **Single serves only** - Not applicable to bottles
