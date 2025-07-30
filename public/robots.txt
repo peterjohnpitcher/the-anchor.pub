@@ -22,11 +22,20 @@ Disallow: /demo-header
 Disallow: /test-reviews
 Disallow: /test-tracking
 Disallow: /heel-of-fortune-admin
+Disallow: /debug-hours
+Disallow: /gtm-debug
+Disallow: /test-booking
+Disallow: /test-events
+Disallow: /test-gtm
+Disallow: /test-hours
+Disallow: /test-navigation-tracking
+Disallow: /test-simple
+Disallow: /test-social-tracking
+Disallow: /test-timezone
 
 # Block legacy URLs (these should 301 redirect)
 Disallow: /post/
 Disallow: /event-details/
-Disallow: /drinks/
 Disallow: /celebrating-sport-at-the-anchor
 Disallow: /company-christmas-party-venue
 

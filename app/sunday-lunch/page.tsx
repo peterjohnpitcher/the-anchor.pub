@@ -12,9 +12,9 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { generateNutritionInfo, generateSuitableForDiet } from '@/lib/schema-utils'
 
 export const metadata: Metadata = {
-  title: 'Sunday Roast | The Anchor Stanwell Moor | Best Sunday Lunch Near Heathrow',
-  description: 'Our renowned Sunday roasts at The Anchor pub in Surrey. Traditional British roast dinners served 12-5pm every Sunday. Pre-order with £5 deposit required. Near Heathrow Airport.',
-  keywords: 'sunday roast stanwell moor, sunday lunch near heathrow, best roast dinner surrey, traditional sunday lunch',
+  title: 'Sunday Roast Near Me | The Anchor Stanwell Moor | Traditional Sunday Lunch',
+  description: 'Award-winning Sunday roast near Heathrow Airport. Traditional British roast dinners with Yorkshire puddings, crispy roast potatoes & homemade gravy. £14.99-£15.99. Pre-order required.',
+  keywords: 'sunday roast near me, sunday lunch near me, roast dinner near me, sunday carvery near me, traditional sunday roast stanwell moor, best sunday lunch near heathrow, sunday roast surrey',
   openGraph: {
     title: 'Famous Sunday Roasts at The Anchor',
     description: 'Traditional British Sunday roast dinners. Pre-order by 1pm Saturday required. Regular menu also available.',
@@ -88,7 +88,7 @@ export default function SundayLunchPage() {
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
-            Sunday Lunch - Traditional Roasts | The Anchor
+            Sunday Roast Near Me - Traditional British Sunday Lunch | The Anchor
           </PageTitle>
         </Container>
       </section>
@@ -97,8 +97,8 @@ export default function SundayLunchPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Why Sundays Are Special Here"
-            subtitle="We've been perfecting our Sunday roast for years. It's not just a meal, it's a tradition."
+            title="Why Our Sunday Roast Near Me is Special"
+            subtitle="Locals searching for 'Sunday lunch near me' choose The Anchor - here's why."
           />
           
           <FeatureGrid
@@ -286,6 +286,9 @@ export default function SundayLunchPage() {
               <p className="text-blue-700 text-sm mt-1">
                 Balance payable on the day • Prices shown are total per person
               </p>
+              <p className="text-blue-600 text-xs mt-2">
+                Looking for "Sunday carvery near me"? We prepare each roast fresh to order!
+              </p>
             </div>
             
             {/* Booking CTA within menu section */}
@@ -451,33 +454,42 @@ export default function SundayLunchPage() {
               
               <div className="bg-anchor-cream rounded-2xl p-8 mb-12">
                 <h3 className="text-2xl font-bold text-anchor-green mb-4 text-center">
-                  A Sunday Roast Near Heathrow
+                  Your Local Sunday Roast Near Me
                 </h3>
                 <p className="text-gray-700 mb-4">
-                  Being the closest traditional pub to Heathrow Airport brings us guests from around 
-                  the world, and nothing delights us more than introducing international visitors to 
-                  a proper British Sunday roast. Flight crews staying at nearby hotels have made The 
-                  Anchor their Sunday tradition, and we regularly see business travelers extending 
-                  their trips just to experience Sunday lunch before flying home.
+                  When you search for "Sunday roast near me" in Stanwell Moor, Staines, or anywhere 
+                  near Heathrow, The Anchor is your answer. We're not just the closest traditional pub 
+                  to the airport - we're a proper British pub serving authentic Sunday roasts the way 
+                  they should be done. Whether you're a local from Ashford, Bedfont, or Egham, or 
+                  staying at a Heathrow hotel, you'll find us perfectly located for your Sunday lunch.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  Our Sunday roast has become legendary in the area. Flight crews from Terminal 2, 3, 4, 
+                  and 5 have made us their regular Sunday spot. Business travelers extend their trips 
+                  just to experience a proper British Sunday lunch before flying home. Why? Because when 
+                  you're looking for "Sunday lunch near me," you want more than just food - you want 
+                  the full British pub experience.
                 </p>
                 <p className="text-gray-700">
                   "You haven't truly visited England until you've had a proper Sunday roast," one 
-                  American guest told us. We couldn't agree more. It's not just about the food - 
-                  it's about the experience of a leisurely Sunday afternoon in a real British pub, 
-                  where time slows down and the outside world can wait.
+                  American guest told us. We couldn't agree more. At The Anchor, Sunday roast isn't 
+                  just a meal - it's a tradition we've been perfecting for years, making us the go-to 
+                  answer for "roast dinner near me" searches across Surrey and West London.
                 </p>
               </div>
               
               <div className="text-center">
                 <p className="text-lg text-gray-700 mb-4">
-                  Whether you're a local looking for your regular Sunday spot, a visitor wanting to 
-                  experience authentic British culture, or someone who simply appreciates a properly 
-                  cooked roast dinner, you'll find what you're looking for at The Anchor. Just 
+                  Whether you're searching for "Sunday roast near me" in Stanwell Moor, "Sunday lunch 
+                  near me" in Staines, or "roast dinner near me" anywhere near Heathrow, The Anchor is 
+                  your destination. We welcome locals from Ashford, Bedfont, Egham, Feltham, Stanwell, 
+                  and Windsor, plus international visitors wanting authentic British culture. Just 
                   remember to book ahead - Sundays are our busiest day for a reason.
                 </p>
                 <p className="text-lg text-gray-700 italic">
-                  "The best Sunday roast in the area" isn't just our claim - it's what our regulars 
-                  tell their friends. Come and discover why.
+                  "The best Sunday roast near me" isn't just what people search for - it's what they 
+                  find at The Anchor. With 4.8 stars from over 127 reviews, we're the top-rated Sunday 
+                  lunch destination near Heathrow Airport.
                 </p>
               </div>
             </div>

@@ -109,32 +109,70 @@ export function generateSuitableForDiet(item: { vegetarian?: boolean, allergens?
   return diets.length > 0 ? diets : undefined
 }
 
-// Generate nutrition information schema (placeholder values for now)
+// Generate nutrition information schema with AI-estimated values
 export function generateNutritionInfo(itemName: string, category: string) {
-  // In a real implementation, this would pull from a nutrition database
-  // For now, return reasonable estimates based on item type
+  // AI-generated nutritional estimates - actual values may vary by serving
   
   const nutritionDefaults: Record<string, any> = {
     pizza: {
-      calories: "800-1200",
-      fatContent: "30-45g",
-      carbohydrateContent: "80-120g",
-      proteinContent: "35-50g",
-      sodiumContent: "1500-2000mg"
+      calories: "850-1100",
+      fatContent: "32-42g",
+      saturatedFatContent: "14-18g",
+      carbohydrateContent: "85-110g",
+      sugarContent: "8-12g",
+      proteinContent: "38-48g",
+      sodiumContent: "1600-2100mg",
+      fiberContent: "3-5g"
     },
     burger: {
-      calories: "600-900",
-      fatContent: "35-50g",
-      carbohydrateContent: "45-65g",
-      proteinContent: "30-45g",
-      sodiumContent: "1000-1500mg"
+      calories: "650-850",
+      fatContent: "38-48g",
+      saturatedFatContent: "15-20g",
+      carbohydrateContent: "48-62g",
+      sugarContent: "8-10g",
+      proteinContent: "32-42g",
+      sodiumContent: "1100-1400mg",
+      fiberContent: "2-4g"
     },
     "fish-and-chips": {
-      calories: "800-1000",
-      fatContent: "40-55g",
-      carbohydrateContent: "75-95g",
-      proteinContent: "35-45g",
-      sodiumContent: "800-1200mg"
+      calories: "850-1050",
+      fatContent: "42-52g",
+      saturatedFatContent: "8-12g",
+      carbohydrateContent: "78-92g",
+      sugarContent: "2-4g",
+      proteinContent: "38-45g",
+      sodiumContent: "900-1300mg",
+      fiberContent: "4-6g"
+    },
+    "sunday-roast": {
+      calories: "750-950",
+      fatContent: "28-38g",
+      saturatedFatContent: "10-15g",
+      carbohydrateContent: "65-85g",
+      sugarContent: "6-10g",
+      proteinContent: "45-60g",
+      sodiumContent: "1200-1600mg",
+      fiberContent: "6-8g"
+    },
+    salad: {
+      calories: "350-550",
+      fatContent: "22-32g",
+      saturatedFatContent: "6-10g",
+      carbohydrateContent: "25-35g",
+      sugarContent: "8-12g",
+      proteinContent: "20-30g",
+      sodiumContent: "600-900mg",
+      fiberContent: "5-8g"
+    },
+    starter: {
+      calories: "250-450",
+      fatContent: "15-25g",
+      saturatedFatContent: "5-10g",
+      carbohydrateContent: "20-35g",
+      sugarContent: "3-6g",
+      proteinContent: "12-20g",
+      sodiumContent: "500-800mg",
+      fiberContent: "2-4g"
     },
     default: {
       calories: "varies",
@@ -146,13 +184,19 @@ export function generateNutritionInfo(itemName: string, category: string) {
   }
   
   let nutritionKey = 'default'
-  if (itemName.toLowerCase().includes('pizza')) nutritionKey = 'pizza'
-  else if (itemName.toLowerCase().includes('burger')) nutritionKey = 'burger'
-  else if (itemName.toLowerCase().includes('fish') && itemName.toLowerCase().includes('chips')) nutritionKey = 'fish-and-chips'
+  const lowerName = itemName.toLowerCase()
+  
+  if (lowerName.includes('pizza')) nutritionKey = 'pizza'
+  else if (lowerName.includes('burger')) nutritionKey = 'burger'
+  else if (lowerName.includes('fish') && lowerName.includes('chips')) nutritionKey = 'fish-and-chips'
+  else if (category === 'sunday-roast' || lowerName.includes('roast')) nutritionKey = 'sunday-roast'
+  else if (lowerName.includes('salad')) nutritionKey = 'salad'
+  else if (category === 'starters' || category === 'starter') nutritionKey = 'starter'
   
   return {
     "@type": "NutritionInformation",
     "servingSize": "1 portion",
+    "description": "AI-generated nutritional estimates - actual values may vary by serving and preparation method",
     ...nutritionDefaults[nutritionKey]
   }
 }
@@ -195,6 +239,137 @@ export function generateContactPoints() {
       "availableLanguage": ["English"]
     }
   ]
+}
+
+// Generate Event schema for recurring events
+export function generateEventSchema(eventType: 'quiz' | 'bingo' | 'drag' | 'pizza') {
+  const baseLocation = {
+    "@type": "Place",
+    "name": "The Anchor",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Horton Road",
+      "addressLocality": "Stanwell Moor",
+      "addressRegion": "Surrey",
+      "postalCode": "TW19 6AQ",
+      "addressCountry": "GB"
+    }
+  }
+
+  const eventConfigs = {
+    quiz: {
+      "@type": "Event",
+      "name": "Monthly Quiz Night at The Anchor",
+      "description": "Test your knowledge at our popular monthly quiz night. £3 entry per person, teams up to 6 people. Great prizes including £25 bar voucher for 1st place!",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": baseLocation,
+      "offers": {
+        "@type": "Offer",
+        "price": "3",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "validFrom": new Date().toISOString()
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "The Anchor",
+        "url": "https://the-anchor.pub"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Question One Quiz Masters"
+      },
+      "maximumAttendeeCapacity": 80,
+      "typicalAgeRange": "18+",
+      "duration": "PT3H",
+      "startTime": "19:00",
+      "endTime": "22:00"
+    },
+    bingo: {
+      "@type": "Event",
+      "name": "Monthly Cash Bingo at The Anchor",
+      "description": "Monthly bingo night with cash prizes! £10 per book gets you 10 games throughout the evening. Various prizes including drinks, chocolates, vouchers, and cash jackpot!",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": baseLocation,
+      "offers": {
+        "@type": "Offer",
+        "price": "10",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "validFrom": new Date().toISOString()
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "The Anchor",
+        "url": "https://the-anchor.pub"
+      },
+      "maximumAttendeeCapacity": 60,
+      "typicalAgeRange": "18+",
+      "duration": "PT2H",
+      "startTime": "19:00",
+      "endTime": "21:00"
+    },
+    drag: {
+      "@type": "Event",
+      "name": "Monthly Drag Show with Nikki Manfadge",
+      "description": "Spectacular monthly drag performances at The Anchor featuring Nikki Manfadge. FREE entry! Experience dazzling performances, hilarious comedy, and unforgettable entertainment.",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": baseLocation,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "validFrom": new Date().toISOString()
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "The Anchor",
+        "url": "https://the-anchor.pub"
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Nikki Manfadge"
+      },
+      "maximumAttendeeCapacity": 150,
+      "typicalAgeRange": "18+",
+      "duration": "PT2H30M",
+      "startTime": "21:00",
+      "endTime": "23:30"
+    },
+    pizza: {
+      "@type": "Event",
+      "name": "Pizza Tuesday BOGOF Deal",
+      "description": "Buy one get one FREE on all stone-baked pizzas every Tuesday! Perfect for families, couples, or friends looking for great value dining.",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1W",
+        "byDay": "https://schema.org/Tuesday",
+        "startTime": "18:00",
+        "endTime": "21:00"
+      },
+      "location": baseLocation,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "description": "Buy one pizza, get one free"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "The Anchor",
+        "url": "https://the-anchor.pub"
+      }
+    }
+  }
+
+  return eventConfigs[eventType]
 }
 
 // Generate GeoShape for service area (roughly 10 mile radius around pub)

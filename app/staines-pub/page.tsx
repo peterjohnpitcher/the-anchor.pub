@@ -13,9 +13,9 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Staines Pub | ${BRAND.nameWithLocation} | Traditional British Pub Near Staines`,
-  description: 'The Anchor - traditional British pub 8 mins from Staines. Sunday roasts, BOGOF pizza deals, drag shows & quiz nights. Free parking. Dog-friendly.',
-  keywords: 'staines pub, pubs in staines, staines upon thames pub, traditional pub staines, british pub near staines, staines restaurants',
+  title: `Staines Pub | ${BRAND.nameWithLocation} | Traditional Surrey Pub Near Staines`,
+  description: 'The Anchor - traditional Surrey pub 8 mins from Staines-upon-Thames. Sunday roasts, BOGOF pizza deals, drag shows & quiz nights. Free parking in Surrey countryside.',
+  keywords: 'staines pub, pubs in staines surrey, staines upon thames pub, traditional pub staines, surrey pubs near staines, staines restaurants surrey',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Staines',
     description: 'Just 8 minutes from Staines. Sunday roasts, entertainment, and free parking.',
@@ -34,7 +34,7 @@ const localBusinessSchema = {
   "@type": "BarOrPub",
   "@id": "https://the-anchor.pub/staines-pub#business",
   "name": BRAND.name,
-  "description": "Traditional British pub serving Staines and surrounding areas",
+  "description": "Traditional Surrey pub serving Staines-upon-Thames and surrounding areas",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": CONTACT.address.street,
@@ -114,7 +114,7 @@ export default function StainesPubPage() {
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
-            Pub in Staines Area - The Anchor Stanwell Moor
+            Surrey Pub Near Staines - The Anchor Stanwell Moor
           </PageTitle>
         </div>
       </section>
@@ -125,7 +125,7 @@ export default function StainesPubPage() {
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Why Staines Locals Love The Anchor"
-              subtitle="Just a short drive from Staines town centre, we're the perfect escape for a proper pub experience"
+              subtitle="Just a short drive from Staines-upon-Thames, discover Surrey's best kept secret - a proper British pub experience"
               className="text-center mb-12"
             />
             
@@ -141,7 +141,7 @@ export default function StainesPubPage() {
                 {
                   icon: "🍽️",
                   title: "Famous Sunday Roasts",
-                  description: "Our renowned roasts\nPre-order by Saturday 1pm\nRegular menu also available",
+                  description: "Our renowned roasts\n£5 deposit pre-order by Saturday 1pm\nRegular menu also available",
                   className: "text-center"
                 },
                 {
@@ -275,7 +275,7 @@ export default function StainesPubPage() {
                   <h3 className="text-xl font-bold text-anchor-green">Sunday</h3>
                   <span className="bg-anchor-green text-white px-3 py-1 rounded-full text-sm font-semibold">ROASTS</span>
                 </div>
-                <p className="text-gray-700">Famous Sunday roasts served 12pm-5pm. Pre-order by Saturday 1pm.</p>
+                <p className="text-gray-700">Famous Sunday roasts served 12pm-5pm. Pre-order with £5 per person deposit by Saturday 1pm.</p>
               </div>
               
               <div className="border-l-4 border-anchor-gold bg-anchor-cream/50 p-6 rounded-r-lg">

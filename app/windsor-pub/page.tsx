@@ -14,9 +14,9 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Windsor Pub Near Me | ${BRAND.name} - 15 Minutes from Windsor`,
-  description: `${BRAND.name} - traditional pub 15 mins from Windsor. Outside ULEZ with free parking. Sunday roasts, quiz nights, drag shows. Easy M4 access.`,
-  keywords: 'windsor pub, pub near windsor, windsor berkshire pub, pubs close to windsor, british pub windsor, traditional pub near windsor castle',
+  title: `Windsor Pub Near Me | ${BRAND.name} - Surrey Pub 15 Minutes from Windsor`,
+  description: `${BRAND.name} - traditional Surrey pub 15 mins from Windsor Castle. Outside ULEZ with free parking. Sunday roasts, quiz nights in Surrey countryside. Easy M4 access.`,
+  keywords: 'windsor pub, pub near windsor surrey, windsor berkshire pub, surrey pubs close to windsor, british pub windsor, traditional surrey pub near windsor castle',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Windsor',
     description: 'Just 15 minutes from Windsor with free parking. Sunday roasts, British classics, and regular entertainment.',
@@ -237,7 +237,7 @@ export default function WindsorPubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🥘</span>
                     <div>
-                      <strong>Famous Sunday Roasts</strong> - Book by Saturday 1pm
+                      <strong>Famous Sunday Roasts</strong> - £5 deposit pre-order by Saturday 1pm
                     </div>
                   </li>
                   <li className="flex items-start gap-3">

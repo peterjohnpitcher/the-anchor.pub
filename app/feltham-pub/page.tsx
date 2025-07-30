@@ -181,7 +181,7 @@ export default function FelthamPubPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-anchor-gold mr-3">✓</span>
-                  <span>Our celebrated Sunday roasts worth the short journey</span>
+                  <span>Our celebrated Sunday roasts (£5 deposit pre-order required) worth the short journey</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-anchor-gold mr-3">✓</span>
@@ -304,7 +304,7 @@ export default function FelthamPubPage() {
                         </li>
                         <li className="flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          Sunday roasts (book ahead)
+                          Sunday roasts (£5 deposit pre-order)
                         </li>
                         <li className="flex items-start">
                           <span className="text-blue-500 mr-2">•</span>

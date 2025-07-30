@@ -100,6 +100,7 @@ const defaultSections: FooterSection[] = [
       { label: 'Feltham', href: '/feltham-pub' },
       { label: 'Heathrow Hotels', href: '/heathrow-hotels-pub' },
       { label: 'M25 Junction 14', href: '/m25-junction-14-pub' },
+      { label: 'Staines', href: '/staines-pub' },
       { label: 'Stanwell', href: '/stanwell-pub' },
       { label: 'Windsor', href: '/windsor-pub' }
     ]

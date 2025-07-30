@@ -126,7 +126,7 @@ export default function Terminal5Page() {
               align="center"
             />
             
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
               {/* By Car */}
               <div className="bg-anchor-cream rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (7 minutes)</h3>
@@ -163,7 +163,8 @@ export default function Terminal5Page() {
                 <h3 className="text-2xl font-bold text-anchor-green mb-4">🚕 By Taxi</h3>
                 <div className="space-y-4 text-gray-700">
                   <div>
-                    <p className="font-semibold mb-2">Cost: Around £25</p>
+                    <p className="font-semibold mb-2">Cost: £20-£25</p>
+                    <p className="text-sm text-gray-600 mb-2">Journey time: 4-7 minutes (2.8 miles)</p>
                     <p>Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;</p>
                   </div>
                   <div>
@@ -177,6 +178,27 @@ export default function Terminal5Page() {
                   <div className="p-4 bg-white rounded-lg">
                     <p className="font-semibold text-anchor-green mb-2">Pre-book Return:</p>
                     <p className="text-sm">We can arrange your return taxi - just ask at the bar!</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* By Bus */}
+              <div className="bg-anchor-cream rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚌 By Bus</h3>
+                <div className="space-y-4 text-gray-700">
+                  <div>
+                    <p className="font-semibold mb-2">Route 442</p>
+                    <p className="text-sm mb-2">Staines - Stanwell Moor - Heathrow</p>
+                    <p className="text-sm">Runs every 20 minutes</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Journey Time: 4-6 minutes</p>
+                    <p className="text-sm">Ask driver for "The Anchor" stop</p>
+                  </div>
+                  <div className="p-4 bg-white rounded-lg">
+                    <p className="font-semibold text-anchor-green mb-1">Bus Stop Location:</p>
+                    <p className="text-sm">Central Bus Station, Terminal 5</p>
+                    <p className="text-sm text-gray-600">Ground floor, follow signs</p>
                   </div>
                 </div>
               </div>
@@ -309,7 +331,7 @@ export default function Terminal5Page() {
                   </li>
                   <li className="flex gap-3">
                     <span>💡</span>
-                    <span>Our Sunday roast is famous among T5 staff - book ahead!</span>
+                    <span>Our Sunday roast is famous among T5 staff - £5 deposit pre-order required by Saturday 1pm!</span>
                   </li>
                 </ul>
               }
@@ -384,7 +406,7 @@ export default function Terminal5Page() {
                   </li>
                   <li className="flex gap-2">
                     <span className="text-anchor-gold">✓</span>
-                    <span>Sunday roasts that locals queue for</span>
+                    <span>Sunday roasts that locals queue for (£5 deposit pre-order)</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-anchor-gold">✓</span>
@@ -466,7 +488,7 @@ export default function Terminal5Page() {
           },
           {
             question: "Can I get a taxi from Terminal 5 to The Anchor?",
-            answer: "Yes, taxis are readily available from Terminal 5. The journey costs around £25 and takes about 7 minutes. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor, TW19 6AQ'. Alternatively, the 442 bus stops directly outside the pub for much less."
+            answer: "Yes, taxis are readily available from Terminal 5. The journey costs £20-£25 and takes about 4-7 minutes. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor, TW19 6AQ'. Alternatively, take bus route 442 which stops directly outside the pub - it runs every 20 minutes and costs about what a pint should cost."
           },
           {
             question: "What time should I leave The Anchor to catch my flight from T5?",

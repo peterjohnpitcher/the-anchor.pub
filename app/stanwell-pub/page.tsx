@@ -14,9 +14,9 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Stanwell Pub Near Me | ${BRAND.name} - Your Local Village Pub`,
-  description: `${BRAND.name} - Stanwell's traditional village pub. Family-friendly with Sunday roasts, pizza deals, quiz nights & free parking. Heart of community.`,
-  keywords: 'stanwell pub, pub in stanwell, stanwell moor pub, stanwell village pub, local pub stanwell, traditional pub stanwell surrey',
+  title: `Stanwell Pub Near Me | ${BRAND.name} - Your Local Surrey Village Pub`,
+  description: `${BRAND.name} - Stanwell's traditional Surrey village pub. Family-friendly local in Surrey with Sunday roasts, pizza deals, quiz nights & free parking.`,
+  keywords: 'stanwell pub, pub in stanwell surrey, stanwell moor pub, stanwell village pub surrey, local pub stanwell, traditional surrey pub stanwell',
   openGraph: {
     title: 'The Anchor - Stanwell Village Pub',
     description: 'Your local traditional British pub in Stanwell Moor. Sunday roasts, quiz nights, and community events.',

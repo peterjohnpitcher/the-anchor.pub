@@ -244,7 +244,7 @@ export default function AshfordPubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🥘</span>
                     <div>
-                      <strong>Sunday Roasts</strong> - Book by Saturday 1pm - Ashford folks fill tables fast!
+                      <strong>Sunday Roasts</strong> - £5 deposit pre-order by Saturday 1pm - Ashford folks fill tables fast!
                     </div>
                   </li>
                   <li className="flex items-start gap-3">

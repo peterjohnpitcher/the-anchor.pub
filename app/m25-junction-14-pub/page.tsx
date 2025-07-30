@@ -14,9 +14,9 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: `M25 Junction 14 Pub Near Me | ${BRAND.name} - 5 Minutes from M25`,
-  description: `Traditional British pub 5 mins from M25 Junction 14. Perfect motorway stop with free parking, real food & authentic atmosphere. Outside ULEZ zone.`,
-  keywords: 'm25 junction 14 pub, pub near m25 junction 14, m25 motorway pub stop, traditional pub near m25, m25 j14 food stop',
+  title: `M25 Junction 14 Pub Near Me | ${BRAND.name} - Surrey Pub 5 Minutes from M25`,
+  description: `Traditional Surrey pub 5 mins from M25 Junction 14. Perfect motorway stop in Surrey countryside with free parking, real food & authentic atmosphere. Outside ULEZ.`,
+  keywords: 'm25 junction 14 pub surrey, pub near m25 junction 14, m25 motorway pub stop surrey, traditional surrey pub near m25, m25 j14 food stop surrey',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near M25 Junction 14',
     description: 'Just 5 minutes from M25 J14. Free parking, proper food, real ales. The perfect motorway break.',
@@ -308,7 +308,7 @@ export default function M25Junction14PubPage() {
               <div className="bg-blue-50 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-blue-800 mb-4">Take a Proper Break</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Sunday Roasts (weekends)</li>
+                  <li>• Sunday Roasts (£5 deposit pre-order required)</li>
                   <li>• Steak & Ale Pie - £11.99</li>
                   <li>• Chicken Katsu Curry - £10.99</li>
                   <li>• Tuesday Pizza BOGOF</li>

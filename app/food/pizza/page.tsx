@@ -9,6 +9,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { generateNutritionInfo, generateMenuItemOffer } from '@/lib/schema-utils'
 
 export const metadata: Metadata = {
   title: 'Buy One Get One Free Pizza | The Anchor Stanwell Moor | BOGOF Deal',
@@ -29,6 +30,9 @@ export const metadata: Metadata = {
 const pizzaMenuSchema = {
   "@context": "https://schema.org",
   "@type": "Menu",
+  "@id": "https://the-anchor.pub/food/pizza#menu",
+  "name": "The Anchor Pizza Menu",
+  "description": "Stone-baked pizzas with BOGOF deal every Tuesday",
   "hasMenuSection": {
     "@type": "MenuSection",
     "name": "Stone-Baked Pizzas",
@@ -37,31 +41,206 @@ const pizzaMenuSchema = {
         "@type": "MenuItem",
         "name": "Rustic Classic Pizza",
         "description": "Rich tomato sauce, creamy mozzarella, crisp stone-baked crust—a timeless favourite.",
-        "offers": {
-          "@type": "Offer",
-          "price": "10.99",
-          "priceCurrency": "GBP"
-        }
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "10.49",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "large pizza"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "7.49",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "small pizza"
+            }
+          }
+        ],
+        "nutrition": generateNutritionInfo("Rustic Classic Pizza", "pizza"),
+        "suitableForDiet": ["https://schema.org/VegetarianDiet"],
+        "menuAddOn": [
+          {
+            "@type": "MenuItem",
+            "name": "Extra Cheese",
+            "offers": {
+              "@type": "Offer",
+              "price": "1.50",
+              "priceCurrency": "GBP"
+            }
+          }
+        ]
       },
       {
         "@type": "MenuItem",
         "name": "Simply Salami Pizza",
         "description": "Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection.",
-        "offers": {
-          "@type": "Offer",
-          "price": "12.99",
-          "priceCurrency": "GBP"
-        }
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "12.99",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "large pizza"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "8.49",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "small pizza"
+            }
+          }
+        ],
+        "nutrition": generateNutritionInfo("Simply Salami Pizza", "pizza")
       },
       {
         "@type": "MenuItem",
         "name": "Barbecue Chicken Pizza",
         "description": "Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust.",
-        "offers": {
-          "@type": "Offer",
-          "price": "13.99",
-          "priceCurrency": "GBP"
-        }
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "13.99",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "large pizza"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "small pizza"
+            }
+          }
+        ],
+        "nutrition": generateNutritionInfo("Barbecue Chicken Pizza", "pizza")
+      },
+      {
+        "@type": "MenuItem",
+        "name": "Fully Loaded Pizza",
+        "description": "Napoli salami, speck ham, fennel salami, mozzarella on a bold stone-baked base.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "13.99",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "large pizza"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "9.49",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "small pizza"
+            }
+          }
+        ],
+        "nutrition": generateNutritionInfo("Fully Loaded Pizza", "pizza")
+      },
+      {
+        "@type": "MenuItem",
+        "name": "Nice & Spicy Pizza",
+        "description": "'Nduja, Ventricina, roquito peppers, mozzarella—fiery flavours on a crisp crust.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "13.49",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "large pizza"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "8.49",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "small pizza"
+            }
+          }
+        ],
+        "nutrition": generateNutritionInfo("Nice & Spicy Pizza", "pizza")
+      },
+      {
+        "@type": "MenuItem",
+        "name": "The Garden Club Pizza",
+        "description": "Roasted courgettes, caramelised onions, rocket, and mozzarella on a rich tomato base.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "12.99",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "large pizza"
+            }
+          },
+          {
+            "@type": "Offer",
+            "price": "8.99",
+            "priceCurrency": "GBP",
+            "eligibleQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitText": "small pizza"
+            }
+          }
+        ],
+        "nutrition": generateNutritionInfo("The Garden Club Pizza", "pizza"),
+        "suitableForDiet": ["https://schema.org/VegetarianDiet"]
+      }
+    ]
+  },
+  "inLanguage": "en-GB",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tuesday BOGOF Pizza Deal",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Buy One Get One Free - Every Tuesday",
+        "description": "Get any pizza free when you buy one of equal or greater value",
+        "eligibleRegion": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.462509,
+            "longitude": -0.502067
+          },
+          "geoRadius": "16000"
+        },
+        "availableDay": ["Tuesday"],
+        "validFrom": "2024-01-01",
+        "validThrough": "2025-12-31"
       }
     ]
   }
@@ -70,27 +249,46 @@ const pizzaMenuSchema = {
 const offerSchema = {
   "@context": "https://schema.org",
   "@type": "Offer",
-  "name": "Buy One Get One Free Pizza",
-  "description": "Get any pizza free when you buy one of equal or greater value",
+  "@id": "https://the-anchor.pub/food/pizza#bogof-offer",
+  "name": "Buy One Get One Free Pizza - Every Tuesday",
+  "description": "Get any pizza free when you buy one of equal or greater value. Available every Tuesday during kitchen hours.",
   "seller": {
     "@type": "Restaurant",
     "name": "The Anchor",
+    "@id": "https://the-anchor.pub/#business",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Horton Road",
       "addressLocality": "Stanwell Moor",
       "addressRegion": "Surrey",
-      "postalCode": "TW19 6AQ"
+      "postalCode": "TW19 6AQ",
+      "addressCountry": "GB"
     }
   },
   "validFrom": "2024-01-01",
-  "validThrough": "2024-12-31",
+  "validThrough": "2025-12-31",
   "availableDay": ["Tuesday"],
   "priceSpecification": {
     "@type": "PriceSpecification",
     "price": "0",
+    "priceCurrency": "GBP",
+    "valueAddedTaxIncluded": true
+  },
+  "eligibleRegion": {
+    "@type": "Place",
+    "name": "Stanwell Moor and surrounding areas"
+  },
+  "eligibleTransactionVolume": {
+    "@type": "PriceSpecification",
+    "minPrice": "7.49",
     "priceCurrency": "GBP"
-  }
+  },
+  "availableAtOrFrom": {
+    "@id": "https://the-anchor.pub/#business"
+  },
+  "category": "Food & Beverage",
+  "itemCondition": "https://schema.org/NewCondition",
+  "availability": "https://schema.org/InStock"
 }
 
 export default function PizzaPage() {

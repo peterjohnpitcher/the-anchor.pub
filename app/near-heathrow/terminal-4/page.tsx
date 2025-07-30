@@ -18,16 +18,16 @@ import { PARKING } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 4 Hotels | The Anchor - Local British Pub',
-  description: 'Escape Terminal 4 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 12 mins from T4 hotels.',
+  description: 'Escape Terminal 4 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 10 mins from T4 hotels.',
   keywords: 'pub near terminal 4, heathrow terminal 4 restaurant, closest pub to T4, skyteam terminal pub, terminal 4 dining, local pub near terminal 4 hotels',
   openGraph: {
     title: 'The Anchor - Local Pub Near Terminal 4 Hotels',
-    description: 'Escape hotel dining! Family pub 12 mins from T4. Real atmosphere.',
+    description: 'Escape hotel dining! Family pub 10 mins from T4. Real atmosphere.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Local Pub Near Terminal 4 Hotels',
-    description: 'Escape hotel dining! Family pub 12 mins from T4. Real atmosphere.',
+    description: 'Escape hotel dining! Family pub 10 mins from T4. Real atmosphere.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
   })
 }
@@ -43,7 +43,7 @@ export default function Terminal4Page() {
         description="Perfect for SkyTeam & budget travelers • Free parking • Real British hospitality"
         size="large"
         tags={[
-          { label: "Just 12 minutes away", variant: "warning" }
+          { label: "Just 10 minutes away", variant: "warning" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -86,7 +86,7 @@ export default function Terminal4Page() {
             features={[
               {
                 icon: "🚗",
-                title: "12 mins",
+                title: "10 mins",
                 description: "by car"
               },
               {
@@ -119,10 +119,10 @@ export default function Terminal4Page() {
               align="center"
             />
             
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
               {/* By Car */}
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (12 minutes)</h3>
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (10 minutes)</h3>
                 <ol className="space-y-3 text-gray-700">
                   <li className="flex gap-3">
                     <span className="font-bold text-anchor-gold">1.</span>
@@ -156,7 +156,9 @@ export default function Terminal4Page() {
                 <h3 className="text-2xl font-bold text-anchor-green mb-4">🚕 By Taxi</h3>
                 <div className="space-y-4 text-gray-700">
                   <div>
-                    <p className="font-semibold mb-2">Cost: Around £25</p>
+                    <p className="font-semibold mb-2">Cost: £20-£25</p>
+                    <p className="text-sm mb-2">Journey time: 10 minutes</p>
+                    <p className="text-sm mb-2">Distance: 3.5 miles</p>
                     <p>Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;</p>
                   </div>
                   <div>
@@ -170,6 +172,31 @@ export default function Terminal4Page() {
                   <div className="p-4 bg-white rounded-lg">
                     <p className="font-semibold text-anchor-green mb-2">Budget Tip:</p>
                     <p className="text-sm">Share a taxi with other travelers - ask at the rank!</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* By Bus */}
+              <div className="bg-anchor-cream rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚌 By Bus</h3>
+                <div className="space-y-4 text-gray-700">
+                  <div>
+                    <p className="font-semibold mb-2">Route 442</p>
+                    <p className="text-sm mb-2">Journey time: 15-20 minutes</p>
+                    <p className="text-sm mb-2">Runs every 30 minutes</p>
+                    <p>Cost: About what a pint should cost</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">From Terminal 4:</p>
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      <li>Bus stop outside arrivals</li>
+                      <li>Near the taxi rank</li>
+                      <li>Look for route 442 signs</li>
+                    </ul>
+                  </div>
+                  <div className="p-4 bg-white rounded-lg">
+                    <p className="font-semibold text-anchor-green mb-2">Your Stop:</p>
+                    <p className="text-sm">Get off at Horton Road - The Anchor is right there!</p>
                   </div>
                 </div>
               </div>
@@ -392,12 +419,12 @@ export default function Terminal4Page() {
                 <div>
                   <p className="font-semibold mb-2">By Taxi</p>
                   <p className="text-3xl font-bold text-anchor-gold mb-2">£15-18</p>
-                  <p className="text-sm text-gray-600">12 minutes</p>
+                  <p className="text-sm text-gray-600">10 minutes</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">By Uber</p>
                   <p className="text-3xl font-bold text-anchor-gold mb-2">£12-15</p>
-                  <p className="text-sm text-gray-600">12 minutes</p>
+                  <p className="text-sm text-gray-600">10 minutes</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">By Bus</p>
@@ -435,7 +462,7 @@ export default function Terminal4Page() {
         faqs={[
           {
             question: "How far is The Anchor from Heathrow Terminal 4?",
-            answer: "The Anchor is just 12 minutes drive from Heathrow Terminal 4. We're the perfect spot for a pre-flight meal or drinks after landing."
+            answer: "The Anchor is just 10 minutes drive from Heathrow Terminal 4. We're the perfect spot for a pre-flight meal or drinks after landing."
           },
           {
             question: "Do you have parking for Terminal 4 travelers?",
@@ -443,7 +470,7 @@ export default function Terminal4Page() {
           },
           {
             question: "What time should I leave for Terminal 4?",
-            answer: "Allow 12 minutes to reach Terminal 4 from our pub, plus time for parking and security. We recommend leaving at least 2 hours before your flight for European destinations, 3 hours for Middle Eastern and Asian flights."
+            answer: "Allow 10 minutes to reach Terminal 4 from our pub, plus time for parking and security. We recommend leaving at least 2 hours before your flight for European destinations, 3 hours for Middle Eastern and Asian flights."
           },
           {
             question: "Is The Anchor good for Terminal 4 hotel guests?",
@@ -451,7 +478,15 @@ export default function Terminal4Page() {
           },
           {
             question: "How do I get to The Anchor from my Terminal 4 hotel?",
-            answer: "It's about £15-18 by taxi (12 minutes) or £12-15 by Uber. The 442 bus also stops near us for just £2.50. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor' or use postcode TW19 6AQ."
+            answer: "It's about £20-25 by taxi (10 minutes) or £15-20 by Uber. The 442 bus also stops near us for just £2.50. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor' or use postcode TW19 6AQ."
+          },
+          {
+            question: "Can I get a taxi from Terminal 4 to The Anchor?",
+            answer: "Yes, taxis are readily available from Terminal 4. The journey costs £20-25 and takes about 10 minutes (3.5 miles). Taxi ranks are located at Terminal 4 Arrivals (Level 0), Terminal 4 Departures (Level 1), and the short stay car park entrance. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor'."
+          },
+          {
+            question: "Is there a bus from Terminal 4 to The Anchor?",
+            answer: "Yes! The 442 bus runs from Terminal 4 to Stanwell Moor, stopping right outside The Anchor. It takes 15-20 minutes and runs every 30 minutes. The bus stop is outside arrivals near the taxi rank - look for route 442 signs. Cost is about what a pint should cost."
           },
           {
             question: "Is Terminal 4 far from other terminals?",
@@ -464,7 +499,7 @@ export default function Terminal4Page() {
       {/* CTA Section */}
       <CTASection
         title="See You Soon at The Anchor!"
-        description="Just 12 minutes from Terminal 4 • Free Parking • Great Value"
+        description="Just 10 minutes from Terminal 4 • Free Parking • Great Value"
         variant="green"
         buttons={[
           {
@@ -498,7 +533,7 @@ export default function Terminal4Page() {
             "@context": "https://schema.org",
             "@type": "Restaurant",
             "name": "The Anchor - Pub Near Heathrow Terminal 4",
-            "description": "Traditional British pub just 12 minutes from Heathrow Terminal 4 with free parking.",
+            "description": "Traditional British pub just 10 minutes from Heathrow Terminal 4 with free parking.",
             "image": "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
             "address": {
               "@type": "PostalAddress",

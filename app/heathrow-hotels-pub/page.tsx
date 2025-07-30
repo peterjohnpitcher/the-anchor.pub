@@ -14,9 +14,9 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Heathrow Hotels Pub Near Me | ${BRAND.name} - Escape Airport Prices`,
-  description: `Traditional British pub minutes from Heathrow hotels. Free parking, authentic food, real ale. Perfect escape from airport prices. Near all hotels.`,
-  keywords: 'heathrow hotels pub, pub near heathrow hotels, british pub near premier inn heathrow, pub near holiday inn heathrow, escape airport hotel prices',
+  title: `Heathrow Hotels Pub Near Me | ${BRAND.name} - Surrey Pub Escape`,
+  description: `Traditional Surrey pub minutes from Heathrow hotels. Free parking in Surrey countryside, authentic British food, real ale. Escape airport hotel prices.`,
+  keywords: 'heathrow hotels pub surrey, pub near heathrow hotels, surrey pub near premier inn heathrow, pub near holiday inn heathrow, surrey countryside escape',
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Heathrow Hotels',
     description: 'Escape expensive hotel restaurants! Authentic British pub with free parking, just minutes from all Heathrow hotels.',
