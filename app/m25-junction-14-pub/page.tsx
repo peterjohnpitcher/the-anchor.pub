@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["Restaurant", "BarOrPub"],
-  "@id": "https://the-anchor.pub/m25-junction-14-pub#business",
+  "@id": "https://www.the-anchor.pub/m25-junction-14-pub#business",
   "name": `${BRAND.name} - Near M25 Junction 14`,
-  "image": "https://the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "image": "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": CONTACT.address.street,
@@ -66,7 +66,7 @@ const localBusinessSchema = {
   "priceRange": "££",
   "servesCuisine": ["British", "Traditional English", "Motorway Food Alternative"],
   "telephone": CONTACT.phoneIntl,
-  "url": "https://the-anchor.pub/m25-junction-14-pub"
+  "url": "https://www.the-anchor.pub/m25-junction-14-pub"
 }
 
 export default function M25Junction14PubPage() {

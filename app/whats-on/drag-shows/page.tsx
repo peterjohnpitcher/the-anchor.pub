@@ -770,12 +770,12 @@ export default function DragShowsPage() {
             {
               "@context": "https://schema.org",
               "@type": "PerformingGroup",
-              "@id": "https://the-anchor.pub/#nikki-manfadge",
+              "@id": "https://www.the-anchor.pub/#nikki-manfadge",
               "name": "Nikki Manfadge",
               "description": "Professional drag queen and entertainer bringing Vegas-style shows to Stanwell Moor",
               "genre": ["Drag", "Comedy", "Cabaret"],
               "performerIn": {
-                "@id": "https://the-anchor.pub/#drag-show-series"
+                "@id": "https://www.the-anchor.pub/#drag-show-series"
               },
               "sameAs": [
                 "https://www.instagram.com/nikkimanfadge/"
@@ -789,19 +789,19 @@ export default function DragShowsPage() {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://the-anchor.pub"
+                  "item": "https://www.the-anchor.pub"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "What's On",
-                  "item": "https://the-anchor.pub/whats-on"
+                  "item": "https://www.the-anchor.pub/whats-on"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
                   "name": "Drag Shows",
-                  "item": "https://the-anchor.pub/whats-on/drag-shows"
+                  "item": "https://www.the-anchor.pub/whats-on/drag-shows"
                 }
               ]
             }

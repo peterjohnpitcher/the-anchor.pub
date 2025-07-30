@@ -274,7 +274,7 @@ export function generateEventSchema(eventType: 'quiz' | 'bingo' | 'drag' | 'pizz
       "organizer": {
         "@type": "Organization",
         "name": "The Anchor",
-        "url": "https://the-anchor.pub"
+        "url": "https://www.the-anchor.pub"
       },
       "performer": {
         "@type": "Organization",
@@ -303,7 +303,7 @@ export function generateEventSchema(eventType: 'quiz' | 'bingo' | 'drag' | 'pizz
       "organizer": {
         "@type": "Organization",
         "name": "The Anchor",
-        "url": "https://the-anchor.pub"
+        "url": "https://www.the-anchor.pub"
       },
       "maximumAttendeeCapacity": 60,
       "typicalAgeRange": "18+",
@@ -328,7 +328,7 @@ export function generateEventSchema(eventType: 'quiz' | 'bingo' | 'drag' | 'pizz
       "organizer": {
         "@type": "Organization",
         "name": "The Anchor",
-        "url": "https://the-anchor.pub"
+        "url": "https://www.the-anchor.pub"
       },
       "performer": {
         "@type": "Person",
@@ -364,7 +364,7 @@ export function generateEventSchema(eventType: 'quiz' | 'bingo' | 'drag' | 'pizz
       "organizer": {
         "@type": "Organization",
         "name": "The Anchor",
-        "url": "https://the-anchor.pub"
+        "url": "https://www.the-anchor.pub"
       }
     }
   }

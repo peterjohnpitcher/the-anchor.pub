@@ -22,8 +22,8 @@ export async function GET() {
 
     // Ping Google with sitemaps
     const sitemaps = [
-      'https://the-anchor.pub/sitemap.xml',
-      'https://the-anchor.pub/sitemap-priority.xml'
+      'https://www.the-anchor.pub/sitemap.xml',
+      'https://www.the-anchor.pub/sitemap-priority.xml'
     ]
 
     for (const sitemap of sitemaps) {
@@ -101,7 +101,7 @@ export async function GET() {
     const priorityUrls = [
       ...staticUrls.slice(0, 10),
       ...blogPosts.slice(0, 5).map(post => `/blog/${post.slug}`)
-    ].map(url => `https://the-anchor.pub${url}`)
+    ].map(url => `https://www.the-anchor.pub${url}`)
 
     return NextResponse.json({
       success: true,
@@ -112,7 +112,7 @@ export async function GET() {
       sitemaps,
       lastUpdated: new Date().toISOString(),
       instructions: {
-        manual: 'Visit https://the-anchor.pub/api/trigger-indexing weekly',
+        manual: 'Visit https://www.the-anchor.pub/api/trigger-indexing weekly',
         cron: 'Set up a weekly cron job to hit this endpoint',
         searchConsole: 'Submit priority URLs manually in Google Search Console'
       }

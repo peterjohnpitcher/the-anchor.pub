@@ -38,10 +38,10 @@ export async function UpcomingEvents() {
         "position": index + 1,
         "item": {
           "@type": "Event",
-          "@id": event.slug ? `https://the-anchor.pub/events/${event.slug}` : `https://the-anchor.pub/events/${event.id}`,
+          "@id": event.slug ? `https://www.the-anchor.pub/events/${event.slug}` : `https://www.the-anchor.pub/events/${event.id}`,
           "name": event.name,
           "startDate": event.startDate,
-          "url": event.slug ? `https://the-anchor.pub/events/${event.slug}` : `https://the-anchor.pub/events/${event.id}`
+          "url": event.slug ? `https://www.the-anchor.pub/events/${event.slug}` : `https://www.the-anchor.pub/events/${event.id}`
         }
       }))
     }

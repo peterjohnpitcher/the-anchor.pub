@@ -404,7 +404,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "OpeningHoursSpecification",
-            "@id": "https://the-anchor.pub/#opening-hours",
+            "@id": "https://www.the-anchor.pub/#opening-hours",
             "dayOfWeek": Object.entries(hours.regularHours)
               .filter(([_, h]) => !h.is_closed)
               .map(([day, h]) => day.charAt(0).toUpperCase() + day.slice(1)),

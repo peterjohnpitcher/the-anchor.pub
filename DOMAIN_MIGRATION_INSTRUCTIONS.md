@@ -107,7 +107,7 @@ Add any other Wix-specific URL redirects you need to maintain SEO.
 
 ## Step 7: Testing Checklist
 
-- [ ] Visit https://the-anchor.pub - site loads with SSL
+- [ ] Visit https://www.the-anchor.pub - site loads with SSL
 - [ ] Visit https://www.the-anchor.pub - redirects to non-www
 - [ ] Check all main pages load correctly
 - [ ] Test booking links work

@@ -251,3 +251,66 @@ NEXT_PUBLIC_AVIATIONSTACK_API_KEY    # Flight tracking API
 - Verify images have proper sizes prop
 - Ensure heavy components use dynamic imports
 - Check for unnecessary client components
+
+## SEO & Domain Configuration
+
+### CRITICAL: Canonical Domain Setup
+**The site uses www.the-anchor.pub as the canonical domain**
+
+#### Domain & DNS Configuration
+- **DNS**: Managed by Cloudflare
+- **Hosting**: Vercel
+- **Canonical Domain**: `https://www.the-anchor.pub` (with www)
+- **SSL/TLS**: Cloudflare MUST be set to "Full" or "Full (strict)" (NOT "Flexible")
+
+#### Canonical URL Implementation
+**DO NOT hardcode canonical URLs in layout.tsx!** This was a critical bug that made all pages claim to be the homepage.
+
+Correct implementation:
+```typescript
+// app/layout.tsx - Set metadataBase only
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.the-anchor.pub'),
+  // DO NOT add alternates.canonical here!
+}
+
+// Individual pages - Use relative canonical
+export const metadata: Metadata = {
+  alternates: {
+    canonical: './', // Uses metadataBase + current path
+  },
+}
+```
+
+#### Common SEO Mistakes to Avoid
+1. **Never hardcode canonical in root layout** - It makes ALL pages have the same canonical
+2. **Always use www.the-anchor.pub** - The site is configured for www, not non-www
+3. **Check for redirect loops** - Ensure no circular redirects in blog-redirects.json
+4. **Verify imports** - Always check components are properly imported before using
+5. **Keep domain consistent** - All references should use www version
+
+#### Sitemap & Robots.txt
+- Sitemap URLs must use the canonical domain (www)
+- Update robots.txt to reference www URLs
+- Remove duplicate entries from sitemap.ts
+
+#### When Adding New Pages
+1. Use relative canonical URLs (e.g., `canonical: '/new-page'`)
+2. Ensure the page is added to sitemap.ts
+3. Check that all internal links use relative paths
+4. Verify no redirect conflicts
+
+#### Cloudflare Settings
+**CRITICAL**: If you see "ERR_TOO_MANY_REDIRECTS":
+1. Check Cloudflare SSL/TLS is set to "Full" or "Full (strict)"
+2. Disable any Cloudflare Page Rules that might cause redirects
+3. Let Vercel handle www/non-www redirects, not Cloudflare
+
+#### Testing Canonical Implementation
+```bash
+# Check canonical tag on any page
+curl -s https://www.the-anchor.pub/[page] | grep '<link rel="canonical"'
+
+# Verify only ONE canonical tag exists
+# Verify it points to the correct URL (not homepage)
+```

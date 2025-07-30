@@ -54,7 +54,7 @@ export function createRecurringEvent(params: {
       priceCurrency: 'GBP',
       availability: 'https://schema.org/InStock',
       validFrom: now.toISOString(),
-      url: `https://the-anchor.pub/events/${params.slug}`
+      url: `https://www.the-anchor.pub/events/${params.slug}`
     },
     location: {
       '@type': 'Place',
@@ -75,7 +75,7 @@ export function createRecurringEvent(params: {
     organizer: params.organizer || {
       '@type': 'Organization',
       name: 'The Anchor',
-      url: 'https://the-anchor.pub'
+      url: 'https://www.the-anchor.pub'
     },
     maximumAttendeeCapacity: params.maximumAttendeeCapacity || 100,
     remainingAttendeeCapacity: params.remainingAttendeeCapacity || 100,

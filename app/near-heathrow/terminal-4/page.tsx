@@ -534,7 +534,7 @@ export default function Terminal4Page() {
             "@type": "Restaurant",
             "name": "The Anchor - Pub Near Heathrow Terminal 4",
             "description": "Traditional British pub just 10 minutes from Heathrow Terminal 4 with free parking.",
-            "image": "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+            "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Horton Road",
@@ -548,7 +548,7 @@ export default function Terminal4Page() {
               "latitude": 51.4745,
               "longitude": -0.4713
             },
-            "url": "https://the-anchor.pub/near-heathrow/terminal-4",
+            "url": "https://www.the-anchor.pub/near-heathrow/terminal-4",
             "telephone": "+441753682707",
             "priceRange": "££",
             "servesCuisine": ["British", "Pub Food"],

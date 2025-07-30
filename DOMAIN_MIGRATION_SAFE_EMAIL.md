@@ -92,7 +92,7 @@ Since your current records show "none" for www and @, you likely don't have acti
 ## Step 6: Testing Checklist
 
 **Website Tests:**
-- [ ] https://the-anchor.pub loads correctly
+- [ ] https://www.the-anchor.pub loads correctly
 - [ ] https://www.the-anchor.pub loads correctly
 - [ ] SSL padlock shows in browser
 - [ ] All pages load properly

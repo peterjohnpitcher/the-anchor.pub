@@ -171,7 +171,7 @@ All test files for the unused UI components listed above.
 // Missing
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@theanchorpub" />
-<link rel="canonical" href="https://the-anchor.pub/current-page" />
+<link rel="canonical" href="https://www.the-anchor.pub/current-page" />
 ```
 
 ## Accessibility Issues

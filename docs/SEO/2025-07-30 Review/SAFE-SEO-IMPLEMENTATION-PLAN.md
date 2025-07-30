@@ -144,7 +144,7 @@ Disallow: /drinks/product-* # More specific pattern
 **Implementation**:
 ```jsx
 // In each location page
-<link rel="canonical" href="https://the-anchor.pub/ashford-pub" />
+<link rel="canonical" href="https://www.the-anchor.pub/ashford-pub" />
 ```
 **Risk**: Low - reinforces page authority
 **Benefit**: Prevents duplicate content issues

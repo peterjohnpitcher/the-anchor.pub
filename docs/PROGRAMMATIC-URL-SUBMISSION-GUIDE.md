@@ -15,7 +15,7 @@ node scripts/submit-urls-to-google.js
 - No API key required
 
 ### 2. API Endpoint (Implemented ✅)
-**Endpoint**: `https://the-anchor.pub/api/trigger-indexing`
+**Endpoint**: `https://www.the-anchor.pub/api/trigger-indexing`
 - Visit this URL to trigger sitemap pings
 - Returns JSON with submission results
 - Can be called via cron job
@@ -74,10 +74,10 @@ async function requestIndexing(siteUrl, urlToIndex) {
 
 // Submit URLs
 async function submitAllUrls() {
-  const siteUrl = 'https://the-anchor.pub/';
+  const siteUrl = 'https://www.the-anchor.pub/';
   const urls = [
-    'https://the-anchor.pub/blog',
-    'https://the-anchor.pub/drinks',
+    'https://www.the-anchor.pub/blog',
+    'https://www.the-anchor.pub/drinks',
     // ... add all URLs
   ];
 
@@ -116,7 +116,7 @@ jobs:
     steps:
       - name: Ping indexing endpoint
         run: |
-          curl -X POST https://the-anchor.pub/api/trigger-indexing
+          curl -X POST https://www.the-anchor.pub/api/trigger-indexing
 ```
 
 ### 5. Third-Party Services
@@ -162,7 +162,7 @@ Beyond direct submission:
 
 2. **Test API Endpoint**:
    ```bash
-   curl https://the-anchor.pub/api/trigger-indexing
+   curl https://www.the-anchor.pub/api/trigger-indexing
    ```
 
 3. **Set Up Weekly Cron**:

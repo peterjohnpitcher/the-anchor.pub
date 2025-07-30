@@ -127,7 +127,7 @@ Traditional British pub near Heathrow Airport serving great food and drinks with
 - Location: Horton Road, Stanwell Moor, Surrey, TW19 6AQ
 - Phone: 01753 682707
 - Email: manager@the-anchor.pub
-- Website: https://the-anchor.pub
+- Website: https://www.the-anchor.pub
 
 ## Opening Hours
 - Monday: CLOSED
@@ -151,10 +151,10 @@ Traditional British pub near Heathrow Airport serving great food and drinks with
 - Just 7 minutes from Heathrow Terminal 5
 
 ## Important Pages
-- Menu: https://the-anchor.pub/food-menu
-- Events: https://the-anchor.pub/whats-on
+- Menu: https://www.the-anchor.pub/food-menu
+- Events: https://www.the-anchor.pub/whats-on
 - Book a Table: https://ordertab.menu/theanchor/bookings
-- Find Us: https://the-anchor.pub/find-us
+- Find Us: https://www.the-anchor.pub/find-us
 ```
 
 ## 7. Immediate Action Items

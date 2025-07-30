@@ -56,7 +56,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             {
               "@context": "https://schema.org",
               "@type": "EventVenue",
-              "@id": "https://the-anchor.pub/#event-venue",
+              "@id": "https://www.the-anchor.pub/#event-venue",
               "name": "The Anchor Event Space",
               "description": "Versatile event space hosting drag shows, quiz nights, bingo, and live entertainment",
               "address": {

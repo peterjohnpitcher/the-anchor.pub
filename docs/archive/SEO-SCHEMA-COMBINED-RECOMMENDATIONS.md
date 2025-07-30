@@ -215,7 +215,7 @@ Available throughout Surrey and West London
   "@type": "Offer",
   "name": "Buy One Get One Free Pizza Tuesdays",
   "description": "BOGOF on all stone-baked pizzas every Tuesday",
-  "url": "https://the-anchor.pub/food-menu#pizza",
+  "url": "https://www.the-anchor.pub/food-menu#pizza",
   "availabilityStarts": "2025-01-01",
   "availabilityEnds": "2025-12-31",
   "validFrom": "16:00",

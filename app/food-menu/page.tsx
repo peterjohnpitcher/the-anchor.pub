@@ -113,7 +113,7 @@ export default async function FoodMenuPage() {
     "@type": "Offer",
     "name": "Buy One Get One Free Pizza - Every Tuesday",
     "description": "BOGOF on all stone-baked pizzas every Tuesday at The Anchor. Dine-in and takeaway available.",
-    "url": "https://the-anchor.pub/food-menu#pizza",
+    "url": "https://www.the-anchor.pub/food-menu#pizza",
     "priceCurrency": "GBP",
     "eligibleRegion": {
       "@type": "Place",
@@ -152,7 +152,7 @@ export default async function FoodMenuPage() {
     "@type": "Offer",
     "name": "50% Off Fish & Chips for Over 65s - Every Friday",
     "description": "Half price fish and chips for senior citizens every Friday at The Anchor.",
-    "url": "https://the-anchor.pub/food-menu#mains",
+    "url": "https://www.the-anchor.pub/food-menu#mains",
     "priceCurrency": "GBP",
     "eligibleRegion": {
       "@type": "Place",
@@ -501,14 +501,14 @@ export default async function FoodMenuPage() {
             {
               "@context": "https://schema.org",
               "@type": "Menu",
-              "@id": "https://the-anchor.pub/food-menu#menu",
+              "@id": "https://www.the-anchor.pub/food-menu#menu",
               "name": "The Anchor Food Menu",
               "description": "Traditional British food menu with allergen information",
               "hasMenuSection": menuData.categories.map(category => ({
                 "@type": "MenuSection",
                 "name": category.title,
                 "description": `${category.title} options at The Anchor`,
-                "image": category.emoji ? `https://the-anchor.pub/images/menu-categories/${category.title.toLowerCase().replace(' ', '-')}.jpg` : undefined,
+                "image": category.emoji ? `https://www.the-anchor.pub/images/menu-categories/${category.title.toLowerCase().replace(' ', '-')}.jpg` : undefined,
                 "hasMenuItem": category.sections.flatMap(section => 
                   section.items.map(item => ({
                     "@type": "MenuItem",
@@ -538,7 +538,7 @@ export default async function FoodMenuPage() {
               "inLanguage": "en-GB",
               "provider": {
                 "@type": "Restaurant",
-                "@id": "https://the-anchor.pub/#business",
+                "@id": "https://www.the-anchor.pub/#business",
                 "name": "The Anchor",
                 "address": {
                   "@type": "PostalAddress",
@@ -552,23 +552,23 @@ export default async function FoodMenuPage() {
                 "priceRange": "££",
                 "acceptsReservations": "true",
                 "telephone": "+441753682707",
-                "url": "https://the-anchor.pub"
+                "url": "https://www.the-anchor.pub"
               },
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://the-anchor.pub/food-menu"
+                "@id": "https://www.the-anchor.pub/food-menu"
               }
             },
             specialAnnouncementSchema,
             {
               "@context": "https://schema.org",
               "@type": "FoodEstablishment",
-              "@id": "https://the-anchor.pub/#food-establishment",
+              "@id": "https://www.the-anchor.pub/#food-establishment",
               "name": "The Anchor Restaurant",
               "description": "Traditional British pub restaurant near Heathrow Airport",
               "servesCuisine": ["British", "Pizza", "Pub Food"],
               "hasMenu": {
-                "@id": "https://the-anchor.pub/food-menu#menu"
+                "@id": "https://www.the-anchor.pub/food-menu#menu"
               },
               "address": {
                 "@type": "PostalAddress",

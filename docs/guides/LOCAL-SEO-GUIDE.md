@@ -88,7 +88,7 @@ Always use exactly:
 Business Name: The Anchor
 Address: Horton Road, Stanwell Moor, Surrey TW19 6AQ
 Phone: 01753 682707
-Website: https://the-anchor.pub
+Website: https://www.the-anchor.pub
 ```
 
 ## 📱 Local Schema Markup
@@ -98,9 +98,9 @@ Website: https://the-anchor.pub
 {
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  "@id": "https://the-anchor.pub/#restaurant",
+  "@id": "https://www.the-anchor.pub/#restaurant",
   "name": "The Anchor",
-  "image": "https://the-anchor.pub/images/the-anchor-exterior.jpg",
+  "image": "https://www.the-anchor.pub/images/the-anchor-exterior.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Horton Road",
@@ -114,7 +114,7 @@ Website: https://the-anchor.pub
     "latitude": 51.4745,
     "longitude": -0.4713
   },
-  "url": "https://the-anchor.pub",
+  "url": "https://www.the-anchor.pub",
   "telephone": "+441753682707",
   "priceRange": "££",
   "servesCuisine": ["British", "Traditional English"],

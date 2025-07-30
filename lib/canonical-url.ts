@@ -2,7 +2,7 @@
  * Utility for generating canonical URLs
  */
 
-const SITE_URL = 'https://the-anchor.pub'
+const SITE_URL = 'https://www.the-anchor.pub'
 
 /**
  * Generates a canonical URL for a given pathname

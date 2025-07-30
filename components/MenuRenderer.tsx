@@ -21,7 +21,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
   const menuSchema = useMemo(() => ({
     "@context": "https://schema.org",
     "@type": "Menu",
-    "@id": "https://the-anchor.pub/#menu",
+    "@id": "https://www.the-anchor.pub/#menu",
     "name": "The Anchor Menu",
     "description": "Food and drink menu at The Anchor pub",
     "hasMenuSection": menuData.categories.map(category => ({

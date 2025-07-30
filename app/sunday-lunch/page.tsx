@@ -549,12 +549,12 @@ export default function SundayLunchPage() {
             {
               "@context": "https://schema.org",
               "@type": "Restaurant",
-              "@id": "https://the-anchor.pub/#sunday-roast",
+              "@id": "https://www.the-anchor.pub/#sunday-roast",
               "name": "The Anchor - Sunday Roast",
               "servesCuisine": ["British", "Sunday Roast"],
               "priceRange": "££",
               "telephone": "+441753682707",
-              "url": "https://the-anchor.pub/sunday-lunch",
+              "url": "https://www.the-anchor.pub/sunday-lunch",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Horton Road",
@@ -649,7 +649,7 @@ export default function SundayLunchPage() {
             "@type": "Offer",
             "name": "Sunday Roast Pre-Order Special",
             "description": "Traditional British Sunday roast dinners with all the trimmings. Must be pre-ordered with a £5 per person deposit by 1pm Saturday.",
-            "url": "https://the-anchor.pub/sunday-lunch",
+            "url": "https://www.the-anchor.pub/sunday-lunch",
             "priceCurrency": "GBP",
             "priceRange": "£14.99 - £15.99",
             "eligibleRegion": {
@@ -681,7 +681,7 @@ export default function SundayLunchPage() {
             "availabilityStarts": "2025-01-01",
             "availabilityEnds": "2025-12-31",
             "seller": {
-              "@id": "https://the-anchor.pub/#business"
+              "@id": "https://www.the-anchor.pub/#business"
             },
             "priceSpecification": {
               "@type": "CompoundPriceSpecification",
@@ -712,13 +712,13 @@ export default function SundayLunchPage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://the-anchor.pub"
+                "item": "https://www.the-anchor.pub"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Sunday Lunch",
-                "item": "https://the-anchor.pub/sunday-lunch"
+                "item": "https://www.the-anchor.pub/sunday-lunch"
               }
             ]
           }

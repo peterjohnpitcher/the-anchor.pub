@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const pizzaMenuSchema = {
   "@context": "https://schema.org",
   "@type": "Menu",
-  "@id": "https://the-anchor.pub/food/pizza#menu",
+  "@id": "https://www.the-anchor.pub/food/pizza#menu",
   "name": "The Anchor Pizza Menu",
   "description": "Stone-baked pizzas with BOGOF deal every Tuesday",
   "hasMenuSection": {
@@ -249,13 +249,13 @@ const pizzaMenuSchema = {
 const offerSchema = {
   "@context": "https://schema.org",
   "@type": "Offer",
-  "@id": "https://the-anchor.pub/food/pizza#bogof-offer",
+  "@id": "https://www.the-anchor.pub/food/pizza#bogof-offer",
   "name": "Buy One Get One Free Pizza - Every Tuesday",
   "description": "Get any pizza free when you buy one of equal or greater value. Available every Tuesday during kitchen hours.",
   "seller": {
     "@type": "Restaurant",
     "name": "The Anchor",
-    "@id": "https://the-anchor.pub/#business",
+    "@id": "https://www.the-anchor.pub/#business",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Horton Road",
@@ -284,7 +284,7 @@ const offerSchema = {
     "priceCurrency": "GBP"
   },
   "availableAtOrFrom": {
-    "@id": "https://the-anchor.pub/#business"
+    "@id": "https://www.the-anchor.pub/#business"
   },
   "category": "Food & Beverage",
   "itemCondition": "https://schema.org/NewCondition",

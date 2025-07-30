@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["Restaurant", "BarOrPub"],
-  "@id": "https://the-anchor.pub/stanwell-pub#business",
+  "@id": "https://www.the-anchor.pub/stanwell-pub#business",
   "name": `${BRAND.name} - Stanwell Village Pub`,
-  "image": "https://the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "image": "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": CONTACT.address.street,
@@ -62,7 +62,7 @@ const localBusinessSchema = {
   "priceRange": "££",
   "servesCuisine": ["British", "Traditional English", "Sunday Roast"],
   "telephone": CONTACT.phoneIntl,
-  "url": "https://the-anchor.pub/stanwell-pub"
+  "url": "https://www.the-anchor.pub/stanwell-pub"
 }
 
 export default function StanwellPubPage() {

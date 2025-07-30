@@ -2,7 +2,7 @@
 export const parkingFacilitySchema = {
   "@context": "https://schema.org",
   "@type": "ParkingFacility",
-  "@id": "https://the-anchor.pub/#parking",
+  "@id": "https://www.the-anchor.pub/#parking",
   "name": "The Anchor Free Customer Parking",
   "description": "Free on-site parking for all guests at The Anchor pub. No time limits, no charges - a huge advantage over expensive airport parking.",
   "address": {
@@ -59,7 +59,7 @@ export function getLocalBusinessWithParking() {
     "@type": "Restaurant",
     "name": "The Anchor",
     "parking": {
-      "@id": "https://the-anchor.pub/#parking"
+      "@id": "https://www.the-anchor.pub/#parking"
     },
     "amenityFeature": [
       {

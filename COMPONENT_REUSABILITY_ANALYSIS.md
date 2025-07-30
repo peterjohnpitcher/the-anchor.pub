@@ -92,7 +92,7 @@ interface CallToActionProps {
 ### Current Reusability Status: **MEDIUM**
 
 ### Hardcoded Values That Should Be Props:
-- Base URL 'https://the-anchor.pub'
+- Base URL 'https://www.the-anchor.pub'
 - Default location data (The Anchor Pub address)
 - Default geo coordinates (latitude: 51.4567, longitude: -0.4567)
 - Default currency 'GBP'

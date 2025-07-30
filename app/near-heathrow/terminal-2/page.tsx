@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
+import { BookTableButton } from '@/components/BookTableButton'
 import { HeroWrapper, Breadcrumbs } from '@/components/hero'
 import { Metadata } from 'next'
 import { FlightStatus, FlightDelayWidget } from '@/components/FlightStatus'
@@ -601,7 +602,7 @@ export default function Terminal2Page() {
             "@type": "Restaurant",
             "name": "The Anchor - Pub Near Heathrow Terminal 2",
             "description": "Traditional British pub just 15 minutes from Heathrow Terminal 2 with free parking.",
-            "image": "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+            "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Horton Road",
@@ -615,7 +616,7 @@ export default function Terminal2Page() {
               "latitude": 51.4745,
               "longitude": -0.4713
             },
-            "url": "https://the-anchor.pub/near-heathrow/terminal-2",
+            "url": "https://www.the-anchor.pub/near-heathrow/terminal-2",
             "telephone": "+441753682707",
             "priceRange": "££",
             "servesCuisine": ["British", "Pub Food"],

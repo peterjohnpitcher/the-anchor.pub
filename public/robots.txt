@@ -67,8 +67,8 @@ Disallow: /manifest.json
 Allow: /
 
 # Sitemap locations
-Sitemap: https://the-anchor.pub/sitemap.xml
-Sitemap: https://the-anchor.pub/sitemap-priority.xml
+Sitemap: https://www.the-anchor.pub/sitemap.xml
+Sitemap: https://www.the-anchor.pub/sitemap-priority.xml
 
 # Crawl delay for politeness (optional)
 Crawl-delay: 1

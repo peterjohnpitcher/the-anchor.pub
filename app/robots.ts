@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://the-anchor.pub/sitemap.xml',
+    sitemap: 'https://www.the-anchor.pub/sitemap.xml',
   }
 }

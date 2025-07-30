@@ -126,7 +126,7 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ['the-anchor.pub', 'management.orangejelly.co.uk', 'example.com', 'openweathermap.org', 'tfcasgxopxegwrabvwat.supabase.co'],
+    domains: ['the-anchor.pub', 'www.the-anchor.pub', 'management.orangejelly.co.uk', 'example.com', 'openweathermap.org', 'tfcasgxopxegwrabvwat.supabase.co'],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 1024, 1920],  // Optimized for our breakpoints
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

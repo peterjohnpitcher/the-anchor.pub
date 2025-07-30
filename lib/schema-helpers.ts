@@ -18,7 +18,7 @@ export function getBreadcrumbSchema(items: BreadcrumbItem[]) {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://the-anchor.pub${item.href}`
+      "item": `https://www.the-anchor.pub${item.href}`
     }))
   }
 }
@@ -121,7 +121,7 @@ export function getEventSchema(event: {
     "organizer": {
       "@type": "Organization",
       "name": "The Anchor",
-      "url": "https://the-anchor.pub"
+      "url": "https://www.the-anchor.pub"
     }
   }
   
@@ -226,7 +226,7 @@ export function getServiceSchema(service: {
     "areaServed": service.areaServed || "Stanwell Moor, Surrey",
     "availableChannel": service.availableChannel || {
       "@type": "ServiceChannel",
-      "serviceUrl": "https://the-anchor.pub/book-event",
+      "serviceUrl": "https://www.the-anchor.pub/book-event",
       "name": "Online Booking"
     }
   }

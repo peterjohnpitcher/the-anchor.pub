@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllBlogPosts } from '@/lib/markdown'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://the-anchor.pub'
+  const baseUrl = 'https://www.the-anchor.pub'
   
   // Define all static routes
   const staticRoutes = [
@@ -22,7 +22,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/find-us',
     '/book-event',
     '/beer-garden',
-    '/staines-pub',
     '/food/pizza',
     '/pizza-tuesday',
     '/christmas-parties',

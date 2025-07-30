@@ -9,8 +9,8 @@ const https = require('https');
 
 // Method 1: Ping Google's public sitemap endpoint
 async function pingGoogleSitemap() {
-  const sitemapUrl = encodeURIComponent('https://the-anchor.pub/sitemap.xml');
-  const prioritySitemapUrl = encodeURIComponent('https://the-anchor.pub/sitemap-priority.xml');
+  const sitemapUrl = encodeURIComponent('https://www.the-anchor.pub/sitemap.xml');
+  const prioritySitemapUrl = encodeURIComponent('https://www.the-anchor.pub/sitemap-priority.xml');
   
   const urls = [
     `https://www.google.com/ping?sitemap=${sitemapUrl}`,
@@ -35,7 +35,7 @@ async function pingGoogleSitemap() {
 
 // Method 2: Ping Bing (also helps with search presence)
 async function pingBingSitemap() {
-  const sitemapUrl = encodeURIComponent('https://the-anchor.pub/sitemap.xml');
+  const sitemapUrl = encodeURIComponent('https://www.the-anchor.pub/sitemap.xml');
   const url = `https://www.bing.com/ping?sitemap=${sitemapUrl}`;
   
   console.log('\n📍 Pinging Bing with sitemap...');
@@ -68,7 +68,7 @@ const searchconsole = google.searchconsole('v1');
 // After OAuth setup...
 async function requestIndexing(url) {
   const response = await searchconsole.urlInspection.index({
-    siteUrl: 'https://the-anchor.pub/',
+    siteUrl: 'https://www.the-anchor.pub/',
     requestBody: {
       inspectionUrl: url,
     }
@@ -78,9 +78,9 @@ async function requestIndexing(url) {
 
 // Submit your URLs
 const urls = [
-  'https://the-anchor.pub/blog',
-  'https://the-anchor.pub/drinks',
-  'https://the-anchor.pub/find-us',
+  'https://www.the-anchor.pub/blog',
+  'https://www.the-anchor.pub/drinks',
+  'https://www.the-anchor.pub/find-us',
   // ... more URLs
 ];
 
@@ -97,19 +97,19 @@ for (const url of urls) {
 // Method 4: Create a simple web ping service
 async function createPingList() {
   const urls = [
-    'https://the-anchor.pub/',
-    'https://the-anchor.pub/blog',
-    'https://the-anchor.pub/drinks',
-    'https://the-anchor.pub/find-us',
-    'https://the-anchor.pub/beer-garden',
-    'https://the-anchor.pub/book-event',
-    'https://the-anchor.pub/sunday-lunch',
-    'https://the-anchor.pub/whats-on',
-    'https://the-anchor.pub/whats-on/drag-shows',
-    'https://the-anchor.pub/near-heathrow',
-    'https://the-anchor.pub/staines-pub',
-    'https://the-anchor.pub/food-menu',
-    'https://the-anchor.pub/food/pizza',
+    'https://www.the-anchor.pub/',
+    'https://www.the-anchor.pub/blog',
+    'https://www.the-anchor.pub/drinks',
+    'https://www.the-anchor.pub/find-us',
+    'https://www.the-anchor.pub/beer-garden',
+    'https://www.the-anchor.pub/book-event',
+    'https://www.the-anchor.pub/sunday-lunch',
+    'https://www.the-anchor.pub/whats-on',
+    'https://www.the-anchor.pub/whats-on/drag-shows',
+    'https://www.the-anchor.pub/near-heathrow',
+    'https://www.the-anchor.pub/staines-pub',
+    'https://www.the-anchor.pub/food-menu',
+    'https://www.the-anchor.pub/food/pizza',
   ];
 
   console.log('\n📋 Priority URLs to submit manually or via API:');

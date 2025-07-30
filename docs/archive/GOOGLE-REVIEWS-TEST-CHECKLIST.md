@@ -9,7 +9,7 @@
 ## Test URLs Once Deployed
 
 ### 1. API Status Check
-Visit: `https://the-anchor.pub/api/reviews/status`
+Visit: `https://www.the-anchor.pub/api/reviews/status`
 
 Expected response:
 ```json
@@ -33,7 +33,7 @@ Expected response:
 ```
 
 ### 2. Reviews API Test
-Visit: `https://the-anchor.pub/api/reviews`
+Visit: `https://www.the-anchor.pub/api/reviews`
 
 Should return:
 - `source`: "places" (not "mock")
@@ -44,11 +44,11 @@ Should return:
 ### 3. Visual Check - Pages with Reviews
 
 Check these pages for Google Reviews display:
-- ✅ [Beer Garden](https://the-anchor.pub/beer-garden) - Carousel layout
-- ✅ [Sunday Lunch](https://the-anchor.pub/sunday-lunch) - ReviewSection component
-- 🔲 [Food Menu](https://the-anchor.pub/food) - To be added
-- 🔲 [Drinks Menu](https://the-anchor.pub/drinks) - To be added
-- 🔲 [Events Pages](https://the-anchor.pub/events) - To be added
+- ✅ [Beer Garden](https://www.the-anchor.pub/beer-garden) - Carousel layout
+- ✅ [Sunday Lunch](https://www.the-anchor.pub/sunday-lunch) - ReviewSection component
+- 🔲 [Food Menu](https://www.the-anchor.pub/food) - To be added
+- 🔲 [Drinks Menu](https://www.the-anchor.pub/drinks) - To be added
+- 🔲 [Events Pages](https://www.the-anchor.pub/events) - To be added
 
 ## Troubleshooting
 
@@ -66,13 +66,13 @@ Check these pages for Google Reviews display:
 ### Production Testing Commands:
 ```bash
 # Check API status
-curl https://the-anchor.pub/api/reviews/status
+curl https://www.the-anchor.pub/api/reviews/status
 
 # Get reviews
-curl https://the-anchor.pub/api/reviews
+curl https://www.the-anchor.pub/api/reviews
 
 # Get filtered reviews (4+ stars only)
-curl "https://the-anchor.pub/api/reviews?minRating=4"
+curl "https://www.the-anchor.pub/api/reviews?minRating=4"
 ```
 
 ## Next Steps After Testing

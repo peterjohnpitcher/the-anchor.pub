@@ -623,7 +623,7 @@ export default function NearHeathrowPage() {
               "@type": "Restaurant",
               "name": "The Anchor - Pub Near Heathrow Airport",
               "description": "The closest traditional British pub to Heathrow Airport. Just 7 minutes from Terminal 5.",
-              "image": "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+              "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Horton Road",
@@ -637,7 +637,7 @@ export default function NearHeathrowPage() {
                 "latitude": 51.4745,
                 "longitude": -0.4713
               },
-              "url": "https://the-anchor.pub/near-heathrow",
+              "url": "https://www.the-anchor.pub/near-heathrow",
               "telephone": "+441753682707",
               "priceRange": "££",
               "servesCuisine": ["British", "Pub Food"],

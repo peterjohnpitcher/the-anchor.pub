@@ -271,7 +271,7 @@ DATABASE_URL=
 RESEND_API_KEY=
 
 # App
-NEXT_PUBLIC_APP_URL=https://the-anchor.pub
+NEXT_PUBLIC_APP_URL=https://www.the-anchor.pub
 ```
 
 ## Testing Strategy

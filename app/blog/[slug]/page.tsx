@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "author": {
       "@type": "Person",
       "name": post.author,
-      "url": "https://the-anchor.pub/blog"
+      "url": "https://www.the-anchor.pub/blog"
     },
     "datePublished": post.date,
     "dateModified": post.date,
@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       "name": "The Anchor",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-white-transparent.png",
+        "url": "https://www.the-anchor.pub/images/branding/the-anchor-pub-logo-white-transparent.png",
         "width": 320,
         "height": 320
       },
@@ -93,27 +93,27 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "image": {
       "@type": "ImageObject",
       "url": post.hero 
-        ? `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}` 
-        : "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+        ? `https://www.the-anchor.pub/content/blog/${post.slug}/${post.hero}` 
+        : "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
       "width": 1200,
       "height": 630
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://the-anchor.pub/blog/${post.slug}`
+      "@id": `https://www.the-anchor.pub/blog/${post.slug}`
     },
     "keywords": post.keywords.join(", "),
     "articleSection": post.tags[0] || "Pub News",
     "articleBody": post.htmlContent?.replace(/<[^>]*>/g, '') || post.description,
     "wordCount": post.htmlContent ? post.htmlContent.split(' ').length : 500,
     "inLanguage": "en-GB",
-    "url": `https://the-anchor.pub/blog/${post.slug}`,
+    "url": `https://www.the-anchor.pub/blog/${post.slug}`,
     "isAccessibleForFree": true,
     "genre": post.tags[0] || "Blog",
     "about": {
       "@type": "LocalBusiness",
       "name": "The Anchor",
-      "@id": "https://the-anchor.pub/#organization"
+      "@id": "https://www.the-anchor.pub/#organization"
     }
   }
 
@@ -123,15 +123,15 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "@type": "Blog",
     "name": "The Anchor Blog",
     "description": "News, events, and updates from The Anchor pub in Stanwell Moor",
-    "url": "https://the-anchor.pub/blog",
+    "url": "https://www.the-anchor.pub/blog",
     "publisher": {
       "@type": "Organization",
       "name": "The Anchor",
-      "@id": "https://the-anchor.pub/#organization"
+      "@id": "https://www.the-anchor.pub/#organization"
     },
     "blogPost": {
       "@type": "BlogPosting",
-      "@id": `https://the-anchor.pub/blog/${post.slug}#blogposting`
+      "@id": `https://www.the-anchor.pub/blog/${post.slug}#blogposting`
     }
   }
 
@@ -143,19 +143,19 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://the-anchor.pub"
+        "item": "https://www.the-anchor.pub"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://the-anchor.pub/blog"
+        "item": "https://www.the-anchor.pub/blog"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": post.title,
-        "item": `https://the-anchor.pub/blog/${post.slug}`
+        "item": `https://www.the-anchor.pub/blog/${post.slug}`
       }
     ]
   }
@@ -357,7 +357,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             "@type": "BlogPosting",
             "headline": post.title,
             "description": post.description,
-            "image": `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}`,
+            "image": `https://www.the-anchor.pub/content/blog/${post.slug}/${post.hero}`,
             "datePublished": post.date,
             "author": {
               "@type": "Person",
@@ -368,7 +368,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               "name": "The Anchor",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
+                "url": "https://www.the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
               }
             },
             "keywords": post.keywords.join(", ")

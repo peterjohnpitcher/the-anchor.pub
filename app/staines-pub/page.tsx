@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "BarOrPub",
-  "@id": "https://the-anchor.pub/staines-pub#business",
+  "@id": "https://www.the-anchor.pub/staines-pub#business",
   "name": BRAND.name,
   "description": "Traditional Surrey pub serving Staines-upon-Thames and surrounding areas",
   "address": {
@@ -64,9 +64,9 @@ const localBusinessSchema = {
   ],
   "priceRange": "££",
   "servesCuisine": ["British", "Pizza", "Sunday Roast"],
-  "hasMenu": "https://the-anchor.pub/food-menu",
+  "hasMenu": "https://www.the-anchor.pub/food-menu",
   "telephone": CONTACT.phoneIntl,
-  "url": "https://the-anchor.pub"
+  "url": "https://www.the-anchor.pub"
 }
 
 

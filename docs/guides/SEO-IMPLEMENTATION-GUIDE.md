@@ -65,8 +65,8 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "The Anchor - Staines Local Pub",
-  "image": "https://the-anchor.pub/images/the-anchor-pub-stanwell-moor.jpg",
-  "url": "https://the-anchor.pub/staines-pub",
+  "image": "https://www.the-anchor.pub/images/the-anchor-pub-stanwell-moor.jpg",
+  "url": "https://www.the-anchor.pub/staines-pub",
   "telephone": "01753682707",
   "priceRange": "££",
   "address": {
@@ -87,7 +87,7 @@ const localBusinessSchema = {
     "name": "Staines-upon-Thames"
   },
   "servesCuisine": "British",
-  "hasMenu": "https://the-anchor.pub/food-menu",
+  "hasMenu": "https://www.the-anchor.pub/food-menu",
   "acceptsReservations": "true"
 }
 

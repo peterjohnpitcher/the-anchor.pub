@@ -100,7 +100,7 @@ Based on common voice queries for local businesses, these pages should be priori
       ".today-special"          // Current offers
     ]
   },
-  "url": "https://the-anchor.pub"
+  "url": "https://www.the-anchor.pub"
 }
 ```
 

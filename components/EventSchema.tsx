@@ -15,7 +15,7 @@ function calculateEndDate(startDate: string, duration?: string): string {
 
 export function EventSchema({ event }: EventSchemaProps) {
   // Use event.url if available, otherwise construct from slug or ID
-  const eventUrl = event.url || (event.slug ? `https://the-anchor.pub/events/${event.slug}` : `https://the-anchor.pub/events/${event.id}`)
+  const eventUrl = event.url || (event.slug ? `https://www.the-anchor.pub/events/${event.slug}` : `https://www.the-anchor.pub/events/${event.id}`)
   
   // Ensure we always have an image URL
   const eventImage = event.image?.[0] || event.heroImageUrl || event.thumbnailImageUrl || '/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'
@@ -60,7 +60,7 @@ export function EventSchema({ event }: EventSchemaProps) {
     } : {
       "@type": "Organization",
       "name": "The Anchor Entertainment",
-      "url": "https://the-anchor.pub"
+      "url": "https://www.the-anchor.pub"
     },
     "offers": {
       "@type": "Offer",
@@ -75,7 +75,7 @@ export function EventSchema({ event }: EventSchemaProps) {
     "organizer": event.organizer || {
       "@type": "Organization",
       "name": "The Anchor",
-      "url": "https://the-anchor.pub"
+      "url": "https://www.the-anchor.pub"
     },
     "isAccessibleForFree": event.isAccessibleForFree || (event.offers?.price === "0"),
     ...(event.maximumAttendeeCapacity && {

@@ -33,7 +33,7 @@ export function ReviewCard({
     "datePublished": new Date(review.time * 1000).toISOString(),
     "itemReviewed": {
       "@type": "Restaurant",
-      "@id": "https://the-anchor.pub/#business",
+      "@id": "https://www.the-anchor.pub/#business",
       "name": "The Anchor"
     }
   }

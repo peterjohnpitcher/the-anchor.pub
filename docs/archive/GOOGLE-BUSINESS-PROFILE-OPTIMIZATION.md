@@ -9,7 +9,7 @@ This guide provides comprehensive instructions for optimizing The Anchor's Googl
 - [x] Business name: "The Anchor"
 - [x] Address: Horton Road, Stanwell Moor, Surrey TW19 6AQ
 - [x] Phone: 01753 682707
-- [x] Website: https://the-anchor.pub
+- [x] Website: https://www.the-anchor.pub
 - [x] Category Primary: "Pub"
 - [ ] Category Secondary: Add these:
   - "British restaurant"

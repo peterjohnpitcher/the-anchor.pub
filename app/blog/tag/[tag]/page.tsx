@@ -206,11 +206,11 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
             "@type": "CollectionPage",
             "name": `${displayName} at The Anchor`,
             "description": seoContent.metaDescription,
-            "url": `https://the-anchor.pub/blog/tag/${tag}`,
+            "url": `https://www.the-anchor.pub/blog/tag/${tag}`,
             "isPartOf": {
               "@type": "Blog",
               "name": "The Anchor Blog",
-              "url": "https://the-anchor.pub/blog"
+              "url": "https://www.the-anchor.pub/blog"
             },
             "about": {
               "@type": "Thing",
@@ -221,7 +221,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
               "numberOfItems": taggedPosts.length,
               "itemListElement": taggedPosts.map((post, index) => ({
                 "@type": "BlogPosting",
-                "@id": `https://the-anchor.pub/blog/${post.slug}`,
+                "@id": `https://www.the-anchor.pub/blog/${post.slug}`,
                 "position": index + 1,
                 "headline": post.title,
                 "description": post.description,
@@ -237,7 +237,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
               "name": "The Anchor Stanwell Moor",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
+                "url": "https://www.the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
               }
             }
           })

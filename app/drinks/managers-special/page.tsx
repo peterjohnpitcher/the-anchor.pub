@@ -74,7 +74,7 @@ export default function ManagersSpecialPage() {
     },
     "offers": {
       "@type": "Offer",
-      "url": "https://the-anchor.pub/drinks/managers-special",
+      "url": "https://www.the-anchor.pub/drinks/managers-special",
       "priceCurrency": "GBP",
       "price": spirit.specialPrice.replace('£', ''),
       "priceValidUntil": currentPromotion.endDate,

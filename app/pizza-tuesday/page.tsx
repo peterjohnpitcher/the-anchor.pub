@@ -35,10 +35,10 @@ export const metadata: Metadata = {
 const pizzaOfferSchema = {
   "@context": "https://schema.org",
   "@type": "Offer",
-  "@id": "https://the-anchor.pub/pizza-tuesday#offer",
+  "@id": "https://www.the-anchor.pub/pizza-tuesday#offer",
   "name": "Pizza Tuesday - Buy One Get One Free",
   "description": "Buy any pizza and get another pizza of equal or lesser value completely FREE. Available all day Tuesday during kitchen hours.",
-  "url": "https://the-anchor.pub/pizza-tuesday",
+  "url": "https://www.the-anchor.pub/pizza-tuesday",
   "priceSpecification": {
     "@type": "PriceSpecification",
     "price": "0",

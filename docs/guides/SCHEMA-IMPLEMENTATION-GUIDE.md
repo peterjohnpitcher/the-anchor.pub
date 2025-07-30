@@ -87,7 +87,7 @@ const pizzaBOGOF = {
   "@type": "Offer",
   "name": "Buy One Get One Free Pizza",
   "description": "BOGOF on all stone-baked pizzas every Tuesday at The Anchor",
-  "url": "https://the-anchor.pub/food-menu#pizza",
+  "url": "https://www.the-anchor.pub/food-menu#pizza",
   "priceCurrency": "GBP",
   "eligibleRegion": {
     "@type": "Place",

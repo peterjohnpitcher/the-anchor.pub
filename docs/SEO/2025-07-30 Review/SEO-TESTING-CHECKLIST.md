@@ -16,9 +16,9 @@
 ### 1.1 Redirect Testing
 ```bash
 # Test each redirect category
-curl -I https://the-anchor.pub/drinks/carling  # Should redirect to /drinks
-curl -I https://the-anchor.pub/event-details/test  # Check redirect behavior
-curl -I https://the-anchor.pub/blog/old-post  # Check blog redirects
+curl -I https://www.the-anchor.pub/drinks/carling  # Should redirect to /drinks
+curl -I https://www.the-anchor.pub/event-details/test  # Check redirect behavior
+curl -I https://www.the-anchor.pub/blog/old-post  # Check blog redirects
 ```
 
 ### 1.2 Location Page Testing
@@ -26,7 +26,7 @@ curl -I https://the-anchor.pub/blog/old-post  # Check blog redirects
 # Test all location pages return 200
 for location in ashford-pub bedfont-pub egham-pub feltham-pub stanwell-pub windsor-pub staines-pub heathrow-hotels-pub; do
   echo "Testing /$location"
-  curl -I https://the-anchor.pub/$location | grep "HTTP"
+  curl -I https://www.the-anchor.pub/$location | grep "HTTP"
 done
 ```
 
@@ -66,7 +66,7 @@ done
 **Before Changes:**
 ```bash
 # Save current robots.txt
-curl https://the-anchor.pub/robots.txt > robots-backup.txt
+curl https://www.the-anchor.pub/robots.txt > robots-backup.txt
 ```
 
 **After Changes:**
@@ -77,11 +77,11 @@ curl https://the-anchor.pub/robots.txt > robots-backup.txt
 - [ ] Test specific paths:
   ```bash
   # Should be allowed
-  curl -A "Googlebot" https://the-anchor.pub/drinks
-  curl -A "Googlebot" https://the-anchor.pub/near-heathrow
+  curl -A "Googlebot" https://www.the-anchor.pub/drinks
+  curl -A "Googlebot" https://www.the-anchor.pub/near-heathrow
   
   # Should still be blocked
-  curl -A "Googlebot" https://the-anchor.pub/test-page
+  curl -A "Googlebot" https://www.the-anchor.pub/test-page
   ```
 
 ### 2.3 Canonical Tag Testing
@@ -216,13 +216,13 @@ Check across all platforms:
 ### Monitoring Tools:
 ```bash
 # Set up uptime monitoring
-curl -I https://the-anchor.pub > /dev/null || alert "Site Down"
+curl -I https://www.the-anchor.pub > /dev/null || alert "Site Down"
 
 # 404 monitoring
 grep "404" /var/log/nginx/access.log | wc -l
 
 # Page speed testing
-lighthouse https://the-anchor.pub --output json
+lighthouse https://www.the-anchor.pub --output json
 ```
 
 ### Daily Health Check:

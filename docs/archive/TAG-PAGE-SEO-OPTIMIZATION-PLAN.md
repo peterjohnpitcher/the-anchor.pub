@@ -173,7 +173,7 @@ Add to each tag page:
   "@type": "CollectionPage",
   "name": "[Tag Name] at The Anchor",
   "description": "[SEO Description]",
-  "url": "https://the-anchor.pub/blog/tag/[tag]",
+  "url": "https://www.the-anchor.pub/blog/tag/[tag]",
   "isPartOf": {
     "@type": "Blog",
     "name": "The Anchor Blog"

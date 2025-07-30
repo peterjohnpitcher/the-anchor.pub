@@ -9,7 +9,7 @@ interface BlogShareButtonsProps {
 }
 
 export function BlogShareButtons({ postTitle, postSlug }: BlogShareButtonsProps) {
-  const shareUrl = `https://the-anchor.pub/blog/${postSlug}`
+  const shareUrl = `https://www.the-anchor.pub/blog/${postSlug}`
   
   const handleTwitterShare = () => {
     pushToDataLayer({

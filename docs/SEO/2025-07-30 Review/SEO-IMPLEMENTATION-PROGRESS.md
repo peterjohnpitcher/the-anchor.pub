@@ -178,7 +178,7 @@ This document tracks the real-time progress of SEO implementation for The Anchor
 - **Note**: Manual action required - cannot automate
 - **Instructions**:
   1. Log into Google Search Console
-  2. Submit sitemap: https://the-anchor.pub/sitemap.xml
+  2. Submit sitemap: https://www.the-anchor.pub/sitemap.xml
   3. Request indexing for /drinks pages
   4. Monitor Coverage report
 

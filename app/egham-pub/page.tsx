@@ -71,7 +71,7 @@ export default function EghamPubPage() {
       }
     ],
     "telephone": "+441753682707",
-    "url": "https://the-anchor.pub/egham-pub"
+    "url": "https://www.the-anchor.pub/egham-pub"
   }
 
 

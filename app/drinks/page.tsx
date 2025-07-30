@@ -53,7 +53,7 @@ export default async function DrinksMenuPage() {
   const enhancedDrinksMenuSchema = {
     "@context": "https://schema.org",
     "@type": "Menu",
-    "@id": "https://the-anchor.pub/drinks#menu",
+    "@id": "https://www.the-anchor.pub/drinks#menu",
     "name": "The Anchor Drinks Menu",
     "description": "Full bar service with real ales, craft beers, wines, spirits and soft drinks at The Anchor in Stanwell Moor, Surrey",
     "hasMenuSection": menuData.categories.map(category => ({
@@ -80,7 +80,7 @@ export default async function DrinksMenuPage() {
     "inLanguage": "en-GB",
     "provider": {
       "@type": "BarOrPub",
-      "@id": "https://the-anchor.pub/#business",
+      "@id": "https://www.the-anchor.pub/#business",
       "name": "The Anchor",
       "address": {
         "@type": "PostalAddress",
@@ -93,11 +93,11 @@ export default async function DrinksMenuPage() {
       "priceRange": "££",
       "servesCuisine": ["British"],
       "telephone": "+441753682707",
-      "url": "https://the-anchor.pub"
+      "url": "https://www.the-anchor.pub"
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://the-anchor.pub/drinks"
+      "@id": "https://www.the-anchor.pub/drinks"
     }
   }
 
@@ -107,7 +107,7 @@ export default async function DrinksMenuPage() {
     "@type": "Offer",
     "name": "Manager's Special - 25% OFF The Botanist Gin",
     "description": "Save 25% on The Botanist Gin. Premium Islay gin at a special price.",
-    "url": "https://the-anchor.pub/drinks#managers-special",
+    "url": "https://www.the-anchor.pub/drinks#managers-special",
     "priceCurrency": "GBP",
     "priceSpecification": {
       "@type": "PriceSpecification",
@@ -128,7 +128,7 @@ export default async function DrinksMenuPage() {
       "description": "Premium Islay gin with 22 hand-foraged botanicals"
     },
     "seller": {
-      "@id": "https://the-anchor.pub/#business"
+      "@id": "https://www.the-anchor.pub/#business"
     },
     "validFrom": new Date().toISOString(),
     "validThrough": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString()
@@ -138,11 +138,11 @@ export default async function DrinksMenuPage() {
   const barSchema = {
     "@context": "https://schema.org",
     "@type": "BarOrPub",
-    "@id": "https://the-anchor.pub/#bar",
+    "@id": "https://www.the-anchor.pub/#bar",
     "name": "The Anchor Bar",
     "description": "Traditional British pub bar with extensive drinks selection",
     "hasMenu": {
-      "@id": "https://the-anchor.pub/drinks#menu"
+      "@id": "https://www.the-anchor.pub/drinks#menu"
     },
     "servesCuisine": "British",
     "openingHoursSpecification": [

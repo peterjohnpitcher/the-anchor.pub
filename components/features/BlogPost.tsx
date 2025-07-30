@@ -102,16 +102,16 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
               "name": "The Anchor",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
+                "url": "https://www.the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
               }
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `https://the-anchor.pub/blog/${post.slug}`
+              "@id": `https://www.the-anchor.pub/blog/${post.slug}`
             },
             "image": post.hero 
-              ? `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}`
-              : "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+              ? `https://www.the-anchor.pub/content/blog/${post.slug}/${post.hero}`
+              : "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
             "keywords": post.tags.join(", ")
           })
         }}
@@ -259,7 +259,7 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
             "@type": "BlogPosting",
             "headline": post.title,
             "description": post.description,
-            "image": `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}`,
+            "image": `https://www.the-anchor.pub/content/blog/${post.slug}/${post.hero}`,
             "datePublished": post.date,
             "author": {
               "@type": "Person",
@@ -270,7 +270,7 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
               "name": "The Anchor",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
+                "url": "https://www.the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
               }
             }
           })

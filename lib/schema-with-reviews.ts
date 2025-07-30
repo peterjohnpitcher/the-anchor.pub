@@ -23,12 +23,12 @@ export async function getEnhancedSchemas() {
   const localBusinessSchemaWithReviews = {
     "@context": "https://schema.org",
     "@type": ["Restaurant", "BarOrPub"],
-    "@id": "https://the-anchor.pub/#business",
+    "@id": "https://www.the-anchor.pub/#business",
     "name": "The Anchor",
     "image": [
-      "https://the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
-      "https://the-anchor.pub/images/the-anchor-beer-garden-heathrow.jpg",
-      "https://the-anchor.pub/images/the-anchor-interior-stanwell-moor.jpg"
+      "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+      "https://www.the-anchor.pub/images/the-anchor-beer-garden-heathrow.jpg",
+      "https://www.the-anchor.pub/images/the-anchor-interior-stanwell-moor.jpg"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -43,7 +43,7 @@ export async function getEnhancedSchemas() {
       "latitude": 51.462509,
       "longitude": -0.502067
     },
-    "url": "https://the-anchor.pub",
+    "url": "https://www.the-anchor.pub",
     "telephone": "+441753682707",
     "priceRange": "££",
     "servesCuisine": ["British", "Pizza", "Pub Food"],
@@ -98,7 +98,7 @@ export async function getEnhancedSchemas() {
         "closes": "22:00"
       }
     ],
-    "hasMenu": "https://the-anchor.pub/food",
+    "hasMenu": "https://www.the-anchor.pub/food",
     "acceptsReservations": "true",
     "amenityFeature": [
       { "@type": "LocationFeatureSpecification", "name": "Dog Friendly", "value": true },
@@ -108,7 +108,7 @@ export async function getEnhancedSchemas() {
     ],
     "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
     "currenciesAccepted": "GBP",
-    "menu": "https://the-anchor.pub/food",
+    "menu": "https://www.the-anchor.pub/food",
     "smokingAllowed": false
   }
 

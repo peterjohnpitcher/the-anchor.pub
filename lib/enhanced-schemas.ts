@@ -57,7 +57,7 @@ export function generateBreadcrumbSchema(items: Array<{name: string, url: string
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://the-anchor.pub${item.url}`
+      "item": `https://www.the-anchor.pub${item.url}`
     }))
   }
 }

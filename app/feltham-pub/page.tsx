@@ -69,7 +69,7 @@ export default function FelthamPubPage() {
       }
     },
     "telephone": "+441753682707",
-    "url": "https://the-anchor.pub/feltham-pub"
+    "url": "https://www.the-anchor.pub/feltham-pub"
   }
 
 

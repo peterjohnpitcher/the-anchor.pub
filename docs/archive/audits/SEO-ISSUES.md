@@ -22,7 +22,7 @@ Every page is missing canonical URL tags, which can lead to:
 export const metadata: Metadata = {
   // ... existing metadata
   alternates: {
-    canonical: `https://the-anchor.pub${pathname}`
+    canonical: `https://www.the-anchor.pub${pathname}`
   }
 }
 ```

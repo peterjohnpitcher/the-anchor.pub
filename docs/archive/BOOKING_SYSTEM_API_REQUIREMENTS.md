@@ -316,7 +316,7 @@ Response:
 Your system should send webhooks to our endpoints for:
 
 ### Booking Confirmation
-**POST** `https://the-anchor.pub/api/webhooks/booking-confirmed`
+**POST** `https://www.the-anchor.pub/api/webhooks/booking-confirmed`
 ```json
 {
   "event": "booking.confirmed",
@@ -326,7 +326,7 @@ Your system should send webhooks to our endpoints for:
 ```
 
 ### Booking Cancellation
-**POST** `https://the-anchor.pub/api/webhooks/booking-cancelled`
+**POST** `https://www.the-anchor.pub/api/webhooks/booking-cancelled`
 ```json
 {
   "event": "booking.cancelled",

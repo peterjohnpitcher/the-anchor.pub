@@ -11,16 +11,16 @@ Google has discovered 200+ valuable content pages but hasn't crawled them. This 
 
 ### 1. Manual URL Submission (Do Today)
 Submit these priority URLs manually in Google Search Console:
-1. https://the-anchor.pub/blog
-2. https://the-anchor.pub/drinks
-3. https://the-anchor.pub/find-us
-4. https://the-anchor.pub/beer-garden
-5. https://the-anchor.pub/book-event
-6. https://the-anchor.pub/sunday-lunch
-7. https://the-anchor.pub/whats-on
-8. https://the-anchor.pub/whats-on/drag-shows
-9. https://the-anchor.pub/near-heathrow
-10. https://the-anchor.pub/staines-pub
+1. https://www.the-anchor.pub/blog
+2. https://www.the-anchor.pub/drinks
+3. https://www.the-anchor.pub/find-us
+4. https://www.the-anchor.pub/beer-garden
+5. https://www.the-anchor.pub/book-event
+6. https://www.the-anchor.pub/sunday-lunch
+7. https://www.the-anchor.pub/whats-on
+8. https://www.the-anchor.pub/whats-on/drag-shows
+9. https://www.the-anchor.pub/near-heathrow
+10. https://www.the-anchor.pub/staines-pub
 
 ### 2. Actions Implemented
 
@@ -59,13 +59,13 @@ const articleSchema = {
     "name": "The Anchor",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://the-anchor.pub/images/branding/the-anchor-pub-logo-white-transparent.png"
+      "url": "https://www.the-anchor.pub/images/branding/the-anchor-pub-logo-white-transparent.png"
     }
   },
-  "image": post.hero ? `https://the-anchor.pub/content/blog/${post.slug}/${post.hero}` : "https://the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+  "image": post.hero ? `https://www.the-anchor.pub/content/blog/${post.slug}/${post.hero}` : "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://the-anchor.pub/blog/${post.slug}`
+    "@id": `https://www.the-anchor.pub/blog/${post.slug}`
   }
 }
 
