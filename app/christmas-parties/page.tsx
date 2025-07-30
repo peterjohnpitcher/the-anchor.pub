@@ -67,7 +67,7 @@ export default function ChristmasPartiesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={CONTACT.phoneHref}>
               <Button variant="primary" size="lg">
-                📞 Cheque Availability
+                📞 Check Availability
               </Button>
             </Link>
             <Link href="#packages">

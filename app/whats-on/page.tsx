@@ -417,7 +417,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
           },
           {
             question: "What time is quiz night at The Anchor?",
-            answer: "Quiz night is held monthly (date varies), starting at 7pm. Entry is £3 per person. Prizes include a £25 bar voucher for 1st place, and the 2nd from last team wins a bottle of wine. Cheque our social media for the next quiz date!"
+            answer: "Quiz night is held monthly (date varies), starting at 7pm. Entry is £3 per person. Prizes include a £25 bar voucher for 1st place, and the 2nd from last team wins a bottle of wine. Check our social media for the next quiz date!"
           },
           {
             question: "Do I need to book for events at The Anchor?",
@@ -429,7 +429,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
           },
           {
             question: "Is there bingo at The Anchor pub?",
-            answer: "Yes, we host cash prize bingo monthly. £10 per book with various prizes throughout the night, including a cash jackpot on the last game. Cheque our events calendar or follow us on social media for the next bingo night!"
+            answer: "Yes, we host cash prize bingo monthly. £10 per book with various prizes throughout the night, including a cash jackpot on the last game. Check our events calendar or follow us on social media for the next bingo night!"
           },
           {
             question: "Are children allowed at The Anchor events?",

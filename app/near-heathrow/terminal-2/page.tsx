@@ -275,7 +275,7 @@ export default function Terminal2Page() {
         <Container size="md">
             <SectionHeader
               title="Live Terminal 2 Flight Information"
-              subtitle="Cheque flight times while you enjoy your meal or drink"
+              subtitle="Check flight times while you enjoy your meal or drink"
               align="center"
             />
             <FlightStatus terminal="2" type="both" limit={5} />

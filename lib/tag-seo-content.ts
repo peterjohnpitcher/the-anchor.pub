@@ -278,10 +278,10 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     name: 'Current Offers',
     description: 'Latest deals and promotions',
     metaTitle: 'Latest Pub Offers | The Anchor Stanwell Moor Deals & Promotions',
-    metaDescription: 'Cheque out current offers at The Anchor Stanwell Moor. Daily deals, seasonal promotions & more. Save on food & drinks near Heathrow.',
-    heroContent: 'Never miss a deal at The Anchor! Cheque out our latest offers and promotions designed to give you more value every visit.',
+    metaDescription: 'Check out current offers at The Anchor Stanwell Moor. Daily deals, seasonal promotions & more. Save on food & drinks near Heathrow.',
+    heroContent: 'Never miss a deal at The Anchor! Check out our latest offers and promotions designed to give you more value every visit.',
     introContent: 'We\'re always creating new ways to reward our customers. From daily deals to seasonal specials, our current offers include lunch meal deals, quiz night specials, and exclusive promotions for our regular guests. Follow us on social media to be first to know about flash deals and limited-time offers.',
-    valueProposition: 'Why pay full price? Cheque our current offers before your visit and enjoy great food and drinks for less at The Anchor.',
+    valueProposition: 'Why pay full price? Check our current offers before your visit and enjoy great food and drinks for less at The Anchor.',
     keywords: ['pub offers stanwell moor', 'current deals heathrow', 'promotions surrey pub', 'latest offers TW19', 'pub discounts stanwell moor']
   },
 
@@ -314,7 +314,7 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     metaDescription: 'Experience great entertainment at The Anchor Stanwell Moor. Quiz nights, drag shows, themed events & more. Your entertainment venue near Heathrow Airport.',
     heroContent: 'The Anchor is Stanwell Moor\'s premier entertainment destination. From quiz nights to drag shows, we bring the best entertainment to your local pub.',
     introContent: 'Entertainment is in our DNA at The Anchor. Our diverse programme ensures there\'s something for everyone - legendary quiz nights, spectacular drag performances with Nikki Manfadge, special themed events throughout the year, and unforgettable holiday celebrations. Our venue provides the perfect intimate setting where you\'re close to the action.',
-    valueProposition: 'Cheque our entertainment calendar and book your table for an unforgettable night out. With shows throughout the week, The Anchor is where Stanwell Moor comes to be entertained.',
+    valueProposition: 'Check our entertainment calendar and book your table for an unforgettable night out. With shows throughout the week, The Anchor is where Stanwell Moor comes to be entertained.',
     keywords: ['pub entertainment stanwell moor', 'live shows heathrow', 'entertainment venue surrey', 'shows TW19', 'live entertainment']
   },
 
@@ -545,7 +545,7 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     metaDescription: 'Discover market events at The Anchor Stanwell Moor. Local producers, artisan goods, seasonal markets. Community marketplace near Heathrow.',
     heroContent: 'The Anchor hosts vibrant market events that bring together local artisans, producers, and the community in celebration of local enterprise.',
     introContent: 'Our market events transform The Anchor\'s spaces into bustling marketplaces showcasing the best of local talent. From artisan food producers to handmade crafts, seasonal produce to unique gifts, our markets support local businesses while offering our community access to exceptional local products. The pub provides the perfect backdrop with refreshments available throughout the day.',
-    valueProposition: 'Support local businesses and discover unique products at our regular market events. Cheque our calendar for upcoming markets and special themed events.',
+    valueProposition: 'Support local businesses and discover unique products at our regular market events. Check our calendar for upcoming markets and special themed events.',
     keywords: ['market events stanwell moor', 'artisan market heathrow', 'local market surrey', 'community market TW19', 'producers market stanwell moor']
   },
 

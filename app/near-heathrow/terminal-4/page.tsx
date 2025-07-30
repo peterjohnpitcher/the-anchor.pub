@@ -266,7 +266,7 @@ export default function Terminal4Page() {
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Live Terminal 4 Flight Information"
-              subtitle="Cheque flight times while you enjoy your meal or drink"
+              subtitle="Check flight times while you enjoy your meal or drink"
               align="center"
             />
             <FlightStatus terminal="4" type="both" limit={5} />

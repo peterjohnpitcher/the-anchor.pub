@@ -17,7 +17,7 @@ export async function NextEventServer() {
               <h2 className="text-2xl font-bold text-white text-center">Coming Soon</h2>
             </div>
             <div className="p-8 text-center">
-              <p className="text-gray-700">Cheque back soon for our next exciting event!</p>
+              <p className="text-gray-700">Check back soon for our next exciting event!</p>
               <Link href="/whats-on" className="inline-block mt-4">
                 <Button variant="primary">
                   View All Events

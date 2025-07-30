@@ -283,7 +283,7 @@ export default function StainesPubPage() {
                   <h3 className="text-xl font-bold text-anchor-green">Monthly</h3>
                   <span className="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">DRAG</span>
                 </div>
-                <p className="text-gray-700">Fabulous drag shows with dinner. Cheque our events page for dates.</p>
+                <p className="text-gray-700">Fabulous drag shows with dinner. Check our events page for dates.</p>
               </div>
             </div>
           </div>

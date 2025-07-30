@@ -143,7 +143,7 @@ export class FlightAPI {
     //   params.dep_terminal = terminalCode
     // }
 
-    // Cheque cache first
+    // Check cache first
     const cacheKey = this.getCacheKey({ ...params, type: 'departures' })
     const cached = flightCache.get(cacheKey)
     
@@ -183,7 +183,7 @@ export class FlightAPI {
     //   params.arr_terminal = terminalCode
     // }
 
-    // Cheque cache first
+    // Check cache first
     const cacheKey = this.getCacheKey({ ...params, type: 'arrivals' })
     const cached = flightCache.get(cacheKey)
     

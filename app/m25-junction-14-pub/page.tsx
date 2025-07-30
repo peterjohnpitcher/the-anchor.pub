@@ -263,7 +263,7 @@ export default function M25Junction14PubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">📶</span>
                     <div>
-                      <strong>Free WiFi</strong> - Cheque routes, emails, or relax
+                      <strong>Free WiFi</strong> - Check routes, emails, or relax
                     </div>
                   </li>
                 </ul>

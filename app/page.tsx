@@ -443,7 +443,7 @@ export default function HomePage() {
                     Book your festive celebration now! Traditional menus, 
                     festive atmosphere, and memorable celebrations.
                   </p>
-                  <p className="text-anchor-gold font-semibold">Cheque availability →</p>
+                  <p className="text-anchor-gold font-semibold">Check availability →</p>
                   </CardBody>
                 </Card>
               </Link>

@@ -268,7 +268,7 @@ export default function Terminal5Page() {
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Live Terminal 5 Flight Information"
-              subtitle="Cheque flight times while you enjoy your meal or drink"
+              subtitle="Check flight times while you enjoy your meal or drink"
               align="center"
             />
             <FlightStatus terminal="5" type="both" limit={5} />
@@ -293,7 +293,7 @@ export default function Terminal5Page() {
               <h3 className="text-2xl font-bold text-anchor-green mb-4">Travel Tips</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <p className="font-semibold mb-2">Cheque-in Times:</p>
+                  <p className="font-semibold mb-2">Check-in Times:</p>
                   <ul className="space-y-1 text-gray-700 text-sm">
                     <li>• Short-haul: 2 hours before</li>
                     <li>• Long-haul: 3 hours before</li>
