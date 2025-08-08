@@ -37,6 +37,7 @@ export function useKitchenStatus(): {
   const todayName = getApiDayName()
   const todayHours = hours.regularHours[todayName]
   
+  
   // Determine kitchen status
   if (!todayHours || todayHours.is_closed) {
     return {

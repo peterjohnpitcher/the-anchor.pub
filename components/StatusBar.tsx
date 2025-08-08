@@ -61,6 +61,7 @@ export function StatusBar({
   
   const mergedTheme = { ...defaultTheme, ...theme }
   const mergedLabels = { ...defaultLabels, ...labels }
+  
 
   if (loading) {
     if (variant === 'navigation') {
@@ -114,8 +115,15 @@ export function StatusBar({
   if (showKitchen && kitchen) {
     kitchenStatus = 'Kitchen: '
     if (kitchen.status === 'no-service') {
-      kitchenStatus += 'Closed today'
-      kitchenIndicatorStatus = 'closed'
+      // Check if kitchen opens later today even though there's no service now
+      if (kitchen.opensAt) {
+        const openingTime = formatTime12Hour(kitchen.opensAt)
+        kitchenStatus += `Opens at ${openingTime}`
+        kitchenIndicatorStatus = isOpen ? 'warning' : 'closed'
+      } else {
+        kitchenStatus += 'Closed today'
+        kitchenIndicatorStatus = 'closed'
+      }
     } else if (kitchen.status === 'open') {
       if (kitchen.closesAt) {
         const closingTime = formatTime12Hour(kitchen.closesAt)
@@ -124,10 +132,19 @@ export function StatusBar({
         kitchenStatus += 'Open'
       }
       kitchenIndicatorStatus = 'open'
-    } else {
-      // Kitchen is closed
-      kitchenStatus += 'Closed today'
+    } else if (kitchen.status === 'closed') {
+      // Kitchen is closed but check if it opens later today
+      if (kitchen.opensAt) {
+        const openingTime = formatTime12Hour(kitchen.opensAt)
+        kitchenStatus += `Opens at ${openingTime}`
+      } else {
+        kitchenStatus += 'Closed'
+      }
       kitchenIndicatorStatus = isOpen ? 'warning' : 'closed'
+    } else {
+      // Default case - shouldn't happen but handle gracefully
+      kitchenStatus += 'Closed'
+      kitchenIndicatorStatus = 'closed'
     }
   }
 

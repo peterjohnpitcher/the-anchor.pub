@@ -11,7 +11,6 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
     fetch('/api/business/hours')
       .then(res => res.json())
       .then(result => {
-        console.log('StatusBarSimple received:', result)
         setData(result)
         setLoading(false)
       })
@@ -66,7 +65,8 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
           )} />
           <span className="text-white">
             Kitchen: {!todayHours?.kitchen || todayHours.kitchen === null ? 'Closed today' : 
-                     kitchenOpen ? `Open until ${formatTime(todayHours.kitchen.closes)}` : 'Closed today'}
+                     kitchenOpen ? `Open until ${formatTime(todayHours.kitchen.closes)}` : 
+                     todayHours.kitchen.opens ? `Opens at ${formatTime(todayHours.kitchen.opens)}` : 'Closed today'}
           </span>
         </div>
       </div>
