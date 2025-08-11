@@ -86,9 +86,16 @@ export function StatusBar({
   // Use API-provided status
   const { isOpen, closesIn, opensIn } = hours.currentStatus
   
-  // Get today's hours for bar closing time
-  const today = new Date().toLocaleDateString('en-GB', { weekday: 'long' }).toLowerCase()
+  // Get today's and tomorrow's hours
+  const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+  const now = new Date()
+  const todayIndex = now.getDay()
+  const tomorrowIndex = (todayIndex + 1) % 7
+  const today = days[todayIndex]
+  const tomorrow = days[tomorrowIndex]
+  
   const todayHours = hours.regularHours[today]
+  const tomorrowHours = hours.regularHours[tomorrow]
   
   // Build bar status message
   let barStatus = 'Bar: '
@@ -100,9 +107,29 @@ export function StatusBar({
       barStatus += 'Open'
     }
   } else {
-    if (todayHours && todayHours.opens) {
-      const openingTime = formatTime12Hour(todayHours.opens)
-      barStatus += `Opens at ${openingTime}`
+    // When closed, show tomorrow's opening time if available
+    if (tomorrowHours && !tomorrowHours.is_closed && tomorrowHours.opens) {
+      const openingTime = formatTime12Hour(tomorrowHours.opens)
+      barStatus += `Open tomorrow at ${openingTime}`
+    } else if (todayHours && todayHours.opens) {
+      // If it's before today's opening time, show today's opening
+      const currentTime = now.getHours() + now.getMinutes() / 60
+      const openingHour = parseInt(todayHours.opens.split(':')[0])
+      const openingMinute = parseInt(todayHours.opens.split(':')[1]) / 60
+      const openingDecimal = openingHour + openingMinute
+      
+      if (currentTime < openingDecimal) {
+        const openingTime = formatTime12Hour(todayHours.opens)
+        barStatus += `Opens at ${openingTime}`
+      } else {
+        // We're after closing, show tomorrow
+        if (tomorrowHours && !tomorrowHours.is_closed && tomorrowHours.opens) {
+          const openingTime = formatTime12Hour(tomorrowHours.opens)
+          barStatus += `Open tomorrow at ${openingTime}`
+        } else {
+          barStatus += 'Closed'
+        }
+      }
     } else {
       barStatus += 'Closed'
     }
@@ -115,15 +142,15 @@ export function StatusBar({
   if (showKitchen && kitchen) {
     kitchenStatus = 'Kitchen: '
     if (kitchen.status === 'no-service') {
-      // Check if kitchen opens later today even though there's no service now
-      if (kitchen.opensAt) {
-        const openingTime = formatTime12Hour(kitchen.opensAt)
-        kitchenStatus += `Opens at ${openingTime}`
-        kitchenIndicatorStatus = isOpen ? 'warning' : 'closed'
+      // No kitchen service today (like Monday), check tomorrow
+      const tomorrowKitchen = tomorrowHours?.kitchen
+      if (tomorrowKitchen && typeof tomorrowKitchen === 'object' && 'opens' in tomorrowKitchen && tomorrowKitchen.opens) {
+        const openingTime = formatTime12Hour(tomorrowKitchen.opens)
+        kitchenStatus += `Open tomorrow at ${openingTime}`
       } else {
         kitchenStatus += 'Closed today'
-        kitchenIndicatorStatus = 'closed'
       }
+      kitchenIndicatorStatus = 'closed'
     } else if (kitchen.status === 'open') {
       if (kitchen.closesAt) {
         const closingTime = formatTime12Hour(kitchen.closesAt)
@@ -133,14 +160,22 @@ export function StatusBar({
       }
       kitchenIndicatorStatus = 'open'
     } else if (kitchen.status === 'closed') {
-      // Kitchen is closed but check if it opens later today
+      // Kitchen is closed - check if it opens later today or tomorrow
       if (kitchen.opensAt) {
         const openingTime = formatTime12Hour(kitchen.opensAt)
         kitchenStatus += `Opens at ${openingTime}`
+        kitchenIndicatorStatus = isOpen ? 'warning' : 'closed'
       } else {
-        kitchenStatus += 'Closed'
+        // Kitchen won't open again today, check tomorrow
+        const tomorrowKitchen = tomorrowHours?.kitchen
+        if (tomorrowKitchen && typeof tomorrowKitchen === 'object' && 'opens' in tomorrowKitchen && tomorrowKitchen.opens) {
+          const openingTime = formatTime12Hour(tomorrowKitchen.opens)
+          kitchenStatus += `Open tomorrow at ${openingTime}`
+        } else {
+          kitchenStatus += 'Closed'
+        }
+        kitchenIndicatorStatus = isOpen ? 'warning' : 'closed'
       }
-      kitchenIndicatorStatus = isOpen ? 'warning' : 'closed'
     } else {
       // Default case - shouldn't happen but handle gracefully
       kitchenStatus += 'Closed'

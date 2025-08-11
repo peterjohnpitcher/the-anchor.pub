@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
-import { StatusBarWrapper } from '@/components/StatusBarWrapper'
+import { StatusBar } from '@/components/StatusBar'
 import { NextEventServer } from '@/components/NextEventServer'
 import { Suspense } from 'react'
 import { homepageFAQSchema } from '@/lib/enhanced-schemas'
@@ -116,7 +116,7 @@ export default function HomePage() {
         </p>
         
         <div className="mb-8 flex justify-center">
-          <StatusBarWrapper />
+          <StatusBar />
         </div>
         
         {/* Feature tags */}

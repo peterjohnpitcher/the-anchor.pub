@@ -64,7 +64,24 @@ export function ProcessedStatusBar({
   const statusData = data?.statusBar || lastSuccessful?.statusBar
   
   if (!statusData) {
-    return null // Gracefully hide if no data
+    // Show a fallback message instead of disappearing completely
+    if (variant === 'navigation') {
+      return (
+        <div className="text-sm text-white/60">
+          Opening hours unavailable
+        </div>
+      )
+    }
+    return (
+      <div className={cn(
+        'inline-flex rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-md min-h-[40px] sm:min-h-[44px] items-center',
+        mergedTheme.background,
+        mergedTheme.border,
+        className
+      )}>
+        <span className="text-sm text-white/80">Opening hours temporarily unavailable</span>
+      </div>
+    )
   }
 
   // Variant-specific styling
