@@ -13,6 +13,11 @@ export async function GET() {
       success: true,
       data: response,
       fetchedAt: new Date().toISOString()
+    }, {
+      headers: {
+        // Update cache to 60 seconds per audit requirements (was 300)
+        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=60'
+      }
     })
   } catch (error: any) {
     logError('business-hours-api', error)

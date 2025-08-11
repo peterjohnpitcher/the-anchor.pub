@@ -22,7 +22,7 @@ interface UseBusinessHoursReturn {
  */
 export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusinessHoursReturn {
   const {
-    refreshInterval = 5 * 60 * 1000, // 5 minutes default
+    refreshInterval = 60 * 1000, // 60 seconds per audit requirements (was 5 minutes)
     apiEndpoint = '/api/business/hours'
   } = options
 

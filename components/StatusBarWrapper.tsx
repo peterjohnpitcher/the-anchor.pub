@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 
-const StatusBar = dynamic(() => import('./StatusBar').then(mod => mod.StatusBar), {
+const StatusBar = dynamic(() => import('./business-hours-components').then(mod => mod.ProcessedStatusBar), {
   loading: () => <StatusBarSkeleton />,
   ssr: true
 })
