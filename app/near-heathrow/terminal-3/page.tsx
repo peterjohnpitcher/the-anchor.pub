@@ -18,17 +18,17 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PARKING } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Terminal 3 Hotels | The Anchor - Local British Pub',
-  description: 'Escape Terminal 3 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 15 mins from T3 hotels.',
+  title: 'Pub Near Terminal 3 | The Anchor - Stanwell Moor',
+  description: 'Escape Terminal 3 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 11 mins from T3 hotels.',
   keywords: 'pub near terminal 3, heathrow terminal 3 restaurant, closest pub to T3, virgin atlantic terminal pub, emirates terminal restaurant, local pub near terminal 3 hotels',
   openGraph: {
     title: 'The Anchor - Local Pub Near Terminal 3 Hotels',
-    description: 'Escape hotel dining! Family pub 15 mins from T3. Real atmosphere.',
+    description: 'Escape hotel dining! Family pub 11 mins from T3. Real atmosphere.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Local Pub Near Terminal 3 Hotels',
-    description: 'Escape hotel dining! Family pub 15 mins from T3. Real atmosphere.',
+    description: 'Escape hotel dining! Family pub 11 mins from T3. Real atmosphere.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
   })
 }
@@ -44,7 +44,7 @@ export default function Terminal3Page() {
         description="Perfect for Virgin Atlantic & Emirates travelers • Free parking • British hospitality"
         size="large"
         tags={[
-          { label: "Just 15 minutes away", variant: "warning" }
+          { label: "Just 11 minutes away", variant: "warning" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -123,7 +123,7 @@ export default function Terminal3Page() {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               {/* By Car */}
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (15 minutes)</h3>
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (11 minutes)</h3>
                 <ol className="space-y-3 text-gray-700">
                   <li className="flex gap-3">
                     <span className="font-bold text-anchor-gold">1.</span>
@@ -158,9 +158,9 @@ export default function Terminal3Page() {
                 <div className="space-y-4 text-gray-700">
                   <div>
                     <p className="font-semibold mb-2">Cost: £20-£25</p>
-                    <p className="text-sm mb-2">Journey time: 15 minutes</p>
+                    <p className="text-sm mb-2">Journey time: 11 minutes</p>
                     <p className="text-sm mb-2">Distance: 4.5 miles</p>
-                    <p>Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;</p>
+                    <p>Tell your driver: &quot;The Anchor, Horton Road, Stanwell Moor&quot;</p>
                   </div>
                   <div>
                     <p className="font-semibold mb-2">Taxi Ranks:</p>
@@ -418,12 +418,12 @@ export default function Terminal3Page() {
                 <div>
                   <p className="font-semibold mb-2">By Taxi</p>
                   <p className="text-3xl font-bold text-anchor-gold mb-2">£20-25</p>
-                  <p className="text-sm text-gray-600">15 minutes</p>
+                  <p className="text-sm text-gray-600">11 minutes</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">By Uber</p>
                   <p className="text-3xl font-bold text-anchor-gold mb-2">£16-20</p>
-                  <p className="text-sm text-gray-600">15 minutes</p>
+                  <p className="text-sm text-gray-600">11 minutes</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">By Bus</p>
@@ -432,7 +432,7 @@ export default function Terminal3Page() {
                 </div>
               </div>
               <p className="text-center text-sm text-gray-600 mt-4">
-                Tell your driver: "The Anchor pub, Horton Road, Stanwell Moor"
+                Tell your driver: "The Anchor, Horton Road, Stanwell Moor"
               </p>
             </div>
 
@@ -461,7 +461,7 @@ export default function Terminal3Page() {
         faqs={[
           {
             question: "How far is The Anchor from Heathrow Terminal 3?",
-            answer: "The Anchor is just 15 minutes drive from Heathrow Terminal 3. We're the perfect spot for a pre-flight meal or drinks after landing."
+            answer: "The Anchor is just 11 minutes drive from Heathrow Terminal 3. We're the perfect spot for a pre-flight meal or drinks after landing."
           },
           {
             question: "Do you have parking for Terminal 3 travelers?",
@@ -469,7 +469,7 @@ export default function Terminal3Page() {
           },
           {
             question: "What time should I leave for Terminal 3?",
-            answer: "Allow 15 minutes to reach Terminal 3 from our pub, plus time for parking and security. We recommend leaving at least 2.5 hours before your flight for most destinations, 3.5 hours for long-haul flights to Asia or the Americas."
+            answer: "Allow 11 minutes to reach Terminal 3 from our pub, plus time for parking and security. We recommend leaving at least 2.5 hours before your flight for most destinations, 3.5 hours for long-haul flights to Asia or the Americas."
           },
           {
             question: "Is The Anchor good for Terminal 3 hotel guests?",
@@ -477,11 +477,11 @@ export default function Terminal3Page() {
           },
           {
             question: "How do I get to The Anchor from my Terminal 3 hotel?",
-            answer: "It's about £20-25 by taxi (15 minutes) or £16-20 by Uber. The 442 bus also stops near us for just £2.50. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor' or use postcode TW19 6AQ."
+            answer: "It's about £20-25 by taxi (11 minutes) or £16-20 by Uber. The 442 bus also stops near us for just £2.50. Tell your driver 'The Anchor, Horton Road, Stanwell Moor' or use postcode TW19 6AQ."
           },
           {
             question: "Can I get a taxi from Terminal 3 to The Anchor?",
-            answer: "Yes, taxis are readily available from Terminal 3. The journey costs £20-25 and takes about 15 minutes (4.5 miles). Taxi ranks are located at Terminal 3 Arrivals (Ground floor), Terminal 3 Departures drop-off, and the Central Bus Station shared with T2. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor'."
+            answer: "Yes, taxis are readily available from Terminal 3. The journey costs £20-25 and takes about 11 minutes (4.5 miles). Taxi ranks are located at Terminal 3 Arrivals (Ground floor), Terminal 3 Departures drop-off, and the Central Bus Station shared with T2. Tell your driver 'The Anchor, Horton Road, Stanwell Moor'."
           },
           {
             question: "Is there a bus from Terminal 3 to The Anchor?",
@@ -498,12 +498,12 @@ export default function Terminal3Page() {
       {/* CTA Section */}
       <CTASection
         title="See You Soon at The Anchor!"
-        description="Just 15 minutes from Terminal 3 • Free Parking • Family Friendly"
+        description="Just 11 minutes from Terminal 3 • Free Parking • Family Friendly"
         variant="green"
         buttons={[
           {
             text: "📞 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "terminal_3_cta_section",
             variant: "white",
@@ -532,7 +532,7 @@ export default function Terminal3Page() {
             "@context": "https://schema.org",
             "@type": "Restaurant",
             "name": "The Anchor - Pub Near Heathrow Terminal 3",
-            "description": "Family-friendly British pub just 15 minutes from Heathrow Terminal 3 with free parking.",
+            "description": "Family-friendly British pub just 11 minutes from Heathrow Terminal 3 with free parking.",
             "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
             "address": {
               "@type": "PostalAddress",

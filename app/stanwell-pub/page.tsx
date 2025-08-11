@@ -74,7 +74,7 @@ export default function StanwellPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'Stanwell Village',
-    'The Anchor Pub Stanwell Moor',
+    'The Anchor Stanwell Moor',
     [
       'From Stanwell Village, head north on Oaks Road',
       'Turn left onto Stanwell Moor Road',
@@ -459,7 +459,7 @@ export default function StanwellPubPage() {
         buttons={[
           {
             text: "📞 Call Us",
-            href: `tel:${CONTACT.phone}`,
+            href: `${CONTACT.phoneHref}`,
             variant: "secondary"
           },
           {

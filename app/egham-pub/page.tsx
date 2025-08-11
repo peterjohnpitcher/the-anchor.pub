@@ -36,7 +36,7 @@ export default function EghamPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     "Egham Town Centre",
-    "The Anchor Pub",
+    "The Anchor",
     [
       "From Egham High Street, take the A30 towards Staines",
       "After 2 miles, turn left onto A308 Staines bypass",
@@ -394,7 +394,7 @@ export default function EghamPubPage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "egham_pub_cta",
             variant: "white"

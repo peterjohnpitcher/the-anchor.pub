@@ -47,7 +47,7 @@ export async function NextEventServer() {
             <div className="relative w-full md:w-80 h-64 md:h-80 flex-shrink-0">
               <Image
                 src={eventImage}
-                alt={`${nextEvent.name} event promotional poster - ${nextEvent.category?.name || 'upcoming event'} at The Anchor pub`}
+                alt={`${nextEvent.name} event promotional poster - ${nextEvent.category?.name || 'upcoming event'} at The Anchor`}
                 fill
                 className="object-contain"
                 sizes="(max-width: 768px) 100vw, 320px"

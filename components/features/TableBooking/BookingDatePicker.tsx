@@ -247,7 +247,7 @@ export default function BookingDatePicker({
           </p>
           {kitchenMessage.toLowerCase().includes('monday') && (
             <p className="text-sm text-amber-700 mt-1">
-              The bar is open for drinks. Call us at <a href="tel:01753682707" className="font-medium underline">01753 682707</a> for drinks-only reservations.
+              The bar is open for drinks. Call us at <a href="tel:+441753682707" className="font-medium underline">01753 682707</a> for drinks-only reservations.
             </p>
           )}
         </div>

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     
     return {
       title: event.metaTitle || `${event.name} | The Anchor Stanwell Moor`,
-      description: event.metaDescription || event.shortDescription || event.description || `Join us for ${event.name} at The Anchor pub in Stanwell Moor. ${formatEventDate(event.startDate)} at ${formatEventTime(event.startDate)}.`,
+      description: event.metaDescription || event.shortDescription || event.description || `Join us for ${event.name} at The Anchor in Stanwell Moor. ${formatEventDate(event.startDate)} at ${formatEventTime(event.startDate)}.`,
       keywords: Array.isArray(event.keywords) ? event.keywords.join(', ') : event.keywords,
       openGraph: {
         title: event.name,

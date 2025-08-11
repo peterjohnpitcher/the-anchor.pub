@@ -17,7 +17,7 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Terminal 5 Hotels | The Anchor - Local British Pub',
+  title: 'Pub Near Terminal 5 | The Anchor - Stanwell Moor',
   description: 'Escape Sofitel & Hilton T5 hotel dining. Experience an authentic British family pub just 7 minutes from Terminal 5. Free parking, real ales, home-cooked food.',
   keywords: 'pub near terminal 5, heathrow terminal 5 restaurant, closest pub to T5, british airways terminal pub, sofitel heathrow alternative, hilton T5 restaurant, local pub near heathrow hotels',
   openGraph: {
@@ -165,7 +165,7 @@ export default function Terminal5Page() {
                   <div>
                     <p className="font-semibold mb-2">Cost: £20-£25</p>
                     <p className="text-sm text-gray-600 mb-2">Journey time: 4-7 minutes (2.8 miles)</p>
-                    <p>Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;</p>
+                    <p>Tell your driver: &quot;The Anchor, Horton Road, Stanwell Moor&quot;</p>
                   </div>
                   <div>
                     <p className="font-semibold mb-2">Taxi Ranks:</p>
@@ -331,7 +331,7 @@ export default function Terminal5Page() {
                   </li>
                   <li className="flex gap-3">
                     <span>💡</span>
-                    <span>Our Sunday roast is famous among T5 staff - £5 deposit pre-order required by Saturday 1pm!</span>
+                    <span>Our Sunday roast is famous among T5 staff - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday!</span>
                   </li>
                 </ul>
               }
@@ -406,7 +406,7 @@ export default function Terminal5Page() {
                   </li>
                   <li className="flex gap-2">
                     <span className="text-anchor-gold">✓</span>
-                    <span>Sunday roasts that locals queue for (£5 deposit pre-order)</span>
+                    <span>Sunday roasts that locals queue for - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-anchor-gold">✓</span>
@@ -488,11 +488,11 @@ export default function Terminal5Page() {
           },
           {
             question: "Can I get a taxi from Terminal 5 to The Anchor?",
-            answer: "Yes, taxis are readily available from Terminal 5. The journey costs £20-£25 and takes about 4-7 minutes. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor, TW19 6AQ'. Alternatively, take bus route 442 which stops directly outside the pub - it runs every 20 minutes and costs about what a pint should cost."
+            answer: "Yes, taxis are readily available from Terminal 5. The journey costs £20-£25 and takes about 4-7 minutes. Tell your driver 'The Anchor, Horton Road, Stanwell Moor, TW19 6AQ'. Alternatively, take bus route 442 which stops directly outside the pub - it runs every 20 minutes and costs about what a pint should cost."
           },
           {
             question: "What time should I leave The Anchor to catch my flight from T5?",
-            answer: "Allow 15 minutes to drive from The Anchor to Terminal 5, plus parking time if needed. For short-haul flights, leave 2.5 hours before departure. For long-haul, leave 3.5 hours before."
+            answer: "Allow 7 minutes to drive from The Anchor to Terminal 5, plus parking time if needed. For short-haul flights, leave 2.5 hours before departure. For long-haul, leave 3.5 hours before."
           },
           {
             question: "Do BA cabin crew visit The Anchor?",
@@ -508,7 +508,7 @@ export default function Terminal5Page() {
           },
           {
             question: "How do I get to The Anchor from my Terminal 5 hotel?",
-            answer: "From Sofitel or Hilton T5, it's just £12-15 by taxi (5-8 minutes). Tell the driver 'The Anchor pub, Stanwell Moor'. Uber costs about £10-13. For the adventurous, it's a pleasant 25-30 minute walk via Stanwell Moor Road."
+            answer: "From Sofitel or Hilton T5, it's just £12-15 by taxi (5-8 minutes). Tell the driver 'The Anchor, Stanwell Moor'. Uber costs about £10-13. For the adventurous, it's a pleasant 25-30 minute walk via Stanwell Moor Road."
           },
           {
             question: "Why should I leave my hotel to eat at The Anchor?",
@@ -526,7 +526,7 @@ export default function Terminal5Page() {
         buttons={[
           {
             text: "📞 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "terminal_5_cta_section",
             variant: "white",
@@ -585,7 +585,7 @@ export default function Terminal5Page() {
               "@context": "https://schema.org",
               "@type": "HowTo",
               "name": "How to get to The Anchor from Heathrow Terminal 5",
-              "description": "Easy directions from Terminal 5 to The Anchor pub - just 7 minutes by car",
+              "description": "Easy directions from Terminal 5 to The Anchor - just 7 minutes by car",
               "totalTime": "PT7M",
               "supply": {
                 "@type": "HowToSupply",

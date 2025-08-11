@@ -189,14 +189,14 @@ export const localBusinessSchema = {
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+44-1753-682707",
+      "telephone": "+441753682707",
       "contactType": "customer service",
       "areaServed": "GB",
       "availableLanguage": ["English"]
     },
     {
       "@type": "ContactPoint",
-      "telephone": "+44-1753-682707",
+      "telephone": "+441753682707",
       "contactType": "reservations",
       "areaServed": "GB",
       "availableLanguage": ["English"]

@@ -42,9 +42,9 @@ export function QuickInfoGrid({
             {item.title}
           </h3>
           {item.subtitle && (
-            <p className={`text-gray-700 ${variant === 'compact' ? 'text-sm sm:text-xs mt-1' : 'text-base sm:text-sm mt-2'}`}>
+            <div className={`text-gray-700 ${variant === 'compact' ? 'text-sm sm:text-xs mt-1' : 'text-base sm:text-sm mt-2'}`}>
               {item.subtitle}
-            </p>
+            </div>
           )}
         </div>
       ))}

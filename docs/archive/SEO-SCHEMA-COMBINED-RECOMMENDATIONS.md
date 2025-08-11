@@ -171,7 +171,7 @@ Available throughout Surrey and West London
       "name": "Is there parking at The Anchor pub?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, The Anchor offers free parking for all customers with spaces for approximately 50 vehicles, including disabled parking bays."
+        "text": "Yes, The Anchor offers free parking for all customers with spaces for 20 vehicles, including disabled parking bays."
       }
     },
     {

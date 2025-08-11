@@ -278,7 +278,7 @@ const voiceQueries = {
   },
   'parking': {
     title: 'Does The Anchor have parking?',
-    answer: 'Yes, The Anchor offers free customer parking with 50 spaces...'
+    answer: 'Yes, The Anchor offers free customer parking with 20 spaces...'
   }
   // ... more queries
 }

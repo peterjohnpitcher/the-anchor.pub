@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   description: 'BOGOF pizza deal at The Anchor near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday. Fresh dough, quality toppings. Dine-in & takeaway.',
   keywords: 'buy one get one free pizza, bogof pizza stanwell moor, pizza deal heathrow, 2 for 1 pizza, pizza offer staines',
   openGraph: {
-    title: 'BOGOF Pizza Deal - The Anchor Pub',
+    title: 'BOGOF Pizza Deal - The Anchor',
     description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
     images: ['/images/the-anchor-pub-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'BOGOF Pizza Deal - The Anchor Pub',
+    title: 'BOGOF Pizza Deal - The Anchor',
     description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
     images: ['/images/the-anchor-pub-stanwell-moor.jpg']
   })
@@ -510,7 +510,7 @@ export default function PizzaPage() {
         buttons={[
           {
             text: "📞 Call 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             variant: "secondary"
           },
           {

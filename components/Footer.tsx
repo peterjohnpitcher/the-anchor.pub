@@ -206,7 +206,7 @@ export function Footer({
             {businessInfo.logo && (
               <Image
                 src={businessInfo.logo}
-                alt="The Anchor pub logo - white anchor symbol with traditional pub lettering on dark background"
+                alt="The Anchor logo - white anchor symbol with traditional pub lettering on dark background"
                 width={180}
                 height={72}
                 className="h-16 w-auto mb-4"

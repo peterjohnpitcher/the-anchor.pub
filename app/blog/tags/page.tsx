@@ -7,7 +7,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 
 export const metadata: Metadata = {
   title: 'All Blog Topics | The Anchor Stanwell Moor',
-  description: 'Browse all blog topics and categories from The Anchor pub. Find posts about food, drinks, events, and more.',
+  description: 'Browse all blog topics and categories from The Anchor. Find posts about food, drinks, events, and more.',
   openGraph: {
     title: 'All Blog Topics - The Anchor',
     description: 'Explore all blog categories and topics',

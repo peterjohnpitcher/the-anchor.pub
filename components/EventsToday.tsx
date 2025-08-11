@@ -226,7 +226,7 @@ export function EventsToday() {
               <p className="text-sm text-amber-600 font-semibold animate-pulse">LIMITED AVAILABILITY</p>
             )}
             {event.remainingSeats && event.remainingSeats > 0 && !event.limitedAvailability && (
-              <p className="text-sm text-gray-700">{event.remainingSeats} seats available</p>
+              <p className="text-sm text-gray-700">Spaces available</p>
             )}
           </div>
           <Link 

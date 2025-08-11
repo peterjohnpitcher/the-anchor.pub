@@ -15,9 +15,9 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { Container } from '@/components/ui/layout/Container'
 
 export const metadata: Metadata = {
-  title: 'Christmas Party Venue Near Heathrow | The Anchor Stanwell Moor | Book Now',
-  description: 'Book your Christmas party at The Anchor. Intimate venue for office parties & family celebrations. Free parking, festive menus, flexible packages.',
-  keywords: 'christmas party venue surrey, christmas party venue staines, office christmas party heathrow, christmas party venue near me, festive party venue stanwell moor, corporate christmas party surrey',
+  title: 'Christmas Parties Heathrow | Christmas Party Venue 2025 | The Anchor',
+  description: 'Book your Christmas party venue near Heathrow. Office parties & festive celebrations from £25pp. Free parking, traditional Christmas menu. Limited dates available.',
+  keywords: 'christmas parties heathrow, christmas party venues heathrow, christmas party venue staines, office christmas party heathrow, christmas party venue near me, festive party venue stanwell moor, corporate christmas party surrey',
   openGraph: {
     title: 'Christmas Parties at The Anchor - Book Now',
     description: 'Celebrate Christmas 2024/2025 at The Anchor. Festive menus, free parking, flexible spaces for 20-200 guests.',
@@ -211,29 +211,38 @@ export default function ChristmasPartiesPage() {
           />
           
           <div className="max-w-4xl mx-auto">
-            <p className="text-center text-lg text-gray-700 mb-8">
-              We offer a range of festive options to suit every group and budget. 
-              Contact us for personalised pricing based on your requirements.
-            </p>
+            <AlertBox
+              variant="success"
+              title="🎅 Early Bird Special - Book by October 31st"
+              className="mb-8"
+              content={
+                <p className="text-center">
+                  10% off all Christmas party bookings made before October 31st. 
+                  Secure your date with just a £100 deposit!
+                </p>
+              }
+            />
             
             <InfoBoxGrid
               columns={3}
               boxes={[
                 {
-                  title: "Festive Lunch",
+                  title: "Silver Package",
                   content: (
                     <>
-                      <p className="text-lg font-semibold text-anchor-green mb-4">Afternoon Celebrations</p>
-                      <ul className="space-y-2 mb-4 text-gray-700">
-                        <li>✓ 2 or 3-course Christmas menu</li>
-                        <li>✓ Available 12pm-3pm</li>
-                        <li>✓ Welcome drinks available</li>
+                      <p className="text-2xl font-bold text-anchor-green mb-2">£25 per person</p>
+                      <p className="text-sm text-gray-600 mb-4">Minimum 20 guests</p>
+                      <ul className="space-y-2 mb-4 text-gray-700 text-sm">
+                        <li>✓ 2-course Christmas menu</li>
+                        <li>✓ Arrival drink (mulled wine/prosecco)</li>
                         <li>✓ Christmas crackers</li>
-                        <li>✓ Perfect for office lunches</li>
+                        <li>✓ Tea & coffee</li>
+                        <li>✓ Festive decorations</li>
+                        <li>✓ Background music</li>
                       </ul>
                       <Link href={CONTACT.phoneHref}>
-                        <Button variant="primary" fullWidth>
-                          Get Lunch Quote
+                        <Button variant="primary" fullWidth size="sm">
+                          Book Silver Package
                         </Button>
                       </Link>
                     </>
@@ -241,21 +250,23 @@ export default function ChristmasPartiesPage() {
                   variant: "default"
                 },
                 {
-                  title: "Evening Celebration",
+                  title: "Gold Package",
                   content: (
                     <>
                       <div className="absolute top-0 right-0 bg-anchor-gold text-white px-3 py-1 text-sm font-semibold rounded-bl-lg">Most Popular</div>
-                      <p className="text-lg font-semibold text-anchor-green mb-4">Evening Festivities</p>
-                      <ul className="space-y-2 mb-4 text-gray-700">
-                        <li>✓ Full Christmas dinner menu</li>
-                        <li>✓ Available from 6pm</li>
-                        <li>✓ Welcome drinks & canapés</li>
-                        <li>✓ Christmas atmosphere</li>
-                        <li>✓ Dancing & entertainment space</li>
+                      <p className="text-2xl font-bold text-anchor-green mb-2">£35 per person</p>
+                      <p className="text-sm text-gray-600 mb-4">Minimum 20 guests</p>
+                      <ul className="space-y-2 mb-4 text-gray-700 text-sm">
+                        <li>✓ 3-course Christmas menu</li>
+                        <li>✓ Arrival drink + wine with meal</li>
+                        <li>✓ Christmas crackers & party hats</li>
+                        <li>✓ Tea, coffee & mince pies</li>
+                        <li>✓ Premium decorations</li>
+                        <li>✓ DJ/music system access</li>
                       </ul>
                       <Link href={CONTACT.phoneHref}>
-                        <Button variant="primary" fullWidth>
-                          Get Evening Quote
+                        <Button variant="primary" fullWidth size="sm">
+                          Book Gold Package
                         </Button>
                       </Link>
                     </>
@@ -264,20 +275,22 @@ export default function ChristmasPartiesPage() {
                   className: "relative border-2 border-anchor-gold"
                 },
                 {
-                  title: "Bespoke Package",
+                  title: "Platinum Package",
                   content: (
                     <>
-                      <p className="text-lg font-semibold text-anchor-green mb-4">Create Your Perfect Party</p>
-                      <ul className="space-y-2 mb-4 text-gray-700">
-                        <li>✓ Customised menu options</li>
-                        <li>✓ Drinks packages available</li>
-                        <li>✓ Entertainment arrangements</li>
-                        <li>✓ Exclusive area options</li>
-                        <li>✓ Flexible timing</li>
+                      <p className="text-2xl font-bold text-anchor-green mb-2">£45 per person</p>
+                      <p className="text-sm text-gray-600 mb-4">Minimum 30 guests</p>
+                      <ul className="space-y-2 mb-4 text-gray-700 text-sm">
+                        <li>✓ 3-course premium menu</li>
+                        <li>✓ Canapés on arrival</li>
+                        <li>✓ Unlimited house drinks (3hrs)</li>
+                        <li>✓ Christmas entertainment</li>
+                        <li>✓ Late bar until midnight</li>
+                        <li>✓ Exclusive venue use option</li>
                       </ul>
                       <Link href={CONTACT.phoneHref}>
-                        <Button variant="primary" fullWidth>
-                          Discuss Options
+                        <Button variant="primary" fullWidth size="sm">
+                          Book Platinum Package
                         </Button>
                       </Link>
                     </>
@@ -517,7 +530,7 @@ export default function ChristmasPartiesPage() {
         buttons={[
           {
             text: `📞 Call Now: ${CONTACT.phone}`,
-            href: `tel:${CONTACT.phone}`,
+            href: `${CONTACT.phoneHref}`,
             variant: "white"
           },
           {

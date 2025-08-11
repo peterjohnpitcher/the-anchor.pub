@@ -19,7 +19,7 @@ import { generateNutritionInfo } from '@/lib/schema-utils'
 import './cocktails.css'
 
 export const metadata: Metadata = {
-  title: 'Drinks Menu Near Me | The Anchor Stanwell Moor | Real Ales & Premium Spirits',
+  title: 'Real Ales & Premium Spirits | The Anchor',
   description: 'Extensive drinks selection at The Anchor in Surrey. Real ales, craft beers, premium spirits, wines & cocktails. Great atmosphere near Heathrow.',
   keywords: 'drinks menu stanwell moor, real ale, cocktails heathrow, craft beer stanwell',
   openGraph: {
@@ -482,7 +482,7 @@ export default async function DrinksMenuPage() {
         buttons={[
           {
             text: "📞 Book Your Visit",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             variant: "white"
           },
           {

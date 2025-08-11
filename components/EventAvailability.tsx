@@ -61,15 +61,20 @@ export default function EventAvailability({ eventId, className = '', showDetails
 
   const isLimited = availability.remaining < 10
   const percentageFull = availability.percentage_full
+  const isNearlySoldOut = percentageFull >= 75
 
   if (showDetails) {
     return (
       <div className={`space-y-2 ${className}`} role="region" aria-live="polite" aria-label="Event availability details">
         <div className="flex items-center gap-2">
           <span className={`text-sm font-semibold ${
-            isLimited ? 'text-amber-600 animate-pulse' : 'text-green-600'
+            isNearlySoldOut ? 'text-amber-600 animate-pulse' : 
+            isLimited ? 'text-amber-600' : 
+            'text-green-600'
           }`} role={isLimited ? 'alert' : undefined}>
-            {isLimited ? 'LIMITED AVAILABILITY' : `${availability.remaining} seats available`}
+            {isNearlySoldOut ? 'NEARLY SOLD OUT' : 
+             isLimited ? 'LIMITED AVAILABILITY' : 
+             'SPACES AVAILABLE'}
           </span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2" role="progressbar" aria-valuenow={percentageFull} aria-valuemin={0} aria-valuemax={100} aria-label="Booking capacity">
@@ -84,7 +89,10 @@ export default function EventAvailability({ eventId, className = '', showDetails
           />
         </div>
         <p className="text-sm sm:text-xs text-gray-700" aria-live="off">
-          {availability.booked} of {availability.capacity} seats booked
+          {percentageFull >= 90 ? 'Almost full - book now!' :
+           percentageFull >= 75 ? 'Filling up fast' :
+           percentageFull >= 50 ? 'Good availability' :
+           'Plenty of space'}
         </p>
         <span className="sr-only" aria-live="polite">
           Last updated: {lastUpdate.toLocaleTimeString()}
@@ -95,9 +103,13 @@ export default function EventAvailability({ eventId, className = '', showDetails
 
   return (
     <span className={`text-sm ${
-      isLimited ? 'text-amber-600 font-semibold animate-pulse' : 'text-gray-700'
+      isNearlySoldOut ? 'text-amber-600 font-semibold animate-pulse' :
+      isLimited ? 'text-amber-600 font-semibold' : 
+      'text-gray-700'
     } ${className}`} role={isLimited ? 'alert' : undefined} aria-live={isLimited ? 'assertive' : 'polite'}>
-      {isLimited ? 'Limited availability' : `${availability.remaining} seats available`}
+      {isNearlySoldOut ? 'Nearly sold out' :
+       isLimited ? 'Limited availability' : 
+       'Spaces available'}
     </span>
   )
 }

@@ -13,7 +13,7 @@ import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Airport | The Anchor Stanwell Moor | 7 Minutes from All Terminals',
+  title: 'Pub Near Heathrow Airport | The Anchor - Stanwell Moor',
   description: 'The closest traditional British pub to Heathrow Airport. Just 7 mins from Terminal 5. Free parking, great food & a warm welcome for travelers.',
   keywords: 'pub near heathrow, heathrow airport pub, pub near terminal 5, closest pub to heathrow, heathrow restaurant',
   openGraph: {
@@ -36,7 +36,7 @@ export default function NearHeathrowPage() {
       <HeroWrapper
         route="/near-heathrow"
         title="The Closest Pub to Heathrow Airport"
-        description="Just 7 minutes from Terminal 5 • 10 minutes from Terminals 2 & 3"
+        description="Just 7 minutes from Terminal 5 • 11 minutes from Terminals 2 & 3"
         size="medium"
         showStatusBar={true}
         breadcrumbs={[
@@ -245,7 +245,7 @@ export default function NearHeathrowPage() {
               </div>
               <p className="text-gray-700 mb-4">All terminals</p>
               <p className="text-gray-700 text-sm mb-4">
-                Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;
+                Tell your driver: &quot;The Anchor, Horton Road, Stanwell Moor&quot;
               </p>
               <p className="text-sm text-gray-700">
                 Postcode: <strong className="text-gray-900">TW19 6AQ</strong>
@@ -599,7 +599,7 @@ export default function NearHeathrowPage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             variant: "white"
           },
           {

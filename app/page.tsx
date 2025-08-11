@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { Metadata } from 'next'
 import { StatusBarWrapper } from '@/components/StatusBarWrapper'
 import { NextEventServer } from '@/components/NextEventServer'
 import { Suspense } from 'react'
@@ -33,6 +34,14 @@ import {
   InfoBoxGrid,
   Section 
 } from '@/components/ui'
+
+export const metadata: Metadata = {
+  title: 'The Anchor | Traditional British Pub Near Heathrow - Stanwell Moor',
+  description: 'Welcome to The Anchor in Stanwell Moor - your local pub near Heathrow Airport. Traditional British food, Sunday roasts, events & friendly atmosphere. Free parking.',
+  alternates: {
+    canonical: './'
+  }
+}
 
 // Lazy load non-critical components
 const BusinessHours = dynamic(() => import('@/components/BusinessHours').then(mod => ({ default: mod.BusinessHours })), {
@@ -70,7 +79,7 @@ export default function HomePage() {
         title="Welcome to The Anchor"
         image={{
           src: "/images/page-headers/home/Page Headers - Homepage.jpg",
-          alt: "The Anchor pub in Stanwell Moor",
+          alt: "The Anchor in Stanwell Moor",
           priority: true,
           objectPosition: "50% 50%",
           blurDataURL: "data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQF/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAAwQRIf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAZEQACAwEAAAAAAAAAAAAAAAACAwABMQT/2gAMAwEAAhEDEQA/ANOxLaMjPcVcr70CTruylQTmPeREIvZWFCfOotGp/9k=",
@@ -85,7 +94,7 @@ export default function HomePage() {
         <div className="mb-6 sm:mb-8">
           <Image
             src="/images/branding/the-anchor-pub-logo-white-transparent.png"
-            alt="The Anchor Pub logo - elegant anchor symbol with traditional British pub typography in white"
+            alt="The Anchor logo - elegant anchor symbol with traditional British pub typography in white"
             width={320}
             height={320}
             sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
@@ -379,7 +388,7 @@ export default function HomePage() {
             <GalleryImage
               src="/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg"
               alt="Traditional Sunday roast at The Anchor"
-              caption="Famous Sunday Roasts (£5 deposit pre-order required)"
+              caption="Famous Sunday Roasts - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday"
               width={600}
               height={600}
               priority={false}

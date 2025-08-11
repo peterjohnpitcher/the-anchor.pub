@@ -52,7 +52,7 @@ Searching for a **remote work spot near Heathrow Airport**? Whether you're a dig
 
 **Location Benefits:**
 - 7 minutes from Heathrow Terminal 5
-- 10 minutes from Terminal 4
+- 12 minutes from Terminal 4
 - Easy access from M25 and M4
 - Peaceful village setting away from airport noise
 - Walking distance to Stanwell Moor village shops

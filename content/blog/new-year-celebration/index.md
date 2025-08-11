@@ -1,7 +1,7 @@
 ---
 title: "Village Pub Near Heathrow | The Anchor Community Spirit Year-Round"
 slug: new-year-celebration
-description: "Experience the warm community atmosphere at The Anchor pub near Heathrow Airport. Your local village pub in Stanwell Moor offering year-round events, seasonal menus, and genuine hospitality. Where neighbours become friends just 10 minutes from Terminal 5."
+description: "Experience the warm community atmosphere at The Anchor pub near Heathrow Airport. Your local village pub in Stanwell Moor offering year-round events, seasonal menus, and genuine hospitality. Where neighbours become friends just 7 minutes from Terminal 5."
 date: "2023-12-29"
 oldUrl: "https://www.the-anchor.pub/post/new-year-vibes-stanwell-moor-village-staines-the-a"
 author: "Billy"

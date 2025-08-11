@@ -14,7 +14,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Windsor Pub Near Me | ${BRAND.name} - Surrey Pub 15 Minutes from Windsor`,
+  title: 'Traditional Windsor Pub | The Anchor - Stanwell Moor',
   description: `${BRAND.name} - traditional Surrey pub 15 mins from Windsor Castle. Outside ULEZ with free parking. Sunday roasts, quiz nights in Surrey countryside. Easy M4 access.`,
   keywords: 'windsor pub, pub near windsor surrey, windsor berkshire pub, surrey pubs close to windsor, british pub windsor, traditional surrey pub near windsor castle',
   openGraph: {
@@ -82,7 +82,7 @@ export default function WindsorPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'Windsor Town Centre',
-    'The Anchor Pub Stanwell Moor',
+    'The Anchor Stanwell Moor',
     [
       'From Windsor town centre, head east on High Street/A308',
       'Continue onto Datchet Road/B376',
@@ -237,7 +237,7 @@ export default function WindsorPubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🥘</span>
                     <div>
-                      <strong>Famous Sunday Roasts</strong> - £5 deposit pre-order by Saturday 1pm
+                      <strong>Famous Sunday Roasts</strong> - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -487,7 +487,7 @@ export default function WindsorPubPage() {
         buttons={[
           {
             text: "📞 Book a Table",
-            href: `tel:${CONTACT.phone}`,
+            href: `${CONTACT.phoneHref}`,
             variant: "secondary"
           },
           {

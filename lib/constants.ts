@@ -1,7 +1,7 @@
 export const CONTACT = {
   // Display formats
   phone: '01753 682707',
-  phoneHref: 'tel:01753682707',
+  phoneHref: 'tel:+441753682707',
   phoneIntl: '+441753682707',
   email: 'manager@the-anchor.pub',
   

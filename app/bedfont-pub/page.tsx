@@ -14,7 +14,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Bedfont Pub | The Anchor - 5 Minutes Away | Surrey',
-  description: 'The Anchor pub - 5 mins from Bedfont. Traditional British pub with free parking, great food & regular events. Perfect local for Bedfont residents.',
+  description: 'The Anchor - 5 mins from Bedfont. Traditional British pub with free parking, great food & regular events. Perfect local for Bedfont residents.',
   keywords: 'bedfont pub, pub near bedfont, bedfont surrey pub, east bedfont pub, west bedfont pub, bedfont lakes pub',
   openGraph: {
     title: 'The Anchor - Your Local Pub Near Bedfont',
@@ -36,7 +36,7 @@ export default function BedfontPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     "Bedfont",
-    "The Anchor Pub",
+    "The Anchor",
     [
       "From Bedfont Green, head south on Staines Road",
       "Continue for 0.8 miles",
@@ -360,7 +360,7 @@ export default function BedfontPubPage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "bedfont_pub_cta",
             variant: "white"

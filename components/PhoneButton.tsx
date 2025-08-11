@@ -21,7 +21,8 @@ export function PhoneButton({
   className = '',
   children
 }: PhoneButtonProps) {
-  const formattedPhone = phone.replace(/\s/g, '')
+  // Convert UK phone number to international format for tel: links
+  const formattedPhone = phone.replace(/\s/g, '').replace(/^01753/, '+441753')
   
   return (
     <Link 

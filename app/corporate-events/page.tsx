@@ -13,7 +13,7 @@ import { staticEvents } from '@/lib/static-events'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Corporate Venue Near Heathrow | Meeting Room Hire | The Anchor',
+  title: 'Corporate Events Near Heathrow | The Anchor',
   description: 'Professional corporate venue 7 mins from Heathrow. Meeting rooms, team building space, free parking. Perfect for business events & conferences.',
   keywords: 'corporate venue near heathrow, meeting room heathrow, conference venue surrey, team building venue near heathrow, business meeting room staines, corporate events stanwell moor',
   openGraph: {
@@ -600,7 +600,7 @@ export default function CorporateEventsPage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             variant: "white"
           },
           {

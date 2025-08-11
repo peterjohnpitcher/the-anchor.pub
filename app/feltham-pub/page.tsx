@@ -13,7 +13,7 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Feltham Pub | The Anchor - 10 Minutes Away | Surrey',
+  title: 'Traditional Feltham Pub | The Anchor - Stanwell Moor',
   description: 'The Anchor - 10 mins from Feltham. Traditional British pub with free parking, great food & regular events. Peaceful Surrey alternative to high street.',
   keywords: 'feltham pub, pub near feltham, feltham surrey pub, pub with parking feltham, traditional pub feltham',
   openGraph: {
@@ -36,7 +36,7 @@ export default function FelthamPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     "Feltham Town Centre",
-    "The Anchor Pub",
+    "The Anchor",
     [
       "From Feltham High Street, head south on Bedfont Lane",
       "Continue for 1.5 miles through Bedfont",
@@ -181,7 +181,7 @@ export default function FelthamPubPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-anchor-gold mr-3">✓</span>
-                  <span>Our celebrated Sunday roasts (£5 deposit pre-order required) worth the short journey</span>
+                  <span>Our celebrated Sunday roasts - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-anchor-gold mr-3">✓</span>
@@ -304,7 +304,7 @@ export default function FelthamPubPage() {
                         </li>
                         <li className="flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          Sunday roasts (£5 deposit pre-order)
+                          Sunday roasts - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
                         </li>
                         <li className="flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
@@ -451,7 +451,7 @@ export default function FelthamPubPage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "feltham_pub_cta",
             variant: "white"

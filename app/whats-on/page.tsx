@@ -21,8 +21,8 @@ import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/Inter
 import { quizNightEventSeries, dragShowEventSeries, bingoEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: "What's On Near Me | The Anchor Stanwell Moor | Events & Entertainment",
-  description: "Regular monthly events at The Anchor pub in Surrey including drag shows, quiz nights, bingo & more. Plus major sports on TV near Heathrow!",
+  title: "What's On - Events & Entertainment | The Anchor",
+  description: "Regular monthly events at The Anchor in Surrey including drag shows, quiz nights, bingo & more. Plus major sports on TV near Heathrow!",
   keywords: "events stanwell moor, drag shows near heathrow, quiz night stanwell, pub entertainment surrey",
   openGraph: {
     title: "What's On at The Anchor",
@@ -428,7 +428,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             answer: "Yes! We offer versatile venue spaces that can accommodate groups from 10 to 200 guests. Perfect for birthdays, corporate events, weddings, wakes, and any celebration. Our experienced team will work with you to create the perfect event with flexible catering options and our preferred vendor network. Contact us on 01753 682707 for a personalised consultation."
           },
           {
-            question: "Is there bingo at The Anchor pub?",
+            question: "Is there bingo at The Anchor?",
             answer: "Yes, we host cash prize bingo monthly. £10 per book with various prizes throughout the night, including a cash jackpot on the last game. Check our events calendar or follow us on social media for the next bingo night!"
           },
           {

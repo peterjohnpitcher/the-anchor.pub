@@ -82,7 +82,7 @@ export default function HeathrowHotelsPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'Heathrow Hotels',
-    'The Anchor Pub Stanwell Moor',
+    'The Anchor Stanwell Moor',
     [
       'From Terminal 5 hotels (Premier Inn, Sofitel), take A3044',
       'Head east on Northern Perimeter Road',
@@ -630,7 +630,7 @@ export default function HeathrowHotelsPubPage() {
           },
           {
             question: "What's the best way to get to The Anchor from my hotel?",
-            answer: "Most guests take a taxi (£10-15, 7-12 minutes). If you have a rental car, we have free parking. Some hotels are on the 442 bus route which stops near us. The hotel concierge can arrange transport - just ask for 'The Anchor pub in Stanwell Moor, TW19 6AQ'."
+            answer: "Most guests take a taxi (£10-15, 7-12 minutes). If you have a rental car, we have free parking. Some hotels are on the 442 bus route which stops near us. The hotel concierge can arrange transport - just ask for 'The Anchor in Stanwell Moor, TW19 6AQ'."
           },
           {
             question: "Are you open early/late for travelers?",
@@ -647,7 +647,7 @@ export default function HeathrowHotelsPubPage() {
         buttons={[
           {
             text: "📞 Book a Table",
-            href: `tel:${CONTACT.phone}`,
+            href: `${CONTACT.phoneHref}`,
             isPhone: true,
             phoneSource: "heathrow_hotels_pub_cta",
             variant: "secondary"

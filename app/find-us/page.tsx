@@ -20,8 +20,8 @@ import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
-  title: 'Find Us | The Anchor Stanwell Moor | Directions & Parking',
-  description: 'Find The Anchor pub in Stanwell Moor, Surrey. Easy directions from Heathrow, M25, Staines, and local areas. Free parking available on Horton Road.',
+  title: 'Directions & Parking | The Anchor - Stanwell Moor',
+  description: 'Find The Anchor in Stanwell Moor, Surrey. Easy directions from Heathrow, M25, Staines, and local areas. Free parking available on Horton Road.',
   keywords: 'anchor pub directions, find anchor stanwell moor, pub near me directions, free parking pub',
   openGraph: {
     title: 'Find The Anchor - Directions & Location',
@@ -43,7 +43,7 @@ export default function FindUsPage() {
   
   const howToFromHeathrowSchema = generateHowToDirectionsSchema(
     "Heathrow Terminal 5",
-    "The Anchor Pub",
+    "The Anchor",
     [
       "Exit Terminal 5 following signs for M25/A30",
       "At roundabout, take A3044 towards Staines",
@@ -102,7 +102,7 @@ export default function FindUsPage() {
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
-            Find The Anchor Pub - Directions from Heathrow
+            Find The Anchor - Directions from Heathrow
           </PageTitle>
         </Container>
       </div>
@@ -195,7 +195,7 @@ export default function FindUsPage() {
                           className="text-anchor-gold hover:text-anchor-gold-light"
                           showIcon={false}
                         >
-                          💬 WhatsApp: 01753682707
+                          💬 WhatsApp: 01753 682707
                         </WhatsAppLink>
                       </p>
                       <p>
@@ -553,12 +553,12 @@ export default function FindUsPage() {
       <FAQAccordionWithSchema 
         faqs={[
           {
-            question: "Is there parking at The Anchor pub?",
+            question: "Is there parking at The Anchor?",
             answer: "Yes, The Anchor offers free parking for pub guests. Our car park has 20 spaces available. Paid parking for longer term stays will be available in the future."
           },
           {
             question: "How far is The Anchor from Heathrow Airport?",
-            answer: "The Anchor is just 7 minutes from Terminal 5, 15 minutes from Terminals 2 & 3, and 10 minutes from Terminal 4. We're the closest traditional British pub to Heathrow Airport."
+            answer: "The Anchor is just 7 minutes from Terminal 5, 11 minutes from Terminals 2 & 3, and 12 minutes from Terminal 4. We're the closest traditional British pub to Heathrow Airport."
           },
           {
             question: "What areas does The Anchor serve?",

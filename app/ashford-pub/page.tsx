@@ -16,7 +16,7 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Ashford Pub Near Me | ${BRAND.name} - 10 Minutes from Ashford`,
+  title: 'Traditional Ashford Pub | The Anchor - Stanwell Moor',
   description: `${BRAND.name} - traditional British pub 10 mins from Ashford. Free parking, Sunday roasts, quiz nights & family-friendly. Easy A30 access.`,
   keywords: 'ashford pub, pub near ashford, ashford surrey pub, pubs close to ashford, british pub ashford, traditional pub near ashford',
   openGraph: {
@@ -80,7 +80,7 @@ export default function AshfordPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'Ashford Surrey',
-    'The Anchor Pub Stanwell Moor',
+    'The Anchor Stanwell Moor',
     [
       'From Ashford town centre, head west on Church Road/B377',
       'Continue onto Fordbridge Road',
@@ -244,7 +244,7 @@ export default function AshfordPubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🥘</span>
                     <div>
-                      <strong>Sunday Roasts</strong> - £5 deposit pre-order by Saturday 1pm - Ashford folks fill tables fast!
+                      <strong>Sunday Roasts</strong> - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday - Ashford folks fill tables fast!
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -583,7 +583,7 @@ export default function AshfordPubPage() {
         buttons={[
           {
             text: "📞 Book a Table",
-            href: `tel:${CONTACT.phone}`,
+            href: `${CONTACT.phoneHref}`,
             isPhone: true,
             phoneSource: "ashford_pub_cta_section",
             variant: "secondary"

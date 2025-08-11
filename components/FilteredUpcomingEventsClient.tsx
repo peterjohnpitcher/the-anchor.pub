@@ -54,7 +54,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                 <div className="relative w-20 h-20 rounded-lg overflow-hidden">
                   <Image
                     src={eventImage}
-                    alt={`${event.name} event promotional image - ${event.category?.name || 'entertainment'} at The Anchor pub`}
+                    alt={`${event.name} event promotional image - ${event.category?.name || 'entertainment'} at The Anchor`}
                     fill
                     className="object-contain"
                     sizes="80px"
@@ -115,7 +115,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                 <div className="relative w-32 h-32 rounded-lg overflow-hidden">
                   <Image
                     src={eventImage}
-                    alt={`${event.name} event promotional image - ${event.category?.name || 'entertainment'} at The Anchor pub`}
+                    alt={`${event.name} event promotional image - ${event.category?.name || 'entertainment'} at The Anchor`}
                     fill
                     className="object-contain hover:scale-105 transition-transform duration-300"
                     sizes="128px"

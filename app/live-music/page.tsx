@@ -11,8 +11,8 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/component
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 
 export const metadata: Metadata = {
-  title: 'Live Music Events | The Anchor Stanwell Moor | Local Entertainment',
-  description: 'Enjoy live music at The Anchor pub. From acoustic sessions to full bands, experience great local talent near Heathrow. Check our events calendar!',
+  title: 'Live Music & Local Entertainment | The Anchor',
+  description: 'Enjoy live music at The Anchor. From acoustic sessions to full bands, experience great local talent near Heathrow. Check our events calendar!',
   keywords: 'live music stanwell moor, pub with live music near heathrow, live bands staines, acoustic nights surrey',
   openGraph: {
     title: 'Live Music at The Anchor',
@@ -390,7 +390,7 @@ export default function LiveMusicPage() {
           },
           {
             text: "📞 Book a Table: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "live_music_cta",
             variant: "secondary"

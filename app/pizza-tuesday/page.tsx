@@ -16,9 +16,9 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Pizza Tuesday BOGOF Deal Near Me | ${BRAND.name} Stanwell Moor`,
+  title: 'Tuesday Pizza Deals Near Me | BOGOF Pizza Every Tuesday | The Anchor',
   description: 'Buy One Get One FREE on ALL pizzas every Tuesday at The Anchor near Heathrow. Stone-baked pizzas from £7.49. Dine-in or takeaway. Free parking.',
-  keywords: 'pizza tuesday deal near me, bogof pizza stanwell moor, tuesday pizza offer heathrow, 2 for 1 pizza deal, pizza night near airport, cheap pizza tuesday surrey',
+  keywords: 'tuesday pizza deals, pizza tuesday deal near me, bogof pizza stanwell moor, tuesday pizza offer heathrow, 2 for 1 pizza deal, pizza night near airport, cheap pizza tuesday surrey',
   openGraph: {
     title: 'Pizza Tuesday - BOGOF on All Pizzas',
     description: 'Every Tuesday at The Anchor! Buy one pizza, get one FREE. All sizes, all pizzas, dine-in or takeaway.',
@@ -455,7 +455,7 @@ export default function PizzaTuesdayPage() {
         buttons={[
           {
             text: "📞 Call to Book",
-            href: `tel:${CONTACT.phone}`,
+            href: `${CONTACT.phoneHref}`,
             variant: "secondary"
           },
           {

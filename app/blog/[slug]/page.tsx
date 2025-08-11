@@ -122,7 +122,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "The Anchor Blog",
-    "description": "News, events, and updates from The Anchor pub in Stanwell Moor",
+    "description": "News, events, and updates from The Anchor in Stanwell Moor",
     "url": "https://www.the-anchor.pub/blog",
     "publisher": {
       "@type": "Organization",

@@ -654,7 +654,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         <div>
           <p className="font-medium">Pre-order Required by 1pm Saturday</p>
           <p className="text-sm mt-1">
-            Sunday roasts must be pre-ordered and a £{depositAmount.toFixed(2)} deposit paid (£5 per person).
+            Sunday roasts require pre-order with £{depositAmount.toFixed(2)} deposit (£5 per person) by 1pm Saturday.
             The remaining balance is due on arrival.
           </p>
           {(() => {

@@ -164,7 +164,7 @@ Here's why people love coming to us:
 
 **Getting Here from Heathrow**:
 - **7 minutes from Terminal 5**
-- 10 minutes from Terminals 2 & 3
+- 11 minutes from Terminals 2 & 3
 - 12 minutes from Terminal 4
 - **Free parking available**
 - Regular bus service from Heathrow Central

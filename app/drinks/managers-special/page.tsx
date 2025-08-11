@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!currentPromotion) {
     return {
       title: "Manager's Special | The Anchor Stanwell Moor",
-      description: "Check back soon for our latest Manager's Special offers at The Anchor pub.",
+      description: "Check back soon for our latest Manager's Special offers at The Anchor.",
     }
   }
 
@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
   
   return {
     title: promotion.metaTitle || `Manager's Special - ${currentPromotion.spirit.name} | The Anchor Stanwell Moor`,
-    description: promotion.metaDescription || `Enjoy ${currentPromotion.spirit.discount} off ${currentPromotion.spirit.name} at The Anchor pub. Limited time offer.`,
+    description: promotion.metaDescription || `Enjoy ${currentPromotion.spirit.discount} off ${currentPromotion.spirit.name} at The Anchor. Limited time offer.`,
     keywords: `${currentPromotion.spirit.name.toLowerCase()} offer, gin promotion stanwell moor, pub drinks special heathrow`,
     openGraph: {
       title: promotion.metaTitle || `Manager's Special - ${currentPromotion.spirit.discount} ${currentPromotion.spirit.name}`,

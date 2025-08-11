@@ -8,10 +8,10 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy & Cookie Policy | The Anchor',
-  description: 'Learn how The Anchor Pub collects, uses, and protects your personal information and data.',
+  description: 'Learn how The Anchor collects, uses, and protects your personal information and data.',
   openGraph: {
     title: 'Privacy Policy & Cookie Policy | The Anchor',
-    description: 'Learn how The Anchor Pub collects, uses, and protects your personal information and data.',
+    description: 'Learn how The Anchor collects, uses, and protects your personal information and data.',
   },
 }
 

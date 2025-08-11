@@ -19,5 +19,5 @@ export const bookingConfig = {
   /**
    * Phone number for bookings
    */
-  phone: '01753682707'
+  phone: '01753 682707'
 }

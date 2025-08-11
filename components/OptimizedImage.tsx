@@ -16,7 +16,7 @@ export function OptimizedImage({
   quality = 75,
   ...props 
 }: OptimizedImageProps & { quality?: number }) {
-  const seoAlt = alt || 'The Anchor pub Stanwell Moor'
+  const seoAlt = alt || 'The Anchor Stanwell Moor'
   
   return (
     <Image

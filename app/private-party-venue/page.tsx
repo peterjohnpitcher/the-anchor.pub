@@ -515,7 +515,7 @@ export default function PrivatePartyVenuePage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "private_party_cta",
             variant: "white"

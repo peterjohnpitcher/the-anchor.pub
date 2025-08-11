@@ -21,7 +21,8 @@ export function PhoneLink({
   onClick,
   role
 }: PhoneLinkProps) {
-  const formattedPhone = phone.replace(/\s/g, '')
+  // Convert UK phone number to international format for tel: links
+  const formattedPhone = phone.replace(/\s/g, '').replace(/^01753/, '+441753')
   
   const handleClick = () => {
     analytics.phoneCall(phone, source)

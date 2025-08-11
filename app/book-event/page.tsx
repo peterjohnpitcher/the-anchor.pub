@@ -650,7 +650,7 @@ export default function BookEventPage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "book_event_cta",
             variant: "white"

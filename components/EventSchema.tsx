@@ -26,7 +26,7 @@ export function EventSchema({ event }: EventSchemaProps) {
     "@id": eventUrl,
     "identifier": event.identifier || event.id,
     "name": event.name,
-    "description": event.longDescription || event.about || event.description || event.shortDescription || `Join us for ${event.name} at The Anchor pub in Stanwell Moor. Experience great food, drinks and entertainment in a welcoming atmosphere.`,
+    "description": event.longDescription || event.about || event.description || event.shortDescription || `Join us for ${event.name} at The Anchor in Stanwell Moor. Experience great food, drinks and entertainment in a welcoming atmosphere.`,
     ...(event.shortDescription && { "disambiguatingDescription": event.shortDescription }),
     ...(event.keywords && { 
       "keywords": Array.isArray(event.keywords) ? event.keywords.join(", ") : event.keywords 
@@ -39,7 +39,7 @@ export function EventSchema({ event }: EventSchemaProps) {
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", // Always include this
     "location": {
       "@type": "Place",
-      "name": "The Anchor Pub", // Always include
+      "name": "The Anchor", // Always include
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Horton Road", // Always include

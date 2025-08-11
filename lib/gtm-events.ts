@@ -23,6 +23,33 @@ export function trackPageView(url: string, title: string) {
   })
 }
 
+// Booking Wizard Tracking
+export function trackBookingWizardStep(step: number, stepName: string) {
+  pushToDataLayer({
+    event: 'booking_wizard_step',
+    event_category: 'Booking Wizard',
+    event_action: 'Step Viewed',
+    event_label: stepName,
+    step_number: step,
+    step_name: stepName
+  })
+}
+
+export function trackBookingWizardComplete(bookingData: {
+  booking_type: string
+  party_size: number
+  is_sunday: boolean
+}) {
+  pushToDataLayer({
+    event: 'booking_wizard_complete',
+    event_category: 'Booking Wizard',
+    event_action: 'Booking Completed',
+    booking_type: bookingData.booking_type,
+    party_size: bookingData.party_size,
+    is_sunday_roast: bookingData.is_sunday
+  })
+}
+
 // Event booking funnel
 export function trackEventView(eventData: {
   eventId: string

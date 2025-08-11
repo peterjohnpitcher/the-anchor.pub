@@ -72,7 +72,7 @@ function buildKitchenSchedule(hours: BusinessHours): string {
 }
 
 export const metadata: Metadata = {
-  title: 'Food Menu Near Me | The Anchor Stanwell Moor | Traditional British Food',
+  title: 'Traditional British Food Menu | The Anchor',
   description: 'Enjoy traditional British food at The Anchor. Famous Sunday roasts, stone-baked pizzas, burgers, and family-friendly meals. Kitchen open Tuesday-Sunday.',
   keywords: 'food stanwell moor, sunday roast near heathrow, british menu, family restaurant stanwell',
   openGraph: {
@@ -440,7 +440,7 @@ export default async function FoodMenuPage() {
           },
           {
             question: "Do you serve Sunday roast at The Anchor?",
-            answer: "Yes! Our celebrated Sunday roasts are served every Sunday from 12pm-5pm. We offer beef, chicken, lamb, and vegetarian options. All Sunday roasts must be pre-ordered with a £5 per person deposit by 1pm on Saturday. The remaining balance is paid on the day. Booking is essential as we're very popular - many say we serve the best Sunday roast in Surrey!"
+            answer: "Yes! Our celebrated Sunday roasts are served every Sunday from 12pm-5pm. We offer beef, chicken, lamb, and vegetarian options. Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday. The remaining balance is paid on the day. Booking is essential as we're very popular - many say we serve the best Sunday roast in Surrey!"
           },
           {
             question: "Is there a children's menu at The Anchor?",
@@ -481,7 +481,7 @@ export default async function FoodMenuPage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             variant: "white"
           },
           {

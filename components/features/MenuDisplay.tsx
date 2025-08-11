@@ -24,7 +24,7 @@ export function MenuDisplay({ menuData, accentColor = 'anchor-gold' }: MenuDispl
     "@type": "Menu",
     "@id": "https://www.the-anchor.pub/#menu",
     "name": "The Anchor Menu",
-    "description": "Food and drink menu at The Anchor pub",
+    "description": "Food and drink menu at The Anchor",
     "hasMenuSection": menuData.categories.map(category => ({
       "@type": "MenuSection",
       "name": category.title,

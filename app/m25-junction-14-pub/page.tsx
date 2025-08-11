@@ -78,7 +78,7 @@ export default function M25Junction14PubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'M25 Junction 14',
-    'The Anchor Pub Stanwell Moor',
+    'The Anchor Stanwell Moor',
     [
       'Exit M25 at Junction 14',
       'At roundabout, take A3113 exit (Airport Way/Stanwell Moor)',
@@ -308,7 +308,7 @@ export default function M25Junction14PubPage() {
               <div className="bg-blue-50 rounded-xl p-6">
                 <h3 className="text-xl font-bold text-blue-800 mb-4">Take a Proper Break</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Sunday Roasts (£5 deposit pre-order required)</li>
+                  <li>• Sunday Roasts - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday</li>
                   <li>• Steak & Ale Pie - £11.99</li>
                   <li>• Chicken Katsu Curry - £10.99</li>
                   <li>• Tuesday Pizza BOGOF</li>
@@ -541,7 +541,7 @@ export default function M25Junction14PubPage() {
         buttons={[
           {
             text: "📞 Call Ahead",
-            href: `tel:${CONTACT.phone}`,
+            href: `${CONTACT.phoneHref}`,
             variant: "secondary"
           },
           {

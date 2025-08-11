@@ -13,7 +13,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/component
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 
 export const metadata: Metadata = {
-  title: 'Quiz Night | The Anchor Stanwell Moor | Monthly Entertainment',
+  title: 'Monthly Quiz Night | The Anchor - Stanwell Moor',
   description: 'Join our monthly quiz night at The Anchor. £3 entry, great prizes, fun atmosphere. Test your knowledge every month near Heathrow!',
   keywords: 'quiz night stanwell moor, pub quiz near heathrow, quiz night staines, monthly quiz surrey',
   openGraph: {
@@ -299,7 +299,7 @@ export default function QuizNightPage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "quiz_night_cta",
             variant: "white"

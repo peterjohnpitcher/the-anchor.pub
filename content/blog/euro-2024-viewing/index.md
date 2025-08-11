@@ -1,7 +1,7 @@
 ---
 title: "Sports Bar Near Heathrow | Watch Live Football at The Anchor"
 slug: euro-2024-viewing
-description: "Watch live sports near Heathrow Airport at The Anchor pub. 4 HD screens, great atmosphere, showing major sporting events on terrestrial TV. World Cup, Euros, Six Nations Rugby, Wimbledon and more. Free parking, full menu, family-friendly venue just 10 minutes from Terminal 5."
+description: "Watch live sports near Heathrow Airport at The Anchor pub. 4 HD screens, great atmosphere, showing major sporting events on terrestrial TV. World Cup, Euros, Six Nations Rugby, Wimbledon and more. Free parking, full menu, family-friendly venue just 7 minutes from Terminal 5."
 date: "2024-06-26"
 oldUrl: "https://www.the-anchor.pub/post/watch-euro-2024-games-stanwell-moor-village-staine"
 author: "Billy"
@@ -28,7 +28,7 @@ images:
 
 ![Euro 2024 promotional image for The Anchor](/content/blog/euro-2024-viewing/hero.png)
 
-Looking for the best **sports pub near Heathrow**? The Anchor is your premier destination for watching major sporting events! With 4 HD screens, fantastic atmosphere, and just 10 minutes from Terminal 5, we're the perfect spot to catch terrestrial TV sports. World Cup, Euros, Six Nations, Wimbledon, FA Cup finals and more!
+Looking for the best **sports pub near Heathrow**? The Anchor is your premier destination for watching major sporting events! With 4 HD screens, fantastic atmosphere, and just 7 minutes from Terminal 5, we're the perfect spot to catch terrestrial TV sports. World Cup, Euros, Six Nations, Wimbledon, FA Cup finals and more!
 
 ## Your Local Sports Viewing Destination
 

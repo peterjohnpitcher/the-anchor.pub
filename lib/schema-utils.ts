@@ -225,7 +225,7 @@ export function generateContactPoints() {
   return [
     {
       "@type": "ContactPoint",
-      "telephone": "+44-1753-682707",
+      "telephone": "+441753682707",
       "contactType": "customer service",
       "areaServed": "GB",
       "availableLanguage": ["English"],
@@ -233,7 +233,7 @@ export function generateContactPoints() {
     },
     {
       "@type": "ContactPoint",
-      "telephone": "+44-1753-682707",
+      "telephone": "+441753682707",
       "contactType": "reservations",
       "areaServed": "GB",
       "availableLanguage": ["English"]

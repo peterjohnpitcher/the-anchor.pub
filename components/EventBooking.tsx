@@ -238,7 +238,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       
       {event.remainingAttendeeCapacity && event.remainingAttendeeCapacity < 10 && (
         <p className="text-amber-700 text-sm mb-4 font-semibold">
-          Only {event.remainingAttendeeCapacity} seats remaining!
+          Limited spaces remaining - book now!
         </p>
       )}
 

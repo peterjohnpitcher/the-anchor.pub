@@ -1,7 +1,7 @@
 ---
 title: "Christmas Party Venue Near Heathrow | Festive Celebrations at The Anchor"
 slug: christmas-venue
-description: "Book your Christmas party near Heathrow Airport at The Anchor pub. Perfect festive venue for company parties, family gatherings, and group celebrations. Customizable packages, traditional Christmas menu, private dining available. Just 10 minutes from Terminal 5 in Stanwell Moor."
+description: "Book your Christmas party near Heathrow Airport at The Anchor pub. Perfect festive venue for company parties, family gatherings, and group celebrations. Customizable packages, traditional Christmas menu, private dining available. Just 7 minutes from Terminal 5 in Stanwell Moor."
 date: "2023-09-10"
 oldUrl: "https://www.the-anchor.pub/post/the-anchor-christmas-2023-your-perfect-festive-ven"
 author: "Billy"
@@ -28,7 +28,7 @@ images:
 
 ![The Anchor Small Business Christmas Party Season 2023](/content/blog/christmas-venue/hero.png)
 
-Looking for the perfect **Christmas party venue near Heathrow**? The Anchor transforms into a magical festive destination every December! With customizable packages, traditional Christmas fare, and warm hospitality just 10 minutes from the airport, we're your ideal choice for company parties, family gatherings, and seasonal celebrations in Stanwell Moor.
+Looking for the perfect **Christmas party venue near Heathrow**? The Anchor transforms into a magical festive destination every December! With customizable packages, traditional Christmas fare, and warm hospitality just 7 minutes from the airport, we're your ideal choice for company parties, family gatherings, and seasonal celebrations in Stanwell Moor.
 
 ## Christmas at The Anchor
 

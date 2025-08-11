@@ -92,7 +92,7 @@ const defaultItems: NavigationItem[] = [
 
 const defaultLogo = {
   src: '/images/branding/the-anchor-pub-logo-white-transparent.png',
-  alt: 'The Anchor pub logo - traditional anchor symbol with elegant typography',
+  alt: 'The Anchor logo - traditional anchor symbol with elegant typography',
   width: 150,
   height: 60
 }
@@ -102,8 +102,8 @@ export function Navigation({
   items = defaultItems,
   ctaButton = {
     label: '📅 Book a Table',
-    href: 'https://ordertab.menu/theanchor/bookings',
-    external: true
+    href: '/book-table',
+    external: false
   },
   theme = defaultTheme,
   sticky = true,

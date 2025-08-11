@@ -1,6 +1,6 @@
 ---
 title: "Quiz Night Near Heathrow | Monthly Pub Quiz at The Anchor"
-description: "Join the best pub quiz near Heathrow Airport at The Anchor. Professional monthly quiz nights with great prizes, drinks prizes, and team fun just 10 minutes from Terminal 5. Book your table for Stanwell Moor's favourite quiz night."
+description: "Join the best pub quiz near Heathrow Airport at The Anchor. Professional monthly quiz nights with great prizes, drinks prizes, and team fun just 7 minutes from Terminal 5. Book your table for Stanwell Moor's favourite quiz night."
 date: "2019-08-29"
 oldUrl: "https://www.the-anchor.pub/post/quiz-night-at-the-anchor"
 author: "Billy"
@@ -27,7 +27,7 @@ images:
 
 ![quiz night at the anchor image](/content/blog/quiz-night-at-the-anchor/hero.png)
 
-Looking for the best **quiz night near Heathrow**? Join us monthly at The Anchor as teams battle it out in our legendary pub quiz! Just 10 minutes from Terminal 5, join Stanwell Moor's favourite quiz tradition featuring professional questions, fantastic prizes, and great entertainment.
+Looking for the best **quiz night near Heathrow**? Join us monthly at The Anchor as teams battle it out in our legendary pub quiz! Just 7 minutes from Terminal 5, join Stanwell Moor's favourite quiz tradition featuring professional questions, fantastic prizes, and great entertainment.
 
 ## Monthly Quiz Night at The Anchor
 
@@ -166,7 +166,7 @@ Keep your team fed and focused:
 ### Easy to Find, Hard to Beat
 
 **Getting Here:**
-- **From Heathrow**: 10 minutes all terminals
+- **From Heathrow**: 7-12 minutes all terminals
 - **Parking**: Free on-site parking
 - **Bus routes**: 441 & 442 stop nearby
 - **From Staines**: 10 minutes by car

@@ -28,9 +28,9 @@ The Anchor pub in Stanwell Moor, Surrey's best kept secret near Heathrow Airport
 ### Heathrow Terminal Pages
 1. **Near Heathrow (Main)** - The closest traditional British pub to Heathrow Airport in Surrey. Just 7 minutes from Terminal 5. Free parking, great food, and a warm welcome for travelers.
 
-2. **Terminal 2** - Traditional British pub just 10 minutes from Heathrow Terminal 2. Free parking, great food, and perfect for Star Alliance travelers. Your pre-flight dining destination.
+2. **Terminal 2** - Traditional British pub just 11 minutes from Heathrow Terminal 2. Free parking, great food, and perfect for Star Alliance travelers. Your pre-flight dining destination.
 
-3. **Terminal 3** - Family-friendly British pub just 10 minutes from Heathrow Terminal 3. Free parking, traditional food, perfect for Virgin Atlantic and Emirates travelers.
+3. **Terminal 3** - Family-friendly British pub just 11 minutes from Heathrow Terminal 3. Free parking, traditional food, perfect for Virgin Atlantic and Emirates travelers.
 
 4. **Terminal 4** - Traditional British pub just 12 minutes from Heathrow Terminal 4. Free parking, authentic food, perfect for SkyTeam and budget airline travelers.
 

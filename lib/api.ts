@@ -461,8 +461,12 @@ export interface TableBookingResponse {
   }
   confirmation_sent: boolean
   sms_status?: string
+  payment_required?: boolean
   payment_details?: {
-    amount: number
+    amount?: number  // For compatibility
+    deposit_amount: number
+    total_amount: number
+    outstanding_amount: number
     currency: string
     payment_url: string
     expires_at: string
@@ -728,11 +732,25 @@ export class AnchorAPI {
     return this.request<TableAvailabilityResponse>(`/table-bookings/availability?${query}`)
   }
 
-  async createTableBooking(data: TableBookingRequest): Promise<TableBookingResponse> {
-    return this.request<TableBookingResponse>('/table-bookings/create', {
+  async createTableBooking(data: TableBookingRequest, idempotencyKey?: string): Promise<TableBookingResponse> {
+    console.log('🔍 API REQUEST to /table-bookings:', JSON.stringify(data, null, 2))
+    
+    // Generate idempotency key if not provided (recommended for preventing duplicates)
+    const headers: Record<string, string> = {}
+    if (idempotencyKey) {
+      headers['Idempotency-Key'] = idempotencyKey
+      console.log('🔍 Using Idempotency-Key:', idempotencyKey)
+    }
+    
+    const response = await this.request<TableBookingResponse>('/table-bookings', {
       method: 'POST',
       body: JSON.stringify(data),
+      headers,
     })
+    
+    console.log('🔍 API RESPONSE from /table-bookings:', JSON.stringify(response, null, 2))
+    
+    return response
   }
 
   async getTableBooking(reference: string): Promise<TableBookingResponse> {

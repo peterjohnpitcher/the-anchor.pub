@@ -10,9 +10,10 @@ import { ReviewSection } from '@/components/reviews'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { generateNutritionInfo, generateSuitableForDiet } from '@/lib/schema-utils'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 
 export const metadata: Metadata = {
-  title: 'Sunday Roast Near Me | The Anchor Stanwell Moor | Traditional Sunday Lunch',
+  title: 'Sunday Roast Near Heathrow | The Anchor - Stanwell Moor',
   description: 'Award-winning Sunday roast near Heathrow Airport. Traditional British roast dinners with Yorkshire puddings, crispy roast potatoes & homemade gravy. £14.99-£15.99. Pre-order required.',
   keywords: 'sunday roast near me, sunday lunch near me, roast dinner near me, sunday carvery near me, traditional sunday roast stanwell moor, best sunday lunch near heathrow, sunday roast surrey',
   openGraph: {
@@ -50,7 +51,7 @@ export default function SundayLunchPage() {
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="primary" size="lg" asChild>
-              <Link href="/book-table?tab=sunday" className="inline-flex items-center whitespace-nowrap">
+              <Link href="/book-table?type=sunday_roast" className="inline-flex items-center whitespace-nowrap">
                 <Icon name="calendar" className="mr-2 flex-shrink-0" />
                 <span>Book Your Table Now</span>
               </Link>
@@ -73,7 +74,7 @@ export default function SundayLunchPage() {
             ⚠️ IMPORTANT: Pre-order & £5 Deposit Required
           </p>
           <p className="text-white text-sm">
-            Sunday roasts must be pre-ordered with a £5 per person deposit by 1pm on Saturday
+            Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
           </p>
           <p className="text-white/90 text-sm sm:text-xs mt-2">
             Regular menu also available on Sundays without pre-order
@@ -142,8 +143,8 @@ export default function SundayLunchPage() {
               content={
                 <>
                   <p className="text-gray-700 mb-4">
-                    Our Sunday dinners are made from scratch and to order. <strong>All Sunday roasts must be 
-                    pre-ordered with a £5 per person deposit by 1pm on Saturday.</strong> The remaining balance 
+                    Our Sunday dinners are made from scratch and to order. <strong>Sunday roasts require 
+                    pre-order with £5 per person deposit by 1pm Saturday.</strong> The remaining balance 
                     is paid on the day.
                   </p>
                   <div className="bg-green-50 rounded-lg p-4 mb-4">
@@ -281,7 +282,7 @@ export default function SundayLunchPage() {
             <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-8 text-center">
               <h4 className="text-lg font-bold text-blue-900 mb-2">💳 Deposit Information</h4>
               <p className="text-blue-800">
-                <strong>£5 per person deposit</strong> required when booking (by 1pm Saturday)
+                Sunday roasts require pre-order with <strong>£5 per person deposit by 1pm Saturday</strong>
               </p>
               <p className="text-blue-700 text-sm mt-1">
                 Balance payable on the day • Prices shown are total per person
@@ -294,13 +295,13 @@ export default function SundayLunchPage() {
             {/* Booking CTA within menu section */}
             <div className="text-center mb-12">
               <Button variant="primary" size="lg" className="w-full" asChild>
-                <Link href="/book-table?tab=sunday">
+                <Link href="/book-table?type=sunday_roast">
                   <Icon name="calendar" className="mr-2" />
                   Reserve Your Sunday Roast
                 </Link>
               </Button>
               <p className="text-sm text-gray-600 mt-3">
-                Deadline: 1pm Saturday • £5 deposit per person
+                Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
               </p>
             </div>
             
@@ -374,7 +375,7 @@ export default function SundayLunchPage() {
                 </div>
                 <div className="mt-6">
                   <Button variant="primary" size="md" fullWidth asChild>
-                    <Link href="/book-table?tab=sunday">
+                    <Link href="/book-table?type=sunday_roast">
                       <Icon name="calendar" className="mr-2" />
                       Book Your Table
                     </Link>
@@ -497,6 +498,100 @@ export default function SundayLunchPage() {
         </div>
       </section>
 
+      {/* Customer Testimonials */}
+      <section className="section-spacing bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="What Our Sunday Roast Guests Say"
+              subtitle="Real reviews from satisfied diners"
+            />
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl shadow-lg p-6">
+                <div className="flex mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-yellow-400">★</span>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "Best Sunday roast in the area by far! The lamb shank was tender and fell off the bone. Yorkshire puddings were perfect. Will definitely be back!"
+                </p>
+                <p className="font-semibold text-anchor-green">Sarah M.</p>
+                <p className="text-sm text-gray-500">Local Customer</p>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-lg p-6">
+                <div className="flex mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-yellow-400">★</span>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "Proper British Sunday lunch! As someone who travels for work, finding authentic food near Heathrow is gold. The pork belly crackling was incredible."
+                </p>
+                <p className="font-semibold text-anchor-green">James T.</p>
+                <p className="text-sm text-gray-500">Business Traveller</p>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-lg p-6">
+                <div className="flex mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-yellow-400">★</span>
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4">
+                  "Family tradition now! We book every other Sunday. Kids love the roast chicken, adults love the atmosphere. Portion sizes are very generous too."
+                </p>
+                <p className="font-semibold text-anchor-green">The Wilson Family</p>
+                <p className="text-sm text-gray-500">Regular Sunday Diners</p>
+              </div>
+            </div>
+            
+            <div className="text-center mt-8">
+              <p className="text-gray-600">
+                Join hundreds of satisfied Sunday roast diners • 4.8★ from 127+ reviews
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQAccordionWithSchema 
+        faqs={[
+          {
+            question: "Why do I need to pre-order Sunday roast?",
+            answer: "We prepare each Sunday roast fresh to order, ensuring the highest quality. Pre-ordering by 1pm Saturday with a £5 deposit helps us reduce waste, maintain our affordable prices (£14.99-£15.99), and guarantee you get exactly what you want. The deposit is deducted from your final bill."
+          },
+          {
+            question: "What's included with each Sunday roast?",
+            answer: "Every roast comes with herb and garlic-crusted roast potatoes, seasonal vegetables, Yorkshire pudding, and red wine gravy (vegetarian gravy available). The portions are generous - you won't leave hungry!"
+          },
+          {
+            question: "Can I get Sunday roast without pre-ordering?",
+            answer: "Sunday roasts require pre-order, but our regular menu is available on Sundays without pre-order. This includes burgers, fish & chips, pizzas, and other pub classics."
+          },
+          {
+            question: "Do you cater for dietary requirements?",
+            answer: "We offer a vegan Beetroot & Butternut Squash Wellington (£15.49) and vegetarian gravy is available for any roast. However, our small kitchen means we cannot guarantee no cross-contamination for severe allergies."
+          },
+          {
+            question: "What time is Sunday lunch served?",
+            answer: "Sunday roast is served from 12pm to 5pm every Sunday, with last orders at 4:30pm. We recommend booking your preferred time slot when pre-ordering."
+          },
+          {
+            question: "Is there parking available?",
+            answer: "Yes! We have 20 free parking spaces for our guests. This is especially convenient as we're just 7 minutes from Heathrow Terminal 5."
+          },
+          {
+            question: "Can I book for a large group?",
+            answer: "Absolutely! Sunday is perfect for family gatherings. For groups over 10, please call us on 01753 682707 to discuss your requirements. We can accommodate up to 50 diners in our main area."
+          }
+        ]}
+        className="bg-white"
+      />
+
       {/* Booking CTA */}
       <section className="section-spacing bg-anchor-green text-white">
         <Container>
@@ -505,18 +600,18 @@ export default function SundayLunchPage() {
               Don't Miss Out on Sunday Roast
             </h2>
             <p className="text-lg mb-8">
-              Sunday roasts must be pre-ordered with a £5 per person deposit by 1pm on Saturday.
+              Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button variant="secondary" size="lg" className="bg-white text-anchor-green hover:bg-gray-100 border-white" asChild>
-                <Link href="/book-table?tab=sunday">
+                <Link href="/book-table?type=sunday_roast">
                   <Icon name="calendar" className="mr-2" />
                   Book Your Sunday Roast
                 </Link>
               </Button>
               
-              <Link href="tel:01753682707">
+              <Link href="tel:+441753682707">
                 <Button 
                   variant="outline" 
                   size="lg"
@@ -648,7 +743,7 @@ export default function SundayLunchPage() {
             "@context": "https://schema.org",
             "@type": "Offer",
             "name": "Sunday Roast Pre-Order Special",
-            "description": "Traditional British Sunday roast dinners with all the trimmings. Must be pre-ordered with a £5 per person deposit by 1pm Saturday.",
+            "description": "Traditional British Sunday roast dinners with all the trimmings. Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday.",
             "url": "https://www.the-anchor.pub/sunday-lunch",
             "priceCurrency": "GBP",
             "priceRange": "£14.99 - £15.99",

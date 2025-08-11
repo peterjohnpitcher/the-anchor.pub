@@ -28,7 +28,7 @@ interface BookTableButtonProps extends Omit<ButtonProps, 'href' | 'onClick'> {
   onClickAfterTracking?: (event: MouseEvent<HTMLAnchorElement>) => void
 }
 
-export const BookTableButton = forwardRef<HTMLAnchorElement, BookTableButtonProps>(
+export const BookTableButton = forwardRef<HTMLButtonElement, BookTableButtonProps>(
   ({ 
     source,
     context = 'regular',
@@ -43,11 +43,11 @@ export const BookTableButton = forwardRef<HTMLAnchorElement, BookTableButtonProp
   }, ref) => {
     const pathname = usePathname()
     
-    // Always use internal booking page
+    // Use new booking wizard
     const bookingUrl = '/book-table'
     const isExternal = false
 
-    const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
       // Detect device type
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || 
                       window.innerWidth < 768
@@ -84,25 +84,26 @@ export const BookTableButton = forwardRef<HTMLAnchorElement, BookTableButtonProp
 
       // Call custom onClick handler if provided
       if (onClickAfterTracking) {
-        onClickAfterTracking(event)
+        onClickAfterTracking(event as any)
+      }
+
+      // Navigate to booking page
+      if (typeof window !== 'undefined') {
+        window.location.href = bookingUrl
       }
     }
 
     return (
-      <a
+      <Button
         ref={ref}
-        href={bookingUrl}
+        variant={variant}
+        size={size}
         onClick={handleClick}
         className={className}
+        {...props}
       >
-        <Button
-          variant={variant}
-          size={size}
-          {...props}
-        >
-          {children}
-        </Button>
-      </a>
+        {children}
+      </Button>
     )
   }
 )

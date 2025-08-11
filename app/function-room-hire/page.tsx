@@ -12,9 +12,9 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Function Room Hire Near Heathrow | Venue Rental Staines | The Anchor',
-  description: 'Flexible function room hire for all events. 10-200 capacity, free parking, competitive rates. Perfect for meetings, parties, wakes & celebrations.',
-  keywords: 'function room hire near heathrow, venue hire staines, private room hire surrey, event space near terminal 5, room rental stanwell moor, venue hire near m25',
+  title: 'Venue Hire Near Heathrow | Function Room Hire Staines | The Anchor',
+  description: 'Flexible function room & venue hire near Heathrow Airport. 10-200 capacity, free parking, competitive rates from £150. Perfect for meetings, parties & celebrations.',
+  keywords: 'venue hire near heathrow, function room hire near heathrow, venue hire staines, private room hire surrey, event space near terminal 5, room rental stanwell moor, venue hire near m25',
   openGraph: {
     title: 'Function Room Hire - The Anchor Stanwell Moor',
     description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
@@ -595,7 +595,7 @@ export default function FunctionRoomHirePage() {
         buttons={[
           {
             text: "📞 Call: 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "function_room_cta",
             variant: "white"

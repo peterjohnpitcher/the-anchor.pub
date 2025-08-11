@@ -17,17 +17,17 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PARKING } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Terminal 4 Hotels | The Anchor - Local British Pub',
-  description: 'Escape Terminal 4 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 10 mins from T4 hotels.',
+  title: 'Pub Near Terminal 4 | The Anchor - Stanwell Moor',
+  description: 'Escape Terminal 4 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 12 mins from T4 hotels.',
   keywords: 'pub near terminal 4, heathrow terminal 4 restaurant, closest pub to T4, skyteam terminal pub, terminal 4 dining, local pub near terminal 4 hotels',
   openGraph: {
     title: 'The Anchor - Local Pub Near Terminal 4 Hotels',
-    description: 'Escape hotel dining! Family pub 10 mins from T4. Real atmosphere.',
+    description: 'Escape hotel dining! Family pub 12 mins from T4. Real atmosphere.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Local Pub Near Terminal 4 Hotels',
-    description: 'Escape hotel dining! Family pub 10 mins from T4. Real atmosphere.',
+    description: 'Escape hotel dining! Family pub 12 mins from T4. Real atmosphere.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
   })
 }
@@ -43,7 +43,7 @@ export default function Terminal4Page() {
         description="Perfect for SkyTeam & budget travelers • Free parking • Real British hospitality"
         size="large"
         tags={[
-          { label: "Just 10 minutes away", variant: "warning" }
+          { label: "Just 12 minutes away", variant: "warning" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -122,7 +122,7 @@ export default function Terminal4Page() {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               {/* By Car */}
               <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (10 minutes)</h3>
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚗 By Car (12 minutes)</h3>
                 <ol className="space-y-3 text-gray-700">
                   <li className="flex gap-3">
                     <span className="font-bold text-anchor-gold">1.</span>
@@ -157,9 +157,9 @@ export default function Terminal4Page() {
                 <div className="space-y-4 text-gray-700">
                   <div>
                     <p className="font-semibold mb-2">Cost: £20-£25</p>
-                    <p className="text-sm mb-2">Journey time: 10 minutes</p>
+                    <p className="text-sm mb-2">Journey time: 12 minutes</p>
                     <p className="text-sm mb-2">Distance: 3.5 miles</p>
-                    <p>Tell your driver: &quot;The Anchor pub, Horton Road, Stanwell Moor&quot;</p>
+                    <p>Tell your driver: &quot;The Anchor, Horton Road, Stanwell Moor&quot;</p>
                   </div>
                   <div>
                     <p className="font-semibold mb-2">Taxi Ranks:</p>
@@ -419,12 +419,12 @@ export default function Terminal4Page() {
                 <div>
                   <p className="font-semibold mb-2">By Taxi</p>
                   <p className="text-3xl font-bold text-anchor-gold mb-2">£15-18</p>
-                  <p className="text-sm text-gray-600">10 minutes</p>
+                  <p className="text-sm text-gray-600">12 minutes</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">By Uber</p>
                   <p className="text-3xl font-bold text-anchor-gold mb-2">£12-15</p>
-                  <p className="text-sm text-gray-600">10 minutes</p>
+                  <p className="text-sm text-gray-600">12 minutes</p>
                 </div>
                 <div>
                   <p className="font-semibold mb-2">By Bus</p>
@@ -433,7 +433,7 @@ export default function Terminal4Page() {
                 </div>
               </div>
               <p className="text-center text-sm text-gray-600 mt-4">
-                Tell your driver: "The Anchor pub, Horton Road, Stanwell Moor"
+                Tell your driver: "The Anchor, Horton Road, Stanwell Moor"
               </p>
             </div>
 
@@ -462,7 +462,7 @@ export default function Terminal4Page() {
         faqs={[
           {
             question: "How far is The Anchor from Heathrow Terminal 4?",
-            answer: "The Anchor is just 10 minutes drive from Heathrow Terminal 4. We're the perfect spot for a pre-flight meal or drinks after landing."
+            answer: "The Anchor is just 12 minutes drive from Heathrow Terminal 4. We're the perfect spot for a pre-flight meal or drinks after landing."
           },
           {
             question: "Do you have parking for Terminal 4 travelers?",
@@ -470,7 +470,7 @@ export default function Terminal4Page() {
           },
           {
             question: "What time should I leave for Terminal 4?",
-            answer: "Allow 10 minutes to reach Terminal 4 from our pub, plus time for parking and security. We recommend leaving at least 2 hours before your flight for European destinations, 3 hours for Middle Eastern and Asian flights."
+            answer: "Allow 12 minutes to reach Terminal 4 from our pub, plus time for parking and security. We recommend leaving at least 2 hours before your flight for European destinations, 3 hours for Middle Eastern and Asian flights."
           },
           {
             question: "Is The Anchor good for Terminal 4 hotel guests?",
@@ -478,11 +478,11 @@ export default function Terminal4Page() {
           },
           {
             question: "How do I get to The Anchor from my Terminal 4 hotel?",
-            answer: "It's about £20-25 by taxi (10 minutes) or £15-20 by Uber. The 442 bus also stops near us for just £2.50. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor' or use postcode TW19 6AQ."
+            answer: "It's about £20-25 by taxi (12 minutes) or £15-20 by Uber. The 442 bus also stops near us for just £2.50. Tell your driver 'The Anchor, Horton Road, Stanwell Moor' or use postcode TW19 6AQ."
           },
           {
             question: "Can I get a taxi from Terminal 4 to The Anchor?",
-            answer: "Yes, taxis are readily available from Terminal 4. The journey costs £20-25 and takes about 10 minutes (3.5 miles). Taxi ranks are located at Terminal 4 Arrivals (Level 0), Terminal 4 Departures (Level 1), and the short stay car park entrance. Tell your driver 'The Anchor pub, Horton Road, Stanwell Moor'."
+            answer: "Yes, taxis are readily available from Terminal 4. The journey costs £20-25 and takes about 12 minutes (3.5 miles). Taxi ranks are located at Terminal 4 Arrivals (Level 0), Terminal 4 Departures (Level 1), and the short stay car park entrance. Tell your driver 'The Anchor, Horton Road, Stanwell Moor'."
           },
           {
             question: "Is there a bus from Terminal 4 to The Anchor?",
@@ -499,12 +499,12 @@ export default function Terminal4Page() {
       {/* CTA Section */}
       <CTASection
         title="See You Soon at The Anchor!"
-        description="Just 10 minutes from Terminal 4 • Free Parking • Great Value"
+        description="Just 12 minutes from Terminal 4 • Free Parking • Great Value"
         variant="green"
         buttons={[
           {
             text: "📞 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             isPhone: true,
             phoneSource: "terminal_4_cta_section",
             variant: "white",
@@ -533,7 +533,7 @@ export default function Terminal4Page() {
             "@context": "https://schema.org",
             "@type": "Restaurant",
             "name": "The Anchor - Pub Near Heathrow Terminal 4",
-            "description": "Traditional British pub just 10 minutes from Heathrow Terminal 4 with free parking.",
+            "description": "Traditional British pub just 12 minutes from Heathrow Terminal 4 with free parking.",
             "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
             "address": {
               "@type": "PostalAddress",

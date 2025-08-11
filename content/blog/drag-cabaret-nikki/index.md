@@ -4,7 +4,7 @@ slug: drag-cabaret-nikki
 description: >-
   Experience the best drag entertainment near Heathrow Airport at The Anchor
   pub. Join Nikki Manfadge for an unforgettable night of comedy, cabaret, and
-  interactive fun every last Friday. FREE entry, dinner available, just 10
+  interactive fun every last Friday. FREE entry, dinner available, just 7
   minutes from Terminal 5. Book your table for Stanwell Moor's hottest drag
   show.
 date: '2025-03-06'
@@ -33,7 +33,7 @@ images: []
 
 ![Nikki Manfadge's Drag Cabaret at The Anchor](/content/blog/drag-cabaret-nikki/hero.png)
 
-Looking for the best **drag shows near Heathrow**? Experience an unforgettable night of entertainment at The Anchor with resident drag queen **Nikki Manfadge**. Just 10 minutes from Terminal 5, discover Stanwell Moor's hottest cabaret show where anything can happen!
+Looking for the best **drag shows near Heathrow**? Experience an unforgettable night of entertainment at The Anchor with resident drag queen **Nikki Manfadge**. Just 7 minutes from Terminal 5, discover Stanwell Moor's hottest cabaret show where anything can happen!
 
 ## Drag Cabaret at The Anchor: Where Entertainment Comes Alive
 
@@ -94,7 +94,7 @@ Since June 2024, **Nikki Manfadge** has been transforming Friday nights at The A
 
 ### Stanwell Moor's Premier Entertainment Venue
 
-Located just **10 minutes from Heathrow Terminal 5**, The Anchor offers:
+Located just **7 minutes from Heathrow Terminal 5**, The Anchor offers:
 
 - **Free parking** for all guests
 - **Full restaurant menu** with pub favourites

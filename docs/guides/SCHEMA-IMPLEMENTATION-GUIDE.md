@@ -48,7 +48,7 @@ const findUsFAQ = {
       "name": "Is there parking at The Anchor pub?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, The Anchor offers free parking for all customers. Our car park has spaces for approximately 50 vehicles, including disabled parking bays near the entrance."
+        "text": "Yes, The Anchor offers free parking for all customers. Our car park has spaces for 20 vehicles, including disabled parking bays near the entrance."
       }
     },
     {

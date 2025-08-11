@@ -12,7 +12,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
-  title: 'Beer Garden Near Me | Plane Spotting | The Anchor Stanwell Moor',
+  title: 'Beer Garden & Plane Spotting | The Anchor',
   description: 'Unique beer garden under Heathrow flight path. Best plane spotting location with outdoor seating, dog-friendly space & aircraft views every 90 seconds.',
   keywords: 'plane spotting heathrow, beer garden stanwell moor, beer garden heathrow, plane spotting venue, outdoor dining heathrow, best places for plane spotting, heathrow flight path',
   openGraph: {
@@ -345,7 +345,7 @@ export default function BeerGardenPage() {
         buttons={[
           {
             text: "📞 Call 01753 682707",
-            href: "tel:01753682707",
+            href: "tel:+441753682707",
             variant: "secondary"
           },
           {

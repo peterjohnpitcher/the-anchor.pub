@@ -31,7 +31,7 @@ export async function UpcomingEvents() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": "Upcoming Events at The Anchor",
-      "description": "All upcoming events, entertainment, and special occasions at The Anchor pub in Stanwell Moor",
+      "description": "All upcoming events, entertainment, and special occasions at The Anchor in Stanwell Moor",
       "numberOfItems": events.length,
       "itemListElement": events.map((event, index) => ({
         "@type": "ListItem",
