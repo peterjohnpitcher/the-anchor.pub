@@ -68,34 +68,39 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
   }
 
   if (variant === 'navigation') {
-    // Build bar message with tomorrow logic
+    // Build bar message - check TODAY first, then tomorrow
     let barMessage = ''
-    if (isOpen && todayHours?.closes) {
-      barMessage = `Open until ${formatTime(todayHours.closes)}`
-    } else if (!isOpen) {
-      // Check if we should show tomorrow's time
-      if (todayHours?.opens) {
+    if (isOpen) {
+      if (todayHours?.closes) {
+        barMessage = `Open until ${formatTime(todayHours.closes)}`
+      } else {
+        barMessage = 'Open'
+      }
+    } else {
+      // When closed, check if we're before today's opening FIRST
+      if (todayHours?.opens && !todayHours.is_closed) {
         const currentTime = now.getHours() + now.getMinutes() / 60
         const openingHour = parseInt(todayHours.opens.split(':')[0])
         const openingMinute = parseInt(todayHours.opens.split(':')[1]) / 60
         const openingDecimal = openingHour + openingMinute
         
         if (currentTime < openingDecimal) {
-          // Before today's opening
+          // We're before today's opening (e.g., 6:45am before 4pm)
           barMessage = `Opens at ${formatTime(todayHours.opens)}`
-        } else if (tomorrowHours?.opens && !tomorrowHours.is_closed) {
-          // After today's closing, show tomorrow
-          barMessage = `Open tomorrow at ${formatTime(tomorrowHours.opens)}`
         } else {
-          barMessage = 'Closed'
+          // We're after today's closing, show tomorrow if available
+          if (tomorrowHours?.opens && !tomorrowHours.is_closed) {
+            barMessage = `Opens tomorrow at ${formatTime(tomorrowHours.opens)}`
+          } else {
+            barMessage = 'Closed'
+          }
         }
       } else if (tomorrowHours?.opens && !tomorrowHours.is_closed) {
-        barMessage = `Open tomorrow at ${formatTime(tomorrowHours.opens)}`
+        // Today has no hours (closed all day), show tomorrow
+        barMessage = `Opens tomorrow at ${formatTime(tomorrowHours.opens)}`
       } else {
         barMessage = 'Closed'
       }
-    } else {
-      barMessage = isOpen ? 'Open' : 'Closed'
     }
 
     // Build kitchen message with tomorrow logic

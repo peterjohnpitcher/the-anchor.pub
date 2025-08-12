@@ -107,29 +107,31 @@ export function StatusBar({
       barStatus += 'Open'
     }
   } else {
-    // When closed, show tomorrow's opening time if available
-    if (tomorrowHours && !tomorrowHours.is_closed && tomorrowHours.opens) {
-      const openingTime = formatTime12Hour(tomorrowHours.opens)
-      barStatus += `Open tomorrow at ${openingTime}`
-    } else if (todayHours && todayHours.opens) {
-      // If it's before today's opening time, show today's opening
+    // When closed, check TODAY first, then tomorrow
+    if (todayHours && todayHours.opens && !todayHours.is_closed) {
+      // Check if we're before today's opening time
       const currentTime = now.getHours() + now.getMinutes() / 60
       const openingHour = parseInt(todayHours.opens.split(':')[0])
       const openingMinute = parseInt(todayHours.opens.split(':')[1]) / 60
       const openingDecimal = openingHour + openingMinute
       
       if (currentTime < openingDecimal) {
+        // We're before today's opening (e.g., 6:45am before 4pm)
         const openingTime = formatTime12Hour(todayHours.opens)
         barStatus += `Opens at ${openingTime}`
       } else {
-        // We're after closing, show tomorrow
+        // We're after today's closing, show tomorrow if available
         if (tomorrowHours && !tomorrowHours.is_closed && tomorrowHours.opens) {
           const openingTime = formatTime12Hour(tomorrowHours.opens)
-          barStatus += `Open tomorrow at ${openingTime}`
+          barStatus += `Opens tomorrow at ${openingTime}`
         } else {
           barStatus += 'Closed'
         }
       }
+    } else if (tomorrowHours && !tomorrowHours.is_closed && tomorrowHours.opens) {
+      // Today has no hours (closed all day), show tomorrow
+      const openingTime = formatTime12Hour(tomorrowHours.opens)
+      barStatus += `Opens tomorrow at ${openingTime}`
     } else {
       barStatus += 'Closed'
     }
