@@ -11,6 +11,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
@@ -60,10 +61,18 @@ export default function PrivatePartyVenuePage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="private_party_hero"
+              variant="primary"
+              size="lg"
+              context="private_party"
+            >
+              🎉 Book Your Party
+            </BookTableButton>
             <PhoneButton
               phone="01753 682707"
               source="private_party_hero"
-              variant="primary"
+              variant="secondary"
               size="lg"
             >
               📞 Call: 01753 682707
@@ -509,40 +518,51 @@ export default function PrivatePartyVenuePage() {
       />
 
       {/* CTA Section */}
-      <CTASection
-        title="Let's Plan Your Perfect Party"
-        description="Get in touch today to check availability and discuss your celebration"
-        buttons={[
-          {
-            text: "📞 Call: 01753 682707",
-            href: "tel:+441753682707",
-            isPhone: true,
-            phoneSource: "private_party_cta",
-            variant: "white"
-          },
-          {
-            text: "💬 WhatsApp Us",
-            href: "https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20private%20party%20venue%20hire",
-            variant: "secondary"
-          },
-          {
-            text: "📧 Email Enquiry",
-            href: "mailto:manager@the-anchor.pub?subject=Private Party Enquiry",
-            variant: "outline",
-            className: "!text-white !border-white hover:!bg-white hover:!text-pink-600",
-            emailSource: "private_party_cta"
-          }
-        ]}
-        variant="red"
-      >
-        <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
-          <p className="text-white text-center">
-            <strong>Quick Response Promise</strong><br />
-            We'll get back to you within 2 hours during opening hours<br />
-            <strong>WhatsApp:</strong> 01753 682707 for instant chat
-          </p>
+      <section className="bg-gradient-to-br from-red-600 to-red-700 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Let's Plan Your Perfect Party
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Get in touch today to check availability and discuss your celebration
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookTableButton
+                source="private_party_cta"
+                size="lg"
+                variant="secondary"
+                context="private_party"
+                className="bg-white text-red-600 hover:bg-gray-100"
+              >
+                🎉 Book Your Party
+              </BookTableButton>
+              <Link href="tel:+441753682707">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  📞 Call: 01753 682707
+                </Button>
+              </Link>
+              <Link href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20private%20party%20venue%20hire" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  💬 WhatsApp Us
+                </Button>
+              </Link>
+              <Link href="mailto:manager@the-anchor.pub?subject=Private Party Enquiry">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20">
+                  📧 Email Enquiry
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
+              <p className="text-white text-center">
+                <strong>Quick Response Promise</strong><br />
+                We'll get back to you within 2 hours during opening hours<br />
+                <strong>WhatsApp:</strong> 01753 682707 for instant chat
+              </p>
+            </div>
+          </div>
         </div>
-      </CTASection>
+      </section>
     </>
   )
 }

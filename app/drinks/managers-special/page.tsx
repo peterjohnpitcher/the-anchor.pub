@@ -12,6 +12,7 @@ import { FeatureGrid } from '@/components/ui'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PhoneButton } from '@/components/PhoneButton'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { getCurrentPromotion, getPromotionImage } from '@/lib/managers-special-utils'
 import { notFound } from 'next/navigation'
@@ -161,11 +162,17 @@ export default function ManagersSpecialPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="managers_special_hero"
+              variant="secondary"
+              size="lg"
+              className="bg-white text-purple-700 hover:bg-gray-100"
+            />
             <Link href="#details">
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white text-purple-700 hover:bg-gray-100"
+                className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
               >
                 🍸 View Details
               </Button>
@@ -384,8 +391,14 @@ export default function ManagersSpecialPage() {
               and discover why {spirit.name} is our Manager's Special
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookTableButton
+                source="managers_special_cta"
+                size="lg"
+                variant="secondary"
+                className="bg-white text-purple-700 hover:bg-gray-100"
+              />
               <Link href="/find-us">
-                <Button size="lg" variant="secondary" className="bg-white text-purple-700 hover:bg-gray-100">
+                <Button size="lg" variant="secondary" className="bg-purple-700 text-white hover:bg-purple-600">
                   📍 Get Directions
                 </Button>
               </Link>

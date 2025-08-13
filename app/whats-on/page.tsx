@@ -18,6 +18,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
+import { BookTableButton } from '@/components/BookTableButton'
 import { quizNightEventSeries, dragShowEventSeries, bingoEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -122,9 +123,14 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="whats_on_hero"
+              variant="primary"
+              size="lg"
+            />
             <Link href="#upcoming-events">
               <Button 
-                variant="primary"
+                variant="secondary"
                 size="lg"
               >
                 📅 View All Events
@@ -452,37 +458,50 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
       />
 
       {/* Stay Updated */}
-      <CTASection
-        title="Never Miss an Event"
-        description="Follow us on social media for the latest updates, special events, and last-minute changes"
-        buttons={[]}
-        variant="green"
-      >
-        <div className="flex justify-center gap-6 mb-8">
-          <SocialLink
-            platform="facebook"
-            href="https://www.facebook.com/theanchorpubsm/"
-            source="whats_on_page"
-            className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colors text-white"
-          >
-            Facebook
-          </SocialLink>
-          <SocialLink
-            platform="instagram"
-            href="https://www.instagram.com/theanchor.pub/"
-            source="whats_on_page"
-            className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colours text-white"
-          >
-            Instagram
-          </SocialLink>
-        </div>
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-          <p className="font-semibold mb-2 text-white">Event Enquiries</p>
-          <p className="text-white">📞 01753 682707</p>
-          <p className="text-white">📱 WhatsApp: 01753 682707</p>
-          <p className="text-white">✉️ manager@the-anchor.pub</p>
-        </div>
-      </CTASection>
+      <Section className="bg-gradient-to-br from-anchor-green to-anchor-green/90 py-16 md:py-24">
+        <Container>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Never Miss an Event
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Follow us on social media for the latest updates, special events, and last-minute changes
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <BookTableButton
+                source="whats_on_cta"
+                size="lg"
+                variant="secondary"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              />
+            </div>
+            <div className="flex justify-center gap-6 mb-8">
+              <SocialLink
+                platform="facebook"
+                href="https://www.facebook.com/theanchorpubsm/"
+                source="whats_on_page"
+                className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colors text-white"
+              >
+                Facebook
+              </SocialLink>
+              <SocialLink
+                platform="instagram"
+                href="https://www.instagram.com/theanchor.pub/"
+                source="whats_on_page"
+                className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full hover:bg-white/30 transition-colours text-white"
+              >
+                Instagram
+              </SocialLink>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
+              <p className="font-semibold mb-2 text-white">Event Enquiries</p>
+              <p className="text-white">📞 01753 682707</p>
+              <p className="text-white">📱 WhatsApp: 01753 682707</p>
+              <p className="text-white">✉️ manager@the-anchor.pub</p>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
     </>
   )

@@ -2,11 +2,21 @@
 
 import { Button, Badge, Icon } from '@/components/ui'
 import { Card } from '@/components/ui/layout/Card'
+import { BookTableButton } from '@/components/BookTableButton'
 import { trackPhoneCall, trackFormStart } from '@/lib/gtm-events'
 
 export function ContactActions() {
   return (
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <BookTableButton
+        source="christmas_parties_cta"
+        size="lg"
+        variant="secondary"
+        context="christmas_party"
+        className="bg-white text-red-600 hover:bg-red-50"
+      >
+        🎄 Book Your Christmas Party
+      </BookTableButton>
       <Button 
         size="lg" 
         className="bg-red-600 hover:bg-red-700 text-white"
@@ -21,7 +31,7 @@ export function ContactActions() {
       <Button 
         size="lg" 
         variant="outline"
-        className="border-2 border-red-600 text-red-600 hover:bg-red-50"
+        className="border-2 border-white text-white hover:bg-white hover:text-red-600"
         onClick={() => {
           trackPhoneCall('christmas_hero')
           window.location.href = 'tel:+441753682707'

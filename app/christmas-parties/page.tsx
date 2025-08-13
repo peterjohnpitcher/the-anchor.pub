@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
-import { Container, Section, Grid, Badge, Icon } from '@/components/ui'
+import { Container, Section, Grid, Badge, Icon, Button } from '@/components/ui'
 import { Card } from '@/components/ui/layout/Card'
+import { BookTableButton } from '@/components/BookTableButton'
 import { ContactActions, PackageCard } from './client-components'
 
 export const metadata: Metadata = {
@@ -27,6 +28,18 @@ export default function ChristmasPartiesPage() {
         route="/christmas-parties"
         title="Christmas Party Venue Near Heathrow Terminal 5"
         description="Free parking for all guests • 5 minutes from Terminal 5 • Outside ULEZ zone"
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="christmas_parties_hero"
+              variant="primary"
+              size="lg"
+              context="christmas_party"
+            >
+              🎄 Book Your Christmas Party
+            </BookTableButton>
+          </div>
+        }
       />
 
       {/* Intro Section with Better Keywords */}

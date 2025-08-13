@@ -5,6 +5,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { dragShowEventSeries } from '@/lib/schema'
@@ -48,14 +49,25 @@ export default function DragShowsPage() {
           { label: '🍹 Themed Cocktails', variant: 'default' }
         ]}
         cta={
-          <PhoneButton
-            phone="01753 682707"
-            source="drag_shows_hero"
-            variant="primary"
-            size="lg"
-          >
-            📞 Book Your Table Now
-          </PhoneButton>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="drag_shows_hero"
+              variant="primary"
+              size="lg"
+              context="drag_show"
+            >
+              👑 Book Your Table
+            </BookTableButton>
+            <PhoneButton
+              phone="01753 682707"
+              source="drag_shows_hero"
+              variant="secondary"
+              size="lg"
+              className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
+            >
+              📞 Call: 01753 682707
+            </PhoneButton>
+          </div>
         }
       />
 
@@ -729,14 +741,23 @@ export default function DragShowsPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <BookTableButton
+              source="drag_shows_cta"
+              variant="secondary"
+              size="lg"
+              context="drag_show"
+              className="bg-white text-purple-600 hover:bg-gray-100"
+            >
+              👑 Book Your Table
+            </BookTableButton>
             <PhoneButton
               phone="01753 682707"
               source="drag_shows_cta"
               variant="secondary"
               size="lg"
-              className="bg-white text-anchor-green hover:bg-gray-100"
+              className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
             >
-              📞 Book Your Table: 01753 682707
+              📞 Call: 01753 682707
             </PhoneButton>
             <Link href="/whats-on">
       <Button 

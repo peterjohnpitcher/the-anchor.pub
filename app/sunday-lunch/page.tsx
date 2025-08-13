@@ -51,7 +51,7 @@ export default function SundayLunchPage() {
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="primary" size="lg" asChild>
-              <Link href="/book-table?type=sunday_roast" className="inline-flex items-center whitespace-nowrap">
+              <Link href="/book-table" className="inline-flex items-center whitespace-nowrap">
                 <Icon name="calendar" className="mr-2 flex-shrink-0" />
                 <span>Book Your Table Now</span>
               </Link>
@@ -295,7 +295,7 @@ export default function SundayLunchPage() {
             {/* Booking CTA within menu section */}
             <div className="text-center mb-12">
               <Button variant="primary" size="lg" className="w-full" asChild>
-                <Link href="/book-table?type=sunday_roast">
+                <Link href="/book-table">
                   <Icon name="calendar" className="mr-2" />
                   Reserve Your Sunday Roast
                 </Link>
@@ -375,7 +375,7 @@ export default function SundayLunchPage() {
                 </div>
                 <div className="mt-6">
                   <Button variant="primary" size="md" fullWidth asChild>
-                    <Link href="/book-table?type=sunday_roast">
+                    <Link href="/book-table">
                       <Icon name="calendar" className="mr-2" />
                       Book Your Table
                     </Link>
@@ -605,7 +605,7 @@ export default function SundayLunchPage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button variant="secondary" size="lg" className="bg-white text-anchor-green hover:bg-gray-100 border-white" asChild>
-                <Link href="/book-table?type=sunday_roast">
+                <Link href="/book-table">
                   <Icon name="calendar" className="mr-2" />
                   Book Your Sunday Roast
                 </Link>

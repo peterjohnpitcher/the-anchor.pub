@@ -4,6 +4,7 @@ import { Button } from '@/components/ui'
 import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { Container } from '@/components/ui/layout/Container'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -52,14 +53,14 @@ export default function LiveMusicPage() {
                 📅 View Upcoming Music Events
               </Button>
             </Link>
-            <PhoneButton
-              phone="01753 682707"
+            <BookTableButton
               source="live_music_hero"
               variant="secondary"
               size="lg"
+              context="live_music"
             >
-              📞 Book a Table
-            </PhoneButton>
+              📅 Book a Table
+            </BookTableButton>
           </div>
         }
       />
@@ -379,31 +380,44 @@ export default function LiveMusicPage() {
       />
 
       {/* CTA Section */}
-      <CTASection
-        title="Experience Live Music at The Anchor"
-        description="Check our events calendar and plan your next night out"
-        buttons={[
-          {
-            text: "View Upcoming Events",
-            href: "/whats-on",
-            variant: "white"
-          },
-          {
-            text: "📞 Book a Table: 01753 682707",
-            href: "tel:+441753682707",
-            isPhone: true,
-            phoneSource: "live_music_cta",
-            variant: "secondary"
-          }
-        ]}
-        variant="green"
-      >
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
-          <p className="font-semibold mb-2 text-white">Stay Updated</p>
-          <p className="text-white">Follow us on social media for the latest</p>
-          <p className="text-white">live music announcements and updates</p>
+      <section className="bg-gradient-to-br from-anchor-green to-anchor-green/90 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Experience Live Music at The Anchor
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Check our events calendar and plan your next night out
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookTableButton
+                source="live_music_cta"
+                size="lg"
+                variant="secondary"
+                context="live_music"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                📅 Book a Table
+              </BookTableButton>
+              <Link href="/whats-on">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  View Upcoming Events
+                </Button>
+              </Link>
+              <Link href="tel:+441753682707">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  📞 Call: 01753 682707
+                </Button>
+              </Link>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
+              <p className="font-semibold mb-2 text-white">Stay Updated</p>
+              <p className="text-white">Follow us on social media for the latest</p>
+              <p className="text-white">live music announcements and updates</p>
+            </div>
+          </div>
         </div>
-      </CTASection>
+      </section>
     </>
   )
 }

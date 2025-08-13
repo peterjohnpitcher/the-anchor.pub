@@ -9,6 +9,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList } from
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { GoogleReviews } from '@/components/reviews'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { BookTableButton } from '@/components/BookTableButton'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
@@ -93,9 +94,14 @@ export default function BeerGardenPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="beer_garden_hero"
+              variant="primary"
+              size="lg"
+            />
             <Link href="/drinks">
       <Button 
-        variant="primary"
+        variant="secondary"
         size="lg"
       >
         🍺 View Drinks Menu
@@ -339,25 +345,39 @@ export default function BeerGardenPage() {
       />
 
       {/* CTA Section */}
-      <CTASection
-        title="Ready for Planes & Pints?"
-        description="Join fellow aviation enthusiasts in our unique beer garden"
-        buttons={[
-          {
-            text: "📞 Call 01753 682707",
-            href: "tel:+441753682707",
-            variant: "secondary"
-          },
-          {
-            text: "📍 Get Directions",
-            href: "https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor",
-            variant: "outline",
-            external: true
-          }
-        ]}
-        variant="green"
-        footer="Just 7 minutes from Heathrow Terminal 5 • Free parking • Dogs welcome"
-      />
+      <section className="bg-gradient-to-br from-anchor-green to-anchor-green/90 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Ready for Planes & Pints?
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Join fellow aviation enthusiasts in our unique beer garden
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookTableButton
+                source="beer_garden_cta"
+                size="lg"
+                variant="secondary"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              />
+              <Link href="tel:+441753682707">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  📞 Call 01753 682707
+                </Button>
+              </Link>
+              <Link href="https://maps.google.com/maps?q=The+Anchor+Stanwell+Moor" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  📍 Get Directions
+                </Button>
+              </Link>
+            </div>
+            <p className="text-white/80 mt-8 text-sm">
+              Just 7 minutes from Heathrow Terminal 5 • Free parking • Dogs welcome
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

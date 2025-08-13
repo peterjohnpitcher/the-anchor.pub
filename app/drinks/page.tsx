@@ -16,6 +16,7 @@ import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
 import { generateNutritionInfo } from '@/lib/schema-utils'
+import { BookTableButton } from '@/components/BookTableButton'
 import './cocktails.css'
 
 export const metadata: Metadata = {
@@ -229,11 +230,17 @@ export default async function DrinksMenuPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="drinks_hero"
+              variant="secondary"
+              size="lg"
+              className="bg-white text-anchor-green hover:bg-gray-100"
+            />
             <Link href="#menu">
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white text-anchor-green hover:bg-gray-100"
+                className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
               >
                 📖 Jump to Menu
               </Button>
@@ -476,23 +483,36 @@ export default async function DrinksMenuPage() {
       />
 
       {/* CTA Section */}
-      <CTASection
-        title="Join Us for a Drink"
-        description="Whether it's a quick pint, tequila tasting, or celebration - we've got you covered"
-        buttons={[
-          {
-            text: "📞 Book Your Visit",
-            href: "tel:+441753682707",
-            variant: "white"
-          },
-          {
-            text: "🍔 View Food Menu",
-            href: "/food-menu",
-            variant: "white"
-          }
-        ]}
-        variant="green"
-      />
+      <Section className="bg-gradient-to-br from-anchor-green to-anchor-green/90 py-16 md:py-24">
+        <Container>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Join Us for a Drink
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Whether it's a quick pint, tequila tasting, or celebration - we've got you covered
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookTableButton
+                source="drinks_page_cta"
+                size="lg"
+                variant="secondary"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              />
+              <Link href="tel:+441753682707">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  📞 Call Us
+                </Button>
+              </Link>
+              <Link href="/food-menu">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  🍔 View Food Menu
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
     </>
   )
 }

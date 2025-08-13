@@ -42,8 +42,10 @@ export function FloatingActions() {
               className="flex items-center gap-3 p-3 hover:bg-anchor-cream rounded-lg transition-colours w-full justify-start text-left"
               role="menuitem"
             >
-              <span className="text-2xl" aria-hidden="true">📅</span>
-              <span className="font-medium">Book a Table</span>
+              <span className="flex items-center gap-3 whitespace-nowrap">
+                <span className="text-2xl" aria-hidden="true">📅</span>
+                <span className="font-medium">Book a Table</span>
+              </span>
             </a>
             
             <PhoneLink

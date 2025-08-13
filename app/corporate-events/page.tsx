@@ -10,6 +10,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
@@ -59,8 +60,16 @@ export default function CorporateEventsPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="corporate_events_hero"
+              variant="primary"
+              size="lg"
+              context="corporate_event"
+            >
+              📅 Book Your Event
+            </BookTableButton>
             <Link href={CONTACT.phoneHref}>
-              <Button variant="primary" size="lg">
+              <Button variant="secondary" size="lg">
                 📞 Discuss Your Event
               </Button>
             </Link>
@@ -594,37 +603,50 @@ export default function CorporateEventsPage() {
       />
 
       {/* CTA Section */}
-      <CTASection
-        title="Plan Your Corporate Event Today"
-        description="Professional venue • Strategic location • No hidden fees"
-        buttons={[
-          {
-            text: "📞 Call: 01753 682707",
-            href: "tel:+441753682707",
-            variant: "white"
-          },
-          {
-            text: "💬 WhatsApp Us",
-            href: "https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20corporate%20events",
-            variant: "secondary"
-          },
-          {
-            text: "📧 Email Enquiry",
-            href: "mailto:manager@the-anchor.pub?subject=Corporate Event Enquiry",
-            variant: "outline",
-            className: "!text-white !border-white hover:!bg-white hover:!text-blue-600",
-            emailSource: "corporate_events_cta"
-          }
-        ]}
-        variant="dark"
-      >
-        <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
-          <p className="text-white text-center text-lg">
-            <strong>Quick Response Guaranteed</strong><br />
-            We understand business moves fast. We'll respond to your enquiry within 2 hours during business hours.
-          </p>
+      <section className="bg-gradient-to-br from-gray-900 to-gray-800 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Plan Your Corporate Event Today
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Professional venue • Strategic location • No hidden fees
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookTableButton
+                source="corporate_events_cta"
+                size="lg"
+                variant="secondary"
+                context="corporate_event"
+                className="bg-white text-gray-900 hover:bg-gray-100"
+              >
+                📅 Book Your Event
+              </BookTableButton>
+              <Link href="tel:+441753682707">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  📞 Call: 01753 682707
+                </Button>
+              </Link>
+              <Link href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20corporate%20events" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  💬 WhatsApp Us
+                </Button>
+              </Link>
+              <Link href="mailto:manager@the-anchor.pub?subject=Corporate Event Enquiry">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20">
+                  📧 Email Enquiry
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
+              <p className="text-white text-center text-lg">
+                <strong>Quick Response Guaranteed</strong><br />
+                We understand business moves fast. We'll respond to your enquiry within 2 hours during business hours.
+              </p>
+            </div>
+          </div>
         </div>
-      </CTASection>
+      </section>
     </>
   )
 }

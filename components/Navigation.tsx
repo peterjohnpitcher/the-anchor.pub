@@ -340,7 +340,7 @@ export function Navigation({
             }
           }}
         >
-          {ctaButton.icon} {ctaButton.label}
+          <span className="whitespace-nowrap">{ctaButton.icon} {ctaButton.label}</span>
         </BookTableButton>
       )
     }
@@ -374,7 +374,7 @@ export function Navigation({
             if (isMobile) setIsMobileMenuOpen(false)
           }}
         >
-          {ctaButton.icon} {ctaButton.label}
+          <span className="whitespace-nowrap">{ctaButton.icon} {ctaButton.label}</span>
         </a>
       )
     }
@@ -395,7 +395,7 @@ export function Navigation({
           if (isMobile) setIsMobileMenuOpen(false)
         }}
       >
-        {ctaButton.icon} {ctaButton.label}
+        <span className="whitespace-nowrap">{ctaButton.icon} {ctaButton.label}</span>
       </Link>
     )
   }

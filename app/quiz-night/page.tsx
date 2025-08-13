@@ -6,6 +6,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { Container } from '@/components/ui/layout/Container'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -45,14 +46,21 @@ export default function QuizNightPage() {
           { label: "📅 Monthly Event", variant: "default" }
         ]}
         cta={
-          <PhoneButton
-            phone="01753 682707"
-            source="quiz_night_hero"
-            variant="primary"
-            size="lg"
-          >
-            📞 Book Your Team: 01753 682707
-          </PhoneButton>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="quiz_night_hero"
+              variant="primary"
+              size="lg"
+            />
+            <PhoneButton
+              phone="01753 682707"
+              source="quiz_night_hero"
+              variant="secondary"
+              size="lg"
+            >
+              📞 Book Your Team: 01753 682707
+            </PhoneButton>
+          </div>
         }
       />
 
@@ -293,32 +301,42 @@ export default function QuizNightPage() {
       />
 
       {/* CTA Section */}
-      <CTASection
-        title="Ready to Test Your Knowledge?"
-        description="Gather your team and join us for the next quiz night"
-        buttons={[
-          {
-            text: "📞 Call: 01753 682707",
-            href: "tel:+441753682707",
-            isPhone: true,
-            phoneSource: "quiz_night_cta",
-            variant: "white"
-          },
-          {
-            text: "View All Events",
-            href: "/whats-on",
-            variant: "secondary"
-          }
-        ]}
-        variant="green"
-      >
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
-          <p className="font-semibold mb-2 text-white">Quiz Night Details</p>
-          <p className="text-white">Monthly (check for dates)</p>
-          <p className="text-white">Starts 7:00 PM • £3 entry</p>
-          <p className="text-white">Teams up to 6 people</p>
+      <section className="bg-gradient-to-br from-anchor-green to-anchor-green/90 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Ready to Test Your Knowledge?
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Gather your team and join us for the next quiz night
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookTableButton
+                source="quiz_night_cta"
+                size="lg"
+                variant="secondary"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              />
+              <Link href="tel:+441753682707">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  📞 Call: 01753 682707
+                </Button>
+              </Link>
+              <Link href="/whats-on">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  View All Events
+                </Button>
+              </Link>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto mt-8">
+              <p className="font-semibold mb-2 text-white">Quiz Night Details</p>
+              <p className="text-white">Monthly (check for dates)</p>
+              <p className="text-white">Starts 7:00 PM • £3 entry</p>
+              <p className="text-white">Teams up to 6 people</p>
+            </div>
+          </div>
         </div>
-      </CTASection>
+      </section>
 
       {/* Event Schema */}
       <EventSchema event={staticEvents.quizNight} />

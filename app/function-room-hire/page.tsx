@@ -9,6 +9,7 @@ import { CONTACT, BRAND } from '@/lib/constants'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
+import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
@@ -83,10 +84,18 @@ export default function FunctionRoomHirePage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <BookTableButton
+              source="function_room_hero"
+              variant="primary"
+              size="lg"
+              context="function_room"
+            >
+              🏢 Book Function Room
+            </BookTableButton>
             <PhoneButton
               phone="01753 682707"
               source="function_room_hero"
-              variant="primary"
+              variant="secondary"
               size="lg"
             >
               📞 Call: 01753 682707
@@ -589,40 +598,51 @@ export default function FunctionRoomHirePage() {
       />
 
       {/* CTA Section */}
-      <CTASection
-        title="Check Availability for Your Function"
-        description="Competitive rates • Free parking • Professional service"
-        buttons={[
-          {
-            text: "📞 Call: 01753 682707",
-            href: "tel:+441753682707",
-            isPhone: true,
-            phoneSource: "function_room_cta",
-            variant: "white"
-          },
-          {
-            text: "💬 WhatsApp Us",
-            href: "https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20function%20room%20hire",
-            variant: "secondary"
-          },
-          {
-            text: "📧 Email Enquiry",
-            href: "mailto:manager@the-anchor.pub?subject=Function Room Hire Enquiry",
-            variant: "outline",
-            className: "!text-white !border-white hover:!bg-white hover:!text-green-700",
-            emailSource: "function_room_cta"
-          }
-        ]}
-        variant="green"
-      >
-        <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
-          <p className="text-white text-center">
-            <strong>Viewing Welcome</strong><br />
-            Pop in during opening hours or arrange a specific viewing time<br />
-            We'll respond to enquiries within 2 hours
-          </p>
+      <section className="bg-gradient-to-br from-anchor-green to-anchor-green/90 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Check Availability for Your Function
+            </h2>
+            <p className="text-xl text-white/90 mb-8">
+              Competitive rates • Free parking • Professional service
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookTableButton
+                source="function_room_cta"
+                size="lg"
+                variant="secondary"
+                context="function_room"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                🏢 Book Function Room
+              </BookTableButton>
+              <Link href="tel:+441753682707">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  📞 Call: 01753 682707
+                </Button>
+              </Link>
+              <Link href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20function%20room%20hire" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  💬 WhatsApp Us
+                </Button>
+              </Link>
+              <Link href="mailto:manager@the-anchor.pub?subject=Function Room Hire Enquiry">
+                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20">
+                  📧 Email Enquiry
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
+              <p className="text-white text-center">
+                <strong>Viewing Welcome</strong><br />
+                Pop in during opening hours or arrange a specific viewing time<br />
+                We'll respond to enquiries within 2 hours
+              </p>
+            </div>
+          </div>
         </div>
-      </CTASection>
+      </section>
     </>
   )
 }
