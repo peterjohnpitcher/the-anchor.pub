@@ -46,7 +46,7 @@ export default function SundayLunchPage() {
         size="large"
         showStatusBar={false}
         tags={[
-          { label: "Every Sunday 12pm - 5pm", variant: "warning" }
+          { label: "Every Sunday 12pm - 4:30pm", variant: "warning" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -295,9 +295,9 @@ export default function SundayLunchPage() {
             {/* Booking CTA within menu section */}
             <div className="text-center mb-12">
               <Button variant="primary" size="lg" className="w-full" asChild>
-                <Link href="/book-table">
-                  <Icon name="calendar" className="mr-2" />
-                  Reserve Your Sunday Roast
+                <Link href="/book-table" className="inline-flex items-center justify-center whitespace-nowrap">
+                  <Icon name="calendar" className="mr-2 flex-shrink-0" />
+                  <span>Reserve Your Sunday Roast</span>
                 </Link>
               </Button>
               <p className="text-sm text-gray-600 mt-3">
@@ -375,9 +375,9 @@ export default function SundayLunchPage() {
                 </div>
                 <div className="mt-6">
                   <Button variant="primary" size="md" fullWidth asChild>
-                    <Link href="/book-table">
-                      <Icon name="calendar" className="mr-2" />
-                      Book Your Table
+                    <Link href="/book-table" className="inline-flex items-center justify-center whitespace-nowrap">
+                      <Icon name="calendar" className="mr-2 flex-shrink-0" />
+                      <span>Book Your Table</span>
                     </Link>
                   </Button>
                 </div>
