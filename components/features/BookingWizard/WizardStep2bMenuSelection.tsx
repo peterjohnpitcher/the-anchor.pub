@@ -54,21 +54,46 @@ export function WizardStep2bMenuSelection({
   
   // Fetch menu from API
   useEffect(() => {
+    // Don't proceed if no date is provided
+    if (!date) {
+      console.error('No date provided to menu selection component')
+      setError('Please select a date first. Go back to the date selection step.')
+      setLoading(false)
+      return
+    }
+
+    // Validate date format (YYYY-MM-DD)
+    const dateFormatRegex = /^\d{4}-\d{2}-\d{2}$/
+    if (!dateFormatRegex.test(date)) {
+      console.error('Invalid date format:', date)
+      setError('Invalid date format. Please go back and select a valid date.')
+      setLoading(false)
+      return
+    }
+
     const fetchMenu = async () => {
       try {
         setLoading(true)
-        const queryDate = date || new Date().toISOString().split('T')[0]
-        const response = await fetch(`/api/menu/sunday-lunch?date=${queryDate}`)
+        console.log('Fetching Sunday lunch menu for date:', date)
+        const response = await fetch(`/api/menu/sunday-lunch?date=${date}`)
         
         if (!response.ok) {
           throw new Error('Failed to load menu')
         }
         
         const data = await response.json()
-        setMenuData({
-          mains: data.mains || [],
-          sides: data.sides || []
-        })
+        console.log('Menu API Response:', data)
+        
+        // Check if the API returned an error
+        if (data.error) {
+          setError(data.error)
+          setMenuData({ mains: [], sides: [] })
+        } else {
+          setMenuData({
+            mains: data.mains || [],
+            sides: data.sides || []
+          })
+        }
       } catch (err) {
         console.error('Failed to fetch menu:', err)
         setError('Unable to load menu. Please try again.')
@@ -118,12 +143,23 @@ export function WizardStep2bMenuSelection({
     return (
       <div className="text-center py-12">
         <Icon name="alert" className="w-12 h-12 text-red-500 mx-auto mb-4" />
-        <p className="text-red-600 font-medium">{error || 'Menu not available'}</p>
+        <h3 className="text-lg font-semibold text-red-600 mb-2">Unable to Load Menu</h3>
+        <p className="text-red-600 mb-4">{error || 'Menu not available for the selected date'}</p>
+        {date && (
+          <p className="text-gray-600 text-sm mb-4">
+            Selected date: {new Date(date + 'T12:00:00').toLocaleDateString('en-GB', { 
+              weekday: 'long', 
+              day: 'numeric', 
+              month: 'long',
+              year: 'numeric'
+            })}
+          </p>
+        )}
         <button 
           onClick={onBack}
-          className="mt-4 text-anchor-green hover:underline"
+          className="px-6 py-2 bg-anchor-green text-white rounded-lg hover:bg-anchor-green/90 transition-colors"
         >
-          Go back
+          ← Go Back to Previous Step
         </button>
       </div>
     )

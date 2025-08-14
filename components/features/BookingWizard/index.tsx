@@ -119,7 +119,12 @@ export function BookingWizard({
   
   // Update booking data
   const updateBookingData = useCallback((data: Partial<BookingWizardData>) => {
-    setBookingData(prev => ({ ...prev, ...data }))
+    console.log('Updating booking data:', data)
+    setBookingData(prev => {
+      const newData = { ...prev, ...data }
+      console.log('New booking data state:', newData)
+      return newData
+    })
   }, [])
   
   // Handle final submission
@@ -225,6 +230,26 @@ export function BookingWizard({
         )
       
       case 'menu_selection':
+        // Validate that we have a date before showing menu selection
+        if (!bookingData.date) {
+          console.error('No date set for menu selection step')
+          return (
+            <div className="text-center py-12">
+              <div className="w-12 h-12 text-red-500 mx-auto mb-4">⚠️</div>
+              <h3 className="text-lg font-semibold text-red-600 mb-2">Date Not Selected</h3>
+              <p className="text-gray-600 mb-6">
+                Please select a date before choosing your menu.
+              </p>
+              <button 
+                onClick={() => goToStep(1)}
+                className="px-6 py-2 bg-anchor-green text-white rounded-lg hover:bg-anchor-green/90 transition-colors"
+              >
+                Go to Date Selection
+              </button>
+            </div>
+          )
+        }
+        
         return (
           <WizardStep2bMenuSelection
             partySize={bookingData.partySize}
