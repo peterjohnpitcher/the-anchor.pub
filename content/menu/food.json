@@ -377,7 +377,7 @@
       "id": "pizza",
       "title": "Stone Baked Pizza",
       "emoji": "🍕",
-      "description": "Enjoy the comforting taste of our stone-baked pizzas, crafted to order with authentic Italian ingredients. All pizzas can be made with 12\" gluten-free bases for £1 extra - just ask when ordering! Small pizzas perfect for children.",
+      "description": "Enjoy the comforting taste of our stone-baked pizzas, crafted to order with authentic Italian ingredients. All pizzas can be made with 12\" gluten-free bases at no extra charge - just ask when ordering! Small pizzas perfect for children.",
       "sections": [
         {
           "title": "Pizza Selection",
@@ -385,7 +385,7 @@
           "items": [
             {
               "name": "Rustic Classic",
-              "price": "£7.49 / £10.49 (GF: £11.49)",
+              "price": "£7.49 / £10.49 (GF available)",
               "description": "Rich tomato sauce, creamy mozzarella, crisp stone-baked crust—a timeless favourite. Available with gluten-free base.",
               "allergens": ["gluten", "milk", "soya"],
               "vegetarian": true,
@@ -393,7 +393,7 @@
             },
             {
               "name": "Simply Salami",
-              "price": "£8.49 / £12.99 (GF: £13.99)",
+              "price": "£8.49 / £12.99 (GF available)",
               "description": "Napoli salami, tangy tomato sauce, mozzarella, stone-baked to crispy perfection. Available with gluten-free base.",
               "allergens": ["gluten", "milk", "soya"],
               "vegetarian": false,
@@ -401,7 +401,7 @@
             },
             {
               "name": "Fully Loaded",
-              "price": "£9.49 / £13.99 (GF: £14.99)",
+              "price": "£9.49 / £13.99 (GF available)",
               "description": "Napoli salami, speck ham, fennel salami, mozzarella on a bold stone-baked base. Available with gluten-free base.",
               "allergens": ["gluten", "milk", "soya"],
               "vegetarian": false,
@@ -409,7 +409,7 @@
             },
             {
               "name": "Nice & Spicy",
-              "price": "£8.49 / £13.49 (GF: £14.49)",
+              "price": "£8.49 / £13.49 (GF available)",
               "description": "'Nduja, Ventricina, roquito peppers, mozzarella—fiery flavours on a crisp crust. Available with gluten-free base.",
               "allergens": ["gluten", "milk", "soya"],
               "vegetarian": false,
@@ -417,7 +417,7 @@
             },
             {
               "name": "The Garden Club",
-              "price": "£8.99 / £12.99 (GF: £13.99)",
+              "price": "£8.99 / £12.99 (GF available)",
               "description": "Roasted courgettes, caramelised onions, rocket, and mozzarella on a rich tomato base. Available with gluten-free base.",
               "allergens": ["gluten", "milk", "soya", "sulphites"],
               "vegetarian": true,
@@ -425,7 +425,7 @@
             },
             {
               "name": "Smoked Chilli Chicken",
-              "price": "£8.99 / £13.49 (GF: £14.49)",
+              "price": "£8.99 / £13.49 (GF available)",
               "description": "Smoky paprika base with chicken, mozzarella, and roquito peppers for a spicy-savoury bite. Available with gluten-free base.",
               "allergens": ["gluten", "milk", "soya"],
               "vegetarian": false,
@@ -433,7 +433,7 @@
             },
             {
               "name": "Chicken & Pesto",
-              "price": "£9.49 / £13.49 (GF: £14.49)",
+              "price": "£9.49 / £13.49 (GF available)",
               "description": "Tender chicken, basil pesto, and melted mozzarella on a crisp, stone-baked crust. Available with gluten-free base.",
               "allergens": ["gluten", "milk", "soya"],
               "vegetarian": false,
@@ -441,7 +441,7 @@
             },
             {
               "name": "Barbecue Chicken",
-              "price": "£9.99 / £13.99 (GF: £14.99)",
+              "price": "£9.99 / £13.99 (GF available)",
               "description": "Sweet and smoky BBQ sauce, succulent chicken, speck ham, and mozzarella on a crunchy crust. Available with gluten-free base.",
               "allergens": ["gluten", "milk", "soya", "sulphites"],
               "vegetarian": false,
@@ -449,7 +449,7 @@
             },
             {
               "name": "Speck Ham & Parmesan",
-              "price": "£9.99 / £13.99 (GF: £14.99)",
+              "price": "£9.99 / £13.99 (GF available)",
               "description": "Thinly sliced speck ham, shaved parmesan, and mozzarella on rich tomato sauce. Available with gluten-free base.",
               "allergens": ["gluten", "crustaceans", "milk", "soya"],
               "vegetarian": false,
