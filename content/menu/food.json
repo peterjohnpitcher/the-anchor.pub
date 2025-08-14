@@ -146,10 +146,10 @@
             {
               "name": "Lamb Shank",
               "price": "£14.99",
-              "description": "Slow-cooked lamb shank, served with smooth mash and seasonal veg. Finished with a rich mint-infused gravy for a perfect balance. Can be served with chunky chips instead of mash for a dairy-free option.",
-              "allergens": ["milk"],
+              "description": "Slow-cooked lamb shank, served with smooth mash (contains dairy) or chunky chips (dairy-free option) and seasonal veg. Finished with a rich mint-infused gravy.",
+              "allergens": [],
               "vegetarian": false,
-              "notes": "Dairy-free available with chunky chips instead of mash"
+              "notes": "Ask for chunky chips instead of mash for dairy-free option"
             },
             {
               "name": "Spinach & Ricotta Cannelloni",
@@ -377,7 +377,7 @@
       "id": "pizza",
       "title": "Stone Baked Pizza",
       "emoji": "🍕",
-      "description": "Enjoy the comforting taste of our stone-baked pizzas, crafted to order with authentic Italian ingredients. We offer 12\" gluten-free pizzas on request. Small pizzas perfect for children!",
+      "description": "Enjoy the comforting taste of our stone-baked pizzas, crafted to order with authentic Italian ingredients. All pizzas can be made with 12\" gluten-free bases for £1 extra - just ask when ordering! Small pizzas perfect for children.",
       "sections": [
         {
           "title": "Pizza Selection",
@@ -580,76 +580,6 @@
               "description": "Tetley Tea, Decaffeinated, Earl gray, Green Tea, Green Tea with Lemon, Mint Fusion, Raspberry Pomegranate",
               "allergens": [],
               "vegetarian": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "gluten-free",
-      "title": "Gluten-Free Options",
-      "emoji": "🌾",
-      "description": "All our pizzas can be made with 12\" gluten-free bases. Please inform staff when ordering.",
-      "sections": [
-        {
-          "title": "Gluten-Free Pizzas",
-          "style": "grid",
-          "items": [
-            {
-              "name": "Rustic Classic (GF Base)",
-              "price": "£11.49",
-              "description": "Rich tomato sauce, creamy mozzarella on our gluten-free base—a timeless favourite.",
-              "allergens": ["milk", "soya"],
-              "vegetarian": true,
-              "glutenFree": true
-            },
-            {
-              "name": "Simply Salami (GF Base)",
-              "price": "£13.99",
-              "description": "Napoli salami, tangy tomato sauce, mozzarella on our gluten-free base.",
-              "allergens": ["milk", "soya"],
-              "vegetarian": false,
-              "glutenFree": true
-            },
-            {
-              "name": "Fully Loaded (GF Base)",
-              "price": "£14.99",
-              "description": "Napoli salami, speck ham, fennel salami, mozzarella on our gluten-free base.",
-              "allergens": ["milk", "soya"],
-              "vegetarian": false,
-              "glutenFree": true
-            },
-            {
-              "name": "Nice & Spicy (GF Base)",
-              "price": "£14.49",
-              "description": "'Nduja, Ventricina, roquito peppers, mozzarella on our gluten-free base.",
-              "allergens": ["milk", "soya"],
-              "vegetarian": false,
-              "glutenFree": true
-            },
-            {
-              "name": "The Garden Club (GF Base)",
-              "price": "£13.99",
-              "description": "Roasted courgettes, caramelised onions, rocket, and mozzarella on our gluten-free base.",
-              "allergens": ["milk", "soya", "sulphites"],
-              "vegetarian": true,
-              "glutenFree": true
-            },
-            {
-              "name": "Smoked Chilli Chicken (GF Base)",
-              "price": "£14.49",
-              "description": "Smoky paprika base with chicken, mozzarella, and roquito peppers on our gluten-free base.",
-              "allergens": ["milk", "soya"],
-              "vegetarian": false,
-              "glutenFree": true
-            },
-            {
-              "name": "Crafted Ham (GF Base)",
-              "price": "£13.49",
-              "description": "Carved ham, creamy mozzarella, tomato sauce on our gluten-free base.",
-              "allergens": ["milk", "soya"],
-              "vegetarian": false,
-              "glutenFree": true
             }
           ]
         }
