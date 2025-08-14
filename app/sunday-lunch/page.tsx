@@ -369,7 +369,7 @@ export default function SundayLunchPage() {
                     <span className="text-gray-700">Quieter period - perfect for families</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold">5:00pm</span>
+                    <span className="font-semibold">4:30pm</span>
                     <span className="text-gray-700">Last orders for roasts</span>
                   </div>
                 </div>
@@ -629,7 +629,7 @@ export default function SundayLunchPage() {
             
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
               <h3 className="font-bold text-xl mb-3 text-white">Sunday Roast Service</h3>
-              <p className="mb-2 text-white">Every Sunday: 12:00 PM - 5:00 PM</p>
+              <p className="mb-2 text-white">Every Sunday: 12:00 PM - 4:30 PM</p>
               <p className="text-sm text-white/90">Last orders 4:30 PM</p>
             </div>
           </div>
