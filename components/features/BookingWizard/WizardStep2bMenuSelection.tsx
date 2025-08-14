@@ -75,7 +75,7 @@ export function WizardStep2bMenuSelection({
       try {
         setLoading(true)
         console.log('Fetching Sunday lunch menu for date:', date)
-        const response = await fetch(`/api/menu/sunday-lunch?date=${date}`)
+        const response = await fetch(`/api/table-bookings/menu/sunday-lunch?date=${date}`)
         
         if (!response.ok) {
           throw new Error('Failed to load menu')
