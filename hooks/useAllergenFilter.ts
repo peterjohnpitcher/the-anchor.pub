@@ -103,6 +103,10 @@ export function useAllergenFilter(): UseAllergenFilterReturn {
     if (item.allergens && item.allergens.length > 0) {
       for (const allergen of item.allergens) {
         if (selectedAllergens.has(allergen as AllergenType)) {
+          // Special case: If filtering out gluten but item has gluten-free option, show it
+          if (allergen === 'gluten' && (item as any).glutenFreeAvailable) {
+            continue // Skip hiding this item for gluten
+          }
           return false // Hide items containing selected allergens
         }
       }
