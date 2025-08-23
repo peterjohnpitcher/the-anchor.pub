@@ -39,9 +39,9 @@ export function WizardStep7Confirm({
     return `${displayHour}:${minutes} ${ampm}`
   }
   
-  // Calculate deposit if Sunday roast
-  const isSundayRoast = bookingData.bookingType === 'sunday_roast'
-  const depositAmount = isSundayRoast ? bookingData.partySize * 5 : 0
+  // Calculate deposit if Sunday lunch
+  const isSundayLunch = bookingData.bookingType === 'sunday_lunch'
+  const depositAmount = isSundayLunch ? bookingData.partySize * 5 : 0
   
   return (
     <div className="space-y-6">
@@ -84,7 +84,7 @@ export function WizardStep7Confirm({
             <p className="font-semibold text-anchor-charcoal">
               {bookingData.partySize} {bookingData.partySize === 1 ? 'Person' : 'People'}
             </p>
-            {isSundayRoast && (
+            {isSundayLunch && (
               <p className="text-sm text-amber-700 mt-1">
                 <Icon name="utensils" className="inline w-4 h-4 mr-1" />
                 Sunday Roast Booking
@@ -162,7 +162,7 @@ export function WizardStep7Confirm({
       </div>
       
       {/* Sunday Roast Deposit Info */}
-      {isSundayRoast && (
+      {isSundayLunch && (
         <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
           <div className="flex gap-3">
             <Icon name="dollar" className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -191,7 +191,7 @@ export function WizardStep7Confirm({
             <p className="font-medium text-gray-700">I agree to the booking terms</p>
             <p className="text-gray-600 mt-1">
               Tables are held for 15 minutes after the booking time.
-              {isSundayRoast && ' Sunday roast orders must be placed by 1pm Saturday. Deposits are non-refundable within 48 hours of booking.'}
+              {isSundayLunch && ' Sunday lunch orders must be placed by 1pm Saturday. Deposits are non-refundable within 48 hours of booking.'}
               {' '}For cancellations, please call us at least 2 hours in advance.
             </p>
           </div>
@@ -207,7 +207,7 @@ export function WizardStep7Confirm({
             <ul className="space-y-1">
               <li>• We have 20 free parking spaces available</li>
               <li>• Dogs are welcome throughout the pub</li>
-              {isSundayRoast ? (
+              {isSundayLunch ? (
                 <li>• Sunday roasts are served 12pm - 5pm</li>
               ) : (
                 <li>• Kitchen hours vary - check our website for current times</li>
@@ -248,7 +248,7 @@ export function WizardStep7Confirm({
             </>
           ) : (
             <>
-              {isSundayRoast ? `Pay £${depositAmount} & Confirm` : 'Confirm Booking'}
+              {isSundayLunch ? `Pay £${depositAmount} & Confirm` : 'Confirm Booking'}
               <Icon name="check" className="w-4 h-4" />
             </>
           )}

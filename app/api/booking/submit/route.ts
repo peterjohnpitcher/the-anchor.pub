@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { anchorAPI } from '@/lib/api'
 import type { TableBookingRequest } from '@/lib/api'
+import { getEffectiveDayHours, isKitchenClosed, normaliseUKPhone } from '@/lib/hours-utils'
 
 /**
  * Booking submission endpoint for the wizard
@@ -70,13 +71,27 @@ export async function POST(request: Request) {
       }, { status: 400 })
     }
     
-    // Check if booking is for Monday (kitchen closed)
-    const bookingDate = new Date(bookingData.date + 'T12:00:00')
-    if (bookingDate.getDay() === 1) { // Monday
-      return NextResponse.json({
-        success: false,
-        error: 'Kitchen is closed on Mondays. Bar service only - please call 01753 682707 for drinks-only reservations.'
-      }, { status: 400 })
+    // Check kitchen status from API (no hardcoded day logic)
+    try {
+      const businessHours = await anchorAPI.getBusinessHours()
+      const effectiveHours = getEffectiveDayHours(
+        bookingData.date,
+        businessHours.regularHours,
+        businessHours.specialHours
+      )
+      
+      if (isKitchenClosed(effectiveHours)) {
+        return NextResponse.json({
+          success: false,
+          error: {
+            code: 'KITCHEN_CLOSED',
+            message: 'Kitchen is closed on this date. Bar service only - please call 01753 682707 for drinks-only reservations.'
+          }
+        }, { status: 400 })
+      }
+    } catch (error) {
+      console.error('Failed to check business hours:', error)
+      // Continue with booking attempt - let API handle validation
     }
     
     // Determine booking type and handle menu selections
@@ -85,10 +100,11 @@ export async function POST(request: Request) {
     let menuSelections = undefined
     
     // Check if this is a Sunday booking
+    const bookingDate = new Date(bookingData.date + 'T12:00:00')
     const isSundayBooking = bookingDate.getDay() === 0
     
-    // Handle Sunday roast bookings
-    if (bookingData.bookingType === 'sunday_roast' && bookingData.menuSelections && bookingData.menuSelections.length > 0) {
+    // Handle Sunday lunch bookings (renamed from sunday_roast)
+    if (bookingData.bookingType === 'sunday_lunch' && bookingData.menuSelections && bookingData.menuSelections.length > 0) {
       // Use the proper API booking type for Sunday lunch with menu selections
       bookingType = 'sunday_lunch'
       menuSelections = bookingData.menuSelections
@@ -112,14 +128,16 @@ export async function POST(request: Request) {
       customer: {
         first_name: bookingData.firstName,
         last_name: bookingData.lastName,
-        mobile_number: bookingData.phone,
+        mobile_number: normaliseUKPhone(bookingData.phone),
         email: bookingData.email || undefined,
         sms_opt_in: bookingData.marketingOptIn || false
       },
       duration_minutes: 120,
       special_requirements: specialRequirements,
-      source: 'website_wizard',
-      marketing_opt_in: bookingData.marketingOptIn || false
+      dietary_requirements: bookingData.dietaryRequirements || [],
+      allergies: bookingData.allergies || [],
+      celebration_type: bookingData.occasion || undefined,
+      source: 'website'
     }
     
     // Add menu selections if available
@@ -128,7 +146,7 @@ export async function POST(request: Request) {
     }
     
     // Generate idempotency key to prevent duplicate bookings
-    const idempotencyKey = `${bookingData.date}-${bookingData.time}-${bookingData.phone}-${Date.now()}`
+    const idempotencyKey = `${bookingData.date}-${bookingData.time}-${normaliseUKPhone(bookingData.phone)}-${Date.now()}`
     
     // Submit to API
     console.log('🔍 FINAL REQUEST to API:')

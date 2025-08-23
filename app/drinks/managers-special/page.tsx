@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { Button, Container, Section, FullWidthSection } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
@@ -209,10 +210,13 @@ export default function ManagersSpecialPage() {
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-400 to-purple-600 rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
               <div className="relative bg-white rounded-2xl shadow-2xl p-8 md:p-12">
                 {dynamicImagePath && (
-                  <img 
+                  <Image 
                     src={dynamicImagePath}
                     alt={`${spirit.name} - ${promotion.headline}`}
+                    width={400}
+                    height={600}
                     className="w-full h-auto rounded-lg"
+                    unoptimized
                   />
                 )}
                 <div className="absolute -top-6 -right-6 bg-gradient-to-br from-amber-400 to-amber-500 text-white px-6 py-3 rounded-full shadow-lg font-bold text-xl transform rotate-12">

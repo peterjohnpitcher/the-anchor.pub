@@ -410,7 +410,7 @@ export function OpeningHoursSchema() {
 // Export all components
 // ============================================================================
 
-export default {
+const BusinessHoursComponents = {
   ProcessedStatusBar,
   BookingCTA,
   TodayCard,
@@ -418,3 +418,5 @@ export default {
   CompactHours,
   OpeningHoursSchema
 }
+
+export default BusinessHoursComponents

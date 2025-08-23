@@ -188,7 +188,7 @@ export default function BookingDatePicker({
     }
 
     fetchAvailableSlots()
-  }, [selectedDate, partySize, getKitchenMessage])
+  }, [selectedDate, partySize, getKitchenMessage, selectedTime])
 
   return (
     <form onSubmit={handleSubmit} className={`space-y-4 ${className}`}>

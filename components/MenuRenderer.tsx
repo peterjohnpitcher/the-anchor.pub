@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, memo, useRef, useEffect, useState } from 'react'
+import Image from 'next/image'
 import { MenuData, MenuCategory, MenuSection, MenuItem } from '@/lib/menu-parser'
 import { SpecialOfferNotifications } from './SpecialOfferNotifications'
 import { HeroBadge } from './HeroBadge'
@@ -305,10 +306,13 @@ const MenuItemCard = memo(function MenuItemCard({ item, itemId, isFocused, onFoc
             {specialImagePath && (
               <div className="md:col-span-3">
                 <div className="bg-white rounded-lg p-2 shadow-md">
-                  <img 
+                  <Image 
                     src={specialImagePath} 
                     alt={item.name}
+                    width={200}
+                    height={200}
                     className="w-full h-auto rounded"
+                    unoptimized
                     onError={(e) => {
                       logError('menu-image-load', new Error('Failed to load menu image'), {
                         src: e.currentTarget.src,

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui'
 import { getCurrentPromotionClient } from '@/lib/managers-special-utils-client'
 
@@ -67,10 +68,13 @@ export function ManagersSpecialHero() {
               {(imagePath || spirit?.image) && (
                 <div className="md:col-span-4">
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border-2 border-white/20 max-w-sm mx-auto md:mx-0">
-                    <img 
-                      src={imagePath || spirit?.image} 
+                    <Image 
+                      src={imagePath || spirit?.image || ''} 
                       alt={spirit?.name || 'Manager\'s Special'}
+                      width={300}
+                      height={450}
                       className="w-full h-auto rounded-lg shadow-lg"
+                      unoptimized
                     />
                   </div>
                 </div>

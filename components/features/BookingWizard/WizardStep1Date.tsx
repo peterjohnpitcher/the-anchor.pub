@@ -31,6 +31,21 @@ export function WizardStep1Date({ value, availabilityData, onNext }: WizardStep1
       const dayData = availabilityData.days.find(d => d.date === dateStr)
       const isBlocked = availabilityData.blockedDates.includes(dateStr)
       const isSunday = currentDate.getDay() === 0
+      const isMonday = currentDate.getDay() === 1
+      
+      // Separate venue closed from kitchen closed
+      // Use dayData if available, otherwise default to false (open)
+      const venueClosed = isBlocked || (dayData !== undefined ? dayData.isClosed : false)
+      
+      // Kitchen closed logic:
+      // - If we have data, use it
+      // - If no data AND it's Monday, default to kitchen closed (drinks only)
+      // - Otherwise default to open
+      const kitchenClosed = dayData !== undefined 
+        ? dayData.isKitchenClosed 
+        : isMonday // Mondays default to kitchen closed unless API says otherwise
+        
+      const drinksOnly = !venueClosed && kitchenClosed // Venue open but kitchen closed
       
       days.push({
         date: dateStr,
@@ -39,9 +54,10 @@ export function WizardStep1Date({ value, availabilityData, onNext }: WizardStep1
         month: currentDate.toLocaleDateString('en-GB', { month: 'short' }),
         isToday: dateStr === today.toISOString().split('T')[0],
         isSunday,
-        isBlocked: isBlocked || dayData?.isClosed || dayData?.isKitchenClosed,
-        hasRoast: isSunday && availabilityData.sundayRoastDates.includes(dateStr),
-        specialNote: dayData?.specialNote
+        isBlocked: venueClosed, // Only block if venue is closed
+        isDrinksOnly: drinksOnly, // New flag for drinks-only days
+        hasRoast: isSunday && !venueClosed && !kitchenClosed, // Show Sunday lunch icon if Sunday and kitchen is open,
+        specialNote: dayData?.specialNote || (drinksOnly ? 'Kitchen closed - drinks only' : '')
       })
       
       currentDate.setDate(currentDate.getDate() + 1)
@@ -52,8 +68,16 @@ export function WizardStep1Date({ value, availabilityData, onNext }: WizardStep1
   
   const calendarDays = generateCalendarDays()
   
-  const handleDateSelect = (date: string, isBlocked: boolean) => {
+  const handleDateSelect = (date: string, isBlocked: boolean, isDrinksOnly: boolean) => {
     if (isBlocked) return
+    
+    // Don't allow selection of drinks-only days - they must call
+    if (isDrinksOnly) {
+      setSelectedDate('') // Clear any previous selection
+      setError('Kitchen is closed on this day. For drinks-only bookings, please call 01753 682707')
+      return
+    }
+    
     setSelectedDate(date)
     setError('')
   }
@@ -63,6 +87,14 @@ export function WizardStep1Date({ value, availabilityData, onNext }: WizardStep1
       setError('Please select a date')
       return
     }
+    
+    // Double-check the selected date isn't drinks-only
+    const selectedDay = calendarDays.find(d => d.date === selectedDate)
+    if (selectedDay?.isDrinksOnly) {
+      setError('Kitchen is closed on this day. For drinks-only bookings, please call 01753 682707')
+      return
+    }
+    
     onNext(selectedDate)
   }
   
@@ -114,16 +146,18 @@ export function WizardStep1Date({ value, availabilityData, onNext }: WizardStep1
             <button
               key={day.date}
               type="button"
-              onClick={() => handleDateSelect(day.date, day.isBlocked || false)}
+              onClick={() => handleDateSelect(day.date, day.isBlocked || false, day.isDrinksOnly || false)}
               disabled={day.isBlocked}
+              title={day.specialNote || ''}
               className={cn(
                 'relative p-2 rounded-lg text-center transition-all',
                 'hover:scale-105 focus:outline-none focus:ring-2 focus:ring-anchor-gold',
                 'min-h-[60px] flex flex-col items-center justify-center',
                 selectedDate === day.date ? 'bg-anchor-green text-white' :
                 day.isBlocked ? 'bg-gray-100 text-gray-400 cursor-not-allowed' :
+                day.isDrinksOnly ? 'bg-blue-50 hover:bg-blue-100 border border-blue-200' :
+                day.isSunday && !day.isBlocked && !day.isDrinksOnly ? 'bg-amber-50 hover:bg-amber-100 border border-amber-200' :
                 day.isToday ? 'bg-anchor-cream border-2 border-anchor-gold' :
-                day.isSunday ? 'bg-amber-50 hover:bg-amber-100' :
                 'bg-white hover:bg-gray-50 border border-gray-200'
               )}
             >
@@ -131,8 +165,11 @@ export function WizardStep1Date({ value, availabilityData, onNext }: WizardStep1
               {day.isToday && (
                 <span className="text-xs mt-1">Today</span>
               )}
-              {day.hasRoast && !day.isBlocked && (
+              {day.hasRoast && !day.isBlocked && !day.isDrinksOnly && (
                 <Icon name="utensils" className="w-3 h-3 mt-1" />
+              )}
+              {day.isDrinksOnly && (
+                <Icon name="wine" className="w-3 h-3 mt-1 text-blue-500" />
               )}
               {day.isBlocked && (
                 <Icon name="close" className="w-3 h-3 mt-1 text-red-400" />
@@ -146,7 +183,11 @@ export function WizardStep1Date({ value, availabilityData, onNext }: WizardStep1
       <div className="flex flex-wrap gap-4 text-sm text-gray-600">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 bg-amber-50 rounded border border-amber-200" />
-          <span>Sunday (Roast available)</span>
+          <span>Sunday (Lunch available)</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 bg-blue-50 rounded border border-blue-200" />
+          <span>Drinks only - call to book</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 bg-gray-100 rounded" />
@@ -170,8 +211,9 @@ export function WizardStep1Date({ value, availabilityData, onNext }: WizardStep1
       
       {/* Error Message */}
       {error && (
-        <div className="bg-red-50 text-red-700 p-3 rounded-lg text-sm">
-          {error}
+        <div className="bg-blue-50 text-blue-700 p-3 rounded-lg text-sm flex items-start gap-2">
+          <Icon name="info" className="w-4 h-4 mt-0.5 flex-shrink-0" />
+          <span>{error}</span>
         </div>
       )}
       

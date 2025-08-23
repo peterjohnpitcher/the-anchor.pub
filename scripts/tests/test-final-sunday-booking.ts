@@ -9,7 +9,7 @@ dotenv.config({ path: '.env.local' })
 
 process.env.ANCHOR_API_KEY = 'anch_iPRE-XAgeN-D5QcfNTy_DxDbi1kZcrWg110ZroLotY4'
 
-import { AnchorAPI } from './lib/api'
+import { AnchorAPI } from '../../lib/api'
 const anchorAPI = new AnchorAPI(process.env.ANCHOR_API_KEY)
 
 async function testFinalSundayBooking() {

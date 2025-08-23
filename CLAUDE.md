@@ -1,256 +1,532 @@
-# CLAUDE.md
+# CLAUDE.md - AI Development Standards for The Anchor
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+> Comprehensive collaboration guidelines for Claude Code when working with The Anchor Pub codebase
+
+## Table of Contents
+
+1. [Core Principles](#core-principles)
+2. [Collaboration Guidelines](#collaboration-guidelines)
+3. [Code Standards](#code-standards)
+4. [Project Architecture](#project-architecture)
+5. [Testing & Quality Assurance](#testing--quality-assurance)
+6. [Development Workflow](#development-workflow)
+7. [Commands & Scripts](#commands--scripts)
+8. [Critical Business Rules](#critical-business-rules)
+9. [Common Tasks & Patterns](#common-tasks--patterns)
+10. [Security & Safety](#security--safety)
+
+## Core Principles
+
+### Foundation Rules
+1. **Scope Management First**: Only make changes explicitly requested - no "while I'm here" improvements
+2. **Test Everything**: Run tests and linting after every change
+3. **Consistency Over Perfection**: Follow existing patterns in the codebase
+4. **Security First**: Never commit secrets, API keys, or sensitive data
+5. **Documentation of Intent**: Code shows what, comments explain why (when requested)
+6. **Fail Fast, Recover Gracefully**: Validate inputs, handle errors appropriately
 
 ## Collaboration Guidelines
 
-When working on this codebase:
-
-### 1. Scope Management
-- **Only make changes explicitly requested** - no "while I'm here" improvements
-- **List planned changes before executing** - get confirmation first
-- **Stick to the exact scope** - resist adding extras like comments, reorganization, or "cleanup"
-
-### 2. Communication Pattern
-Before making changes:
+### Communication Pattern
+**Before making changes:**
 1. Clearly state what files will be modified
 2. List the specific changes to be made
-3. Wait for confirmation before proceeding
-4. Use TodoWrite tool to track each requested change
+3. Use TodoWrite tool to track each requested change
+4. Wait for confirmation before proceeding (when unclear)
 
-### 3. Avoid Unsolicited Changes
-Do NOT:
+### Response Standards
+- **Be Concise**: Maximum 4 lines of response text (excluding code/tools)
+- **No Preamble**: Answer directly without unnecessary introduction
+- **Reference Locations**: Use `file_path:line_number` format
+- **Batch Operations**: Use parallel tool calls when possible
+
+### Avoid Unsolicited Changes
+**DO NOT:**
 - Add comments unless specifically asked
-- Reorganize code structure
+- Reorganize code structure without request
 - "Improve" code style or formatting
 - Add documentation unless requested
 - Create new files unless explicitly required
+- Update git config or push without explicit request
 
-### 4. Ask Before Assuming
-When unsure:
+### When Uncertain, Ask
 - "Should I also update X?"
 - "This might affect Y - should I address it?"
 - "I noticed Z - would you like me to fix that separately?"
 
-## Commands
+## Code Standards
 
-### Development
-```bash
-npm run dev          # Start development server (default port 3000)
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
+### TypeScript/JavaScript Conventions
+```typescript
+// Variables and functions: camelCase
+const userName = "John";
+function calculateAccuracy() {}
+
+// React Components: PascalCase
+export function BookingWizard() {}
+
+// Files: kebab-case for routes, PascalCase for components
+// app/book-table/page.tsx
+// components/BookingWizard.tsx
+
+// Constants: UPPER_SNAKE_CASE
+const MAX_RETRIES = 3;
+const API_ENDPOINT = "https://management.orangejelly.co.uk";
+
+// Types/Interfaces: PascalCase
+interface BookingData {}
+type ApiResponse = {};
 ```
 
-### Testing
-```bash
-npm test             # Run unit tests
-npm run test:watch   # Run tests in watch mode
-npm run test:coverage # Run tests with coverage report
-npm run test:crawl   # Run Playwright E2E tests
-npm run test:crawl:ui # Run Playwright tests with UI
+### React/Next.js Patterns
+```typescript
+// Server Components (default)
+export default async function Page() {
+  const data = await fetchData();
+  return <div>{data}</div>;
+}
+
+// Client Components (only when needed)
+'use client'
+import { useState } from 'react';
+export function InteractiveComponent() {}
+
+// Always use forwardRef for UI components
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, ...props }, ref) => {}
+);
 ```
 
-### Analysis
-```bash
-npm run analyze      # Analyze bundle size
-npm run analyze:browser # Analyze client bundle
-npm run analyze:server  # Analyze server bundle
+### CVA Pattern for Components
+```typescript
+const componentVariants = cva('base-classes', {
+  variants: {
+    size: {
+      sm: 'text-sm',
+      md: 'text-base',
+      lg: 'text-lg'
+    }
+  },
+  defaultVariants: {
+    size: 'md'
+  }
+})
 ```
 
-## Architecture Overview
+## Project Architecture
 
 ### Technology Stack
 - **Framework**: Next.js 14.2.3 with App Router
 - **Language**: TypeScript with strict type checking
-- **Styling**: Tailwind CSS with custom anchor-branded color palette
-- **Components**: CVA (class-variance-authority) for variant management
-- **Analytics**: Google Tag Manager with comprehensive event tracking
+- **Styling**: Tailwind CSS with custom anchor-branded palette
+- **Components**: CVA for variant management
+- **Analytics**: Google Tag Manager
+- **External API**: management.orangejelly.co.uk
+
+### Directory Structure
+```
+the-anchor.pub/
+├── app/                    # Next.js App Router pages
+│   ├── api/               # API routes (proxy pattern)
+│   ├── book-table/        # Booking flow
+│   └── [route]/page.tsx   # Route pages
+├── components/
+│   ├── ui/                # Reusable UI primitives
+│   │   ├── primitives/    # Button, Input, Badge
+│   │   ├── layout/        # Container, Section, Grid
+│   │   └── index.ts       # Central exports
+│   ├── features/          # Business components
+│   └── tracking/          # Analytics components
+├── lib/                   # Utilities and helpers
+│   ├── api/              # API client code
+│   ├── gtm-events.ts     # Analytics tracking
+│   ├── constants.ts      # Business constants
+│   └── hours-utils.ts    # Business hours logic
+├── public/               # Static assets
+├── docs/                 # Documentation
+│   ├── MASTER-FACT-CHECK-REFERENCE.md
+│   └── COMPLETE_API_DOCUMENTATION.md
+└── tests/               # Test files
+```
 
 ### Key Architecture Patterns
 
 #### 1. Server-First Approach
 - Default to React Server Components
-- Add `'use client'` only when interactivity needed (onClick, useState, etc.)
-- Server components fetch data directly, client components use API routes
+- Add `'use client'` only for interactivity (onClick, useState)
+- Server components fetch data directly
 
 #### 2. API Proxy Pattern
-All external API calls go through Next.js API routes (`/api/*`) to:
-- Protect API keys (stored in environment variables)
-- Handle CORS issues
-- Add caching and error handling
-- Main external API: `management.orangejelly.co.uk`
+All external API calls go through Next.js API routes:
+- Protects API keys (environment variables)
+- Handles CORS issues
+- Adds caching and error handling
+- Centralizes API logic
 
-#### 3. Component Organization
+#### 3. Unified Business Logic
+- Single source of truth for hours/kitchen status
+- Centralized in `/lib/hours-utils.ts`
+- Consistent handling across all endpoints
+
+## Testing & Quality Assurance
+
+### Testing Requirements
+```bash
+# Always run after changes:
+npm run build        # Ensure compilation succeeds
+npm run lint         # Check code quality
+npm test            # Run unit tests
 ```
-components/
-├── ui/                 # Reusable UI primitives (always import from @/components/ui)
-│   ├── primitives/     # Base components (Button, Input, Badge)
-│   ├── layout/         # Layout components (Container, Section, Grid)
-│   └── index.ts        # Central export file
-├── features/           # Business-specific components
-├── hero/              # Hero section variants
-└── tracking/          # Analytics components
-```
 
-#### 4. Tracking Implementation
-Any component with user interaction tracking:
-1. Must be a client component (`'use client'`)
-2. Import from `@/lib/gtm-events`
-3. Check `typeof window !== 'undefined'` before using browser APIs
-4. Use snake_case for event names
+### Testing Checklist
+- [ ] Build completes without errors
+- [ ] No TypeScript errors
+- [ ] Linting passes
+- [ ] Tests pass
+- [ ] Manual testing of affected features
+- [ ] Check for console errors in browser
 
-Example:
+### Common Build Errors & Fixes
 ```typescript
-'use client'
-import { trackTableBookingClick } from '@/lib/gtm-events'
+// "useClient" errors: Add 'use client' to component
+'use client'  // Add at top of file
 
-<Button onClick={() => trackTableBookingClick('header_desktop')}>
-  Book Table
+// Window undefined: Check environment
+if (typeof window !== 'undefined') {
+  // Browser-only code
+}
+
+// Hydration mismatch: Ensure consistent rendering
+// Use useEffect for client-only logic
+```
+
+## Development Workflow
+
+### Git Standards
+
+#### Branch Strategy
+- Work directly on `main` for client projects
+- Create feature branches only for major changes
+
+#### Commit Messages
+```bash
+# Follow conventional commits
+feat: add table booking for special events
+fix: resolve Monday kitchen hours display
+refactor: consolidate API business hours logic
+docs: update CLAUDE.md with new standards
+test: add booking flow integration tests
+```
+
+#### Commit Process
+```bash
+# 1. Stage changes
+git add -A
+
+# 2. Commit with descriptive message
+git commit -m "fix: ensure Monday shows as drinks-only in calendar
+
+- Updated business hours logic to default Monday kitchen closed
+- Fixed calendar display consistency
+- Added proper fallback for dates without API data
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+
+# 3. ONLY push when explicitly requested
+git push origin main
+```
+
+### Pull Request Creation
+When requested to create a PR:
+1. Create branch if needed
+2. Push with -u flag if new branch
+3. Use `gh pr create` with proper format:
+```bash
+gh pr create --title "Fix Monday kitchen hours display" --body "$(cat <<'EOF'
+## Summary
+- Fixed inconsistent Monday display in booking calendar
+- Implemented business rule: Monday kitchen closed by default
+- Added proper API data fallback logic
+
+## Test plan
+- [x] Calendar shows all Mondays as drinks-only (blue)
+- [x] Special hours can override Monday kitchen status
+- [x] Build passes without errors
+- [x] No TypeScript issues
+
+Generated with Claude Code
+EOF
+)"
+```
+
+## Commands & Scripts
+
+### Development
+```bash
+npm run dev          # Start dev server (port 3000)
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run typecheck    # Run TypeScript checks
+```
+
+### Testing
+```bash
+npm test                  # Run unit tests
+npm run test:watch       # Watch mode
+npm run test:coverage    # Coverage report
+npm run test:crawl       # E2E tests (Playwright)
+npm run test:crawl:ui    # E2E with UI
+```
+
+### Analysis & Debugging
+```bash
+npm run analyze              # Bundle size analysis
+npm run analyze:browser      # Client bundle
+npm run analyze:server       # Server bundle
+
+# Check for issues
+npx tsc --noEmit            # TypeScript check
+npx next lint               # Linting
+```
+
+## Critical Business Rules
+
+### Brand Standards
+- **Always use**: "The Anchor" (never "The Anchor Pub" in content)
+- **Contact**: info@theanchorpub.co.uk | 01753 682707
+- **Domain**: www.the-anchor.pub (canonical with www)
+
+### Content Verification
+**Single Source of Truth Files:**
+- `/docs/MASTER-FACT-CHECK-REFERENCE.md` - All business facts
+- `/docs/MASTER-OFFERS-AND-CLAIMS.md` - Marketing claims
+- `/docs/COMPLETE_API_DOCUMENTATION.md` - API usage
+
+### Business Logic Rules
+1. **Monday Kitchen**: Always closed unless special hours explicitly open it
+2. **Sunday Lunch**: Requires advance booking and prepayment
+3. **Opening Hours**: Verified as of January 2025
+4. **No Service**: No breakfast, delivery, Sky Sports, or guest ales
+
+### API Integration Rules
+- **Single Source**: Management API is source of truth
+- **Phone Format**: Normalize to E.164 (+44...)
+- **Idempotency**: Use keys for bookings to prevent duplicates
+- **Error Handling**: Always provide fallback for API failures
+
+## Common Tasks & Patterns
+
+### Adding a New Page
+```typescript
+// app/new-route/page.tsx
+import { Metadata } from 'next'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
+
+export const metadata: Metadata = {
+  title: 'Page Title | The Anchor Stanwell Moor',
+  description: 'Page description',
+  alternates: {
+    canonical: './', // Relative to metadataBase
+  },
+}
+
+export default function Page() {
+  return (
+    <>
+      <HeroWrapper
+        route="/new-route"
+        title="Page Title"
+        description="Description"
+      />
+      {/* Page content */}
+    </>
+  )
+}
+```
+
+### Adding Analytics Tracking
+```typescript
+'use client'  // Required for tracking
+import { trackEventName } from '@/lib/gtm-events'
+
+// In component
+<Button onClick={() => trackEventName('source_location')}>
+  Action
 </Button>
 ```
 
-### Critical Business Rules
+### Updating Business Information
+1. Update `/docs/MASTER-FACT-CHECK-REFERENCE.md`
+2. Update `/lib/constants.ts` if needed
+3. Search for hardcoded instances
+4. Test build for TypeScript errors
 
-**Brand Usage**
-- Always use "The Anchor" (never "The Anchor Pub" in content)
-- Contact email: info@theanchorpub.co.uk
-- Phone: 01753 682707
-
-**Content Verification**
-- All business facts must match `/docs/MASTER-FACT-CHECK-REFERENCE.md`
-- Opening hours are confirmed as of January 2025
-- Kitchen closed Mondays (no food service)
-- No breakfast service, delivery, Sky Sports, or guest ales
-
-**Key Files**
-- `/docs/MASTER-FACT-CHECK-REFERENCE.md` - Single source of truth for all business information
-- `/docs/MASTER-OFFERS-AND-CLAIMS.md` - All verified marketing claims
-- `/lib/static-events.ts` - Static event data
-- `/lib/constants.ts` - Business information constants
-
-### Common Patterns
-
-#### Component Structure
+### API Error Handling Pattern
 ```typescript
-'use client' // Only if needed
-
-import { forwardRef } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '@/lib/utils'
-import type { BaseComponentProps } from '../types'
-
-const componentVariants = cva('base-classes', {
-  variants: { /* ... */ },
-  defaultVariants: { /* ... */ }
-})
-
-export interface ComponentProps 
-  extends BaseComponentProps,
-    VariantProps<typeof componentVariants> {
-  // Additional props
-}
-
-export const Component = forwardRef<HTMLElement, ComponentProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <element
-        ref={ref}
-        className={cn(componentVariants(props), className)}
-        {...props}
-      />
-    )
+try {
+  const response = await fetch('/api/endpoint')
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`)
   }
-)
-Component.displayName = 'Component'
+  const data = await response.json()
+  return data
+} catch (error) {
+  console.error('API call failed:', error)
+  // Return fallback data or handle gracefully
+  return defaultData
+}
 ```
 
-#### Error Handling Pattern
-```typescript
-if (error) return <ErrorDisplay type="specific" error={error} />
-if (loading) return <LoadingState />
-if (!data) return <EmptyState />
-```
+## Security & Safety
+
+### Never Commit
+- API keys or secrets (use `.env.local`)
+- Personal information or PII
+- Debug console.log statements with sensitive data
+- Commented out code with credentials
 
 ### Environment Variables
+```bash
+# .env.local (never commit)
+ANCHOR_API_KEY=your-key-here
+NEXT_PUBLIC_GTM_ID=GTM-XXXXX
+NEXT_PUBLIC_AVIATIONSTACK_API_KEY=xxxxx
 ```
-ANCHOR_API_KEY                        # External API authentication
-NEXT_PUBLIC_GTM_ID                   # Google Tag Manager ID
-NEXT_PUBLIC_AVIATIONSTACK_API_KEY    # Flight tracking API
+
+### Input Validation
+```typescript
+// Always validate and sanitize inputs
+function validatePhone(phone: string): string {
+  const cleaned = phone.replace(/\D/g, '')
+  if (cleaned.length < 10) {
+    throw new Error('Invalid phone number')
+  }
+  return normaliseUKPhone(cleaned)
+}
 ```
 
-### Performance Optimization
+### API Security
+- Always use API routes as proxy
+- Validate request methods
+- Check authentication where needed
+- Rate limit sensitive endpoints
+- Log suspicious activity
 
-**Image Handling**
-- Always use Next.js Image component
-- Include width, height, and sizes props
-- Add blur placeholder for above-fold images
-- Multiple formats configured (AVIF, WebP fallbacks)
+## Performance Optimization
 
-**Bundle Optimization**
-- Dynamic imports for non-critical components
-- Separate chunks for vendor/UI/features
-- Code splitting by route automatic with App Router
+### Image Handling
+```typescript
+import Image from 'next/image'
 
-### Testing Approach
+<Image
+  src="/image.jpg"
+  alt="Description"
+  width={800}
+  height={600}
+  sizes="(max-width: 768px) 100vw, 50vw"
+  priority={aboveFold}
+/>
+```
 
-**Component Testing**
-- Jest with React Testing Library
-- Test files in `__tests__` folders
-- Focus on user behavior over implementation
+### Code Splitting
+```typescript
+// Dynamic imports for heavy components
+const HeavyComponent = dynamic(
+  () => import('@/components/HeavyComponent'),
+  { loading: () => <Skeleton /> }
+)
+```
 
-**E2E Testing**
-- Playwright for critical user journeys
-- Tests in `/tests` directory
-- Run with `npm run test:crawl`
+### Bundle Optimization
+- Use dynamic imports for non-critical components
+- Implement route-based code splitting
+- Minimize client-side JavaScript
+- Prefer server components
 
-### Deployment
+## Debugging Tips
 
-**Build Process**
-1. `npm run build` creates optimized production build
-2. Static pages generated at build time
-3. API routes run as serverless functions
-4. Images optimized on-demand
+### Common Issues & Solutions
 
-**Hosting**
-- Deployed on Vercel
-- Automatic deployments from main branch
-- Preview deployments for pull requests
+#### Build Errors
+```bash
+# TypeScript errors
+npx tsc --noEmit
 
-### Common Tasks
+# Missing imports
+# Check @/components/ui/index.ts exports
 
-**Adding a New Page**
-1. Create file in `app/[route]/page.tsx`
-2. Add metadata for SEO
-3. Use HeroWrapper for consistent headers
-4. Include appropriate tracking components
-5. Follow spacing patterns (section-spacing-* classes)
+# Module not found
+# Verify file exists and path is correct
+```
 
-**Updating Business Information**
-1. Update `/docs/MASTER-FACT-CHECK-REFERENCE.md`
-2. Update any hardcoded instances in components
-3. Verify consistency across all pages
-4. Test build to ensure no TypeScript errors
+#### Runtime Errors
+```typescript
+// Hydration mismatches
+// Ensure server and client render same content
 
-**Adding Analytics Tracking**
-1. Define event in `/lib/gtm-events.ts`
-2. Make component client-side with `'use client'`
-3. Import and call tracking function
-4. Test in GTM Preview mode
+// API failures
+// Check network tab, verify endpoints
 
-### Debugging Tips
+// State issues
+// Use React DevTools to inspect
+```
 
-**Common Build Errors**
-- "useClient" errors: Add `'use client'` to component
-- Window undefined: Check `typeof window !== 'undefined'`
-- Hydration mismatch: Ensure server/client render same content
-- Import errors: Use central exports from `@/components/ui`
+#### Performance Issues
+```bash
+# Check bundle size
+npm run analyze
 
-**Performance Issues**
-- Check bundle size with `npm run analyze`
-- Verify images have proper sizes prop
-- Ensure heavy components use dynamic imports
-- Check for unnecessary client components
+# Profile with Chrome DevTools
+# Look for large components, unnecessary re-renders
+```
+
+## Monitoring & Observability
+
+### Structured Logging
+```typescript
+console.log('API_CALL', {
+  endpoint: '/api/booking/submit',
+  method: 'POST',
+  timestamp: new Date().toISOString(),
+  userId: user?.id,
+  success: true,
+  latency: endTime - startTime
+})
+```
+
+### Error Tracking
+```typescript
+try {
+  // Operation
+} catch (error) {
+  console.error('BOOKING_ERROR', {
+    error: error.message,
+    stack: error.stack,
+    context: { bookingData, step }
+  })
+  // Track in GTM
+  trackError('booking_submission', error.message)
+}
+```
+
+## Continuous Improvement
+
+### Code Review Checklist
+- [ ] Follows existing patterns
+- [ ] No hardcoded values that should be config
+- [ ] Error handling implemented
+- [ ] Loading and error states handled
+- [ ] Responsive design verified
+- [ ] Accessibility considered
+- [ ] Performance impact minimal
+
+### Regular Maintenance
+- Update dependencies monthly
+- Review and update documentation
+- Check for deprecated API usage
+- Monitor bundle size trends
+- Review error logs
 
 ## SEO & Domain Configuration
 
@@ -314,3 +590,14 @@ curl -s https://www.the-anchor.pub/[page] | grep '<link rel="canonical"'
 # Verify only ONE canonical tag exists
 # Verify it points to the correct URL (not homepage)
 ```
+
+## API Documentation Reference
+
+Whenever making changes to API usage, always follow the comprehensive documentation at:
+`/docs/COMPLETE_API_DOCUMENTATION.md`
+
+---
+
+*Last updated: 2025-01-23*
+*Version: 2.0.0*
+*This is a living document - update as patterns evolve*

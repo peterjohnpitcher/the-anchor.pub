@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Icon } from '@/components/ui/Icon'
 import { cn } from '@/lib/utils'
 import type { WizardStepProps, AvailabilityData, TimeSlot } from './types'
@@ -26,6 +26,30 @@ export function WizardStep4Time({
   const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([])
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  
+  const fetchAvailability = useCallback(async () => {
+    setLoading(true)
+    try {
+      const response = await fetch(
+        `/api/table-bookings/availability?date=${date}&party_size=${partySize}`
+      )
+      const data = await response.json()
+      
+      if (data.success && data.data.time_slots) {
+        setTimeSlots(data.data.time_slots.map((slot: any) => ({
+          time: slot.time,
+          available: slot.available,
+          busy: slot.tables_available < 3,
+          remaining: slot.tables_available
+        })))
+      }
+    } catch (error) {
+      console.error('Failed to fetch availability:', error)
+      setError('Unable to load available times. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }, [date, partySize])
   
   // Get available times for selected date
   useEffect(() => {
@@ -56,31 +80,7 @@ export function WizardStep4Time({
       // Fallback: fetch availability if not pre-loaded
       fetchAvailability()
     }
-  }, [date, partySize])
-  
-  const fetchAvailability = async () => {
-    setLoading(true)
-    try {
-      const response = await fetch(
-        `/api/table-bookings/availability?date=${date}&party_size=${partySize}`
-      )
-      const data = await response.json()
-      
-      if (data.success && data.data.time_slots) {
-        setTimeSlots(data.data.time_slots.map((slot: any) => ({
-          time: slot.time,
-          available: slot.available,
-          busy: slot.tables_available < 3,
-          remaining: slot.tables_available
-        })))
-      }
-    } catch (error) {
-      console.error('Failed to fetch availability:', error)
-      setError('Unable to load available times. Please try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
+  }, [date, partySize, availabilityData.days, fetchAvailability])
   
   const handleTimeSelect = (time: string, available: boolean) => {
     if (!available) return

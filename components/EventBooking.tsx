@@ -165,7 +165,7 @@ function EventBookingComponent({ event, className = '' }: EventBookingProps) {
       setIsBooking(false)
       abortControllerRef.current = null
     }
-  }, [phoneNumber, validatePhoneNumber, formatPhoneNumber, event.id, event.name, event.offers?.price])
+  }, [phoneNumber, validatePhoneNumber, formatPhoneNumber, event.id, event.name, event.offers?.price, announce])
 
   // Focus error message when it appears
   useEffect(() => {

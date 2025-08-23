@@ -46,7 +46,7 @@ export function trackBookingWizardComplete(bookingData: {
     event_action: 'Booking Completed',
     booking_type: bookingData.booking_type,
     party_size: bookingData.party_size,
-    is_sunday_roast: bookingData.is_sunday
+    is_sunday_lunch: bookingData.is_sunday
   })
 }
 

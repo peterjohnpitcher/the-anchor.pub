@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
-const blogRedirects = require('./blog-redirects.json')
-const tagRedirects = require('./tag-redirects.json')
-const wixRedirects = require('./wix-redirects.json')
-const legacyRedirects = require('./legacy-redirects.json')
-const drinksRedirects = require('./drinks-redirects.json')
+const blogRedirects = require('./config/redirects/blog-redirects.json')
+const tagRedirects = require('./config/redirects/tag-redirects.json')
+const wixRedirects = require('./config/redirects/wix-redirects.json')
+const legacyRedirects = require('./config/redirects/legacy-redirects.json')
+const drinksRedirects = require('./config/redirects/drinks-redirects.json')
 
 const nextConfig = {
   async redirects() {

@@ -11,9 +11,9 @@ export interface BookingWizardData {
   date: string
   
   // Step 2 (Sunday only)
-  bookingType: 'regular' | 'sunday_roast'
+  bookingType: 'regular' | 'sunday_lunch'
   
-  // Step 2b (Sunday roast only)
+  // Step 2b (Sunday lunch only)
   menuSelections?: MenuSelection[]
   
   // Step 3

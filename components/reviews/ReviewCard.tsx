@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { GoogleReview } from '@/lib/google/types'
 import { formatReviewDate, getReviewExcerpt } from '@/lib/google/review-utils'
 
@@ -62,10 +63,13 @@ export function ReviewCard({
         />
         <div className="flex-shrink-0">
           {review.profile_photo_url ? (
-            <img 
+            <Image 
               src={review.profile_photo_url} 
               alt={review.author_name}
+              width={48}
+              height={48}
               className="w-12 h-12 rounded-full"
+              unoptimized
             />
           ) : (
             <div className="w-12 h-12 rounded-full bg-anchor-green text-white flex items-center justify-center font-bold">
@@ -97,10 +101,13 @@ export function ReviewCard({
       />
       <div className="flex items-center gap-3 mb-3">
         {review.profile_photo_url ? (
-          <img 
+          <Image 
             src={review.profile_photo_url} 
             alt={review.author_name}
+            width={40}
+            height={40}
             className="w-10 h-10 rounded-full"
+            unoptimized
           />
         ) : (
           <div className="w-10 h-10 rounded-full bg-anchor-green text-white flex items-center justify-center font-bold">

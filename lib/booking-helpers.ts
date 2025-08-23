@@ -1,4 +1,5 @@
 import { AvailabilityData, DayAvailability, TimeSlot } from '@/components/features/BookingWizard/types'
+import { getEffectiveDayHours, isKitchenClosed, isVenueClosed } from '@/lib/hours-utils'
 
 // Cache availability data for 5 minutes
 const CACHE_DURATION = 5 * 60 * 1000
@@ -53,34 +54,42 @@ export async function getAvailabilityForNext30Days(): Promise<AvailabilityData> 
       // Process each date
       for (const dateStr of dates) {
         const date = new Date(dateStr + 'T12:00:00')
-        const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase()
-        const dayHours = businessHours.regularHours[dayOfWeek]
         const isSunday = date.getDay() === 0
         
+        // Get effective hours for this date (handles special hours override)
+        const effectiveHours = getEffectiveDayHours(
+          dateStr,
+          businessHours.regularHours,
+          businessHours.specialHours
+        )
+        
         // Check if venue is closed
-        const isClosed = !dayHours || dayHours.is_closed
+        const isClosed = isVenueClosed(effectiveHours)
         
-        // Check if kitchen is closed
-        const isKitchenClosed = !dayHours?.kitchen || 
-          dayHours.kitchen === null ||
-          ('is_closed' in dayHours.kitchen && dayHours.kitchen.is_closed)
+        // Check if kitchen is closed using unified logic
+        // Business rule: Monday kitchen is closed by default
+        const dayOfWeek = date.getDay()
+        const isMonday = dayOfWeek === 1
         
-        // Check for special hours
+        // For Mondays, only consider kitchen open if special hours explicitly say so
+        let kitchenClosed = isKitchenClosed(effectiveHours)
+        if (isMonday && !businessHours.specialHours?.find((sh: any) => sh.date === dateStr)) {
+          // It's a regular Monday (no special hours), so kitchen is closed
+          kitchenClosed = true
+        }
+        
+        // Check for special hours note
         let specialNote: string | undefined
-        if (businessHours.specialHours) {
-          const special = businessHours.specialHours.find((sh: any) => 
-            sh.date === dateStr
-          )
-          if (special) {
-            specialNote = special.note || special.reason
-          }
+        const special = businessHours.specialHours?.find((sh: any) => sh.date === dateStr)
+        if (special) {
+          specialNote = special.note || special.reason
         }
         
         // Generate time slots if venue is open
         const times: TimeSlot[] = []
-        if (!isClosed && dayHours.opens && dayHours.closes) {
-          const openTime = parseTime(dayHours.opens)
-          const closeTime = parseTime(dayHours.closes)
+        if (!isClosed && effectiveHours.opens && effectiveHours.closes) {
+          const openTime = parseTime(effectiveHours.opens)
+          const closeTime = parseTime(effectiveHours.closes)
           
           // Generate 30-minute slots
           let currentTime = openTime
@@ -89,17 +98,20 @@ export async function getAvailabilityForNext30Days(): Promise<AvailabilityData> 
             const minutes = (currentTime % 1) * 60
             const timeStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`
             
-            // Skip times when kitchen is closed for food bookings
-            const isKitchenTime = dayHours.kitchen && 
-              'opens' in dayHours.kitchen && 
-              'closes' in dayHours.kitchen
-            
+            // Determine availability based on kitchen hours
             let available = true
-            if (isKitchenTime) {
-              const kitchenOpen = parseTime(dayHours.kitchen.opens)
-              const kitchenClose = parseTime(dayHours.kitchen.closes)
+            
+            // If kitchen is explicitly closed, no times are available for food bookings
+            if (kitchenClosed) {
+              available = false
+            } else if (effectiveHours.kitchen && typeof effectiveHours.kitchen === 'object' && 
+                      'opens' in effectiveHours.kitchen && 'closes' in effectiveHours.kitchen) {
+              // If kitchen has specific hours, check if current time is within them
+              const kitchenOpen = parseTime(effectiveHours.kitchen.opens)
+              const kitchenClose = parseTime(effectiveHours.kitchen.closes)
               available = currentTime >= kitchenOpen && currentTime < kitchenClose
             }
+            // If kitchen is not closed and no specific hours, assume it follows venue hours
             
             times.push({
               time: timeStr,
@@ -117,14 +129,14 @@ export async function getAvailabilityForNext30Days(): Promise<AvailabilityData> 
           blockedDates.push(dateStr)
         }
         
-        if (isSunday && !isClosed && !isKitchenClosed) {
+        if (isSunday && !isClosed && !kitchenClosed) {
           sundayRoastDates.push(dateStr)
         }
         
         days.push({
           date: dateStr,
           isClosed,
-          isKitchenClosed,
+          isKitchenClosed: kitchenClosed,
           times,
           specialNote
         })

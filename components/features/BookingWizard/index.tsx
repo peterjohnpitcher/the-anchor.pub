@@ -18,7 +18,7 @@ interface BookingWizardProps {
   availabilityData: AvailabilityData
   initialStep?: number
   preselectedDate?: string
-  bookingType?: 'regular' | 'sunday_roast'
+  bookingType?: 'regular' | 'sunday_lunch'
 }
 
 // Define the step flow
@@ -61,14 +61,14 @@ export function BookingWizard({
   
   // Check if selected date is Sunday
   const isSunday = bookingData.date ? new Date(bookingData.date).getDay() === 0 : false
-  const isSundayRoast = bookingData.bookingType === 'sunday_roast'
+  const isSundayLunch = bookingData.bookingType === 'sunday_lunch'
   
   // Define all possible steps with conditions
   const allSteps: Step[] = [
     { type: 'date', label: 'Select Date' },
     { type: 'sunday_offer', label: 'Sunday Options', condition: () => isSunday },
     { type: 'party_size', label: 'Party Size' },
-    { type: 'menu_selection', label: 'Menu Selection', condition: () => isSundayRoast },
+    { type: 'menu_selection', label: 'Menu Selection', condition: () => isSundayLunch },
     { type: 'time', label: 'Select Time' },
     { type: 'details', label: 'Your Details' },
     { type: 'confirm', label: 'Confirm' }
@@ -90,7 +90,7 @@ export function BookingWizard({
     
     const newUrl = `/book-table?${params.toString()}`
     router.replace(newUrl, { scroll: false })
-  }, [currentStep, bookingData.date, bookingData.bookingType])
+  }, [currentStep, bookingData.date, bookingData.bookingType, router, searchParams])
   
   // Track step changes
   useEffect(() => {

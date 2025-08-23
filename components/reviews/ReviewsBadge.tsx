@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 interface ReviewsBadgeProps {
   rating: number
   totalReviews: number
@@ -56,10 +58,13 @@ export function ReviewsBadge({
         </a>
       </div>
       
-      <img 
+      <Image 
         src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_74x24dp.png"
         alt="Google"
+        width={74}
+        height={24}
         className="h-6 w-auto"
+        unoptimized
       />
     </div>
   )

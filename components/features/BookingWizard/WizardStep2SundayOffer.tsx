@@ -3,7 +3,7 @@
 import { Icon } from '@/components/ui/Icon'
 
 interface WizardStep2SundayOfferProps {
-  onSelect: (type: 'regular' | 'sunday_roast') => void
+  onSelect: (type: 'regular' | 'sunday_lunch') => void
   onBack: () => void
   selectedDate: string
 }
@@ -62,7 +62,7 @@ export function WizardStep2SundayOffer({ onSelect, onBack, selectedDate }: Wizar
         {/* Sunday Roast Option */}
         <button
           type="button"
-          onClick={() => onSelect('sunday_roast')}
+          onClick={() => onSelect('sunday_lunch')}
           disabled={isDeadlinePassed}
           className={`w-full p-6 rounded-lg border-2 transition-all text-left group ${
             isDeadlinePassed 

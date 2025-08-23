@@ -24,7 +24,7 @@ export default async function BookPage({
   // Determine initial step from URL params (for direct linking)
   const initialStep = parseInt(searchParams.step || '1', 10)
   const preselectedDate = searchParams.date
-  const bookingType = searchParams.type as 'regular' | 'sunday_roast' | undefined
+  const bookingType = searchParams.type as 'regular' | 'sunday_lunch' | undefined
   
   return (
     <>
@@ -216,7 +216,7 @@ export default async function BookPage({
           <select name="ai_time" data-availability="preloaded">
             {/* Times will be populated based on availability */}
           </select>
-          <input type="text" name="ai_booking_type" data-options="regular,sunday_roast" />
+          <input type="text" name="ai_booking_type" data-options="regular,sunday_lunch" />
         </form>
       </div>
       
