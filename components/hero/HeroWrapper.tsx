@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { HeroSection, HeroSize } from './HeroSection'
 import { Breadcrumbs, BreadcrumbItem } from './Breadcrumbs'
 import { HeroTag } from './HeroTag'
-import { getPageHeaderImage, getDefaultHeaderImage } from '@/utils/page-header-images'
+import { getPageHeaderImage, getDefaultHeaderImage } from '@/lib/page-header-images'
 import { StatusBarWrapper } from '@/components/StatusBarWrapper'
 
 interface HeroWrapperProps {
