@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
+import { getTodayHours, getTomorrowHours, formatTime12Hour } from '@/lib/status-boundary-calculator'
 
 export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' | 'navigation' }) {
   const [data, setData] = useState<any>(null)
@@ -44,41 +45,28 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
     return null
   }
 
-  const { currentStatus, regularHours } = data.data
+  const { currentStatus } = data.data
   const isOpen = currentStatus.isOpen
   const kitchenOpen = currentStatus.kitchenOpen
   
-  // Get today's and tomorrow's hours
-  const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
-  const now = new Date()
-  const todayIndex = now.getDay()
-  const tomorrowIndex = (todayIndex + 1) % 7
-  const today = days[todayIndex]
-  const tomorrow = days[tomorrowIndex]
-  
-  const todayHours = regularHours[today]
-  const tomorrowHours = regularHours[tomorrow]
-  
-  // Format time (HH:mm:ss to h:mma)
-  const formatTime = (time: string) => {
-    const [hour, minute] = time.split(':').map(Number)
-    const period = hour >= 12 ? 'pm' : 'am'
-    const displayHour = hour > 12 ? hour - 12 : hour || 12
-    return `${displayHour}${minute === 0 ? '' : `:${minute.toString().padStart(2, '0')}`}${period}`
-  }
+  // Get today's and tomorrow's hours using the helper functions
+  // These properly handle special hours and timezone logic
+  const todayHours = getTodayHours(data.data)
+  const tomorrowHours = getTomorrowHours(data.data)
 
   if (variant === 'navigation') {
     // Build bar message - check TODAY first, then tomorrow
     let barMessage = ''
     if (isOpen) {
       if (todayHours?.closes) {
-        barMessage = `Open until ${formatTime(todayHours.closes)}`
+        barMessage = `Open until ${formatTime12Hour(todayHours.closes)}`
       } else {
         barMessage = 'Open'
       }
     } else {
       // When closed, check if we're before today's opening FIRST
       if (todayHours?.opens && !todayHours.is_closed) {
+        const now = new Date()
         const currentTime = now.getHours() + now.getMinutes() / 60
         const openingHour = parseInt(todayHours.opens.split(':')[0])
         const openingMinute = parseInt(todayHours.opens.split(':')[1]) / 60
@@ -86,18 +74,18 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
         
         if (currentTime < openingDecimal) {
           // We're before today's opening (e.g., 6:45am before 4pm)
-          barMessage = `Opens at ${formatTime(todayHours.opens)}`
+          barMessage = `Opens at ${formatTime12Hour(todayHours.opens)}`
         } else {
           // We're after today's closing, show tomorrow if available
           if (tomorrowHours?.opens && !tomorrowHours.is_closed) {
-            barMessage = `Opens tomorrow at ${formatTime(tomorrowHours.opens)}`
+            barMessage = `Opens tomorrow at ${formatTime12Hour(tomorrowHours.opens)}`
           } else {
             barMessage = 'Closed'
           }
         }
       } else if (tomorrowHours?.opens && !tomorrowHours.is_closed) {
         // Today has no hours (closed all day), show tomorrow
-        barMessage = `Opens tomorrow at ${formatTime(tomorrowHours.opens)}`
+        barMessage = `Opens tomorrow at ${formatTime12Hour(tomorrowHours.opens)}`
       } else {
         barMessage = 'Closed'
       }
@@ -109,15 +97,16 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
       // No kitchen service today (like Monday)
       const tomorrowKitchen = tomorrowHours?.kitchen
       if (tomorrowKitchen && typeof tomorrowKitchen === 'object' && 'opens' in tomorrowKitchen && tomorrowKitchen.opens) {
-        kitchenMessage = `Open tomorrow at ${formatTime(tomorrowKitchen.opens)}`
+        kitchenMessage = `Open tomorrow at ${formatTime12Hour(tomorrowKitchen.opens)}`
       } else {
         kitchenMessage = 'Closed today'
       }
-    } else if (kitchenOpen && todayHours.kitchen.closes) {
-      kitchenMessage = `Open until ${formatTime(todayHours.kitchen.closes)}`
+    } else if (kitchenOpen && todayHours.kitchen && typeof todayHours.kitchen === 'object' && 'closes' in todayHours.kitchen) {
+      kitchenMessage = `Open until ${formatTime12Hour(todayHours.kitchen.closes)}`
     } else if (!kitchenOpen) {
       // Kitchen closed - check if it opens later today
-      if (todayHours.kitchen.opens) {
+      if (todayHours.kitchen && typeof todayHours.kitchen === 'object' && 'opens' in todayHours.kitchen) {
+        const now = new Date()
         const currentTime = now.getHours() + now.getMinutes() / 60
         const kitchenOpenHour = parseInt(todayHours.kitchen.opens.split(':')[0])
         const kitchenOpenMinute = parseInt(todayHours.kitchen.opens.split(':')[1]) / 60
@@ -125,12 +114,12 @@ export function StatusBarSimple({ variant = 'default' }: { variant?: 'default' |
         
         if (currentTime < kitchenOpenDecimal) {
           // Kitchen opens later today
-          kitchenMessage = `Opens at ${formatTime(todayHours.kitchen.opens)}`
+          kitchenMessage = `Opens at ${formatTime12Hour(todayHours.kitchen.opens)}`
         } else {
           // Kitchen closed for today, show tomorrow
           const tomorrowKitchen = tomorrowHours?.kitchen
           if (tomorrowKitchen && typeof tomorrowKitchen === 'object' && 'opens' in tomorrowKitchen && tomorrowKitchen.opens) {
-            kitchenMessage = `Open tomorrow at ${formatTime(tomorrowKitchen.opens)}`
+            kitchenMessage = `Open tomorrow at ${formatTime12Hour(tomorrowKitchen.opens)}`
           } else {
             kitchenMessage = 'Closed'
           }
