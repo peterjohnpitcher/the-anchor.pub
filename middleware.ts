@@ -2,6 +2,16 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
+  // Handle domain redirects (non-www to www)
+  const host = request.headers.get('host')
+  const url = request.nextUrl.clone()
+  
+  // Redirect non-www to www
+  if (host === 'the-anchor.pub') {
+    url.host = 'www.the-anchor.pub'
+    return NextResponse.redirect(url, 301)
+  }
+  
   const response = NextResponse.next()
   
   // Add performance and security headers

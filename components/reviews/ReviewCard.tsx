@@ -15,30 +15,6 @@ export function ReviewCard({
   showFullText = false,
   index = 0
 }: ReviewCardProps) {
-  // Generate Review schema markup
-  const reviewSchema = {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "author": {
-      "@type": "Person",
-      "name": review.author_name,
-      "url": review.author_url
-    },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": review.rating.toString(),
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "reviewBody": review.text,
-    "datePublished": new Date(review.time * 1000).toISOString(),
-    "itemReviewed": {
-      "@type": "Restaurant",
-      "@id": "https://www.the-anchor.pub/#business",
-      "name": "The Anchor"
-    }
-  }
-
   const renderStars = (rating: number) => {
     return (
       <div className="flex gap-0.5">
@@ -57,10 +33,6 @@ export function ReviewCard({
   if (variant === 'horizontal') {
     return (
       <div className="bg-white rounded-lg p-6 shadow-md flex gap-4">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-        />
         <div className="flex-shrink-0">
           {review.profile_photo_url ? (
             <Image 
@@ -95,10 +67,6 @@ export function ReviewCard({
 
   return (
     <div className="bg-white rounded-xl p-6 shadow-md h-full flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-      />
       <div className="flex items-center gap-3 mb-3">
         {review.profile_photo_url ? (
           <Image 

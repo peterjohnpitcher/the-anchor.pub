@@ -4,10 +4,11 @@ const tagRedirects = require('./config/redirects/tag-redirects.json')
 const wixRedirects = require('./config/redirects/wix-redirects.json')
 const legacyRedirects = require('./config/redirects/legacy-redirects.json')
 const drinksRedirects = require('./config/redirects/drinks-redirects.json')
+const additionalRedirects = require('./config/redirects/additional-redirects.json')
 
 const nextConfig = {
   async redirects() {
-    return [...wixRedirects, ...blogRedirects, ...tagRedirects, ...legacyRedirects, ...drinksRedirects]
+    return [...wixRedirects, ...blogRedirects, ...tagRedirects, ...legacyRedirects, ...drinksRedirects, ...additionalRedirects]
   },
   async headers() {
     return [

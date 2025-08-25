@@ -29,6 +29,9 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
     title: seoContent.metaTitle,
     description: seoContent.metaDescription,
     keywords: seoContent.keywords.join(', '),
+    alternates: {
+      canonical: './', // Use relative canonical to strip parameters
+    },
     openGraph: {
       title: seoContent.metaTitle,
       description: seoContent.metaDescription,
