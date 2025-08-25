@@ -102,7 +102,7 @@ export default function FindUsPage() {
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
-            Find The Anchor - Directions from Heathrow
+            Find The Anchor - FREE Parking & Easy Directions from Heathrow
           </PageTitle>
         </Container>
       </div>
@@ -116,10 +116,10 @@ export default function FindUsPage() {
               <p className="font-bold text-anchor-green">Stanwell Moor</p>
               <p className="text-sm text-gray-700">Surrey TW19 6AQ</p>
             </div>
-            <div className="bg-white p-4 rounded-lg text-center">
-              <div className="text-3xl mb-2">🚗</div>
-              <p className="font-bold text-anchor-green">Free Parking</p>
-              <p className="text-sm text-gray-700">20 spaces for pub guests</p>
+            <div className="bg-green-50 p-4 rounded-lg text-center border-2 border-green-200">
+              <div className="text-3xl mb-2">🆓</div>
+              <p className="font-bold text-green-700">FREE PARKING</p>
+              <p className="text-sm text-green-600 font-semibold">20 spaces • No time limits!</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">✈️</div>
@@ -353,29 +353,35 @@ export default function FindUsPage() {
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
-              title="Free Parking"
+              title="🆓 FREE Parking - 20 Spaces Available!"
+              subtitle="No charges, no time limits, no hassle - just park and enjoy!"
             />
-            <div className="bg-anchor-cream rounded-2xl p-8">
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200">
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
+                  <div className="text-4xl mb-3">🆓</div>
+                  <h3 className="font-bold text-green-700 mb-2">ALWAYS FREE</h3>
+                  <p className="text-gray-700">Unlike Heathrow (£7.50/hour!)</p>
+                </div>
+                <div>
+                  <div className="text-4xl mb-3">⏰</div>
+                  <h3 className="font-bold text-green-700 mb-2">NO TIME LIMITS</h3>
+                  <p className="text-gray-700">Stay as long as you like!</p>
+                </div>
+                <div>
                   <div className="text-4xl mb-3">🚗</div>
-                  <h3 className="font-bold text-anchor-green mb-2">20 Spaces</h3>
-                  <p className="text-gray-700">Free parking for pub guests</p>
-                </div>
-                <div>
-                  <div className="text-4xl mb-3">♿</div>
-                  <h3 className="font-bold text-anchor-green mb-2">Close to Building</h3>
-                  <p className="text-gray-700">All spaces are near the entrance</p>
-                </div>
-                <div>
-                  <div className="text-4xl mb-3">🔒</div>
-                  <h3 className="font-bold text-anchor-green mb-2">Safe & Lit</h3>
-                  <p className="text-gray-700">Well-lit parking area with CCTV</p>
+                  <h3 className="font-bold text-green-700 mb-2">20 SPACES</h3>
+                  <p className="text-gray-700">Well-lit with CCTV coverage</p>
                 </div>
               </div>
-              <p className="mt-6 text-gray-700 italic">
-                Free parking for pub guests. Paid parking for longer term stays coming soon.
-              </p>
+              <div className="mt-6 bg-white rounded-lg p-4">
+                <p className="text-green-700 font-bold text-lg">
+                  💰 Compare: Heathrow T5 Short Stay = £7.50/hour | The Anchor = FREE!
+                </p>
+                <p className="text-sm text-gray-600 mt-2">
+                  Perfect for picking up/dropping off at Heathrow without the parking fees!
+                </p>
+              </div>
             </div>
           </div>
         </Container>

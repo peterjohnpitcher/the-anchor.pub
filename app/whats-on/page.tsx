@@ -22,9 +22,9 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { quizNightEventSeries, dragShowEventSeries, bingoEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: "What's On - Events & Entertainment | The Anchor",
-  description: "Regular monthly events at The Anchor in Surrey including drag shows, quiz nights, bingo & more. Plus major sports on TV near Heathrow!",
-  keywords: "events stanwell moor, drag shows near heathrow, quiz night stanwell, pub entertainment surrey",
+  title: "What's On Tonight | FREE Events | Quiz £3 | Drag Shows | Live Music | The Anchor",
+  description: "🎉 SEE WHAT'S ON TODAY! FREE live music, quiz nights £3, drag shows, cash bingo. Pool & darts always FREE. Check our live events calendar. Book tables for popular shows!",
+  keywords: "what's on tonight stanwell moor, events today near heathrow, free events tonight, live music tonight, drag show tonight, quiz night today",
   openGraph: {
     title: "What's On at The Anchor",
     description: "Drag shows, quiz nights and more. Your local entertainment hub.",
@@ -116,10 +116,10 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         showStatusBar={true}
         statusBarPosition="below"
         tags={[
+          { label: '🆓 FREE Live Music', variant: 'success' },
           { label: '👑 Drag Shows', variant: 'primary' },
-          { label: '🎉 Special Events', variant: 'success' },
-          { label: '🧠 Quiz Nights', variant: 'warning' },
-          { label: '🎱 Cash Bingo', variant: 'default' }
+          { label: '🧠 Quiz Night £3', variant: 'warning' },
+          { label: '🎱 Pool & Darts FREE', variant: 'default' }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -182,8 +182,8 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
       <div className="bg-gradient-to-r from-purple-50 to-pink-50 section-spacing-md">
         <Container>
           <SectionHeader
-            title="Monthly Highlights"
-            subtitle="Our most popular regular events"
+            title="Monthly Highlights - Great Value Entertainment"
+            subtitle="FREE entry to most events • Small entry fees support charity & prizes"
           />
           
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -206,12 +206,12 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
               <CardBody className="text-center p-8">
                 <div className="text-5xl mb-4">🧠</div>
                 <h3 className="text-2xl font-bold text-anchor-green mb-3">
-                  Quiz Night
+                  Quiz Night - Just £3 Entry!
                 </h3>
                 <p className="text-gray-700 mb-4">
-                  Test your knowledge monthly. £3 entry, great prizes, and brilliant atmosphere.
+                  Test your knowledge monthly. Only £3 entry with cash prizes for winners!
                 </p>
-                <p className="text-sm text-gray-600">Check calendar for dates</p>
+                <p className="text-sm font-bold text-green-600">Great value entertainment</p>
               </CardBody>
             </Card>
             
@@ -222,9 +222,9 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
                   Cash Prize Bingo
                 </h3>
                 <p className="text-gray-700 mb-4">
-                  Monthly bingo nights with cash prizes. £10 per book, jackpot on the last game!
+                  Monthly bingo with CASH PRIZES! £10 per book gets you all games including jackpot!
                 </p>
-                <p className="text-sm text-gray-600">Check calendar for dates</p>
+                <p className="text-sm font-bold text-green-600">Win real money!</p>
               </CardBody>
             </Card>
           </div>
@@ -235,8 +235,8 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
       <div className="bg-white section-spacing-md">
         <Container>
           <SectionHeader
-            title="Daily Entertainment & Games"
-            subtitle="Always something to do at The Anchor - from traditional pub games to digital entertainment"
+            title="FREE Daily Entertainment & Games"
+            subtitle="Pool table, darts, and more - all FREE to play! No coins or booking needed"
           />
           
           <FeatureGrid
@@ -244,15 +244,15 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             features={[
               {
                 icon: "🎱",
-                title: "Pool Table",
-                description: "Challenge your friends to a game. Cues and chalk provided.",
+                title: "Pool Table - FREE",
+                description: "FREE to play all day! No coins needed. Cues and chalk provided.",
                 variant: "default",
                 className: "bg-white rounded-xl p-6 text-center shadow-sm"
               },
               {
                 icon: "🎯",
-                title: "Darts Board",
-                description: "Professional board with oche. Darts available at the bar.",
+                title: "Darts - FREE",
+                description: "FREE to play! Professional board with oche. Darts available at the bar.",
                 variant: "default",
                 className: "bg-white rounded-xl p-6 text-center shadow-sm"
               },

@@ -129,13 +129,15 @@ const nextConfig = {
   images: {
     domains: ['the-anchor.pub', 'www.the-anchor.pub', 'management.orangejelly.co.uk', 'example.com', 'openweathermap.org', 'tfcasgxopxegwrabvwat.supabase.co'],
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 1024, 1920],  // Optimized for our breakpoints
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],  // Common device sizes
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: false,
+    // Optimize image quality for smaller file sizes
+    quality: 75,
   },
   poweredByHeader: false,
   compress: true,

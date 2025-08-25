@@ -13,19 +13,22 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
-  title: 'Beer Garden & Plane Spotting | The Anchor',
-  description: 'Unique beer garden under Heathrow flight path. Best plane spotting location with outdoor seating, dog-friendly space & aircraft views every 90 seconds.',
-  keywords: 'plane spotting heathrow, beer garden stanwell moor, beer garden heathrow, plane spotting venue, outdoor dining heathrow, best places for plane spotting, heathrow flight path',
+  title: 'Beer Garden Under Heathrow Flight Path | Plane Spotting Pub | The Anchor',
+  description: 'Famous beer garden directly under Heathrow flight path. Watch planes every 90 seconds while enjoying drinks. Perfect for aviation photographers. Dog-friendly, heated, FREE parking.',
+  keywords: 'plane spotting pub, pub near heathrow to watch planes, beer garden heathrow flight path, aviation photography pub, plane spotting stanwell moor, beer garden under flight path, watch planes heathrow, aircraft spotting pub',
   openGraph: {
-    title: 'Beer Garden & Plane Spotting - The Anchor',
-    description: 'Watch planes overhead every 90 seconds while enjoying drinks in our unique beer garden',
+    title: 'Beer Garden Under Heathrow Flight Path | The Anchor',
+    description: 'Watch planes overhead every 90 seconds. Perfect for aviation photographers. FREE parking.',
     images: ['/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Beer Garden & Plane Spotting - The Anchor',
-    description: 'Watch planes overhead every 90 seconds while enjoying drinks in our unique beer garden',
+    title: 'Beer Garden Under Heathrow Flight Path | The Anchor',
+    description: 'Watch planes overhead every 90 seconds. Perfect for aviation photographers.',
     images: ['/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg']
-  })
+  }),
+  alternates: {
+    canonical: '/beer-garden'
+  }
 }
 
 const planeSpottingSchema = {

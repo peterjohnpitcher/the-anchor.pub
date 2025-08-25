@@ -17,9 +17,9 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Terminal 5 | The Anchor - Stanwell Moor',
-  description: 'Escape Sofitel & Hilton T5 hotel dining. Experience an authentic British family pub just 7 minutes from Terminal 5. Free parking, real ales, home-cooked food.',
-  keywords: 'pub near terminal 5, heathrow terminal 5 restaurant, closest pub to T5, british airways terminal pub, sofitel heathrow alternative, hilton T5 restaurant, local pub near heathrow hotels',
+  title: 'Pub Near Heathrow Terminal 5 | 7 Minutes by Car | FREE Parking | The Anchor',
+  description: 'Closest traditional pub to Terminal 5. Just 7 mins by car/taxi (£20), 15 mins by bus. FREE parking. Better than Sofitel/Hilton dining at half the price!',
+  keywords: 'pub near terminal 5, heathrow terminal 5 restaurant, closest pub to T5, british airways terminal pub, sofitel heathrow alternative, hilton T5 restaurant, local pub near heathrow hotels, how to get to pub from terminal 5, terminal 5 taxi to pub',
   openGraph: {
     title: 'The Anchor - Real British Pub Near Terminal 5 Hotels',
     description: 'Escape hotel dining! Authentic local pub 7 mins from Sofitel & Hilton T5. Free parking.',
@@ -159,46 +159,60 @@ export default function Terminal5Page() {
               </div>
 
               {/* By Taxi */}
-              <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚕 By Taxi</h3>
+              <div className="bg-amber-50 rounded-2xl p-8 border-2 border-amber-200">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚕 By Taxi/Uber</h3>
                 <div className="space-y-4 text-gray-700">
-                  <div>
-                    <p className="font-semibold mb-2">Cost: £20-£25</p>
-                    <p className="text-sm text-gray-600 mb-2">Journey time: 4-7 minutes (2.8 miles)</p>
-                    <p>Tell your driver: &quot;The Anchor, Horton Road, Stanwell Moor&quot;</p>
+                  <div className="bg-white p-4 rounded-lg">
+                    <p className="font-bold text-lg text-green-700 mb-1">£20-25 fixed fare</p>
+                    <p className="text-sm text-gray-600">7 minutes • 2.8 miles</p>
                   </div>
                   <div>
-                    <p className="font-semibold mb-2">Taxi Ranks:</p>
-                    <ul className="list-disc list-inside space-y-1 text-sm">
-                      <li>Arrivals level (Ground floor)</li>
-                      <li>Departures level (First floor)</li>
-                      <li>Short stay car park</li>
+                    <p className="font-semibold mb-2">Tell your driver:</p>
+                    <p className="italic">&quot;The Anchor pub, Horton Road, Stanwell Moor, TW19 6AQ&quot;</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Pick-up Points:</p>
+                    <ul className="space-y-1 text-sm">
+                      <li>• <strong>Arrivals:</strong> Exit, turn left, taxi rank outside</li>
+                      <li>• <strong>Departures:</strong> Level 1, follow taxi signs</li>
+                      <li>• <strong>Uber:</strong> Short Stay Car Park Level 4</li>
                     </ul>
                   </div>
-                  <div className="p-4 bg-white rounded-lg">
-                    <p className="font-semibold text-anchor-green mb-2">Pre-book Return:</p>
-                    <p className="text-sm">We can arrange your return taxi - just ask at the bar!</p>
+                  <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+                    <p className="font-semibold text-green-800 mb-1">💡 Return Taxi Service</p>
+                    <p className="text-sm">We'll call you a cab back to T5 - just ask!</p>
                   </div>
                 </div>
               </div>
 
               {/* By Bus */}
-              <div className="bg-anchor-cream rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚌 By Bus</h3>
+              <div className="bg-sky-50 rounded-2xl p-8 border-2 border-sky-200">
+                <h3 className="text-2xl font-bold text-anchor-green mb-4">🚌 By Bus (Budget Option)</h3>
                 <div className="space-y-4 text-gray-700">
-                  <div>
-                    <p className="font-semibold mb-2">Route 442</p>
-                    <p className="text-sm mb-2">Staines - Stanwell Moor - Heathrow</p>
-                    <p className="text-sm">Runs every 20 minutes</p>
+                  <div className="bg-white p-4 rounded-lg">
+                    <p className="font-bold text-lg text-green-700 mb-1">£2.50 single fare</p>
+                    <p className="text-sm text-gray-600">15-20 minutes journey</p>
                   </div>
                   <div>
-                    <p className="font-semibold mb-2">Journey Time: 4-6 minutes</p>
-                    <p className="text-sm">Ask driver for "The Anchor" stop</p>
+                    <p className="font-semibold mb-2">Routes to The Anchor:</p>
+                    <ul className="space-y-2 text-sm">
+                      <li className="bg-white p-2 rounded">
+                        <strong>442:</strong> T5 → Stanwell Moor (every 20 mins)
+                      </li>
+                      <li className="bg-white p-2 rounded">
+                        <strong>441:</strong> T5 → Staines via Stanwell (hourly)
+                      </li>
+                    </ul>
                   </div>
-                  <div className="p-4 bg-white rounded-lg">
-                    <p className="font-semibold text-anchor-green mb-1">Bus Stop Location:</p>
-                    <p className="text-sm">Central Bus Station, Terminal 5</p>
-                    <p className="text-sm text-gray-600">Ground floor, follow signs</p>
+                  <div>
+                    <p className="font-semibold mb-2">Where to Catch Bus:</p>
+                    <p className="text-sm">Central Bus Station (Ground Floor)</p>
+                    <p className="text-sm">Follow signs from Arrivals</p>
+                  </div>
+                  <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <p className="font-semibold text-yellow-800 mb-1">⚠️ Important</p>
+                    <p className="text-sm">Tell driver: "The Anchor pub stop"</p>
+                    <p className="text-sm">Last bus: 11:30pm Mon-Sat, 10:30pm Sun</p>
                   </div>
                 </div>
               </div>
@@ -230,6 +244,7 @@ export default function Terminal5Page() {
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Why Terminal 5 Travelers Choose The Anchor"
+              subtitle="British Airways crews and Sofitel/Hilton guests love our authentic pub"
               align="center"
             />
             
@@ -243,13 +258,13 @@ export default function Terminal5Page() {
                 },
                 {
                   title: "Beat the Airport Prices",
-                  icon: "⏰",
-                  content: "Why pay £15 for a sandwich at T5? Enjoy a full meal with us for the same price. Plus a pint costs half what you'd pay airside!"
+                  icon: "💰",
+                  content: "T5 sandwich: £15. Our full meal: £12.95. T5 pint: £8. Our pint: £4.50. Save 50% on dining!"
                 },
                 {
-                  title: "Free Parking Advantage",
+                  title: "FREE Parking vs T5 Charges",
                   icon: "🅿️",
-                  content: "Meeting someone? Save on T5's expensive short-stay parking. Park free with us and track their flight on our WiFi."
+                  content: "T5 Short Stay: £7.50/hour. T5 Long Stay: £25/day. The Anchor: FREE! Perfect for picking up/dropping off."
                 },
                 {
                   title: "Pre-Flight Dining",
@@ -289,8 +304,8 @@ export default function Terminal5Page() {
               <FlightDelayWidget terminal="5" />
             </div>
 
-            <div className="bg-anchor-sand/30 rounded-2xl p-8 mb-8">
-              <h3 className="text-2xl font-bold text-anchor-green mb-4">Travel Tips</h3>
+            <div className="bg-gradient-to-r from-sky-50 to-amber-50 rounded-2xl p-8 mb-8 border-2 border-anchor-gold">
+              <h3 className="text-2xl font-bold text-anchor-green mb-4">📍 Terminal 5 Insider Tips</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <p className="font-semibold mb-2">Check-in Times:</p>
@@ -622,6 +637,43 @@ export default function Terminal5Page() {
                   "name": "Arrive at The Anchor",
                   "text": "The Anchor is 200m on your right with free parking",
                   "position": 5
+                }
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "TravelAction",
+              "name": "Travel from Heathrow Terminal 5 to The Anchor",
+              "agent": {
+                "@type": "Person",
+                "name": "Heathrow Traveler"
+              },
+              "fromLocation": {
+                "@type": "Airport",
+                "name": "Heathrow Terminal 5",
+                "address": "London Heathrow Airport, TW6 2GA"
+              },
+              "toLocation": {
+                "@type": "Restaurant",
+                "name": "The Anchor",
+                "address": "Horton Road, Stanwell Moor, TW19 6AQ"
+              },
+              "distance": "2.8 miles",
+              "instrument": [
+                {
+                  "@type": "Vehicle",
+                  "name": "Car",
+                  "description": "7 minutes drive, FREE parking available"
+                },
+                {
+                  "@type": "Vehicle", 
+                  "name": "Taxi",
+                  "description": "£20-25 fixed fare, 7 minutes"
+                },
+                {
+                  "@type": "Vehicle",
+                  "name": "Bus",
+                  "description": "Route 442/441, £2.50 single, 15-20 minutes"
                 }
               ]
             }

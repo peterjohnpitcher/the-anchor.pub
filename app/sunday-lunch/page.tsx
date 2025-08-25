@@ -279,29 +279,31 @@ export default function SundayLunchPage() {
             </div>
             
             {/* Deposit Information */}
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-8 text-center">
-              <h4 className="text-lg font-bold text-blue-900 mb-2">💳 Deposit Information</h4>
-              <p className="text-blue-800">
-                Sunday roasts require pre-order with <strong>£5 per person deposit by 1pm Saturday</strong>
+            <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6 mb-8 text-center animate-pulse">
+              <h4 className="text-lg font-bold text-red-900 mb-2">🚨 BOOK NOW - Limited Sunday Spaces!</h4>
+              <p className="text-red-800">
+                <strong>Deadline: Saturday 1pm</strong> • £5 deposit secures your roast
               </p>
-              <p className="text-blue-700 text-sm mt-1">
-                Balance payable on the day • Prices shown are total per person
+              <p className="text-red-700 text-sm mt-1">
+                We sell out most Sundays • Don't be disappointed!
               </p>
-              <p className="text-blue-600 text-xs mt-2">
-                Looking for "Sunday carvery near me"? We prepare each roast fresh to order!
+              <p className="text-red-600 text-xs mt-2">
+                {new Date().getDay() === 0 ? 'Too late for today - book for next Sunday!' : 
+                 new Date().getDay() === 6 ? 'Last chance for tomorrow!' : 
+                 'Book now for this Sunday!'}
               </p>
             </div>
             
             {/* Booking CTA within menu section */}
             <div className="text-center mb-12">
-              <Button variant="primary" size="lg" className="w-full" asChild>
+              <Button variant="primary" size="lg" className="w-full animate-pulse" asChild>
                 <Link href="/book-table" className="inline-flex items-center justify-center whitespace-nowrap">
                   <Icon name="calendar" className="mr-2 flex-shrink-0" />
-                  <span>Reserve Your Sunday Roast</span>
+                  <span>🔥 Reserve Now - Before Saturday 1pm!</span>
                 </Link>
               </Button>
-              <p className="text-sm text-gray-600 mt-3">
-                Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
+              <p className="text-sm text-red-600 font-bold mt-3">
+                ⏰ Booking closes Saturday 1pm • Limited spaces available
               </p>
             </div>
             

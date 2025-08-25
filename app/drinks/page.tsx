@@ -20,17 +20,17 @@ import { BookTableButton } from '@/components/BookTableButton'
 import './cocktails.css'
 
 export const metadata: Metadata = {
-  title: 'Real Ales & Premium Spirits | The Anchor',
-  description: 'Extensive drinks selection at The Anchor in Surrey. Real ales, craft beers, premium spirits, wines & cocktails. Great atmosphere near Heathrow.',
-  keywords: 'drinks menu stanwell moor, real ale, cocktails heathrow, craft beer stanwell',
+  title: 'Drinks Menu | Real Ales & Premium Spirits | Cocktails | The Anchor',
+  description: '🍺 FULL DRINKS MENU! Draught beers, premium spirits, cocktails, extensive wine list. Pint costs what a pint should cost - much cheaper than airport bars!',
+  keywords: 'drinks menu stanwell moor, real ales, cocktails heathrow, wine list, premium spirits, draught beer',
   openGraph: {
-    title: 'Drinks Menu - The Anchor',
-    description: 'Real ales, premium spirits, and extensive drinks selection. Something for everyone!',
+    title: '🍺 Drinks Menu | Real Ales & Premium Spirits',
+    description: 'Full drinks selection. Pint costs what a pint should cost - half the price of airport bars!',
     images: ['/images/hero/the-anchor-interior-atmosphere.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Drinks Menu - The Anchor',
-    description: 'Real ales, premium spirits, and extensive drinks selection. Something for everyone!',
+    title: '🍺 Drinks Menu | Real Ales & Premium Spirits',
+    description: 'Full drinks selection. Pint costs what a pint should cost - half the price of airport bars!',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
   })
 }

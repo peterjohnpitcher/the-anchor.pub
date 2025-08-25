@@ -147,8 +147,9 @@ export default function PizzaTuesdayPage() {
         description="Buy One Get One FREE on ALL pizzas, every Tuesday"
         size="large"
         tags={[
-          { label: "Available 6pm-9pm during kitchen hours" },
-          { label: "2 FOR 1 ON ALL PIZZAS", variant: "danger" }
+          { label: "🔥 2 FOR 1 ALL DAY", variant: "success" },
+          { label: "From £3.75 per pizza!", variant: "warning" },
+          { label: "6pm-9pm Kitchen Hours", variant: "default" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4">
@@ -176,7 +177,7 @@ export default function PizzaTuesdayPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
-            Pizza Tuesday - BOGOF Deal at The Anchor
+            Tuesday Pizza Deals - 2 for 1 on ALL Pizzas | The Anchor
           </PageTitle>
         </div>
       </section>
@@ -186,16 +187,17 @@ export default function PizzaTuesdayPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <SectionHeader
-              title="Every Tuesday is Pizza Day!"
+              title="🍕 Tuesday = 50% OFF When You Buy 2 Pizzas!"
+              subtitle="Works out to just £3.75-£6.50 per pizza!"
             />
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-red-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-red-800 mb-4">The Deal</h3>
+                <h3 className="text-2xl font-bold text-red-800 mb-4">🔥 The Tuesday Deal</h3>
                 <ul className="space-y-3 text-lg">
                   <li className="flex items-start gap-2">
                     <span className="text-red-600 text-xl">✓</span>
-                    <span>Buy ANY pizza, get one FREE</span>
+                    <span><strong>Buy ANY pizza, get one FREE!</strong></span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-600 text-xl">✓</span>
