@@ -136,8 +136,6 @@ const nextConfig = {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     unoptimized: false,
-    // Optimize image quality for smaller file sizes
-    quality: 75,
   },
   poweredByHeader: false,
   compress: true,
