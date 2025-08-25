@@ -1,0 +1,218 @@
+{
+  "metadata": {
+    "period": "2024-07-01 to 2025-06-30",
+    "exported": "2025-08-25",
+    "source": "Google Search Console"
+  },
+  "summary": {
+    "total_clicks": 305,
+    "total_impressions": 34458,
+    "average_ctr": 0.89,
+    "average_position": 31.2
+  },
+  "top_queries": [
+    {
+      "query": "the anchor stanwell moor",
+      "clicks": 28,
+      "impressions": 87,
+      "ctr": 32.18,
+      "position": 1.15,
+      "category": "branded"
+    },
+    {
+      "query": "the anchor",
+      "clicks": 9,
+      "impressions": 182,
+      "ctr": 4.95,
+      "position": 25.56,
+      "category": "branded"
+    },
+    {
+      "query": "the anchor staines",
+      "clicks": 9,
+      "impressions": 30,
+      "ctr": 30.0,
+      "position": 1.4,
+      "category": "branded_local"
+    },
+    {
+      "query": "the anchor pub",
+      "clicks": 4,
+      "impressions": 509,
+      "ctr": 0.79,
+      "position": 9.57,
+      "category": "branded"
+    },
+    {
+      "query": "pubs in stanwell",
+      "clicks": 3,
+      "impressions": 60,
+      "ctr": 5.0,
+      "position": 4.52,
+      "category": "local"
+    },
+    {
+      "query": "fish and chips near heathrow airport",
+      "clicks": 2,
+      "impressions": 43,
+      "ctr": 4.65,
+      "position": 8.14,
+      "category": "local_food"
+    },
+    {
+      "query": "pub near heathrow to watch planes",
+      "clicks": 2,
+      "impressions": 21,
+      "ctr": 9.52,
+      "position": 4.0,
+      "category": "unique_value"
+    }
+  ],
+  "top_pages": [
+    {
+      "url": "https://the-anchor.pub/",
+      "clicks": 92,
+      "impressions": 2555,
+      "ctr": 3.6,
+      "position": 17.87,
+      "issue": "non-www_version"
+    },
+    {
+      "url": "https://www.the-anchor.pub/",
+      "clicks": 47,
+      "impressions": 3085,
+      "ctr": 1.52,
+      "position": 22.47,
+      "canonical": true
+    },
+    {
+      "url": "https://www.the-anchor.pub/beer-garden",
+      "clicks": 29,
+      "impressions": 406,
+      "ctr": 7.14,
+      "position": 10.42,
+      "category": "venue"
+    },
+    {
+      "url": "https://www.the-anchor.pub/blog/fish-chips-guide",
+      "clicks": 10,
+      "impressions": 822,
+      "ctr": 1.22,
+      "position": 17.19,
+      "category": "content"
+    },
+    {
+      "url": "https://www.the-anchor.pub/sunday-lunch",
+      "clicks": 9,
+      "impressions": 707,
+      "ctr": 1.27,
+      "position": 18.38,
+      "category": "product"
+    }
+  ],
+  "missed_opportunities": [
+    {
+      "query": "baby guinness",
+      "impressions": 364,
+      "position": 39.94,
+      "potential_clicks": 36,
+      "action": "Create comprehensive guide and optimize product page"
+    },
+    {
+      "query": "disaronno",
+      "impressions": 228,
+      "position": 59.76,
+      "potential_clicks": 11,
+      "action": "Improve product page content and internal linking"
+    },
+    {
+      "query": "tuesday pizza deals",
+      "impressions": 145,
+      "position": 26.43,
+      "potential_clicks": 7,
+      "action": "Optimize pizza tuesday page for deal searches"
+    }
+  ],
+  "quick_wins": [
+    {
+      "query": "pubs in stanwell",
+      "current_position": 4.52,
+      "target_position": 3,
+      "estimated_ctr_increase": "10%",
+      "action": "Add more local content and reviews"
+    },
+    {
+      "query": "pub near heathrow to watch planes",
+      "current_position": 4.0,
+      "target_position": 1,
+      "estimated_ctr_increase": "20%",
+      "action": "Create dedicated plane spotting page"
+    },
+    {
+      "query": "the anchor pub",
+      "current_position": 9.57,
+      "target_position": 5,
+      "estimated_ctr_increase": "5%",
+      "action": "Improve homepage optimization"
+    }
+  ],
+  "content_gaps": {
+    "heathrow_related": {
+      "search_volume": "high",
+      "current_coverage": "low",
+      "opportunities": [
+        "Parking near Heathrow guides",
+        "Hotels near terminals",
+        "Airport transfer information"
+      ]
+    },
+    "drink_guides": {
+      "search_volume": "medium",
+      "current_coverage": "minimal",
+      "opportunities": [
+        "How to make popular shots",
+        "Gin tasting guides",
+        "Whiskey collection showcase"
+      ]
+    },
+    "local_guides": {
+      "search_volume": "medium",
+      "current_coverage": "basic",
+      "opportunities": [
+        "Best pubs in Stanwell",
+        "Staines nightlife guide",
+        "Feltham restaurant scene"
+      ]
+    }
+  },
+  "technical_issues": {
+    "resolved": [
+      "Domain canonicalization",
+      "404 redirects",
+      "Duplicate schema markup",
+      "Robots.txt optimization"
+    ],
+    "pending": [
+      "Page speed optimization",
+      "Core Web Vitals improvement",
+      "Mobile UX enhancements"
+    ]
+  },
+  "recommendations": {
+    "priority_1": [
+      "Monitor domain consolidation impact",
+      "Create Baby Guinness content hub",
+      "Optimize high-impression/low-CTR pages"
+    ],
+    "priority_2": [
+      "Develop Heathrow-focused landing pages",
+      "Implement FAQ schema on drink pages",
+      "Improve internal linking structure"
+    ],
+    "priority_3": [
+      "Create seasonal content calendar",
+      "Build local business partnerships",
+      "Develop user-generated content strategy"
+    ]
+  }
+}

@@ -72,19 +72,22 @@ function buildKitchenSchedule(hours: BusinessHours): string {
 }
 
 export const metadata: Metadata = {
-  title: 'Traditional British Food Menu | The Anchor',
-  description: 'Enjoy traditional British food at The Anchor. Famous Sunday roasts, stone-baked pizzas, burgers, and family-friendly meals. Kitchen open Tuesday-Sunday.',
-  keywords: 'food stanwell moor, sunday roast near heathrow, british menu, family restaurant stanwell',
+  title: 'Food Menu | Mains from £8.95 | Sunday Roast £14.99 | The Anchor Stanwell Moor',
+  description: 'Full food menu at The Anchor. Stone-baked pizzas from £7.49, fish & chips £11.95, famous Sunday roasts from £14.99. Kitchen open Tue-Sun. 7 minutes from Heathrow. Book: 01753 682707',
+  keywords: 'food menu stanwell moor, pub lunch stanwell, sunday roast staines, Tuesday pizza BOGOF, fish and chips near heathrow, gluten free menu',
   openGraph: {
-    title: 'Food Menu - The Anchor',
-    description: 'Traditional British food, famous Sunday roasts, and family-friendly dining near Heathrow.',
+    title: 'Food Menu | Fresh Daily from £8.95 | The Anchor',
+    description: 'Stone-baked pizzas from £7.49, fish & chips £11.95, Sunday roasts £14.99. Tuesday Pizza BOGOF. Kitchen open Tue-Sun.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Food Menu - The Anchor',
-    description: 'Traditional British food, famous Sunday roasts, and family-friendly dining near Heathrow.',
+    title: 'Food Menu | Fresh Daily from £8.95 | The Anchor',
+    description: 'Stone-baked pizzas from £7.49, fish & chips £11.95, Sunday roasts £14.99. Tuesday Pizza BOGOF.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg']
-  })
+  }),
+  alternates: {
+    canonical: '/food-menu'
+  }
 }
 
 export default async function FoodMenuPage() {
