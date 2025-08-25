@@ -17,7 +17,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PARKING } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Terminal 4 | The Anchor - Stanwell Moor',
+  title: 'Pub Near Terminal 4 | The Anchor - Heathrow Pub & Dining',
   description: 'Escape Terminal 4 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 12 mins from T4 hotels.',
   keywords: 'pub near terminal 4, heathrow terminal 4 restaurant, closest pub to T4, skyteam terminal pub, terminal 4 dining, local pub near terminal 4 hotels',
   openGraph: {

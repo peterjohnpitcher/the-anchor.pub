@@ -8,14 +8,14 @@ import { EmailLink } from '@/components/EmailLink'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Sitemap | The Anchor Stanwell Moor',
+  title: 'Sitemap | The Anchor - Heathrow Pub & Dining',
   description: 'Complete sitemap of The Anchor website. Find all our pages including menus, events, location information and special offers.',
   robots: {
     index: true,
     follow: true,
   },
   twitter: getTwitterMetadata({
-    title: 'Sitemap | The Anchor Stanwell Moor',
+    title: 'Sitemap | The Anchor - Heathrow Pub & Dining',
     description: 'Complete sitemap of The Anchor website. Find all our pages including menus, events, location information and special offers.'
   })
 }

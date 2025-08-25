@@ -3,7 +3,7 @@ import { BookingWizard } from '@/components/features/BookingWizard'
 import { getAvailabilityForNext30Days } from '@/lib/booking-helpers'
 
 export const metadata: Metadata = {
-  title: 'Book a Table Online | The Anchor - Stanwell Moor',
+  title: 'Book a Table Online | The Anchor - Heathrow Pub & Dining',
   description: 'Book your table at The Anchor in just 2 minutes. Simple booking for our restaurant, Sunday roasts, and special events.',
   keywords: 'book table stanwell moor, restaurant booking, pub reservation, sunday lunch booking',
   openGraph: {

@@ -13,7 +13,7 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Traditional Staines Pub | The Anchor - Stanwell Moor',
+  title: 'Traditional Staines Pub | The Anchor - Heathrow Pub & Dining',
   description: 'The Anchor - traditional Surrey pub 8 mins from Staines-upon-Thames. Sunday roasts, BOGOF pizza deals, drag shows & quiz nights. Free parking in Surrey countryside.',
   keywords: 'staines pub, pubs in staines surrey, staines upon thames pub, traditional pub staines, surrey pubs near staines, staines restaurants surrey',
   openGraph: {
@@ -114,7 +114,7 @@ export default function StainesPubPage() {
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
-            Surrey Pub Near Staines - The Anchor Stanwell Moor
+            Surrey Pub Near Staines - The Anchor - Heathrow Pub & Dining
           </PageTitle>
         </div>
       </section>

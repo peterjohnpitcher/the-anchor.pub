@@ -11,7 +11,7 @@ import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { dragShowEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Drag Shows | The Anchor Stanwell Moor | Monthly Entertainment',
+  title: 'Drag Shows | The Anchor - Heathrow Pub & Dining | Monthly Entertainment',
   description: 'Spectacular monthly drag shows at The Anchor with Nikki Manfadge. Inclusive, fun entertainment near Heathrow. Book your table for an unforgettable night!',
   keywords: 'drag shows stanwell moor, drag queen near heathrow, nikki manfadge, saturday night entertainment surrey',
   openGraph: {
@@ -773,7 +773,7 @@ export default function DragShowsPage() {
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
             <p className="font-semibold mb-2">Monthly Shows - Check What's On for Dates</p>
             <p>Show starts at 7:00 PM Sharp!</p>
-            <p className="text-sm mt-2">The Anchor, Stanwell Moor</p>
+            <p className="text-sm mt-2">The Anchor - Heathrow Pub & Dining</p>
             <p className="text-xs mt-4 italic">
               "And remember - if you're not living your life in full colour, 
               you're doing it wrong!" - Nikki x

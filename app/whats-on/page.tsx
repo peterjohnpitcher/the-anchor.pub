@@ -22,9 +22,9 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { quizNightEventSeries, dragShowEventSeries, bingoEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: "What's On Tonight | FREE Events | Quiz £3 | Drag Shows | Live Music | The Anchor",
-  description: "🎉 SEE WHAT'S ON TODAY! FREE live music, quiz nights £3, drag shows, cash bingo. Pool & darts always FREE. Check our live events calendar. Book tables for popular shows!",
-  keywords: "what's on tonight stanwell moor, events today near heathrow, free events tonight, live music tonight, drag show tonight, quiz night today",
+  title: "What's On Tonight | FREE Events | Quiz £3 | Drag Shows | The Anchor",
+  description: "🎉 SEE WHAT'S ON TODAY! Quiz nights £3, drag shows, cash bingo. Pool & darts always FREE. Check our live events calendar. Book tables for popular shows!",
+  keywords: "what's on tonight stanwell moor, events today near heathrow, free events tonight, drag show tonight, quiz night today",
   openGraph: {
     title: "What's On at The Anchor",
     description: "Drag shows, quiz nights and more. Your local entertainment hub.",
@@ -116,10 +116,10 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
         showStatusBar={true}
         statusBarPosition="below"
         tags={[
-          { label: '🆓 FREE Live Music', variant: 'success' },
           { label: '👑 Drag Shows', variant: 'primary' },
           { label: '🧠 Quiz Night £3', variant: 'warning' },
-          { label: '🎱 Pool & Darts FREE', variant: 'default' }
+          { label: '🎱 Pool & Darts FREE', variant: 'default' },
+          { label: '🍺 Great Atmosphere', variant: 'success' }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -152,7 +152,7 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
       <div className="bg-white py-8">
         <Container>
           <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
-            What's On - Events & Entertainment at The Anchor
+            What's On - Events & Entertainment at The Anchor - Heathrow Pub & Dining
           </PageTitle>
         </Container>
       </div>

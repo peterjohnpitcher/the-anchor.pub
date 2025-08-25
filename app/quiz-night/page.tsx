@@ -14,7 +14,7 @@ import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/component
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 
 export const metadata: Metadata = {
-  title: 'Monthly Quiz Night | The Anchor - Stanwell Moor',
+  title: 'Monthly Quiz Night | The Anchor - Heathrow Pub & Dining',
   description: 'Join our monthly quiz night at The Anchor. £3 entry, great prizes, fun atmosphere. Test your knowledge every month near Heathrow!',
   keywords: 'quiz night stanwell moor, pub quiz near heathrow, quiz night staines, monthly quiz surrey',
   openGraph: {
@@ -68,7 +68,7 @@ export default function QuizNightPage() {
       <div className="bg-white py-8">
         <Container>
           <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
-            Quiz Night - Monthly at The Anchor
+            Quiz Night - Monthly at The Anchor - Heathrow Pub & Dining
           </PageTitle>
         </Container>
       </div>

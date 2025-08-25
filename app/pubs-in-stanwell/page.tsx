@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   description: 'The Anchor is Stanwell Moor\'s traditional local pub. Family-friendly village pub with beer garden, free parking, and great food. Your perfect local near Heathrow.',
   keywords: 'pubs in stanwell, pubs in stanwell moor, local pub stanwell, traditional pub near heathrow, village pub surrey, family pub stanwell moor, beer garden pub stanwell',
   openGraph: {
-    title: 'The Anchor - Your Local Pub in Stanwell Moor',
+    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub in Stanwell Moor',
     description: 'Traditional village pub serving Stanwell Moor since 1995. Great food, beer garden, free parking.',
     images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Your Local Pub in Stanwell Moor',
+    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub in Stanwell Moor',
     description: 'Traditional village pub serving Stanwell Moor since 1995. Great food, beer garden, free parking.',
     images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg']
   }),

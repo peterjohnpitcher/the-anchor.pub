@@ -82,7 +82,7 @@ export default function HeathrowHotelsPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'Heathrow Hotels',
-    'The Anchor Stanwell Moor',
+    'The Anchor - Heathrow Pub & Dining',
     [
       'From Terminal 5 hotels (Premier Inn, Sofitel), take A3044',
       'Head east on Northern Perimeter Road',
@@ -431,7 +431,7 @@ export default function HeathrowHotelsPubPage() {
                 <ul className="space-y-2 text-gray-700">
                   <li>• £10-15 from most hotels</li>
                   <li>• 7-12 minute journey</li>
-                  <li>• Ask for "The Anchor, Stanwell Moor"</li>
+                  <li>• Ask for "The Anchor - Heathrow Pub & Dining"</li>
                   <li>• Return taxi easily arranged</li>
                 </ul>
               </div>

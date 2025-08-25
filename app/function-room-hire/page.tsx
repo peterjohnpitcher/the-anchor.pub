@@ -17,12 +17,12 @@ export const metadata: Metadata = {
   description: 'Flexible function room & venue hire near Heathrow Airport. 10-200 capacity, free parking, competitive rates from £150. Perfect for meetings, parties & celebrations.',
   keywords: 'venue hire near heathrow, function room hire near heathrow, venue hire staines, private room hire surrey, event space near terminal 5, room rental stanwell moor, venue hire near m25',
   openGraph: {
-    title: 'Function Room Hire - The Anchor Stanwell Moor',
+    title: 'Function Room Hire - The Anchor - Heathrow Pub & Dining',
     description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
     images: ['/images/events/function-room/the-anchor-function-room.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Function Room Hire - The Anchor Stanwell Moor',
+    title: 'Function Room Hire - The Anchor - Heathrow Pub & Dining',
     description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
     images: ['/images/events/function-room/the-anchor-function-room.jpg']
   })

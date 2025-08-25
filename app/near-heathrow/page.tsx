@@ -13,16 +13,16 @@ import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Airport | The Anchor - Stanwell Moor',
+  title: 'Pub Near Heathrow Airport | The Anchor - Heathrow Pub & Dining',
   description: 'The closest traditional British pub to Heathrow Airport. Just 7 mins from Terminal 5. Free parking, great food & a warm welcome for travelers.',
   keywords: 'pub near heathrow, heathrow airport pub, pub near terminal 5, closest pub to heathrow, heathrow restaurant',
   openGraph: {
-    title: 'The Anchor - Your Local Pub Near Heathrow Airport',
+    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Heathrow Airport',
     description: 'Just 7 minutes from Heathrow Terminal 5. Perfect for pre-flight meals or meeting arriving passengers.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Your Local Pub Near Heathrow Airport',
+    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Heathrow Airport',
     description: 'Just 7 minutes from Heathrow Terminal 5. Perfect for pre-flight meals or meeting arriving passengers.',
     images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
   })
@@ -95,10 +95,10 @@ export default function NearHeathrowPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">🚗</div>
-              <h2 className="text-2xl font-bold text-anchor-green mb-3">Free Parking</h2>
+              <h2 className="text-2xl font-bold text-anchor-green mb-3">Free Parking for Patrons</h2>
               <p className="text-gray-700">
-                20 free parking spaces for pub guests. No stress, no fees. 
-                Perfect for meeting arriving passengers.
+                20 free parking spaces while you're visiting us. No stress, no fees. 
+                Perfect for meeting arriving passengers over a meal or drink.
               </p>
             </div>
 
@@ -282,7 +282,7 @@ export default function NearHeathrowPage() {
               <h3 className="text-2xl font-bold text-anchor-green mb-4">✈️ Pre-Flight Dining</h3>
               <p className="text-gray-700 mb-4">
                 Skip expensive airport food. Enjoy a proper meal with us before your flight. 
-                We&apos;re just minutes away with free parking - much more relaxing than airport restaurants.
+                We&apos;re just minutes away with free parking for patrons - much more relaxing than airport restaurants.
               </p>
               <ul className="space-y-2 text-gray-700">
                 <li>• Quick lunch options for tight schedules</li>
@@ -294,7 +294,7 @@ export default function NearHeathrowPage() {
             <div className="bg-anchor-cream rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-anchor-green mb-4">🛬 Meeting Point for Arrivals</h3>
               <p className="text-gray-700 mb-4">
-                Perfect meeting spot when picking up friends and family. Free parking means 
+                Perfect meeting spot when picking up friends and family. Free parking for patrons means 
                 no airport fees, and you can track flights while enjoying a drink.
               </p>
               <ul className="space-y-2 text-gray-700">
@@ -467,7 +467,7 @@ export default function NearHeathrowPage() {
                 <span className="text-anchor-gold text-xl mt-1">🚗</span>
                 <div>
                   <strong>Free Parking</strong>
-                  <p className="text-sm text-gray-700">20 spaces for pub guests</p>
+                  <p className="text-sm text-gray-700">For patrons - 20 spaces</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -563,7 +563,7 @@ export default function NearHeathrowPage() {
                   your name, not just your order number.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Our free parking alone can save you £20-30 compared to airport rates. Spend an 
+                  Our free parking for patrons alone can save you £20-30 compared to airport rates. Spend an 
                   hour with us before your flight and you've effectively paid for your meal in 
                   parking savings alone. That's what we call Heathrow economics.
                 </p>

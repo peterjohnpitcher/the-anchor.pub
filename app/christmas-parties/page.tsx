@@ -285,7 +285,7 @@ export default function ChristmasPartiesPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <h3 className="text-xl font-bold mb-4 text-green-700">
-                    🚗 FREE Parking at The Anchor
+                    🚗 FREE Parking at The Anchor - Heathrow Pub & Dining
                   </h3>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2">

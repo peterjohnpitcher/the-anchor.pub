@@ -16,7 +16,7 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Traditional Ashford Pub | The Anchor - Stanwell Moor',
+  title: 'Traditional Ashford Pub | The Anchor - Heathrow Pub & Dining',
   description: `${BRAND.name} - traditional British pub 10 mins from Ashford. Free parking, Sunday roasts, quiz nights & family-friendly. Easy A30 access.`,
   keywords: 'ashford pub, pub near ashford, ashford surrey pub, pubs close to ashford, british pub ashford, traditional pub near ashford',
   openGraph: {
@@ -80,7 +80,7 @@ export default function AshfordPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'Ashford Surrey',
-    'The Anchor Stanwell Moor',
+    'The Anchor - Heathrow Pub & Dining',
     [
       'From Ashford town centre, head west on Church Road/B377',
       'Continue onto Fordbridge Road',

@@ -237,7 +237,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
             },
             "publisher": {
               "@type": "Organization",
-              "name": "The Anchor Stanwell Moor",
+              "name": "The Anchor - Heathrow Pub & Dining",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://www.the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"

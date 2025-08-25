@@ -17,12 +17,12 @@ export const metadata: Metadata = {
   description: 'The Anchor - 12 mins from Egham. Traditional Surrey pub with free parking & great food. Perfect for Royal Holloway students. Peaceful alternative.',
   keywords: 'egham pub, pub near egham, egham surrey pub, royal holloway pub, pub near royal holloway, traditional pub egham',
   openGraph: {
-    title: 'The Anchor - Your Local Pub Near Egham',
+    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Egham',
     description: 'Just 12 minutes from Egham with free parking and great food.',
     images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Your Local Pub Near Egham',
+    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Egham',
     description: 'Just 12 minutes from Egham with free parking and great food.',
     images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg']
   })

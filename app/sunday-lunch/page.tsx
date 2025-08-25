@@ -13,7 +13,7 @@ import { generateNutritionInfo, generateSuitableForDiet } from '@/lib/schema-uti
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 
 export const metadata: Metadata = {
-  title: 'Sunday Roast Near Heathrow | The Anchor - Stanwell Moor',
+  title: 'Sunday Roast Near Heathrow | The Anchor - Heathrow Pub & Dining',
   description: 'Award-winning Sunday roast near Heathrow Airport. Traditional British roast dinners with Yorkshire puddings, crispy roast potatoes & homemade gravy. £14.99-£15.99. Pre-order required.',
   keywords: 'sunday roast near me, sunday lunch near me, roast dinner near me, sunday carvery near me, traditional sunday roast stanwell moor, best sunday lunch near heathrow, sunday roast surrey',
   openGraph: {
@@ -89,7 +89,7 @@ export default function SundayLunchPage() {
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
-            Sunday Roast Near Me - Traditional British Sunday Lunch | The Anchor
+            Sunday Roast Near Me - Traditional British Sunday Lunch | The Anchor - Heathrow Pub & Dining
           </PageTitle>
         </Container>
       </section>

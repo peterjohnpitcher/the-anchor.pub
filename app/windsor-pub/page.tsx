@@ -14,7 +14,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Traditional Windsor Pub | The Anchor - Stanwell Moor',
+  title: 'Traditional Windsor Pub | The Anchor - Heathrow Pub & Dining',
   description: `${BRAND.name} - traditional Surrey pub 15 mins from Windsor Castle. Outside ULEZ with free parking. Sunday roasts, quiz nights in Surrey countryside. Easy M4 access.`,
   keywords: 'windsor pub, pub near windsor surrey, windsor berkshire pub, surrey pubs close to windsor, british pub windsor, traditional surrey pub near windsor castle',
   openGraph: {
@@ -82,7 +82,7 @@ export default function WindsorPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'Windsor Town Centre',
-    'The Anchor Stanwell Moor',
+    'The Anchor - Heathrow Pub & Dining',
     [
       'From Windsor town centre, head east on High Street/A308',
       'Continue onto Datchet Road/B376',

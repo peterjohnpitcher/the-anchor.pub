@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   description: 'Perfect private party venue for birthdays & celebrations. Flexible spaces for 10-200 guests, free parking, custom catering. Near Heathrow.',
   keywords: 'birthday party venue staines, birthday venue near heathrow, private party venue surrey, celebration venue stanwell moor, party room hire staines, anniversary party venue',
   openGraph: {
-    title: 'Private Party Venue - The Anchor Stanwell Moor',
+    title: 'Private Party Venue - The Anchor - Heathrow Pub & Dining',
     description: 'Celebrate in style! Birthday parties, anniversaries, and special occasions. Free parking and flexible spaces.',
     images: ['/images/events/private-parties/the-anchor-party-venue.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Private Party Venue - The Anchor Stanwell Moor',
+    title: 'Private Party Venue - The Anchor - Heathrow Pub & Dining',
     description: 'Celebrate in style! Birthday parties, anniversaries, and special occasions. Free parking and flexible spaces.',
     images: ['/images/events/private-parties/the-anchor-party-venue.jpg']
   })
@@ -271,8 +271,8 @@ export default function PrivatePartyVenuePage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold">🚗</span>
                     <div>
-                      <strong>Free Parking</strong>
-                      <p className="text-sm text-gray-700">20 spaces for your guests</p>
+                      <strong>Free Parking for Guests</strong>
+                      <p className="text-sm text-gray-700">20 spaces while attending your event</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">

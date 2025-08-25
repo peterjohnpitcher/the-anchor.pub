@@ -20,7 +20,7 @@ import { BookTableButton } from '@/components/BookTableButton'
 import './cocktails.css'
 
 export const metadata: Metadata = {
-  title: 'Drinks Menu | Real Ales & Premium Spirits | Cocktails | The Anchor',
+  title: 'Drinks Menu | Real Ales & Premium Spirits | The Anchor - Heathrow Pub & Dining',
   description: '🍺 FULL DRINKS MENU! Draught beers, premium spirits, cocktails, extensive wine list. Pint costs what a pint should cost - much cheaper than airport bars!',
   keywords: 'drinks menu stanwell moor, real ales, cocktails heathrow, wine list, premium spirits, draught beer',
   openGraph: {

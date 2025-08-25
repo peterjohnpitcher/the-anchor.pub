@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const event = await anchorAPI.getEvent(params.id)
     
     return {
-      title: event.metaTitle || `${event.name} | The Anchor Stanwell Moor`,
+      title: event.metaTitle || `${event.name} | The Anchor - Heathrow Pub & Dining`,
       description: event.metaDescription || event.shortDescription || event.description || `Join us for ${event.name} at The Anchor in Stanwell Moor. ${formatEventDate(event.startDate)} at ${formatEventTime(event.startDate)}.`,
       keywords: Array.isArray(event.keywords) ? event.keywords.join(', ') : event.keywords,
       openGraph: {
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   } catch {
     return {
-      title: 'Event Not Found | The Anchor Stanwell Moor',
+      title: 'Event Not Found | The Anchor - Heathrow Pub & Dining',
       description: 'This event could not be found.',
     }
   }

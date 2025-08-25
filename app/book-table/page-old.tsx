@@ -18,12 +18,12 @@ import { Breadcrumbs } from '@/components/hero/Breadcrumbs'
 import { HeroTag } from '@/components/hero/HeroTag'
 
 export const metadata: Metadata = {
-  title: 'Book a Table | The Anchor Stanwell Moor',
-  description: 'Book your table at The Anchor, Stanwell Moor. Reserve your spot for our delicious food, Sunday roasts, or special events. Easy online booking with instant confirmation.',
+  title: 'Book a Table | The Anchor - Heathrow Pub & Dining',
+  description: 'Book your table at The Anchor - Heathrow Pub & Dining. Reserve your spot for our delicious food, Sunday roasts, or special events. Easy online booking with instant confirmation.',
   keywords: 'book table stanwell moor, restaurant booking, pub reservation, sunday lunch booking, the anchor booking',
   openGraph: {
     title: 'Book a Table at The Anchor',
-    description: 'Reserve your table for great food and drinks at The Anchor, Stanwell Moor. Online booking available.',
+    description: 'Reserve your table for great food and drinks at The Anchor - Heathrow Pub & Dining. Online booking available.',
     images: ['/images/anchor-dining-room.jpg']
   }
 }

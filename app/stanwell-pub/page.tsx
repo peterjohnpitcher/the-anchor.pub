@@ -74,7 +74,7 @@ export default function StanwellPubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'Stanwell Village',
-    'The Anchor Stanwell Moor',
+    'The Anchor - Heathrow Pub & Dining',
     [
       'From Stanwell Village, head north on Oaks Road',
       'Turn left onto Stanwell Moor Road',

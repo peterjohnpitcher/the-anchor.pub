@@ -36,9 +36,9 @@ import {
 } from '@/components/ui'
 
 export const metadata: Metadata = {
-  title: 'The Anchor, Stanwell Moor | Traditional British Venue Near Heathrow Terminal 5',
-  description: 'THE ANCHOR - Famous traditional British venue in Stanwell Moor. 7 mins from Heathrow. FREE parking, Sunday roasts from £14.99, Tuesday pizza 2-for-1. Beer garden under flight path. Book: 01753 682707',
-  keywords: 'The Anchor, The Anchor Stanwell Moor, Anchor Stanwell Moor, venue near Heathrow, plane spotting, beer garden, traditional British',
+  title: 'The Anchor - Heathrow Pub & Dining | Traditional British Venue Near Terminal 5',
+  description: 'THE ANCHOR - Famous traditional British pub & dining in Stanwell Moor. 7 mins from Heathrow. FREE parking, Sunday roasts from £14.99, Tuesday pizza 2-for-1. Beer garden under flight path. Book: 01753 682707',
+  keywords: 'The Anchor, The Anchor Heathrow, Heathrow pub, pub near Heathrow, dining near Heathrow, plane spotting, beer garden, traditional British',
   alternates: {
     canonical: './'
   }

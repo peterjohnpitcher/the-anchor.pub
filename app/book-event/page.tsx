@@ -12,7 +12,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { Container } from '@/components/ui/layout/Container'
 
 export const metadata: Metadata = {
-  title: 'Event Venue Hire Near Me | The Anchor Stanwell Moor | Private Bookings',
+  title: 'Event Venue Hire Near Me | The Anchor - Heathrow Pub & Dining | Private Bookings',
   description: 'Transform your special occasion into an unforgettable experience at The Anchor. Versatile venue spaces for 10-200 guests with full event services.',
   keywords: 'private venue hire stanwell moor, event space near heathrow, function room hire, wedding venue surrey, corporate events staines',
   openGraph: {

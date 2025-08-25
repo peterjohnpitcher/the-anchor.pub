@@ -78,7 +78,7 @@ export default function M25Junction14PubPage() {
 
   const directionsSchema = generateHowToDirectionsSchema(
     'M25 Junction 14',
-    'The Anchor Stanwell Moor',
+    'The Anchor - Heathrow Pub & Dining',
     [
       'Exit M25 at Junction 14',
       'At roundabout, take A3113 exit (Airport Way/Stanwell Moor)',

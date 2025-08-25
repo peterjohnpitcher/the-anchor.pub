@@ -7,7 +7,7 @@ import { Section } from '@/components/ui/layout/Section'
 import { BookingDetails } from './BookingDetails'
 
 export const metadata: Metadata = {
-  title: 'Booking Confirmed | The Anchor Stanwell Moor',
+  title: 'Booking Confirmed | The Anchor - Heathrow Pub & Dining',
   description: 'Your table booking at The Anchor has been confirmed.',
   robots: 'noindex, nofollow'
 }

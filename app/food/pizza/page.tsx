@@ -12,7 +12,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { generateNutritionInfo, generateMenuItemOffer } from '@/lib/schema-utils'
 
 export const metadata: Metadata = {
-  title: 'Buy One Get One Free Pizza | The Anchor Stanwell Moor | BOGOF Deal',
+  title: 'Buy One Get One Free Pizza | The Anchor - Heathrow Pub & Dining | BOGOF Deal',
   description: 'BOGOF pizza deal at The Anchor near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday. Fresh dough, quality toppings. Dine-in & takeaway.',
   keywords: 'buy one get one free pizza, bogof pizza stanwell moor, pizza deal heathrow, 2 for 1 pizza, pizza offer staines',
   openGraph: {

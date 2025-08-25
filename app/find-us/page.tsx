@@ -20,7 +20,7 @@ import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 
 export const metadata: Metadata = {
-  title: 'Directions & Parking | The Anchor - Stanwell Moor',
+  title: 'Directions & Parking | The Anchor - Heathrow Pub & Dining',
   description: 'Find The Anchor in Stanwell Moor, Surrey. Easy directions from Heathrow, M25, Staines, and local areas. Free parking available on Horton Road.',
   keywords: 'anchor pub directions, find anchor stanwell moor, pub near me directions, free parking pub',
   openGraph: {
@@ -119,7 +119,7 @@ export default function FindUsPage() {
             <div className="bg-green-50 p-4 rounded-lg text-center border-2 border-green-200">
               <div className="text-3xl mb-2">🆓</div>
               <p className="font-bold text-green-700">FREE PARKING</p>
-              <p className="text-sm text-green-600 font-semibold">20 spaces • No time limits!</p>
+              <p className="text-sm text-green-600 font-semibold">For patrons • 20 spaces</p>
             </div>
             <div className="bg-white p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">✈️</div>
@@ -230,7 +230,7 @@ export default function FindUsPage() {
                     </li>
                     <li className="flex gap-3">
                       <span className="text-anchor-gold">🚗</span>
-                      <span>Free parking for pub guests (20 spaces)</span>
+                      <span>Free parking for patrons (20 spaces)</span>
                     </li>
                     <li className="flex gap-3">
                       <span className="text-anchor-gold">🌳</span>
@@ -353,8 +353,8 @@ export default function FindUsPage() {
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
-              title="🆓 FREE Parking - 20 Spaces Available!"
-              subtitle="No charges, no time limits, no hassle - just park and enjoy!"
+              title="🆓 FREE Parking for Patrons - 20 Spaces Available!"
+              subtitle="Complimentary parking while you're enjoying our food and drinks"
             />
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200">
               <div className="grid md:grid-cols-3 gap-6">
@@ -430,7 +430,7 @@ export default function FindUsPage() {
                   <h4 className="text-lg font-semibold text-white mb-3">Good to Know</h4>
                   <div className="flex items-start gap-3">
                     <span className="text-anchor-gold">🚗</span>
-                    <p className="text-white/90 text-sm">Free parking for guests</p>
+                    <p className="text-white/90 text-sm">Free parking for patrons</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-anchor-gold">🍴</span>
@@ -507,7 +507,7 @@ export default function FindUsPage() {
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">🚗</span>
-                    <span><strong>Free Parking</strong> - No hourly fees</span>
+                    <span><strong>Free Parking for Patrons</strong> - While you visit</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-anchor-gold">🧳</span>
@@ -560,7 +560,7 @@ export default function FindUsPage() {
         faqs={[
           {
             question: "Is there parking at The Anchor?",
-            answer: "Yes, The Anchor offers free parking for pub guests. Our car park has 20 spaces available. Paid parking for longer term stays will be available in the future."
+            answer: "Yes, The Anchor offers free parking for patrons while they're visiting the pub. Our car park has 20 spaces available."
           },
           {
             question: "How far is The Anchor from Heathrow Airport?",

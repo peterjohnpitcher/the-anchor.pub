@@ -72,16 +72,16 @@ function buildKitchenSchedule(hours: BusinessHours): string {
 }
 
 export const metadata: Metadata = {
-  title: 'Food Menu | 🍕 Tuesday 2-FOR-1 Pizzas | Traditional British Food | The Anchor',
+  title: 'Food Menu | 🍕 Tuesday 2-FOR-1 Pizzas | The Anchor - Heathrow Pub & Dining',
   description: '🔥 FULL FOOD MENU! Tuesday Pizza BOGOF deal. Stone-baked pizzas, burgers, fish & chips. Kitchen 6pm-9pm weekdays. Sunday roasts from £14.99. FREE parking.',
   keywords: 'food menu stanwell moor, tuesday pizza 2 for 1, traditional british food, pub food near heathrow, sunday roast menu',
   openGraph: {
-    title: '🍕 Food Menu | Tuesday 2-FOR-1 Pizzas | The Anchor',
+    title: '🍕 Food Menu | Tuesday 2-FOR-1 Pizzas | The Anchor - Heathrow Pub & Dining',
     description: 'VIEW FULL MENU! Tuesday pizza BOGOF. Stone-baked pizzas, burgers, fish & chips. Kitchen open Tue-Sun.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: '🍕 Food Menu | Tuesday 2-FOR-1 Pizzas | The Anchor',
+    title: '🍕 Food Menu | Tuesday 2-FOR-1 Pizzas | The Anchor - Heathrow Pub & Dining',
     description: 'VIEW FULL MENU! Tuesday pizza BOGOF. Stone-baked pizzas, burgers, fish & chips. Kitchen open Tue-Sun.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg']
   }),

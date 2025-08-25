@@ -177,7 +177,7 @@ export default function PizzaTuesdayPage() {
       <section className="section-spacing bg-white">
         <div className="container mx-auto px-4">
           <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
-            Tuesday Pizza Deals - 2 for 1 on ALL Pizzas | The Anchor
+            Tuesday Pizza Deals - 2 for 1 on ALL Pizzas | The Anchor - Heathrow Pub & Dining
           </PageTitle>
         </div>
       </section>

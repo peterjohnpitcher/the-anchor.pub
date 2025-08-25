@@ -8,9 +8,9 @@ import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
 export const metadata: Metadata = {
-  title: 'Baby Guinness Shot £3.50 | The Anchor Stanwell Moor | Near Heathrow',
+  title: 'Baby Guinness Shot £3.50 | The Anchor - Heathrow Pub & Dining | Near Heathrow',
   description: 'Perfect Baby Guinness shots at The Anchor, just 7 minutes from Heathrow. £3.50 each or 2 for £6. Popular for hen parties and celebrations. Much cheaper than airport bars.',
-  keywords: 'baby guinness, baby guinness shot, layered shot, kahlua baileys, pub shots, The Anchor Stanwell Moor',
+  keywords: 'baby guinness, baby guinness shot, layered shot, kahlua baileys, pub shots, The Anchor - Heathrow Pub & Dining',
   alternates: {
     canonical: '/drinks/baby-guinness'
   },
@@ -48,7 +48,7 @@ export default function BabyGuinnessPage() {
           <article className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
               <h1 className="text-3xl md:text-4xl font-bold text-anchor-green mb-6">
-                Baby Guinness Shot at The Anchor - Stanwell Moor's Favourite Party Starter
+                Baby Guinness Shot at The Anchor - Heathrow Pub & Dining's Favourite Party Starter
               </h1>
               
               {/* Price Badge */}

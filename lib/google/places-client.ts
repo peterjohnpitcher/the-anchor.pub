@@ -55,14 +55,17 @@ export class GooglePlacesClient {
 let anchorPlacesClient: GooglePlacesClient | null = null
 
 export function getAnchorPlacesClient(): GooglePlacesClient | null {
-  if (!process.env.GOOGLE_PLACES_API_KEY || !process.env.GOOGLE_PLACE_ID) {
+  // Use server-side API key if available, fallback to regular key
+  const API_KEY = process.env.GOOGLE_PLACES_API_KEY_SERVER || process.env.GOOGLE_PLACES_API_KEY;
+  
+  if (!API_KEY || !process.env.GOOGLE_PLACE_ID) {
     console.warn('Google Places API credentials not configured')
     return null
   }
 
   if (!anchorPlacesClient) {
     anchorPlacesClient = new GooglePlacesClient(
-      process.env.GOOGLE_PLACES_API_KEY,
+      API_KEY,
       process.env.GOOGLE_PLACE_ID
     )
   }

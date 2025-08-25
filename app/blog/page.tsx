@@ -9,7 +9,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 
 export const metadata: Metadata = {
-  title: 'Blog | The Anchor Stanwell Moor | News & Updates',
+  title: 'Blog | The Anchor - Heathrow Pub & Dining | News & Updates',
   description: 'Latest news, events, and stories from The Anchor in Stanwell Moor. Stay updated with our community pub near Heathrow.',
   keywords: 'the anchor blog, stanwell moor news, pub events heathrow, local community news',
   openGraph: {

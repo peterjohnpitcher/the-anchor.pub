@@ -13,16 +13,16 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 
 export const metadata: Metadata = {
-  title: 'Traditional Feltham Pub | The Anchor - Stanwell Moor',
+  title: 'Traditional Feltham Pub | The Anchor - Heathrow Pub & Dining',
   description: 'The Anchor - 10 mins from Feltham. Traditional British pub with free parking, great food & regular events. Peaceful Surrey alternative to high street.',
   keywords: 'feltham pub, pub near feltham, feltham surrey pub, pub with parking feltham, traditional pub feltham',
   openGraph: {
-    title: 'The Anchor - Your Local Pub Near Feltham',
+    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Feltham',
     description: 'Just 10 minutes from Feltham with free parking and great food.',
     images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Your Local Pub Near Feltham',
+    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Feltham',
     description: 'Just 10 minutes from Feltham with free parking and great food.',
     images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg']
   })
