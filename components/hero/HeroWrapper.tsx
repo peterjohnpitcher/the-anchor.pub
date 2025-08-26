@@ -3,7 +3,7 @@ import { HeroSection, HeroSize } from './HeroSection'
 import { Breadcrumbs, BreadcrumbItem } from './Breadcrumbs'
 import { HeroTag } from './HeroTag'
 import { getPageHeaderImage, getDefaultHeaderImage } from '@/lib/page-header-images'
-import { StatusBarWrapper } from '@/components/StatusBarWrapper'
+import { StatusBar } from '@/components/StatusBar'
 
 interface HeroWrapperProps {
   // Route & Content
@@ -93,13 +93,13 @@ export function HeroWrapper({
         <>
           {showStatusBar && statusBarPosition === 'above' && (
             <div className="mb-6">
-              <StatusBarWrapper />
+              <StatusBar />
             </div>
           )}
           {cta}
           {showStatusBar && statusBarPosition === 'below' && (
             <div className="mt-6">
-              <StatusBarWrapper />
+              <StatusBar />
             </div>
           )}
         </>

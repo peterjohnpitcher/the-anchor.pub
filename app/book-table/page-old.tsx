@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/primitives/Button'
 import { Badge } from '@/components/ui/primitives/Badge'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { InfoBoxGrid } from '@/components/ui'
-import { StatusBarWrapper } from '@/components/StatusBarWrapper'
+import { StatusBar } from '@/components/StatusBar'
 import { Breadcrumbs } from '@/components/hero/Breadcrumbs'
 import { HeroTag } from '@/components/hero/HeroTag'
 
@@ -72,7 +72,7 @@ export default function BookTablePage({
         }
         cta={
           <div className="mt-6">
-            <StatusBarWrapper />
+            <StatusBar />
           </div>
         }
       />
