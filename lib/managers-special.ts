@@ -3,7 +3,10 @@
  * Used by both API and SSR to ensure consistency
  */
 
-import data from '@/content/managers-special-promotions.json'
+// Dynamic import to avoid bundling in serverless functions
+const getPromotionsData = () => {
+  return require('@/content/managers-special-promotions.json')
+}
 import { nowInLondon, londonRangeToInstants, isLondonDateInRange } from './time-london'
 import type { ManagersSpecial } from '@/types/managers-special'
 import { isValidPromotion } from '@/types/managers-special'
@@ -16,6 +19,7 @@ import fs from 'fs'
  */
 export function getCurrentPromotion(now: Date = nowInLondon()): ManagersSpecial | null {
   try {
+    const data = getPromotionsData()
     const promotions = data.promotions as ManagersSpecial[]
     
     // Filter and validate promotions
@@ -54,6 +58,7 @@ export function getCurrentPromotion(now: Date = nowInLondon()): ManagersSpecial 
  */
 export function getPromotionById(id: string): ManagersSpecial | null {
   try {
+    const data = getPromotionsData()
     const promotions = data.promotions as ManagersSpecial[]
     const promo = promotions.find(p => p.id === id)
     
@@ -79,6 +84,7 @@ export function getPromotionById(id: string): ManagersSpecial | null {
  */
 export function getAllPromotions(): ManagersSpecial[] {
   try {
+    const data = getPromotionsData()
     return (data.promotions as ManagersSpecial[]).filter(isValidPromotion)
   } catch (error) {
     console.error('Error loading all promotions:', error)
@@ -159,6 +165,7 @@ export function calculateSavings(original: string, special: string): string {
  */
 export function getNextPromotion(now: Date = nowInLondon()): ManagersSpecial | null {
   try {
+    const data = getPromotionsData()
     const promotions = data.promotions as ManagersSpecial[]
     
     const futurePromotions = promotions
