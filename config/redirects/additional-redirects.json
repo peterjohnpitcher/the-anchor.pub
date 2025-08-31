@@ -20,11 +20,6 @@
     "permanent": true
   },
   {
-    "source": "/events/:slug",
-    "destination": "/whats-on",
-    "permanent": true
-  },
-  {
     "source": "/subscription-terms-and-conditions",
     "destination": "/terms",
     "permanent": true
