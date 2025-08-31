@@ -395,3 +395,17 @@ button:focus-visible:not(.focus\:ring-2),
   clip: auto;
   white-space: normal;
 }
+
+/* Hero image responsive focal points */
+/* Map device-specific variables to the one used by components (--hero-oy) */
+.hero-focal {
+  /* Mobile/tablet default */
+  --hero-oy: var(--hero-oy-mobile, 50%);
+}
+
+@media (min-width: 1024px) {
+  .hero-focal {
+    /* Desktop overrides to use desktop-specific focal value */
+    --hero-oy: var(--hero-oy-desktop, 50%);
+  }
+}

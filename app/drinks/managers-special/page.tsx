@@ -106,13 +106,13 @@ export default function ManagersSpecialPage() {
     },
     {
       question: "What's included in the 25% off offer?",
-      answer: "The discount applies to all serves of The Botanist throughout the promotion period. Singles are £2.78 (was £3.70) and doubles are £5.55 (was £7.40). The offer is available at the bar - no booking required."
+      answer: "The discount applies to all serves of The Botanist throughout the promotion period. Singles are £2.78 (was £3.70). The offer is available at the bar - no booking required."
     },
     {
       question: "Can I book a table to try The Botanist?",
       answer: "Walk-ins are always welcome at The Anchor! While you don't need to book for drinks, if you're planning to dine with us too, you can book a table online or call 01753 682707."
     }
-  ] : [
+  ] : spirit.name.includes('Warners') ? [
     {
       question: "What makes Warners Elderflower gin special?",
       answer: "Warners Elderflower gin is infused with fresh elderflowers handpicked from the hedgerows surrounding Falls Farm in Northamptonshire. It captures the essence of British summertime with natural floral sweetness balanced by classic gin botanicals."
@@ -123,13 +123,30 @@ export default function ManagersSpecialPage() {
     },
     {
       question: "What's included in the 25% off offer?",
-      answer: "The discount applies to all serves of Warners Elderflower throughout August. Singles are £2.85 (was £3.80) and doubles are £5.70 (was £7.60). Available every day at the bar - no booking required."
+      answer: "The discount applies to all serves of Warners Elderflower throughout August. Singles are £2.85 (was £3.80). Available every day at the bar - no booking required."
     },
     {
       question: "Is Warners Elderflower good for gin cocktails?",
       answer: "Absolutely! Beyond G&Ts, try it in an Elderflower Collins with lemon and soda, or with premium tonic and cucumber ribbon. The natural elderflower sweetness makes it perfect for refreshing summer cocktails."
     }
-  ]
+  ] : spirit.name.includes('Redleg') ? [
+    {
+      question: "What makes Redleg Spiced Rum special?",
+      answer: "Redleg is a Caribbean spiced rum infused with Jamaican ginger and vanilla. Named after the red leg hermit crab, it brings authentic island warmth with its smooth blend of spices - perfect for those first chilly autumn evenings."
+    },
+    {
+      question: "What's the best way to serve Redleg?",
+      answer: "Redleg shines with premium ginger beer and fresh lime for a warming serve, or keep it classic with cola and a lime squeeze. As September nights draw in, it's also exceptional neat over ice to appreciate the vanilla and spice notes."
+    },
+    {
+      question: "What's included in the 25% off offer?",
+      answer: "The discount applies to all serves of Redleg Spiced Rum throughout September. Singles are £3.00 (was £4.00). Available every day at the bar - no booking required."
+    },
+    {
+      question: "Why is spiced rum perfect for September?",
+      answer: "As summer transitions to autumn, Redleg's warming spices - ginger, vanilla, and cinnamon - provide the perfect golden glow for cooler evenings. It's like Caribbean sunshine in a glass, ideal for the changing season."
+    }
+  ] : []
 
   return (
     <>
@@ -252,7 +269,7 @@ export default function ManagersSpecialPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <div className="max-w-md mx-auto">
               <PricingCard
                 title="Single Measure"
                 currentPrice={spirit.specialPrice}
@@ -260,12 +277,9 @@ export default function ManagersSpecialPage() {
                 savings={spirit.discount}
                 featured={true}
               />
-              <PricingCard
-                title="Double Measure"
-                currentPrice={spirit.specialPriceDouble}
-                originalPrice={spirit.originalPriceDouble}
-                savings={spirit.discount}
-              />
+              <p className="text-center text-gray-600 mt-4">
+                Doubles available at bar prices
+              </p>
             </div>
           </div>
         </Container>
@@ -357,7 +371,7 @@ export default function ManagersSpecialPage() {
                     herbs that face the Atlantic storms to the delicate flowers found in sheltered glens.
                   </p>
                 </>
-              ) : (
+              ) : spirit.name.includes('Warners') ? (
                 <>
                   <p className="text-lg leading-relaxed">
                     Founded by farmer Tom Warner, Warners Distillery began as a way to use surplus 
@@ -370,7 +384,20 @@ export default function ManagersSpecialPage() {
                     gin, creating that distinctive floral character.
                   </p>
                 </>
-              )}
+              ) : spirit.name.includes('Redleg') ? (
+                <>
+                  <p className="text-lg leading-relaxed">
+                    Named after the red leg hermit crab native to the Caribbean, Redleg represents 
+                    the spirit of island life - vibrant, warm, and full of character. This spiced 
+                    rum captures the essence of the tropics in every golden drop.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    Distilled using traditional Jamaican pot stills and aged in oak barrels, Redleg 
+                    is then infused with vanilla and ginger from the islands. The result is a smooth, 
+                    warming rum that brings Caribbean sunshine to even the greyest British autumn day.
+                  </p>
+                </>
+              ) : null}
             </div>
           </div>
         </div>

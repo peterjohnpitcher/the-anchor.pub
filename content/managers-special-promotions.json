@@ -11,8 +11,6 @@
         "category": "Islay Dry Gin",
         "originalPrice": "£3.70",
         "specialPrice": "£2.78",
-        "originalPriceDouble": "£7.40",
-        "specialPriceDouble": "£5.55",
         "discount": "25% OFF",
         "description": "The Botanist is a gin of layered complexity. A progressive exploration of the botanical heritage of our Isle of Islay.",
         "longDescription": "Hand-foraged on the windswept hills of Islay, The Botanist features 22 local botanicals that are gently distilled in our unique Lomond pot still. This artisanal Islay gin is a rare expression of the heart and soul of our remote Scottish island home.",
@@ -82,8 +80,6 @@
         "category": "Elderflower Gin",
         "originalPrice": "£3.80",
         "specialPrice": "£2.85",
-        "originalPriceDouble": "£7.60",
-        "specialPriceDouble": "£5.70",
         "discount": "25% OFF",
         "description": "Warners Elderflower gin captures everything we love about British summertime in a glass. Made on a working farm in Northamptonshire, infused with fresh elderflowers handpicked from the hedgerows.",
         "longDescription": "Warners Elderflower gin is infused with fresh elderflowers handpicked from the hedgerows surrounding Falls Farm. When you sip a Warners Elderflower G&T, you're tasting the countryside at its finest. Every bottle contains ingredients grown on their farm, and that connection to the land shines through in every sip.",
@@ -122,6 +118,46 @@
         "ctaText": "Try it today for just £2.85",
         "metaTitle": "Warners Elderflower Gin Special Offer August 2025 | The Anchor Stanwell Moor",
         "metaDescription": "Celebrate summer's grand finale with Warners Elderflower gin at just £2.85 a single all August at The Anchor pub in Stanwell Moor. Fresh, floral, and perfect for sunny days. Dog-friendly Surrey pub near Heathrow."
+      }
+    },
+    {
+      "id": "redleg-september-2025",
+      "startDate": "2025-09-01",
+      "endDate": "2025-09-30",
+      "imageFolder": "september-2025",
+      "active": true,
+      "spirit": {
+        "name": "Redleg Spiced Rum",
+        "category": "Caribbean Spiced Rum",
+        "originalPrice": "£4.00",
+        "specialPrice": "£3.00",
+        "discount": "25% OFF",
+        "description": "Caribbean warmth in a glass. Redleg Spiced Rum brings notes of vanilla, ginger and exotic spices to chase away the autumn chill.",
+        "longDescription": "As September ushers in the first whispers of autumn, Redleg Spiced Rum arrives at The Anchor as your perfect seasonal companion. This Caribbean treasure takes its name from the red leg hermit crab, a symbol of the islands' vibrant spirit and warmth. Crafted with Jamaican pot still rum and infused with island spices including ginger, vanilla, cinnamon, and nutmeg, Redleg delivers a warming embrace that's perfect for those cooling September evenings.",
+        "tastingNotes": [
+          "Warm vanilla and ginger spice",
+          "Tropical notes of pineapple and mango",
+          "Cinnamon and nutmeg warmth",
+          "Smooth caramel finish"
+        ],
+        "servingSuggestions": [
+          "With premium ginger beer and fresh lime",
+          "Classic rum & cola with a lime squeeze",
+          "Caribbean Dark & Stormy with ginger beer float",
+          "Neat over ice to appreciate the spice blend"
+        ],
+        "abv": "37.5%",
+        "origin": "Caribbean",
+        "distillery": "Redleg Rum Company"
+      },
+      "promotion": {
+        "headline": "September's Manager's Special",
+        "subheadline": "Golden Caribbean Warmth for Autumn Nights",
+        "offerText": "Enjoy 25% off Redleg Spiced Rum throughout September",
+        "ctaText": "Warm up today for just £3.00",
+        "metaTitle": "September Manager's Special - 25% OFF Redleg Spiced Rum | The Anchor Stanwell Moor",
+        "metaDescription": "Warm up this September with 25% off Redleg Spiced Rum at The Anchor pub. Caribbean golden warmth for British autumn nights. Singles £3.00 (was £4.00). Near Heathrow Airport.",
+        "heroAlt": "Redleg Spiced Rum bottle with golden amber glow and autumn leaves"
       }
     }
   ]

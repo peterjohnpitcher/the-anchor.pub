@@ -1,4 +1,6 @@
-import { ReactNode } from 'react'
+'use client'
+
+import { ReactNode, useState } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
@@ -17,6 +19,7 @@ interface OptimizedHeroSectionProps {
     priority?: boolean
     objectPosition?: string
     blurDataURL?: string
+    fallbackSrc?: string // New: fallback image if primary fails
     // New: Optimised image paths
     optimized?: {
       mobile: string
@@ -38,6 +41,7 @@ interface OptimizedHeroSectionProps {
   // Styling
   className?: string
   contentClassName?: string
+  style?: React.CSSProperties // For CSS variables
 }
 
 // Standardized height system with consistent mobile/desktop scaling
@@ -83,8 +87,16 @@ export function OptimizedHeroSection({
   tags,
   cta,
   className,
-  contentClassName
+  contentClassName,
+  style
 }: OptimizedHeroSectionProps) {
+  const [imageError, setImageError] = useState(false)
+  
+  // Use fallback if main image fails to load
+  const imageSrc = imageError && image.fallbackSrc 
+    ? image.fallbackSrc 
+    : image.src
+  
   // Use optimized images if available
   const hasOptimized = image.optimized?.mobile && image.optimized?.tablet && image.optimized?.desktop;
   
@@ -95,8 +107,9 @@ export function OptimizedHeroSection({
         heightClasses[size],
         className
       )}
+      style={style}
     >
-      {/* Background Image */}
+      {/* Background Image Layer - isolated from content */}
       <div className="absolute inset-0">
         <div className="relative w-full h-full">
           {hasOptimized ? (
@@ -145,14 +158,14 @@ export function OptimizedHeroSection({
                 placeholder={image.blurDataURL ? "blur" : "empty"}
                 blurDataURL={image.blurDataURL}
                 style={{
-                  objectPosition: image.objectPosition || '50% 50%'
+                  objectPosition: image.objectPosition || `var(--hero-ox, 50%) var(--hero-oy, 50%)`
                 }}
               />
             </picture>
           ) : (
             // Fallback to regular image
             <Image
-              src={image.src}
+              src={imageSrc}
               alt={image.alt}
               fill
               className="object-cover"
@@ -160,10 +173,11 @@ export function OptimizedHeroSection({
               sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
               quality={82}
               placeholder={image.blurDataURL ? "blur" : "empty"}
-              blurDataURL={image.blurDataURL || "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="}
+              blurDataURL={image.blurDataURL || "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACETMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="}
               style={{
-                objectPosition: image.objectPosition || '50% 50%'
+                objectPosition: image.objectPosition || `var(--hero-ox, 50%) var(--hero-oy, 50%)`
               }}
+              onError={() => setImageError(true)}
             />
           )}
         </div>
@@ -188,7 +202,7 @@ export function OptimizedHeroSection({
         )}
         
         {/* Main Content */}
-        <div className={cn('max-w-4xl', contentClassName)}>
+        <div className={cn('max-w-4xl mx-auto w-full', contentClassName)}>
           {/* Title */}
           {title && (
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-fade-up drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">

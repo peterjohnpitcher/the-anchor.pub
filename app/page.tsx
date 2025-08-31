@@ -19,6 +19,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
+import { getSeasonalHomepageImage, getSeasonalGreeting, getSeasonalAltText, getSeasonalFocal } from '@/lib/seasonal-utils'
 import { 
   Button, 
   Card, 
@@ -34,6 +35,9 @@ import {
   InfoBoxGrid,
   Section 
 } from '@/components/ui'
+
+// Revalidate every 24 hours to ensure seasonal images update
+export const revalidate = 60 * 60 * 24 // 24 hours
 
 export const metadata: Metadata = {
   title: 'The Anchor - Heathrow Pub & Dining | Traditional British Venue Near Terminal 5',
@@ -66,6 +70,12 @@ function NextEventSkeleton() {
 
 
 export default function HomePage() {
+  // Get seasonal image configuration
+  const seasonalImage = getSeasonalHomepageImage()
+  const seasonalGreeting = getSeasonalGreeting(seasonalImage.season)
+  const seasonalAltText = getSeasonalAltText(seasonalImage.season)
+  const focal = getSeasonalFocal(seasonalImage.season)
+  
   return (
     <>
       <ScrollDepthTracker />
@@ -74,21 +84,25 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([homepageFAQSchema, parkingFacilitySchema]) }}
       />
-      {/* Custom Hero Section with Logo */}
+      {/* Custom Hero Section with Seasonal Image */}
       <OptimizedHeroSection
         size="hero"
-        title="Welcome to The Anchor"
+        title={seasonalGreeting}
+        style={{
+          // CSS variables for responsive focal point
+          '--hero-ox': `${focal.x}%`,
+          '--hero-oy-mobile': `${focal.yMobile}%`,
+          '--hero-oy-desktop': `${focal.yDesktop}%`,
+        } as React.CSSProperties}
+        className="hero-focal"
         image={{
-          src: "/images/page-headers/home/Page Headers - Homepage.jpg",
-          alt: "The Anchor in Stanwell Moor",
+          src: seasonalImage.src,
+          alt: seasonalAltText,
           priority: true,
-          objectPosition: "50% 50%",
-          blurDataURL: "data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQF/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAAwQRIf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAZEQACAwEAAAAAAAAAAAAAAAACAwABMQT/2gAMAwEAAhEDEQA/ANOxLaMjPcVcr70CTruylQTmPeREIvZWFCfOotGp/9k=",
-          optimized: {
-            mobile: "/images/page-headers/home/optimized/hero-mobile",
-            tablet: "/images/page-headers/home/optimized/hero-tablet",
-            desktop: "/images/page-headers/home/optimized/hero-desktop"
-          }
+          objectPosition: undefined, // Using CSS vars now
+          fallbackSrc: seasonalImage.fallback,
+          blurDataURL: "data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQF/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAAwQRIf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAZEQACAwEAAAAAAAAAAAAAAAACAwABMQT/2gAMAwEAAhEDEQA/ANOxLaMjPcVcr70CTruylQTmPeREIvZWFCfOotGp/9k="
+          // Don't use optimized paths for seasonal images since they don't exist yet
         }}
       >
         {/* Logo with drop shadow */}
