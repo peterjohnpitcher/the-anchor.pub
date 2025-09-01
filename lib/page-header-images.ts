@@ -117,7 +117,7 @@ export function getPageHeaderImage(route: string): HeaderImageConfig | null {
  */
 export function getDefaultHeaderImage(): HeaderImageConfig {
   return {
-    src: '/images/page-headers/home/Page Headers - Homepage.jpg',
+    src: '/images/page-headers/home/page-headers-homepage.jpg',
     alt: 'The Anchor pub entrance with warm lighting and traditional British pub signage'
   };
 }
