@@ -94,20 +94,15 @@ export function ManagersSpecialHero() {
                 
                 {/* Pricing Info */}
                 {spirit?.specialPrice && (
-                  <div className="flex flex-wrap gap-6 mb-8">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/20">
-                      <span className="text-sm text-emerald-100">Single (25ml)</span>
-                      <div>
-                        <span className="text-gray-300 line-through text-sm mr-2">{spirit?.originalPrice || ''}</span>
-                        <span className="text-2xl font-bold text-white">{spirit?.specialPrice || ''}</span>
+                  <div className="mb-8">
+                    <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-8 py-4 border border-white/20">
+                      <span className="text-sm text-emerald-100 block mb-1">Special Price (25ml Single)</span>
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-gray-300 line-through text-lg">{spirit?.originalPrice || ''}</span>
+                        <span className="text-3xl font-bold text-white">{spirit?.specialPrice || ''}</span>
+                        <span className="text-amber-400 font-bold text-lg">{spirit?.discount || '25% OFF'}</span>
                       </div>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/20">
-                      <span className="text-sm text-emerald-100">Double (50ml)</span>
-                      <div>
-                        <span className="text-gray-300 line-through text-sm mr-2">{spirit?.originalPriceDouble || ''}</span>
-                        <span className="text-2xl font-bold text-white">{spirit?.specialPriceDouble || ''}</span>
-                      </div>
+                      <p className="text-xs text-emerald-100 mt-2">Doubles available at bar prices</p>
                     </div>
                   </div>
                 )}
