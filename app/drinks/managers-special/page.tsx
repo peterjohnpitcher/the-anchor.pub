@@ -294,14 +294,18 @@ export default function ManagersSpecialPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Tasting Notes</h2>
                 <div className="space-y-4">
-                  {spirit.tastingNotes.map((note: string, index: number) => (
-                    <div key={index} className="flex items-start bg-white rounded-xl shadow-sm p-6">
-                      <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                        <span className="text-purple-600 font-bold">{index + 1}</span>
+                  {spirit.tastingNotes && spirit.tastingNotes.length > 0 ? (
+                    spirit.tastingNotes.map((note: string, index: number) => (
+                      <div key={index} className="flex items-start bg-white rounded-xl shadow-sm p-6">
+                        <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                          <span className="text-purple-600 font-bold">{index + 1}</span>
+                        </div>
+                        <p className="text-gray-700 text-lg">{note}</p>
                       </div>
-                      <p className="text-gray-700 text-lg">{note}</p>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <p className="text-gray-600 italic">Tasting notes coming soon.</p>
+                  )}
                 </div>
               </div>
 
@@ -309,15 +313,19 @@ export default function ManagersSpecialPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Perfect Serves</h2>
                 <div className="space-y-4">
-                  {spirit.servingsuggestions.map((suggestion: string, index: number) => (
-                    <div key={index} className="bg-gradient-to-r from-amber-50 to-amber-100 rounded-xl p-6 border border-amber-200">
-                      <div className="flex items-center mb-2">
-                        <span className="text-2xl mr-3">🍸</span>
-                        <h3 className="font-semibold text-gray-900">Serve {index + 1}</h3>
+                  {spirit.servingSuggestions && spirit.servingSuggestions.length > 0 ? (
+                    spirit.servingSuggestions.map((suggestion: string, index: number) => (
+                      <div key={index} className="bg-gradient-to-r from-amber-50 to-amber-100 rounded-xl p-6 border border-amber-200">
+                        <div className="flex items-center mb-2">
+                          <span className="text-2xl mr-3">🍸</span>
+                          <h3 className="font-semibold text-gray-900">Serve {index + 1}</h3>
+                        </div>
+                        <p className="text-gray-700">{suggestion}</p>
                       </div>
-                      <p className="text-gray-700">{suggestion}</p>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <p className="text-gray-600 italic">Serving suggestions coming soon.</p>
+                  )}
                 </div>
               </div>
             </div>

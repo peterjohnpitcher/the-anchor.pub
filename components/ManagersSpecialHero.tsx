@@ -38,13 +38,8 @@ export function ManagersSpecialHero() {
 
   if (loading || !currentPromotion) return null
 
-  // The API returns { active: true, promotion: {...}, image: "..." }
-  // currentPromotion.promotion contains the full promotion data from JSON
-  if (!currentPromotion.promotion) {
-    return null
-  }
-  
-  const { spirit, promotion } = currentPromotion.promotion
+  // The API returns the promotion directly with active: true flag
+  const { spirit, promotion } = currentPromotion
   
   // Ensure spirit and promotion exist
   if (!spirit || !promotion) {
