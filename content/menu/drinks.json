@@ -322,15 +322,15 @@
       "description": "Our extensive collection of premium spirits, carefully curated for every taste",
       "sections": [
         {
-          "title": "Manager's Special - July",
+          "title": "Manager's Special - September",
           "style": "grid",
           "highlight": true,
-          "description": "25% OFF The Botanist Gin throughout July!",
+          "description": "25% OFF Redleg Spiced Rum throughout September!",
           "items": [
             {
-              "name": "The Botanist",
-              "price": "Single £2.78 (was £3.70) • Double £5.55 (was £7.40)",
-              "description": "22 hand-foraged botanicals from Islay. Complex, refined and utterly unique. Enjoy 25% off all serves this month! Mixers available from £1 additional.",
+              "name": "Redleg Spiced Rum",
+              "price": "Single £3.00 (was £4.00) • Double £6.00 (was £8.00)",
+              "description": "Caribbean warmth in a glass. Redleg Spiced Rum brings notes of vanilla, ginger and exotic spices to chase away the autumn chill. Enjoy 25% off all serves this month!",
               "special": true
             }
           ]

@@ -106,8 +106,8 @@ export default async function DrinksMenuPage() {
   const managersSpecialSchema = {
     "@context": "https://schema.org",
     "@type": "Offer",
-    "name": "Manager's Special - 25% OFF The Botanist Gin",
-    "description": "Save 25% on The Botanist Gin. Premium Islay gin at a special price.",
+    "name": "Manager's Special - 25% OFF Redleg Spiced Rum",
+    "description": "Save 25% on Redleg Spiced Rum. Caribbean warmth for autumn nights.",
     "url": "https://www.the-anchor.pub/drinks#managers-special",
     "priceCurrency": "GBP",
     "priceSpecification": {
@@ -207,7 +207,7 @@ export default async function DrinksMenuPage() {
       <MenuPageTracker 
         menuType="drinks"
         specialOffers={[
-          "Manager's Special - 25% OFF The Botanist Gin"
+          "Manager's Special - 25% OFF Redleg Spiced Rum"
         ]}
       />
       <ScrollDepthTracker />
