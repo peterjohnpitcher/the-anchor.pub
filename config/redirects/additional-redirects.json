@@ -9,16 +9,7 @@
     "destination": "/blog",
     "permanent": true
   },
-  {
-    "source": "/events/quiz-night-pub-pursuit-:date",
-    "destination": "/whats-on",
-    "permanent": true
-  },
-  {
-    "source": "/events/nikki-s-games-night-:slug",
-    "destination": "/whats-on",
-    "permanent": true
-  },
+  
   {
     "source": "/subscription-terms-and-conditions",
     "destination": "/terms",
