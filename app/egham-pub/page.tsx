@@ -1,16 +1,14 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, Container } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Egham Pub | The Anchor - 12 Minutes Away | Surrey',
@@ -19,12 +17,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Egham',
     description: 'Just 12 minutes from Egham with free parking and great food.',
-    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Egham',
     description: 'Just 12 minutes from Egham with free parking and great food.',
-    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -100,20 +98,20 @@ export default function EghamPubPage() {
               📞 Call to Book
             </PhoneButton>
             <Link href="/food-menu">
-      <Button 
-        variant="secondary"
-        size="lg"
-      >
-        🍽️ View Menu
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                🍽️ View Menu
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Page Title */}
       <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <PageTitle
               seo={{
@@ -128,12 +126,12 @@ export default function EghamPubPage() {
               Your local traditional pub just 12 minutes from Egham with free parking
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Distance & Benefits */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Egham's Favourite Surrey Escape"
@@ -196,12 +194,12 @@ export default function EghamPubPage() {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Directions */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="How to Find Us from Egham"
@@ -273,12 +271,12 @@ export default function EghamPubPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Student & Local Offers */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Perfect for Egham Groups"
@@ -353,19 +351,19 @@ export default function EghamPubPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Opening Hours"
             />
             <BusinessHours />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

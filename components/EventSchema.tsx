@@ -1,4 +1,5 @@
 import { Event } from '@/lib/api'
+import { DEFAULT_EVENT_IMAGE } from '@/lib/image-fallbacks'
 
 interface EventSchemaProps {
   event: Event
@@ -18,7 +19,7 @@ export function EventSchema({ event }: EventSchemaProps) {
   const eventUrl = event.url || (event.slug ? `https://www.the-anchor.pub/events/${event.slug}` : `https://www.the-anchor.pub/events/${event.id}`)
   
   // Ensure we always have an image URL
-  const eventImage = event.image?.[0] || event.heroImageUrl || event.thumbnailImageUrl || '/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'
+  const eventImage = event.image?.[0] || event.heroImageUrl || event.thumbnailImageUrl || DEFAULT_EVENT_IMAGE
   
   const schema = {
     "@context": "https://schema.org",

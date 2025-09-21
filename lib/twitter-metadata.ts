@@ -3,6 +3,7 @@
  */
 
 import { Metadata } from 'next'
+import { DEFAULT_PAGE_HEADER_IMAGE } from './image-fallbacks'
 
 interface TwitterMetadataOptions {
   title: string
@@ -20,7 +21,7 @@ export function getTwitterMetadata(options: TwitterMetadataOptions): NonNullable
   const {
     title,
     description,
-    images = ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images = [DEFAULT_PAGE_HEADER_IMAGE],
     card = 'summary_large_image'
   } = options
 
@@ -41,7 +42,7 @@ export const defaultTwitterMetadata: NonNullable<Metadata['twitter']> = {
   card: 'summary_large_image',
   title: 'The Anchor Pub - Near Heathrow Airport',
   description: 'Traditional pub with modern entertainment. Drag shows, quiz nights, great food & more.',
-  images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
+  images: [DEFAULT_PAGE_HEADER_IMAGE],
   site: '@TheAnchorStanwell',
   creator: '@TheAnchorStanwell'
 }

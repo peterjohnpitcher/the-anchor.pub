@@ -214,7 +214,7 @@ We created Pizza Tuesday (or as we call it, "2sDay") to:
 
 While you're here for the **pizza deals**, discover:
 - Full pub menu available
-- Local ales and craft beers
+- Local ales and well-known lagers
 - Wine selection to pair
 - Family-friendly atmosphere
 - Traditional British pub experience

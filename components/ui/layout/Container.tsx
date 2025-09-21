@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import type { BaseComponentProps, WithChildren } from '../types'
 
 const containerVariants = cva(
-  'mx-auto w-full',
+  'container mx-auto w-full',
   {
     variants: {
       size: {

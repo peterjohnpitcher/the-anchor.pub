@@ -7,6 +7,7 @@ import { Container, Section } from '@/components/ui/layout/Container'
 import { Breadcrumb } from '@/components/ui/navigation/Breadcrumb'
 import { Grid } from '@/components/ui/layout/Grid'
 import { BlogShareButtons } from '@/components/BlogShareButtons'
+import { getBlogHeroUrl } from '@/lib/blog-image'
 
 interface BlogPostProps {
   post: {
@@ -29,13 +30,15 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
     { label: post.title, current: true }
   ]
 
+  const heroUrl = getBlogHeroUrl(post.slug, post.hero)
+
   return (
     <>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-end mt-20">
         <div className="absolute inset-0">
           <Image
-            src={post.hero ? `/content/blog/${post.slug}/${post.hero}` : '/images/hero/the-anchor-pub-interior-atmosphere.jpg'}
+            src={heroUrl}
             alt={post.title}
             fill
             className="object-cover"
@@ -109,9 +112,9 @@ export function BlogPost({ post, prevPost, nextPost }: BlogPostProps) {
               "@type": "WebPage",
               "@id": `https://www.the-anchor.pub/blog/${post.slug}`
             },
-            "image": post.hero 
-              ? `https://www.the-anchor.pub/content/blog/${post.slug}/${post.hero}`
-              : "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+            "image": heroUrl.startsWith('http')
+              ? heroUrl
+              : `https://www.the-anchor.pub${heroUrl}`,
             "keywords": post.tags.join(", ")
           })
         }}

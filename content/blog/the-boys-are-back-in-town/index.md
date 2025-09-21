@@ -17,7 +17,6 @@ keywords:
   - abbot ale stanwell moor
   - traditional ales staines
   - the anchor beer selection
-  - craft ales near heathrow
   - quality beers terminal 5
 tags:
   - community

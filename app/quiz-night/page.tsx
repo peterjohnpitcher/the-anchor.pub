@@ -12,6 +12,7 @@ import { Container } from '@/components/ui/layout/Container'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { DEFAULT_EVENT_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Monthly Quiz Night | The Anchor - Heathrow Pub & Dining',
@@ -20,12 +21,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Monthly Quiz Night at The Anchor',
     description: 'Join our monthly quiz night - £3 entry with great prizes including a £25 bar voucher!',
-    images: ['/images/pub-interior/the-anchor-pub-interior.jpg'],
+    images: [DEFAULT_EVENT_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Monthly Quiz Night at The Anchor',
     description: 'Join our monthly quiz night - £3 entry with great prizes including a £25 bar voucher!',
-    images: ['/images/pub-interior/the-anchor-pub-interior.jpg']
+    images: [DEFAULT_EVENT_IMAGE]
   })
 }
 
@@ -38,7 +39,6 @@ export default function QuizNightPage() {
         title="Quiz Night at The Anchor"
         description="Test your knowledge and win great prizes at our monthly quiz!"
         size="medium"
-        showStatusBar={false}
         tags={[
           { label: "💷 £3 Entry", variant: "success" },
           { label: "🏆 £25 1st Prize", variant: "primary" },

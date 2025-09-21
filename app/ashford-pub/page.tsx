@@ -14,6 +14,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Traditional Ashford Pub | The Anchor - Heathrow Pub & Dining',
@@ -22,13 +23,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Ashford',
     description: 'Just 10 minutes from Ashford with free parking. Sunday roasts, British classics, and regular events.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Traditional Pub Near Ashford',
     description: 'Just 10 minutes from Ashford with free parking. Sunday roasts, British classics, and regular events.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -37,7 +38,7 @@ const localBusinessSchema = {
   "@type": ["Restaurant", "BarOrPub"],
   "@id": "https://www.the-anchor.pub/ashford-pub#business",
   "name": `${BRAND.name} - Near Ashford`,
-  "image": "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "image": `https://www.the-anchor.pub${DEFAULT_PAGE_HEADER_IMAGE}`,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": CONTACT.address.street,

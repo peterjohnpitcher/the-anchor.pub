@@ -16,7 +16,9 @@ External API (OrangeJelly)
     ↓ [HTTPS + API Key]
 Next.js API Route (/api/business/hours/route.ts)
     ↓ [Internal fetch]
-React Component (StatusBarSimple.tsx)
+> **Update 2025:** `StatusBarSimple` has been removed. Use the unified `StatusBar` component for all implementations.
+
+React Component (historical reference)
     ↓ [State management]
 UI Display (Navigation header)
 ```
@@ -24,7 +26,7 @@ UI Display (Navigation header)
 ### 1.3 Caching Strategy
 - **Server-side:** 60-second cache via Next.js `Cache-Control` headers
 - **Client-side:** No caching (fetches on component mount only)
-- **No automatic refresh** in StatusBarSimple component
+- **No automatic refresh** in the (now-removed) StatusBarSimple component
 
 ---
 

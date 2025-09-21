@@ -1,14 +1,13 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { Button } from '@/components/ui'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, Container } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { GoogleReviews } from '@/components/reviews'
+import { DEFAULT_PAGE_HEADER_IMAGE, DEFAULT_FOOD_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Pubs in Stanwell & Stanwell Moor | Traditional Local Pub | The Anchor',
@@ -17,12 +16,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub in Stanwell Moor',
     description: 'Traditional village pub serving Stanwell Moor since 1995. Great food, beer garden, free parking.',
-    images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub in Stanwell Moor',
     description: 'Traditional village pub serving Stanwell Moor since 1995. Great food, beer garden, free parking.',
-    images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   }),
   alternates: {
     canonical: '/pubs-in-stanwell'
@@ -37,9 +36,9 @@ const localPubSchema = {
   "description": "Family-friendly local pub serving Stanwell Moor and Stanwell since 1995. Traditional British pub with great food, beer garden, and free parking.",
   "url": "https://www.the-anchor.pub",
   "image": [
-    "https://www.the-anchor.pub/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg",
-    "https://www.the-anchor.pub/images/venue/the-anchor-bar-area-local-pub.jpg",
-    "https://www.the-anchor.pub/images/garden/the-anchor-beer-garden-stanwell-moor.jpg"
+    `https://www.the-anchor.pub${DEFAULT_PAGE_HEADER_IMAGE}`,
+    'https://www.the-anchor.pub/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg',
+    `https://www.the-anchor.pub${DEFAULT_FOOD_IMAGE}`
   ],
   "address": {
     "@type": "PostalAddress",
@@ -143,19 +142,19 @@ export default function PubsInStanwellPage() {
 
       {/* Page Title for SEO */}
       <section className="bg-white py-8">
-        <div className="container mx-auto px-4">
+        <Container>
           <PageTitle 
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
             Pubs in Stanwell & Stanwell Moor - The Anchor Traditional British Pub
           </PageTitle>
-        </div>
+        </Container>
       </section>
 
       {/* Why We're Stanwell's Favourite Local */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Why The Anchor is Stanwell Moor's Favourite Local"
@@ -204,7 +203,7 @@ export default function PubsInStanwellPage() {
                         </p>
                         <ul className="space-y-2 text-gray-700">
                           <li>✓ Home-cooked British food</li>
-                          <li>✓ Real ales and craft beers</li>
+                          <li>✓ Real ales and chilled lagers</li>
                           <li>✓ Large beer garden</li>
                           <li>✓ Live entertainment</li>
                           <li>✓ Free parking always</li>
@@ -249,12 +248,12 @@ export default function PubsInStanwellPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* What We Offer */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Everything You Want from Your Local Pub"
@@ -315,12 +314,12 @@ export default function PubsInStanwellPage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Compare to Other Pubs */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="How We Compare to Other Local Pubs"
@@ -391,12 +390,12 @@ export default function PubsInStanwellPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Weekly Schedule */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Something Special Every Day"
@@ -453,12 +452,12 @@ export default function PubsInStanwellPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Customer Reviews */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="What Stanwell Locals Say About Us"
@@ -468,7 +467,7 @@ export default function PubsInStanwellPage() {
               showTitle={false}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}
@@ -496,7 +495,7 @@ export default function PubsInStanwellPage() {
           },
           {
             question: "Do you show sports at the pub?",
-            answer: "Yes, we show major sporting events on our screens. We're a great place to watch the football, rugby, and other sports with fellow fans in a proper pub atmosphere."
+            answer: "Yes, we show major sporting events that air on BBC, ITV, Channel 4, and Channel 5. We're a great place to enjoy the big free-to-air football, rugby, and tournament fixtures with fellow fans in a proper pub atmosphere."
           },
           {
             question: "Can I book The Anchor for a private event?",

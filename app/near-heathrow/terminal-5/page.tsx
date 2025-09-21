@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
@@ -11,10 +10,11 @@ import { SectionHeader } from '@/components/SectionHeader'
 import { FeatureGrid } from '@/components/FeatureCard'
 import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
-import { CTASection } from '@/components/ui'
+import { CTASection, Container } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Terminal 5 | 7 Minutes by Car | FREE Parking | The Anchor',
@@ -23,12 +23,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Real British Pub Near Terminal 5 Hotels',
     description: 'Escape hotel dining! Authentic local pub 7 mins from Sofitel & Hilton T5. Free parking.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Real British Pub Near Terminal 5 Hotels',
     description: 'Escape hotel dining! Authentic local pub 7 mins from Sofitel & Hilton T5. Free parking.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   })
 }
 
@@ -58,24 +58,24 @@ export default function Terminal5Page() {
             </BookTableButton>
             
             <Link href="#directions">
-      <Button 
-        variant="secondary"
-        size="lg"
-      >
-        📍 Get Directions
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                📍 Get Directions
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Page Title */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
             Pub Near Heathrow Terminal 5 - The Anchor
           </PageTitle>
-        </div>
+        </Container>
       </section>
 
       {/* Quick Info Cards */}
@@ -572,7 +572,7 @@ export default function Terminal5Page() {
               "@type": "Restaurant",
               "name": "The Anchor - Pub Near Heathrow Terminal 5",
               "description": "The closest pub to Heathrow Terminal 5 - just 7 minutes drive with free parking.",
-              "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+              "image": "https://www.the-anchor.pub/images/page-headers/near-heathrow/Heathrow.jpg",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Horton Road",

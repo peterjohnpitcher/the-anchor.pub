@@ -1,16 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { Button } from '@/components/ui'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid, Container } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PhoneLink } from '@/components/PhoneLink'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { GoogleReviews } from '@/components/reviews'
 import { HEATHROW_TIMES } from '@/lib/constants'
+import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Restaurant Near Heathrow Airport | The Anchor - Better Than Terminal Dining',
@@ -19,12 +18,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Restaurant Near Heathrow - The Anchor',
     description: 'Skip expensive airport dining. Traditional British food, free parking, 7 minutes from Terminal 5.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Restaurant Near Heathrow - The Anchor',
     description: 'Skip expensive airport dining. Traditional British food, free parking, 7 minutes from Terminal 5.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   }),
   alternates: {
     canonical: '/restaurants-near-heathrow'
@@ -162,19 +161,19 @@ export default function RestaurantsNearHeathrowPage() {
 
       {/* Page Title for SEO */}
       <section className="bg-white py-8">
-        <div className="container mx-auto px-4">
+        <Container>
           <PageTitle 
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
             Restaurant Near Heathrow - Traditional British Dining Alternative to Airport Food
           </PageTitle>
-        </div>
+        </Container>
       </section>
 
       {/* Why Choose Us Over Airport Dining */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Why Smart Travellers Choose The Anchor Over Airport Restaurants"
@@ -260,12 +259,12 @@ export default function RestaurantsNearHeathrowPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Menu Highlights */}
       <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Traditional British Restaurant Menu"
@@ -322,12 +321,12 @@ export default function RestaurantsNearHeathrowPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Perfect For Section */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Perfect Restaurant for Every Occasion"
@@ -391,12 +390,12 @@ export default function RestaurantsNearHeathrowPage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Restaurant Opening Hours"
@@ -457,12 +456,12 @@ export default function RestaurantsNearHeathrowPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Customer Reviews */}
       <section className="section-spacing bg-anchor-sand/10">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="What Diners Say About Our Restaurant"
@@ -473,7 +472,7 @@ export default function RestaurantsNearHeathrowPage() {
               showTitle={false}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

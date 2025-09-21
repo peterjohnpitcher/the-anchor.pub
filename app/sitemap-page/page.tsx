@@ -85,7 +85,6 @@ export default function SitemapPage() {
         title="Sitemap"
         description="Find your way around The Anchor website"
         size="small"
-        showStatusBar={false}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/">

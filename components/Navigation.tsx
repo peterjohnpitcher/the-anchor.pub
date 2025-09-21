@@ -481,7 +481,7 @@ export function Navigation({
 
               {/* Status and Reviews */}
               {showStatus && (
-                <div className={cn('flex-1 flex justify-center', mergedTheme.text)}>
+                <div className={cn('flex-1 min-w-0 flex justify-center sm:justify-start', mergedTheme.text)}>
                   {statusComponent}
                 </div>
               )}

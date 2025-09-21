@@ -38,7 +38,7 @@ Stay informed about new menu items, seasonal drinks, opening hours, and special 
 From quiz nights to drag cabaret to charity fundraisers - find out what's happening at your local pub.
 
 ### 🍕 Food & Drink Features
-Discover our latest culinary offerings, from traditional British pub classics to international cuisines, craft beers, and premium spirits.
+Discover our latest culinary offerings, from traditional British pub classics to international cuisines, well-kept draught beers, and premium spirits.
 
 ### 💰 Special Offers
 Keep up with our regular deals including Tuesday pizza BOGOF, Friday senior discounts, and monthly manager's specials.
@@ -67,7 +67,7 @@ Read about local happenings, charity events, and the people who make Stanwell Mo
 
 - **Events & Entertainment** - Quiz nights, drag shows, special celebrations
 - **Food & Menu Updates** - New dishes, seasonal specials, chef features
-- **Drinks & Bar News** - Craft beers, guest ales, cocktail specials
+- **Drinks & Bar News** - Draught favourites, guest ales, cocktail specials
 - **Community & Charity** - Local causes, fundraisers, village life
 - **Offers & Deals** - Money-saving specials and promotions
 

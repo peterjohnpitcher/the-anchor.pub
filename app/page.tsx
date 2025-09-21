@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 import { StatusBar } from '@/components/StatusBar'
 import { NextEventServer } from '@/components/NextEventServer'
-import { Suspense } from 'react'
+import { Suspense, type CSSProperties } from 'react'
 import { homepageFAQSchema } from '@/lib/enhanced-schemas'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 import { LazySection } from '@/components/LazySection'
@@ -93,7 +93,7 @@ export default function HomePage() {
           '--hero-ox': `${focal.x}%`,
           '--hero-oy-mobile': `${focal.yMobile}%`,
           '--hero-oy-desktop': `${focal.yDesktop}%`,
-        } as React.CSSProperties}
+        } as CSSProperties}
         className="hero-focal"
         image={{
           src: seasonalImage.src,
@@ -130,8 +130,11 @@ export default function HomePage() {
           Where Everyone&apos;s Welcome
         </p>
         
-        <div className="mb-8 flex justify-center">
-          <StatusBar />
+        <div className="mb-8 flex justify-center px-2 sm:px-0">
+          <StatusBar
+            variant="hero"
+            className="self-center"
+          />
         </div>
         
         {/* Feature tags */}
@@ -417,7 +420,7 @@ export default function HomePage() {
               caption="Famous Sunday Roasts - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday"
               width={600}
               height={600}
-              priority={false}
+              priority
             />
             
             {/* Event Photo - Now Second */}

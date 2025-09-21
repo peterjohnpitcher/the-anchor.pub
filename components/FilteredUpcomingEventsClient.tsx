@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer'
 import { formatEventDate, formatEventTime, formatPrice, getEventShortDescription, formatDoorTime, type Event } from '@/lib/api'
 import { EventSchema } from '@/components/EventSchema'
 import EventAvailability from '@/components/EventAvailability'
+import { DEFAULT_EVENT_IMAGE } from '@/lib/image-fallbacks'
 
 interface EventCardProps {
   event: Event
@@ -22,7 +23,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
 
   const startTime = formatEventTime(event.startDate)
   const eventDate = formatEventDate(event.startDate)
-  const eventImage = event.image?.[0] || event.heroImageUrl || '/images/events/default-event-hero.jpg'
+  const eventImage = event.image?.[0] || event.heroImageUrl || DEFAULT_EVENT_IMAGE
 
   return (
     <div ref={ref} className="bg-white rounded-2xl shadow-lg overflow-hidden">

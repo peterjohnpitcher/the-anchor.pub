@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { BookingWizard } from '@/components/features/BookingWizard'
 import { getAvailabilityForNext30Days } from '@/lib/booking-helpers'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Book a Table Online | The Anchor - Heathrow Pub & Dining',
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Book a Table at The Anchor',
     description: 'Quick and easy table booking. Sunday roasts, regular dining, and special events.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   }
 }
 

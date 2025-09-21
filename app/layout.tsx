@@ -14,6 +14,9 @@ import { GTMProvider, GTMNoscript } from '@/components/GTMProvider'
 import { CanonicalLink } from '@/components/CanonicalLink'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import CookieBanner from '@/components/CookieBanner'
+import { ChristmasGlobalLightbox } from '@/components/ChristmasGlobalLightbox'
+import { EventCountdownBanner } from '@/components/EventCountdownBanner'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 // Critical CSS for above-the-fold content
 const criticalCSS = `
 /* Critical CSS for above-the-fold content */
@@ -138,7 +141,7 @@ export const metadata: Metadata = {
     siteName: 'The Anchor',
     images: [
       {
-        url: '/images/venue/the-anchor-exterior-stanwell-moor.jpg',
+        url: DEFAULT_PAGE_HEADER_IMAGE,
         width: 1200,
         height: 630,
         alt: 'The Anchor in Stanwell Moor',
@@ -151,7 +154,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Anchor - Near Heathrow Airport',
     description: 'Traditional venue with modern entertainment. Drag shows, quiz nights, great food & more.',
-    images: ['/images/venue/the-anchor-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   robots: {
     index: true,
@@ -208,7 +211,7 @@ export default function RootLayout({
         <link 
           rel="preload" 
           as="image" 
-          href="/images/page-headers/home/Page Headers - Homepage.jpg"
+          href={DEFAULT_PAGE_HEADER_IMAGE}
           type="image/jpeg"
         />
         <link 
@@ -251,6 +254,8 @@ export default function RootLayout({
             </ErrorBoundary>
             <FloatingActions />
             <CookieBanner />
+            <ChristmasGlobalLightbox />
+            <EventCountdownBanner />
           </AnalyticsProvider>
         </GTMProvider>
       </body>

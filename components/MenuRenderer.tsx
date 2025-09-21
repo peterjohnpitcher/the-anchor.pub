@@ -8,6 +8,8 @@ import { HeroBadge } from './HeroBadge'
 import Link from 'next/link'
 import { logError } from '@/lib/error-handling'
 import { ALLERGEN_TYPES } from '@/hooks/useAllergenFilter'
+import { cn } from '@/lib/utils'
+import { Container } from '@/components/ui'
 
 interface MenuRendererProps {
   menuData: MenuData
@@ -92,7 +94,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
       {/* Kitchen Hours */}
       {menuData.kitchenHours && (
         <section className="section-spacing bg-anchor-gold/10">
-          <div className="container mx-auto px-4 text-center">
+          <Container className="text-center">
             <p className="text-lg text-anchor-green font-semibold">
               Kitchen Hours: {Object.entries(menuData.kitchenHours).map(([day, hours], index) => (
                 <span key={day}>
@@ -104,7 +106,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
             <p className="text-gray-700 mt-2">
               Please order at the bar when you're ready
             </p>
-          </div>
+          </Container>
         </section>
       )}
 
@@ -120,7 +122,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
       >
         {menuData.categories.map((category, categoryIndex) => (
           <section key={category.id} id={category.id} className={`section-spacing ${categoryIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`} itemScope itemType="https://schema.org/MenuSection">
-          <div className="container mx-auto px-4">
+          <Container>
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-anchor-green mb-8 text-center" itemProp="name">
                 {category.emoji && <span className="mr-2">{category.emoji}</span>}
@@ -137,7 +139,26 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
               <SpecialOfferNotifications targetSection={category.id} />
 
               {category.sections.map((section, sectionIndex) => (
-                <div key={sectionIndex} className={`mb-8 ${section.highlight ? 'cocktails-featured' : ''}`}>
+                <div
+                  key={sectionIndex}
+                  className={cn(
+                    'mb-8',
+                    section.highlight && 'relative overflow-hidden rounded-3xl px-6 py-12 shadow-lg',
+                    section.highlight && category.id === 'cocktails' && 'border border-amber-200 bg-amber-50/90',
+                    section.highlight && category.id === 'spirits' && 'border-4 border-anchor-green bg-gradient-to-br from-anchor-green to-anchor-green-dark shadow-xl'
+                  )}
+                >
+                  {section.highlight && category.id === 'cocktails' && (
+                    <div className="pointer-events-none absolute -top-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-gradient-to-r from-amber-500 to-amber-300 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-lg">
+                      🍹 Limited Time Offer
+                    </div>
+                  )}
+
+                  {section.highlight && category.id === 'spirits' && (
+                    <div className="pointer-events-none absolute -top-4 left-1/2 z-10 -translate-x-1/2 rounded-full border-2 border-white bg-gradient-to-r from-anchor-green to-anchor-green-dark px-6 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-lg">
+                      🎯 Manager's Special
+                    </div>
+                  )}
                   {section.title && (
                     <h3 className={`text-2xl font-bold mb-6 text-center ${section.highlight && category.id === 'spirits' ? 'text-white' : section.highlight && category.id === 'cocktails' ? 'text-anchor-gold' : 'text-anchor-green'}`}>
                       {section.title}
@@ -185,7 +206,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
                 </div>
               ))}
             </div>
-          </div>
+          </Container>
         </section>
       ))}
       </div>
@@ -193,7 +214,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
       {/* Responsible Drinking Message */}
       {menuData.responsibleDrinking && (
         <section className="section-spacing bg-amber-50">
-          <div className="container mx-auto px-4">
+          <Container>
             <div className="max-w-4xl mx-auto text-center">
               <h3 className="text-2xl font-bold text-anchor-green mb-4">
                 {menuData.responsibleDrinking.title}
@@ -202,7 +223,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
                 {menuData.responsibleDrinking.message}
               </p>
             </div>
-          </div>
+          </Container>
         </section>
       )}
     </>

@@ -1,16 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
-import { HeroWrapper, Breadcrumbs } from '@/components/hero'
+import { Button, Container } from '@/components/ui'
+import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList, DirectionsCard } from '@/components/ui'
+import { CTASection, SectionHeader, FeatureGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
+import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Pub Near Heathrow Airport | The Anchor - Heathrow Pub & Dining',
@@ -19,12 +18,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Heathrow Airport',
     description: 'Just 7 minutes from Heathrow Terminal 5. Perfect for pre-flight meals or meeting arriving passengers.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Heathrow Airport',
     description: 'Just 7 minutes from Heathrow Terminal 5. Perfect for pre-flight meals or meeting arriving passengers.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   })
 }
 
@@ -56,42 +55,45 @@ export default function NearHeathrowPage() {
               context="heathrow_traveler"
               variant="primary"
               size="lg"
+              className="w-full sm:w-auto"
             >
               📞 Book a Table: 01753 682707
             </BookTableButton>
             
-            <Link href="#terminals">
-      <Button 
-        variant="secondary"
-        size="lg"
-      >
-        📍 Get Directions
-      </Button>
-    </Link>
+            <Link href="#terminals" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                📍 Get Directions
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Page Title for SEO */}
       <section className="bg-white py-8">
-        <div className="container mx-auto px-4">
+        <Container>
           <PageTitle 
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
             The Anchor - Pub Near Heathrow Airport
           </PageTitle>
-        </div>
+        </Container>
       </section>
 
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Why Travelers Love The Anchor"
             subtitle="Whether you're killing time before a flight, meeting arriving passengers, or just landed and need a proper British welcome"
           />
-          
+         
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="card-warm bg-anchor-sand/30 p-8 text-center">
               <div className="text-5xl mb-4">🚗</div>
@@ -148,12 +150,12 @@ export default function NearHeathrowPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Terminal-Specific Directions */}
       <section id="terminals" className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Directions from Each Terminal"
             subtitle="We're the closest traditional pub to all Heathrow terminals"
@@ -265,12 +267,12 @@ export default function NearHeathrowPage() {
             </div>
           </div>
           </SpeakableContent>
-        </div>
+        </Container>
       </section>
 
       {/* Popular with Travelers */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anchor-green mb-4">
               Popular with Heathrow Travelers
@@ -317,12 +319,12 @@ export default function NearHeathrowPage() {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Plane Spotting Section */}
       <section className="section-spacing bg-anchor-sand/20">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="🛩️ Unique Plane Spotting Experience"
@@ -355,21 +357,23 @@ export default function NearHeathrowPage() {
               ]}
               className="mb-8"
             />
-            <Link href="/beer-garden">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        Discover Our Plane Spotting Beer Garden
-      </Button>
-    </Link>
+            <Link href="/beer-garden" className="w-full sm:w-auto inline-block">
+              <Button 
+                variant="primary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                Discover Our Plane Spotting Beer Garden
+              </Button>
+            </Link>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Facilities for Travelers */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Everything Travelers Need"
             subtitle="From entertainment to remote work facilities - we've got you covered"
@@ -500,12 +504,12 @@ export default function NearHeathrowPage() {
               The Anchor provides everything you need at local prices - not airport markups.
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* The Heathrow Local Experience */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="More Than Just a Pub Near the Airport"
@@ -589,7 +593,7 @@ export default function NearHeathrowPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* CTA Section */}
@@ -623,7 +627,7 @@ export default function NearHeathrowPage() {
               "@type": "Restaurant",
               "name": "The Anchor - Pub Near Heathrow Airport",
               "description": "The closest traditional British pub to Heathrow Airport. Just 7 minutes from Terminal 5.",
-              "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+              "image": "https://www.the-anchor.pub/images/page-headers/near-heathrow/Heathrow.jpg",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Horton Road",

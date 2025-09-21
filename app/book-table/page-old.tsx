@@ -16,6 +16,7 @@ import { InfoBoxGrid } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { Breadcrumbs } from '@/components/hero/Breadcrumbs'
 import { HeroTag } from '@/components/hero/HeroTag'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Book a Table | The Anchor - Heathrow Pub & Dining',
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Book a Table at The Anchor',
     description: 'Reserve your table for great food and drinks at The Anchor - Heathrow Pub & Dining. Online booking available.',
-    images: ['/images/anchor-dining-room.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   }
 }
 
@@ -44,13 +45,13 @@ export default function BookTablePage({
         title="Book a Table"
         description="Reserve your spot for great food and drinks"
         image={{
-          src: "/images/page-headers/home/Page Headers - Homepage.jpg",
+          src: DEFAULT_PAGE_HEADER_IMAGE,
           alt: "The Anchor entrance with warm lighting and traditional British pub signage",
           priority: true,
           optimized: {
-            mobile: "/images/page-headers/home/optimized/hero-mobile",
-            tablet: "/images/page-headers/home/optimized/hero-tablet",
-            desktop: "/images/page-headers/home/optimized/hero-desktop"
+            mobile: '/images/page-headers/home/optimized/hero-mobile.jpg',
+            tablet: '/images/page-headers/home/optimized/hero-tablet.jpg',
+            desktop: '/images/page-headers/home/optimized/hero-desktop.jpg'
           }
         }}
         alignment="center"

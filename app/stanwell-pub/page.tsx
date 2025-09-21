@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, DirectionsCard, Container } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
@@ -9,9 +7,9 @@ import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, DirectionsCard, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: `Stanwell Pub Near Me | ${BRAND.name} - Your Local Surrey Village Pub`,
@@ -20,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Stanwell Village Pub',
     description: 'Your local traditional British pub in Stanwell Moor. Sunday roasts, quiz nights, and community events.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Stanwell Village Pub',
     description: 'Your local traditional British pub in Stanwell Moor. Sunday roasts, quiz nights, and community events.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -35,7 +33,7 @@ const localBusinessSchema = {
   "@type": ["Restaurant", "BarOrPub"],
   "@id": "https://www.the-anchor.pub/stanwell-pub#business",
   "name": `${BRAND.name} - Stanwell Village Pub`,
-  "image": "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "image": `https://www.the-anchor.pub${DEFAULT_PAGE_HEADER_IMAGE}`,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": CONTACT.address.street,
@@ -116,7 +114,7 @@ export default function StanwellPubPage() {
 
       {/* Page Title */}
       <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <PageTitle
               seo={{
@@ -131,12 +129,12 @@ export default function StanwellPubPage() {
               Your local village pub serving the Stanwell community for generations
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Welcome Section */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Welcome to Your Local Stanwell Pub"
@@ -174,12 +172,12 @@ export default function StanwellPubPage() {
               className="mb-8"
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Why Stanwell Residents Choose Us */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Why Stanwell Residents Choose The Anchor"
@@ -254,12 +252,12 @@ export default function StanwellPubPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Local Favourites */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Stanwell's Favourite Pub Food"
@@ -299,12 +297,12 @@ export default function StanwellPubPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Location & Directions */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Getting to The Anchor from Stanwell"
@@ -370,12 +368,12 @@ export default function StanwellPubPage() {
               </DirectionsButton>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Stanwell Community */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Part of the Stanwell Community"
@@ -410,19 +408,19 @@ export default function StanwellPubPage() {
               The Anchor welcomes you with warm hospitality and cold pints!
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-2xl mx-auto text-center">
             <SectionHeader
               title="Stanwell Pub Opening Hours"
             />
             <BusinessHours />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

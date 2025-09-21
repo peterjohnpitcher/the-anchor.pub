@@ -18,6 +18,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Directions & Parking | The Anchor - Heathrow Pub & Dining',
@@ -26,12 +27,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Find The Anchor - Directions & Location',
     description: 'Easy to find pub in Stanwell Moor with free parking. Just 7 minutes from Heathrow.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Find The Anchor - Directions & Location',
     description: 'Easy to find pub in Stanwell Moor with free parking. Just 7 minutes from Heathrow.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -80,6 +81,7 @@ export default function FindUsPage() {
               source="find_us_hero"
               variant="primary"
               size="lg"
+              className="w-full sm:w-auto"
             >
               📍 Get Directions
             </DirectionsButton>
@@ -88,6 +90,7 @@ export default function FindUsPage() {
               source="find_us_hero"
               variant="secondary"
               size="lg"
+              className="w-full sm:w-auto"
             >
               📞 Call Us
             </PhoneButton>
@@ -96,7 +99,7 @@ export default function FindUsPage() {
       />
 
       {/* Page Title for SEO */}
-      <div className="bg-white py-8">
+      <Section background="white" spacing="sm">
         <Container>
           <PageTitle 
             className="text-center text-anchor-green"
@@ -105,10 +108,10 @@ export default function FindUsPage() {
             Find The Anchor - FREE Parking & Easy Directions from Heathrow
           </PageTitle>
         </Container>
-      </div>
+      </Section>
 
       {/* Quick Info */}
-      <div className="bg-anchor-cream section-spacing-md">
+      <Section background="white" spacing="md" className="bg-anchor-cream">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
             <div className="bg-white p-4 rounded-lg text-center">
@@ -158,10 +161,10 @@ export default function FindUsPage() {
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Address & Contact */}
-      <div className="bg-white section-spacing-md">
+      <Section background="white" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
@@ -260,10 +263,10 @@ export default function FindUsPage() {
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Directions */}
-      <div className="bg-gray-50 section-spacing-md">
+      <Section background="gray" spacing="md">
         <Container>
           <SectionHeader
             title="Directions from Popular Locations"
@@ -346,10 +349,10 @@ export default function FindUsPage() {
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Parking Information */}
-      <div className="bg-white section-spacing-md">
+      <Section background="white" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
@@ -385,10 +388,10 @@ export default function FindUsPage() {
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Book Your Visit Section */}
-      <div className="bg-anchor-green section-spacing-md">
+      <Section className="bg-anchor-green" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
@@ -454,10 +457,10 @@ export default function FindUsPage() {
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Facilities */}
-      <div className="bg-anchor-sand/20 section-spacing-md">
+      <Section background="white" spacing="md" className="bg-anchor-sand/20">
         <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
@@ -553,7 +556,7 @@ export default function FindUsPage() {
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

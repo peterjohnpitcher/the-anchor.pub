@@ -1,16 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { CTASection, SectionHeader, FeatureGrid, Container } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Bedfont Pub | The Anchor - 5 Minutes Away | Surrey',
@@ -19,12 +18,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Bedfont',
     description: 'Just 5 minutes from Bedfont with free parking and great food.',
-    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Bedfont',
     description: 'Just 5 minutes from Bedfont with free parking and great food.',
-    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -103,20 +102,20 @@ export default function BedfontPubPage() {
               📞 Call to Book
             </PhoneButton>
             <Link href="/food-menu">
-      <Button 
-        variant="secondary"
-        size="lg"
-      >
-        🍽️ View Menu
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                🍽️ View Menu
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Page Title */}
       <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <PageTitle
               seo={{
@@ -131,12 +130,12 @@ export default function BedfontPubPage() {
               Your local traditional pub just 5 minutes from Bedfont with free parking
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Distance & Benefits */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="The Anchor - Bedfont's Best Kept Secret"
@@ -199,12 +198,12 @@ export default function BedfontPubPage() {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Directions */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Easy to Find from Bedfont"
@@ -264,12 +263,12 @@ export default function BedfontPubPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Local Features */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Perfect for Bedfont Locals"
@@ -319,19 +318,19 @@ export default function BedfontPubPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Opening Hours"
             />
             <BusinessHours />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

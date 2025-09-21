@@ -21,7 +21,7 @@ keywords:
   - czech beer heathrow
   - low calorie beer stanwell moor
   - refreshing lager near terminal 5
-  - craft beer pub near airport
+  - pilsner pub near airport
 tags:
   - drinks
   - beer

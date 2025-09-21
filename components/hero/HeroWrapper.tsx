@@ -26,6 +26,14 @@ interface HeroWrapperProps {
   }>
   showStatusBar?: boolean
   statusBarPosition?: 'above' | 'below' | 'none'
+  statusBarVariant?: 'default' | 'compact' | 'hero'
+  statusBarTheme?: {
+    background?: string
+    border?: string
+    text?: string
+    accentText?: string
+  }
+  statusBarShowKitchen?: boolean
   
   // Actions
   cta?: ReactNode
@@ -48,8 +56,11 @@ export function HeroWrapper({
   breadcrumbs,
   showBreadcrumbs = true,
   tags,
-  showStatusBar = false,
+  showStatusBar = true,
   statusBarPosition = 'below',
+  statusBarVariant = 'hero',
+  statusBarTheme,
+  statusBarShowKitchen = true,
   cta,
   children,
   className,
@@ -61,6 +72,14 @@ export function HeroWrapper({
   // Auto-generate breadcrumbs if not provided
   const breadcrumbItems = breadcrumbs || generateBreadcrumbsFromRoute(route)
   
+  const heroStatusTheme = {
+    background: 'bg-anchor-green',
+    border: 'border-2 border-anchor-gold',
+    text: 'text-white',
+    accentText: 'text-amber-100/90',
+    ...statusBarTheme
+  }
+
   return (
     <HeroSection
       title={title}
@@ -93,13 +112,21 @@ export function HeroWrapper({
         <>
           {showStatusBar && statusBarPosition === 'above' && (
             <div className="mb-6">
-              <StatusBar />
+              <StatusBar 
+                variant={statusBarVariant}
+                showKitchen={statusBarShowKitchen}
+                theme={heroStatusTheme}
+              />
             </div>
           )}
           {cta}
           {showStatusBar && statusBarPosition === 'below' && (
             <div className="mt-6">
-              <StatusBar />
+              <StatusBar 
+                variant={statusBarVariant}
+                showKitchen={statusBarShowKitchen}
+                theme={heroStatusTheme}
+              />
             </div>
           )}
         </>

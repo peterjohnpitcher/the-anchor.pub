@@ -17,6 +17,7 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { getCurrentPromotion, getPromotionImage } from '@/lib/managers-special-utils'
 import { notFound } from 'next/navigation'
+import { DEFAULT_DRINKS_IMAGE } from '@/lib/image-fallbacks'
 
 // This function runs at build time and request time
 export async function generateMetadata(): Promise<Metadata> {
@@ -38,12 +39,12 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: promotion.metaTitle || `Manager's Special - ${currentPromotion.spirit.discount} ${currentPromotion.spirit.name}`,
       description: promotion.metaDescription || currentPromotion.spirit.description,
-      images: [getPromotionImage(currentPromotion.imageFolder) || '/images/spirits/default.jpg'],
+      images: [getPromotionImage(currentPromotion.imageFolder) || DEFAULT_DRINKS_IMAGE],
     },
     twitter: getTwitterMetadata({
       title: promotion.metaTitle || `Manager's Special - ${currentPromotion.spirit.discount} ${currentPromotion.spirit.name}`,
       description: promotion.metaDescription || currentPromotion.spirit.description,
-      images: [getPromotionImage(currentPromotion.imageFolder) || '/images/spirits/default.jpg']
+      images: [getPromotionImage(currentPromotion.imageFolder) || DEFAULT_DRINKS_IMAGE]
     })
   }
 }

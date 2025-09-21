@@ -1,13 +1,15 @@
 'use client'
 
-import { StatusBarSimple } from './StatusBarSimple'
-import { HeaderReviewBadge } from './reviews'
+import { StatusBar } from './StatusBar'
 
 export function HeaderStatusSectionDirect() {
   return (
-    <div className="flex flex-nowrap items-center gap-x-2 sm:gap-x-3 gap-y-1">
-      <StatusBarSimple variant="navigation" />
-      <HeaderReviewBadge variant="light" />
+    <div className="flex w-full max-w-full justify-center sm:justify-end">
+      <StatusBar
+        variant="navigation"
+        className="w-auto"
+        showKitchen
+      />
     </div>
   )
 }

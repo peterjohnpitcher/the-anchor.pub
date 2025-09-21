@@ -1,17 +1,16 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
-import { CONTACT, BRAND } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { CONTACT } from '@/lib/constants'
+import { Button, Container, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_CORPORATE_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Corporate Events Near Heathrow | The Anchor',
@@ -20,12 +19,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Corporate Events & Meeting Rooms - The Anchor',
     description: 'Professional venue for business events near Heathrow. Free parking, flexible spaces, experienced team.',
-    images: ['/images/events/corporate/the-anchor-meeting-room.jpg'],
+    images: [DEFAULT_CORPORATE_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Corporate Events & Meeting Rooms - The Anchor',
     description: 'Professional venue for business events near Heathrow. Free parking, flexible spaces, experienced team.',
-    images: ['/images/events/corporate/the-anchor-meeting-room.jpg']
+    images: [DEFAULT_CORPORATE_IMAGE]
   })
 }
 
@@ -51,7 +50,6 @@ export default function CorporateEventsPage() {
         title="Corporate Event Venue Near Heathrow"
         description="Professional meeting spaces and business event hosting 7 minutes from Terminal 5"
         size="large"
-        showStatusBar={false}
         tags={[
           { label: "✈️ 7 mins from Heathrow", variant: "success" },
           { label: "🚗 Free Parking", variant: "default" },
@@ -65,16 +63,18 @@ export default function CorporateEventsPage() {
               variant="primary"
               size="lg"
               context="corporate_event"
+              fullWidth
+              className="w-full sm:w-auto"
             >
               📅 Book Your Event
             </BookTableButton>
-            <Link href={CONTACT.phoneHref}>
-              <Button variant="secondary" size="lg">
+            <Link href={CONTACT.phoneHref} className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" fullWidth className="sm:w-auto">
                 📞 Discuss Your Event
               </Button>
             </Link>
-            <Link href="#solutions">
-              <Button variant="secondary" size="lg">
+            <Link href="#solutions" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" fullWidth className="sm:w-auto">
                 💼 Explore Our Solutions
               </Button>
             </Link>
@@ -84,7 +84,7 @@ export default function CorporateEventsPage() {
 
       {/* Page Title */}
       <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <PageTitle
               seo={{
@@ -99,12 +99,12 @@ export default function CorporateEventsPage() {
               Professional meeting rooms and event spaces for businesses, just 7 minutes from Terminal 5
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Why Choose The Anchor for Business */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Why Leading Companies Choose The Anchor"
             subtitle="The smart choice for business events near Heathrow"
@@ -202,12 +202,12 @@ export default function CorporateEventsPage() {
               }
             ]}
           />
-        </div>
+        </Container>
       </section>
 
       {/* Event Types */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Corporate Event Solutions"
             subtitle="From board meetings to company celebrations"
@@ -282,12 +282,12 @@ export default function CorporateEventsPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Corporate Solutions */}
       <section id="solutions" className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Tailored Corporate Event Solutions"
             subtitle="Flexible venue hire pricing designed around your specific needs"
@@ -369,13 +369,18 @@ export default function CorporateEventsPage() {
                     We'll create a tailored proposal that works for your budget.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link href={CONTACT.phoneHref}>
-                      <Button variant="primary" size="lg">
+                    <Link href={CONTACT.phoneHref} className="w-full sm:w-auto">
+                      <Button variant="primary" size="lg" fullWidth className="sm:w-auto">
                         📞 Call to Discuss
                       </Button>
                     </Link>
-                    <Link href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20a%20quote%20for%20a%20corporate%20event" target="_blank" rel="noopener noreferrer">
-                      <Button variant="secondary" size="lg">
+                    <Link 
+                      href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20a%20quote%20for%20a%20corporate%20event" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto"
+                    >
+                      <Button variant="secondary" size="lg" fullWidth className="sm:w-auto">
                         💬 WhatsApp Us
                       </Button>
                     </Link>
@@ -388,7 +393,7 @@ export default function CorporateEventsPage() {
               <p className="text-lg text-gray-700 mb-6">
                 Want to see our full catering options? From working lunches to celebration dinners.
               </p>
-              <Link href="/food-menu">
+              <Link href="/food-menu" className="inline-block">
                 <Button 
                   variant="secondary"
                   size="lg"
@@ -398,12 +403,12 @@ export default function CorporateEventsPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Facilities & Amenities */}
       <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Professional Facilities"
             subtitle="Everything you need for productive business events"
@@ -501,13 +506,13 @@ export default function CorporateEventsPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
 
       {/* Location Advantages */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Strategic Location for Business"
@@ -560,7 +565,7 @@ export default function CorporateEventsPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}
@@ -604,7 +609,7 @@ export default function CorporateEventsPage() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-gray-900 to-gray-800 py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Plan Your Corporate Event Today
@@ -618,22 +623,28 @@ export default function CorporateEventsPage() {
                 size="lg"
                 variant="secondary"
                 context="corporate_event"
-                className="bg-white text-gray-900 hover:bg-gray-100"
+                fullWidth
+                className="w-full sm:w-auto bg-white text-gray-900 hover:bg-gray-100"
               >
                 📅 Book Your Event
               </BookTableButton>
-              <Link href="tel:+441753682707">
-                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+              <Link href="tel:+441753682707" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
                   📞 Call: 01753 682707
                 </Button>
               </Link>
-              <Link href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20corporate%20events" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+              <Link 
+                href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20corporate%20events" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
                   💬 WhatsApp Us
                 </Button>
               </Link>
-              <Link href="mailto:manager@the-anchor.pub?subject=Corporate Event Enquiry">
-                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20">
+              <Link href="mailto:manager@the-anchor.pub?subject=Corporate Event Enquiry" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20">
                   📧 Email Enquiry
                 </Button>
               </Link>
@@ -645,7 +656,7 @@ export default function CorporateEventsPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   )

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { BookTableButton } from '@/components/BookTableButton'
@@ -16,6 +15,7 @@ import { DirectionsButton } from '@/components/DirectionsButton'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PARKING } from '@/lib/constants'
+import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Pub Near Terminal 2 | The Anchor - Heathrow Pub & Dining',
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Local Pub Near Terminal 2 Hotels',
     description: 'Escape hotel dining! Family pub 11 mins from T2. Real atmosphere.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Local Pub Near Terminal 2 Hotels',
     description: 'Escape hotel dining! Family pub 11 mins from T2. Real atmosphere.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   })
 }
 
@@ -62,14 +62,14 @@ export default function Terminal2Page() {
             </PhoneButton>
             
             <Link href="#directions">
-      <Button 
-        variant="secondary"
-        size="lg"
-        className="bg-white text-anchor-green hover:bg-gray-100"
-      >
-        📍 Get Directions
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                📍 Get Directions
+              </Button>
+            </Link>
           </div>
         }
       />
@@ -602,7 +602,7 @@ export default function Terminal2Page() {
             "@type": "Restaurant",
             "name": "The Anchor - Pub Near Heathrow Terminal 2",
             "description": "Traditional British pub just 11 minutes from Heathrow Terminal 2 with free parking.",
-            "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+            "image": "https://www.the-anchor.pub/images/page-headers/near-heathrow/Heathrow.jpg",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Horton Road",

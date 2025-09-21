@@ -11,6 +11,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_CORPORATE_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Venue Hire Near Heathrow | Function Room Hire Staines | The Anchor',
@@ -19,12 +20,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Function Room Hire - The Anchor - Heathrow Pub & Dining',
     description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
-    images: ['/images/events/function-room/the-anchor-function-room.jpg'],
+    images: [DEFAULT_CORPORATE_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Function Room Hire - The Anchor - Heathrow Pub & Dining',
     description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
-    images: ['/images/events/function-room/the-anchor-function-room.jpg']
+    images: [DEFAULT_CORPORATE_IMAGE]
   })
 }
 
@@ -75,7 +76,6 @@ export default function FunctionRoomHirePage() {
         title="Function Room Hire"
         description="Versatile event spaces with flexible pricing"
         size="large"
-        showStatusBar={false}
         tags={[
           { label: "🏢 Multiple Spaces", variant: "default" },
           { label: "💷 Flexible Pricing", variant: "success" },

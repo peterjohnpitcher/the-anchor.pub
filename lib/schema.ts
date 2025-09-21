@@ -1,3 +1,11 @@
+import { DEFAULT_PAGE_HEADER_IMAGE, DEFAULT_FOOD_IMAGE } from './image-fallbacks'
+
+const DEFAULT_SCHEMA_IMAGES = [
+  `https://www.the-anchor.pub${DEFAULT_PAGE_HEADER_IMAGE}`,
+  'https://www.the-anchor.pub/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg',
+  `https://www.the-anchor.pub${DEFAULT_FOOD_IMAGE}`
+]
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -31,11 +39,7 @@ export const localBusinessSchema = {
   "@type": ["Restaurant", "BarOrPub"],
   "@id": "https://www.the-anchor.pub/#business",
   "name": "The Anchor",
-  "image": [
-    "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
-    "https://www.the-anchor.pub/images/the-anchor-beer-garden-heathrow.jpg",
-    "https://www.the-anchor.pub/images/the-anchor-interior-stanwell-moor.jpg"
-  ],
+  "image": DEFAULT_SCHEMA_IMAGES,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Horton Road",

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { getUpcomingEvents, formatEventDate, formatEventTime } from '@/lib/api'
 import { EventSchema } from '@/components/EventSchema'
 import { Button } from '@/components/ui'
+import { DEFAULT_EVENT_IMAGE } from '@/lib/image-fallbacks'
 
 export async function NextEventServer() {
   try {
@@ -34,8 +35,7 @@ export async function NextEventServer() {
     const isTomorrow = new Date(Date.now() + 86400000).toDateString() === eventDate.toDateString()
     
     // Get event image
-    const eventImage = nextEvent.image?.[0] || nextEvent.heroImageUrl || 
-                      '/images/events/default-event-hero.jpg'
+    const eventImage = nextEvent.image?.[0] || nextEvent.heroImageUrl || DEFAULT_EVENT_IMAGE
     
     return (
       <div className="max-w-4xl mx-auto">

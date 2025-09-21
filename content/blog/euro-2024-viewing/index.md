@@ -18,7 +18,7 @@ tags:
   - sports
   - football
   - live-events
-  - premier-league
+  - terrestrial-sport
   - entertainment
 featured: false
 hero: "hero.png"
@@ -28,7 +28,7 @@ images:
 
 ![Euro 2024 promotional image for The Anchor](/content/blog/euro-2024-viewing/hero.png)
 
-Looking for the best **sports pub near Heathrow**? The Anchor is your premier destination for watching major sporting events! With 4 HD screens, fantastic atmosphere, and just 7 minutes from Terminal 5, we're the perfect spot to catch terrestrial TV sports. World Cup, Euros, Six Nations, Wimbledon, FA Cup finals and more!
+Looking for the best **sports pub near Heathrow**? The Anchor is your premier destination for watching the biggest terrestrial TV sporting events! With 4 HD screens, fantastic atmosphere, and just 7 minutes from Terminal 5, we're the perfect spot to catch BBC, ITV, Channel 4, and Channel 5 coverage. World Cup, Euros, Six Nations, Wimbledon, FA Cup finals and more!
 
 ## Your Local Sports Viewing Destination
 
@@ -50,29 +50,28 @@ Never miss a moment of the action at Stanwell Moor's favourite sports pub!
 
 ### All Major Events Live
 
-Our **sports pub near Heathrow** covers everything:
+Our **sports pub near Heathrow** covers every free-to-air fixture we can tune in:
 
 **Football:**
-- ⚽ Football on terrestrial TV
+- ⚽ BBC & ITV live fixtures
 - 🏆 FA Cup (BBC/ITV matches)
-- 🏴󐁧󐁢󐁥󐁮󐁧󐁿 England Internationals
-- 🌍 World Cup & Euros
-- 🏆 FA Cup
-- 🥈 Championship playoffs
+- 🏴󐁧󐁢󐁥󐁮󐁧󐁿 England internationals on free-to-air
+- 🌍 World Cup & Euros (tournament coverage)
+- 📺 Match of the Day highlights
 
 **Rugby:**
-- 🏉 Six Nations Championship
-- 🏉 Rugby World Cup
-- 🏉 Premiership Rugby
-- 🏉 European Champions Cup
+- 🏉 Six Nations Championship (BBC/ITV)
+- 🏉 Rugby World Cup free-to-air matches
+- 🏉 Gallagher Premiership games selected for ITV
+- 🏉 Autumn internationals shown on terrestrial channels
 
 **Other Sports:**
-- 🏏 Cricket (Ashes, World Cup)
-- 🏁 Formula 1
-- 🥊 Boxing (major fights)
-- 🎾 Wimbledon finals
-- 🏌️ Golf majors
-- 🏇 Cheltenham & Grand National
+- 🏏 Cricket highlights on BBC and major ICC finals on free-to-air
+- 🏁 Formula 1 British Grand Prix & highlights on Channel 4
+- 🥊 Major boxing nights broadcast on terrestrial TV
+- 🎾 Wimbledon & Queen's coverage
+- 🏌️ The Open Championship on free-to-air
+- 🏇 Cheltenham Festival & Grand National coverage
 
 ## The Perfect Match Day Experience
 
@@ -112,7 +111,7 @@ Keep energized throughout the match:
 **Drinks Selection:**
 - Local ales on tap
 - International lagers
-- Craft beers
+- Guest ciders
 - Full wine list
 - Spirits & cocktails
 - Soft drinks & mocktails
@@ -168,33 +167,30 @@ Popular matches fill up fast! Here's how to guarantee your seat:
 - European Championships  
 - FA Cup matches on BBC/ITV
 - England internationals
-- Community Shield
-- Selected big matches on terrestrial TV
+- Community Shield (free-to-air years)
+- Selected big matches screened on terrestrial TV
 
-**International Breaks:**
 - England matches
-- Nations League
-- Friendly fixtures
-- Tournament qualifiers
+- Nations League fixtures shown on terrestrial TV
+- Friendly fixtures with free-to-air rights
+- Tournament qualifiers on BBC/ITV
 
 Check our website or social media for specific match times.
 
-## The Ultimate Derby Day Venue
+## Big Match Highlights & Finals
 
-### Local Rivalries & Big Clashes
+### Evenings Worth Getting Together For
 
-Experience the passion of:
-- North London Derby
-- Manchester Derby
-- Merseyside Derby
-- West London Derby
-- El Clásico
-- Old Firm Derby
+Experience the buzz of:
+- Tournament knock-out nights
+- FA Cup and Carabao Cup fixtures on terrestrial TV
+- International finals and qualifiers
+- Wimbledon fortnight and finals weekend
+- British Grand Prix action on Channel 4
 
-**Derby Day Atmosphere:**
+**Match Night Atmosphere:**
 - Mixed fan zones
 - Friendly banter encouraged
-- Extra security for comfort
 - Special menu items
 - Prize giveaways
 

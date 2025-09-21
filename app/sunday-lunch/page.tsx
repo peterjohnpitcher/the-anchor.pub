@@ -1,9 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button, Container } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
-import { SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { SectionHeader, FeatureGrid, AlertBox } from '@/components/ui'
 import { Icon } from '@/components/ui/Icon'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ReviewSection } from '@/components/reviews'
@@ -44,24 +43,29 @@ export default function SundayLunchPage() {
         title="Sunday Roast at The Anchor"
         description="Traditional British roast dinners that locals rave about"
         size="large"
-        showStatusBar={false}
         tags={[
           { label: "Every Sunday 12pm - 4:30pm", variant: "warning" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" size="lg" asChild>
-              <Link href="/book-table" className="inline-flex items-center whitespace-nowrap">
+            <Link href="/book-table" className="w-full sm:w-auto">
+              <Button 
+                variant="primary" 
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
                 <Icon name="calendar" className="mr-2 flex-shrink-0" />
                 <span>Book Your Table Now</span>
-              </Link>
-            </Button>
+              </Button>
+            </Link>
             
-            <Link href="#menu">
+            <Link href="#menu" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white text-anchor-green hover:bg-gray-100"
+                fullWidth
+                className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
               >
                 View Sunday Menu
               </Button>
@@ -96,7 +100,7 @@ export default function SundayLunchPage() {
 
       {/* Why Our Roasts Are Special */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Why Our Sunday Roast Near Me is Special"
             subtitle="Locals searching for 'Sunday lunch near me' choose The Anchor - here's why."
@@ -126,12 +130,12 @@ export default function SundayLunchPage() {
             ]}
             className="max-w-5xl mx-auto"
           />
-        </div>
+        </Container>
       </section>
 
       {/* Sunday Menu */}
       <section id="menu" className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Sunday Roast Menu"
@@ -296,12 +300,17 @@ export default function SundayLunchPage() {
             
             {/* Booking CTA within menu section */}
             <div className="text-center mb-12">
-              <Button variant="primary" size="lg" className="w-full animate-pulse" asChild>
-                <Link href="/book-table" className="inline-flex items-center justify-center whitespace-nowrap">
+              <Link href="/book-table" className="w-full inline-block">
+                <Button 
+                  variant="primary" 
+                  size="lg" 
+                  className="w-full animate-pulse"
+                  fullWidth
+                >
                   <Icon name="calendar" className="mr-2 flex-shrink-0" />
                   <span>🔥 Reserve Now - Before Saturday 1pm!</span>
-                </Link>
-              </Button>
+                </Button>
+              </Link>
               <p className="text-sm text-red-600 font-bold mt-3">
                 ⏰ Booking closes Saturday 1pm • Limited spaces available
               </p>
@@ -317,12 +326,12 @@ export default function SundayLunchPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Sunday Experience */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="The Sunday Experience"
@@ -376,17 +385,17 @@ export default function SundayLunchPage() {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <Button variant="primary" size="md" fullWidth asChild>
-                    <Link href="/book-table" className="inline-flex items-center justify-center whitespace-nowrap">
+                  <Link href="/book-table" className="w-full">
+                    <Button variant="primary" size="md" fullWidth className="sm:w-auto">
                       <Icon name="calendar" className="mr-2 flex-shrink-0" />
                       <span>Book Your Table</span>
-                    </Link>
-                  </Button>
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Reviews */}
@@ -399,7 +408,7 @@ export default function SundayLunchPage() {
 
       {/* The Sunday Roast Tradition */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Why Sunday Roast at The Anchor is Special"
@@ -497,12 +506,12 @@ export default function SundayLunchPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Customer Testimonials */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="What Our Sunday Roast Guests Say"
@@ -556,7 +565,7 @@ export default function SundayLunchPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}
@@ -606,18 +615,24 @@ export default function SundayLunchPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button variant="secondary" size="lg" className="bg-white text-anchor-green hover:bg-gray-100 border-white" asChild>
-                <Link href="/book-table">
+              <Link href="/book-table" className="w-full sm:w-auto">
+                <Button 
+                  variant="secondary" 
+                  size="lg" 
+                  fullWidth
+                  className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100 border-white"
+                >
                   <Icon name="calendar" className="mr-2" />
                   Book Your Sunday Roast
-                </Link>
-              </Button>
+                </Button>
+              </Link>
               
-              <Link href="tel:+441753682707">
+              <Link href="tel:+441753682707" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-white text-white hover:bg-white hover:text-anchor-green"
+                  fullWidth
+                  className="sm:w-auto border-white text-white hover:bg-white hover:text-anchor-green"
                 >
                   <Icon name="phone" className="mr-2" />
                   Call: 01753 682707

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { BLOG_FALLBACK_IMAGE } from '@/lib/blog-image'
 
 export const metadata: Metadata = {
   title: 'All Blog Topics | The Anchor - Heathrow Pub & Dining',
@@ -11,12 +12,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'All Blog Topics - The Anchor',
     description: 'Explore all blog categories and topics',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: [BLOG_FALLBACK_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'All Blog Topics - The Anchor',
     description: 'Explore all blog categories and topics',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [BLOG_FALLBACK_IMAGE]
   })
 }
 
@@ -48,7 +49,7 @@ const tagInfo: Record<string, { name: string; description: string; category: str
   
   // Community & Sports
   'community': { name: 'Community', description: 'Local news and initiatives', category: 'Primary' },
-  'sports': { name: 'Sports', description: 'Live sports and fixtures', category: 'Primary' },
+  'sports': { name: 'Sports', description: 'Terrestrial sports and fixtures', category: 'Primary' },
   'football': { name: 'Football', description: 'Live football screenings', category: 'Sports' },
   'rugby': { name: 'Rugby', description: 'Rugby matches', category: 'Sports' },
   

@@ -1,4 +1,5 @@
 import { organizationSchema, webSiteSchema } from './schema'
+import { DEFAULT_PAGE_HEADER_IMAGE, DEFAULT_FOOD_IMAGE } from './image-fallbacks'
 import { getAnchorPlacesClient } from './google/places-client'
 
 export async function getEnhancedSchemas() {
@@ -20,16 +21,18 @@ export async function getEnhancedSchemas() {
     // Use defaults on error
   }
 
+  const defaultImages = [
+    `https://www.the-anchor.pub${DEFAULT_PAGE_HEADER_IMAGE}`,
+    'https://www.the-anchor.pub/images/garden/beer-garden/the-anchor-beer-garden-heathrow-flight-path.jpg',
+    `https://www.the-anchor.pub${DEFAULT_FOOD_IMAGE}`
+  ]
+
   const localBusinessSchemaWithReviews = {
     "@context": "https://schema.org",
     "@type": ["Restaurant", "BarOrPub"],
     "@id": "https://www.the-anchor.pub/#business",
     "name": "The Anchor",
-    "image": [
-      "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
-      "https://www.the-anchor.pub/images/the-anchor-beer-garden-heathrow.jpg",
-      "https://www.the-anchor.pub/images/the-anchor-interior-stanwell-moor.jpg"
-    ],
+    "image": defaultImages,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Horton Road",

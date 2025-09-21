@@ -205,20 +205,22 @@ export default async function FoodMenuPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#menu">
+            <Link href="#menu" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white text-anchor-green hover:bg-gray-100"
+                fullWidth
+                className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
               >
                 📖 Jump to Menu
               </Button>
             </Link>
-            <Link href="/sunday-lunch">
+            <Link href="/sunday-lunch" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white text-anchor-green hover:bg-gray-100"
+                fullWidth
+                className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
               >
                 🍖 Sunday Roast Menu
               </Button>
@@ -228,7 +230,7 @@ export default async function FoodMenuPage() {
       />
 
       {/* Page Title for SEO */}
-      <section className="bg-white py-8">
+      <Section background="white" spacing="sm">
         <Container>
           <PageTitle 
             className="text-center text-anchor-green"
@@ -237,7 +239,7 @@ export default async function FoodMenuPage() {
             Food Menu - The Anchor Restaurant
           </PageTitle>
         </Container>
-      </section>
+      </Section>
 
       {/* Daily Specials - Shows only on relevant days */}
       <SpeakableContent selector="special-offers" priority="high">
@@ -245,7 +247,7 @@ export default async function FoodMenuPage() {
       </SpeakableContent>
 
       {/* Perfect Pre-Flight Meal Section */}
-      <div className="bg-white section-spacing-md">
+      <Section background="white" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -299,10 +301,10 @@ export default async function FoodMenuPage() {
             />
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Staines & Local Authority Content */}
-      <div className="bg-gray-50 section-spacing-md">
+      <Section background="gray" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
@@ -348,10 +350,10 @@ export default async function FoodMenuPage() {
             </SpeakableContent>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Food & Drink Pairings */}
-      <div className="bg-anchor-gold/10 section-spacing-md">
+      <Section background="white" spacing="md" className="bg-anchor-gold/10">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -407,7 +409,7 @@ export default async function FoodMenuPage() {
             </p>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Menu Content */}
       <div id="menu">
@@ -415,7 +417,7 @@ export default async function FoodMenuPage() {
       </div>
 
       {/* Additional Information */}
-      <div className="bg-gray-50 section-spacing-md">
+      <Section background="gray" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <Alert
@@ -432,7 +434,7 @@ export default async function FoodMenuPage() {
             </Alert>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

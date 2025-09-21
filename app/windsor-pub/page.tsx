@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, Container } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
@@ -9,9 +7,9 @@ import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Traditional Windsor Pub | The Anchor - Heathrow Pub & Dining',
@@ -20,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Windsor',
     description: 'Just 15 minutes from Windsor with free parking. Sunday roasts, British classics, and regular entertainment.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Traditional Pub Near Windsor',
     description: 'Just 15 minutes from Windsor with free parking. Sunday roasts, British classics, and regular entertainment.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -35,7 +33,7 @@ const localBusinessSchema = {
   "@type": ["Restaurant", "BarOrPub"],
   "@id": "https://www.the-anchor.pub/windsor-pub#business",
   "name": `${BRAND.name} - Near Windsor`,
-  "image": "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "image": `https://www.the-anchor.pub${DEFAULT_PAGE_HEADER_IMAGE}`,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": CONTACT.address.street,
@@ -125,7 +123,7 @@ export default function WindsorPubPage() {
 
       {/* Page Title */}
       <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <PageTitle
               seo={{
@@ -140,12 +138,12 @@ export default function WindsorPubPage() {
               Your local traditional pub just 15 minutes from Windsor Castle with free parking
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Welcome Section */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Windsor's Favourite Traditional Pub Experience"
@@ -183,12 +181,12 @@ export default function WindsorPubPage() {
               className="mb-8"
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Why Windsor Residents Choose Us */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Why Windsor Residents Love The Anchor"
@@ -267,12 +265,12 @@ export default function WindsorPubPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Popular with Windsor Groups */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Popular with Windsor Groups"
@@ -313,12 +311,12 @@ export default function WindsorPubPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Getting Here from Windsor */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Getting to The Anchor from Windsor"
@@ -383,12 +381,12 @@ export default function WindsorPubPage() {
               </DirectionsButton>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Windsor Connection */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Windsor to The Anchor - Why We're Worth the Trip"
@@ -431,12 +429,12 @@ export default function WindsorPubPage() {
               where you're treated like a local, not a tourist!
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-2xl mx-auto text-center">
             <SectionHeader
               title="Opening Hours"
@@ -446,7 +444,7 @@ export default function WindsorPubPage() {
               Kitchen closes earlier - check times for food service
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

@@ -1,17 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, Container } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: `Heathrow Hotels Pub Near Me | ${BRAND.name} - Surrey Pub Escape`,
@@ -20,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Heathrow Hotels',
     description: 'Escape expensive hotel restaurants! Authentic British pub with free parking, just minutes from all Heathrow hotels.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Traditional Pub Near Heathrow Hotels',
     description: 'Escape expensive hotel restaurants! Authentic British pub with free parking, just minutes from all Heathrow hotels.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -35,7 +33,7 @@ const localBusinessSchema = {
   "@type": ["Restaurant", "BarOrPub"],
   "@id": "https://www.the-anchor.pub/heathrow-hotels-pub#business",
   "name": `${BRAND.name} - Near Heathrow Hotels`,
-  "image": "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "image": `https://www.the-anchor.pub${DEFAULT_PAGE_HEADER_IMAGE}`,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": CONTACT.address.street,
@@ -128,7 +126,7 @@ export default function HeathrowHotelsPubPage() {
 
       {/* Page Title */}
       <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <PageTitle
               seo={{
@@ -143,12 +141,12 @@ export default function HeathrowHotelsPubPage() {
               Escape hotel prices and enjoy authentic British pub dining just minutes away
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Welcome Section */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="The Perfect Escape from Hotel Dining"
@@ -186,12 +184,12 @@ export default function HeathrowHotelsPubPage() {
               className="mb-8"
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Hotel Distances */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Minutes from Major Heathrow Hotels"
@@ -260,12 +258,12 @@ export default function HeathrowHotelsPubPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Why Hotel Guests Choose Us */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Why Heathrow Hotel Guests Love The Anchor"
@@ -344,12 +342,12 @@ export default function HeathrowHotelsPubPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Hotel Guest Favourites */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Hotel Guest Favourites"
@@ -414,12 +412,12 @@ export default function HeathrowHotelsPubPage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Transport Options */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Getting Here from Your Hotel"
@@ -469,12 +467,12 @@ export default function HeathrowHotelsPubPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Special Times */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Special Times at The Anchor"
@@ -500,12 +498,12 @@ export default function HeathrowHotelsPubPage() {
               Kitchen closes at 9pm Tuesday-Friday, 7pm Saturday, 5pm Sunday
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Corporate Events for Airport Hotels */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Corporate Venue for Heathrow Business"
@@ -591,12 +589,12 @@ export default function HeathrowHotelsPubPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-2xl mx-auto text-center">
             <SectionHeader
               title="Opening Hours"
@@ -606,7 +604,7 @@ export default function HeathrowHotelsPubPage() {
               Perfect for evening meals after hotel check-in
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
+import { getExistingBlogImageNames } from './blog-image'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 
@@ -69,6 +70,9 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
     
     const htmlContent = processedContent.toString()
 
+    const rawImages = Array.isArray(data.images) ? data.images : []
+    const existingImages = getExistingBlogImageNames(slug, rawImages)
+
     return {
       slug,
       title: data.title || '',
@@ -79,7 +83,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
       tags: data.tags || [],
       featured: data.featured || false,
       hero: data.hero || '',
-      images: data.images || [],
+      images: existingImages,
       content,
       htmlContent
     }

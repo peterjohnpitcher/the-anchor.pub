@@ -8,6 +8,7 @@ import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { BlogShareButtons } from '@/components/BlogShareButtons'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
+import { getBlogHeroUrl, BLOG_FALLBACK_IMAGE } from '@/lib/blog-image'
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
@@ -25,6 +26,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
   }
 
+  const heroUrl = getBlogHeroUrl(post.slug, post.hero)
+
   return {
     title: `${post.title} | The Anchor Blog`,
     description: post.description,
@@ -32,7 +35,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: post.title,
       description: post.description,
-      images: post.hero ? [`/content/blog/${post.slug}/${post.hero}`] : ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+      images: [heroUrl],
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
@@ -57,6 +60,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const contentWithImages = post.images && post.images.length > 0 
     ? distributeImages(post.htmlContent || '', post.images, post.slug)
     : post.htmlContent || ''
+
+  const heroUrl = getBlogHeroUrl(post.slug, post.hero)
+  const heroAbsoluteUrl = heroUrl.startsWith('http')
+    ? heroUrl
+    : `https://www.the-anchor.pub${heroUrl}`
 
   // BlogPosting structured data for better SEO
   const blogPostingSchema = {
@@ -92,9 +100,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     },
     "image": {
       "@type": "ImageObject",
-      "url": post.hero 
-        ? `https://www.the-anchor.pub/content/blog/${post.slug}/${post.hero}` 
-        : "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+      "url": heroAbsoluteUrl,
       "width": 1200,
       "height": 630
     },

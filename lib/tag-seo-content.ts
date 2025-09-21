@@ -52,13 +52,13 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
 
   'drinks': {
     name: 'Drinks & Bar',
-    description: 'Craft beers, premium spirits, wines, and special drink offers',
-    metaTitle: 'Pub Drinks Menu Stanwell Moor | Craft Beer & Cocktails Near Heathrow',
-    metaDescription: 'Explore our exceptional drinks selection at The Anchor Stanwell Moor. Craft beers, premium spirits, wines & cocktails. 5 min from Heathrow.',
-    heroContent: 'Discover our exceptional drinks selection at The Anchor, where quality meets tradition in the heart of Stanwell Moor village. From craft beers to premium spirits, we\'ve curated a bar menu that satisfies every taste.',
-    introContent: 'At The Anchor, we take pride in our carefully curated drinks menu. Our bar features an impressive selection of local and international craft beers, premium spirits from around the world, and a wine list chosen to complement our food menu perfectly. Whether you\'re a real ale enthusiast, cocktail connoisseur, or wine lover, our knowledgeable staff are here to help you find your perfect drink.',
+    description: 'Real ales, draught lagers, premium spirits, wines, and special drink offers',
+    metaTitle: 'Pub Drinks Menu Stanwell Moor | Draught Beer & Cocktails Near Heathrow',
+    metaDescription: 'Explore our exceptional drinks selection at The Anchor Stanwell Moor. Real ales, draught lagers, premium spirits, wines & cocktails. 5 min from Heathrow.',
+    heroContent: 'Discover our exceptional drinks selection at The Anchor, where quality meets tradition in the heart of Stanwell Moor village. From well-kept draught beers to premium spirits, we\'ve curated a bar menu that satisfies every taste.',
+    introContent: 'At The Anchor, we take pride in our carefully curated drinks menu. Our bar features an impressive selection of real ales, familiar draught lagers, premium spirits from around the world, and a wine list chosen to complement our food menu perfectly. Whether you\'re a cask ale enthusiast, cocktail connoisseur, or wine lover, our knowledgeable staff are here to help you find your perfect drink.',
     valueProposition: 'Discover why The Anchor is Stanwell Moor\'s favourite drinking destination. With regular tasting events, seasonal specials, and the warmest welcome near Heathrow, your perfect pint is always waiting.',
-    keywords: ['pub drinks menu stanwell moor', 'craft beer near heathrow', 'cocktails stanwell moor', 'wine bar surrey', 'drinks TW19']
+    keywords: ['pub drinks menu stanwell moor', 'draught beer near heathrow', 'cocktails stanwell moor', 'wine bar surrey', 'drinks TW19']
   },
 
   'food': {
@@ -153,13 +153,13 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
 
   'sports': {
     name: 'Sports & Fixtures',
-    description: 'Live sports screenings, match days, and sporting events',
-    metaTitle: 'Sports Pub Stanwell Moor | Live Football & Rugby Near Heathrow',
-    metaDescription: 'Watch live sports at The Anchor Stanwell Moor. Multiple screens, great atmosphere for football, rugby & more. Sports pub 5 minutes from Heathrow.',
-    heroContent: 'Catch all the sporting action at The Anchor, Stanwell Moor\'s premier sports pub. With multiple screens and an electric atmosphere, we\'re your home for live sports.',
-    introContent: 'Sports fans choose The Anchor for terrestrial sports coverage. We show major sporting events available on free-to-air channels including the World Cup, Euros, Six Nations rugby, and Wimbledon. The atmosphere during these big tournaments is incredible, with passionate fans creating an unforgettable experience.',
+    description: 'Terrestrial sports screenings, match days, and sporting events',
+    metaTitle: 'Sports Pub Stanwell Moor | Terrestrial Football & Rugby Near Heathrow',
+    metaDescription: 'Watch terrestrial sports at The Anchor Stanwell Moor. Multiple screens, great atmosphere for BBC, ITV, Channel 4 & Channel 5 fixtures near Heathrow.',
+    heroContent: 'Catch all the big free-to-air sporting action at The Anchor, Stanwell Moor\'s friendly sports pub. With multiple screens and an electric atmosphere, we\'re your home for terrestrial sports.',
+    introContent: 'Sports fans choose The Anchor for reliable terrestrial coverage. We show major sporting events available on free-to-air channels including the World Cup, Euros, Six Nations rugby, Wimbledon, and other headline fixtures. The atmosphere during these big tournaments is incredible, with passionate fans creating an unforgettable experience.',
     valueProposition: 'Book your table for the next major tournament and enjoy great food, cold beers, and the best sporting atmosphere in Stanwell Moor during international competitions.',
-    keywords: ['sports pub stanwell moor', 'watch football near heathrow', 'rugby pub surrey', 'live sports TW19', 'match day stanwell moor']
+    keywords: ['sports pub stanwell moor', 'watch football near heathrow', 'rugby pub surrey', 'terrestrial sports TW19', 'match day stanwell moor']
   },
 
   'bingo': {
@@ -231,13 +231,13 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
 
   'beer': {
     name: 'Beer Selection',
-    description: 'Craft and traditional beers',
-    metaTitle: 'Craft Beer Pub Stanwell Moor | Real Ales at The Anchor',
-    metaDescription: 'Discover craft beers & real ales at The Anchor Stanwell Moor. Local breweries, rotating guest beers, beer garden. Best beer selection near Heathrow.',
-    heroContent: 'Beer lovers rejoice! The Anchor offers Stanwell Moor\'s finest selection of craft beers, real ales, and international favourites.',
-    introContent: 'Our passion for great beer shows in every pint we pour. The Anchor\'s bar features carefully selected cask ales from local breweries, exciting craft beers from around the world, and all your favourite lagers perfectly chilled. Our rotating guest beers mean there\'s always something new to try, while beer enthusiasts appreciate our knowledgeable staff who can recommend the perfect pint.',
-    valueProposition: 'Join us for a journey through the world of beer. Whether you prefer a traditional bitter, a hoppy IPA, or a smooth lager, we have the perfect beer waiting for you at The Anchor.',
-    keywords: ['craft beer stanwell moor', 'real ale pub heathrow', 'beer garden surrey', 'best beer TW19', 'local brewery stanwell moor']
+    description: 'Real ales and draught favourites',
+    metaTitle: 'Beer Selection Stanwell Moor | Real Ales at The Anchor',
+    metaDescription: 'Discover well-kept real ales & draught lagers at The Anchor Stanwell Moor. Local favourites, rotating cask beers, welcoming beer garden near Heathrow.',
+    heroContent: 'Beer lovers rejoice! The Anchor offers Stanwell Moor\'s finest selection of real ales, draught lagers, and international favourites.',
+    introContent: 'Our passion for great beer shows in every pint we pour. The Anchor\'s bar features carefully selected cask ales from trusted breweries and all your favourite lagers perfectly chilled. Seasonal guest lines keep things interesting, while beer enthusiasts appreciate our knowledgeable staff who can recommend the perfect pint.',
+    valueProposition: 'Join us for a journey through Britain\'s best-loved beers. Whether you prefer a traditional bitter or a crisp continental lager, we have the perfect pint waiting for you at The Anchor.',
+    keywords: ['draught beer stanwell moor', 'real ale pub heathrow', 'beer garden surrey', 'best beer TW19', 'local brewery stanwell moor']
   },
 
   'tasting-events': {
@@ -337,18 +337,18 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     heroContent: 'The Anchor is headquarters for football fans in Stanwell Moor during major tournaments. Watch the World Cup, Euros and more on our screens.',
     introContent: 'When major tournaments come around, The Anchor shows all the action on terrestrial TV. We screen the World Cup, European Championships, and other international fixtures available on free-to-air channels. The atmosphere during these tournaments is electric, with passionate fans creating an unforgettable experience.',
     valueProposition: 'Book your table for the next major tournament and enjoy cold beers, great food, and the best football atmosphere in Stanwell Moor during international competitions.',
-    keywords: ['watch football stanwell moor', 'premier league pub heathrow', 'live football surrey', 'sports bar TW19', 'football pub stanwell moor']
+    keywords: ['watch football stanwell moor', 'international football pub heathrow', 'live football surrey', 'sports bar TW19', 'football pub stanwell moor']
   },
 
   'rugby': {
     name: 'Rugby Coverage',
     description: 'Six Nations and rugby matches',
     metaTitle: 'Watch Rugby Stanwell Moor | Six Nations at The Anchor Pub',
-    metaDescription: 'Catch all rugby action at The Anchor Stanwell Moor. Six Nations, Premiership Rugby, international matches on big screens. Rugby pub near Heathrow.',
-    heroContent: 'Rugby fans unite at The Anchor for major rugby matches on terrestrial TV. From Six Nations drama to World Cup glory shown on BBC and ITV.',
-    introContent: 'The Anchor is proud to be Stanwell Moor\'s home of rugby. Our screens come alive during the Six Nations Championship, Autumn Internationals, and Rugby World Cup. The camaraderie among rugby fans creates a special atmosphere, whether you\'re supporting England or enjoying the spectacle of international rugby.',
-    valueProposition: 'Join fellow rugby enthusiasts for the next big match. With great viewing, classic pub food, and proper pints, The Anchor delivers the complete rugby experience.',
-    keywords: ['watch rugby stanwell moor', 'six nations pub heathrow', 'rugby bar surrey', 'sports pub TW19', 'rugby coverage stanwell moor']
+    metaDescription: 'Catch rugby action at The Anchor Stanwell Moor. Six Nations, Rugby World Cup & terrestrial internationals on big screens. Rugby pub near Heathrow.',
+    heroContent: 'Rugby fans unite at The Anchor for major matches on terrestrial TV. From Six Nations drama to World Cup glory shown on BBC and ITV.',
+    introContent: 'The Anchor is proud to be Stanwell Moor\'s home of rugby. Our screens come alive during the Six Nations Championship, Autumn Internationals, and Rugby World Cup fixtures broadcast on free-to-air channels. The camaraderie among rugby fans creates a special atmosphere, whether you\'re supporting England or enjoying the spectacle of international rugby.',
+    valueProposition: 'Join fellow rugby enthusiasts for the next big match. With great viewing, classic pub food, and proper pints, The Anchor delivers the complete rugby experience on terrestrial TV.',
+    keywords: ['watch rugby stanwell moor', 'six nations pub heathrow', 'rugby bar surrey', 'terrestrial sports TW19', 'rugby coverage stanwell moor']
   },
 
   'british-cuisine': {
@@ -462,14 +462,14 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
   },
 
   'craft-beer': {
-    name: 'Craft Beer Selection',
-    description: 'Curated craft beers from local and international breweries',
-    metaTitle: 'Craft Beer Pub Stanwell Moor | Craft Beer Bar at The Anchor',
-    metaDescription: 'Discover craft beers at The Anchor Stanwell Moor. Local microbreweries, international craft beers, beer tastings. Best selection near Heathrow.',
-    heroContent: 'Explore the world of craft beer at The Anchor, where passionate brewing meets expert curation in Stanwell Moor\'s premier craft beer destination.',
-    introContent: 'Our craft beer selection showcases the innovation and artistry of modern brewing. From hoppy IPAs to rich stouts, crisp lagers to complex sours, we feature rotating taps from local microbreweries and celebrated international craft producers. Our knowledgeable staff are always ready to guide you through our selection, offering tasting notes and pairing suggestions to enhance your experience.',
-    valueProposition: 'Join our craft beer journey with regular tap takeovers, meet-the-brewer events, and exclusive launches. Follow us for updates on our ever-changing craft selection.',
-    keywords: ['craft beer stanwell moor', 'craft beer bar heathrow', 'microbrewery beers surrey', 'craft ale TW19', 'beer selection stanwell moor']
+    name: 'Draught Beer Highlights',
+    description: 'Featured real ales and seasonal draught selections',
+    metaTitle: 'Draught Beer Stanwell Moor | Featured Ales at The Anchor',
+    metaDescription: 'Discover featured draught beers at The Anchor Stanwell Moor. Rotating cask ales, seasonal lagers, and our house favourites near Heathrow.',
+    heroContent: 'Explore the best of our draught lineup at The Anchor, where well-kept cask ales and seasonal pours take centre stage in Stanwell Moor.',
+    introContent: 'Our draught board changes with the seasons, showcasing the beers our guests love most. Expect impeccably kept cask ales, crisp lagers, and occasional limited editions from trusted breweries. Our team is always happy to talk through what\'s pouring and suggest the right pint for your visit.',
+    valueProposition: 'Follow our draught updates for news on seasonal arrivals and special features. With careful cellar management and experienced bartenders, every pint is poured just the way it should be.',
+    keywords: ['draught beer stanwell moor', 'real ale bar heathrow', 'seasonal beer surrey', 'cask ale TW19', 'beer selection stanwell moor']
   },
 
   'pet-friendly': {
@@ -500,7 +500,7 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     metaTitle: 'Irish Pub Experience Stanwell Moor | Irish Heritage at The Anchor',
     metaDescription: 'Experience Irish hospitality at The Anchor Stanwell Moor. Guinness, Irish whiskey, traditional food & warm welcome. Irish pub near Heathrow.',
     heroContent: 'Experience the warmth of Irish hospitality at The Anchor, where Celtic traditions blend perfectly with British pub culture.',
-    introContent: 'The Anchor celebrates Irish heritage year-round with our carefully curated selection of Irish drinks and dishes. Our bar features perfectly poured Guinness, an impressive range of Irish whiskeys from Jameson to rare single malts, and Irish craft beers. The kitchen serves up Irish classics when the mood strikes, from beef and Guinness pie to hearty Irish stew, all served with the famous Irish hospitality during kitchen hours.',
+    introContent: 'The Anchor celebrates Irish heritage year-round with our carefully curated selection of Irish drinks and dishes. Our bar features perfectly poured Guinness and an impressive range of Irish whiskeys from Jameson to rare single malts. The kitchen serves up Irish classics when the mood strikes, from beef and Guinness pie to hearty Irish stew, all served with the famous Irish hospitality during kitchen hours.',
     valueProposition: 'Whether you\'re Irish, have Irish roots, or simply appreciate Irish culture, you\'ll find a warm Celtic welcome at The Anchor any day of the year.',
     keywords: ['irish pub stanwell moor', 'guinness near heathrow', 'irish bar surrey', 'celtic pub TW19', 'irish heritage stanwell moor']
   },
@@ -577,9 +577,9 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     metaTitle: 'Football Pub Stanwell Moor | Watch Major Tournaments at The Anchor',
     metaDescription: 'Watch football at The Anchor Stanwell Moor. FA Cup finals, World Cup, Euros shown on terrestrial TV. Best football pub near Heathrow.',
     heroContent: 'The Anchor shows major football tournaments and cup finals available on terrestrial television - join us for the biggest matches.',
-    introContent: 'When Premier League matches are shown on terrestrial television, The Anchor is the place to watch. Major cup finals and international tournaments featuring Premier League stars are shown on our screens. The atmosphere during these free-to-air matches is fantastic, with passionate fans creating a great matchday experience.',
+    introContent: 'When headline fixtures air on free-to-view channels, The Anchor is the place to watch. Major cup finals and international tournaments featuring Premier League stars are shown on our screens. The atmosphere during these free-to-air matches is fantastic, with passionate fans creating a great matchday experience.',
     valueProposition: 'Book your table for the next televised cup final or international tournament and experience football the way it should be watched - with great beer, good food, and passionate fans.',
-    keywords: ['premier league pub stanwell moor', 'watch football heathrow', 'football bar surrey', 'premier league TW19', 'match day pub stanwell moor']
+    keywords: ['football pub stanwell moor', 'watch football heathrow', 'football bar surrey', 'match day pub TW19', 'cup final pub stanwell moor']
   },
 
   'valentines': {
@@ -621,7 +621,7 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     metaTitle: 'New Menu Items Stanwell Moor | Latest at The Anchor Pub',
     metaDescription: 'Discover new arrivals at The Anchor Stanwell Moor. New menu items, drinks, latest offerings & innovations. Try something new near Heathrow.',
     heroContent: 'The Anchor constantly innovates with new arrivals - from exciting menu additions to fresh drinks, there\'s always something new to discover.',
-    introContent: 'Innovation keeps The Anchor fresh and exciting. Our chefs regularly introduce new dishes inspired by seasonal ingredients and culinary trends. The bar features new craft beers, spirits, and cocktails as we discover exceptional products. We also launch new events and entertainment based on customer feedback and emerging trends, ensuring there\'s always a reason to return and try something different.',
+    introContent: 'Innovation keeps The Anchor fresh and exciting. Our chefs regularly introduce new dishes inspired by seasonal ingredients and culinary trends. The bar features new draught choices, spirits, and cocktails as we discover exceptional products. We also launch new events and entertainment based on customer feedback and emerging trends, ensuring there\'s always a reason to return and try something different.',
     valueProposition: 'Be first to try our latest offerings - follow us on social media for announcements and exclusive previews of new arrivals at The Anchor.',
     keywords: ['new menu stanwell moor', 'latest offerings heathrow', 'new dishes surrey', 'new arrivals TW19', 'menu updates stanwell moor']
   },

@@ -103,7 +103,7 @@ We're proud to be woven into the fabric of Stanwell Moor life.
 **Weekly Gatherings:**
 - Quiz Night Wednesdays
 - Fish & Chip Fridays
-- Weekend live sports
+- Weekend terrestrial sports
 - Sunday traditional lunches
 - Weekday lunch club
 

@@ -114,7 +114,7 @@ Enjoying a great night out at a pub isn’t about how many pints you can drink�
 
   
 
-*   **Pace Yourself:** Whether you’re sipping our signature brew or exploring our craft beer selection, take your time and enjoy the flavours.
+*   **Pace Yourself:** Whether you’re sipping our signature brew or exploring our draught selection, take your time and enjoy the flavours.
     
 *   **Pair Drinks with Food:** Having a meal alongside your drink can enhance your experience and help maintain balance. At The Anchor, our classic fish and chips and other hearty pub favourites are crafted to satisfy.
     

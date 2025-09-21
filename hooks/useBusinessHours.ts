@@ -31,7 +31,8 @@ interface UseBusinessHoursReturn {
  */
 export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusinessHoursReturn {
   const {
-    apiEndpoint = '/api/business/hours'
+    apiEndpoint = '/api/business/hours',
+    refreshInterval = 60 * 1000
   } = options
 
   const [cached, setCached] = useState<CachedData>({ 
@@ -47,6 +48,11 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
   const abortControllerRef = useRef<AbortController>()
   const nextRefreshTimerRef = useRef<NodeJS.Timeout>()
   const fallbackTimerRef = useRef<NodeJS.Timeout>()
+  const cachedRef = useRef(cached)
+
+  useEffect(() => {
+    cachedRef.current = cached
+  }, [cached])
 
   const scheduleNextRefresh = (data: BusinessHours, trigger: string) => {
     // Clear any existing timers
@@ -88,6 +94,8 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
   }
 
   const fetchHours = async (trigger: string = 'unknown') => {
+    const currentCache = cachedRef.current
+
     try {
       // Log refresh trigger in development
       if (process.env.NODE_ENV === 'development') {
@@ -98,9 +106,9 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
       abortControllerRef.current?.abort()
       abortControllerRef.current = new AbortController()
 
-      const headers: HeadersInit = {}
-      if (cached.etag) {
-        headers['If-None-Match'] = cached.etag
+      const headers: HeadersInit = { 'Cache-Control': 'no-store' }
+      if (currentCache.etag) {
+        headers['If-None-Match'] = currentCache.etag
       }
 
       const response = await fetch(apiEndpoint, {
@@ -116,8 +124,8 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
           console.log('[StatusBar] 304 Not Modified - using cached data')
         }
         // Still reschedule based on cached data
-        if (cached.data) {
-          scheduleNextRefresh(cached.data, '304-refresh')
+        if (currentCache.data) {
+          scheduleNextRefresh(currentCache.data, '304-refresh')
         }
         return
       }
@@ -183,13 +191,17 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
   useEffect(() => {
     fetchHours('mount')
     
-    // Set up fallback timer (60 seconds) in case boundary calculation fails
-    fallbackTimerRef.current = setInterval(() => {
-      fetchHours('fallback')
-    }, 60000)
+    if (refreshInterval > 0) {
+      fallbackTimerRef.current = setInterval(() => {
+        const lastFetch = cachedRef.current.lastFetchTime?.getTime() ?? 0
+        const timeSinceLastFetch = Date.now() - lastFetch
+        if (!lastFetch || timeSinceLastFetch >= refreshInterval || cachedRef.current.isStale) {
+          fetchHours('fallback')
+        }
+      }, refreshInterval)
+    }
     
     return () => {
-      // Cleanup
       if (fallbackTimerRef.current) {
         clearInterval(fallbackTimerRef.current)
       }
@@ -198,7 +210,8 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
       }
       abortControllerRef.current?.abort()
     }
-  }, [apiEndpoint])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [apiEndpoint, refreshInterval])
 
   // Refresh on visibility/focus changes
   useEffect(() => {

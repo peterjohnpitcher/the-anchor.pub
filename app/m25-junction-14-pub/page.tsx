@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, Container } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
@@ -9,9 +7,9 @@ import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: `M25 Junction 14 Pub Near Me | ${BRAND.name} - Surrey Pub 5 Minutes from M25`,
@@ -20,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Traditional Pub Near M25 Junction 14',
     description: 'Just 5 minutes from M25 J14. Free parking, proper food, real ales. The perfect motorway break.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Traditional Pub Near M25 Junction 14',
     description: 'Just 5 minutes from M25 J14. Free parking, proper food, real ales. The perfect motorway break.',
-    images: ['/images/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -35,7 +33,7 @@ const localBusinessSchema = {
   "@type": ["Restaurant", "BarOrPub"],
   "@id": "https://www.the-anchor.pub/m25-junction-14-pub#business",
   "name": `${BRAND.name} - Near M25 Junction 14`,
-  "image": "https://www.the-anchor.pub/images/the-anchor-pub-exterior-stanwell-moor.jpg",
+  "image": `https://www.the-anchor.pub${DEFAULT_PAGE_HEADER_IMAGE}`,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": CONTACT.address.street,
@@ -121,7 +119,7 @@ export default function M25Junction14PubPage() {
 
       {/* Page Title */}
       <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <PageTitle
               seo={{
@@ -136,12 +134,12 @@ export default function M25Junction14PubPage() {
               The smart alternative to motorway services - just 5 minutes from Junction 14
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Welcome Section */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="The Smart Alternative to Service Stations"
@@ -179,12 +177,12 @@ export default function M25Junction14PubPage() {
               className="mb-8"
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Why Choose Us Over Services */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Why M25 Drivers Choose The Anchor"
@@ -281,12 +279,12 @@ export default function M25Junction14PubPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Quick Stops Menu */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Quick Stops & Hearty Meals"
@@ -329,12 +327,12 @@ export default function M25Junction14PubPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Journey Planner */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Easy Access from M25 Junction 14"
@@ -401,12 +399,12 @@ export default function M25Junction14PubPage() {
               </DirectionsButton>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Regular M25 Users */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Popular with M25 Regulars"
@@ -448,12 +446,12 @@ export default function M25Junction14PubPage() {
               Join the smart M25 drivers who've discovered the better alternative to services!
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Additional Benefits */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="More Than Just a Motorway Stop"
@@ -485,12 +483,12 @@ export default function M25Junction14PubPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-2xl mx-auto text-center">
             <SectionHeader
               title="Opening Hours for M25 Travelers"
@@ -500,7 +498,7 @@ export default function M25Junction14PubPage() {
               Kitchen times perfect for lunch and dinner breaks
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

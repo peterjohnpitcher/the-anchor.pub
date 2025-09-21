@@ -1,8 +1,6 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, Container, Section } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
@@ -14,6 +12,7 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import type { Event } from '@/lib/api'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PIZZA_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Tuesday Pizza Deals Near Me | BOGOF Pizza Every Tuesday | The Anchor',
@@ -22,13 +21,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pizza Tuesday - BOGOF on All Pizzas',
     description: 'Every Tuesday at The Anchor! Buy one pizza, get one FREE. All sizes, all pizzas, dine-in or takeaway.',
-    images: ['/images/food/pizza-tuesday-bogof.jpg'],
+    images: [DEFAULT_PIZZA_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
     title: 'Pizza Tuesday - BOGOF on All Pizzas',
     description: 'Every Tuesday at The Anchor! Buy one pizza, get one FREE. All sizes, all pizzas, dine-in or takeaway.',
-    images: ['/images/food/pizza-tuesday-bogof.jpg']
+    images: [DEFAULT_PIZZA_IMAGE]
   })
 }
 
@@ -88,10 +87,7 @@ const pizzaTuesdayEvent: Event = {
   startDate: new Date().toISOString(),
   endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString(),
   duration: 'PT3H',
-  image: [
-    '/images/food/pizza/the-anchor-stone-baked-pizza-stanwell-moor.jpg',
-    '/images/food/pizza/margherita-pizza-the-anchor.jpg'
-  ],
+  image: [DEFAULT_PIZZA_IMAGE],
   location: {
     '@type': 'Place',
     name: 'The Anchor',
@@ -148,7 +144,7 @@ export default function PizzaTuesdayPage() {
         size="large"
         tags={[
           { label: "🔥 2 FOR 1 ALL DAY", variant: "success" },
-          { label: "From £3.75 per pizza!", variant: "warning" },
+          { label: "From £7.49 per pizza", variant: "warning" },
           { label: "6pm-9pm Kitchen Hours", variant: "default" }
         ]}
         cta={
@@ -158,11 +154,13 @@ export default function PizzaTuesdayPage() {
               context="pizza_tuesday"
               variant="primary"
               size="lg"
+              fullWidth
+              className="w-full sm:w-auto"
             >
               📞 Book Your Table
             </BookTableButton>
-            <Link href="/food/pizza">
-              <Button variant="secondary" size="lg">
+            <Link href="/food/pizza" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" fullWidth className="sm:w-auto">
                 🍕 View Pizza Menu
               </Button>
             </Link>
@@ -170,21 +168,18 @@ export default function PizzaTuesdayPage() {
         }
       />
 
-      {/* Status Bar */}
-      <StatusBar />
-
       {/* Page Title */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <Section background="white" spacing="md">
+        <Container>
           <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
             Tuesday Pizza Deals - 2 for 1 on ALL Pizzas | The Anchor - Heathrow Pub & Dining
           </PageTitle>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* The Deal Section */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <Section background="gray" spacing="md">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="🍕 Tuesday = 50% OFF When You Buy 2 Pizzas!"
@@ -241,22 +236,22 @@ export default function PizzaTuesdayPage() {
                 Perfect for families, date nights, or catching up with friends. 
                 Our stone-baked pizzas are made fresh to order with authentic Italian ingredients.
               </p>
-              <Link href="/food/pizza">
-      <Button 
-        variant="primary"
-        size="lg"
-      >
-        View Our Pizza Selection
-      </Button>
-    </Link>
+              <Link href="/food/pizza" className="inline-block">
+                <Button 
+                  variant="primary"
+                  size="lg"
+                >
+                  View Our Pizza Selection
+                </Button>
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Pizza Menu Preview */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <Section background="gray" spacing="md">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Our Stone-Baked Pizza Selection"
@@ -313,12 +308,12 @@ export default function PizzaTuesdayPage() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Why Choose Us */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <Section background="white" spacing="md">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
               title="Why Tuesday Pizza Night at The Anchor?"
@@ -360,12 +355,12 @@ export default function PizzaTuesdayPage() {
               at proper pub prices. With our BOGOF deal, it's the best value pizza night in the area!
             </p>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Location Benefits */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <Section background="gray" spacing="md">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Perfect Pizza Location Near Heathrow"
@@ -416,8 +411,8 @@ export default function PizzaTuesdayPage() {
               }
             />
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* FAQs */}
       <FAQAccordionWithSchema

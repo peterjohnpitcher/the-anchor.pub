@@ -4,32 +4,21 @@
 
 @layer base {
   /* Enhanced focus styles for better accessibility */
-  *:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+  :focus:not(:focus-visible) {
+    outline: none;
   }
-  
-  /* Visible focus for keyboard navigation */
-  *:focus-visible {
-    outline: 2px solid var(--anchor-gold);
-    outline-offset: 2px;
+
+  :focus-visible {
+    outline: var(--anchor-focus-ring-width) solid var(--anchor-focus-ring-color);
+    outline-offset: var(--anchor-focus-ring-offset);
     box-shadow: 0 0 0 4px rgba(139, 105, 20, 0.1);
+    border-radius: 4px;
   }
-  
-  /* Specific focus styles for different elements */
-  button:focus-visible,
-  a:focus-visible {
-    outline: 2px solid var(--anchor-gold);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(139, 105, 20, 0.1);
-  }
-  
+
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    outline: 2px solid var(--anchor-gold);
-    outline-offset: 0;
-    border-color: var(--anchor-gold);
+    border-color: var(--anchor-focus-ring-color);
   }
   
   /* Skip to content link */
@@ -103,6 +92,10 @@
   --anchor-green-light: #006b45;
   --anchor-text-on-green: #ffffff;
   --anchor-text-on-gold: #1a1a1a;
+  --anchor-focus-ring-color: var(--anchor-gold);
+  --anchor-focus-ring-width: 3px;
+  --anchor-focus-ring-offset: 2px;
+  --header-height: 80px;
 }
 
 * {
@@ -113,7 +106,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Account for fixed header */
+  scroll-padding-top: var(--header-height, 80px); /* Account for fixed header */
 }
 
 html,
@@ -188,16 +181,6 @@ a {
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* Accessibility focus styles */
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 3px solid var(--anchor-gold);
-  outline-offset: 2px;
-}
-
 /* Family-friendly tag styles */
 .tag {
   display: inline-flex;
@@ -235,7 +218,6 @@ select:focus {
 img {
   max-width: 100%;
   height: auto;
-  aspect-ratio: attr(width) / attr(height);
 }
 
 /* Only animate if user has no motion preference */
@@ -277,15 +259,6 @@ img {
 @media (prefers-contrast: high) {
   .btn-friendly {
     border: 2px solid currentColor;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
   }
 }
 
@@ -345,30 +318,19 @@ img {
   }
 }
 
-/* Focus styles for better accessibility */
-*:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-*:focus-visible {
-  outline: 2px solid var(--anchor-gold);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
 /* Specific focus styles for links */
 a:focus-visible {
-  outline: 2px solid var(--anchor-gold);
-  outline-offset: 4px;
+  outline-width: var(--anchor-focus-ring-width);
+  outline-color: var(--anchor-focus-ring-color);
+  outline-offset: calc(var(--anchor-focus-ring-offset) + 2px);
   border-radius: 2px;
 }
 
 /* Focus styles for buttons with existing focus ring */
 button:focus-visible:not(.focus\:ring-2),
 .focus\:outline-none:focus-visible {
-  outline: 2px solid var(--anchor-gold);
-  outline-offset: 2px;
+  outline: var(--anchor-focus-ring-width) solid var(--anchor-focus-ring-color);
+  outline-offset: var(--anchor-focus-ring-offset);
 }
 
 /* Screen reader only utility class */

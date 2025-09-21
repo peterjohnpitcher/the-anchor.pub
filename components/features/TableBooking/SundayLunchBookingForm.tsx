@@ -16,6 +16,7 @@ import { Card, CardBody } from '@/components/ui/layout/Card'
 import { Alert } from '@/components/ui/feedback/Alert'
 import { Icon } from '@/components/ui/Icon'
 import { PhoneLink } from '@/components/PhoneLink'
+import { DateTime } from 'luxon'
 import { type BusinessHours, isKitchenOpen, getKitchenStatus } from '@/lib/api'
 
 interface MenuItem {
@@ -107,7 +108,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
         if (isMountedRef.current) {
           setHoursLoading(true)
         }
-        const response = await fetch('/api/business/hours')
+        const response = await fetch('/api/business/hours', { cache: 'no-store' })
         const data = await response.json()
         
         if (data && !data.error) {
@@ -426,176 +427,150 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
     }
   }
   
-  // Get next Sunday
-  const getNextSunday = () => {
-    const today = new Date()
-    const currentDay = today.getDay()
-    const currentHour = today.getHours()
-    
-    // If it's Saturday after 1pm, skip to the following Sunday
-    let daysToAdd = (7 - currentDay) % 7 || 7
-    if (currentDay === 6 && currentHour >= 13) {
-      daysToAdd = 8 // Skip to next Sunday
+  const getScheduleForDate = (isoDate: string) => {
+    if (!businessHours) return null
+
+    const special = businessHours.specialHours?.find(sh => sh.date === isoDate)
+    if (special) {
+      return special
     }
-    
-    const nextSunday = new Date(today)
-    nextSunday.setDate(today.getDate() + daysToAdd)
-    return nextSunday.toISOString().split('T')[0]
+
+    const target = DateTime.fromISO(isoDate, { zone: 'Europe/London' })
+    if (!target.isValid) return null
+
+    const dayKey = target.toFormat('cccc').toLowerCase()
+    return businessHours.regularHours[dayKey] || null
   }
-  
+
+  const hasKitchenService = (schedule: any): boolean => {
+    if (!schedule || schedule.is_closed) return false
+    if (schedule.is_kitchen_closed === true) return false
+
+    const kitchenInfo = schedule.kitchen
+    if (!kitchenInfo) return false
+
+    const status = getKitchenStatus(kitchenInfo)
+    return status === 'open'
+  }
+
+  const getFirstUpcomingSunday = () => {
+    const now = DateTime.now().setZone('Europe/London')
+    const weekday = now.weekday // 1 (Monday) - 7 (Sunday)
+    const daysUntilSunday = weekday === 7 ? 7 : 7 - weekday
+    return now.plus({ days: daysUntilSunday }).startOf('day')
+  }
+
   // Get available Sundays (next 8 weeks) - filtered by kitchen availability
   const getAvailableSundays = () => {
-    const sundays = []
-    const today = new Date()
-    const currentDay = today.getDay()
-    const currentHour = today.getHours()
-    
-    // Check if we need to skip this Sunday due to cutoff time
+    if (!businessHours) {
+      return []
+    }
+
+    const sundays: string[] = []
+    const now = DateTime.now().setZone('Europe/London')
+    const firstSunday = getFirstUpcomingSunday()
+
     let startWeek = 0
-    if (currentDay === 6 && currentHour >= 13) {
-      startWeek = 1 // Skip this week's Sunday
+    if (now.weekday === 6 && now.hour >= 13) {
+      startWeek = 1
     }
-    
+
     for (let i = startWeek; i < startWeek + 8; i++) {
-      const date = new Date(today)
-      const daysToAdd = ((7 - currentDay) % 7 || 7) + (i * 7)
-      date.setDate(today.getDate() + daysToAdd)
-      const dateStr = date.toISOString().split('T')[0]
-      
-      // Check if kitchen is open on this Sunday
-      if (businessHours && businessHours.regularHours) {
-        const sundayHours = businessHours.regularHours.sunday
-        
-        // Skip if the day is closed
-        if (sundayHours.is_closed) {
-          continue
-        }
-        
-        // Skip if kitchen is not available
-        const kitchenStatus = sundayHours.kitchen ? getKitchenStatus(sundayHours.kitchen) : 'no-service'
-        if (kitchenStatus === 'no-service' || kitchenStatus === 'closed') {
-          continue
-        }
-        
-        // Check for special closures
-        if (businessHours.specialHours) {
-          const specialHour = businessHours.specialHours.find(sh => 
-            sh.date.startsWith(dateStr) && sh.is_closed
-          )
-          if (specialHour) {
-            continue // Skip this date due to special closure
-          }
-        }
-      }
-      
-      sundays.push(dateStr)
+      const candidate = firstSunday.plus({ weeks: i })
+      const isoDate = candidate.toISODate()
+      if (!isoDate) continue
+
+      const schedule = getScheduleForDate(isoDate)
+      if (!schedule || schedule.is_closed) continue
+      if (!hasKitchenService(schedule)) continue
+
+      sundays.push(isoDate)
     }
-    
+
     return sundays
   }
-  
+
   // Get kitchen closure information for display
   const getKitchenClosureInfo = () => {
     if (!businessHours) return []
-    
+
     const closures: Array<{ date: string; reason: string }> = []
-    const today = new Date()
-    const currentDay = today.getDay()
-    
-    // Check next 8 Sundays for closures
+    const now = DateTime.now().setZone('Europe/London')
+    const firstSunday = getFirstUpcomingSunday()
+    const cutoff = now.plus({ weeks: 8 }).endOf('day')
+
     for (let i = 0; i < 8; i++) {
-      const date = new Date(today)
-      const daysToAdd = ((7 - currentDay) % 7 || 7) + (i * 7)
-      date.setDate(today.getDate() + daysToAdd)
-      const dateStr = date.toISOString().split('T')[0]
-      
-      // Check for special closures with notes
-      if (businessHours.specialHours) {
-        const specialHour = businessHours.specialHours.find(sh => 
-          sh.date.startsWith(dateStr) && sh.is_closed
-        )
-        if (specialHour && (specialHour.note || specialHour.reason)) {
-          closures.push({
-            date: dateStr,
-            reason: specialHour.note || specialHour.reason || 'Kitchen Closed'
-          })
-          continue
-        }
+      const candidate = firstSunday.plus({ weeks: i })
+      if (candidate > cutoff) break
+
+      const isoDate = candidate.toISODate()
+      if (!isoDate) continue
+
+      const schedule = getScheduleForDate(isoDate)
+      if (!schedule) continue
+
+      const special = businessHours.specialHours?.find(sh => sh.date === isoDate && sh.is_closed)
+      if (special && (special.note || special.reason)) {
+        closures.push({
+          date: isoDate,
+          reason: special.note || special.reason || 'Kitchen Closed'
+        })
+        continue
       }
-      
-      // Check regular Sunday hours for kitchen closure
-      const sundayHours = businessHours.regularHours.sunday
-      const kitchenStatus = sundayHours.kitchen ? getKitchenStatus(sundayHours.kitchen) : 'no-service'
-      if (kitchenStatus === 'no-service' || kitchenStatus === 'closed') {
-        // Only add if it's within our booking window
-        const cutoffDate = new Date(today)
-        cutoffDate.setDate(today.getDate() + 56) // 8 weeks
-        if (date <= cutoffDate) {
-          closures.push({
-            date: dateStr,
-            reason: 'Kitchen Closed'
-          })
-        }
+
+      if (!hasKitchenService(schedule)) {
+        closures.push({
+          date: isoDate,
+          reason: 'Kitchen Closed'
+        })
       }
     }
-    
+
     return closures
   }
-  
+
   // Get available times for a specific date
   const getAvailableTimesForDate = (selectedDate: string) => {
     if (!businessHours || !selectedDate) {
-      // Return default times if no business hours loaded
       return [
-        "12:00", "12:30", "13:00", "13:30", "14:00", 
-        "14:30", "15:00", "15:30", "16:00", "16:30"
+        '12:00', '12:30', '13:00', '13:30', '14:00',
+        '14:30', '15:00', '15:30', '16:00', '16:30'
       ]
     }
-    
-    const sundayHours = businessHours.regularHours.sunday
-    
-    // Check for special hours on this date
-    let kitchenHours = sundayHours.kitchen
-    if (businessHours.specialHours) {
-      const specialHour = businessHours.specialHours.find(sh => 
-        sh.date.startsWith(selectedDate)
-      )
-      if (specialHour && !specialHour.is_closed && 'kitchen' in specialHour) {
-        kitchenHours = (specialHour as any).kitchen
+
+    const schedule = getScheduleForDate(selectedDate)
+    if (!schedule || schedule.is_closed) {
+      return []
+    }
+
+    const kitchenInfo = schedule.kitchen
+    if (!kitchenInfo || !isKitchenOpen(kitchenInfo)) {
+      return []
+    }
+
+    if (!kitchenInfo.opens || !kitchenInfo.closes) {
+      return []
+    }
+
+    const openTime = DateTime.fromISO(`${selectedDate}T${kitchenInfo.opens}`, { zone: 'Europe/London' })
+    const closeTime = DateTime.fromISO(`${selectedDate}T${kitchenInfo.closes}`, { zone: 'Europe/London' })
+
+    if (!openTime.isValid || !closeTime.isValid || openTime >= closeTime) {
+      return []
+    }
+
+    const slots: string[] = []
+    const minimumDuration = { minutes: 90 }
+    let slot = openTime
+
+    while (slot < closeTime) {
+      if (slot.plus(minimumDuration) <= closeTime) {
+        slots.push(slot.toFormat('HH:mm'))
       }
+      slot = slot.plus({ minutes: 30 })
     }
-    
-    if (!kitchenHours || !isKitchenOpen(kitchenHours)) {
-      return [] // No times available if kitchen is closed
-    }
-    
-    // Parse kitchen hours
-    const [openHour, openMin] = kitchenHours.opens!.split(':').map(Number)
-    const [closeHour, closeMin] = kitchenHours.closes!.split(':').map(Number)
-    
-    const availableTimes = []
-    const minBookingTime = 90 // Minimum 90 minutes before kitchen closes
-    
-    // Generate 30-minute slots
-    for (let hour = openHour; hour <= closeHour; hour++) {
-      for (let min = 0; min < 60; min += 30) {
-        // Skip if before opening time
-        if (hour === openHour && min < openMin) continue
-        
-        // Calculate if there's enough time before kitchen closes
-        const slotTime = hour + min / 60
-        const closeTime = closeHour + closeMin / 60
-        const minutesBeforeClose = (closeTime - slotTime) * 60
-        
-        // Skip if less than minimum booking time before close
-        if (minutesBeforeClose < minBookingTime) continue
-        
-        const timeStr = `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}`
-        availableTimes.push(timeStr)
-      }
-    }
-    
-    return availableTimes
+
+    return slots
   }
   
   if (menuLoading || hoursLoading) {

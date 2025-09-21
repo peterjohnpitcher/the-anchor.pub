@@ -1,16 +1,14 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, Container } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { generateBreadcrumbSchema, generateHowToDirectionsSchema } from '@/lib/enhanced-schemas'
 import { Metadata } from 'next'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Traditional Feltham Pub | The Anchor - Heathrow Pub & Dining',
@@ -19,12 +17,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Feltham',
     description: 'Just 10 minutes from Feltham with free parking and great food.',
-    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Feltham',
     description: 'Just 10 minutes from Feltham with free parking and great food.',
-    images: ['/images/hero/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -98,20 +96,20 @@ export default function FelthamPubPage() {
               📞 Call to Book
             </PhoneButton>
             <Link href="/food-menu">
-      <Button 
-        variant="secondary"
-        size="lg"
-      >
-        🍽️ View Menu
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                🍽️ View Menu
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Page Title */}
       <section className="py-8 bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto text-center">
             <PageTitle
               seo={{
@@ -126,12 +124,12 @@ export default function FelthamPubPage() {
               Your local traditional pub just 10 minutes from Feltham with free parking
             </p>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Distance & Benefits */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Feltham's Favourite Surrey Escape"
@@ -194,12 +192,12 @@ export default function FelthamPubPage() {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Directions */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="How to Find Us from Feltham"
@@ -255,12 +253,12 @@ export default function FelthamPubPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Special Offers for Feltham */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Perfect for Feltham Groups"
@@ -319,12 +317,12 @@ export default function FelthamPubPage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Event Venue for Feltham */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Private Events for Feltham Residents"
@@ -384,13 +382,13 @@ export default function FelthamPubPage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link href="/private-party-venue">
-      <Button 
-        variant="primary"
-        size="md"
-      >
-        Party Venue Info
-      </Button>
-    </Link>
+                  <Button 
+                    variant="primary"
+                    size="md"
+                  >
+                    Party Venue Info
+                  </Button>
+                </Link>
                 <PhoneButton
                   phone="01753 682707"
                   source="feltham_pub_event_quote"
@@ -400,29 +398,29 @@ export default function FelthamPubPage() {
                   📞 Quick Quote
                 </PhoneButton>
                 <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
-      <Button 
-        variant="secondary"
-        size="md"
-      >
-        💬 WhatsApp
-      </Button>
-    </Link>
+                  <Button 
+                    variant="secondary"
+                    size="md"
+                  >
+                    💬 WhatsApp
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Opening Hours"
             />
             <BusinessHours />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

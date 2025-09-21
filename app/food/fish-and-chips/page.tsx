@@ -6,6 +6,7 @@ import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
+import { DEFAULT_FOOD_IMAGE } from '@/lib/image-fallbacks'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { GoogleReviews } from '@/components/reviews'
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Traditional Fish & Chips - The Anchor',
     description: 'Proper British fish & chips. Beer-battered cod, triple-cooked chips. Senior citizens 50% off Fridays!',
-    images: ['/images/food/fish-and-chips/the-anchor-fish-chips-stanwell-moor.jpg'],
+    images: [DEFAULT_FOOD_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Traditional Fish & Chips - The Anchor',
     description: 'Proper British fish & chips. Beer-battered cod, triple-cooked chips. Senior citizens 50% off Fridays!',
-    images: ['/images/food/fish-and-chips/the-anchor-fish-chips-stanwell-moor.jpg']
+    images: [DEFAULT_FOOD_IMAGE]
   }),
   alternates: {
     canonical: '/food/fish-and-chips'
@@ -36,7 +37,7 @@ const fishAndChipsSchema = {
   "@id": "https://www.the-anchor.pub/food/fish-and-chips",
   "name": "Traditional Fish & Chips",
   "description": "Beer-battered cod fillet with triple-cooked chips, mushy peas, and homemade tartare sauce",
-  "image": "https://www.the-anchor.pub/images/food/fish-and-chips/the-anchor-fish-chips-stanwell-moor.jpg",
+  "image": `https://www.the-anchor.pub${DEFAULT_FOOD_IMAGE}`,
   "offers": [
     {
       "@type": "Offer",

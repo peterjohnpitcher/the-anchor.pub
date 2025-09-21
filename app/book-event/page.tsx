@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
@@ -10,6 +9,7 @@ import { ReviewSection } from '@/components/reviews'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { Container } from '@/components/ui/layout/Container'
+import { DEFAULT_CORPORATE_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Event Venue Hire Near Me | The Anchor - Heathrow Pub & Dining | Private Bookings',
@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Private Bookings at The Anchor',
     description: 'Versatile venue spaces and comprehensive event services for celebrations of all sizes.',
-    images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
+    images: [DEFAULT_CORPORATE_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Private Bookings at The Anchor',
     description: 'Versatile venue spaces and comprehensive event services for celebrations of all sizes.',
-    images: ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg']
+    images: [DEFAULT_CORPORATE_IMAGE]
   })
 }
 
@@ -90,13 +90,13 @@ export default function BookEventPage() {
         title="Private Bookings at The Anchor"
         description="Transform your special occasion into an unforgettable experience"
         size="medium"
-        showStatusBar={false}
         cta={
           <PhoneButton
             phone="01753 682707"
             source="book_event_hero"
             variant="primary"
             size="lg"
+            className="w-full sm:w-auto"
           >
             📞 Call to Discuss: 01753 682707
           </PhoneButton>
@@ -114,7 +114,7 @@ export default function BookEventPage() {
 
       {/* Venue Spaces */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <SectionHeader
             title="Venue Spaces"
             subtitle="Our venue offers a variety of distinct spaces that can be hired individually or in combination"
@@ -243,12 +243,12 @@ export default function BookEventPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Catering Options */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Catering Options"
@@ -339,12 +339,12 @@ export default function BookEventPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Preferred Vendor Network */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Preferred Vendor Network"
@@ -421,12 +421,12 @@ export default function BookEventPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Additional Services */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Additional Services"
@@ -452,12 +452,12 @@ export default function BookEventPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Perfect For */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Perfect For"
@@ -505,7 +505,7 @@ export default function BookEventPage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Google Reviews */}
@@ -559,7 +559,7 @@ export default function BookEventPage() {
 
       {/* Booking Process */}
       <section className="section-spacing bg-anchor-cream">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Booking Process"
@@ -640,7 +640,7 @@ export default function BookEventPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* CTA Section */}

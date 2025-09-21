@@ -1,11 +1,9 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, Container } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList } from '@/components/ui'
+import { SectionHeader, FeatureGrid, InfoBoxGrid, AmenityList } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { GoogleReviews } from '@/components/reviews'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
@@ -103,21 +101,21 @@ export default function BeerGardenPage() {
               size="lg"
             />
             <Link href="/drinks">
-      <Button 
-        variant="secondary"
-        size="lg"
-      >
-        🍺 View Drinks Menu
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                🍺 View Drinks Menu
+              </Button>
+            </Link>
             <Link href="/find-us">
-      <Button 
-        variant="secondary"
-        size="lg"
-      >
-        📍 Get Directions
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                📍 Get Directions
+              </Button>
+            </Link>
           </div>
         }
       >
@@ -128,19 +126,19 @@ export default function BeerGardenPage() {
 
       {/* Page Title for SEO */}
       <section className="bg-white py-8">
-        <div className="container mx-auto px-4">
+        <Container>
           <PageTitle 
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
             Beer Garden - Outdoor Dining & Plane Spotting
           </PageTitle>
-        </div>
+        </Container>
       </section>
 
       {/* Plane Spotting Paradise */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Heathrow's Best Kept Secret for Plane Spotting"
@@ -197,12 +195,12 @@ export default function BeerGardenPage() {
             />
             
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Customer Reviews */}
       <section className="section-spacing bg-anchor-sand/10">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-anchor-green text-center mb-8">
               What Visitors Say About Our Beer Garden
@@ -212,12 +210,12 @@ export default function BeerGardenPage() {
               showTitle={false}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Beer Garden Features */}
       <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Our Unique Beer Garden"
@@ -265,12 +263,12 @@ export default function BeerGardenPage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Plane Spotting Tips */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Plane Spotting Tips for Visitors"
@@ -320,7 +318,7 @@ export default function BeerGardenPage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
 
@@ -349,7 +347,7 @@ export default function BeerGardenPage() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-anchor-green to-anchor-green/90 py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Ready for Planes & Pints?
@@ -379,7 +377,7 @@ export default function BeerGardenPage() {
               Just 7 minutes from Heathrow Terminal 5 • Free parking • Dogs welcome
             </p>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   )

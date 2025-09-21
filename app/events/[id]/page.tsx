@@ -9,6 +9,7 @@ import EventAvailability from '@/components/EventAvailability'
 import { anchorAPI, formatEventDate, formatEventTime, formatPrice, isEventFree, isEventSoldOut, formatDoorTime, formatEventDuration, hasLimitedAvailability } from '@/lib/api'
 import { EventPageTracker } from '@/components/EventPageTracker'
 import { PhoneButton } from '@/components/PhoneButton'
+import { DEFAULT_EVENT_IMAGE } from '@/lib/image-fallbacks'
 
 type Props = {
   params: { id: string }
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title: event.name,
         description: event.shortDescription || event.description || `Event at The Anchor - ${formatEventDate(event.startDate)}`,
-        images: event.heroImageUrl ? [event.heroImageUrl] : event.image?.[0] ? [event.image[0]] : ['/images/venue/the-anchor-pub-exterior-stanwell-moor.jpg'],
+        images: event.heroImageUrl ? [event.heroImageUrl] : event.image?.[0] ? [event.image[0]] : [DEFAULT_EVENT_IMAGE],
         type: 'website',
       },
     }
@@ -71,7 +72,7 @@ export default async function EventPage({ params }: Props) {
       />
       
       {/* Event Header Section - Mobile First */}
-      <div className="mt-20 pt-6 pb-2 bg-white">
+      <Section background="white" spacing="none" className="mt-20 pt-6 pb-2">
         <Container>
           <div className="max-w-6xl mx-auto">
             {/* Event Title and Basic Info */}
@@ -146,10 +147,10 @@ export default async function EventPage({ params }: Props) {
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Event Details - Mobile First */}
-      <div className="py-6 md:py-8 bg-white">
+      <Section background="white" spacing="md" className="py-6 md:py-8">
         <Container>
           <div className="max-w-6xl mx-auto">
             {/* Mobile: Image First, Desktop: Grid Layout */}
@@ -343,11 +344,11 @@ export default async function EventPage({ params }: Props) {
             </div>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* CTA Section - Mobile First */}
-      <div className="py-8 md:py-12 bg-anchor-green text-white">
-        <Container className="text-center">
+      <Section className="bg-anchor-green" spacing="md">
+        <Container className="text-center text-white">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">
             {isSoldOut ? "Join Our Waiting List" : "Reserve Your Spot"}
           </h2>
@@ -383,7 +384,7 @@ export default async function EventPage({ params }: Props) {
             </Link>
           </div>
         </Container>
-      </div>
+      </Section>
       
     </>
   )

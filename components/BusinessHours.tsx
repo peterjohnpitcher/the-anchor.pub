@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { DateTime } from 'luxon'
 import { type BusinessHours } from '@/lib/api'
 import { StatusBar } from './StatusBar'
 import { FALLBACK_CONTENT, CONTACT_INFO, logError } from '@/lib/error-handling'
@@ -102,19 +103,38 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
     )
   }
 
+  const londonNow = DateTime.now().setZone('Europe/London')
+  const todayKey = londonNow.toFormat('cccc').toLowerCase()
   const dayOrder = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-  const today = new Date().toLocaleDateString('en-GB', { weekday: 'long' }).toLowerCase()
-  
-  // Get upcoming days order starting from today
-  const todayIndex = dayOrder.indexOf(today)
-  const upcomingDays = [...dayOrder.slice(todayIndex), ...dayOrder.slice(0, todayIndex)]
-  
-  // Helper function to check if there's a special hour for a specific date
-  const getSpecialHoursForDate = (date: Date) => {
-    if (!hours.specialHours || hours.specialHours.length === 0) return null
-    
-    const dateStr = date.toISOString().split('T')[0]
-    return hours.specialHours.find(sh => sh.date.startsWith(dateStr))
+
+  const upcomingDays = Array.from({ length: 7 }, (_, index) => {
+    const target = londonNow.plus({ days: index })
+    return {
+      key: target.toFormat('cccc').toLowerCase(),
+      isoDate: target.toISODate(),
+      label: target.toFormat('cccc'),
+      isToday: index === 0
+    }
+  })
+
+  const getSpecialHoursForDate = (isoDate?: string | null) => {
+    if (!isoDate || !hours.specialHours || hours.specialHours.length === 0) {
+      return null
+    }
+    return hours.specialHours.find(sh => sh.date === isoDate) || null
+  }
+
+  const getIsoForDayKey = (key: string) => {
+    const targetIndex = dayOrder.indexOf(key)
+    const todayIndex = dayOrder.indexOf(todayKey)
+    if (targetIndex === -1 || todayIndex === -1) return null
+
+    let delta = targetIndex - todayIndex
+    if (delta < 0) {
+      delta += 7
+    }
+
+    return londonNow.plus({ days: delta }).toISODate()
   }
 
   // Format time from 24h to 12h
@@ -144,7 +164,7 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
 
   // Compact variant - for header/footer
   if (variant === 'compact') {
-    const todayHours = hours.regularHours[today]
+    const todayHours = hours.regularHours[todayKey]
     return (
       <div className="text-sm">
         <div className="flex items-center gap-2">
@@ -197,34 +217,25 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
 
         {/* Regular Hours with Weather */}
         <div className="space-y-2">
-          {upcomingDays.slice(0, 7).map((day, index) => {
-            const dayHours = hours.regularHours[day]
-            const isToday = day === today
+          {upcomingDays.map((day, index) => {
+            const dayHours = hours.regularHours[day.key]
             const dayForecast = forecast[index]
-            
-            // Calculate the date for this day
-            const currentDate = new Date()
-            const daysToAdd = index
-            const dayDate = new Date(currentDate)
-            dayDate.setDate(currentDate.getDate() + daysToAdd)
-            
-            // Check for special hours
-            const specialHours = getSpecialHoursForDate(dayDate)
+            const specialHours = getSpecialHoursForDate(day.isoDate)
             const displayHours = specialHours || dayHours
             const hasSpecialHours = !!specialHours
-            
+
             return (
-              <div 
-                key={day} 
+              <div
+                key={day.isoDate || day.key}
                 className={`flex justify-between items-start py-2 px-3 rounded ${
-                  isToday ? 'bg-white/10' : ''
+                  day.isToday ? 'bg-white/10' : ''
                 } ${hasSpecialHours ? 'ring-1 ring-yellow-400/50' : ''}`}
               >
                 <div className="flex items-center gap-3">
-                  <span className={`font-medium capitalize ${isToday ? 'text-white' : 'text-white'}`}>
-                    {day}
-                    {isToday && <span className="text-sm sm:text-xs ml-2 text-white">(Today)</span>}
-                    {hasSpecialHours && <span className="text-sm sm:text-xs ml-2 text-yellow-400">({specialHours.note || specialHours.reason || 'Special hours'})</span>}
+                  <span className={`font-medium capitalize ${day.isToday ? 'text-white' : 'text-white'}`}>
+                    {day.label}
+                    {day.isToday && <span className="text-sm sm:text-xs ml-2 text-white">(Today)</span>}
+                    {hasSpecialHours && <span className="text-sm sm:text-xs ml-2 text-yellow-400">({specialHours?.note || specialHours?.reason || 'Special hours'})</span>}
                   </span>
                   {showWeather && dayForecast && (
                     <div className="flex items-center gap-2">
@@ -299,37 +310,32 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
         {/* All Days Vertical List - Compact */}
         <div className="space-y-1">
           {upcomingDays.map((day, index) => {
-            const dayHours = hours.regularHours[day]
-            const isToday = day === today
+            const dayHours = hours.regularHours[day.key]
             const dayForecast = showWeather ? forecast[index] : null
-            
-            // Calculate the date for this day
-            const currentDate = new Date()
-            const daysToAdd = index
-            const dayDate = new Date(currentDate)
-            dayDate.setDate(currentDate.getDate() + daysToAdd)
-            
-            // Check for special hours
-            const specialHours = getSpecialHoursForDate(dayDate)
+            const specialHours = getSpecialHoursForDate(day.isoDate)
             const displayHours = specialHours || dayHours
             const hasSpecialHours = !!specialHours
-            
+
+            if (!displayHours) {
+              return null
+            }
+
             return (
-              <div 
-                key={day} 
+              <div
+                key={day.isoDate || day.key}
                 className={`flex items-center justify-between px-3 py-1.5 rounded ${
-                  isToday ? 'bg-white/10 ring-1 ring-white/30' : 'hover:bg-white/5'
+                  day.isToday ? 'bg-white/10 ring-1 ring-white/30' : 'hover:bg-white/5'
                 } ${hasSpecialHours ? 'ring-1 ring-yellow-400/50' : ''}`}
               >
                 {/* Left: Day & Weather */}
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className={`text-sm font-medium capitalize w-16 ${isToday ? 'text-white' : 'text-white'}`}>
-                    {day.slice(0, 3)}
-                    {isToday && <span className="text-sm sm:text-xs"> •</span>}
+                  <span className={`text-sm font-medium capitalize w-16 ${day.isToday ? 'text-white' : 'text-white'}`}>
+                    {day.label.slice(0, 3)}
+                    {day.isToday && <span className="text-sm sm:text-xs"> •</span>}
                   </span>
                   {showWeather && dayForecast && (
                     <div className="flex items-center gap-1">
-                      <Image 
+                      <Image
                         src={`https://openweathermap.org/img/wn/${dayForecast.icon}.png`}
                         alt={dayForecast.description}
                         width={20}
@@ -343,27 +349,25 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                     </div>
                   )}
                 </div>
-                
+
                 {/* Right: Hours */}
                 <div className="text-right text-sm space-y-0.5">
                   {displayHours.is_closed ? (
                     <div>
                       <span className={hasSpecialHours ? 'text-yellow-400' : 'text-white'}>
-                        Closed{hasSpecialHours && (specialHours.note || specialHours.reason) ? ` (${specialHours.note || specialHours.reason})` : ''}
+                        Closed{hasSpecialHours && (specialHours?.note || specialHours?.reason) ? ` (${specialHours?.note || specialHours?.reason})` : ''}
                       </span>
                     </div>
                   ) : (
                     <>
-                      {/* Bar Hours */}
                       <div>
                         <span className="text-xs text-white/60 mr-1">Bar:</span>
                         <span className={hasSpecialHours ? 'text-yellow-400' : 'text-white'}>
                           {formatTime(displayHours.opens!)} - {formatTime(displayHours.closes!)}
                         </span>
                       </div>
-                      
-                      {/* Kitchen Hours */}
-                      {showKitchen && !hasSpecialHours && (
+
+                      {showKitchen && !hasSpecialHours && dayHours && (
                         <div className="text-xs">
                           <span className="text-white/60 mr-1">Kitchen:</span>
                           {(() => {
@@ -377,9 +381,8 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                                   {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
                                 </span>
                               )
-                            } else {
-                              return <span className="text-white/50">No service</span>
                             }
+                            return <span className="text-white/50">No service</span>
                           })()}
                         </div>
                       )}
@@ -408,8 +411,8 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
             "dayOfWeek": Object.entries(hours.regularHours)
               .filter(([_, h]) => !h.is_closed)
               .map(([day, h]) => day.charAt(0).toUpperCase() + day.slice(1)),
-            "opens": hours.regularHours[today]?.opens || "16:00",
-            "closes": hours.regularHours[today]?.closes || "22:00",
+            "opens": hours.regularHours[todayKey]?.opens || "16:00",
+            "closes": hours.regularHours[todayKey]?.closes || "22:00",
             "validFrom": new Date().toISOString().split('T')[0],
             "validThrough": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
           })
@@ -445,28 +448,21 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
       <div itemProp="openingHours" itemScope itemType="https://schema.org/OpeningHoursSpecification">
         <h3 className="font-bold text-lg mb-3">Opening Hours</h3>
         <div className="space-y-2">
-          {dayOrder.map((day, idx) => {
+          {dayOrder.map((day) => {
             const dayHours = hours.regularHours[day]
-            const isToday = day === today
-            
-            // Calculate the date for this day
-            const currentDate = new Date()
-            const dayIndex = dayOrder.indexOf(day)
-            const todayIdx = dayOrder.indexOf(today)
-            let daysToAdd = dayIndex - todayIdx
-            if (daysToAdd < 0) daysToAdd += 7
-            
-            const dayDate = new Date(currentDate)
-            dayDate.setDate(currentDate.getDate() + daysToAdd)
-            
-            // Check for special hours
-            const specialHours = getSpecialHoursForDate(dayDate)
+            const isoDate = getIsoForDayKey(day)
+            const specialHours = getSpecialHoursForDate(isoDate)
             const displayHours = specialHours || dayHours
             const hasSpecialHours = !!specialHours
-            
+            const isToday = day === todayKey
+
+            if (!displayHours) {
+              return null
+            }
+
             return (
-              <div 
-                key={day} 
+              <div
+                key={day}
                 className={`flex justify-between items-start py-2 px-3 rounded ${
                   isToday ? 'bg-anchor-cream' : ''
                 } ${hasSpecialHours ? 'ring-2 ring-yellow-400' : ''}`}
@@ -474,23 +470,21 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                 <span className={`font-medium capitalize ${isToday ? 'text-anchor-green' : ''}`} itemProp="dayOfWeek">
                   {day}
                   {isToday && <span className="text-sm sm:text-xs ml-2 text-white">(Today)</span>}
-                  {hasSpecialHours && <span className="text-sm sm:text-xs ml-2 text-yellow-600">({specialHours.note || specialHours.reason || 'Special hours'})</span>}
+                  {hasSpecialHours && <span className="text-sm sm:text-xs ml-2 text-yellow-600">({specialHours?.note || specialHours?.reason || 'Special hours'})</span>}
                 </span>
                 <div className="text-right space-y-1">
                   {displayHours.is_closed ? (
                     <span className={hasSpecialHours ? 'text-yellow-600 font-medium' : 'text-gray-700'}>Closed</span>
                   ) : (
                     <>
-                      {/* Bar Hours */}
                       <div>
                         <span className="text-sm text-gray-500 mr-2">Bar:</span>
                         <span className={hasSpecialHours ? 'text-yellow-600 font-medium' : ''}>
                           <time itemProp="opens" content={displayHours.opens}>{formatTime(displayHours.opens!)}</time> - <time itemProp="closes" content={displayHours.closes}>{formatTime(displayHours.closes!)}</time>
                         </span>
                       </div>
-                      
-                      {/* Kitchen Hours */}
-                      {showKitchen && !hasSpecialHours && (
+
+                      {showKitchen && !hasSpecialHours && dayHours && (
                         <div className="text-sm">
                           <span className="text-gray-500 mr-2">Kitchen:</span>
                           {(() => {
@@ -504,9 +498,8 @@ export function BusinessHours({ variant = 'full', showKitchen = true, showWeathe
                                   {formatTime(dayHours.kitchen.opens)} - {formatTime(dayHours.kitchen.closes)}
                                 </span>
                               )
-                            } else {
-                              return <span className="text-gray-500">No service</span>
                             }
+                            return <span className="text-gray-500">No service</span>
                           })()}
                         </div>
                       )}

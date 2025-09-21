@@ -7,6 +7,7 @@ import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
+import { getBlogHeroUrl, BLOG_FALLBACK_IMAGE } from '@/lib/blog-image'
 
 export const metadata: Metadata = {
   title: 'Blog | The Anchor - Heathrow Pub & Dining | News & Updates',
@@ -15,12 +16,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor Blog - News & Updates',
     description: 'Latest news and stories from your favourite local pub',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: [BLOG_FALLBACK_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor Blog - News & Updates',
     description: 'Latest news and stories from your favourite local pub',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [BLOG_FALLBACK_IMAGE]
   })
 }
 
@@ -116,7 +117,7 @@ export default async function BlogPage({
 
       {/* Tag Cloud - Only on first page */}
       {currentPage === 1 && (
-        <div className="py-12 bg-gray-50">
+        <Section background="gray" spacing="md">
           <Container>
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8 text-center">
@@ -153,12 +154,12 @@ export default async function BlogPage({
               )}
             </div>
           </Container>
-        </div>
+        </Section>
       )}
 
       {/* Featured Post (only on first page) */}
       {featuredPost && currentPage === 1 && (
-        <div className="bg-white section-spacing-md">
+        <Section background="white" spacing="md">
           <Container>
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8">Featured Story</h2>
@@ -167,7 +168,7 @@ export default async function BlogPage({
                   <div className="grid md:grid-cols-2 gap-0 overflow-hidden rounded-2xl">
                     <div className="relative h-64 md:h-full">
                       <Image
-                        src={`/content/blog/${featuredPost.slug}/${featuredPost.hero}`}
+                        src={getBlogHeroUrl(featuredPost.slug, featuredPost.hero)}
                         alt={featuredPost.title}
                         fill
                         className="object-cover"
@@ -211,11 +212,11 @@ export default async function BlogPage({
               </Card>
             </div>
           </Container>
-        </div>
+        </Section>
       )}
 
       {/* Other Posts */}
-      <div className="bg-gray-50 section-spacing-md">
+      <Section background="gray" spacing="md">
         <Container>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8">
@@ -229,14 +230,14 @@ export default async function BlogPage({
                     <Card key={post.slug} variant="default" className="hover:shadow-lg transition-shadow">
                       <Link href={`/blog/${post.slug}`}>
                         <div className="relative h-48">
-                          <Image
-                            src={`/content/blog/${post.slug}/${post.hero}`}
-                            alt={post.title}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            loading="lazy"
-                          />
+                      <Image
+                        src={getBlogHeroUrl(post.slug, post.hero)}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        loading="lazy"
+                      />
                         </div>
                         <div className="p-6">
                           <div className="flex flex-wrap gap-2 mb-3">
@@ -354,11 +355,11 @@ export default async function BlogPage({
             )}
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* CTA Section */}
-      <div className="bg-anchor-green text-white section-spacing-md">
-        <Container className="text-center">
+      <Section className="bg-anchor-green" spacing="md">
+        <Container className="text-center text-white">
           <h2 className="text-3xl font-bold mb-8">
             Stay Connected
           </h2>
@@ -366,27 +367,29 @@ export default async function BlogPage({
             Don't miss out on our latest news and events. Visit us for the full experience!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/whats-on">
+            <Link href="/whats-on" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white text-anchor-green hover:bg-gray-100"
+                fullWidth
+                className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
               >
                 View Upcoming Events
               </Button>
             </Link>
-            <Link href="/find-us">
+            <Link href="/find-us" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white text-anchor-green hover:bg-gray-100"
+                fullWidth
+                className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
               >
                 Visit Us Today
               </Button>
             </Link>
           </div>
         </Container>
-      </div>
+      </Section>
     </>
   )
 }

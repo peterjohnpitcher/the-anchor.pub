@@ -1,18 +1,17 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
-import { CONTACT, BRAND } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid, Container } from '@/components/ui'
+import { SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, QuickInfoGrid, Container } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
 import { staticEvents } from '@/lib/static-events'
 import { PhoneButton } from '@/components/PhoneButton'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_CORPORATE_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Private Party Venue Stanwell Moor | Birthday Parties | The Anchor',
@@ -21,12 +20,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Private Party Venue - The Anchor - Heathrow Pub & Dining',
     description: 'Celebrate in style! Birthday parties, anniversaries, and special occasions. Free parking and flexible spaces.',
-    images: ['/images/events/private-parties/the-anchor-party-venue.jpg'],
+    images: [DEFAULT_CORPORATE_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Private Party Venue - The Anchor - Heathrow Pub & Dining',
     description: 'Celebrate in style! Birthday parties, anniversaries, and special occasions. Free parking and flexible spaces.',
-    images: ['/images/events/private-parties/the-anchor-party-venue.jpg']
+    images: [DEFAULT_CORPORATE_IMAGE]
   })
 }
 
@@ -52,7 +51,6 @@ export default function PrivatePartyVenuePage() {
         title="Private Party Venue"
         description="Create unforgettable celebrations at The Anchor"
         size="large"
-        showStatusBar={false}
         tags={[
           { label: "🎉 10-200 Guests", variant: "success" },
           { label: "🎂 All Occasions", variant: "default" },
@@ -66,6 +64,8 @@ export default function PrivatePartyVenuePage() {
               variant="primary"
               size="lg"
               context="private_party"
+              fullWidth
+              className="w-full sm:w-auto"
             >
               🎉 Book Your Party
             </BookTableButton>
@@ -74,17 +74,25 @@ export default function PrivatePartyVenuePage() {
               source="private_party_hero"
               variant="secondary"
               size="lg"
+              className="w-full sm:w-auto"
             >
               📞 Call: 01753 682707
             </PhoneButton>
-            <Link href="https://wa.me/441753682707?text=Hi,%20I" target="_blank" rel="noopener noreferrer">
-      <Button 
-        variant="secondary"
-        size="lg"
-      >
-        💬 WhatsApp Us
-      </Button>
-    </Link>
+            <Link 
+              href="https://wa.me/441753682707?text=Hi,%20I" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button 
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                💬 WhatsApp Us
+              </Button>
+            </Link>
           </div>
         }
       >
@@ -519,7 +527,7 @@ export default function PrivatePartyVenuePage() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-red-600 to-red-700 py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Let's Plan Your Perfect Party
@@ -533,22 +541,28 @@ export default function PrivatePartyVenuePage() {
                 size="lg"
                 variant="secondary"
                 context="private_party"
-                className="bg-white text-red-600 hover:bg-gray-100"
+                fullWidth
+                className="w-full sm:w-auto bg-white text-red-600 hover:bg-gray-100"
               >
                 🎉 Book Your Party
               </BookTableButton>
-              <Link href="tel:+441753682707">
-                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+              <Link href="tel:+441753682707" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
                   📞 Call: 01753 682707
                 </Button>
               </Link>
-              <Link href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20private%20party%20venue%20hire" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+              <Link 
+                href="https://wa.me/441753682707?text=Hi,%20I'd%20like%20to%20enquire%20about%20private%20party%20venue%20hire" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
                   💬 WhatsApp Us
                 </Button>
               </Link>
-              <Link href="mailto:manager@the-anchor.pub?subject=Private Party Enquiry">
-                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20">
+              <Link href="mailto:manager@the-anchor.pub?subject=Private Party Enquiry" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/20">
                   📧 Email Enquiry
                 </Button>
               </Link>
@@ -561,7 +575,7 @@ export default function PrivatePartyVenuePage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   )

@@ -39,7 +39,7 @@ The Anchor pub in Stanwell Moor, Surrey's best kept secret near Heathrow Airport
 ### Food & Drink Pages
 1. **Food Menu** - Enjoy traditional British pub food at The Anchor. Famous Sunday roasts, stone-baked pizzas, burgers, and family-friendly meals. Kitchen open Tuesday-Sunday.
 
-2. **Drinks** - Extensive drinks selection at The Anchor pub in Surrey. Real ales, craft beers, premium spirits, wines, and cocktails. Great atmosphere near Heathrow Airport.
+2. **Drinks** - Extensive drinks selection at The Anchor pub in Surrey. Real ales, draught beers, premium spirits, wines, and cocktails. Great atmosphere near Heathrow Airport.
 
 3. **Sunday Lunch** - Our renowned Sunday roasts at The Anchor pub in Surrey. Traditional British roast dinners served 12-5pm every Sunday. Pre-order required. Near Heathrow Airport.
 

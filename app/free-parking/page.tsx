@@ -1,13 +1,13 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { Button } from '@/components/ui'
+import { Button, Container, Section } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PARKING_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Free Parking Near Heathrow | Park & Dine at The Anchor',
@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Parking at The Anchor - 7 Minutes from Heathrow',
     description: 'Save on expensive airport parking! Free parking for all customers, just minutes from all terminals.',
-    images: ['/images/venue/the-anchor-free-parking.jpg'],
+    images: [DEFAULT_PARKING_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Free Parking at The Anchor - 7 Minutes from Heathrow',
     description: 'Save on expensive airport parking! Free parking for all customers, just minutes from all terminals.',
-    images: ['/images/venue/the-anchor-free-parking.jpg']
+    images: [DEFAULT_PARKING_IMAGE]
   }),
   alternates: {
     canonical: '/free-parking'
@@ -99,11 +99,13 @@ export default function FreeParkingPage() {
               variant="primary"
               size="lg"
               source="free_parking_hero"
+              fullWidth
+              className="w-full sm:w-auto"
             >
               📅 Book Table & Parking
             </BookTableButton>
-            <Link href="https://maps.google.com/?q=The+Anchor+Stanwell+Moor">
-              <Button variant="secondary" size="lg">
+            <Link href="https://maps.google.com/?q=The+Anchor+Stanwell+Moor" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" fullWidth className="sm:w-auto">
                 📍 Get Directions
               </Button>
             </Link>
@@ -118,20 +120,20 @@ export default function FreeParkingPage() {
       </HeroWrapper>
 
       {/* Page Title for SEO */}
-      <section className="bg-white py-8">
-        <div className="container mx-auto px-4">
+      <Section background="white" spacing="sm">
+        <Container>
           <PageTitle 
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
             Free Parking Near Heathrow Airport - The Anchor Pub & Restaurant
           </PageTitle>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Parking vs Airport Comparison */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <Section background="white" spacing="md">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Why Pay for Airport Parking?"
@@ -202,12 +204,12 @@ export default function FreeParkingPage() {
               }
             />
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Perfect For Section */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <Section background="gray" spacing="md">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Perfect Free Parking For..."
@@ -291,12 +293,12 @@ export default function FreeParkingPage() {
               />
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Parking Details */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <Section background="white" spacing="md">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Our Free Parking Facilities"
@@ -383,12 +385,12 @@ export default function FreeParkingPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Local Area Benefits */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
+      <Section background="gray" spacing="md">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="More Parking Benefits"
@@ -437,12 +439,12 @@ export default function FreeParkingPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Customer Stories */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+      <Section background="white" spacing="md">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Why Customers Love Our Free Parking"
@@ -491,8 +493,8 @@ export default function FreeParkingPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

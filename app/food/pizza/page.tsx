@@ -10,6 +10,7 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { generateNutritionInfo, generateMenuItemOffer } from '@/lib/schema-utils'
+import { DEFAULT_PIZZA_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Buy One Get One Free Pizza | The Anchor - Heathrow Pub & Dining | BOGOF Deal',
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'BOGOF Pizza Deal - The Anchor',
     description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
-    images: ['/images/the-anchor-pub-stanwell-moor.jpg'],
+    images: [DEFAULT_PIZZA_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'BOGOF Pizza Deal - The Anchor',
     description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
-    images: ['/images/the-anchor-pub-stanwell-moor.jpg']
+    images: [DEFAULT_PIZZA_IMAGE]
   })
 }
 

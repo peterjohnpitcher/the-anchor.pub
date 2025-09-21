@@ -6,6 +6,7 @@ import { Container, Section, Card, CardBody, Button, Badge, Alert, SectionHeader
 import { BookTableButton } from '@/components/BookTableButton'
 import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+import { DEFAULT_DRINKS_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Baby Guinness Shot £3.50 | The Anchor - Heathrow Pub & Dining | Near Heathrow',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Baby Guinness Shot at The Anchor',
     description: 'The perfect layered shot that looks like a tiny Guinness. £3.50 each or 2 for £6.',
-    images: ['/images/drinks/baby-guinness.jpg'],
+    images: [DEFAULT_DRINKS_IMAGE],
   }
 }
 
@@ -284,7 +285,7 @@ export default function BabyGuinnessPage() {
             "@type": "Recipe",
             "name": "Baby Guinness Shot",
             "description": "A layered shot that looks like a tiny pint of Guinness, made with Kahlúa and Bailey's",
-            "image": "https://www.the-anchor.pub/images/drinks/baby-guinness.jpg",
+            "image": `https://www.the-anchor.pub${DEFAULT_DRINKS_IMAGE}`,
             "author": {
               "@type": "Organization",
               "name": "The Anchor"

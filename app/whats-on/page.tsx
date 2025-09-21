@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button, Container, Section, Card, CardBody, Grid } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
@@ -23,7 +22,7 @@ import { quizNightEventSeries, dragShowEventSeries, bingoEventSeries } from '@/l
 
 export const metadata: Metadata = {
   title: "What's On Tonight | FREE Events | Quiz £3 | Drag Shows | The Anchor",
-  description: "🎉 SEE WHAT'S ON TODAY! Quiz nights £3, drag shows, cash bingo. Pool & darts always FREE. Check our live events calendar. Book tables for popular shows!",
+  description: "🎉 SEE WHAT'S ON TODAY! Quiz nights £3, drag shows, cash bingo. Pool & darts always FREE. Terrestrial sports on screen. Check our live events calendar. Book tables for popular shows!",
   keywords: "what's on tonight stanwell moor, events today near heathrow, free events tonight, drag show tonight, quiz night today",
   openGraph: {
     title: "What's On at The Anchor",
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: getTwitterMetadata({
     title: "What's On at The Anchor - Events & Entertainment",
-    description: "Regular monthly events including drag shows, quiz nights, bingo & more. Plus major sports on TV!",
+    description: "Regular monthly events including drag shows, quiz nights, bingo & more. Plus major sports on terrestrial TV!",
     images: ["/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"]
   })
 }
@@ -127,19 +126,25 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
               source="whats_on_hero"
               variant="primary"
               size="lg"
+              fullWidth
+              className="w-full sm:w-auto"
             />
-            <Link href="#upcoming-events">
+            <Link href="#upcoming-events" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
+                fullWidth
+                className="sm:w-auto"
               >
                 📅 View All Events
               </Button>
             </Link>
-            <Link href="/book-event">
+            <Link href="/book-event" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
+                fullWidth
+                className="sm:w-auto"
               >
                 🎉 Book Private Event
               </Button>
@@ -149,16 +154,16 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
       />
 
       {/* Page Title */}
-      <div className="bg-white py-8">
+      <Section background="white" spacing="sm">
         <Container>
           <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
             What's On - Events & Entertainment at The Anchor - Heathrow Pub & Dining
           </PageTitle>
         </Container>
-      </div>
+      </Section>
 
       {/* Upcoming Events from API */}
-      <div id="upcoming-events" className="bg-white section-spacing-md">
+      <Section id="upcoming-events" background="white" spacing="md">
         <Container>
           <SectionHeader
             title="Upcoming Events"
@@ -176,10 +181,10 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             </div>
           </SpeakableContent>
         </Container>
-      </div>
+      </Section>
 
       {/* Featured Events */}
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 section-spacing-md">
+      <Section background="white" spacing="md" className="bg-gradient-to-r from-purple-50 to-pink-50">
         <Container>
           <SectionHeader
             title="Monthly Highlights - Great Value Entertainment"
@@ -229,10 +234,10 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             </Card>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Entertainment & Games */}
-      <div className="bg-white section-spacing-md">
+      <Section background="white" spacing="md">
         <Container>
           <SectionHeader
             title="FREE Daily Entertainment & Games"
@@ -286,11 +291,11 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             </CardBody>
           </Card>
         </Container>
-      </div>
+      </Section>
 
 
       {/* Special Events */}
-      <div className="bg-white section-spacing-md">
+      <Section background="white" spacing="md">
         <Container>
           <SectionHeader
             title="Special Events & Celebrations"
@@ -361,10 +366,10 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             className="mt-12 max-w-3xl mx-auto"
           />
         </Container>
-      </div>
+      </Section>
 
       {/* Private Events */}
-      <div className="bg-anchor-cream section-spacing-md">
+      <Section background="white" spacing="md" className="bg-anchor-cream">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
@@ -405,15 +410,18 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
             </Link>
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* FAQ Section */}
       {/* Internal Links for SEO */}
-      <InternalLinkingSection 
-        title="Discover More at The Anchor"
-        links={[...commonLinkGroups.dining, { href: '/blog', title: 'Latest News', description: 'Updates and announcements' }]}
-        className="section-spacing-md"
-      />
+      <Section background="white" spacing="md">
+        <Container>
+          <InternalLinkingSection 
+            title="Discover More at The Anchor"
+            links={[...commonLinkGroups.dining, { href: '/blog', title: 'Latest News', description: 'Updates and announcements' }]}
+          />
+        </Container>
+      </Section>
 
       <FAQAccordionWithSchema 
         faqs={[

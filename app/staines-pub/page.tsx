@@ -1,16 +1,14 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox, Container } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { CONTACT, BRAND, PARKING, HEATHROW_TIMES } from '@/lib/constants'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Traditional Staines Pub | The Anchor - Heathrow Pub & Dining',
@@ -19,12 +17,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Traditional Pub Near Staines',
     description: 'Just 8 minutes from Staines. Sunday roasts, entertainment, and free parking.',
-    images: ['/images/the-anchor-pub-stanwell-moor.jpg'],
+    images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Traditional Pub Near Staines',
     description: 'Just 8 minutes from Staines. Sunday roasts, entertainment, and free parking.',
-    images: ['/images/the-anchor-pub-stanwell-moor.jpg']
+    images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
 
@@ -109,19 +107,19 @@ export default function StainesPubPage() {
 
       {/* Page Title for SEO */}
       <section className="bg-white py-8">
-        <div className="container mx-auto px-4">
+        <Container>
           <PageTitle 
             className="text-center text-anchor-green"
             seo={{ structured: true, speakable: true }}
           >
             Surrey Pub Near Staines - The Anchor - Heathrow Pub & Dining
           </PageTitle>
-        </div>
+        </Container>
       </section>
 
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-6xl mx-auto">
             <SectionHeader
               title="Why Staines Locals Love The Anchor"
@@ -147,7 +145,7 @@ export default function StainesPubPage() {
                 {
                   icon: "🎭",
                   title: "Unique Entertainment",
-                  description: "Drag shows monthly\nQuiz nights monthly\nLive sports coverage",
+                  description: "Drag shows monthly\nQuiz nights monthly\nTerrestrial sports coverage",
                   className: "text-center"
                 },
                 {
@@ -171,12 +169,12 @@ export default function StainesPubPage() {
               ]}
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Journey from Staines */}
       <section className="section-spacing bg-anchor-sand/20">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="Getting Here from Staines"
@@ -241,12 +239,12 @@ export default function StainesPubPage() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* What's On This Week */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               title="What's On at Your Staines Local"
@@ -287,12 +285,12 @@ export default function StainesPubPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Event Venue Section */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Popular Venue for Staines Events"
@@ -372,12 +370,12 @@ export default function StainesPubPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Opening Hours */}
       <section className="section-spacing bg-anchor-sand/20">
-        <div className="container mx-auto px-4">
+        <Container>
           <div className="max-w-2xl mx-auto">
             <SectionHeader
               title="Opening Hours"
@@ -385,7 +383,7 @@ export default function StainesPubPage() {
             />
             <BusinessHours />
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}

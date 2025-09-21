@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { BookTableButton } from '@/components/BookTableButton'
@@ -9,13 +8,14 @@ import { SectionHeader } from '@/components/SectionHeader'
 import { FeatureGrid } from '@/components/FeatureCard'
 import { InfoBoxGrid } from '@/components/InfoBox'
 import { AlertBox } from '@/components/AlertBox'
-import { CTASection } from '@/components/ui'
+import { CTASection, Container } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { DirectionsButton } from '@/components/DirectionsButton'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PARKING } from '@/lib/constants'
+import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Pub Near Terminal 3 | The Anchor - Heathrow Pub & Dining',
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Anchor - Local Pub Near Terminal 3 Hotels',
     description: 'Escape hotel dining! Family pub 11 mins from T3. Real atmosphere.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'The Anchor - Local Pub Near Terminal 3 Hotels',
     description: 'Escape hotel dining! Family pub 11 mins from T3. Real atmosphere.',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   })
 }
 
@@ -58,25 +58,25 @@ export default function Terminal3Page() {
             </PhoneButton>
             
             <Link href="#directions">
-      <Button 
-        variant="secondary"
-        size="lg"
-        className="bg-white text-anchor-green hover:bg-gray-100"
-      >
-        📍 Get Directions
-      </Button>
-    </Link>
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="bg-white text-anchor-green hover:bg-gray-100"
+              >
+                📍 Get Directions
+              </Button>
+            </Link>
           </div>
         }
       />
 
       {/* Page Title */}
       <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
+        <Container>
           <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
             Pub Near Heathrow Terminal 3 - The Anchor
           </PageTitle>
-        </div>
+        </Container>
       </section>
 
       {/* Quick Info Cards */}
@@ -533,7 +533,7 @@ export default function Terminal3Page() {
             "@type": "Restaurant",
             "name": "The Anchor - Pub Near Heathrow Terminal 3",
             "description": "Family-friendly British pub just 11 minutes from Heathrow Terminal 3 with free parking.",
-            "image": "https://www.the-anchor.pub/images/hero/the-anchor-pub-interior-atmosphere.jpg",
+            "image": "https://www.the-anchor.pub/images/page-headers/near-heathrow/Heathrow.jpg",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Horton Road",

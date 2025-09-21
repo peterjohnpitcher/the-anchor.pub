@@ -69,7 +69,7 @@ const testScenarios = [
   },
   {
     name: 'Special hours override',
-    time: '15:00:00',
+    time: '13:00:00',
     apiResponse: {
       currentStatus: { isOpen: false, kitchenOpen: false },
       today: { opens: '14:00:00', closes: '23:00:00', is_special: true },
@@ -126,8 +126,14 @@ const testScenarios = [
         is_kitchen_closed: true
       },
       regularHours: {
-        tuesday: { 
-          opens: '16:00:00', 
+        thursday: {
+          opens: '16:00:00',
+          closes: '22:00:00',
+          kitchen: { opens: '18:00:00', closes: '21:00:00' },
+          is_kitchen_closed: false
+        },
+        friday: {
+          opens: '16:00:00',
           closes: '22:00:00',
           kitchen: { opens: '18:00:00', closes: '21:00:00' },
           is_kitchen_closed: false

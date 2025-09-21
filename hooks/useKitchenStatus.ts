@@ -1,7 +1,7 @@
 'use client'
 
 import { useBusinessHours } from './useBusinessHours'
-import { getApiDayName } from '@/lib/time-utils'
+import { getTodayHours } from '@/lib/status-boundary-calculator'
 
 interface KitchenStatus {
   isOpen: boolean
@@ -33,11 +33,9 @@ export function useKitchenStatus(): {
   // Use the currentStatus.kitchenOpen field from the API
   const kitchenOpen = hours.currentStatus.kitchenOpen ?? false
   
-  // Get today's regular hours for additional info
-  const todayName = getApiDayName()
-  const todayHours = hours.regularHours[todayName]
-  
-  
+  const todayHours = getTodayHours(hours)
+
+
   // Determine kitchen status
   if (!todayHours || todayHours.is_closed) {
     return {
@@ -52,8 +50,21 @@ export function useKitchenStatus(): {
   }
 
   // Check kitchen data for times and service status
-  const kitchenData = todayHours.kitchen
-  
+  const kitchenData = (todayHours as any).kitchen
+  const kitchenClosedToday = (todayHours as any).is_kitchen_closed === true
+
+  if (kitchenClosedToday) {
+    return {
+      kitchen: {
+        isOpen: false,
+        status: 'closed',
+        message: 'Kitchen closed today'
+      },
+      loading: false,
+      error: null
+    }
+  }
+
   if (!kitchenData || kitchenData === null) {
     return {
       kitchen: {
@@ -67,7 +78,7 @@ export function useKitchenStatus(): {
   }
   
   // Check if kitchen has specific hours
-  if (typeof kitchenData === 'object' && 'opens' in kitchenData && 'closes' in kitchenData) {
+  if (typeof kitchenData === 'object' && 'opens' in kitchenData && 'closes' in kitchenData && kitchenData.opens && kitchenData.closes) {
     return {
       kitchen: {
         isOpen: kitchenOpen,

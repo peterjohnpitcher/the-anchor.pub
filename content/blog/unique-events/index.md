@@ -70,7 +70,7 @@ The offerings at The Anchor extend beyond just music and quizzes. One event that
 
   
 
-Did you know that craft beer is one of the fastest-growing segments in the beverage market? According to the Brewers Association, craft beer sales increased by 4% in 2021. Events like these not only promote local breweries but also foster a sense of community among attendees.
+Did you know that draught lager and cider experiences remain some of the most popular pub event themes across the UK? Industry reports show continued demand for curated tastings and seasonal taps. Events like these not only spotlight great drinks but also foster a sense of community among attendees.
 
   
 

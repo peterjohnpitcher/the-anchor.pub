@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { StatusBar } from '@/components/StatusBar'
-import { StatusBarSimple } from '@/components/StatusBarSimple'
 import { HeaderStatusSectionDirect } from '@/components/HeaderStatusSectionDirect'
 import { useBusinessHours } from '@/hooks/useBusinessHours'
 
@@ -40,8 +39,8 @@ export default function DebugHoursPage() {
       </div>
 
       <div>
-        <h2 className="text-xl font-bold mb-2">StatusBarSimple Component (navigation)</h2>
-        <StatusBarSimple variant="navigation" />
+        <h2 className="text-xl font-bold mb-2">StatusBar Component (hero variant)</h2>
+        <StatusBar variant="hero" />
       </div>
 
       <div>

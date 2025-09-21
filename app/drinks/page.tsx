@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button, Container, Section, Card, CardBody } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
@@ -8,7 +7,7 @@ import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
 import { drinksMenuSchema, generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
+import { SectionHeader, FeatureGrid, InfoBoxGrid } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ManagersSpecialHero } from '@/components/ManagersSpecialHero'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
@@ -17,7 +16,7 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
 import { generateNutritionInfo } from '@/lib/schema-utils'
 import { BookTableButton } from '@/components/BookTableButton'
-import './cocktails.css'
+import { DEFAULT_DRINKS_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
   title: 'Drinks Menu | Real Ales & Premium Spirits | The Anchor - Heathrow Pub & Dining',
@@ -26,12 +25,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: '🍺 Drinks Menu | Real Ales & Premium Spirits',
     description: 'Full drinks selection. Pint costs what a pint should cost - half the price of airport bars!',
-    images: ['/images/hero/the-anchor-interior-atmosphere.jpg'],
+    images: [DEFAULT_DRINKS_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: '🍺 Drinks Menu | Real Ales & Premium Spirits',
     description: 'Full drinks selection. Pint costs what a pint should cost - half the price of airport bars!',
-    images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg']
+    images: [DEFAULT_DRINKS_IMAGE]
   })
 }
 
@@ -56,7 +55,7 @@ export default async function DrinksMenuPage() {
     "@type": "Menu",
     "@id": "https://www.the-anchor.pub/drinks#menu",
     "name": "The Anchor Drinks Menu",
-    "description": "Full bar service with real ales, craft beers, wines, spirits and soft drinks at The Anchor in Stanwell Moor, Surrey",
+    "description": "Full bar service with real ales, draught lagers, wines, spirits and soft drinks at The Anchor in Stanwell Moor, Surrey",
     "hasMenuSection": menuData.categories.map(category => ({
       "@type": "MenuSection",
       "name": category.title,
@@ -234,21 +233,25 @@ export default async function DrinksMenuPage() {
               source="drinks_hero"
               variant="secondary"
               size="lg"
-              className="bg-white text-anchor-green hover:bg-gray-100"
+              fullWidth
+              className="w-full sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
             />
-            <Link href="#menu">
+            <Link href="#menu" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
-                className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
+                fullWidth
+                className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
               >
                 📖 Jump to Menu
               </Button>
             </Link>
-            <Link href="#cocktails">
+            <Link href="#cocktails" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
+                fullWidth
+                className="sm:w-auto"
               >
                 🍹 View Our Cocktails
               </Button>
@@ -274,31 +277,31 @@ export default async function DrinksMenuPage() {
               Drinks Menu - Beers, Wines & Spirits
             </PageTitle>
             <p className="text-lg text-gray-700">
-              Explore our extensive selection of real ales, craft beers, premium spirits, wines, and cocktails
+              Explore our extensive selection of real ales, draught lagers, premium spirits, wines, and cocktails
             </p>
           </div>
         </Container>
       </Section>
 
       {/* Quick Links */}
-      <div className="bg-gray-50 section-spacing-md">
+      <Section background="gray" spacing="md">
         <Container>
           <div className="flex flex-wrap justify-center gap-4">
             {menuData.categories.map((category) => (
               <Link 
                 key={category.id}
                 href={`#${category.id}`} 
-                className="px-6 py-3 bg-white rounded-lg shadow hover:shadow-md transition-shadow"
+                className="rounded-lg bg-white px-6 py-3 shadow transition-shadow hover:shadow-md"
               >
                 {category.title} {category.emoji}
               </Link>
             ))}
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Your Local After Landing */}
-      <div className="bg-white section-spacing-md">
+      <Section background="white" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -329,10 +332,10 @@ export default async function DrinksMenuPage() {
             />
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Why The Anchor for Drinks */}
-      <div className="bg-gray-50 section-spacing-md">
+      <Section background="gray" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -378,7 +381,7 @@ export default async function DrinksMenuPage() {
                   title: "🌟 Quality & Choice",
                   content: (
                     <>
-                      <p className="text-gray-700 mb-4">From real ales to craft cocktails, we take drinks seriously. Expert bar staff, proper glassware, and drinks served exactly how they should be. No shortcuts.</p>
+                      <p className="text-gray-700 mb-4">From real ales to handcrafted cocktails, we take drinks seriously. Expert bar staff, proper glassware, and drinks served exactly how they should be. No shortcuts.</p>
                       <p className="text-sm text-gray-700">Can't see your favourite? Just ask - we might have it!</p>
                     </>
                   ),
@@ -390,10 +393,10 @@ export default async function DrinksMenuPage() {
             
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Seasonal Highlights */}
-      <div className="bg-anchor-gold/10 section-spacing-md">
+      <Section background="white" className="bg-anchor-gold/10" spacing="md">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeader
@@ -434,7 +437,7 @@ export default async function DrinksMenuPage() {
             />
           </div>
         </Container>
-      </div>
+      </Section>
 
       {/* Menu Content */}
       <div id="menu">
@@ -442,10 +445,14 @@ export default async function DrinksMenuPage() {
       </div>
 
       {/* Internal Links for SEO */}
-      <InternalLinkingSection 
-        links={commonLinkGroups.dining}
-        className="section-spacing-md"
-      />
+      <Section background="white" spacing="md">
+        <Container>
+          <InternalLinkingSection 
+            links={commonLinkGroups.dining}
+            className="mx-auto max-w-5xl"
+          />
+        </Container>
+      </Section>
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
@@ -459,8 +466,8 @@ export default async function DrinksMenuPage() {
             answer: "Yes! We have a full cocktail menu featuring classics like Mojitos, Margaritas, Espresso Martinis, and many more. Our skilled bartenders can also make your favourite cocktail on request."
           },
           {
-            question: "What's the best pub for craft beer near Heathrow?",
-            answer: "The Anchor is just 7 minutes from Heathrow and offers an excellent selection of craft beers, real ales, and premium lagers. We're much better value than airport bars and have a proper pub atmosphere with our beer garden."
+            question: "Where can I find well-kept draught beer near Heathrow?",
+            answer: "The Anchor is just 7 minutes from Heathrow and offers an excellent selection of real ales and premium lagers. We're much better value than airport bars and have a proper pub atmosphere with our beer garden."
           },
           {
             question: "Do you have non-alcoholic drink options?",
@@ -497,15 +504,16 @@ export default async function DrinksMenuPage() {
                 source="drinks_page_cta"
                 size="lg"
                 variant="secondary"
-                className="bg-white text-anchor-green hover:bg-gray-100"
+                fullWidth
+                className="w-full sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
               />
-              <Link href="tel:+441753682707">
-                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+              <Link href="tel:+441753682707" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
                   📞 Call Us
                 </Button>
               </Link>
-              <Link href="/food-menu">
-                <Button size="lg" variant="secondary" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+              <Link href="/food-menu" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
                   🍔 View Food Menu
                 </Button>
               </Link>

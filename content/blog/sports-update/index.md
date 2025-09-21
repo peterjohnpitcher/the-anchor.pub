@@ -39,7 +39,7 @@ images: []
 
 ## Sports Viewing Update at The Anchor Near Heathrow Airport
 
-At The Anchor in **Stanwell Moor**, just **7 minutes from Heathrow Terminal 5**, we've been the go-to **sports bar near the airport** for years. Our family-friendly pub has brought together **Heathrow workers**, locals from **Staines**, and sports fans to enjoy everything from Premier League football to international cricket.
+At The Anchor in **Stanwell Moor**, just **7 minutes from Heathrow Terminal 5**, we've been the go-to **sports bar near the airport** for years. Our family-friendly pub has brought together **Heathrow workers**, locals from **Staines**, and sports fans to enjoy major free-to-air tournaments and highlight shows together.
 
   
 

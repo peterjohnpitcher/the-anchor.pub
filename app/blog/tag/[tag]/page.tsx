@@ -7,6 +7,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getTagSEOContent } from '@/lib/tag-seo-content'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
+import { getBlogHeroUrl, BLOG_FALLBACK_IMAGE } from '@/lib/blog-image'
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
     openGraph: {
       title: seoContent.metaTitle,
       description: seoContent.metaDescription,
-      images: ['/images/hero/the-anchor-pub-interior-atmosphere.jpg'],
+      images: [BLOG_FALLBACK_IMAGE],
     },
   }
 }
@@ -109,7 +110,7 @@ export default async function TagPage({ params }: { params: { tag: string } }) {
                   <Link href={`/blog/${post.slug}`}>
                     <div className="relative h-48">
                       <Image
-                        src={`/content/blog/${post.slug}/${post.hero}`}
+                        src={getBlogHeroUrl(post.slug, post.hero)}
                         alt={post.title}
                         fill
                         className="object-cover"
