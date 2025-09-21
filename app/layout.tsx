@@ -206,20 +206,7 @@ export default function RootLayout({
         {/* Inline critical CSS to prevent render blocking */}
         <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
         
-        {/* Next.js handles font preloading automatically when using next/font */}
-        {/* Preload critical images */}
-        <link 
-          rel="preload" 
-          as="image" 
-          href={DEFAULT_PAGE_HEADER_IMAGE}
-          type="image/jpeg"
-        />
-        <link 
-          rel="preload" 
-          as="image" 
-          href="/images/branding/the-anchor-pub-logo-white-transparent.png"
-          type="image/png"
-        />
+        {/* Next.js handles font and image prioritisation automatically */}
         <DynamicSchema />
       </head>
       <body className="font-sans antialiased">

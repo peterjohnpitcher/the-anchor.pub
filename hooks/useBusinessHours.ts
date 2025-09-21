@@ -35,6 +35,8 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
     refreshInterval = 60 * 1000
   } = options
 
+  const debugLogging = process.env.NEXT_PUBLIC_STATUSBAR_DEBUG === 'true'
+
   const [cached, setCached] = useState<CachedData>({ 
     data: null, 
     etag: null,
@@ -70,7 +72,7 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
         nextChange.at.getTime() - Date.now() - 10000
       )
 
-      if (process.env.NODE_ENV === 'development') {
+      if (debugLogging) {
         const minutesUntil = Math.round(msUntilRefresh / 60000)
         console.log(
           `[StatusBar] Next refresh scheduled in ${minutesUntil} minutes for ${nextChange.reason}`,
@@ -87,7 +89,7 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
       }, msUntilRefresh)
     } catch (err) {
       // If boundary calculation fails, fall back to regular interval
-      if (process.env.NODE_ENV === 'development') {
+      if (debugLogging) {
         console.warn('[StatusBar] Failed to calculate next boundary, using fallback', err)
       }
     }
@@ -98,7 +100,7 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
 
     try {
       // Log refresh trigger in development
-      if (process.env.NODE_ENV === 'development') {
+      if (debugLogging) {
         console.log(`[StatusBar] Refresh triggered by: ${trigger} at ${new Date().toISOString()}`)
       }
 
@@ -120,7 +122,7 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
       if (response.status === 304) {
         // Data hasn't changed, mark as fresh
         setCached(prev => ({ ...prev, isStale: false, lastFetchTime: new Date() }))
-        if (process.env.NODE_ENV === 'development') {
+        if (debugLogging) {
           console.log('[StatusBar] 304 Not Modified - using cached data')
         }
         // Still reschedule based on cached data
@@ -173,7 +175,7 @@ export function useBusinessHours(options: UseBusinessHoursOptions = {}): UseBusi
       retryCount.current++
       const retryDelay = Math.min(60000, 5000 * Math.pow(2, retryCount.current - 1))
       
-      if (process.env.NODE_ENV === 'development') {
+      if (debugLogging) {
         console.error(`[StatusBar] Fetch error, retry in ${retryDelay}ms:`, err)
       }
       

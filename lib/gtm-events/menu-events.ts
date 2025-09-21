@@ -1,5 +1,7 @@
 // Menu-related GTM events
 
+import { pushToDataLayer } from '../gtm-events'
+
 interface AllergenFilterEvent {
   event: 'allergen_filter_toggled'
   filter_type: 'allergen' | 'vegetarian'
@@ -31,29 +33,25 @@ export function trackAllergenFilterToggle(
   activeFilterCount: number,
   menuType: 'food' | 'drinks' = 'food'
 ): void {
-  if (typeof window !== 'undefined' && window.dataLayer) {
-    window.dataLayer.push({
-      event: 'allergen_filter_toggled',
-      filter_type: filterType,
-      filter_name: filterName,
-      filter_action: enabled ? 'enabled' : 'disabled',
-      active_filter_count: activeFilterCount,
-      menu_type: menuType
-    } as AllergenFilterEvent)
-  }
+  pushToDataLayer({
+    event: 'allergen_filter_toggled',
+    filter_type: filterType,
+    filter_name: filterName,
+    filter_action: enabled ? 'enabled' : 'disabled',
+    active_filter_count: activeFilterCount,
+    menu_type: menuType
+  } as AllergenFilterEvent)
 }
 
 export function trackClearAllFilters(
   filtersCleared: number,
   menuType: 'food' | 'drinks' = 'food'
 ): void {
-  if (typeof window !== 'undefined' && window.dataLayer) {
-    window.dataLayer.push({
-      event: 'allergen_filters_cleared',
-      filters_cleared_count: filtersCleared,
-      menu_type: menuType
-    } as ClearFiltersEvent)
-  }
+  pushToDataLayer({
+    event: 'allergen_filters_cleared',
+    filters_cleared_count: filtersCleared,
+    menu_type: menuType
+  } as ClearFiltersEvent)
 }
 
 export function trackFilterResults(
@@ -62,14 +60,12 @@ export function trackFilterResults(
   activeFilters: string[],
   menuType: 'food' | 'drinks' = 'food'
 ): void {
-  if (typeof window !== 'undefined' && window.dataLayer) {
-    window.dataLayer.push({
-      event: 'menu_items_filtered',
-      total_items: totalItems,
-      visible_items: visibleItems,
-      hidden_items: totalItems - visibleItems,
-      active_filters: activeFilters,
-      menu_type: menuType
-    } as FilterResultEvent)
-  }
+  pushToDataLayer({
+    event: 'menu_items_filtered',
+    total_items: totalItems,
+    visible_items: visibleItems,
+    hidden_items: totalItems - visibleItems,
+    active_filters: activeFilters,
+    menu_type: menuType
+  } as FilterResultEvent)
 }

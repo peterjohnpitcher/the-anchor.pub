@@ -1,7 +1,7 @@
 // Analytics tracking utility
 // This provides a centralized way to track events across the application
 
-import { canUseCookieCategory } from './cookies'
+import { dispatchTrackingEvent } from './tracking/dispatcher'
 
 export type AnalyticsEvent = 
   | { action: 'page_view'; category: 'navigation'; label: string; value?: number }
@@ -22,7 +22,7 @@ interface AnalyticsConfig {
 
 class Analytics {
   private config: AnalyticsConfig = {
-    debug: process.env.NODE_ENV === 'development',
+    debug: process.env.NEXT_PUBLIC_ANALYTICS_DEBUG === 'true',
     enabled: true
   }
 
@@ -35,66 +35,19 @@ class Analytics {
   track(event: AnalyticsEvent) {
     if (!this.config.enabled) return
 
-    // Check if analytics cookies are allowed
-    if (typeof window !== 'undefined' && !canUseCookieCategory('analytics')) {
-      if (this.config.debug) {
-        console.log('[Analytics] Tracking blocked - no consent for analytics cookies')
-      }
-      return
-    }
-
     const metadata = 'metadata' in event ? event.metadata : undefined
+    const extraData = (metadata && typeof metadata === 'object') ? metadata : undefined
 
-    // Log in development
-    if (this.config.debug) {
-      console.log('[Analytics]', {
-        action: event.action,
-        category: event.category,
-        label: event.label,
-        value: event.value,
-        metadata,
-        timestamp: new Date().toISOString()
-      })
-    }
-
-    // Send to Google Analytics if available
-    if (typeof window !== 'undefined' && 'gtag' in window) {
-      (window as any).gtag('event', event.action, {
-        event_category: event.category,
-        event_label: event.label,
-        value: event.value,
-        ...metadata
-      })
-    }
-
-    // Also push to dataLayer for GTM
-    if (typeof window !== 'undefined' && 'dataLayer' in window) {
-      (window as any).dataLayer.push({
+    dispatchTrackingEvent(
+      {
         event: event.action,
         event_category: event.category,
         event_label: event.label,
         value: event.value,
-        ...metadata
-      })
-    }
-
-    // Send to custom analytics endpoint
-    if (typeof window !== 'undefined') {
-      // Fire and forget - don't wait for response
-      fetch('/api/analytics', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...event,
-          metadata,
-          timestamp: new Date().toISOString(),
-          url: window.location.href,
-          userAgent: navigator.userAgent
-        })
-      }).catch(() => {
-        // Silently fail - analytics should not break the app
-      })
-    }
+        ...extraData
+      },
+      { sendToApi: true }
+    )
   }
 
   // Convenience methods

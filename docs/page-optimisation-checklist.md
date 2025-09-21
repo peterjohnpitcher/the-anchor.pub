@@ -43,30 +43,30 @@
 
 ## Blog & Content Hubs
 - [x] app/blog/page.tsx *(hero CTA info, sections converted to shared layout, CTA buttons mobile responsive)*
-- [ ] app/blog/[slug]/page.tsx
-- [ ] app/blog/tag/[tag]/page.tsx
-- [ ] app/blog/tags/page.tsx
-- [ ] app/components/page.tsx
-- [ ] app/sitemap-page/page.tsx
-- [ ] app/privacy-policy/page.tsx
-- [ ] app/leave-review/page.tsx
+- [x] app/blog/[slug]/page.tsx *(migrated to Section/Container layout, cleaned duplicate schema, tightened mobile spacing)*
+- [x] app/blog/tag/[tag]/page.tsx *(aligned with shared Section patterns, consolidated CTA/phone info)*
+- [x] app/blog/tags/page.tsx *(converted to HeroWrapper + Section layout, centralised tag grid)
+- [x] app/components/page.tsx *(general layout OK; removed noisy console logging from demo form)*
+- [x] app/sitemap-page/page.tsx *(swapped raw sections for shared Section/Container wrappers)*
+- [x] app/privacy-policy/page.tsx *(wrapped with Section container, trimmed unused imports)*
+- [x] app/leave-review/page.tsx *(redirect only – no layout changes required)*
 
 ## Menu & Booking Journey
-- [ ] app/book-table/page.tsx
+- [x] app/book-table/page.tsx *(new hero + guidance panels, BookingWizard wrapped with shared Section layout)*
 - [x] app/booking-confirmation/page.tsx *(header/detail/CTA wrapped in Section, buttons responsive)*
-- [ ] app/drinks/baby-guinness/page.tsx
-- [ ] app/drinks/managers-special/page.tsx
-- [ ] app/food/fish-and-chips/page.tsx
-- [ ] app/food/pizza/page.tsx
-- [ ] app/sunday-lunch/page.tsx
+- [x] app/drinks/baby-guinness/page.tsx *(switched to shared Section layout, cleared unused imports)*
+- [x] app/drinks/managers-special/page.tsx *(aligned with Section patterns, trimmed unused imports, added FAQ wrapper)*
+- [x] app/food/fish-and-chips/page.tsx *(now uses Section/Container wrappers, removed dead imports, tightened FAQ spacing)*
+- [x] app/food/pizza/page.tsx *(Section wrappers replace manual containers, cleaned unused imports)*
+- [x] app/sunday-lunch/page.tsx *(covered in Core Marketing pass)*
 
 ## Utility / Debug / Test Pages
-- [ ] app/debug-hours/page.tsx
-- [ ] app/demo-header/page.tsx
-- [ ] app/gtm-debug/page.tsx
-- [ ] app/test-gtm/page.tsx
-- [ ] app/test-hours/page.tsx
-- [ ] app/test-navigation-tracking/page.tsx
-- [ ] app/test-reviews/page.tsx
-- [ ] app/test-simple/page.tsx
-- [ ] app/test-tracking/page.tsx
+- [x] app/debug-hours/page.tsx *(wrapped in Section layout, debug logs gated by env toggle)*
+- [x] app/demo-header/page.tsx *(converted to Section wrapper for guidance content)*
+- [x] app/gtm-debug/page.tsx *(Sectionised layout, debug output respects `NEXT_PUBLIC_STATUSBAR_DEBUG`)*
+- [x] app/test-gtm/page.tsx *(Section layout + UI button, conditional console logging)*
+- [x] app/test-hours/page.tsx *(Section layout, tidy loading/error states)*
+- [x] app/test-navigation-tracking/page.tsx *(Section layout with cleanup + debug-only logging)*
+- [x] app/test-reviews/page.tsx *(Section wrapper, simplified spacing, removed unused imports)*
+- [x] app/test-simple/page.tsx *(Section layout, graceful error handling, debug gating)*
+- [x] app/test-tracking/page.tsx *(Section layout, debug helper + dataLayer cleanup)*

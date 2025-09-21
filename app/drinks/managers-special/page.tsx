@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Button, Container, Section, FullWidthSection } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, Section, FullWidthSection, Container } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
@@ -9,7 +8,6 @@ import Link from 'next/link'
 import { PricingCard } from '@/components/PricingCard'
 import { ProductDetails } from '@/components/ProductDetails'
 import { BotanicalsGrid } from '@/components/BotanicalsGrid'
-import { FeatureGrid } from '@/components/ui'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PhoneButton } from '@/components/PhoneButton'
@@ -208,21 +206,19 @@ export default function ManagersSpecialPage() {
       />
 
       {/* Page Title for SEO */}
-      <Section className="py-4 md:py-6">
-        <Container>
-          <PageTitle 
-            className="text-center text-purple-700"
-            seo={{ structured: true }}
-          >
-            {promotion.headline} - {spirit.name} at The Anchor
-          </PageTitle>
-        </Container>
+      <Section spacing="sm" container className="bg-white">
+        <PageTitle 
+          className="text-center text-purple-700"
+          seo={{ structured: true }}
+        >
+          {promotion.headline} - {spirit.name} at The Anchor
+        </PageTitle>
       </Section>
 
       {/* Product showcase with image */}
       <FullWidthSection id="details" className="bg-gradient-to-br from-purple-50 to-purple-100/50 py-12 md:py-20">
-        <Container>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center max-w-6xl mx-auto">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Product Image */}
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-400 to-purple-600 rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
@@ -254,43 +250,40 @@ export default function ManagersSpecialPage() {
               ]}
             />
           </div>
-        </Container>
+        </div>
       </FullWidthSection>
 
       {/* Pricing Section */}
-      <Section className="py-12 md:py-20 bg-white">
-        <Container>
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Special Prices This {new Date(currentPromotion.startDate).toLocaleDateString('en-GB', { month: 'long' })}
-              </h2>
-              <p className="text-xl text-gray-600">
-                Available at the bar • No booking required • While stocks last
-              </p>
-            </div>
-
-            <div className="max-w-md mx-auto">
-              <PricingCard
-                title="Single Measure"
-                currentPrice={spirit.specialPrice}
-                originalPrice={spirit.originalPrice}
-                savings={spirit.discount}
-                featured={true}
-              />
-              <p className="text-center text-gray-600 mt-4">
-                Doubles available at bar prices
-              </p>
-            </div>
+      <Section background="white" spacing="lg" container containerSize="md">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Special Prices This {new Date(currentPromotion.startDate).toLocaleDateString('en-GB', { month: 'long' })}
+            </h2>
+            <p className="text-xl text-gray-600">
+              Available at the bar • No booking required • While stocks last
+            </p>
           </div>
-        </Container>
+
+          <div className="max-w-md mx-auto">
+            <PricingCard
+              title="Single Measure"
+              currentPrice={spirit.specialPrice}
+              originalPrice={spirit.originalPrice}
+              savings={spirit.discount}
+              featured={true}
+            />
+            <p className="text-center text-gray-600 mt-4">
+              Doubles available at bar prices
+            </p>
+          </div>
+        </div>
       </Section>
 
       {/* Tasting & Botanicals */}
       <FullWidthSection className="bg-gradient-to-b from-gray-50 to-white py-12 md:py-20">
-        <Container>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12">
               {/* Tasting Notes */}
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Tasting Notes</h2>
@@ -329,30 +322,27 @@ export default function ManagersSpecialPage() {
                   )}
                 </div>
               </div>
-            </div>
           </div>
-        </Container>
+        </div>
       </FullWidthSection>
 
       {/* Botanicals Grid */}
       {spirit.botanicals && spirit.botanicals.length > 0 && (
-        <Section className="py-12 md:py-20 bg-purple-50">
-          <Container>
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  {spirit.botanicals.length === 22 ? '22 Hand-Foraged ' : ''}Botanicals
-                </h2>
-                {spirit.name.includes('Botanist') && (
-                  <p className="text-xl text-gray-600">
-                    Foraged from the hills, shores and bogs of Islay
-                  </p>
-                )}
-              </div>
-              
-              <BotanicalsGrid botanicals={spirit.botanicals} />
+        <Section spacing="lg" container containerSize="md" className="bg-purple-50">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {spirit.botanicals.length === 22 ? '22 Hand-Foraged ' : ''}Botanicals
+              </h2>
+              {spirit.name.includes('Botanist') && (
+                <p className="text-xl text-gray-600">
+                  Foraged from the hills, shores and bogs of Islay
+                </p>
+              )}
             </div>
-          </Container>
+
+            <BotanicalsGrid botanicals={spirit.botanicals} />
+          </div>
         </Section>
       )}
 
@@ -413,15 +403,17 @@ export default function ManagersSpecialPage() {
       </FullWidthSection>
 
       {/* FAQs */}
-      <FAQAccordionWithSchema 
-        title="Frequently Asked Questions"
-        faqs={faqs}
-        className="bg-gray-50"
-      />
+      <Section background="gray" spacing="lg" container containerSize="md">
+        <FAQAccordionWithSchema 
+          title="Frequently Asked Questions"
+          faqs={faqs}
+          className="bg-white"
+        />
+      </Section>
 
       {/* CTA Section */}
       <FullWidthSection className="bg-gradient-to-br from-purple-600 to-purple-800 py-16 md:py-24">
-        <Container>
+        <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               {promotion.ctaText}
@@ -458,7 +450,7 @@ export default function ManagersSpecialPage() {
               })}
             </p>
           </div>
-        </Container>
+        </div>
       </FullWidthSection>
     </>
   )

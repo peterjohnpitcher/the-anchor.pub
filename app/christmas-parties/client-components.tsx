@@ -12,7 +12,9 @@ import { Card } from '@/components/ui/layout/Card'
 import { Button } from '@/components/ui/primitives/Button'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Alert } from '@/components/ui/feedback/Alert'
-import { trackFormStart } from '@/lib/gtm-events'
+import { trackBannerEvent, trackCtaClick, trackFormComplete, trackFormStart } from '@/lib/gtm-events'
+import { analytics } from '@/lib/analytics'
+import { HeroSection } from '@/components/hero/HeroSection'
 
 const CONTACT_EMAIL = 'manager@the-anchor.pub'
 const CONTACT_PHONE = '01753 682707'
@@ -47,7 +49,7 @@ interface StickyEnquiryBarProps {
   visible: boolean
   context: EnquiryContext
   onContextChange: (updates: Partial<EnquiryContext>) => void
-  onOpenForm: (mode: EnquiryMode) => void
+  onOpenForm: (mode: EnquiryMode, source: string) => void
 }
 
 interface ChristmasLightboxProps {
@@ -228,6 +230,15 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
     }
   }, [])
 
+  useEffect(() => {
+    trackBannerEvent({
+      id: 'christmas_earlybird_banner',
+      action: 'view',
+      label: 'Early-Bird Offer',
+      campaign: 'christmas_2025'
+    })
+  }, [])
+
   const scrollToForm = useCallback(() => {
     if (typeof window === 'undefined' || !enquiryRef.current) return
 
@@ -238,13 +249,23 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
     window.scrollTo({ top: Math.max(top - offset, 0), behavior: 'smooth' })
   }, [])
 
-  const handleOpenForm = useCallback((mode: EnquiryMode, updates: Partial<EnquiryContext> = {}) => {
+  const handleOpenForm = useCallback((
+    mode: EnquiryMode,
+    updates: Partial<EnquiryContext> = {},
+    source = 'unknown'
+  ) => {
     setContext(prev => ({
       ...prev,
       mode,
       extras: updates.extras ?? prev.extras,
       perks: updates.perks ?? prev.perks
     }))
+    trackFormStart({
+      formName: 'christmas_enquiry',
+      mode,
+      source,
+      journey: 'christmas_parties_page'
+    })
     requestAnimationFrame(() => {
       scrollToForm()
     })
@@ -260,10 +281,17 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
   }, [])
 
   const handleAddFeastExtras = () => {
+    trackCtaClick({
+      id: 'christmas_add_feast_extras',
+      label: 'Add to my enquiry',
+      location: 'build_the_feast',
+      destination: 'enquiry_form',
+      mode: 'dinner'
+    })
     const extrasToAdd = ['trimmings-board', 'bundle-a']
     const updatedExtras = union(context.extras, extrasToAdd)
     setContext(prev => ({ ...prev, extras: updatedExtras, mode: 'dinner' }))
-    handleOpenForm('dinner', { extras: extrasToAdd })
+    handleOpenForm('dinner', { extras: extrasToAdd }, 'build_the_feast')
     setExtrasNotice(true)
     if (typeof window !== 'undefined') {
       if (extrasTimeoutRef.current) {
@@ -274,9 +302,22 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
   }
 
   const handleClaimEarlyBird = () => {
+    trackBannerEvent({
+      id: 'christmas_earlybird_banner',
+      action: 'click',
+      label: 'Early-Bird Offer',
+      campaign: 'christmas_2025'
+    })
+    trackCtaClick({
+      id: 'christmas_earlybird_cta',
+      label: 'Claim Early-Bird offer',
+      location: 'earlybird_banner',
+      destination: 'enquiry_form',
+      mode: 'dinner'
+    })
     const updatedPerks = union(context.perks, ['early-bird'])
     setContext(prev => ({ ...prev, perks: updatedPerks, mode: 'dinner' }))
-    handleOpenForm('dinner', { perks: ['early-bird'] })
+    handleOpenForm('dinner', { perks: ['early-bird'] }, 'early_bird_offer')
     setPerkNotice(true)
     if (typeof window !== 'undefined') {
       if (perkTimeoutRef.current) {
@@ -294,8 +335,14 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
           size="lg"
           className="w-full md:w-auto"
           onClick={() => {
-            trackFormStart('christmas_hero_dinner')
-            handleOpenForm('dinner')
+            trackCtaClick({
+              id: 'christmas_hero_dinner',
+              label: 'Request a Christmas Booking (up to 25)',
+              location: 'christmas_hero',
+              destination: 'enquiry_form',
+              mode: 'dinner'
+            })
+            handleOpenForm('dinner', {}, 'hero_dinner')
           }}
         >
           Request a Christmas Booking (up to 25)
@@ -305,8 +352,14 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
           size="lg"
           className="w-full md:w-auto"
           onClick={() => {
-            trackFormStart('christmas_hero_buffet')
-            handleOpenForm('buffet')
+            trackCtaClick({
+              id: 'christmas_hero_buffet',
+              label: 'Plan a Buffet Party (26+)',
+              location: 'christmas_hero',
+              destination: 'enquiry_form',
+              mode: 'buffet'
+            })
+            handleOpenForm('buffet', {}, 'hero_buffet')
           }}
         >
           Plan a Buffet Party (26+)
@@ -318,7 +371,13 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
           size="lg"
           className="w-full md:w-auto"
           onClick={() => {
-            trackFormStart('christmas_hero_call')
+            trackCtaClick({
+              id: 'christmas_hero_call',
+              label: 'Call The Anchor',
+              location: 'christmas_hero',
+              destination: 'phone'
+            })
+            analytics.phoneCall(CONTACT_PHONE, 'christmas_hero')
             window.location.href = CONTACT_PHONE_LINK
           }}
         >
@@ -329,7 +388,13 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
           size="lg"
           className="w-full md:w-auto"
           onClick={() => {
-            trackFormStart('christmas_hero_email')
+            trackCtaClick({
+              id: 'christmas_hero_email',
+              label: 'Email The Anchor',
+              location: 'christmas_hero',
+              destination: 'email'
+            })
+            analytics.emailClick(CONTACT_EMAIL, 'christmas_hero', undefined, '/christmas-parties')
             window.location.href = CONTACT_EMAIL_LINK
           }}
         >
@@ -341,25 +406,23 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-anchor-charcoal text-white" id="christmas-hero">
-        <Image
-          src="/images/page-headers/christmas-parties/christmas-parties.jpg"
-          alt="Festive Christmas dinner near Heathrow Terminal 5 at The Anchor"
-          fill
-          priority
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 -z-10 bg-black/60" />
-        <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-24 text-center sm:py-28 lg:py-32">
-          <p className="text-sm uppercase tracking-[0.3em] text-red-100">Christmas 2025</p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-white !text-white">A proper village-pub Christmas minutes from Heathrow</h1>
-          <p className="max-w-2xl text-base sm:text-lg text-white !text-white">
-            Three-course feasts piled with herb-crusted triple-cooked roast potatoes, pigs in blankets and sage &amp; onion stuffing - with crackers, candles and festive decor waiting at your table.
-          </p>
-          {heroActions}
-        </div>
-      </section>
+      <HeroSection
+        id="christmas-hero"
+        size="large"
+        alignment="center"
+        className="bg-anchor-charcoal text-white"
+        contentClassName="max-w-4xl"
+        eyebrow={<span className="text-red-100">Christmas 2025</span>}
+        title="A proper village-pub Christmas minutes from Heathrow"
+        description="Three-course feasts piled with herb-crusted triple-cooked roast potatoes, pigs in blankets and sage & onion stuffing - with crackers, candles and festive decor waiting at your table."
+        overlay="dark"
+        image={{
+          src: '/images/page-headers/christmas-parties/christmas-parties.jpg',
+          alt: 'Festive Christmas dinner near Heathrow Terminal 5 at The Anchor',
+          priority: true
+        }}
+        cta={heroActions}
+      />
 
       <Section className="py-2 md:py-3 bg-red-700 text-white">
         <Container>
@@ -388,7 +451,7 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
         visible={stickyVisible}
         context={context}
         onContextChange={handleContextChange}
-        onOpenForm={handleOpenForm}
+        onOpenForm={(mode, source) => handleOpenForm(mode, {}, source)}
       />
 
       <Section className="bg-white" spacing="md" container>
@@ -486,8 +549,38 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
               </p>
             </div>
             <div className="flex flex-col md:flex-row justify-center gap-4">
-              <Button variant="primary" size="md" onClick={() => handleOpenForm('dinner')}>Request a Christmas Booking (up to 25)</Button>
-              <Button variant="primary" size="md" onClick={() => handleOpenForm('buffet')}>Plan a Buffet Party (26+)</Button>
+              <Button
+                variant="primary"
+                size="md"
+                onClick={() => {
+                  trackCtaClick({
+                    id: 'christmas_pricing_dinner',
+                    label: 'Request a Christmas Booking (up to 25)',
+                    location: 'pricing_section',
+                    destination: 'enquiry_form',
+                    mode: 'dinner'
+                  })
+                  handleOpenForm('dinner', {}, 'pricing_section')
+                }}
+              >
+                Request a Christmas Booking (up to 25)
+              </Button>
+              <Button
+                variant="primary"
+                size="md"
+                onClick={() => {
+                  trackCtaClick({
+                    id: 'christmas_pricing_buffet',
+                    label: 'Plan a Buffet Party (26+)',
+                    location: 'pricing_section',
+                    destination: 'enquiry_form',
+                    mode: 'buffet'
+                  })
+                  handleOpenForm('buffet', {}, 'pricing_section')
+                }}
+              >
+                Plan a Buffet Party (26+)
+              </Button>
             </div>
           </div>
         </Container>
@@ -767,7 +860,22 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
             <div className="md:w-1/2 space-y-4 text-left">
               <h3 className="text-2xl font-bold text-anchor-charcoal">Ready to feed a crowd?</h3>
               <p className="text-sm text-gray-700">We'll dress the buffet tables with signage, festive decor and all condiments. Tell us your guest count and we'll suggest the right tier and add-ons.</p>
-              <Button variant="primary" size="md" onClick={() => handleOpenForm('buffet')}>Plan a Buffet Party (26+)</Button>
+              <Button
+                variant="primary"
+                size="md"
+                onClick={() => {
+                  trackCtaClick({
+                    id: 'christmas_buffet_cta',
+                    label: 'Plan a Buffet Party (26+)',
+                    location: 'buffet_section',
+                    destination: 'enquiry_form',
+                    mode: 'buffet'
+                  })
+                  handleOpenForm('buffet', {}, 'buffet_section')
+                }}
+              >
+                Plan a Buffet Party (26+)
+              </Button>
             </div>
           </div>
         </Container>
@@ -837,18 +945,72 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
               Send your enquiry and we'll come back within one working day. Need a quicker answer? Call the team and we'll help right away.
             </p>
             <div className="flex flex-col md:flex-row justify-center gap-4">
-              <Button variant="primary" size="lg" className="w-full md:w-auto" onClick={() => handleOpenForm('dinner')}>
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full md:w-auto"
+                onClick={() => {
+                  trackCtaClick({
+                    id: 'christmas_final_dinner',
+                    label: 'Request a Christmas Booking (up to 25)',
+                    location: 'final_cta_band',
+                    destination: 'enquiry_form',
+                    mode: 'dinner'
+                  })
+                  handleOpenForm('dinner', {}, 'final_cta')
+                }}
+              >
                 Request a Christmas Booking (up to 25)
               </Button>
-              <Button variant="primary" size="lg" className="w-full md:w-auto" onClick={() => handleOpenForm('buffet')}>
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full md:w-auto"
+                onClick={() => {
+                  trackCtaClick({
+                    id: 'christmas_final_buffet',
+                    label: 'Plan a Buffet Party (26+)',
+                    location: 'final_cta_band',
+                    destination: 'enquiry_form',
+                    mode: 'buffet'
+                  })
+                  handleOpenForm('buffet', {}, 'final_cta')
+                }}
+              >
                 Plan a Buffet Party (26+)
               </Button>
             </div>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm">
-              <button type="button" onClick={() => handleOpenForm(context.mode)} className="flex items-center gap-2 underline decoration-white/70 decoration-dotted">
+              <button
+                type="button"
+                onClick={() => {
+                  trackCtaClick({
+                    id: 'christmas_final_phone_prompt',
+                    label: 'Call The Anchor',
+                    location: 'final_cta_band',
+                    destination: 'enquiry_form',
+                    mode: context.mode
+                  })
+                  handleOpenForm(context.mode, {}, 'final_cta_call_prompt')
+                }}
+                className="flex items-center gap-2 underline decoration-white/70 decoration-dotted"
+              >
                 <Icon name="phone" className="h-4 w-4 mr-2" /> Call {CONTACT_PHONE}
               </button>
-              <button type="button" onClick={() => handleOpenForm(context.mode)} className="flex items-center gap-2 underline decoration-white/70 decoration-dotted">
+              <button
+                type="button"
+                onClick={() => {
+                  trackCtaClick({
+                    id: 'christmas_final_email_prompt',
+                    label: CONTACT_EMAIL,
+                    location: 'final_cta_band',
+                    destination: 'enquiry_form',
+                    mode: context.mode
+                  })
+                  handleOpenForm(context.mode, {}, 'final_cta_email_prompt')
+                }}
+                className="flex items-center gap-2 underline decoration-white/70 decoration-dotted"
+              >
                 <Icon name="mail" className="h-4 w-4 mr-2" /> {CONTACT_EMAIL}
               </button>
             </div>
@@ -920,7 +1082,12 @@ function ChristmasEnquiryForm({ context, onContextChange, onSuccess }: Christmas
     setSubmitting(true)
 
     try {
-      trackFormStart('christmas_main_enquiry_form')
+      trackFormStart({
+        formName: 'christmas_main_enquiry_form',
+        source: 'main_enquiry_section',
+        mode: context.mode,
+        journey: 'christmas_parties_page'
+      })
 
       const response = await fetch('/api/enquiry/christmas', {
         method: 'POST',
@@ -948,6 +1115,12 @@ function ChristmasEnquiryForm({ context, onContextChange, onSuccess }: Christmas
       }
 
       markLocalStorage(ENQUIRY_STORAGE_KEYS.submitted, 'true')
+      trackFormComplete({
+        formName: 'christmas_main_enquiry_form',
+        source: 'main_enquiry_section',
+        mode: context.mode,
+        journey: 'christmas_parties_page'
+      })
       onSuccess()
       setStatus('success')
       setMessage("Thanks! We've sent your enquiry to the team and will be in touch very soon.")
@@ -1150,20 +1323,50 @@ function StickyEnquiryBar({ visible, context, onContextChange, onOpenForm }: Sti
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <Button size="sm" onClick={() => onOpenForm(context.mode)}>
+          <Button
+            size="sm"
+            onClick={() => {
+              trackCtaClick({
+                id: 'christmas_sticky_open_form',
+                label: 'Open enquiry form',
+                location: 'sticky_enquiry_bar',
+                destination: 'enquiry_form',
+                mode: context.mode
+              })
+              onOpenForm(context.mode, 'sticky_bar_primary')
+            }}
+          >
             Open enquiry form
           </Button>
           <a
             href={CONTACT_PHONE_LINK}
             className="flex items-center gap-1 text-xs font-semibold text-red-700"
-            onClick={() => trackFormStart('christmas_sticky_call')}
+            onClick={() => {
+              trackCtaClick({
+                id: 'christmas_sticky_call',
+                label: 'Call The Anchor',
+                location: 'sticky_enquiry_bar',
+                destination: 'phone',
+                mode: context.mode
+              })
+              analytics.phoneCall(CONTACT_PHONE, 'christmas_sticky_bar')
+            }}
           >
             <Icon name="phone" className="mr-2 h-4 w-4" /> Call {CONTACT_PHONE}
           </a>
           <a
             href={CONTACT_EMAIL_LINK}
             className="flex items-center gap-1 text-xs font-semibold text-red-700"
-            onClick={() => trackFormStart('christmas_sticky_email')}
+            onClick={() => {
+              trackCtaClick({
+                id: 'christmas_sticky_email',
+                label: 'Email The Anchor',
+                location: 'sticky_enquiry_bar',
+                destination: 'email',
+                mode: context.mode
+              })
+              analytics.emailClick(CONTACT_EMAIL, 'christmas_sticky_bar', undefined, '/christmas-parties')
+            }}
           >
             <Icon name="mail" className="mr-2 h-4 w-4" /> Email us
           </a>
@@ -1195,6 +1398,12 @@ function ChristmasLightbox({ suppressed, context, onContextChange, onSubmitSucce
 
     const showLightbox = () => {
       setVisible(true)
+      trackBannerEvent({
+        id: 'christmas_earlybird_lightbox',
+        action: 'view',
+        label: 'Early-Bird Lightbox',
+        campaign: 'christmas_2025'
+      })
       markLocalStorage(ENQUIRY_STORAGE_KEYS.lightbox, String(Date.now()))
     }
 
@@ -1219,7 +1428,15 @@ function ChristmasLightbox({ suppressed, context, onContextChange, onSubmitSucce
     }
   }, [suppressed])
 
-  const closeLightbox = () => setVisible(false)
+  const closeLightbox = () => {
+    trackBannerEvent({
+      id: 'christmas_earlybird_lightbox',
+      action: 'dismiss',
+      label: 'Early-Bird Lightbox',
+      campaign: 'christmas_2025'
+    })
+    setVisible(false)
+  }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -1232,7 +1449,12 @@ function ChristmasLightbox({ suppressed, context, onContextChange, onSubmitSucce
     setSubmitting(true)
 
     try {
-      trackFormStart('christmas_earlybird_lightbox')
+      trackFormStart({
+        formName: 'christmas_earlybird_lightbox',
+        source: 'lightbox',
+        mode: context.mode,
+        journey: 'christmas_parties_page'
+      })
 
       const response = await fetch('/api/enquiry/christmas', {
         method: 'POST',
@@ -1259,6 +1481,12 @@ function ChristmasLightbox({ suppressed, context, onContextChange, onSubmitSucce
       }
 
       markLocalStorage(ENQUIRY_STORAGE_KEYS.submitted, 'true')
+      trackFormComplete({
+        formName: 'christmas_earlybird_lightbox',
+        source: 'lightbox',
+        mode: context.mode,
+        journey: 'christmas_parties_page'
+      })
       onSubmitSuccess()
       setVisible(false)
       setName('')

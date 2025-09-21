@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { getAllBlogPosts } from '@/lib/markdown'
-import { Button } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
+import { Button, Section } from '@/components/ui'
 import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BLOG_FALLBACK_IMAGE } from '@/lib/blog-image'
+import { HeroWrapper } from '@/components/hero/HeroWrapper'
 
 export const metadata: Metadata = {
   title: 'All Blog Topics | The Anchor - Heathrow Pub & Dining',
@@ -108,99 +108,88 @@ export default async function AllTagsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center mt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-anchor-green to-anchor-green-dark" />
-        
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-4">
-              <Link 
-                href="/blog" 
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                ← Back to Blog
-              </Link>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              All Blog Topics
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow">
-              Explore all {tagCounts.size} topics from our blog
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroWrapper
+        route="/blog/tags"
+        title="All Blog Topics"
+        description={`Explore all ${tagCounts.size} topics from our blog`}
+        overlay="gradient"
+        showStatusBar={false}
+        breadcrumbs={[
+          { name: 'Blog', href: '/blog' },
+          { name: 'All Topics' }
+        ]}
+        cta={
+          <Link 
+            href="/blog"
+            className="inline-flex items-center text-white/90 hover:text-white transition-colours"
+          >
+            ← Back to Blog
+          </Link>
+        }
+      />
 
       {/* Tags by Category */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            {Object.entries(categorizedTags).map(([category, tags]) => {
-              if (tags.length === 0) return null
-              
-              return (
-                <div key={category} className="mb-12">
-                  <h2 className="text-2xl font-bold text-anchor-green mb-6">
-                    {category === 'Primary' ? 'Main Categories' : category}
-                  </h2>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {tags.map(([tag, count]) => {
-                      const info = tagInfo[tag] || { 
-                        name: tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), 
-                        description: `Posts about ${tag}`
-                      }
-                      
-                      return (
-                        <Link
-                          key={tag}
-                          href={`/blog/tag/${tag}`}
-                          className="group bg-gray-50 rounded-lg p-4 hover:shadow-md transition-all hover:scale-105"
-                        >
-                          <h3 className="font-semibold text-anchor-green group-hover:text-anchor-gold transition-colours mb-1">
-                            {info.name}
-                          </h3>
-                          <p className="text-sm text-gray-600 mb-2 line-clamp-2">
-                            {info.description}
-                          </p>
-                          <span className="text-sm sm:text-xs bg-white px-2 py-1 rounded-full text-gray-700">
-                            {count} {count === 1 ? 'post' : 'posts'}
-                          </span>
-                        </Link>
-                      )
-                    })}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      <Section spacing="lg" container containerSize="lg">
+        {Object.entries(categorizedTags).map(([category, tags]) => {
+          if (tags.length === 0) return null
+          
+          return (
+            <div key={category} className="mb-12 last:mb-0">
+              <h2 className="text-2xl font-bold text-anchor-green mb-6">
+                {category === 'Primary' ? 'Main Categories' : category}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {tags.map(([tag, count]) => {
+                  const info = tagInfo[tag] || { 
+                    name: tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), 
+                    description: `Posts about ${tag}`
+                  }
+                  
+                  return (
+                    <Link
+                      key={tag}
+                      href={`/blog/tag/${tag}`}
+                      className="group bg-gray-50 rounded-lg p-4 hover:shadow-md transition-all hover:scale-105"
+                    >
+                      <h3 className="font-semibold text-anchor-green group-hover:text-anchor-gold transition-colours mb-1">
+                        {info.name}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                        {info.description}
+                      </p>
+                      <span className="text-sm sm:text-xs bg-white px-2 py-1 rounded-full text-gray-700">
+                        {count} {count === 1 ? 'post' : 'posts'}
+                      </span>
+                    </Link>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })}
+      </Section>
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">
-            Stay Updated
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Don't miss our latest stories, events, and special offers
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/blog">
-              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
-                Back to Blog
-              </Button>
-            </Link>
-            <Link href="/whats-on">
-              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
-                Upcoming Events
-              </Button>
-            </Link>
-          </div>
+      <Section background="dark" spacing="md" container containerSize="md" className="text-center">
+        <h2 className="text-3xl font-bold mb-8">
+          Stay Updated
+        </h2>
+        <p className="text-xl mb-8 max-w-2xl mx-auto">
+          Don't miss our latest stories, events, and special offers
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/blog">
+            <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+              Back to Blog
+            </Button>
+          </Link>
+          <Link href="/whats-on">
+            <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+              Upcoming Events
+            </Button>
+          </Link>
         </div>
-      </section>
+      </Section>
     </>
   )
 }

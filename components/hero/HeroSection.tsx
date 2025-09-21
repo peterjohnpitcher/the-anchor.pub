@@ -1,22 +1,38 @@
-import { ReactNode } from 'react'
+"use client"
+
+import { CSSProperties, ReactNode, useState } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 export type HeroSize = 'small' | 'medium' | 'large' | 'hero'
 
+type OptimizedImageFormats = Array<'avif' | 'webp'>
+
+export interface HeroImageConfig {
+  src: string
+  alt: string
+  priority?: boolean
+  objectPosition?: string
+  blurDataURL?: string
+  fallbackSrc?: string
+  optimized?: {
+    mobile: string
+    tablet: string
+    desktop: string
+    formats?: OptimizedImageFormats
+  }
+}
+
 interface HeroSectionProps {
   // Content
   title: string | ReactNode
   description?: string | ReactNode
+  eyebrow?: ReactNode
+  lead?: ReactNode
   children?: ReactNode
   
   // Image
-  image: {
-    src: string
-    alt: string
-    priority?: boolean
-    objectPosition?: string
-  }
+  image: HeroImageConfig
   
   // Layout
   size?: HeroSize
@@ -31,6 +47,8 @@ interface HeroSectionProps {
   // Styling
   className?: string
   contentClassName?: string
+  style?: CSSProperties
+  id?: string
 }
 
 // Standardized height system with consistent mobile/desktop scaling
@@ -64,9 +82,29 @@ const alignmentClasses: Record<string, string> = {
   right: 'text-right items-end'
 }
 
+const tagAlignmentClasses: Record<string, string> = {
+  left: 'justify-start',
+  center: 'justify-center',
+  right: 'justify-end'
+}
+
+const blockAlignmentClasses: Record<string, string> = {
+  left: 'self-start text-left',
+  center: 'self-center text-center',
+  right: 'self-end text-right'
+}
+
+const justifyAlignmentClasses: Record<string, string> = {
+  left: 'justify-start',
+  center: 'justify-center',
+  right: 'justify-end'
+}
+
 export function HeroSection({
   title,
   description,
+  eyebrow,
+  lead,
   children,
   image,
   size = 'medium',
@@ -76,8 +114,25 @@ export function HeroSection({
   tags,
   cta,
   className,
-  contentClassName
+  contentClassName,
+  style,
+  id
 }: HeroSectionProps) {
+  const [imageError, setImageError] = useState(false)
+
+  const objectPosition = image.objectPosition || 'var(--hero-ox, 50%) var(--hero-oy, 50%)'
+  const optimizedFormats: OptimizedImageFormats = image.optimized?.formats || ['avif', 'webp']
+  const shouldUseOptimized = Boolean(image.optimized) && !imageError
+
+  const primarySrc = image.optimized
+    ? `${image.optimized.desktop}.jpg`
+    : image.src
+
+  const defaultBlurDataUrl = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACETMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
+
+  const fallbackSrc = imageError && image.fallbackSrc ? image.fallbackSrc : image.src
+  const blurDataURL = image.blurDataURL || defaultBlurDataUrl
+
   return (
     <section 
       className={cn(
@@ -85,24 +140,57 @@ export function HeroSection({
         heightClasses[size],
         className
       )}
+      style={style}
+      id={id}
     >
       {/* Background Image */}
       <div className="absolute inset-0">
         <div className="relative w-full h-full">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className="object-cover"
-            priority={image.priority !== false}
-            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
-            quality={82}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACETMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-            style={{
-              objectPosition: image.objectPosition || '50% 50%'
-            }}
-          />
+          {shouldUseOptimized ? (
+            <picture>
+              {optimizedFormats.includes('avif') && (
+                <>
+                  <source media="(max-width: 640px)" srcSet={`${image.optimized!.mobile}.avif`} type="image/avif" />
+                  <source media="(max-width: 1024px)" srcSet={`${image.optimized!.tablet}.avif`} type="image/avif" />
+                  <source srcSet={`${image.optimized!.desktop}.avif`} type="image/avif" />
+                </>
+              )}
+              {optimizedFormats.includes('webp') && (
+                <>
+                  <source media="(max-width: 640px)" srcSet={`${image.optimized!.mobile}.webp`} type="image/webp" />
+                  <source media="(max-width: 1024px)" srcSet={`${image.optimized!.tablet}.webp`} type="image/webp" />
+                  <source srcSet={`${image.optimized!.desktop}.webp`} type="image/webp" />
+                </>
+              )}
+              <Image
+                src={primarySrc}
+                alt={image.alt}
+                fill
+                className="object-cover"
+                priority={image.priority !== false}
+                sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
+                quality={82}
+                placeholder={blurDataURL ? 'blur' : 'empty'}
+                blurDataURL={blurDataURL}
+                style={{ objectPosition }}
+                onError={() => setImageError(true)}
+              />
+            </picture>
+          ) : (
+            <Image
+              src={fallbackSrc}
+              alt={image.alt}
+              fill
+              className="object-cover"
+              priority={image.priority !== false}
+              sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
+              quality={82}
+              placeholder={blurDataURL ? 'blur' : 'empty'}
+              blurDataURL={blurDataURL}
+              style={{ objectPosition }}
+              onError={image.fallbackSrc ? () => setImageError(true) : undefined}
+            />
+          )}
         </div>
         <div className={cn('absolute inset-0', overlayClasses[overlay])} />
       </div>
@@ -128,10 +216,9 @@ export function HeroSection({
 
           {/* Main Content */}
           <div className="flex-1 flex flex-col justify-center">
-            {/* Tags */}
-            {tags && (
-              <div className="mb-4 sm:mb-6 flex flex-wrap gap-2 justify-center">
-                {tags}
+            {eyebrow && (
+              <div className={cn('mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] text-white/80', blockAlignmentClasses[alignment])}>
+                {eyebrow}
               </div>
             )}
 
@@ -141,7 +228,8 @@ export function HeroSection({
               size === 'small' && 'text-3xl sm:text-4xl md:text-5xl',
               size === 'medium' && 'text-4xl sm:text-5xl md:text-6xl',
               size === 'large' && 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl',
-              size === 'hero' && 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl'
+              size === 'hero' && 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl',
+              blockAlignmentClasses[alignment]
             )}>
               {title}
             </h1>
@@ -149,25 +237,49 @@ export function HeroSection({
             {/* Description */}
             {description && (
               <p className={cn(
-                'text-white/90 max-w-3xl mx-auto mb-6 sm:mb-8',
+                'text-white/90 max-w-3xl mb-6 sm:mb-8',
                 size === 'small' && 'text-lg sm:text-xl',
                 size === 'medium' && 'text-xl sm:text-2xl',
                 size === 'large' && 'text-xl sm:text-2xl md:text-3xl',
-                size === 'hero' && 'text-2xl sm:text-3xl md:text-4xl'
+                size === 'hero' && 'text-2xl sm:text-3xl md:text-4xl',
+                blockAlignmentClasses[alignment]
               )}>
                 {description}
               </p>
             )}
 
+            {lead && (
+              <div className={cn('mb-6 w-full', justifyAlignmentClasses[alignment])}>
+                <div className={cn('flex flex-col items-center gap-4', alignment === 'left' && 'items-start', alignment === 'right' && 'items-end')}>
+                  {lead}
+                </div>
+              </div>
+            )}
+
+            {/* Tags */}
+            {tags && (
+              <div className={cn('mb-4 sm:mb-6 flex flex-wrap gap-2 w-full', tagAlignmentClasses[alignment])}>
+                {tags}
+              </div>
+            )}
+
             {/* CTA */}
             {cta && (
-              <div className="mt-4 sm:mt-6">
-                {cta}
+              <div className={cn('mt-4 sm:mt-6 flex w-full', justifyAlignmentClasses[alignment])}>
+                <div className="max-w-full">
+                  {cta}
+                </div>
               </div>
             )}
 
             {/* Additional content */}
-            {children}
+            {children && (
+              <div className={cn('mt-4 sm:mt-6 flex w-full', justifyAlignmentClasses[alignment])}>
+                <div className="max-w-full text-white/90">
+                  {children}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import path from 'path';
 export interface HeaderImageConfig {
   src: string;
   alt: string;
+  isFallback?: boolean;
 }
 
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
@@ -77,7 +78,8 @@ export function getPageHeaderImage(route: string): HeaderImageConfig | null {
         // Return the image configuration
         return {
           src: `/images/page-headers/${folderName}/${imageFile}`,
-          alt: altText
+          alt: altText,
+          isFallback: false
         };
       }
     }
@@ -98,7 +100,8 @@ export function getPageHeaderImage(route: string): HeaderImageConfig | null {
           
           return {
             src: parentImage.src,
-            alt: subpageAltText
+            alt: subpageAltText,
+            isFallback: true
           };
         }
       }
@@ -118,6 +121,7 @@ export function getPageHeaderImage(route: string): HeaderImageConfig | null {
 export function getDefaultHeaderImage(): HeaderImageConfig {
   return {
     src: '/images/page-headers/home/page-headers-homepage.jpg',
-    alt: 'The Anchor pub entrance with warm lighting and traditional British pub signage'
+    alt: 'The Anchor pub entrance with warm lighting and traditional British pub signage',
+    isFallback: true
   };
 }

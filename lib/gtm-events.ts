@@ -1,16 +1,59 @@
 // Google Tag Manager Event Tracking Utilities
 // Centralised event tracking for The Anchor website
 
+import { dispatchTrackingEvent, TrackingDispatchOptions } from './tracking/dispatcher'
+
 interface GTMEvent {
   event: string
   [key: string]: any
 }
 
-// Push event to dataLayer
-export function pushToDataLayer(data: GTMEvent) {
-  if (typeof window !== 'undefined' && window.dataLayer) {
-    window.dataLayer.push(data)
+type FormEventInput =
+  | string
+  | {
+      formName: string
+      source?: string
+      mode?: string
+      step?: string
+      location?: string
+      journey?: string
+      [key: string]: unknown
+    }
+
+function normaliseFormEvent(input: FormEventInput) {
+  if (typeof input === 'string') {
+    return {
+      name: input,
+      metadata: {}
+    }
   }
+
+  const {
+    formName,
+    source,
+    mode,
+    step,
+    location,
+    journey,
+    ...rest
+  } = input
+
+  const metadata: Record<string, unknown> = { ...rest }
+  if (source) metadata.form_source = source
+  if (mode) metadata.form_mode = mode
+  if (step) metadata.form_step = step
+  if (location) metadata.form_location = location
+  if (journey) metadata.form_journey = journey
+
+  return {
+    name: formName,
+    metadata
+  }
+}
+
+// Push event to dataLayer
+export function pushToDataLayer(data: GTMEvent, options?: TrackingDispatchOptions) {
+  dispatchTrackingEvent(data, options)
 }
 
 // Page view tracking (for dynamic routes)
@@ -102,13 +145,62 @@ export function trackEventBookingComplete(eventData: {
 }
 
 // Restaurant actions
-export function trackTableBookingClick(source: string) {
+type TableBookingClickInput =
+  | string
+  | {
+      source: string
+      context?: string
+      eventName?: string
+      device?: 'mobile' | 'desktop'
+      timeOfDay?: string
+      dayOfWeek?: string
+      variant?: string
+      destination?: string
+      [key: string]: unknown
+    }
+
+function normaliseTableBookingClick(input: TableBookingClickInput) {
+  if (typeof input === 'string') {
+    return { source: input, metadata: {} }
+  }
+
+  const {
+    source,
+    context,
+    eventName,
+    device,
+    timeOfDay,
+    dayOfWeek,
+    variant,
+    destination,
+    originPath,
+    ...rest
+  } = input
+
+  const metadata: Record<string, unknown> = { ...rest }
+  if (context) metadata.booking_context = context
+  if (eventName) metadata.booking_event = eventName
+  if (device) metadata.booking_device = device
+  if (timeOfDay) metadata.booking_time_of_day = timeOfDay
+  if (dayOfWeek) metadata.booking_day_of_week = dayOfWeek
+  if (variant) metadata.booking_variant = variant
+  if (destination) metadata.booking_destination = destination
+  if (originPath) metadata.booking_origin_path = originPath
+
+  return { source, metadata }
+}
+
+export function trackTableBookingClick(data: TableBookingClickInput) {
+  const { source, metadata } = normaliseTableBookingClick(data)
+
   pushToDataLayer({
     event: 'table_booking_click',
     event_category: 'Restaurant',
     event_label: source,
-    booking_method: 'external_ordertab'
-  })
+    booking_method: 'external_ordertab',
+    booking_source: source,
+    ...metadata
+  }, { sendToApi: true })
 }
 
 // Table booking funnel tracking
@@ -423,27 +515,80 @@ export function trackError(errorType: string, errorMessage: string, context?: st
 }
 
 // Form interactions
-export function trackFormStart(formName: string) {
+export function trackFormStart(form: FormEventInput) {
+  const { name, metadata } = normaliseFormEvent(form)
+
   pushToDataLayer({
     event: 'form_start',
     event_category: 'Form Interaction',
-    event_label: formName
+    event_label: name,
+    form_name: name,
+    ...metadata
   })
 }
 
-export function trackFormComplete(formName: string) {
+export function trackFormComplete(form: FormEventInput) {
+  const { name, metadata } = normaliseFormEvent(form)
+
   pushToDataLayer({
     event: 'form_complete',
     event_category: 'Form Interaction',
-    event_label: formName
+    event_label: name,
+    form_name: name,
+    ...metadata
   })
 }
 
-export function trackFormAbandon(formName: string, lastField?: string) {
+export function trackFormAbandon(form: FormEventInput, lastField?: string) {
+  const { name, metadata } = normaliseFormEvent(form)
+
   pushToDataLayer({
     event: 'form_abandon',
     event_category: 'Form Interaction',
-    event_label: formName,
-    last_field: lastField
+    event_label: name,
+    form_name: name,
+    last_field: lastField,
+    ...metadata
+  })
+}
+
+interface CtaEvent {
+  id: string
+  label: string
+  location: string
+  destination: string
+  mode?: string
+  context?: string
+  variant?: string
+}
+
+export function trackCtaClick(data: CtaEvent) {
+  pushToDataLayer({
+    event: 'cta_click',
+    event_category: 'CTA',
+    event_label: data.label,
+    cta_id: data.id,
+    cta_label: data.label,
+    cta_location: data.location,
+    cta_destination: data.destination,
+    cta_mode: data.mode,
+    cta_context: data.context,
+    cta_variant: data.variant
+  })
+}
+
+export function trackBannerEvent(data: {
+  id: string
+  action: 'view' | 'click' | 'dismiss';
+  label?: string
+  campaign?: string
+}) {
+  pushToDataLayer({
+    event: 'banner_interaction',
+    event_category: 'Announcement',
+    event_label: data.label ?? data.id,
+    banner_id: data.id,
+    banner_action: data.action,
+    banner_campaign: data.campaign
   })
 }

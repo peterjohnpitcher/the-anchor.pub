@@ -1,10 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button, Container, Section, Card, CardBody, Alert } from '@/components/ui'
+import { Button, Section, Card, CardBody, Alert, CTASection, SectionHeader, FeatureGrid } from '@/components/ui'
 import { StatusBar } from '@/components/StatusBar'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { MenuPageTracker } from '@/components/MenuPageTracker'
@@ -336,25 +334,22 @@ export default function PizzaPage() {
       />
 
       {/* Page Title for SEO */}
-      <section className="bg-white py-8">
-        <Container>
-          <PageTitle 
-            className="text-center text-anchor-green"
-            seo={{ structured: true, speakable: true }}
-          >
-            Pizza Menu - Tuesday BOGOF Deal | The Anchor
-          </PageTitle>
-        </Container>
-      </section>
+      <Section background="white" spacing="md" container>
+        <PageTitle 
+          className="text-center text-anchor-green"
+          seo={{ structured: true, speakable: true }}
+        >
+          Pizza Menu - Tuesday BOGOF Deal | The Anchor
+        </PageTitle>
+      </Section>
 
       {/* Offer Details */}
-      <div className="bg-anchor-sand/20 section-spacing-md">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <SectionHeader
-              title="How Our BOGOF Deal Works"
-              className="mb-8"
-            />
+      <Section spacing="lg" container containerSize="md" className="bg-anchor-sand/20">
+        <div className="max-w-3xl mx-auto text-center">
+          <SectionHeader
+            title="How Our BOGOF Deal Works"
+            className="mb-8"
+          />
             
             <FeatureGrid
               columns={3}
@@ -384,18 +379,16 @@ export default function PizzaPage() {
             <p className="text-lg text-gray-700">
               No voucher needed • Dine-in & takeaway • Cannot be combined with other offers
             </p>
-          </div>
-        </Container>
-      </div>
+        </div>
+      </Section>
 
       {/* Pizza Menu */}
-      <div className="bg-white section-spacing-md">
-        <Container>
-          <div className="max-w-6xl mx-auto">
-            <SectionHeader
-              title="Our Stone-Baked Pizzas"
-              className="text-center mb-12"
-            />
+      <Section background="white" spacing="lg" container containerSize="lg">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="Our Stone-Baked Pizzas"
+            className="text-center mb-12"
+          />
             
             <div className="grid md:grid-cols-2 gap-8">
               <Card variant="default" className="bg-anchor-cream">
@@ -448,26 +441,24 @@ export default function PizzaPage() {
             </div>
             
             <Alert
-              variant="warning"
-              title="Kitchen Hours"
-              className="mt-8 text-center"
-            >
-              <p className="text-gray-800">
-                🍕 Tuesday-Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
-              </p>
-            </Alert>
-          </div>
-        </Container>
-      </div>
+            variant="warning"
+            title="Kitchen Hours"
+            className="mt-8 text-center"
+          >
+            <p className="text-gray-800">
+              🍕 Tuesday-Friday 6pm-9pm | Saturday 1pm-7pm | Sunday 12pm-5pm
+            </p>
+          </Alert>
+        </div>
+      </Section>
 
       {/* Local SEO Section */}
-      <div className="bg-anchor-sand/20 section-spacing-md">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center">
-            <SectionHeader
-              title="Best Pizza Deal Near Heathrow"
-              className="mb-8"
-            />
+      <Section spacing="lg" container containerSize="md" className="bg-anchor-sand/20">
+        <div className="max-w-4xl mx-auto text-center">
+          <SectionHeader
+            title="Best Pizza Deal Near Heathrow"
+            className="mb-8"
+          />
             
             <p className="text-lg text-gray-700 mb-6">
               Looking for "buy one get one free pizza near me"? The Anchor's BOGOF pizza deal is the best value 
@@ -500,9 +491,8 @@ export default function PizzaPage() {
                 </CardBody>
               </Card>
             </div>
-          </div>
-        </Container>
-      </div>
+        </div>
+      </Section>
 
       {/* CTA Section */}
       <CTASection

@@ -14,11 +14,14 @@ import { WizardProgress } from './WizardProgress'
 import { trackBookingWizardStep, trackFormComplete, trackError } from '@/lib/gtm-events'
 import type { BookingWizardData, AvailabilityData, MenuSelection } from './types'
 
+const BOOKING_DEBUG = process.env.NEXT_PUBLIC_BOOKING_DEBUG === 'true'
+
 interface BookingWizardProps {
   availabilityData: AvailabilityData
   initialStep?: number
   preselectedDate?: string
   bookingType?: 'regular' | 'sunday_lunch'
+  className?: string
 }
 
 // Define the step flow
@@ -34,7 +37,8 @@ export function BookingWizard({
   availabilityData,
   initialStep = 1,
   preselectedDate,
-  bookingType: initialBookingType
+  bookingType: initialBookingType,
+  className
 }: BookingWizardProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -119,10 +123,14 @@ export function BookingWizard({
   
   // Update booking data
   const updateBookingData = useCallback((data: Partial<BookingWizardData>) => {
-    console.log('Updating booking data:', data)
+    if (BOOKING_DEBUG) {
+      console.debug('[BookingWizard] Updating data', data)
+    }
     setBookingData(prev => {
       const newData = { ...prev, ...data }
-      console.log('New booking data state:', newData)
+      if (BOOKING_DEBUG) {
+        console.debug('[BookingWizard] New state', newData)
+      }
       return newData
     })
   }, [])
@@ -311,7 +319,7 @@ export function BookingWizard({
   }
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-anchor-cream">
+    <div className={cn('bg-gradient-to-b from-white to-anchor-cream py-8', className)}>
       {/* Progress Indicator */}
       <WizardProgress
         currentStep={currentStep}
@@ -320,7 +328,7 @@ export function BookingWizard({
       />
       
       {/* Wizard Content */}
-      <div className="max-w-2xl mx-auto px-4 py-8">
+      <div className="max-w-2xl mx-auto px-4">
         <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
           {renderStep()}
         </div>

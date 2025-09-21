@@ -1,8 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getBlogPost, getAllBlogPosts, distributeImages } from '@/lib/markdown'
-import { Button } from '@/components/ui'
+import { Button, Section } from '@/components/ui'
 import { Metadata } from 'next'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { BlogShareButtons } from '@/components/BlogShareButtons'
@@ -209,120 +208,77 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       />
 
       {/* Breadcrumb */}
-      <section className="py-4 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <nav className="flex items-center gap-2 text-sm">
-            <Link href="/" className="text-gray-600 hover:text-anchor-green">Home</Link>
-            <span className="text-gray-600">/</span>
-            <Link href="/blog" className="text-gray-600 hover:text-anchor-green">Blog</Link>
-            <span className="text-gray-600">/</span>
-            <span className="text-anchor-green font-semibold">{post.title}</span>
-          </nav>
-        </div>
-      </section>
+      <Section background="gray" spacing="xs" container>
+        <nav className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+          <Link href="/" className="hover:text-anchor-green">Home</Link>
+          <span>/</span>
+          <Link href="/blog" className="hover:text-anchor-green">Blog</Link>
+          <span>/</span>
+          <span className="text-anchor-green font-semibold">{post.title}</span>
+        </nav>
+      </Section>
 
       {/* Content */}
-      <article className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div 
-              className="
-                prose prose-lg lg:prose-xl max-w-none
-                
-                /* Headings */
-                prose-headings:font-serif
-                prose-headings:text-anchor-green
+      <Section as="article" spacing="lg" container containerSize="sm" className="bg-white">
+        <div className="prose prose-lg lg:prose-xl max-w-none
+                prose-headings:font-serif prose-headings:text-anchor-green
                 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
                 prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4
                 prose-h4:text-xl prose-h4:mt-8 prose-h4:mb-3
-                
-                /* Paragraphs */
-                prose-p:text-gray-700 prose-p:leading-relaxed
-                prose-p:mb-6
-                
-                /* Links */
-                prose-a:text-anchor-gold prose-a:font-semibold
-                prose-a:no-underline hover:prose-a:underline
-                prose-a:transition-colours hover:prose-a:text-anchor-gold-light
-                
-                /* Strong/Bold */
+                prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
+                prose-a:text-anchor-gold prose-a:font-semibold prose-a:no-underline
+                hover:prose-a:underline prose-a:transition-colours hover:prose-a:text-anchor-gold-light
                 prose-strong:text-anchor-green prose-strong:font-bold
-                
-                /* Lists */
                 prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
                 prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
                 prose-li:text-gray-700 prose-li:mb-2
-                
-                /* Images */
-                prose-img:rounded-lg prose-img:shadow-lg
-                prose-img:my-8 prose-img:w-full
+                prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8 prose-img:w-full
                 prose-figure:my-8
-                
-                /* Blockquotes */
-                prose-blockquote:border-l-4 prose-blockquote:border-anchor-gold
-                prose-blockquote:pl-6 prose-blockquote:italic
-                prose-blockquote:text-gray-600 prose-blockquote:my-8
-                
-                /* Code */
-                prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1
-                prose-code:rounded prose-code:text-sm
+                prose-blockquote:border-l-4 prose-blockquote:border-anchor-gold prose-blockquote:pl-6
+                prose-blockquote:italic prose-blockquote:text-gray-600 prose-blockquote:my-8
+                prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
                 prose-pre:bg-gray-900 prose-pre:text-gray-100
-                
-                /* Tables */
-                prose-table:my-8
-                prose-th:bg-anchor-green prose-th:text-white
+                prose-table:my-8 prose-th:bg-anchor-green prose-th:text-white
                 prose-th:font-semibold prose-th:px-6 prose-th:py-3
-                prose-td:border prose-td:border-gray-300
-                prose-td:px-6 prose-td:py-3
-                
-                /* HR */
-                prose-hr:border-gray-300 prose-hr:my-12
-              "
-              dangerouslySetInnerHTML={{ __html: contentWithImages }}
-            />
-          </div>
+                prose-td:border prose-td:border-gray-300 prose-td:px-6 prose-td:py-3
+                prose-hr:border-gray-300 prose-hr:my-12">
+          <div dangerouslySetInnerHTML={{ __html: contentWithImages }} />
         </div>
-      </article>
+      </Section>
 
       {/* Share Section */}
-      <section className="py-8 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-gray-600 mb-4">Enjoyed this article? Share it with your friends!</p>
-            <BlogShareButtons postTitle={post.title} postSlug={post.slug} />
-          </div>
+      <Section background="gray" spacing="sm" container containerSize="sm">
+        <div className="text-center">
+          <p className="text-gray-600 mb-4">Enjoyed this article? Share it with your friends!</p>
+          <BlogShareButtons postTitle={post.title} postSlug={post.slug} />
         </div>
-      </section>
+      </Section>
 
       {/* Navigation */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6">
-              {prevPost && (
-                <Link href={`/blog/${prevPost.slug}`} className="group">
-                  <div className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                    <p className="text-sm text-gray-600 mb-2">← Previous Post</p>
-                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colours">
-                      {prevPost.title}
-                    </h3>
-                  </div>
-                </Link>
-              )}
-              {nextPost && (
-                <Link href={`/blog/${nextPost.slug}`} className="group md:text-right">
-                  <div className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
-                    <p className="text-sm text-gray-600 mb-2">Next Post →</p>
-                    <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colours">
-                      {nextPost.title}
-                    </h3>
-                  </div>
-                </Link>
-              )}
-            </div>
-          </div>
+      <Section spacing="md" container containerSize="lg">
+        <div className="grid md:grid-cols-2 gap-6">
+          {prevPost && (
+            <Link href={`/blog/${prevPost.slug}`} className="group">
+              <div className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                <p className="text-sm text-gray-600 mb-2">← Previous Post</p>
+                <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colours">
+                  {prevPost.title}
+                </h3>
+              </div>
+            </Link>
+          )}
+          {nextPost && (
+            <Link href={`/blog/${nextPost.slug}`} className="group md:text-right">
+              <div className="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                <p className="text-sm text-gray-600 mb-2">Next Post →</p>
+                <h3 className="text-lg font-bold text-anchor-green group-hover:text-anchor-gold transition-colours">
+                  {nextPost.title}
+                </h3>
+              </div>
+            </Link>
+          )}
         </div>
-      </section>
+      </Section>
 
       {/* Internal Linking for Better SEO */}
       <InternalLinkingSection 
@@ -331,56 +287,26 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       />
 
       {/* CTA Section */}
-      <section className="section-spacing bg-anchor-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">
-            Visit The Anchor Today
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Experience everything we write about firsthand. Join us for great food, drinks, and atmosphere!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/find-us">
-              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
-                Get Directions
-              </Button>
-            </Link>
-            <Link href="/blog">
-              <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
-                More Stories
-              </Button>
-            </Link>
-          </div>
+      <Section background="dark" spacing="md" container containerSize="md" className="text-center">
+        <h2 className="text-3xl font-bold mb-8">
+          Visit The Anchor Today
+        </h2>
+        <p className="text-xl mb-8 max-w-2xl mx-auto">
+          Experience everything we write about firsthand. Join us for great food, drinks, and atmosphere!
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/find-us">
+            <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+              Get Directions
+            </Button>
+          </Link>
+          <Link href="/blog">
+            <Button variant="outline" size="lg" className="!text-white !border-white hover:!bg-white hover:!text-anchor-green">
+              More Stories
+            </Button>
+          </Link>
         </div>
-      </section>
-
-      {/* Schema Markup */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": post.title,
-            "description": post.description,
-            "image": `https://www.the-anchor.pub/content/blog/${post.slug}/${post.hero}`,
-            "datePublished": post.date,
-            "author": {
-              "@type": "Person",
-              "name": post.author
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "The Anchor",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.the-anchor.pub/images/branding/the-anchor-pub-logo-black-transparent.png"
-              }
-            },
-            "keywords": post.keywords.join(", ")
-          })
-        }}
-      />
+      </Section>
     </>
   )
 }

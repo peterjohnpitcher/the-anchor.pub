@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useInView } from 'react-intersection-observer'
 import { formatEventDate, formatEventTime, formatPrice, getEventShortDescription, formatDoorTime, type Event } from '@/lib/api'
-import { EventSchema } from '@/components/EventSchema'
 import EventAvailability from '@/components/EventAvailability'
 import { DEFAULT_EVENT_IMAGE } from '@/lib/image-fallbacks'
 
@@ -29,8 +28,6 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
     <div ref={ref} className="bg-white rounded-2xl shadow-lg overflow-hidden">
       {inView ? (
         <>
-          <EventSchema event={event} />
-          
           {/* Event Header with Name and Time */}
           <div className="bg-anchor-green text-white px-4 sm:px-6 py-3 sm:py-4">
             <div className="flex items-center justify-between gap-3">

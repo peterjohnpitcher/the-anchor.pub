@@ -24,7 +24,7 @@ import {
   trackFormComplete,
   pushToDataLayer
 } from '@/lib/gtm-events'
-import { Button, Card, CardBody, CardHeader, CardTitle, Alert } from '@/components/ui'
+import { Button, Card, CardBody, CardHeader, CardTitle, Alert, Section } from '@/components/ui'
 import { Info, Phone, MessageCircle, Navigation, Calendar, Menu, Scroll, Star, Clock, Cloud, Plane, FileText } from 'lucide-react'
 import { WhatsAppLink } from '@/components/WhatsAppLink'
 import { BookTableButton } from '@/components/BookTableButton'
@@ -33,6 +33,12 @@ export default function TestTrackingPage() {
   const [events, setEvents] = useState<any[]>([])
   const [dataLayer, setDataLayer] = useState<any[]>([])
   const [scrollDepth, setScrollDepth] = useState(0)
+  const debugEnabled = process.env.NEXT_PUBLIC_STATUSBAR_DEBUG === 'true'
+  const logDebug = (...args: any[]) => {
+    if (debugEnabled) {
+      console.debug(...args)
+    }
+  }
 
   // Set page title
   useEffect(() => {
@@ -41,32 +47,38 @@ export default function TestTrackingPage() {
 
   // Listen to dataLayer pushes
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Initialize dataLayer if it doesn't exist
-      window.dataLayer = window.dataLayer || []
-      
-      // Store original push method
-      const originalPush = window.dataLayer.push
-      
-      // Override push method to capture events
-      window.dataLayer.push = function(...args: any[]) {
-        // Call original push
-        const result = originalPush.apply(window.dataLayer!, args)
-        
-        // Log to console
-        console.log('🎯 GTM Event:', args[0])
-        
-        // Update our state
-        setEvents(prev => [...prev, { ...args[0], timestamp: new Date().toISOString() }])
-        setDataLayer(Array.from(window.dataLayer || []))
-        
-        return result
+    if (typeof window === 'undefined') return
+
+    // Initialize dataLayer if it doesn't exist
+    window.dataLayer = window.dataLayer || []
+    const dataLayer = window.dataLayer
+
+    // Store original push method
+    const originalPush = dataLayer.push.bind(dataLayer)
+
+    // Override push method to capture events
+    dataLayer.push = function (...args: any[]) {
+      const result = originalPush(...args)
+
+      if (debugEnabled) {
+        console.debug('🎯 GTM Event', args[0])
       }
-      
-      // Set initial dataLayer state
-      setDataLayer([...(window.dataLayer || [])])
+
+      setEvents(prev => [...prev, { ...args[0], timestamp: new Date().toISOString() }])
+      setDataLayer(Array.from(dataLayer))
+
+      return result
     }
-  }, [])
+
+    // Set initial dataLayer state
+    setDataLayer([...dataLayer])
+
+    return () => {
+      if (dataLayer) {
+        dataLayer.push = originalPush
+      }
+    }
+  }, [debugEnabled])
 
   // Track scroll depth
   useEffect(() => {
@@ -84,22 +96,22 @@ export default function TestTrackingPage() {
   }
 
   const testPhoneCall = (context: string) => {
-    console.log(`📞 Testing phone call from: ${context}`)
+    logDebug(`📞 Testing phone call from: ${context}`)
     trackPhoneCall(context)
   }
 
   const testTableBooking = (source: string) => {
-    console.log(`🍽️ Testing table booking from: ${source}`)
+    logDebug(`🍽️ Testing table booking from: ${source}`)
     trackTableBookingClick(source)
   }
 
   const testWhatsApp = (context: string) => {
-    console.log(`💬 Testing WhatsApp click from: ${context}`)
+    logDebug(`💬 Testing WhatsApp click from: ${context}`)
     trackWhatsAppClick(context)
   }
 
   const testNavigation = (label: string, url: string, level: 'main' | 'dropdown' = 'main') => {
-    console.log(`🧭 Testing navigation click: ${label}`)
+    logDebug(`🧭 Testing navigation click: ${label}`)
     trackNavigationClick({
       label,
       url,
@@ -111,22 +123,22 @@ export default function TestTrackingPage() {
   }
 
   const testDirections = (from: string) => {
-    console.log(`🗺️ Testing directions click from: ${from}`)
+    logDebug(`🗺️ Testing directions click from: ${from}`)
     trackDirectionsClick(from)
   }
 
   const testMenuView = (type: 'food' | 'drinks' | 'sunday') => {
-    console.log(`📋 Testing menu view: ${type}`)
+    logDebug(`📋 Testing menu view: ${type}`)
     trackMenuView(type)
   }
 
   const testScrollDepthMilestone = (milestone: number) => {
-    console.log(`📜 Testing scroll depth: ${milestone}%`)
+    logDebug(`📜 Testing scroll depth: ${milestone}%`)
     trackScrollDepth(milestone)
   }
 
   const testEventTracking = () => {
-    console.log('🎉 Testing event tracking')
+    logDebug('🎉 Testing event tracking')
     trackEventView({
       eventId: 'test-event-123',
       eventName: 'Test Music Night',
@@ -137,7 +149,7 @@ export default function TestTrackingPage() {
   }
 
   const testEventBooking = () => {
-    console.log('🎫 Testing event booking')
+    logDebug('🎫 Testing event booking')
     trackEventBookingStart({
       eventId: 'test-event-123',
       eventName: 'Test Music Night',
@@ -146,23 +158,23 @@ export default function TestTrackingPage() {
   }
 
   const testReview = (platform: string) => {
-    console.log(`⭐ Testing review click: ${platform}`)
+    logDebug(`⭐ Testing review click: ${platform}`)
     trackReviewClick(platform)
   }
 
   const testBusinessFeatures = () => {
-    console.log('🕐 Testing opening hours check')
+    logDebug('🕐 Testing opening hours check')
     trackOpeningHoursCheck()
     
-    console.log('☁️ Testing weather view')
+    logDebug('☁️ Testing weather view')
     trackWeatherView()
     
-    console.log('✈️ Testing flight status check')
+    logDebug('✈️ Testing flight status check')
     trackFlightStatusCheck('Terminal 5')
   }
 
   const testFormTracking = () => {
-    console.log('📝 Testing form tracking')
+    logDebug('📝 Testing form tracking')
     trackFormStart('test-contact-form')
     setTimeout(() => {
       trackFormComplete('test-contact-form')
@@ -170,7 +182,7 @@ export default function TestTrackingPage() {
   }
 
   const testCustomEvent = () => {
-    console.log('🔧 Testing custom event')
+    logDebug('🔧 Testing custom event')
     pushToDataLayer({
       event: 'custom_test_event',
       event_category: 'Test',
@@ -181,12 +193,12 @@ export default function TestTrackingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background py-8">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <h1 className="text-4xl font-bold mb-8">GTM Tracking Test Page</h1>
-        
+    <Section spacing="lg" container containerSize="xl" className="bg-background min-h-screen">
+      <div className="max-w-6xl mx-auto space-y-8">
+        <h1 className="text-4xl font-bold">GTM Tracking Test Page</h1>
+
         {/* Instructions */}
-        <Alert variant="info" className="mb-8" icon={<Info className="h-4 w-4" />} title="Testing Instructions">
+        <Alert variant="info" icon={<Info className="h-4 w-4" />} title="Testing Instructions">
           <div className="space-y-2">
             <p>1. Open Google Tag Manager in Preview Mode</p>
             <p>2. Connect to this page using the preview URL</p>
@@ -251,7 +263,7 @@ export default function TestTrackingPage() {
                   <p className="text-sm font-medium">Email:</p>
                   <a 
                     href="mailto:manager@the-anchor.pub" 
-                    onClick={() => console.log('📧 Email link clicked')}
+                    onClick={() => logDebug('📧 Email link clicked')}
                     className="text-sm text-blue-600 hover:underline"
                   >
                     manager@the-anchor.pub
@@ -470,7 +482,7 @@ export default function TestTrackingPage() {
                     href="https://facebook.com/theanchorpub" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    onClick={() => console.log('📘 Facebook clicked')}
+                    onClick={() => logDebug('📘 Facebook clicked')}
                     className="text-sm text-blue-600 hover:underline"
                   >
                     Facebook
@@ -479,7 +491,7 @@ export default function TestTrackingPage() {
                     href="https://instagram.com/theanchorpub" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    onClick={() => console.log('📷 Instagram clicked')}
+                    onClick={() => logDebug('📷 Instagram clicked')}
                     className="text-sm text-pink-600 hover:underline"
                   >
                     Instagram
@@ -488,7 +500,7 @@ export default function TestTrackingPage() {
                     href="https://twitter.com/theanchorpub" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    onClick={() => console.log('🐦 Twitter clicked')}
+                    onClick={() => logDebug('🐦 Twitter clicked')}
                     className="text-sm text-blue-400 hover:underline"
                   >
                     Twitter
@@ -582,6 +594,6 @@ export default function TestTrackingPage() {
           ))}
         </div>
       </div>
-    </div>
+    </Section>
   )
 }

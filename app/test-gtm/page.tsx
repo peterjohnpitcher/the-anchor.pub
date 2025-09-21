@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import { trackPageView, trackPhoneCall } from '@/lib/gtm-events'
+import { Section, Button } from '@/components/ui'
 
 export default function TestGTMPage() {
   const [dataLayer, setDataLayer] = useState<any[]>([])
   const [gtmLoaded, setGtmLoaded] = useState(false)
+  const debugEnabled = process.env.NEXT_PUBLIC_STATUSBAR_DEBUG === 'true'
 
   useEffect(() => {
     // Check GTM status
@@ -18,10 +20,12 @@ export default function TestGTMPage() {
           setDataLayer([...(window as any).dataLayer])
         }
         
-        console.log('Test Page - GTM Check:', {
-          hasDataLayer,
-          dataLayerLength: hasDataLayer ? (window as any).dataLayer.length : 0
-        })
+        if (debugEnabled) {
+          console.debug('[TestGTM] status', {
+            hasDataLayer,
+            dataLayerLength: hasDataLayer ? (window as any).dataLayer.length : 0
+          })
+        }
       }
     }
 
@@ -35,7 +39,7 @@ export default function TestGTMPage() {
     const interval = setInterval(checkGTM, 1000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [debugEnabled])
 
   const triggerTestEvent = () => {
     trackPhoneCall('test-page')
@@ -52,11 +56,19 @@ export default function TestGTMPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-8">GTM Test Page</h1>
-        
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
+    <>
+      <Section spacing="sm" container>
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold text-anchor-green">GTM Test Page</h1>
+          <p className="text-sm text-gray-600">
+            Validate GTM tracking in a safe environment. Page view and phone-call events fire automatically; use the
+            test button below to push a custom event into the dataLayer.
+          </p>
+        </div>
+      </Section>
+
+      <Section spacing="md" container containerSize="md" className="space-y-6">
+        <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-semibold mb-4">GTM Status</h2>
           <p className="mb-4">
             GTM Loaded: <span className={gtmLoaded ? 'text-green-600' : 'text-red-600'}>
@@ -66,14 +78,9 @@ export default function TestGTMPage() {
           <p>DataLayer Events: {dataLayer.length}</p>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
+        <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-semibold mb-4">Test Events</h2>
-          <button
-            onClick={triggerTestEvent}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
-            Trigger Test Event
-          </button>
+          <Button onClick={triggerTestEvent}>Trigger Test Event</Button>
         </div>
 
         <div className="bg-white rounded-lg shadow p-6">
@@ -85,11 +92,11 @@ export default function TestGTMPage() {
           </div>
         </div>
 
-        <div className="mt-6 text-sm text-gray-600">
+        <div className="text-sm text-gray-600">
           <p>Check the browser console for additional debug information.</p>
           <p>This page should show GTM loading and track a page view event.</p>
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   )
 }

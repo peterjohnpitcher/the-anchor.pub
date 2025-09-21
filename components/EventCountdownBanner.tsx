@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { type Event } from '@/lib/api'
-import { trackFormStart } from '@/lib/gtm-events'
+import { trackBannerEvent, trackCtaClick } from '@/lib/gtm-events'
 
 const BANNER_STORAGE_KEY = 'event_banner_dismissed_until'
 const DISMISS_DURATION_MS = 1000 * 60 * 60 * 24 // 24 hours
@@ -228,6 +228,16 @@ export function EventCountdownBanner() {
     return getUrgencyCopy(event, daysUntil, hoursUntil)
   }, [banner])
 
+  useEffect(() => {
+    if (!banner) return
+    trackBannerEvent({
+      id: 'event_countdown_banner',
+      action: 'view',
+      label: banner.event.name,
+      campaign: banner.event.slug || banner.event.id
+    })
+  }, [banner])
+
   if (dismissed || !banner || !content) {
     return null
   }
@@ -236,12 +246,33 @@ export function EventCountdownBanner() {
   const bookingLink = `/events/${event.slug || event.id}`
 
   const handleDismiss = () => {
+    if (banner) {
+      trackBannerEvent({
+        id: 'event_countdown_banner',
+        action: 'dismiss',
+        label: banner.event.name,
+        campaign: banner.event.slug || banner.event.id
+      })
+    }
     setDismissed(true)
     markDismissal()
   }
 
   const handleCtaClick = () => {
-    trackFormStart('event_banner_cta')
+    if (!banner) return
+    trackCtaClick({
+      id: 'event_banner_cta',
+      label: 'Reserve seats',
+      location: 'event_countdown_banner',
+      destination: 'event_page',
+      context: banner.event.slug || banner.event.id
+    })
+    trackBannerEvent({
+      id: 'event_countdown_banner',
+      action: 'click',
+      label: banner.event.name,
+      campaign: banner.event.slug || banner.event.id
+    })
   }
 
   const imageSrc = event.heroImageUrl || event.thumbnailImageUrl || event.posterImageUrl || event.image?.[0]

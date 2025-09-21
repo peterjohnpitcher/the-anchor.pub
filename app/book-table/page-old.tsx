@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { OptimizedHeroSection } from '@/components/hero/OptimizedHeroSection'
+import { HeroWrapper } from '@/components/hero'
 import { Container } from '@/components/ui/layout/Container'
 import { Section } from '@/components/ui/layout/Section'
 import { Card, CardBody } from '@/components/ui/layout/Card'
@@ -13,9 +13,6 @@ import { Button } from '@/components/ui/primitives/Button'
 import { Badge } from '@/components/ui/primitives/Badge'
 import ScrollDepthTracker from '@/components/tracking/ScrollDepthTracker'
 import { InfoBoxGrid } from '@/components/ui'
-import { StatusBar } from '@/components/StatusBar'
-import { Breadcrumbs } from '@/components/hero/Breadcrumbs'
-import { HeroTag } from '@/components/hero/HeroTag'
 import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
@@ -40,42 +37,27 @@ export default function BookTablePage({
     <>
       <ScrollDepthTracker />
       
-      <OptimizedHeroSection
+      <HeroWrapper
+        route="/book-table"
         size="medium"
+        alignment="center"
         title="Book a Table"
         description="Reserve your spot for great food and drinks"
+        overlay="gradient"
         image={{
           src: DEFAULT_PAGE_HEADER_IMAGE,
-          alt: "The Anchor entrance with warm lighting and traditional British pub signage",
-          priority: true,
-          optimized: {
-            mobile: '/images/page-headers/home/optimized/hero-mobile.jpg',
-            tablet: '/images/page-headers/home/optimized/hero-tablet.jpg',
-            desktop: '/images/page-headers/home/optimized/hero-desktop.jpg'
-          }
+          alt: 'The Anchor entrance with warm lighting and traditional British pub signage',
+          priority: true
         }}
-        alignment="center"
-        overlay="gradient"
-        breadcrumbs={
-          <Breadcrumbs
-            items={[
-              { name: 'Home', href: '/' },
-              { name: 'Booking' }
-            ]}
-          />
-        }
-        tags={
-          <div className="flex flex-wrap gap-2 justify-center">
-            <HeroTag variant="default">📅 Easy Online Booking</HeroTag>
-            <HeroTag variant="default">✅ Instant Confirmation</HeroTag>
-            <HeroTag variant="default">🍽️ Sunday Roasts</HeroTag>
-          </div>
-        }
-        cta={
-          <div className="mt-6">
-            <StatusBar />
-          </div>
-        }
+        breadcrumbs={[
+          { name: 'Home', href: '/' },
+          { name: 'Booking' }
+        ]}
+        tags={[
+          { label: 'Easy Online Booking', icon: '📅', size: 'small' },
+          { label: 'Instant Confirmation', icon: '✅', size: 'small' },
+          { label: 'Sunday Roasts', icon: '🍽️', size: 'small' }
+        ]}
       />
 
       <Section className="py-8 md:py-12">

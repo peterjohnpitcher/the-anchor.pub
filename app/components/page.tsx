@@ -167,11 +167,11 @@ function ComponentsPageContent() {
                 </CardHeader>
                 <CardBody>
                   <Form onSubmit={async (formData) => {
-                    console.log('Form data:', Object.fromEntries(formData))
+                    const name = formData.get('name')?.toString() || 'Guest'
                     toast({
                       variant: 'success',
                       title: 'Form submitted',
-                      description: 'Check console for form data'
+                      description: `Thanks, ${name}! We received your details.`
                     })
                   }}>
                     <FormSection title="Text Inputs">

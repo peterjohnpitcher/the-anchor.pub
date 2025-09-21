@@ -1,16 +1,14 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { Button } from '@/components/ui'
+import { Button, Section, CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { DEFAULT_FOOD_IMAGE } from '@/lib/image-fallbacks'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { GoogleReviews } from '@/components/reviews'
-import { generateNutritionInfo, generateSuitableForDiet } from '@/lib/schema-utils'
+import { generateNutritionInfo } from '@/lib/schema-utils'
 
 export const metadata: Metadata = {
   title: 'Best Fish and Chips Near Heathrow Airport | The Anchor',
@@ -148,25 +146,22 @@ export default function FishAndChipsPage() {
       </HeroWrapper>
 
       {/* Page Title for SEO */}
-      <section className="bg-white py-8">
-        <div className="container mx-auto px-4">
-          <PageTitle 
-            className="text-center text-anchor-green"
-            seo={{ structured: true, speakable: true }}
-          >
-            Best Fish and Chips Near Heathrow Airport - Traditional British Cod & Chips
-          </PageTitle>
-        </div>
-      </section>
+      <Section background="white" spacing="md" container>
+        <PageTitle 
+          className="text-center text-anchor-green"
+          seo={{ structured: true, speakable: true }}
+        >
+          Best Fish and Chips Near Heathrow Airport - Traditional British Cod & Chips
+        </PageTitle>
+      </Section>
 
       {/* The Perfect Fish & Chips */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <SectionHeader
-              title="What Makes Our Fish & Chips Special"
-              subtitle="Traditional British recipe perfected over decades"
-            />
+      <Section background="white" spacing="lg" container containerSize="lg">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="What Makes Our Fish & Chips Special"
+            subtitle="Traditional British recipe perfected over decades"
+          />
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <InfoBoxGrid
@@ -258,18 +253,16 @@ export default function FishAndChipsPage() {
                 </div>
               }
             />
-          </div>
         </div>
-      </section>
+      </Section>
 
       {/* Pricing & Options */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <SectionHeader
-              title="Fish & Chips Menu Options"
-              subtitle="All served with mushy peas and tartare sauce"
-            />
+      <Section background="gray" spacing="lg" container containerSize="md">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader
+            title="Fish & Chips Menu Options"
+            subtitle="All served with mushy peas and tartare sauce"
+          />
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl shadow-lg p-6">
@@ -351,18 +344,16 @@ export default function FishAndChipsPage() {
                 Book Your Table
               </BookTableButton>
             </div>
-          </div>
         </div>
-      </section>
+      </Section>
 
       {/* Why Better Than Others */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <SectionHeader
-              title="Why Locals Choose Our Fish & Chips"
-              subtitle="Traditional British chippy experience near Heathrow"
-            />
+      <Section background="white" spacing="lg" container containerSize="lg">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="Why Locals Choose Our Fish & Chips"
+            subtitle="Traditional British chippy experience near Heathrow"
+          />
             
             <FeatureGrid
               columns={3}
@@ -405,28 +396,26 @@ export default function FishAndChipsPage() {
                 }
               ]}
             />
-          </div>
         </div>
-      </section>
+      </Section>
 
       {/* Customer Reviews */}
-      <section className="section-spacing bg-anchor-sand/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <SectionHeader
-              title="What Customers Say About Our Fish & Chips"
-            />
-            <GoogleReviews 
-              layout="carousel"
-              showTitle={false}
-            />
-          </div>
+      <Section spacing="lg" container containerSize="md" className="bg-anchor-sand/10">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeader
+            title="What Customers Say About Our Fish & Chips"
+          />
+          <GoogleReviews 
+            layout="carousel"
+            showTitle={false}
+          />
         </div>
-      </section>
+      </Section>
 
       {/* FAQ Section */}
-      <FAQAccordionWithSchema 
-        faqs={[
+      <Section background="gray" spacing="lg" container containerSize="md">
+        <FAQAccordionWithSchema 
+          faqs={[
           {
             question: "What makes your fish and chips the best near Heathrow?",
             answer: "We use fresh cod delivered daily, our secret beer batter recipe, and triple-cook our chips for the perfect texture. Everything is cooked fresh to order within 15 minutes, and we're just 7 minutes from Terminal 5 with free parking."
@@ -452,8 +441,9 @@ export default function FishAndChipsPage() {
             answer: "Fish & chips are available during our kitchen hours: Tuesday-Friday 6pm-9pm, Saturday 1pm-7pm, and Sunday 12pm-5pm. Kitchen is closed Mondays."
           }
         ]}
-        className="bg-gray-50"
-      />
+          className="bg-white"
+        />
+      </Section>
 
       {/* CTA Section */}
       <CTASection

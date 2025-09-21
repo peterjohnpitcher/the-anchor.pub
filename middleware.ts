@@ -1,6 +1,23 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+const TRACKING_PARAMS = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+  'utm_id',
+  'fbclid',
+  'gclid',
+  'ver',
+  'id',
+  'items',
+  'container',
+  'wordfence_logHuman',
+  'hid'
+]
+
 export function middleware(request: NextRequest) {
   // Handle domain redirects (non-www to www)
   const host = request.headers.get('host')
@@ -11,7 +28,29 @@ export function middleware(request: NextRequest) {
     url.host = 'www.the-anchor.pub'
     return NextResponse.redirect(url, 301)
   }
-  
+
+  // Strip tracking parameters to minimise duplicate content
+  let shouldRedirect = false
+
+  TRACKING_PARAMS.forEach((param) => {
+    if (url.searchParams.has(param)) {
+      url.searchParams.delete(param)
+      shouldRedirect = true
+    }
+  })
+
+  // Normalise blog pagination (?page=1 -> /blog)
+  if (url.pathname === '/blog' && url.searchParams.get('page') === '1') {
+    url.searchParams.delete('page')
+    shouldRedirect = true
+  }
+
+  // If we removed all params the URL might end with '?', so ensure it is clean
+  if (shouldRedirect) {
+    url.search = url.searchParams.toString()
+    return NextResponse.redirect(url, 301)
+  }
+
   const response = NextResponse.next()
   
   // Add performance and security headers
@@ -21,16 +60,8 @@ export function middleware(request: NextRequest) {
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
   
-  // Enable HTTP/2 Server Push for critical resources
   const pathname = request.nextUrl.pathname
-  
-  if (pathname === '/') {
-    // Push critical resources for homepage
-    response.headers.append('Link', '</images/page-headers/home/optimized/hero-mobile.webp>; rel=preload; as=image; type="image/webp"; media="(max-width: 640px)"')
-    response.headers.append('Link', '</images/page-headers/home/optimized/hero-tablet.webp>; rel=preload; as=image; type="image/webp"; media="(max-width: 1024px) and (min-width: 641px)"')
-    response.headers.append('Link', '</images/page-headers/home/optimized/hero-desktop.webp>; rel=preload; as=image; type="image/webp"; media="(min-width: 1025px)"')
-  }
-  
+
   // Add cache headers for static assets
   if (pathname.match(/\.(jpg|jpeg|png|gif|webp|avif|ico|svg)$/i)) {
     response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')

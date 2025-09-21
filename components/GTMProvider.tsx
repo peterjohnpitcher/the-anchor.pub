@@ -9,9 +9,17 @@ interface GTMProviderProps {
   children: React.ReactNode
 }
 
+declare global {
+  interface Window {
+    __gtmInitialized?: boolean
+  }
+}
+
 export function GTMProvider({ gtmId, children }: GTMProviderProps) {
   useEffect(() => {
     if (!gtmId) return
+    if (window.__gtmInitialized) return
+    window.__gtmInitialized = true
 
     // Initialize dataLayer and gtag
     window.dataLayer = window.dataLayer || []
@@ -28,10 +36,6 @@ export function GTMProvider({ gtmId, children }: GTMProviderProps) {
       event: 'gtm.js'
     })
 
-    // Log for debugging
-    console.log('GTM Provider initialized with ID:', gtmId)
-    console.log('DataLayer:', window.dataLayer)
-    
     // Listen for consent updates
     const handleConsentUpdate = () => {
       const consent = getConsentStatus()

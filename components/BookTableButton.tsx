@@ -2,7 +2,7 @@
 
 import { forwardRef, MouseEvent } from 'react'
 import { Button, ButtonProps } from '@/components/ui/primitives/Button'
-import { analytics } from '@/lib/analytics'
+import { trackCtaClick, trackTableBookingClick } from '@/lib/gtm-events'
 import { usePathname } from 'next/navigation'
 
 interface BookTableButtonProps extends Omit<ButtonProps, 'href' | 'onClick'> {
@@ -59,28 +59,26 @@ export const BookTableButton = forwardRef<HTMLButtonElement, BookTableButtonProp
       else if (hour < 17) timeOfDay = 'afternoon'
       else timeOfDay = 'evening'
 
-      // Track the click event
-      analytics.track({
-        action: 'click',
-        category: 'booking',
+      trackCtaClick({
+        id: `book_table_${source}`,
         label: trackingLabel,
-        value: 1
+        location: source,
+        destination: 'book_table',
+        context,
+        variant: variant ?? undefined
       })
 
-      // Also send a specific table_booking_click event for easier filtering
-      if (typeof window !== 'undefined' && 'dataLayer' in window) {
-        (window as any).dataLayer.push({
-          event: 'table_booking_click',
-          booking_source: source,
-          booking_context: context,
-          booking_event: eventName,
-          booking_page: pathname,
-          booking_device: isMobile ? 'mobile' : 'desktop',
-          booking_time_of_day: timeOfDay,
-          booking_day_of_week: new Date().toLocaleDateString('en-US', { weekday: 'long' }),
-          booking_timestamp: new Date().toISOString()
-        })
-      }
+      trackTableBookingClick({
+        source,
+        context,
+        eventName,
+        device: isMobile ? 'mobile' : 'desktop',
+        timeOfDay,
+        dayOfWeek: new Date().toLocaleDateString('en-GB', { weekday: 'long' }),
+        variant: variant ?? undefined,
+        destination: bookingUrl,
+        originPath: pathname
+      })
 
       // Call custom onClick handler if provided
       if (onClickAfterTracking) {

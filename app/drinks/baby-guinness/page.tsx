@@ -1,8 +1,7 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
-import { Container, Section, Card, CardBody, Button, Badge, Alert, SectionHeader } from '@/components/ui'
+import { Section, Card, CardBody, Button, Badge } from '@/components/ui'
 import { BookTableButton } from '@/components/BookTableButton'
 import { DirectionsButton } from '@/components/DirectionsButton'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
@@ -44,9 +43,8 @@ export default function BabyGuinnessPage() {
       />
 
       {/* Main Content */}
-      <Section className="bg-white">
-        <Container>
-          <article className="max-w-4xl mx-auto">
+      <Section background="white" spacing="lg" container containerSize="md">
+        <article className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
               <h1 className="text-3xl md:text-4xl font-bold text-anchor-green mb-6">
                 Baby Guinness Shot at The Anchor - Heathrow Pub & Dining's Favourite Party Starter
@@ -243,13 +241,11 @@ export default function BabyGuinnessPage() {
               </section>
             </div>
           </article>
-        </Container>
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-anchor-green text-white py-16">
-        <Container>
-          <div className="text-center">
+      <Section background="dark" spacing="md" container containerSize="md">
+        <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for a Baby Guinness?</h2>
             <p className="text-xl mb-8">Visit The Anchor today for the perfect shot</p>
             
@@ -273,7 +269,6 @@ export default function BabyGuinnessPage() {
               <p>📞 Call: 01753 682707</p>
             </div>
           </div>
-        </Container>
       </Section>
 
       {/* Recipe Schema */}

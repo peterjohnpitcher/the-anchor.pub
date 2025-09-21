@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
-import { Container } from '@/components/ui/layout/Container'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
-import Link from 'next/link'
 import { PhoneLink } from '@/components/PhoneLink'
 import { EmailLink } from '@/components/EmailLink'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
+import { Section } from '@/components/ui'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy & Cookie Policy | The Anchor',
@@ -25,7 +24,7 @@ export default function PrivacyPolicyPage() {
         size="small"
       />
       
-      <Container className="py-12">
+      <Section spacing="lg" container containerSize="md">
         <div className="max-w-4xl mx-auto">
           <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
             Privacy Policy - The Anchor
@@ -162,7 +161,7 @@ export default function PrivacyPolicyPage() {
           </p>
           </div>
         </div>
-      </Container>
+      </Section>
     </>
   )
 }

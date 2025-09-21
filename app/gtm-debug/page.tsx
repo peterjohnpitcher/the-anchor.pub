@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Section, Button } from '@/components/ui'
 
 export default function GTMDebugPage() {
   const [gtmStatus, setGtmStatus] = useState<{
@@ -16,6 +17,7 @@ export default function GTMDebugPage() {
     dataLayerEvents: [],
     error: null
   })
+  const debugEnabled = process.env.NEXT_PUBLIC_STATUSBAR_DEBUG === 'true'
 
   useEffect(() => {
     const checkGTM = () => {
@@ -42,13 +44,15 @@ export default function GTMDebugPage() {
         const envContainerId = process.env.NEXT_PUBLIC_GTM_ID
         
         // Log for debugging
-        console.log('GTM Debug Check:', {
-          dataLayerExists,
-          dataLayerLength: dataLayerEvents.length,
-          scriptsFound: gtmScripts.length,
-          containerId,
-          envContainerId
-        })
+        if (debugEnabled) {
+          console.debug('[GTMDebug] status', {
+            dataLayerExists,
+            dataLayerLength: dataLayerEvents.length,
+            scriptsFound: gtmScripts.length,
+            containerId,
+            envContainerId
+          })
+        }
         
         setGtmStatus({
           loaded: gtmScripts.length > 0,
@@ -78,7 +82,7 @@ export default function GTMDebugPage() {
       clearTimeout(timer)
       clearInterval(interval)
     }
-  }, [])
+  }, [debugEnabled])
 
   const testDataLayerPush = () => {
     if (typeof window !== 'undefined' && 'dataLayer' in window) {
@@ -100,11 +104,19 @@ export default function GTMDebugPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-8">GTM Debug Page</h1>
-        
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
+    <>
+      <Section spacing="sm" container>
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold text-anchor-green">GTM Debug Page</h1>
+          <p className="text-sm text-gray-600">
+            Inspect Google Tag Manager loading status, dataLayer pushes, and environment configuration. Enable
+            `NEXT_PUBLIC_STATUSBAR_DEBUG` to stream console output while testing.
+          </p>
+        </div>
+      </Section>
+
+      <Section spacing="md" container containerSize="md" className="space-y-6">
+        <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-semibold mb-4">GTM Status</h2>
           
           <div className="space-y-3">
@@ -138,15 +150,12 @@ export default function GTMDebugPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
+        <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-xl font-semibold mb-4">DataLayer Events</h2>
           
-          <button
-            onClick={testDataLayerPush}
-            className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
+          <Button onClick={testDataLayerPush} className="mb-4">
             Push Test Event
-          </button>
+          </Button>
           
           <div className="max-h-96 overflow-y-auto">
             <pre className="text-xs bg-gray-100 p-4 rounded">
@@ -168,7 +177,7 @@ export default function GTMDebugPage() {
             <li>Check if the GTM container is published (not just saved)</li>
           </ol>
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   )
 }

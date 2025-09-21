@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { formatEventDate, formatEventTime, type Event } from '@/lib/api'
-import { EventSchema } from '@/components/EventSchema'
 import { LoadingState } from '@/components/ui/LoadingState'
+import { buildEventSchema } from '@/lib/structured-data/event-schema'
 
 export function NextEvent() {
   const [nextEvent, setNextEvent] = useState<Event | null>(null)
@@ -88,9 +88,14 @@ export function NextEvent() {
   // Link to individual event page
   const link = `/events/${nextEvent.slug || nextEvent.id}`
 
+  const schema = buildEventSchema(nextEvent)
+
   return (
     <>
-      <EventSchema event={nextEvent} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="max-w-3xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
         <div className="bg-anchor-green text-white p-6">

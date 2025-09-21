@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { HeroWrapper } from '@/components/hero'
-import { Button } from '@/components/ui'
+import { Button, Section } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneLink } from '@/components/PhoneLink'
 import { EmailLink } from '@/components/EmailLink'
@@ -102,75 +102,69 @@ export default function SitemapPage() {
       />
 
       {/* Page Title */}
-      <section className="section-spacing bg-white">
-        <div className="container mx-auto px-4">
-          <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
-            Sitemap - The Anchor
-          </PageTitle>
-        </div>
-      </section>
+      <Section spacing="md" container className="bg-white">
+        <PageTitle className="text-center text-anchor-green mb-8" seo={{ structured: true, speakable: true }}>
+          Sitemap - The Anchor
+        </PageTitle>
+      </Section>
 
       {/* Sitemap Links */}
-      <section className="section-spacing bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {sitemapSections.map((section) => (
-                <div key={section.title} className="bg-gray-50 rounded-xl p-6">
-                  <h2 className="text-xl font-bold text-anchor-green mb-4">
-                    {section.title}
-                  </h2>
-                  <ul className="space-y-2">
-                    {section.links.map((link) => (
-                      <li key={link.href}>
-                        {link.note ? (
-                          <span className="text-gray-700">
-                            {link.label} <span className="text-sm">({link.note})</span>
-                          </span>
-                        ) : (
-                          <Link
-                            href={link.href}
-                            className="text-anchor-gold hover:text-anchor-gold-light transition-colors"
-                          >
-                            {link.label}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            {/* Contact Information */}
-            <div className="mt-12 bg-anchor-sand/30 rounded-xl p-8 text-center">
-              <h2 className="text-2xl font-bold text-anchor-green mb-4">
-                Can't Find What You're Looking For?
+      <Section background="gray" spacing="lg" container containerSize="lg">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sitemapSections.map((section) => (
+            <div key={section.title} className="bg-gray-50 rounded-xl p-6">
+              <h2 className="text-xl font-bold text-anchor-green mb-4">
+                {section.title}
               </h2>
-              <p className="text-gray-700 mb-6">
-                Give us a call and we'll be happy to help
-              </p>
-              <div className="flex flex-wrap justify-center gap-6">
-                <PhoneLink 
-                  phone="01753 682707" 
-                  source="sitemap_contact"
-                  className="text-lg font-semibold text-anchor-gold hover:text-anchor-gold-light"
-                  showIcon={false}
-                >
-                  📞 01753 682707
-                </PhoneLink>
-                <span className="text-gray-600">|</span>
-                <EmailLink
-                  email="manager@the-anchor.pub"
-                  source="sitemap_contact"
-                  className="text-lg font-semibold text-anchor-gold hover:text-anchor-gold-light"
-                  showIcon={true}
-                />
-              </div>
+              <ul className="space-y-2">
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    {link.note ? (
+                      <span className="text-gray-700">
+                        {link.label} <span className="text-sm">({link.note})</span>
+                      </span>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-anchor-gold hover:text-anchor-gold-light transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
             </div>
+          ))}
+        </div>
+
+        {/* Contact Information */}
+        <div className="mt-12 bg-anchor-sand/30 rounded-xl p-8 text-center">
+          <h2 className="text-2xl font-bold text-anchor-green mb-4">
+            Can't Find What You're Looking For?
+          </h2>
+          <p className="text-gray-700 mb-6">
+            Give us a call and we'll be happy to help
+          </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <PhoneLink 
+              phone="01753 682707" 
+              source="sitemap_contact"
+              className="text-lg font-semibold text-anchor-gold hover:text-anchor-gold-light"
+              showIcon={false}
+            >
+              📞 01753 682707
+            </PhoneLink>
+            <span className="text-gray-600">|</span>
+            <EmailLink
+              email="manager@the-anchor.pub"
+              source="sitemap_contact"
+              className="text-lg font-semibold text-anchor-gold hover:text-anchor-gold-light"
+              showIcon={true}
+            />
           </div>
         </div>
-      </section>
+      </Section>
     </>
   )
 }

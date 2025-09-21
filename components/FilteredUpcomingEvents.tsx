@@ -1,5 +1,6 @@
 import { getUpcomingEvents, getEventCategories } from '@/lib/api'
 import { FilteredUpcomingEventsClient } from './FilteredUpcomingEventsClient'
+import { EventSchema } from '@/components/EventSchema'
 
 interface FilteredUpcomingEventsProps {
   categorySlug?: string | null
@@ -22,7 +23,14 @@ export async function FilteredUpcomingEvents({ categorySlug }: FilteredUpcomingE
       }
     }
     
-    return <FilteredUpcomingEventsClient events={filteredEvents} categorySlug={categorySlug} />
+    return (
+      <>
+        {filteredEvents.map(event => (
+          <EventSchema key={`event-schema-${event.id}`} event={event} />
+        ))}
+        <FilteredUpcomingEventsClient events={filteredEvents} categorySlug={categorySlug} />
+      </>
+    )
   } catch (error) {
     // Error: Failed to load upcoming events
     

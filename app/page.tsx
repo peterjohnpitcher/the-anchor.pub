@@ -8,7 +8,7 @@ import { Suspense, type CSSProperties } from 'react'
 import { homepageFAQSchema } from '@/lib/enhanced-schemas'
 import { parkingFacilitySchema } from '@/lib/schemas/parking'
 import { LazySection } from '@/components/LazySection'
-import { OptimizedHeroSection } from '@/components/hero/OptimizedHeroSection'
+import { HeroWrapper } from '@/components/hero'
 import { ReviewSection } from '@/components/reviews'
 import { PhoneLinksSection, QuickEnquiryLinks } from '@/components/homepage/PhoneLinksSection'
 import { PhoneLink } from '@/components/PhoneLink'
@@ -85,96 +85,98 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify([homepageFAQSchema, parkingFacilitySchema]) }}
       />
       {/* Custom Hero Section with Seasonal Image */}
-      <OptimizedHeroSection
+      <HeroWrapper
+        route="/"
         size="hero"
-        title={seasonalGreeting}
+        alignment="center"
+        title={
+          <span className="drop-shadow-[0_2px_6px_rgba(0,0,0,0.65)]">
+            {seasonalGreeting}
+          </span>
+        }
+        overlay="gradient"
+        className="hero-focal"
         style={{
-          // CSS variables for responsive focal point
           '--hero-ox': `${focal.x}%`,
           '--hero-oy-mobile': `${focal.yMobile}%`,
-          '--hero-oy-desktop': `${focal.yDesktop}%`,
+          '--hero-oy-desktop': `${focal.yDesktop}%`
         } as CSSProperties}
-        className="hero-focal"
         image={{
           src: seasonalImage.src,
           alt: seasonalAltText,
           priority: true,
-          objectPosition: undefined, // Using CSS vars now
           fallbackSrc: seasonalImage.fallback,
           blurDataURL: "data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAGAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQF/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAAwQRIf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAZEQACAwEAAAAAAAAAAAAAAAACAwABMQT/2gAMAwEAAhEDEQA/ANOxLaMjPcVcr70CTruylQTmPeREIvZWFCfOotGp/9k="
-          // Don't use optimized paths for seasonal images since they don't exist yet
         }}
-      >
-        {/* Logo with drop shadow */}
-        <div className="mb-6 sm:mb-8">
-          <Image
-            src="/images/branding/the-anchor-pub-logo-white-transparent.png"
-            alt="The Anchor logo - elegant anchor symbol with traditional British pub typography in white"
-            width={320}
-            height={320}
-            sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
-            className="mx-auto w-48 sm:w-64 lg:w-80 h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
-            priority
-            quality={85}
-            placeholder="blur"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzAwNTEzMSIvPjwvc3ZnPg=="
-          />
-        </div>
-        
-        {/* Welcome message with wave */}
-        <p className="text-lg md:text-xl text-white mb-4 font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-          Your local pub <span className="inline-block motion-safe:wave">👋</span>
-        </p>
-        
-        <p className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-          Where Everyone&apos;s Welcome
-        </p>
-        
-        <div className="mb-4 flex justify-center px-2 sm:px-0">
-          <StatusBar
-            variant="hero"
-            className="self-center"
-          />
-        </div>
+        lead={
+          <div className="flex flex-col items-center gap-4">
+            <Image
+              src="/images/branding/the-anchor-pub-logo-white-transparent.png"
+              alt="The Anchor logo - elegant anchor symbol with traditional British pub typography in white"
+              width={320}
+              height={320}
+              sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
+              className="mx-auto w-48 sm:w-64 lg:w-80 h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
+              priority
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzAwNTEzMSIvPjwvc3ZnPg=="
+            />
 
-        <div className="mb-6 flex justify-center px-2 sm:px-0">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm backdrop-blur-sm">
-            ⭐ Highest-rated non-airport pub in the Heathrow area
-          </span>
-        </div>
+            <p className="text-2xl sm:text-3xl text-white font-serif drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              Where Everyone&apos;s Welcome
+            </p>
 
-        {/* Feature tags */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 px-2 sm:px-0">
-          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🚗 Free Parking</span>
-          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🐕 Dog Friendly</span>
-          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">👨‍👩‍👧‍👦 Family Welcome</span>
-          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">♿ Step-Free Access</span>
-          <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">✈️ 7 mins from Heathrow</span>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0 max-w-md mx-auto">
-          <BookTableButton
-            source="homepage_hero"
-            variant="primary"
-            size="lg"
-            fullWidth
-            className="flex-1"
-          />
-          
-          <Link
-            href="/food-menu"
-            className="flex-1"
-          >
-            <Button 
-              variant="secondary"
+            <p className="text-lg md:text-xl text-white font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              Your local pub <span className="inline-block motion-safe:wave">👋</span>
+            </p>
+
+            <div className="flex justify-center px-2 sm:px-0 w-full">
+              <StatusBar
+                variant="hero"
+                className="self-center"
+              />
+            </div>
+
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm backdrop-blur-sm">
+              ⭐ Highest-rated non-airport pub in the Heathrow area
+            </span>
+          </div>
+        }
+        tags={[
+          { label: 'Free Parking', icon: '🚗', size: 'small', className: 'bg-white/15 text-white backdrop-blur-sm border border-white/10' },
+          { label: 'Dog Friendly', icon: '🐕', size: 'small', className: 'bg-white/15 text-white backdrop-blur-sm border border-white/10' },
+          { label: 'Family Welcome', icon: '👨‍👩‍👧‍👦', size: 'small', className: 'bg-white/15 text-white backdrop-blur-sm border border-white/10' },
+          { label: 'Step-Free Access', icon: '♿', size: 'small', className: 'bg-white/15 text-white backdrop-blur-sm border border-white/10' },
+          { label: '7 mins from Heathrow', icon: '✈️', size: 'small', className: 'bg-white/15 text-white backdrop-blur-sm border border-white/10' }
+        ]}
+        cta={
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0 max-w-md mx-auto">
+            <BookTableButton
+              source="homepage_hero"
+              variant="primary"
               size="lg"
               fullWidth
+              className="flex-1"
+            />
+
+            <Link
+              href="/food-menu"
+              className="flex-1"
             >
-              🍽️ View Menu
-            </Button>
-          </Link>
-        </div>
-      </OptimizedHeroSection>
+              <Button 
+                variant="secondary"
+                size="lg"
+                fullWidth
+              >
+                🍽️ View Menu
+              </Button>
+            </Link>
+          </div>
+        }
+        showStatusBar={false}
+        showBreadcrumbs={false}
+      />
 
       {/* Main Page Title for SEO */}
       <div className="bg-white pt-12 pb-8">
