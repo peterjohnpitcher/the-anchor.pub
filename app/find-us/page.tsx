@@ -71,7 +71,8 @@ export default function FindUsPage() {
         size="small"
         showStatusBar={true}
         tags={[
-          { label: "📍 Centre of Stanwell Moor village", variant: "default" },
+          { label: "🏡 Independent village pub minutes from Heathrow", variant: "default" },
+          { label: "✈️ Horton Road plane-spotting area", variant: "primary" },
           { label: "🚗 Free Parking", variant: "success" }
         ]}
         cta={

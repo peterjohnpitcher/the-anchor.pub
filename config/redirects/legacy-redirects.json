@@ -1,10 +1,5 @@
 [
   {
-    "source": "/post/:slug",
-    "destination": "/blog/:slug",
-    "permanent": true
-  },
-  {
     "source": "/event-details/:slug",
     "destination": "/whats-on",
     "permanent": true

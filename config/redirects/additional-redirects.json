@@ -5,7 +5,142 @@
     "permanent": true
   },
   {
+    "source": "/contact",
+    "destination": "/find-us",
+    "permanent": true
+  },
+  {
+    "source": "/event-",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/events/private-parties",
+    "destination": "/private-party-venue",
+    "permanent": true
+  },
+  {
+    "source": "/events/corporate-events",
+    "destination": "/corporate-events",
+    "permanent": true
+  },
+  {
+    "source": "/events/pizza-tuesday",
+    "destination": "/pizza-tuesday",
+    "permanent": true
+  },
+  {
+    "source": "/favicon.ico",
+    "destination": "/favicon.png",
+    "permanent": true
+  },
+  {
     "source": "/blog/hashtags/:tag",
+    "destination": "/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/live-music",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/LiveMusic",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/FamilyFriendly",
+    "destination": "/blog/tag/family-friendly",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/FamilyFirst",
+    "destination": "/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/NYEParty",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/CommunitySpirit",
+    "destination": "/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/LiveDJ",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/FreeEntry",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/BurgersAndBeats",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/NewYearsEve",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/GreatSpiritsGreatValue",
+    "destination": "/drinks/managers-special",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/VillageNewYear",
+    "destination": "/whats-on",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/DoubleUpOffer",
+    "destination": "/drinks/managers-special",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/TheAnchorCelebration",
+    "destination": "/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/GinEnthusiasts",
+    "destination": "/drinks",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/lovelocal",
+    "destination": "/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/supportlocal",
+    "destination": "/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/TheAnchorCommunity",
+    "destination": "/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/ChildrensMentalHealthWeek",
+    "destination": "/blog/childrens-mental-health-week",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/InspireInclusion",
+    "destination": "/blog",
+    "permanent": true
+  },
+  {
+    "source": "/blog/tag/StayLocal",
     "destination": "/blog",
     "permanent": true
   },

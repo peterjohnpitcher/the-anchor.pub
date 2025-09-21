@@ -130,13 +130,19 @@ export default function HomePage() {
           Where Everyone&apos;s Welcome
         </p>
         
-        <div className="mb-8 flex justify-center px-2 sm:px-0">
+        <div className="mb-4 flex justify-center px-2 sm:px-0">
           <StatusBar
             variant="hero"
             className="self-center"
           />
         </div>
-        
+
+        <div className="mb-6 flex justify-center px-2 sm:px-0">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-sm backdrop-blur-sm">
+            ⭐ Highest-rated non-airport pub in the Heathrow area
+          </span>
+        </div>
+
         {/* Feature tags */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 px-2 sm:px-0">
           <span className="tag bg-white/90 backdrop-blur-sm text-xs sm:text-sm">🚗 Free Parking</span>
@@ -184,9 +190,11 @@ export default function HomePage() {
           </p>
           
           {/* Trust Signals */}
-          <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm text-gray-600">
-            <span className="flex items-center gap-1">⭐ 5-Star Food Hygiene Rating Since 2019</span>
-            <span className="flex items-center gap-1">✈️ Directly Under Heathrow Flight Path</span>
+        <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm text-gray-600">
+            <span className="flex items-center gap-1">⭐ Highest-rated non-airport pub near Heathrow (Google 4.6/5, 21 Sept 2025)</span>
+            <span className="flex items-center gap-1">💷 Pub classics £10–£20 – fair village prices near Heathrow</span>
+            <span className="flex items-center gap-1">🏡 Independent village pub minutes from Heathrow – no terminal access needed</span>
+            <span className="flex items-center gap-1">✈️ Horton Road plane-spotting area – fuel up before or after your flight</span>
             <span className="flex items-center gap-1">🚗 20 FREE Parking Spaces</span>
             <span className="flex items-center gap-1">📍 Outside ULEZ Zone - Save £12.50 Daily</span>
           </div>
