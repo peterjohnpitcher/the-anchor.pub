@@ -57,15 +57,6 @@ export const localBusinessSchema = {
   "telephone": "+441753682707",
   "priceRange": "££",
   "servesCuisine": ["British", "Pizza", "Pub Food"],
-  // TODO: Replace with dynamic data from Google Reviews
-  // For now, using placeholder values
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.6",
-    "reviewCount": "312",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",

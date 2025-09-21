@@ -50,13 +50,6 @@ export async function getEnhancedSchemas() {
     "telephone": "+441753682707",
     "priceRange": "££",
     "servesCuisine": ["British", "Pizza", "Pub Food"],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": rating.toString(),
-      "reviewCount": reviewCount.toString(),
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
