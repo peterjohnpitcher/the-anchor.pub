@@ -21,6 +21,7 @@ import { formatTime12Hour } from '@/lib/time-utils'
 import { isKitchenOpen, BusinessHours } from '@/lib/api'
 import { generateSuitableForDiet, generateNutritionInfo, generateMenuItemOffer } from '@/lib/schema-utils'
 import { specialAnnouncementSchema } from '@/lib/schema'
+import { DEFAULT_PIZZA_IMAGE } from '@/lib/image-fallbacks'
 
 // Helper function to build kitchen schedule string from business hours
 function buildKitchenSchedule(hours: BusinessHours): string {
@@ -131,12 +132,16 @@ export default async function FoodMenuPage() {
       "@type": "Product",
       "name": "Stone-Baked Pizzas",
       "category": "Pizza",
+      "description": "Stone-baked pizzas with hand-stretched dough, rich tomato sauce and generous toppings available at The Anchor near Heathrow.",
+      "image": `https://www.the-anchor.pub${DEFAULT_PIZZA_IMAGE}`,
       "offers": {
         "@type": "Offer",
         "name": "Tuesday Pizza BOGOF",
         "description": "Buy one get one free on all pizzas every Tuesday",
         "price": "9.99",
-        "priceCurrency": "GBP"
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.the-anchor.pub/food-menu#pizza"
       }
     },
     "seller": {
