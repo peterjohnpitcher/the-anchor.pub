@@ -499,7 +499,7 @@ export default function Terminal3Page() {
         links={[
           { href: '/pizza-tuesday', title: 'Tuesday Pizza Deal', description: '2-for-1 stone-baked pizzas for crew and families' },
           { href: '/food-menu', title: 'Full Food Menu', description: 'Pub classics and Sunday roast pre-orders' },
-          { href: '/drinks/jagerbomb', title: 'Jagerbomb Shots', description: 'Energy boost before red-eye flights' },
+          { href: '/drinks', title: 'Drinks Menu', description: 'Energy boost before red-eye flights' },
           { href: '/near-heathrow/terminal-4', title: 'Terminal 4 Guide', description: 'Travel tips for other Heathrow terminals' }
         ]}
         className="section-spacing-md"

@@ -427,7 +427,7 @@ export default function StainesPubPage() {
           { href: '/food-menu', title: 'Food Menu', description: 'See Sunday roasts, burgers and pizza deals' },
           { href: '/whats-on', title: "What's On", description: 'Check drag shows, quiz nights and live sport' },
           { href: '/book-event', title: 'Book a Celebration', description: 'Host birthdays, wakes and anniversaries' },
-          { href: '/drinks/aperol', title: 'Aperol Spritz', description: 'Perfect garden cocktail before strolling along the Thames' }
+          { href: '/drinks', title: 'Drinks Menu', description: 'Perfect garden cocktail before strolling along the Thames' }
         ]}
         className="section-spacing-md"
       />
