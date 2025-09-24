@@ -12,17 +12,17 @@ import { parkingFacilitySchema } from '@/lib/schemas/parking'
 import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Airport | The Anchor - Heathrow Pub & Dining',
-  description: 'The closest traditional British pub to Heathrow Airport. Just 7 mins from Terminal 5. Free parking, great food & a warm welcome for travelers.',
-  keywords: 'pub near heathrow, heathrow airport pub, pub near terminal 5, closest pub to heathrow, heathrow restaurant',
+  title: 'Pub Near Heathrow Airport - Free Parking & British Food | The Anchor',
+  description: 'Plan your visit to The Anchor, the closest village pub to Heathrow Airport. 7 minutes from Terminal 5 with free parking, local ales and home-cooked food.',
+  keywords: 'pub near heathrow airport, closest pub to terminal 5, heathrow village pub with parking, british pub near airport hotels',
   openGraph: {
-    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Heathrow Airport',
-    description: 'Just 7 minutes from Heathrow Terminal 5. Perfect for pre-flight meals or meeting arriving passengers.',
+    title: 'Pub Near Heathrow Airport - The Anchor Stanwell Moor',
+    description: '7 minutes from Heathrow Terminal 5 with free parking, British pub food and real ales.',
     images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Heathrow Airport',
-    description: 'Just 7 minutes from Heathrow Terminal 5. Perfect for pre-flight meals or meeting arriving passengers.',
+    title: 'Pub Near Heathrow Airport - The Anchor Stanwell Moor',
+    description: '7 minutes from Heathrow Terminal 5 with free parking, British pub food and real ales.',
     images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   })
 }

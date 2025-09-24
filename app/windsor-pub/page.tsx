@@ -12,18 +12,18 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Traditional Windsor Pub | The Anchor - Heathrow Pub & Dining',
-  description: `${BRAND.name} - traditional Surrey pub 15 mins from Windsor Castle. Outside ULEZ with free parking. Sunday roasts, quiz nights in Surrey countryside. Easy M4 access.`,
-  keywords: 'windsor pub, pub near windsor surrey, windsor berkshire pub, surrey pubs close to windsor, british pub windsor, traditional surrey pub near windsor castle',
+  title: `Windsor Pub Alternative - Free Parking & Sunday Roast | ${BRAND.name}`,
+  description: `${BRAND.name} is 15 minutes from Windsor Castle with free parking, Sunday roasts, pizza deals and countryside atmosphere outside the ULEZ zone.`,
+  keywords: 'windsor pub alternative, sunday roast near windsor, free parking pub windsor, pub near windsor castle with parking, surrey village pub near windsor',
   openGraph: {
-    title: 'The Anchor - Traditional Pub Near Windsor',
-    description: 'Just 15 minutes from Windsor with free parking. Sunday roasts, British classics, and regular entertainment.',
+    title: 'Windsor Pub Alternative - The Anchor Stanwell Moor',
+    description: '15 minutes from Windsor with free parking, Sunday roast, pizza deals and countryside atmosphere.',
     images: [DEFAULT_PAGE_HEADER_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Traditional Pub Near Windsor',
-    description: 'Just 15 minutes from Windsor with free parking. Sunday roasts, British classics, and regular entertainment.',
+    title: 'Windsor Pub Alternative - The Anchor Stanwell Moor',
+    description: '15 minutes from Windsor with free parking, Sunday roast, pizza deals and countryside atmosphere.',
     images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }

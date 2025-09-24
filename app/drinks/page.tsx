@@ -19,17 +19,17 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { DEFAULT_DRINKS_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Drinks Menu | Real Ales & Premium Spirits | The Anchor - Heathrow Pub & Dining',
-  description: '🍺 FULL DRINKS MENU! Draught beers, premium spirits, cocktails, extensive wine list. Pint costs what a pint should cost - much cheaper than airport bars!',
-  keywords: 'drinks menu stanwell moor, real ales, cocktails heathrow, wine list, premium spirits, draught beer',
+  title: 'Heathrow Pub Drinks Menu - Real Ale, Cocktails & Wine | The Anchor',
+  description: 'Explore The Anchor drinks menu near Heathrow: cask ales, draught lagers, premium spirits, cocktails and wines. Fair pub prices, free parking, warm local welcome.',
+  keywords: 'heathrow pub drinks menu, real ale near terminal 5, cocktails stanwell moor, wine bar near heathrow, affordable pub drinks tw19',
   openGraph: {
-    title: '🍺 Drinks Menu | Real Ales & Premium Spirits',
-    description: 'Full drinks selection. Pint costs what a pint should cost - half the price of airport bars!',
+    title: 'Heathrow Pub Drinks Menu - Real Ale, Cocktails & Wine',
+    description: 'See The Anchor drinks list: cask ales, draught beer, cocktails and wine at fair pub prices near Heathrow.',
     images: [DEFAULT_DRINKS_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: '🍺 Drinks Menu | Real Ales & Premium Spirits',
-    description: 'Full drinks selection. Pint costs what a pint should cost - half the price of airport bars!',
+    title: 'Heathrow Pub Drinks Menu - Real Ale, Cocktails & Wine',
+    description: 'See The Anchor drinks list: cask ales, draught beer, cocktails and wine at fair pub prices near Heathrow.',
     images: [DEFAULT_DRINKS_IMAGE]
   })
 }

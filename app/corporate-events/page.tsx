@@ -13,17 +13,17 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_CORPORATE_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Corporate Events Near Heathrow | The Anchor',
-  description: 'Professional corporate venue 7 mins from Heathrow. Meeting rooms, team building space, free parking. Perfect for business events & conferences.',
-  keywords: 'corporate venue near heathrow, meeting room heathrow, conference venue surrey, team building venue near heathrow, business meeting room staines, corporate events stanwell moor',
+  title: 'Heathrow Corporate Event Venue - Meeting Rooms with Parking | The Anchor',
+  description: 'Host corporate events minutes from Heathrow. The Anchor offers private meeting rooms, breakout space, AV support and free parking 7 minutes from Terminal 5.',
+  keywords: 'heathrow corporate event venue, meeting rooms near terminal 5, business event space stanwell moor, corporate hospitality near heathrow, venue with parking for meetings',
   openGraph: {
-    title: 'Corporate Events & Meeting Rooms - The Anchor',
-    description: 'Professional venue for business events near Heathrow. Free parking, flexible spaces, experienced team.',
+    title: 'Heathrow Corporate Event Venue - The Anchor Stanwell Moor',
+    description: 'Private meeting rooms, AV support and free parking 7 minutes from Heathrow Terminal 5.',
     images: [DEFAULT_CORPORATE_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'Corporate Events & Meeting Rooms - The Anchor',
-    description: 'Professional venue for business events near Heathrow. Free parking, flexible spaces, experienced team.',
+    title: 'Heathrow Corporate Event Venue - The Anchor Stanwell Moor',
+    description: 'Private meeting rooms, AV support and free parking 7 minutes from Heathrow Terminal 5.',
     images: [DEFAULT_CORPORATE_IMAGE]
   })
 }

@@ -16,24 +16,32 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PARKING } from '@/lib/constants'
 import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
+import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+import { InternalLinkingSection } from '@/components/seo/InternalLinkingSection'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Terminal 3 | The Anchor - Heathrow Pub & Dining',
-  description: 'Escape Terminal 3 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 11 mins from T3 hotels.',
-  keywords: 'pub near terminal 3, heathrow terminal 3 restaurant, closest pub to T3, virgin atlantic terminal pub, emirates terminal restaurant, local pub near terminal 3 hotels',
+  title: 'Pub Near Heathrow Terminal 3 - 11 Minute Taxi | The Anchor',
+  description: 'Choose The Anchor near Heathrow Terminal 3 for real British pub food, free parking and family-friendly atmosphere. 11 minute taxi from Virgin Atlantic and Emirates arrivals.',
+  keywords: 'pub near heathrow terminal 3, virgin atlantic crew pub, emirates terminal 3 restaurant alternative, family pub near heathrow hotels, taxi from terminal 3 to pub',
   openGraph: {
-    title: 'The Anchor - Local Pub Near Terminal 3 Hotels',
-    description: 'Escape hotel dining! Family pub 11 mins from T3. Real atmosphere.',
+    title: 'Pub Near Heathrow Terminal 3 - Free Parking & British Food',
+    description: 'The Anchor offers an authentic pub alternative to Terminal 3 hotels with free parking and traditional British dishes.',
     images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Local Pub Near Terminal 3 Hotels',
-    description: 'Escape hotel dining! Family pub 11 mins from T3. Real atmosphere.',
+    title: 'Pub Near Heathrow Terminal 3 - Free Parking & British Food',
+    description: 'The Anchor offers an authentic pub alternative to Terminal 3 hotels with free parking and traditional British dishes.',
     images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   })
 }
 
 export default function Terminal3Page() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Near Heathrow', url: '/near-heathrow' },
+    { name: 'Terminal 3', url: '/near-heathrow/terminal-3' }
+  ])
+
   return (
     <>
       
@@ -69,6 +77,36 @@ export default function Terminal3Page() {
           </div>
         }
       />
+
+      {/* Quick Summary */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-anchor-cream/40 border border-anchor-cream rounded-2xl p-6">
+            <h2 className="text-2xl font-bold text-anchor-green mb-3">Key Info For Terminal 3 Travellers</h2>
+            <p className="text-gray-700 mb-4">
+              Swap Terminal 3 hotel dining for a proper village pub. Friendly staff, fair prices and space for luggage make The Anchor ideal for Virgin Atlantic and Emirates passengers.
+            </p>
+            <div className="grid gap-3 md:grid-cols-2 text-gray-700">
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">⏱️</span>
+                <span>11 minute taxi or Uber (£20-25) via Tunnel Road</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🅿️</span>
+                <span>Free parking for meet-ups, luggage swaps and family meals</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">👨‍👩‍👧‍👦</span>
+                <span>Family-friendly seating with children\'s menu and high chairs</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">📞</span>
+                <span>Phone 01753 682707 to reserve ahead of peak travel times</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Page Title */}
       <section className="section-spacing bg-white">
@@ -456,6 +494,17 @@ export default function Terminal3Page() {
         </div>
       </section>
 
+      <InternalLinkingSection
+        title="Make The Most Of Your Heathrow Stop"
+        links={[
+          { href: '/pizza-tuesday', title: 'Tuesday Pizza Deal', description: '2-for-1 stone-baked pizzas for crew and families' },
+          { href: '/food-menu', title: 'Full Food Menu', description: 'Pub classics and Sunday roast pre-orders' },
+          { href: '/drinks/jagerbomb', title: 'Jagerbomb Shots', description: 'Energy boost before red-eye flights' },
+          { href: '/near-heathrow/terminal-4', title: 'Terminal 4 Guide', description: 'Travel tips for other Heathrow terminals' }
+        ]}
+        className="section-spacing-md"
+      />
+
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
         faqs={[
@@ -528,35 +577,38 @@ export default function Terminal3Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Restaurant",
-            "name": "The Anchor - Pub Near Heathrow Terminal 3",
-            "description": "Family-friendly British pub just 11 minutes from Heathrow Terminal 3 with free parking.",
-            "image": "https://www.the-anchor.pub/images/page-headers/near-heathrow/Heathrow.jpg",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Horton Road",
-              "addressLocality": "Stanwell Moor",
-              "addressRegion": "Surrey",
-              "postalCode": "TW19 6AQ",
-              "addressCountry": "GB"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 51.4745,
-              "longitude": -0.4713
-            },
-            "url": "https://www.the-anchor.pub/near-heathrow/terminal-3",
-            "telephone": "+441753682707",
-            "priceRange": "££",
-            "servesCuisine": ["British", "Pub Food"],
-            "nearbyLocation": {
-              "@type": "Airport",
-              "name": "Heathrow Terminal 3",
-              "iataCode": "LHR"
+          __html: JSON.stringify([
+            breadcrumbSchema,
+            {
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              "name": "The Anchor - Pub Near Heathrow Terminal 3",
+              "description": "Family-friendly British pub just 11 minutes from Heathrow Terminal 3 with free parking.",
+              "image": "https://www.the-anchor.pub/images/page-headers/near-heathrow/Heathrow.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Horton Road",
+                "addressLocality": "Stanwell Moor",
+                "addressRegion": "Surrey",
+                "postalCode": "TW19 6AQ",
+                "addressCountry": "GB"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.4745,
+                "longitude": -0.4713
+              },
+              "url": "https://www.the-anchor.pub/near-heathrow/terminal-3",
+              "telephone": "+441753682707",
+              "priceRange": "££",
+              "servesCuisine": ["British", "Pub Food"],
+              "nearbyLocation": {
+                "@type": "Airport",
+                "name": "Heathrow Terminal 3",
+                "iataCode": "LHR"
+              }
             }
-          })
+          ])
         }}
       />
     </>

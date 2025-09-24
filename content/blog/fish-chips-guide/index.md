@@ -1,7 +1,7 @@
 ---
-title: "Best Fish & Chips Near Heathrow | Traditional British Chip Shop at The Anchor"
+title: "Best Fish and Chips Near Heathrow | The Anchor Pub Guide"
 slug: fish-chips-guide
-description: "Experience authentic British fish and chips at The Anchor pub near Heathrow Airport. Traditional chip shop menu, quality food, local prices. Best fish & chips in Staines, Stanwell Moor. Skip expensive Heathrow dining for proper British pub grub. Chip Shop Fridays special offers."
+description: "Discover the best fish and chips near Heathrow at The Anchor. Fresh North Atlantic cod, hand-cut chips, free parking and Chip Shop Friday deals minutes from Terminal 5."
 date: "2025-01-26"
 oldUrl: "https://www.the-anchor.pub/post/the-ultimate-guide-to-the-british-chip-shop-experi"
 author: "Billy"
@@ -29,6 +29,20 @@ images:
 ![A plate of fish and chips with peas and tartar sauce, promoting "Chip Shop Fridays" at The Anchor.](/content/blog/fish-chips-guide/hero.jpg)
 
 Looking for authentic **fish and chips near Heathrow**? The Anchor in Stanwell Moor serves traditional British chip shop favourites with **quality food** at local prices. Just 7 minutes from Terminal 5, skip the expensive **Heathrow food** and enjoy proper British comfort food at our **traditional pub**.
+
+## Quick Summary
+
+- Fresh North Atlantic cod, hand-cut chips and homemade mushy peas every Friday and weekend service
+- Chip Shop Fridays bundle with drink, plus gluten free batter options on request
+- Free parking, seven minute taxi from Heathrow and easy access from Staines High Street
+- Book ahead for larger groups or pre-order takeaway for hotel rooms and flights
+
+### Related Links
+
+- [Full food menu](/food-menu) for burgers, roasts and desserts
+- [Tuesday pizza deals](/pizza-tuesday) if your group wants a mix of dishes
+- [Drinks menu](/drinks) featuring cask ales and British ciders
+- [Directions and parking guide](/find-us) before you visit
 
 ## What Makes The Anchor's Chip Shop Experience Special
 
@@ -167,6 +181,17 @@ Don't miss out on the best **fish and chips near Heathrow Airport**:
 - Phone ahead for collection
 - Ready in 15-20 minutes
 - Special packaging keeps food crispy
+
+## Fish & Chips FAQs
+
+**When are fish and chips available?**  
+Chip Shop Fridays run 12pm-10pm, with generous portions also available on Saturday and Sunday while stocks last.
+
+**Can I pre-order for takeaway?**  
+Yes. Call 01753 682707 and we will time your order for collection so it stays crisp for the journey.
+
+**Do you offer gluten free batter?**  
+We can prepare gluten free fish and chips with 24 hours notice so we can dedicate a fryer and avoid cross-contamination.
 
 ## Reviews from Our Chip Shop Fans
 

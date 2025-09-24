@@ -12,18 +12,18 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: `Stanwell Pub Near Me | ${BRAND.name} - Your Local Surrey Village Pub`,
-  description: `${BRAND.name} - Stanwell's traditional Surrey village pub. Family-friendly local in Surrey with Sunday roasts, pizza deals, quiz nights & free parking.`,
-  keywords: 'stanwell pub, pub in stanwell surrey, stanwell moor pub, stanwell village pub surrey, local pub stanwell, traditional surrey pub stanwell',
+  title: `Stanwell Village Pub - Sunday Roasts & Events | ${BRAND.name}`,
+  description: `${BRAND.name} is Stanwell's village pub with Sunday roasts, 2-for-1 pizza Tuesdays, quiz nights and free parking just minutes from Heathrow.`,
+  keywords: 'stanwell village pub, sunday roast stanwell moor, quiz night stanwell, pizza deals stanwell, local pub near heathrow',
   openGraph: {
-    title: 'The Anchor - Stanwell Village Pub',
-    description: 'Your local traditional British pub in Stanwell Moor. Sunday roasts, quiz nights, and community events.',
+    title: 'Stanwell Village Pub - The Anchor Stanwell Moor',
+    description: 'Enjoy Sunday roasts, pizza deals and local events at The Anchor, Stanwell Moor\'s village pub near Heathrow.',
     images: [DEFAULT_PAGE_HEADER_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Stanwell Village Pub',
-    description: 'Your local traditional British pub in Stanwell Moor. Sunday roasts, quiz nights, and community events.',
+    title: 'Stanwell Village Pub - The Anchor Stanwell Moor',
+    description: 'Enjoy Sunday roasts, pizza deals and local events at The Anchor, Stanwell Moor\'s village pub near Heathrow.',
     images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }

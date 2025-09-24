@@ -21,17 +21,17 @@ import { parkingFacilitySchema } from '@/lib/schemas/parking'
 import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Directions & Parking | The Anchor - Heathrow Pub & Dining',
-  description: 'Find The Anchor in Stanwell Moor, Surrey. Easy directions from Heathrow, M25, Staines, and local areas. Free parking available on Horton Road.',
-  keywords: 'anchor pub directions, find anchor stanwell moor, pub near me directions, free parking pub',
+  title: 'Find The Anchor Pub - Directions & Free Parking Near Heathrow',
+  description: 'Get directions to The Anchor pub near Heathrow Airport. Horton Road location with free parking, easy access from M25, Staines, Ashford and airport terminals.',
+  keywords: 'find the anchor pub, directions to the anchor heathrow, pub with free parking stanwell moor, horton road pub location',
   openGraph: {
-    title: 'Find The Anchor - Directions & Location',
-    description: 'Easy to find pub in Stanwell Moor with free parking. Just 7 minutes from Heathrow.',
+    title: 'Find The Anchor Pub Near Heathrow',
+    description: 'Directions and free parking details for The Anchor on Horton Road, Stanwell Moor near Heathrow Airport.',
     images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'Find The Anchor - Directions & Location',
-    description: 'Easy to find pub in Stanwell Moor with free parking. Just 7 minutes from Heathrow.',
+    title: 'Find The Anchor Pub Near Heathrow',
+    description: 'Directions and free parking details for The Anchor on Horton Road, Stanwell Moor near Heathrow Airport.',
     images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }

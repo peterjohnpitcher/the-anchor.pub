@@ -1,11 +1,10 @@
 ---
-title: Stanwell Moor Village Guide Near Heathrow | Local Businesses & Pubs
+title: Stanwell Moor Village Guide Near Heathrow | Local Pub & Business Map
 slug: stanwell-moor-village
 description: >-
-  Discover Stanwell Moor village near Heathrow Airport. Complete guide to local
-  businesses including The Anchor pub, shops, restaurants, and services. Just 7
-  minutes from Terminal 5, perfect community for airport workers and families.
-  Support local businesses in our charming village.
+  Discover Stanwell Moor village near Heathrow Airport. Explore The Anchor pub,
+  local shops, services and community highlights just seven minutes from
+  Terminal 5.
 date: '2021-12-19'
 oldUrl: >-
   https://www.the-anchor.pub/post/what-makes-stanwell-moor-a-lovely-little-village

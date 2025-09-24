@@ -15,27 +15,34 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PARKING } from '@/lib/constants'
 import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
+import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+import { InternalLinkingSection } from '@/components/seo/InternalLinkingSection'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Terminal 4 | The Anchor - Heathrow Pub & Dining',
-  description: 'Escape Terminal 4 hotel dining for authentic British pub experience. The Anchor offers local atmosphere, traditional food & ales just 12 mins from T4 hotels.',
-  keywords: 'pub near terminal 4, heathrow terminal 4 restaurant, closest pub to T4, skyteam terminal pub, terminal 4 dining, local pub near terminal 4 hotels',
+  title: 'Pub Near Heathrow Terminal 4 - 12 Minute Taxi | The Anchor',
+  description: 'Swap Terminal 4 hotel dining for The Anchor: local pub food, free parking and SkyTeam-friendly hospitality just 12 minutes from the terminal.',
+  keywords: 'pub near heathrow terminal 4, skyteam crew pub, hilton t4 restaurant alternative, free parking near terminal 4, taxi from terminal 4 to pub',
   openGraph: {
-    title: 'The Anchor - Local Pub Near Terminal 4 Hotels',
-    description: 'Escape hotel dining! Family pub 12 mins from T4. Real atmosphere.',
+    title: 'Pub Near Heathrow Terminal 4 - Free Parking & British Food',
+    description: 'The Anchor is the closest village pub to Heathrow Terminal 4 with free parking, British dishes and real ales.',
     images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Local Pub Near Terminal 4 Hotels',
-    description: 'Escape hotel dining! Family pub 12 mins from T4. Real atmosphere.',
+    title: 'Pub Near Heathrow Terminal 4 - Free Parking & British Food',
+    description: 'The Anchor is the closest village pub to Heathrow Terminal 4 with free parking, British dishes and real ales.',
     images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   })
 }
 
 export default function Terminal4Page() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Near Heathrow', url: '/near-heathrow' },
+    { name: 'Terminal 4', url: '/near-heathrow/terminal-4' }
+  ])
+
   return (
     <>
-      
       {/* Hero Section */}
       <HeroWrapper
         route="/near-heathrow/terminal-4"
@@ -68,6 +75,36 @@ export default function Terminal4Page() {
           </div>
         }
       />
+
+      {/* Quick Summary */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-anchor-cream/40 border border-anchor-cream rounded-2xl p-6">
+            <h2 className="text-2xl font-bold text-anchor-green mb-3">Snapshot For Terminal 4 Guests</h2>
+            <p className="text-gray-700 mb-4">
+              Staying around T4 or flying SkyTeam? The Anchor brings warm Surrey village hospitality within a 12 minute taxi ride.
+            </p>
+            <div className="grid gap-3 md:grid-cols-2 text-gray-700">
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">⏱️</span>
+                <span>12 minute taxi or Uber (£22-27) from Terminal 4 departures</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🅿️</span>
+                <span>Free customer parking, outside the ULEZ zone</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🍹</span>
+                <span>Cocktails, cask ales and Aperol spritz for relaxed evenings</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">📞</span>
+                <span>Reserve on 01753 682707 for large crews or family gatherings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Page Title */}
       <section className="section-spacing bg-white">
@@ -457,6 +494,17 @@ export default function Terminal4Page() {
         </div>
       </section>
 
+      <InternalLinkingSection
+        title="More Ways To Enjoy Your Stopover"
+        links={[
+          { href: '/find-us', title: 'Directions & Parking', description: 'Step-by-step travel guide from every terminal' },
+          { href: '/drinks/aperol', title: 'Aperol Spritz', description: 'Order sunshine-ready cocktails in the beer garden' },
+          { href: '/private-party-venue', title: 'Private Party Venue', description: 'Book celebrations for SkyTeam crew or family events' },
+          { href: '/near-heathrow/terminal-2', title: 'Terminal 2 Guide', description: 'See our tips for other Heathrow terminals' }
+        ]}
+        className="section-spacing-md"
+      />
+
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
         faqs={[
@@ -529,35 +577,38 @@ export default function Terminal4Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Restaurant",
-            "name": "The Anchor - Pub Near Heathrow Terminal 4",
-            "description": "Traditional British pub just 12 minutes from Heathrow Terminal 4 with free parking.",
-            "image": "https://www.the-anchor.pub/images/page-headers/near-heathrow/Heathrow.jpg",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Horton Road",
-              "addressLocality": "Stanwell Moor",
-              "addressRegion": "Surrey",
-              "postalCode": "TW19 6AQ",
-              "addressCountry": "GB"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 51.4745,
-              "longitude": -0.4713
-            },
-            "url": "https://www.the-anchor.pub/near-heathrow/terminal-4",
-            "telephone": "+441753682707",
-            "priceRange": "££",
-            "servesCuisine": ["British", "Pub Food"],
-            "nearbyLocation": {
-              "@type": "Airport",
-              "name": "Heathrow Terminal 4",
-              "iataCode": "LHR"
+          __html: JSON.stringify([
+            breadcrumbSchema,
+            {
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              "name": "The Anchor - Pub Near Heathrow Terminal 4",
+              "description": "Traditional British pub just 12 minutes from Heathrow Terminal 4 with free parking.",
+              "image": "https://www.the-anchor.pub/images/page-headers/near-heathrow/Heathrow.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Horton Road",
+                "addressLocality": "Stanwell Moor",
+                "addressRegion": "Surrey",
+                "postalCode": "TW19 6AQ",
+                "addressCountry": "GB"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 51.4745,
+                "longitude": -0.4713
+              },
+              "url": "https://www.the-anchor.pub/near-heathrow/terminal-4",
+              "telephone": "+441753682707",
+              "priceRange": "££",
+              "servesCuisine": ["British", "Pub Food"],
+              "nearbyLocation": {
+                "@type": "Airport",
+                "name": "Heathrow Terminal 4",
+                "iataCode": "LHR"
+              }
             }
-          })
+          ])
         }}
       />
     </>

@@ -9,19 +9,21 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PhoneButton } from '@/components/PhoneButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
+import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+import { InternalLinkingSection } from '@/components/seo/InternalLinkingSection'
 
 export const metadata: Metadata = {
-  title: 'Traditional Staines Pub | The Anchor - Heathrow Pub & Dining',
-  description: 'The Anchor - traditional Surrey pub 8 mins from Staines-upon-Thames. Sunday roasts, BOGOF pizza deals, drag shows & quiz nights. Free parking in Surrey countryside.',
-  keywords: 'staines pub, pubs in staines surrey, staines upon thames pub, traditional pub staines, surrey pubs near staines, staines restaurants surrey',
+  title: 'Staines Pub Near Heathrow - Sunday Roasts & Pizza | The Anchor',
+  description: 'Visit The Anchor near Staines-upon-Thames for Sunday roasts, 2-for-1 pizza Tuesdays, drag shows and quiz nights. Free parking and real ales just 8 minutes from town.',
+  keywords: 'staines pub near heathrow, sunday roast staines upon thames, pizza deals staines, drag show pub surrey, quiz night staines pub',
   openGraph: {
-    title: 'The Anchor - Traditional Pub Near Staines',
-    description: 'Just 8 minutes from Staines. Sunday roasts, entertainment, and free parking.',
+    title: 'Staines Pub Near Heathrow - The Anchor Stanwell Moor',
+    description: 'Traditional pub 8 minutes from Staines with Sunday roast, pizza deals, drag shows and free parking.',
     images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Traditional Pub Near Staines',
-    description: 'Just 8 minutes from Staines. Sunday roasts, entertainment, and free parking.',
+    title: 'Staines Pub Near Heathrow - The Anchor Stanwell Moor',
+    description: 'Traditional pub 8 minutes from Staines with Sunday roast, pizza deals, drag shows and free parking.',
     images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
@@ -69,11 +71,17 @@ const localBusinessSchema = {
 
 
 export default function StainesPubPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Near Heathrow', url: '/near-heathrow' },
+    { name: 'Staines Pub', url: '/staines-pub' }
+  ])
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([localBusinessSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, localBusinessSchema]) }}
       />
       
       {/* Hero Section */}
@@ -104,6 +112,33 @@ export default function StainesPubPage() {
           </div>
         }
       />
+
+      {/* Quick Summary */}
+      <section className="section-spacing bg-white">
+        <Container>
+          <div className="max-w-5xl mx-auto bg-anchor-cream/40 border border-anchor-cream rounded-2xl p-6">
+            <h2 className="text-2xl font-bold text-anchor-green mb-3">Staines Locals Love Us For</h2>
+            <div className="grid gap-3 md:grid-cols-2 text-gray-700">
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🚗</span>
+                <span>8 minute drive from Staines High Street with free parking</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🍽️</span>
+                <span>Sunday roasts, 2-for-1 Pizza Tuesdays and seasonal specials</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🎉</span>
+                <span>Monthly drag shows, quiz nights and charity bingo</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">👨‍👩‍👧‍👦</span>
+                <span>Family-friendly seating with kids menu and space for buggies</span>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* Page Title for SEO */}
       <section className="bg-white py-8">
@@ -385,6 +420,17 @@ export default function StainesPubPage() {
           </div>
         </Container>
       </section>
+
+      <InternalLinkingSection
+        title="More To Explore Near Staines"
+        links={[
+          { href: '/food-menu', title: 'Food Menu', description: 'See Sunday roasts, burgers and pizza deals' },
+          { href: '/whats-on', title: "What's On", description: 'Check drag shows, quiz nights and live sport' },
+          { href: '/book-event', title: 'Book a Celebration', description: 'Host birthdays, wakes and anniversaries' },
+          { href: '/drinks/aperol', title: 'Aperol Spritz', description: 'Perfect garden cocktail before strolling along the Thames' }
+        ]}
+        className="section-spacing-md"
+      />
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

@@ -12,19 +12,20 @@ import { PhoneButton } from '@/components/PhoneButton'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_CORPORATE_IMAGE } from '@/lib/image-fallbacks'
+import { InternalLinkingSection } from '@/components/seo/InternalLinkingSection'
 
 export const metadata: Metadata = {
-  title: 'Venue Hire Near Heathrow | Function Room Hire Staines | The Anchor',
-  description: 'Flexible function room & venue hire near Heathrow Airport. 10-200 capacity, free parking, competitive rates from £150. Perfect for meetings, parties & celebrations.',
-  keywords: 'venue hire near heathrow, function room hire near heathrow, venue hire staines, private room hire surrey, event space near terminal 5, room rental stanwell moor, venue hire near m25',
+  title: 'Heathrow Function Room Hire - Venue with Free Parking | The Anchor',
+  description: 'Hire flexible function rooms near Heathrow for 10-200 guests. The Anchor offers free parking, tailored catering and AV support for meetings, parties and celebrations.',
+  keywords: 'heathrow function room hire, venue hire near terminal 5, event space with parking, private room hire staines, flexible venue near m25',
   openGraph: {
-    title: 'Function Room Hire - The Anchor - Heathrow Pub & Dining',
-    description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
+    title: 'Heathrow Function Room Hire - The Anchor Stanwell Moor',
+    description: 'Flexible venue with free parking, catering and AV support for meetings and celebrations near Heathrow.',
     images: [DEFAULT_CORPORATE_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'Function Room Hire - The Anchor - Heathrow Pub & Dining',
-    description: 'Versatile event spaces for hire. Flexible pricing tailored to your needs. Free parking.',
+    title: 'Heathrow Function Room Hire - The Anchor Stanwell Moor',
+    description: 'Flexible venue with free parking, catering and AV support for meetings and celebrations near Heathrow.',
     images: [DEFAULT_CORPORATE_IMAGE]
   })
 }
@@ -111,6 +112,33 @@ export default function FunctionRoomHirePage() {
           </div>
         }
       />
+
+      {/* Quick Summary */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto bg-anchor-cream/40 border border-anchor-cream rounded-2xl p-6">
+            <h2 className="text-2xl font-bold text-anchor-green mb-3">What Makes Our Function Rooms Work</h2>
+            <div className="grid gap-3 md:grid-cols-2 text-gray-700">
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">👥</span>
+                <span>Flexible spaces for 10-200 guests with breakout areas</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🅿️</span>
+                <span>Free parking outside the ULEZ zone, ideal for corporate events</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🍽️</span>
+                <span>In-house catering: buffets, two-course dinners or canapés</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🎤</span>
+                <span>AV support, microphones and hybrid meeting options available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Page Title */}
       <section className="section-spacing bg-white">
@@ -557,6 +585,17 @@ export default function FunctionRoomHirePage() {
           </div>
         </div>
       </section>
+
+      <InternalLinkingSection
+        title="Next Steps For Your Event"
+        links={[
+          { href: '/book-event', title: 'Submit Event Enquiry', description: 'Tell us about your celebration or meeting' },
+          { href: '/corporate-events', title: 'Corporate Event Packages', description: 'See delegate rates and meeting add-ons' },
+          { href: '/private-party-venue', title: 'Private Party Venue', description: 'Plan birthdays, wakes and anniversaries' },
+          { href: '/food-menu', title: 'Menu Ideas', description: 'Select canapés, buffets or two-course meals' }
+        ]}
+        className="section-spacing-md"
+      />
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

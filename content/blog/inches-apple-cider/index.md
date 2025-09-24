@@ -1,11 +1,10 @@
 ---
-title: British Apple Cider Near Heathrow | Inches Cider at The Anchor
+title: Inches Apple Cider Near Heathrow | British Draught at The Anchor
 slug: inches-apple-cider
 description: >-
-  Try Inches Apple Cider at The Anchor pub near Heathrow Airport. 100% British
-  apples on draught in Stanwell Moor, just 7 minutes from Terminal 5. Perfect
-  refreshing drink for Heathrow workers, travelers, and locals. Pairs
-  beautifully with our pub food menu. Garden seating available.
+  Enjoy Inches Apple Cider on draught at The Anchor near Heathrow. 100% British
+  apples, free parking, and a sunny beer garden just seven minutes from
+  Terminal 5.
 date: '2023-05-23'
 oldUrl: >-
   https://www.the-anchor.pub/post/exciting-arrival-welcome-inches-apple-cider-to-our

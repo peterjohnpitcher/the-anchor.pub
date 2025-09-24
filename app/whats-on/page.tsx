@@ -21,17 +21,17 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { quizNightEventSeries, dragShowEventSeries, bingoEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: "What's On Tonight | FREE Events | Quiz £3 | Drag Shows | The Anchor",
-  description: "🎉 SEE WHAT'S ON TODAY! Quiz nights £3, drag shows, cash bingo. Pool & darts always FREE. Terrestrial sports on screen. Check our live events calendar. Book tables for popular shows!",
-  keywords: "what's on tonight stanwell moor, events today near heathrow, free events tonight, drag show tonight, quiz night today",
+  title: "Heathrow Pub Events Tonight - Drag Shows, Quiz, Bingo | The Anchor",
+  description: "See what's on at The Anchor near Heathrow: drag shows, £3 quiz nights, cash bingo, live terrestrial sport, free pool and darts. Reserve a table for headline events.",
+  keywords: "heathrow pub events tonight, drag show near heathrow, quiz night stanwell moor, bingo near terminal 5, whats on the anchor pub",
   openGraph: {
-    title: "What's On at The Anchor",
-    description: "Drag shows, quiz nights and more. Your local entertainment hub.",
+    title: "Heathrow Pub Events Tonight - Drag Shows, Quiz, Bingo",
+    description: "See the live calendar for drag shows, quiz nights, bingo and sport at The Anchor near Heathrow.",
     images: ["/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"],
   },
   twitter: getTwitterMetadata({
-    title: "What's On at The Anchor - Events & Entertainment",
-    description: "Regular monthly events including drag shows, quiz nights, bingo & more. Plus major sports on terrestrial TV!",
+    title: "Heathrow Pub Events Tonight - Drag Shows, Quiz, Bingo",
+    description: "See the live calendar for drag shows, quiz nights, bingo and sport at The Anchor near Heathrow.",
     images: ["/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"]
   })
 }

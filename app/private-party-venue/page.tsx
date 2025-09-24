@@ -14,17 +14,17 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_CORPORATE_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Private Party Venue Stanwell Moor | Birthday Parties | The Anchor',
-  description: 'Perfect private party venue for birthdays & celebrations. Flexible spaces for 10-200 guests, free parking, custom catering. Near Heathrow.',
-  keywords: 'birthday party venue staines, birthday venue near heathrow, private party venue surrey, celebration venue stanwell moor, party room hire staines, anniversary party venue',
+  title: 'Private Party Venue Near Heathrow | Birthday & Celebration Hire | The Anchor',
+  description: 'Book The Anchor for private parties near Heathrow. Flexible 10-200 guest spaces, free parking, custom menus and dedicated event coordinators.',
+  keywords: 'private party venue near heathrow, birthday venue stanwell moor, celebration hire staines, party room with parking, anniversary party venue surrey',
   openGraph: {
-    title: 'Private Party Venue - The Anchor - Heathrow Pub & Dining',
-    description: 'Celebrate in style! Birthday parties, anniversaries, and special occasions. Free parking and flexible spaces.',
+    title: 'Private Party Venue Near Heathrow - The Anchor Stanwell Moor',
+    description: 'Flexible party spaces with free parking, custom menus and dedicated planners near Heathrow.',
     images: [DEFAULT_CORPORATE_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'Private Party Venue - The Anchor - Heathrow Pub & Dining',
-    description: 'Celebrate in style! Birthday parties, anniversaries, and special occasions. Free parking and flexible spaces.',
+    title: 'Private Party Venue Near Heathrow - The Anchor Stanwell Moor',
+    description: 'Flexible party spaces with free parking, custom menus and dedicated planners near Heathrow.',
     images: [DEFAULT_CORPORATE_IMAGE]
   })
 }

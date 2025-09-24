@@ -12,17 +12,17 @@ import { Container } from '@/components/ui/layout/Container'
 import { DEFAULT_CORPORATE_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Event Venue Hire Near Me | The Anchor - Heathrow Pub & Dining | Private Bookings',
-  description: 'Transform your special occasion into an unforgettable experience at The Anchor. Versatile venue spaces for 10-200 guests with full event services.',
-  keywords: 'private venue hire stanwell moor, event space near heathrow, function room hire, wedding venue surrey, corporate events staines',
+  title: 'Heathrow Event Venue Hire - Private Parties & Corporate | The Anchor',
+  description: 'Hire The Anchor near Heathrow for private parties, wakes and corporate events. Flexible spaces for 10-200 guests, in-house catering, AV support and free parking.',
+  keywords: 'heathrow event venue hire, private party venue near terminal 5, function room hire stanwell moor, wake venue near heathrow, corporate event space with parking',
   openGraph: {
-    title: 'Private Bookings at The Anchor',
-    description: 'Versatile venue spaces and comprehensive event services for celebrations of all sizes.',
+    title: 'Heathrow Event Venue Hire - The Anchor Stanwell Moor',
+    description: 'Flexible private event spaces with catering, AV support and free parking minutes from Heathrow.',
     images: [DEFAULT_CORPORATE_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'Private Bookings at The Anchor',
-    description: 'Versatile venue spaces and comprehensive event services for celebrations of all sizes.',
+    title: 'Heathrow Event Venue Hire - The Anchor Stanwell Moor',
+    description: 'Flexible private event spaces with catering, AV support and free parking minutes from Heathrow.',
     images: [DEFAULT_CORPORATE_IMAGE]
   })
 }

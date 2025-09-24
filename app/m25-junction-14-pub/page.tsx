@@ -10,20 +10,21 @@ import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
+import { InternalLinkingSection } from '@/components/seo/InternalLinkingSection'
 
 export const metadata: Metadata = {
-  title: `M25 Junction 14 Pub Near Me | ${BRAND.name} - Surrey Pub 5 Minutes from M25`,
-  description: `Traditional Surrey pub 5 mins from M25 Junction 14. Perfect motorway stop in Surrey countryside with free parking, real food & authentic atmosphere. Outside ULEZ.`,
-  keywords: 'm25 junction 14 pub surrey, pub near m25 junction 14, m25 motorway pub stop surrey, traditional surrey pub near m25, m25 j14 food stop surrey',
+  title: `M25 Junction 14 Pub Stop - Free Parking & British Food | ${BRAND.name}`,
+  description: `Pull off M25 Junction 14 for The Anchor: free parking, proper British pub food, real ales and a relaxed Surrey village break minutes from Heathrow.`,
+  keywords: 'm25 junction 14 pub stop, motorway pub with parking, british food near m25, anchor stanwell moor motorway stop, pub near heathrow junction 14',
   openGraph: {
-    title: 'The Anchor - Traditional Pub Near M25 Junction 14',
-    description: 'Just 5 minutes from M25 J14. Free parking, proper food, real ales. The perfect motorway break.',
+    title: 'M25 Junction 14 Pub Stop - The Anchor Stanwell Moor',
+    description: '5 minutes from M25 J14 with free parking, British pub food and real ales.',
     images: [DEFAULT_PAGE_HEADER_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Traditional Pub Near M25 Junction 14',
-    description: 'Just 5 minutes from M25 J14. Free parking, proper food, real ales. The perfect motorway break.',
+    title: 'M25 Junction 14 Pub Stop - The Anchor Stanwell Moor',
+    description: '5 minutes from M25 J14 with free parking, British pub food and real ales.',
     images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }
@@ -116,6 +117,36 @@ export default function M25Junction14PubPage() {
           </div>
         }
       />
+
+      {/* Quick Summary */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-anchor-cream/40 border border-anchor-cream rounded-2xl p-6">
+            <h2 className="text-2xl font-bold text-anchor-green mb-3">Why Stop Off At The Anchor</h2>
+            <p className="text-gray-700 mb-4">
+              Swap service-station sandwiches for hearty pub food, real ales and a breather before rejoining the M25.
+            </p>
+            <div className="grid gap-3 md:grid-cols-2 text-gray-700">
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">⛽</span>
+                <span>5 minute diversion from Junction 14 via A3113 and Horton Road</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🅿️</span>
+                <span>Free parking for cars, vans and minibuses while you dine</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🍔</span>
+                <span>Burgers, pizzas and Sunday roast pre-orders served Tuesday to Sunday</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🐾</span>
+                <span>Dog friendly bar area and beer garden for four-legged passengers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Page Title */}
       <section className="py-8 bg-white">
@@ -500,6 +531,17 @@ export default function M25Junction14PubPage() {
           </div>
         </Container>
       </section>
+
+      <InternalLinkingSection
+        title="Helpful Links Before You Rejoin The Motorway"
+        links={[
+          { href: '/food-menu', title: 'Food Menu', description: 'Hot meals and quick bites for motorway drivers' },
+          { href: '/drinks', title: 'Drinks Menu', description: 'Real ales, low alcohol options and takeaway coffee' },
+          { href: '/private-party-venue', title: 'Private Hire', description: 'Book meeting space for team briefings or reunions' },
+          { href: '/near-heathrow', title: 'Near Heathrow Hub', description: 'Travel tips for every airport terminal' }
+        ]}
+        className="section-spacing-md"
+      />
 
       {/* FAQ Section */}
       <FAQAccordionWithSchema 

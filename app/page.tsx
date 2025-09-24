@@ -20,6 +20,7 @@ import { SpeakableSchema } from '@/components/seo/SpeakableSchema'
 import { SpeakableContent } from '@/components/voice/SpeakableContent'
 import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/InternalLinkingSection'
 import { getSeasonalHomepageImage, getSeasonalGreeting, getSeasonalAltText, getSeasonalFocal } from '@/lib/seasonal-utils'
+import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { 
   Button, 
   Card, 
@@ -40,9 +41,9 @@ import {
 export const revalidate = 60 * 60 * 24 // 24 hours
 
 export const metadata: Metadata = {
-  title: 'The Anchor - Heathrow Pub & Dining | Traditional British Venue Near Terminal 5',
-  description: 'THE ANCHOR - Famous traditional British pub & dining in Stanwell Moor. 7 mins from Heathrow. FREE parking, Sunday roasts from £14.99, Tuesday pizza 2-for-1. Beer garden under flight path. Book: 01753 682707',
-  keywords: 'The Anchor, The Anchor Heathrow, Heathrow pub, pub near Heathrow, dining near Heathrow, plane spotting, beer garden, traditional British',
+  title: 'Heathrow Pub & Dining - The Anchor Stanwell Moor | Free Parking',
+  description: 'Visit The Anchor near Heathrow: 7 minutes from Terminal 5 with free parking, Sunday roasts, 2-for-1 Tuesday pizzas, drag shows and quiz nights. Book on 01753 682707.',
+  keywords: 'heathrow pub with parking, traditional british pub near terminal 5, sunday roast stanwell moor, pizza deal heathrow, drag show pub london airport',
   alternates: {
     canonical: './'
   }
@@ -199,6 +200,30 @@ export default function HomePage() {
             <span className="flex items-center gap-1">✈️ Horton Road plane-spotting area – fuel up before or after your flight</span>
             <span className="flex items-center gap-1">🚗 20 FREE Parking Spaces</span>
             <span className="flex items-center gap-1">📍 Outside ULEZ Zone - Save £12.50 Daily</span>
+          </div>
+
+          <div className="mt-8">
+            <div className="bg-anchor-cream/40 border border-anchor-cream rounded-2xl p-6 max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold text-anchor-green mb-3 text-center">Quick Reasons Guests Visit The Anchor</h2>
+              <div className="grid gap-3 md:grid-cols-2 text-gray-700">
+                <div className="flex items-start gap-2">
+                  <span className="font-semibold text-anchor-gold">⏱️</span>
+                  <span>7 minutes from Terminal 5, 11 minutes from Terminals 2 & 3</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="font-semibold text-anchor-gold">🅿️</span>
+                  <span>Free parking and easy taxi pick-up points for travellers</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="font-semibold text-anchor-gold">🍽️</span>
+                  <span>2-for-1 Pizza Tuesdays, Sunday roasts and daily pub classics</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="font-semibold text-anchor-gold">🎉</span>
+                  <span>Weekly drag shows, quiz nights and live bingo entertainment</span>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </div>
@@ -572,6 +597,24 @@ export default function HomePage() {
         subtitle="Real reviews from our guests"
         background="white"
         layout="carousel"
+      />
+
+      <FAQAccordionWithSchema
+        className="bg-gray-50"
+        faqs={[
+          {
+            question: 'How far is The Anchor from Heathrow Airport?',
+            answer: 'We are seven minutes from Terminal 5 and around eleven minutes from Terminals 2 and 3 by taxi. The 441 and 442 buses also stop a short walk from the pub.'
+          },
+          {
+            question: 'Do you offer free parking for guests?',
+            answer: 'Yes. Twenty dedicated spaces are available for pub guests with no time limit while you dine or enjoy a drink.'
+          },
+          {
+            question: 'When is the kitchen open?',
+            answer: 'We serve food Tuesday to Friday 6pm-9pm, Saturday 1pm-7pm and Sunday 12pm-5pm. Pizza Tuesday brings 2-for-1 stone-baked pizzas every week.'
+          }
+        ]}
       />
 
       {/* Internal Links for SEO */}

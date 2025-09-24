@@ -50,6 +50,17 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     keywords: ['pub events stanwell moor', 'events near heathrow', 'what\'s on stanwell moor', 'entertainment venue surrey', 'live events TW19']
   },
 
+  'live-events': {
+    name: 'Live Events & Nights Out',
+    description: 'Drag shows, quiz nights, bingo and special entertainment at The Anchor',
+    metaTitle: 'Live Events Near Heathrow | Drag Shows, Quiz & Bingo | The Anchor',
+    metaDescription: 'See The Anchor\'s live events calendar near Heathrow: drag shows with Nikki Manfadge, £3 quiz nights, cash bingo and seasonal entertainment with free parking.',
+    heroContent: 'Plan your next night out with The Anchor\'s live events near Heathrow. From sell-out drag shows to £3 quiz nights and charity bingo, we keep the village buzzing.',
+    introContent: 'Our calendar of live events is the heart of The Anchor. Locals and visitors flock to our drag shows, quiz nights, bingo evenings and themed parties that deliver big-city entertainment just minutes from Heathrow. With free parking and fair drink prices, we are the smart choice for live nights out.',
+    valueProposition: 'Book a table before the next headline event sells out. Enjoy great value tickets, friendly staff and a lively crowd without London prices or hassle.',
+    keywords: ['live events near heathrow', 'drag show stanwell moor', 'quiz night near terminal 5', 'bingo night stanwell', 'pub entertainment TW19']
+  },
+
   'drinks': {
     name: 'Drinks & Bar',
     description: 'Real ales, draught lagers, premium spirits, wines, and special drink offers',
@@ -183,6 +194,17 @@ export const tagSEOContent: Record<string, TagSEOContent> = {
     introContent: 'The Anchor\'s proximity to Heathrow Airport makes us uniquely positioned to serve the airport community. We understand the irregular hours and international tastes of airport workers and travelers. That\'s why we offer a diverse menu suited to international palates during kitchen hours, and a warm welcome whether you\'re starting your shift or ending a long journey.',
     valueProposition: 'With free parking, quick service for those on tight schedules, and a warm welcome for airport workers, The Anchor is your home away from home near Heathrow.',
     keywords: ['pub near heathrow airport', 'bars near heathrow terminals', 'heathrow local pub', 'airport pub TW19', 'heathrow workers pub']
+  },
+
+  'romantic-dining': {
+    name: 'Romantic Dining & Date Nights',
+    description: 'Cosy dinners, sharer menus and intimate tables for two',
+    metaTitle: 'Romantic Dining Near Heathrow | Date Night at The Anchor Pub',
+    metaDescription: 'Plan a romantic dinner near Heathrow at The Anchor: 2-for-1 pizzas, candle-lit tables, sharer boards and a cosy village pub atmosphere with free parking.',
+    heroContent: 'Turn an ordinary evening into a date night worth talking about. The Anchor offers intimate corners, sharing boards and a cosy glow perfect for couples.',
+    introContent: 'Whether you are staying near Heathrow, heading to Windsor for a day out or live locally, The Anchor sets the scene for relaxed romantic dining. Think stone-baked pizzas fresh from the oven, proper Sunday roasts, sharer desserts and fair drink prices.',
+    valueProposition: 'Reserve a quiet table, add a bottle of prosecco and enjoy great food without city crowds. Ask about our pizza sharing deal and Sunday roast specials for two.',
+    keywords: ['romantic dinner near heathrow', 'date night pub stanwell moor', 'couples dining staines', 'romantic restaurant near terminal 5', 'cosy pub for couples surrey']
   },
 
   'stanwell-moor': {

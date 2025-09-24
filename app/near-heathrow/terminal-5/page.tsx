@@ -15,27 +15,34 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_NEAR_HEATHROW_IMAGE } from '@/lib/image-fallbacks'
+import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
+import { InternalLinkingSection } from '@/components/seo/InternalLinkingSection'
 
 export const metadata: Metadata = {
-  title: 'Pub Near Heathrow Terminal 5 | 7 Minutes by Car | FREE Parking | The Anchor',
-  description: 'Closest traditional pub to Terminal 5. Just 7 mins by car/taxi (£20), 15 mins by bus. FREE parking. Better than Sofitel/Hilton dining at half the price!',
-  keywords: 'pub near terminal 5, heathrow terminal 5 restaurant, closest pub to T5, british airways terminal pub, sofitel heathrow alternative, hilton T5 restaurant, local pub near heathrow hotels, how to get to pub from terminal 5, terminal 5 taxi to pub',
+  title: 'Pub Near Heathrow Terminal 5 - 7 Minute Drive | The Anchor',
+  description: 'Visit The Anchor, the closest traditional pub to Heathrow Terminal 5. 7 minute taxi, free parking, proper British food and drinks for Sofitel and Hilton guests.',
+  keywords: 'pub near heathrow terminal 5, closest pub to t5, hilton terminal 5 restaurant alternative, sofitel t5 pub, british airways crew pub, taxi from terminal 5 to pub',
   openGraph: {
-    title: 'The Anchor - Real British Pub Near Terminal 5 Hotels',
-    description: 'Escape hotel dining! Authentic local pub 7 mins from Sofitel & Hilton T5. Free parking.',
+    title: 'Pub Near Heathrow Terminal 5 - Free Parking & 7 Minute Taxi',
+    description: 'The Anchor is the nearest village pub to Heathrow Terminal 5 with free parking, great food and British hospitality.',
     images: [DEFAULT_NEAR_HEATHROW_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Real British Pub Near Terminal 5 Hotels',
-    description: 'Escape hotel dining! Authentic local pub 7 mins from Sofitel & Hilton T5. Free parking.',
+    title: 'Pub Near Heathrow Terminal 5 - Free Parking & 7 Minute Taxi',
+    description: 'The Anchor is the nearest village pub to Heathrow Terminal 5 with free parking, great food and British hospitality.',
     images: [DEFAULT_NEAR_HEATHROW_IMAGE]
   })
 }
 
 export default function Terminal5Page() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Near Heathrow', url: '/near-heathrow' },
+    { name: 'Terminal 5', url: '/near-heathrow/terminal-5' }
+  ])
+
   return (
     <>
-      
       {/* Hero Section */}
       <HeroWrapper
         route="/near-heathrow/terminal-5"
@@ -68,6 +75,36 @@ export default function Terminal5Page() {
           </div>
         }
       />
+
+      {/* Quick Summary */}
+      <section className="section-spacing bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-anchor-cream/40 border border-anchor-cream rounded-2xl p-6">
+            <h2 className="text-2xl font-bold text-anchor-green mb-3">Essential Details at a Glance</h2>
+            <p className="text-gray-700 mb-4">
+              The Anchor is the closest independent pub to Terminal 5. Swap hotel bars for real British hospitality, fair pint prices and free parking.
+            </p>
+            <div className="grid gap-3 md:grid-cols-2 text-gray-700">
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">⏱️</span>
+                <span>7 minute taxi or Uber (£20-25 fixed fare) from BA arrivals</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🅿️</span>
+                <span>Free on-site parking for pick-ups, drop-offs and diners</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">🍽️</span>
+                <span>Kitchen open Tue-Sun with pizza, burgers and Sunday roasts</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold text-anchor-gold">📞</span>
+                <span>Call 01753 682707 or book online to secure tables for peak flights</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Page Title */}
       <section className="section-spacing bg-white">
@@ -490,6 +527,17 @@ export default function Terminal5Page() {
         </div>
       </section>
 
+      <InternalLinkingSection
+        title="Plan The Rest Of Your Visit"
+        links={[
+          { href: '/food-menu', title: 'Food Menu', description: 'Pizza Tuesdays, burgers and Sunday roast pre-orders' },
+          { href: '/drinks', title: 'Drinks Menu', description: 'Real ales, cocktails and value pub prices near Heathrow' },
+          { href: '/book-event', title: 'Book an Event', description: 'Reserve private space for crew briefings or celebrations' },
+          { href: '/near-heathrow/terminal-3', title: 'Terminal 3 Guide', description: 'Directions and tips for Virgin and Emirates flights' }
+        ]}
+        className="section-spacing-md"
+      />
+
       {/* FAQ Section */}
       <FAQAccordionWithSchema 
         faqs={[
@@ -567,6 +615,7 @@ export default function Terminal5Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([
+            breadcrumbSchema,
             {
               "@context": "https://schema.org",
               "@type": "Restaurant",

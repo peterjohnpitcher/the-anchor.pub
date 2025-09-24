@@ -11,17 +11,17 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Traditional Feltham Pub | The Anchor - Heathrow Pub & Dining',
-  description: 'The Anchor - 10 mins from Feltham. Traditional British pub with free parking, great food & regular events. Peaceful Surrey alternative to high street.',
-  keywords: 'feltham pub, pub near feltham, feltham surrey pub, pub with parking feltham, traditional pub feltham',
+  title: 'Feltham Pub Alternative - Free Parking & Sunday Roast | The Anchor',
+  description: 'Head 10 minutes from Feltham to The Anchor for free parking, Sunday roasts, pizza deals and quiz nights in a relaxed Surrey village setting.',
+  keywords: 'feltham pub alternative, sunday roast near feltham, pub with parking feltham, quiz night near feltham, pizza deals feltham area',
   openGraph: {
-    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Feltham',
-    description: 'Just 10 minutes from Feltham with free parking and great food.',
+    title: 'Feltham Pub Alternative - The Anchor Stanwell Moor',
+    description: '10 minutes from Feltham with free parking, Sunday roasts, pizza deals and quiz nights.',
     images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor - Heathrow Pub & Dining - Your Local Pub Near Feltham',
-    description: 'Just 10 minutes from Feltham with free parking and great food.',
+    title: 'Feltham Pub Alternative - The Anchor Stanwell Moor',
+    description: '10 minutes from Feltham with free parking, Sunday roasts, pizza deals and quiz nights.',
     images: [DEFAULT_PAGE_HEADER_IMAGE]
   })
 }

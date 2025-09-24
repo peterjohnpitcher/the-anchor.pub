@@ -8,19 +8,20 @@ import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { getBlogHeroUrl, BLOG_FALLBACK_IMAGE } from '@/lib/blog-image'
+import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 
 export const metadata: Metadata = {
-  title: 'Blog | The Anchor - Heathrow Pub & Dining | News & Updates',
-  description: 'Latest news, events, and stories from The Anchor in Stanwell Moor. Stay updated with our community pub near Heathrow.',
-  keywords: 'the anchor blog, stanwell moor news, pub events heathrow, local community news',
+  title: 'Heathrow Pub Blog - News, Events & Guides | The Anchor',
+  description: 'Read The Anchor blog for Heathrow travel tips, pub events, food and drink guides, and community stories from Stanwell Moor.',
+  keywords: 'heathrow pub blog, the anchor news, stanwell moor events, pub food updates, travel tips near heathrow',
   openGraph: {
-    title: 'The Anchor Blog - News & Updates',
-    description: 'Latest news and stories from your favourite local pub',
+    title: 'Heathrow Pub Blog - The Anchor News & Guides',
+    description: 'Heathrow travel tips, pub events, food and drink guides and local stories from The Anchor.',
     images: [BLOG_FALLBACK_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'The Anchor Blog - News & Updates',
-    description: 'Latest news and stories from your favourite local pub',
+    title: 'Heathrow Pub Blog - The Anchor News & Guides',
+    description: 'Heathrow travel tips, pub events, food and drink guides and local stories from The Anchor.',
     images: [BLOG_FALLBACK_IMAGE]
   })
 }
@@ -78,6 +79,13 @@ export default async function BlogPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Blog', url: '/blog' }
+        ])) }}
+      />
       {/* Hero Section */}
       <HeroWrapper
         route="/blog"

@@ -11,17 +11,17 @@ import { generateNutritionInfo, generateMenuItemOffer } from '@/lib/schema-utils
 import { DEFAULT_PIZZA_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Buy One Get One Free Pizza | The Anchor - Heathrow Pub & Dining | BOGOF Deal',
-  description: 'BOGOF pizza deal at The Anchor near Heathrow. Buy one get one free on all stone-baked pizzas every Tuesday. Fresh dough, quality toppings. Dine-in & takeaway.',
-  keywords: 'buy one get one free pizza, bogof pizza stanwell moor, pizza deal heathrow, 2 for 1 pizza, pizza offer staines',
+  title: 'Heathrow Pizza Menu - 2-for-1 Stone-Baked Pizzas | The Anchor',
+  description: 'Explore The Anchor pizza menu near Heathrow with fresh stone-baked bases and a 2-for-1 Tuesday deal. Dine in or takeaway with free parking.',
+  keywords: 'heathrow pizza menu, 2 for 1 pizza deal, stone baked pizza stanwell moor, pizza near terminal 5, bogof pizza offer',
   openGraph: {
-    title: 'BOGOF Pizza Deal - The Anchor',
-    description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
+    title: 'Heathrow Pizza Menu - The Anchor Stanwell Moor',
+    description: 'See stone-baked pizzas and the 2-for-1 Tuesday offer at The Anchor near Heathrow.',
     images: [DEFAULT_PIZZA_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'BOGOF Pizza Deal - The Anchor',
-    description: 'Buy one get one free on all pizzas every Tuesday. Dine-in & takeaway available.',
+    title: 'Heathrow Pizza Menu - The Anchor Stanwell Moor',
+    description: 'See stone-baked pizzas and the 2-for-1 Tuesday offer at The Anchor near Heathrow.',
     images: [DEFAULT_PIZZA_IMAGE]
   })
 }

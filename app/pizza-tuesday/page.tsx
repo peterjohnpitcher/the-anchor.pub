@@ -15,18 +15,18 @@ import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_PIZZA_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Tuesday Pizza Deals Near Me | BOGOF Pizza Every Tuesday | The Anchor',
-  description: 'Buy One Get One FREE on ALL pizzas every Tuesday at The Anchor near Heathrow. Stone-baked pizzas from £7.49. Dine-in or takeaway. Free parking.',
-  keywords: 'tuesday pizza deals, pizza tuesday deal near me, bogof pizza stanwell moor, tuesday pizza offer heathrow, 2 for 1 pizza deal, pizza night near airport, cheap pizza tuesday surrey',
+  title: 'Pizza Tuesday 2-for-1 Near Heathrow | The Anchor Pub Deal',
+  description: 'Enjoy buy one get one free stone-baked pizzas every Tuesday at The Anchor near Heathrow. Dine in or takeaway, free parking, pizzas from £7.49.',
+  keywords: 'pizza tuesday near heathrow, 2 for 1 pizza deal, bogof pizza stanwell moor, cheap pizza tuesday surrey, anchor pizza tuesday offer',
   openGraph: {
-    title: 'Pizza Tuesday - BOGOF on All Pizzas',
-    description: 'Every Tuesday at The Anchor! Buy one pizza, get one FREE. All sizes, all pizzas, dine-in or takeaway.',
+    title: 'Pizza Tuesday 2-for-1 Deal at The Anchor',
+    description: 'Buy one pizza, get one free every Tuesday near Heathrow. View the offer and menu at The Anchor.',
     images: [DEFAULT_PIZZA_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
-    title: 'Pizza Tuesday - BOGOF on All Pizzas',
-    description: 'Every Tuesday at The Anchor! Buy one pizza, get one FREE. All sizes, all pizzas, dine-in or takeaway.',
+    title: 'Pizza Tuesday 2-for-1 Deal at The Anchor',
+    description: 'Buy one pizza, get one free every Tuesday near Heathrow. View the offer and menu at The Anchor.',
     images: [DEFAULT_PIZZA_IMAGE]
   })
 }
