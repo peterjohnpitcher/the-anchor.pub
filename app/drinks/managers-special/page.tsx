@@ -73,6 +73,7 @@ export default function ManagersSpecialPage() {
       "@type": "Brand",
       "name": spirit.distillery
     },
+    "image": `https://www.the-anchor.pub${dynamicImagePath || DEFAULT_DRINKS_IMAGE}`,
     "offers": {
       "@type": "Offer",
       "url": "https://www.the-anchor.pub/drinks/managers-special",

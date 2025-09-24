@@ -51,7 +51,9 @@ const pizzaOfferSchema = {
   "itemOffered": {
     "@type": "Product",
     "name": "Stone-Baked Pizza",
-    "category": "Food"
+    "category": "Food",
+    "description": "Stone-baked pizzas with hand-stretched bases, San Marzano tomato sauce and generous toppings served at The Anchor near Heathrow.",
+    "image": `https://www.the-anchor.pub${DEFAULT_PIZZA_IMAGE}`
   },
   "seller": {
     "@type": "Restaurant",
@@ -68,6 +70,7 @@ const pizzaOfferSchema = {
   "validThrough": "2025-12-31",
   "availabilityStarts": "18:00:00",
   "availabilityEnds": "21:00:00",
+  "availability": "https://schema.org/InStock",
   "eligibleRegion": {
     "@type": "Place",
     "name": "Stanwell Moor and surrounding areas"

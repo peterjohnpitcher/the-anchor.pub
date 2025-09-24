@@ -82,7 +82,9 @@ const seniorOfferSchema = {
   "itemOffered": {
     "@type": "Product",
     "name": "Chip Shop Menu Items",
-    "category": "Food"
+    "category": "Food",
+    "description": "Traditional chip shop classics including beer-battered cod, scampi and sausages served with triple-cooked chips.",
+    "image": `https://www.the-anchor.pub${DEFAULT_FOOD_IMAGE}`
   },
   "seller": {
     "@type": "Restaurant",
@@ -97,7 +99,8 @@ const seniorOfferSchema = {
   "validFrom": "2025-01-01",
   "validThrough": "2025-12-31",
   "dayOfWeek": "Friday",
-  "eligibleCustomerType": "Seniors (65+)"
+  "eligibleCustomerType": "Seniors (65+)",
+  "availability": "https://schema.org/InStock"
 }
 
 export default function FishAndChipsPage() {

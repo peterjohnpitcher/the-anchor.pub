@@ -125,13 +125,15 @@ export default async function DrinksMenuPage() {
         "@type": "Brand",
         "name": "Bruichladdich Distillery"
       },
-      "description": "Premium Islay gin with 22 hand-foraged botanicals"
+      "description": "Premium Islay gin with 22 hand-foraged botanicals",
+      "image": `https://www.the-anchor.pub${DEFAULT_DRINKS_IMAGE}`
     },
     "seller": {
       "@id": "https://www.the-anchor.pub/#business"
     },
     "validFrom": new Date().toISOString(),
-    "validThrough": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString()
+    "validThrough": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString(),
+    "availability": "https://schema.org/InStock"
   }
 
   // BarOrPub specific schema
