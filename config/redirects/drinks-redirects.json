@@ -75,11 +75,6 @@
     "permanent": true
   },
   {
-    "source": "/drinks/disaronno",
-    "destination": "/drinks",
-    "permanent": true
-  },
-  {
     "source": "/drinks/coors-light",
     "destination": "/drinks",
     "permanent": true
@@ -180,11 +175,6 @@
     "permanent": true
   },
   {
-    "source": "/drinks/jagerbomb",
-    "destination": "/drinks",
-    "permanent": true
-  },
-  {
     "source": "/drinks/san-miguel",
     "destination": "/drinks",
     "permanent": true
@@ -231,12 +221,7 @@
   },
   {
     "source": "/drinks/aperol-spritz",
-    "destination": "/drinks",
-    "permanent": true
-  },
-  {
-    "source": "/drinks/aperol",
-    "destination": "/drinks",
+    "destination": "/drinks/aperol",
     "permanent": true
   },
   {
