@@ -17,6 +17,9 @@ import { InternalLinkingSection, commonLinkGroups } from '@/components/seo/Inter
 import { generateNutritionInfo } from '@/lib/schema-utils'
 import { BookTableButton } from '@/components/BookTableButton'
 import { DEFAULT_DRINKS_IMAGE } from '@/lib/image-fallbacks'
+import { getCurrentPromotion as getCurrentManagersSpecial, getPromotionById } from '@/lib/managers-special'
+import type { ManagersSpecial } from '@/types/managers-special'
+import { getPromotionImage } from '@/lib/managers-special-utils'
 
 export const metadata: Metadata = {
   title: 'Heathrow Pub Drinks Menu - Real Ale, Cocktails & Wine | The Anchor',
@@ -34,13 +37,81 @@ export const metadata: Metadata = {
   })
 }
 
-export default async function DrinksMenuPage() {
+type PageSearchParams = {
+  preview?: string | string[]
+  token?: string | string[]
+  date?: string | string[]
+}
+
+function resolveManagersSpecial(searchParams: PageSearchParams = {}): ManagersSpecial | null {
+  const previewId = Array.isArray(searchParams.preview) ? searchParams.preview[0] : searchParams.preview
+  const token = Array.isArray(searchParams.token) ? searchParams.token[0] : searchParams.token
+  const overrideDate = Array.isArray(searchParams.date) ? searchParams.date[0] : searchParams.date
+
+  const expectedToken = process.env.MS_PREVIEW_TOKEN
+  const tokenMatches = expectedToken ? token === expectedToken : process.env.NODE_ENV !== 'production'
+
+  if (previewId && token && tokenMatches) {
+    const previewPromotion = getPromotionById(previewId)
+    if (previewPromotion) {
+      return previewPromotion
+    }
+  }
+
+  if (overrideDate && process.env.NODE_ENV !== 'production') {
+    const parsedDate = new Date(`${overrideDate}T12:00:00Z`)
+    if (!Number.isNaN(parsedDate.valueOf())) {
+      const futurePromotion = getCurrentManagersSpecial(parsedDate)
+      if (futurePromotion) {
+        return futurePromotion
+      }
+    }
+  }
+
+  return getCurrentManagersSpecial()
+}
+
+export default async function DrinksMenuPage({ searchParams }: { searchParams: PageSearchParams }) {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Drinks Menu', url: '/drinks' }
   ])
 
   const menuData = await parseMenuMarkdown('drinks')
+  const managersSpecial = resolveManagersSpecial(searchParams)
+  const managersSpecialImage = managersSpecial ? getPromotionImage(managersSpecial.imageFolder) : null
+
+  const assuredMenuData = menuData!
+  const menuDataWithManagersSpecial = managersSpecial ? {
+    ...assuredMenuData,
+    categories: assuredMenuData.categories.map(category => {
+      if (category.id !== 'spirits') return category
+      return {
+        ...category,
+        sections: category.sections.map(section => {
+          if (!section.highlight) return section
+
+          const highlightItem = section.items?.[0] ?? {}
+          const priceLine = `Single ${managersSpecial.spirit.specialPrice} (was ${managersSpecial.spirit.originalPrice})`
+
+          return {
+            ...section,
+            title: managersSpecial.promotion.headline,
+            description: managersSpecial.promotion.offerText,
+            items: [
+              {
+                ...highlightItem,
+                name: managersSpecial.spirit.name,
+                price: priceLine,
+                description: managersSpecial.spirit.description || managersSpecial.spirit.longDescription || highlightItem.description,
+                special: true
+              }
+            ]
+          }
+        })
+      }
+    })
+  } : assuredMenuData
   
   if (!menuData) {
     return (
@@ -102,16 +173,16 @@ export default async function DrinksMenuPage() {
   }
 
   // Manager's Special Offer Schema
-  const managersSpecialSchema = {
+  const managersSpecialSchema = managersSpecial ? {
     "@context": "https://schema.org",
     "@type": "Offer",
-    "name": "Manager's Special - 25% OFF Redleg Spiced Rum",
-    "description": "Save 25% on Redleg Spiced Rum. Caribbean warmth for autumn nights.",
+    "name": managersSpecial.promotion.headline,
+    "description": managersSpecial.promotion.offerText,
     "url": "https://www.the-anchor.pub/drinks#managers-special",
     "priceCurrency": "GBP",
     "priceSpecification": {
       "@type": "PriceSpecification",
-      "price": "3.00",
+      "price": managersSpecial.spirit.specialPrice.replace(/[£\s]/g, ''),
       "priceCurrency": "GBP",
       "eligibleQuantity": {
         "@type": "QuantitativeValue",
@@ -120,21 +191,23 @@ export default async function DrinksMenuPage() {
     },
     "itemOffered": {
       "@type": "Product",
-      "name": "The Botanist Gin",
-      "brand": {
-        "@type": "Brand",
-        "name": "Bruichladdich Distillery"
-      },
-      "description": "Premium Islay gin with 22 hand-foraged botanicals",
-      "image": `https://www.the-anchor.pub${DEFAULT_DRINKS_IMAGE}`
+      "name": managersSpecial.spirit.name,
+      "brand": managersSpecial.spirit.distillery
+        ? {
+            "@type": "Brand",
+            "name": managersSpecial.spirit.distillery
+          }
+        : undefined,
+      "description": managersSpecial.spirit.description || managersSpecial.spirit.longDescription,
+      "image": `https://www.the-anchor.pub${managersSpecialImage || DEFAULT_DRINKS_IMAGE}`
     },
     "seller": {
       "@id": "https://www.the-anchor.pub/#business"
     },
-    "validFrom": new Date().toISOString(),
-    "validThrough": new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString(),
+    "validFrom": `${managersSpecial.startDate}T00:00:00+01:00`,
+    "validThrough": `${managersSpecial.endDate}T23:59:59+01:00`,
     "availability": "https://schema.org/InStock"
-  }
+  } : null
 
   // BarOrPub specific schema
   const barSchema = {
@@ -214,7 +287,12 @@ export default async function DrinksMenuPage() {
       <ScrollDepthTracker />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([enhancedDrinksMenuSchema, barSchema, managersSpecialSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([
+          enhancedDrinksMenuSchema,
+          barSchema,
+          ...(managersSpecialSchema ? [managersSpecialSchema] : []),
+          breadcrumbSchema
+        ]) }}
       />
       {/* Hero Section */}
       <HeroWrapper
@@ -443,7 +521,7 @@ export default async function DrinksMenuPage() {
 
       {/* Menu Content */}
       <div id="menu">
-        <MenuRenderer menuData={menuData} accentColor="anchor-green" />
+        <MenuRenderer menuData={menuDataWithManagersSpecial} accentColor="anchor-green" />
       </div>
 
       {/* Internal Links for SEO */}

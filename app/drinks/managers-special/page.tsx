@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { Button, Section, FullWidthSection, Container } from '@/components/ui'
+import { Button, Section, FullWidthSection } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
@@ -13,13 +13,49 @@ import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PhoneButton } from '@/components/PhoneButton'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
-import { getCurrentPromotion, getPromotionImage } from '@/lib/managers-special-utils'
+import { getPromotionImage } from '@/lib/managers-special-utils'
 import { notFound } from 'next/navigation'
 import { DEFAULT_DRINKS_IMAGE } from '@/lib/image-fallbacks'
+import { getCurrentPromotion as getCurrentManagersSpecial, getPromotionById } from '@/lib/managers-special'
+import type { ManagersSpecial } from '@/types/managers-special'
+
+type PageSearchParams = {
+  preview?: string | string[]
+  token?: string | string[]
+  date?: string | string[]
+}
+
+function resolvePromotion(searchParams: PageSearchParams = {}): { promotion: ManagersSpecial | null; mode: 'live' | 'preview' | 'time-travel' } {
+  const previewId = Array.isArray(searchParams.preview) ? searchParams.preview[0] : searchParams.preview
+  const token = Array.isArray(searchParams.token) ? searchParams.token[0] : searchParams.token
+  const overrideDate = Array.isArray(searchParams.date) ? searchParams.date[0] : searchParams.date
+
+  const expectedToken = process.env.MS_PREVIEW_TOKEN
+  const tokenMatches = expectedToken ? token === expectedToken : process.env.NODE_ENV !== 'production'
+
+  if (previewId && token && tokenMatches) {
+    const previewPromotion = getPromotionById(previewId)
+    if (previewPromotion) {
+      return { promotion: previewPromotion, mode: 'preview' }
+    }
+  }
+
+  if (overrideDate && process.env.NODE_ENV !== 'production') {
+    const parsedDate = new Date(`${overrideDate}T12:00:00Z`)
+    if (!Number.isNaN(parsedDate.valueOf())) {
+      const futurePromotion = getCurrentManagersSpecial(parsedDate)
+      if (futurePromotion) {
+        return { promotion: futurePromotion, mode: 'time-travel' }
+      }
+    }
+  }
+
+  return { promotion: getCurrentManagersSpecial(), mode: 'live' }
+}
 
 // This function runs at build time and request time
-export async function generateMetadata(): Promise<Metadata> {
-  const currentPromotion = getCurrentPromotion()
+export async function generateMetadata({ searchParams }: { searchParams: PageSearchParams }): Promise<Metadata> {
+  const { promotion: currentPromotion } = resolvePromotion(searchParams)
   
   if (!currentPromotion) {
     return {
@@ -32,23 +68,23 @@ export async function generateMetadata(): Promise<Metadata> {
   
   return {
     title: promotion.metaTitle || `Manager's Special - ${currentPromotion.spirit.name} | The Anchor - Heathrow Pub & Dining`,
-    description: promotion.metaDescription || `Enjoy ${currentPromotion.spirit.discount} off ${currentPromotion.spirit.name} at The Anchor. Limited time offer.`,
+    description: promotion.metaDescription || currentPromotion.spirit.description || promotion.offerText,
     keywords: `${currentPromotion.spirit.name.toLowerCase()} offer, gin promotion stanwell moor, pub drinks special heathrow`,
     openGraph: {
       title: promotion.metaTitle || `Manager's Special - ${currentPromotion.spirit.discount} ${currentPromotion.spirit.name}`,
-      description: promotion.metaDescription || currentPromotion.spirit.description,
+      description: promotion.metaDescription || currentPromotion.spirit.description || promotion.offerText,
       images: [getPromotionImage(currentPromotion.imageFolder) || DEFAULT_DRINKS_IMAGE],
     },
     twitter: getTwitterMetadata({
       title: promotion.metaTitle || `Manager's Special - ${currentPromotion.spirit.discount} ${currentPromotion.spirit.name}`,
-      description: promotion.metaDescription || currentPromotion.spirit.description,
+      description: promotion.metaDescription || currentPromotion.spirit.description || promotion.offerText || '',
       images: [getPromotionImage(currentPromotion.imageFolder) || DEFAULT_DRINKS_IMAGE]
     })
   }
 }
 
-export default function ManagersSpecialPage() {
-  const currentPromotion = getCurrentPromotion()
+export default function ManagersSpecialPage({ searchParams }: { searchParams: PageSearchParams }) {
+  const { promotion: currentPromotion } = resolvePromotion(searchParams)
   
   // If no active promotion, show 404
   if (!currentPromotion) {
@@ -56,7 +92,16 @@ export default function ManagersSpecialPage() {
   }
   
   const { spirit, promotion } = currentPromotion
+  const spiritName = spirit.name.toLowerCase()
+  const isBotanist = spiritName.includes('botanist')
+  const isWarners = spiritName.includes('warners')
+  const isRedleg = spiritName.includes('redleg')
+  const isHennessy = spiritName.includes('hennessy')
   const dynamicImagePath = getPromotionImage(currentPromotion.imageFolder)
+
+  const promotionMonthName = new Date(currentPromotion.startDate).toLocaleDateString('en-GB', {
+    month: 'long'
+  })
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -95,7 +140,7 @@ export default function ManagersSpecialPage() {
     }
   }
 
-  const faqs = spirit.name.includes('Botanist') ? [
+  const faqs = isBotanist ? [
     {
       question: "What makes The Botanist gin special?",
       answer: "The Botanist features 22 hand-foraged botanicals from the Isle of Islay, making it one of the most complex gins in the world. Each botanical is picked at its peak and contributes to the gin's unique layered flavor profile."
@@ -112,7 +157,7 @@ export default function ManagersSpecialPage() {
       question: "Can I book a table to try The Botanist?",
       answer: "Walk-ins are always welcome at The Anchor! While you don't need to book for drinks, if you're planning to dine with us too, you can book a table online or call 01753 682707."
     }
-  ] : spirit.name.includes('Warners') ? [
+  ] : isWarners ? [
     {
       question: "What makes Warners Elderflower gin special?",
       answer: "Warners Elderflower gin is infused with fresh elderflowers handpicked from the hedgerows surrounding Falls Farm in Northamptonshire. It captures the essence of British summertime with natural floral sweetness balanced by classic gin botanicals."
@@ -129,7 +174,7 @@ export default function ManagersSpecialPage() {
       question: "Is Warners Elderflower good for gin cocktails?",
       answer: "Absolutely! Beyond G&Ts, try it in an Elderflower Collins with lemon and soda, or with premium tonic and cucumber ribbon. The natural elderflower sweetness makes it perfect for refreshing summer cocktails."
     }
-  ] : spirit.name.includes('Redleg') ? [
+  ] : isRedleg ? [
     {
       question: "What makes Redleg Spiced Rum special?",
       answer: "Redleg is a Caribbean spiced rum infused with Jamaican ginger and vanilla. Named after the red leg hermit crab, it brings authentic island warmth with its smooth blend of spices - perfect for those first chilly autumn evenings."
@@ -146,7 +191,38 @@ export default function ManagersSpecialPage() {
       question: "Why is spiced rum perfect for September?",
       answer: "As summer transitions to autumn, Redleg's warming spices - ginger, vanilla, and cinnamon - provide the perfect golden glow for cooler evenings. It's like Caribbean sunshine in a glass, ideal for the changing season."
     }
+  ] : isHennessy ? [
+    {
+      question: "What makes Hennessy VS a 'Very Special' cognac?",
+      answer: "Hennessy VS is blended from more than 40 eaux-de-vie aged up to eight years in French oak. The maturation develops the toasted oak, vanilla and spice notes that make it one of the world's most celebrated entry points into cognac."
+    },
+    {
+      question: "How do you recommend serving Hennessy VS at The Anchor?",
+      answer: "Ask our bar team for it neat or over a single cube to appreciate the oak, or try our October serve with premium ginger ale and an orange twist. We also shake it into an Autumn Sidecar if you fancy a cocktail."
+    },
+    {
+      question: "Is the 25% discount just for singles?",
+      answer: "The headline offer covers 25ml singles at £3.38 (was £4.50). Doubles are still available at the bar's standard pricing if you'd like a longer sip."
+    },
+    {
+      question: "Does Hennessy pair well with food?",
+      answer: "Absolutely. Hennessy VS works beautifully alongside our slow-cooked short rib, rich desserts like sticky toffee pudding, or simply as a digestif after Sunday roast."
+    }
   ] : []
+
+  const heroTags = [
+    { label: '🎯 Limited Time', variant: 'primary' as const },
+    { label: `Valid until ${new Date(currentPromotion.endDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' })}`, variant: 'default' as const },
+    ...(spirit.abv ? [{ label: spirit.abv, variant: 'default' as const }] : []),
+    ...(spirit.origin ? [{ label: spirit.origin, variant: 'default' as const }] : [])
+  ]
+
+  const spiritDetails = [
+    spirit.abv ? { label: 'ABV', value: spirit.abv } : null,
+    spirit.origin ? { label: 'Origin', value: spirit.origin } : null,
+    spirit.distillery ? { label: 'Distillery', value: spirit.distillery } : null,
+    spirit.category ? { label: 'Category', value: spirit.category } : null
+  ].filter((detail): detail is { label: string; value: string } => Boolean(detail))
 
   return (
     <>
@@ -168,12 +244,7 @@ export default function ManagersSpecialPage() {
         description={promotion.subheadline}
         size="medium"
         showStatusBar={true}
-        tags={[
-          { label: '🎯 Limited Time', variant: 'primary' },
-          { label: `Valid until ${new Date(currentPromotion.endDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' })}`, variant: 'default' },
-          { label: spirit.abv, variant: 'default' },
-          { label: spirit.origin, variant: 'default' }
-        ]}
+        tags={heroTags}
         breadcrumbs={[
           { name: 'Drinks', href: '/drinks' },
           { name: "Manager's Special" }
@@ -243,12 +314,7 @@ export default function ManagersSpecialPage() {
             {/* Product Info */}
             <ProductDetails 
               title="Spirit Details"
-              details={[
-                { label: "ABV", value: spirit.abv },
-                { label: "Origin", value: spirit.origin },
-                { label: "Distillery", value: spirit.distillery },
-                { label: "Category", value: spirit.category }
-              ]}
+              details={spiritDetails}
             />
           </div>
         </div>
@@ -259,7 +325,7 @@ export default function ManagersSpecialPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Special Prices This {new Date(currentPromotion.startDate).toLocaleDateString('en-GB', { month: 'long' })}
+              Special Prices This {promotionMonthName}
             </h2>
             <p className="text-xl text-gray-600">
               Available at the bar • No booking required • While stocks last
@@ -327,6 +393,57 @@ export default function ManagersSpecialPage() {
         </div>
       </FullWidthSection>
 
+      {isHennessy && (
+        <FullWidthSection className="py-12 md:py-20 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-100">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-4">
+                Why Hennessy VS Is October's Pick
+              </h2>
+              <p className="text-lg md:text-xl text-amber-900/80 leading-relaxed">
+                Autumn evenings at The Anchor call for something rich, warming and iconic. Hennessy VS delivers toasted oak, caramelised fruit and spice that feel tailor-made for fireside chats after a crisp walk along the Thames moorings.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              <div className="bg-white border border-amber-200 rounded-xl p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-amber-900 mb-2">Signature Serve</h3>
+                <p className="text-amber-900/80">Order it neat or over a single cube to let the vanilla and spice bloom. Prefer sparkle? Ask for our Hennessy Ginger with Fever-Tree ginger ale and an orange twist.</p>
+              </div>
+              <div className="bg-white border border-amber-200 rounded-xl p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-amber-900 mb-2">Perfect Moment</h3>
+                <p className="text-amber-900/80">Nurse a glass while catching up after Sunday lunch, or treat yourself before a Heathrow red-eye. Cognac’s slow sip pace rewards taking the evening down a notch.</p>
+              </div>
+              <div className="bg-white border border-amber-200 rounded-xl p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-amber-900 mb-2">Food Pairing</h3>
+                <p className="text-amber-900/80">Pair it with our short rib, charcuterie boards or sticky toffee pudding. The caramel notes in Hennessy link beautifully with roasted and spiced dishes.</p>
+              </div>
+            </div>
+          </div>
+        </FullWidthSection>
+      )}
+
+      {isHennessy && (
+        <Section spacing="lg" container containerSize="md" className="bg-white">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Cognac Cocktails To Try This Month</h2>
+            <div className="space-y-6">
+              <div className="border border-gray-200 rounded-xl p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900">Autumn Sidecar</h3>
+                <p className="text-gray-700">Hennessy VS, triple sec, fresh lemon and a cinnamon sugar rim. Bright citrus meets warming spice — ideal before dinner.</p>
+              </div>
+              <div className="border border-gray-200 rounded-xl p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900">VS Old Fashioned</h3>
+                <p className="text-gray-700">A cognac twist on the classic with brown sugar, Angostura bitters and orange oils. Smooth, sophisticated and perfect for unwinding at the bar.</p>
+              </div>
+              <div className="border border-gray-200 rounded-xl p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900">Apple Orchard Highball</h3>
+                <p className="text-gray-700">Hennessy VS lengthened with cloudy apple juice, soda and a dash of aromatic bitters. A refreshing nod to harvest season.</p>
+              </div>
+            </div>
+          </div>
+        </Section>
+      )}
+
       {/* Botanicals Grid */}
       {spirit.botanicals && spirit.botanicals.length > 0 && (
         <Section spacing="lg" container containerSize="md" className="bg-purple-50">
@@ -359,7 +476,7 @@ export default function ManagersSpecialPage() {
             </h2>
             <div className="space-y-6 text-gray-700 max-w-none">
               <p className="text-lg md:text-xl leading-relaxed">{spirit.longDescription}</p>
-              {spirit.name.includes('Botanist') ? (
+              {isBotanist ? (
                 <>
                   <p className="text-lg leading-relaxed">
                     Created at the Bruichladdich Distillery on Islay, The Botanist represents a unique 
@@ -371,7 +488,7 @@ export default function ManagersSpecialPage() {
                     herbs that face the Atlantic storms to the delicate flowers found in sheltered glens.
                   </p>
                 </>
-              ) : spirit.name.includes('Warners') ? (
+              ) : isWarners ? (
                 <>
                   <p className="text-lg leading-relaxed">
                     Founded by farmer Tom Warner, Warners Distillery began as a way to use surplus 
@@ -384,7 +501,7 @@ export default function ManagersSpecialPage() {
                     gin, creating that distinctive floral character.
                   </p>
                 </>
-              ) : spirit.name.includes('Redleg') ? (
+              ) : isRedleg ? (
                 <>
                   <p className="text-lg leading-relaxed">
                     Named after the red leg hermit crab native to the Caribbean, Redleg represents 
@@ -395,6 +512,15 @@ export default function ManagersSpecialPage() {
                     Distilled using traditional Jamaican pot stills and aged in oak barrels, Redleg 
                     is then infused with vanilla and ginger from the islands. The result is a smooth, 
                     warming rum that brings Caribbean sunshine to even the greyest British autumn day.
+                  </p>
+                </>
+              ) : isHennessy ? (
+                <>
+                  <p className="text-lg leading-relaxed">
+                    Maison Hennessy has crafted cognac on the banks of the Charente River since 1765. The VS (Very Special) expression blends youthful eaux-de-vie aged in French oak barrels to capture vibrant fruit, toasted almond and warming spice.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    Each barrel contributes subtly different layers; cellar masters marry them to create the signature house style. The result is a cognac that feels both luxurious and approachable — perfect for making October evenings at The Anchor feel that little bit elevated.
                   </p>
                 </>
               ) : null}
@@ -420,7 +546,7 @@ export default function ManagersSpecialPage() {
               {promotion.ctaText}
             </h2>
             <p className="text-xl text-purple-100 mb-8">
-              Visit The Anchor this {new Date(currentPromotion.startDate).toLocaleDateString('en-GB', { month: 'long' })} 
+              Visit The Anchor this {promotionMonthName} 
               and discover why {spirit.name} is our Manager's Special
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

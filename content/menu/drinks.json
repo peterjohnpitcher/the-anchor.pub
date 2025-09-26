@@ -321,20 +321,20 @@
       "emoji": "🥃",
       "description": "Our extensive collection of premium spirits, carefully curated for every taste",
       "sections": [
+    {
+      "title": "Manager's Special",
+      "style": "grid",
+      "highlight": true,
+      "description": "Discover this month's featured spirit at 25% off.",
+      "items": [
         {
-          "title": "Manager's Special - September",
-          "style": "grid",
-          "highlight": true,
-          "description": "25% OFF Redleg Spiced Rum throughout September!",
-          "items": [
-            {
-              "name": "Redleg Spiced Rum",
-              "price": "Single £3.00 (was £4.00)",
-              "description": "Caribbean warmth in a glass. Redleg Spiced Rum brings notes of vanilla, ginger and exotic spices to chase away the autumn chill. Enjoy 25% off all serves this month! Doubles available at bar prices.",
-              "special": true
-            }
-          ]
-        },
+          "name": "Monthly Feature",
+          "price": "",
+          "description": "Ask at the bar for this month's Manager's Special pricing and tasting notes.",
+          "special": true
+        }
+      ]
+    },
         {
           "title": "Gin Collection",
           "style": "grid",

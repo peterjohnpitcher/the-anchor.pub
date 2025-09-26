@@ -143,7 +143,7 @@ export function MenuRenderer({ menuData, accentColor = 'anchor-gold' }: MenuRend
                   key={sectionIndex}
                   className={cn(
                     'mb-8',
-                    section.highlight && 'relative overflow-hidden rounded-3xl px-6 py-12 shadow-lg',
+                    section.highlight && 'relative rounded-3xl px-6 py-12 shadow-lg overflow-visible',
                     section.highlight && category.id === 'cocktails' && 'border border-amber-200 bg-amber-50/90',
                     section.highlight && category.id === 'spirits' && 'border-4 border-anchor-green bg-gradient-to-br from-anchor-green to-anchor-green-dark shadow-xl'
                   )}

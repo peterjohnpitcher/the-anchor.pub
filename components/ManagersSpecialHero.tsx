@@ -5,41 +5,38 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui'
 import { getCurrentPromotionClient } from '@/lib/managers-special-utils-client'
+import { useSearchParams } from 'next/navigation'
 
 export function ManagersSpecialHero() {
   const [currentPromotion, setCurrentPromotion] = useState<any>(null)
-  const [imagePath, setImagePath] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  const searchParams = useSearchParams()
+  const preview = searchParams.get('preview')
+  const token = searchParams.get('token')
+  const date = searchParams.get('date')
   
   useEffect(() => {
     // Get current promotion from API
-    getCurrentPromotionClient()
+    getCurrentPromotionClient({ preview, token, date })
       .then(promo => {
         if (promo) {
           setCurrentPromotion(promo)
+        } else {
+          setCurrentPromotion(null)
         }
-        setLoading(false)
       })
       .catch(err => {
-        console.error('Failed to fetch current promotion:', err)
-        setLoading(false)
+        console.error('Failed to fetch manager\'s special:', err)
+        setCurrentPromotion(null)
       })
-    
-    // Fetch the dynamic image path
-    fetch('/api/managers-special-image')
-      .then(res => res.json())
-      .then(data => {
-        if (data.found && data.image) {
-          setImagePath(data.image)
-        }
-      })
-      .catch(err => console.error('Failed to fetch manager\'s special image:', err))
-  }, [])
+      .finally(() => setLoading(false))
+  }, [preview, token, date])
 
   if (loading || !currentPromotion) return null
 
   // The API returns the promotion directly with active: true flag
   const { spirit, promotion } = currentPromotion
+  const imagePath = currentPromotion.image || spirit?.image || null
   
   // Ensure spirit and promotion exist
   if (!spirit || !promotion) {
