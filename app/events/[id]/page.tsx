@@ -202,7 +202,7 @@ export default async function EventPage({ params }: Props) {
                     <CardBody className="p-4 md:p-6">
                       <p className="text-sm md:text-base text-gray-600 mb-1">Entry Price</p>
                       <p className={`text-xl md:text-2xl font-bold ${isFree ? 'text-green-600' : 'text-anchor-gold'}`}>
-                        {isFree ? 'FREE' : event.offers ? formatPrice(event.offers.price, event.offers.priceCurrency) : 'TBC'}
+                        {isFree ? 'FREE TICKETS - Book while they\'re available' : event.offers ? formatPrice(event.offers.price, event.offers.priceCurrency) : 'TBC'}
                       </p>
                     </CardBody>
                   </Card>
@@ -349,7 +349,7 @@ export default async function EventPage({ params }: Props) {
       {/* CTA Section - Mobile First */}
       <Section className="bg-anchor-green" spacing="md">
         <Container className="text-center text-white">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">
             {isSoldOut ? "Join Our Waiting List" : "Reserve Your Spot"}
           </h2>
           <p className="text-base md:text-lg lg:text-xl mb-6 md:mb-8 max-w-2xl mx-auto px-2">

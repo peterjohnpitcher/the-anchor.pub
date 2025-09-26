@@ -71,7 +71,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                 <div className="flex flex-wrap items-center gap-2 text-sm sm:text-xs mb-3">
                   {event.offers && (
                     <span className={event.offers.price === "0" ? "text-green-600 font-semibold" : "text-anchor-gold font-semibold"}>
-                      {event.offers.price === "0" ? "FREE" : formatPrice(event.offers.price, event.offers.priceCurrency)}
+                      {event.offers.price === "0" ? "FREE TICKETS - Book while they\'re available" : formatPrice(event.offers.price, event.offers.priceCurrency)}
                     </span>
                   )}
                   
@@ -141,7 +141,7 @@ const EventCard = memo(function EventCard({ event, index }: EventCardProps) {
                 <div className="flex flex-wrap items-center gap-4 text-sm">
                   {event.offers && (
                     <span className={event.offers.price === "0" ? "text-green-600 font-semibold" : "text-anchor-gold font-semibold"}>
-                      {event.offers.price === "0" ? "FREE EVENT" : formatPrice(event.offers.price, event.offers.priceCurrency)}
+                      {event.offers.price === "0" ? "FREE TICKETS - Book while they\'re available" : formatPrice(event.offers.price, event.offers.priceCurrency)}
                     </span>
                   )}
                   

@@ -112,7 +112,7 @@ export function NextEvent() {
             {nextEvent.offers && (
               <div className="text-right">
                 <p className={`text-xl font-bold ${nextEvent.offers.price === "0" ? "text-green-600" : "text-anchor-gold"}`}>
-                  {nextEvent.offers.price === "0" ? "FREE EVENT" : `£${nextEvent.offers.price}`}
+                  {nextEvent.offers.price === "0" ? "FREE TICKETS - Book while they\'re available" : `£${nextEvent.offers.price}`}
                 </p>
                 {nextEvent.remainingAttendeeCapacity === 0 && (
                   <p className="text-red-600 font-semibold text-sm mt-1">SOLD OUT</p>

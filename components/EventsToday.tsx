@@ -212,7 +212,7 @@ export function EventsToday() {
               )}
               {event.price && (
                 <p className={`text-sm mt-1 ${event.price === "0" ? "text-green-600 font-semibold" : "text-gray-700"}`}>
-                  {event.price === "0" ? "FREE EVENT" : `From £${event.price}`}
+                  {event.price === "0" ? "FREE TICKETS - Book while they\'re available" : `From £${event.price}`}
                 </p>
               )}
             </div>

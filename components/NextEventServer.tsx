@@ -78,10 +78,10 @@ export async function NextEventServer() {
                 {nextEvent.offers && (
                   <div className="text-right">
                     <p className="text-2xl font-bold text-anchor-green">
-                      {nextEvent.offers.price === '0' ? 'FREE' : `£${nextEvent.offers.price}`}
+                      {nextEvent.offers.price === '0' ? 'FREE TICKETS - Book while they\'re available' : `£${nextEvent.offers.price}`}
                     </p>
                     {nextEvent.offers.price === '0' && (
-                      <p className="text-sm text-gray-700">No ticket needed</p>
+                      <p className="text-sm text-gray-700">These go fast - secure yours now</p>
                     )}
                   </div>
                 )}

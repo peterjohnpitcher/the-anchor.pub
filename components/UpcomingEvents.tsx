@@ -88,7 +88,7 @@ export async function UpcomingEvents() {
                       <div className="flex items-center gap-4 text-sm">
                         {event.offers && (
                           <span className={event.offers.price === "0" ? "text-green-600 font-semibold" : "text-anchor-gold font-semibold"}>
-                            {event.offers.price === "0" ? "FREE EVENT" : formatPrice(event.offers.price, event.offers.priceCurrency)}
+                            {event.offers.price === "0" ? "FREE TICKETS - Book while they\'re available" : formatPrice(event.offers.price, event.offers.priceCurrency)}
                           </span>
                         )}
                         {event.remainingAttendeeCapacity === 0 && (

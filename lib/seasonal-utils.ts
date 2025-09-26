@@ -63,8 +63,8 @@ export function getSeasonalHomepageImage(testDate?: Date): SeasonalImage {
   
   imagePath = `/images/page-headers/home/seasonal/${season}/page-headers-homepage.jpg`
   
-  // Log which seasonal image is being served (server-side only)
-  if (typeof window === 'undefined') {
+  // Log which seasonal image is being served (server-side only, in development)
+  if (typeof window === 'undefined' && process.env.NODE_ENV === 'development') {
     console.log(`[Seasonal Image] Serving ${season} image: ${imagePath}`)
   }
   
