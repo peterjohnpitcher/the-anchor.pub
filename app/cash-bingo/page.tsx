@@ -26,9 +26,9 @@ import {
 import { staticEvents } from '@/lib/static-events'
 
 export const metadata: Metadata = {
-  title: 'Cash Bingo Near Heathrow | Friday Jackpot Night at The Anchor',
+  title: 'Cash Bingo Near Heathrow | Jackpot Night at The Anchor',
   description:
-    'Play cash bingo near Heathrow: £10 cash-only books, £160 snowball, jackpot to £300+, Chip Shop Fridays menu and reserved seating at The Anchor Stanwell Moor. Book your book now.',
+    'Play cash bingo near Heathrow with £10 cash-only books, a rolling snowball and jackpots that keep climbing. Reserve your seat for the next big win at The Anchor Stanwell Moor.',
   keywords:
     'cash bingo, cash bingo games, play bingo for cash, cash bingo near heathrow, bingo games for money, pub bingo night, bingo night stanwell moor'
 }
@@ -43,7 +43,7 @@ const WHY_LOVE_IT = [
   {
     icon: '💷',
     title: 'Cash-first bingo night',
-    body: 'Ten lively games with £10 cash books, instant prizes, a £160 snowball chase and a jackpot that rolls to £300+ when the room sells out.'
+    body: 'Ten lively games with £10 cash books, instant prizes, a snowball chase that climbs by £20 each month and a jackpot that rolls to £300+ when the room sells out.'
   },
   {
     icon: '🎙️',
@@ -51,19 +51,19 @@ const WHY_LOVE_IT = [
     body: 'Traditional bingo calls mixed with Anchor in-jokes – Two Little Ducks gets a crowd quack, 59 earns a toast. Friendly hosts keep the pace spot on.'
   },
   {
-    icon: '🍟',
-    title: 'Chip Shop Fridays fuel',
-    body: 'Arrive from 6 pm for Chip Shop Fridays plates, pitchers and cocktails. The kitchen serves through 9 pm so you can feast between games.'
+    icon: '🍽️',
+    title: 'Freshly-cooked fuel',
+    body: 'Our full, delicious menu is served 6 pm–9 pm on bingo nights, so you can order burgers, sharers and puddings straight to your table between games.'
   },
   {
     icon: '📣',
-    title: 'Perfect Friday social',
+    title: 'Perfect night out',
     body: 'Doors & book sales from 6 pm, eyes down at 7 pm, finale by 9:30 pm. Ideal for Heathrow crews, locals, work mates and birthday nights.'
   },
   {
     icon: '🔁',
     title: 'Snowball loyalty perks',
-    body: 'Attend three in a row to unlock the £160 snowball on Game 9. We track regulars on the Snowball Register so loyalty really does pay.'
+    body: 'Attend three in a row to unlock the rolling snowball on Game 9. We track regulars on the Snowball Register so loyalty really does pay.'
   }
 ]
 
@@ -91,12 +91,12 @@ const FAQS = [
   {
     question: 'What are the prizes and how does the snowball work?',
     answer:
-      'Games include drinks, chocolate bars, quiz tickets, £10 cash, a snowball worth £160 if Game 9 full house lands within 54 calls, plus a jackpot pot fed by every £10 book sold.'
+      'Expect a lively combination of free drinks, chocolate, quiz tickets, food vouchers, £10 cash boosts, a snowball bonus and a jackpot pot that grows with every £10 book sold. The snowball headline increases by £20 each month it rolls over, and we add two extra calls every time to make it easier to win.'
   },
   {
     question: 'Do you serve food and drinks?',
     answer:
-      'Absolutely. Chip Shop Fridays menu and full bar service run 6 pm–9 pm. Order before the first game or during the breaks—everything is delivered straight to your table.'
+      'Absolutely. Our full menu and bar service run 6 pm–9 pm on bingo nights. Order before the first game or during the breaks and we’ll deliver everything straight to your table.'
   },
   {
     question: 'Can we host a private cash bingo fundraiser?',
@@ -106,21 +106,9 @@ const FAQS = [
   {
     question: 'Where can I see the latest dates?',
     answer:
-      'Check the Upcoming Bingo Dates below or visit our What’s On page. Bonus specials and extra Fridays are announced there first, so it’s the best place to keep tabs on the next cash bingo night.'
+      'Check the Upcoming Bingo Dates below or visit our What’s On page. Bonus specials are announced there first, so it’s the best place to keep tabs on the next cash bingo night.'
   }
 ]
-
-function PrizeCard({ title, reward, copy }: { title: string; reward: string; copy: string }) {
-  return (
-    <Card className="h-full bg-white/90 border border-amber-100 shadow-sm">
-      <CardBody>
-        <h3 className="text-lg font-semibold text-anchor-charcoal mb-2">{title}</h3>
-        <p className="text-2xl font-bold text-anchor-gold mb-3">{reward}</p>
-        <p className="text-sm text-gray-700">{copy}</p>
-      </CardBody>
-    </Card>
-  )
-}
 
 function BingoEventCards({ events }: { events: Event[] }) {
   if (!events.length) {
@@ -177,16 +165,8 @@ function BingoEventCards({ events }: { events: Event[] }) {
                 {event.description && (
                   <p className="text-gray-700 leading-relaxed">{event.description}</p>
                 )}
-                <div className="flex flex-wrap items-center gap-3 text-sm">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-anchor-sand/40 text-anchor-green font-semibold">
-                    💷 £160 snowball (within 54 calls)
-                  </span>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-700 font-semibold">
-                    🎉 Jackpot grows with every book sold
-                  </span>
-                </div>
                 <p className="text-sm text-gray-600">
-                  Cash-only books, ten games, two breaks for food & drinks, loyalty register for snowball eligibility.
+                  £10 cash-only books cover all ten games. The jackpot pot grows with every seat sold, and the snowball bonus increases by £20—and two extra calls—each time it rolls over. Stay loyal, sign the Snowball Register and the prize gets easier to win.
                 </p>
               </div>
 
@@ -216,14 +196,14 @@ export default async function CashBingoPage() {
     <>
       <HeroWrapper
         route="/cash-bingo"
-        title="Cash Bingo Fridays at The Anchor"
-        description="Play bingo for cash near Heathrow with £10 books, £160 snowball and jackpots that keep climbing."
+        title="Cash Bingo Nights at The Anchor"
+        description="Play bingo for cash near Heathrow with £10 books, a rolling snowball and jackpots that keep climbing."
         size="medium"
         showStatusBar
         tags={[
           { label: '💷 £10 cash-only books', variant: 'default' },
-          { label: '🎯 £160 snowball chase', variant: 'primary' },
-          { label: '🍟 Chip Shop Fridays menu', variant: 'default' }
+          { label: '🎯 Snowball grows every month', variant: 'primary' },
+          { label: '🍽️ Full menu 6 pm–9 pm', variant: 'default' }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -253,7 +233,7 @@ export default async function CashBingoPage() {
             Cash Bingo Night – Stanwell Moor & Heathrow
           </PageTitle>
           <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto">
-            Searching for cash bingo games near Heathrow? Every few weeks we turn The Anchor into a buzzing bingo hall with cash prizes, Chip Shop Fridays plates and a friendly crowd of locals, cabin crew and Stanwell Moor neighbours. {heroDescription}
+            Searching for cash bingo games near Heathrow? Every few weeks we turn The Anchor into a buzzing bingo hall with cash prizes, hot food from the kitchen and a friendly crowd of locals, cabin crew and Stanwell Moor neighbours. {heroDescription}
           </p>
         </Container>
       </Section>
@@ -267,7 +247,7 @@ export default async function CashBingoPage() {
                 <h2 className="text-3xl font-bold text-anchor-charcoal">{nextEvent ? nextEvent.name : 'Next cash bingo announced soon'}</h2>
                 <p className="text-anchor-green font-semibold">{nextEvent ? `${nextEventDate} · ${nextEventTime}` : 'Check back for the next date'}</p>
                 <p className="text-gray-700 whitespace-pre-line">
-                  £10 cash book includes all ten games, two breaks and eligibility for instant prizes, £160 snowball (within 54 calls) and the rolling jackpot.
+                  £10 cash book includes all ten games, two breaks and eligibility for instant prizes, the rolling snowball (we add £20 and two extra calls every time it rolls over) and the headline jackpot.
                 </p>
                 <div className="space-y-3">
                   {nextEvent ? (
@@ -286,18 +266,15 @@ export default async function CashBingoPage() {
             </Card>
             <Card className="bg-anchor-cream border border-amber-100 shadow-sm">
               <CardBody className="space-y-4">
-                <h3 className="text-2xl font-bold text-anchor-charcoal">Run of play</h3>
-                <ul className="space-y-3 text-gray-700">
-                  <li><strong>6:00 pm</strong> · Doors open, buy books & daubers (cash only).</li>
-                  <li><strong>7:00 pm</strong> · Welcome, rules and Games 1–3 (aim for 6 minutes per game).</li>
-                  <li><strong>7:45 pm</strong> · 10-minute break – grab drinks, snacks, extra books.</li>
-                  <li><strong>8:00 pm</strong> · Games 4–6 – listen for colour-coded calls to stay on track.</li>
-                  <li><strong>8:40 pm</strong> · Second break – last kitchen orders at 9 pm.</li>
-                  <li><strong>8:55 pm</strong> · Games 7–10 – snowball on Game 9, jackpot on Game 10.</li>
-                  <li><strong>9:30 pm</strong> · Prizes, photos and next cash bingo announcement.</li>
-                </ul>
+                <h3 className="text-2xl font-bold text-anchor-charcoal">How the night feels</h3>
+                <p className="text-gray-700">
+                  We keep things punchy: ten quick-fire games with two planned pauses so you can top up drinks, grab fresh cards and order from the kitchen without missing a call.
+                </p>
+                <p className="text-gray-700">
+                  Expect classic bingo banter, cheeky spot prizes and a snowball countdown that gets louder as the numbers close in. When you shout bingo, our host will check the board and make sure the pot lands in the right hands.
+                </p>
                 <p className="text-sm text-gray-600">
-                  Caller’s decision is final. Phones silent during games. Tied wins split the pot evenly.
+                  Caller’s decision is final, mobiles stay on silent and tied games split the winnings evenly.
                 </p>
               </CardBody>
             </Card>
@@ -329,91 +306,11 @@ export default async function CashBingoPage() {
 
       <Section spacing="md" background="gray">
         <Container>
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-charcoal text-center mb-6">Prizes & jackpot ladder</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <PrizeCard title="Games 1–8" reward="Drinks & treats" copy="Free drinks, chocolate bars, quiz tickets and food vouchers keep every round exciting." />
-              <PrizeCard title="Game 9 Snowball" reward="£160 bonus" copy="Full house within 54 calls and eligible regulars split the snowball. Rolls to £180 if it survives." />
-              <PrizeCard title="Game 10 Jackpot" reward="£10 per book sold" copy="Every cash book feeds the finale. Expect £260+ when the bar is full." />
-              <PrizeCard title="Spot prizes" reward="Surprise cash-ups" copy="Cheeky lucky squares, best bingo call energy and loyalty perks mean extra £10 notes appear throughout the night." />
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section spacing="md" background="white">
-        <Container>
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-anchor-charcoal text-center mb-6">Game-by-game schedule</h2>
-            <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
-              <table className="w-full text-left text-sm text-gray-700">
-                <thead className="bg-anchor-green text-white">
-                  <tr>
-                    <th className="px-4 py-3">Game</th>
-                    <th className="px-4 py-3">Pattern</th>
-                    <th className="px-4 py-3">Prizes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="bg-white/80">
-                    <td className="px-4 py-3 font-semibold">Game 1 – Orange</td>
-                    <td className="px-4 py-3">Two lines</td>
-                    <td className="px-4 py-3">Chocolate bar</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="px-4 py-3 font-semibold">Game 2 – Grey</td>
-                    <td className="px-4 py-3">One line / Two lines</td>
-                    <td className="px-4 py-3">Free drink / Bottle of Prosecco</td>
-                  </tr>
-                  <tr className="bg-white/80">
-                    <td className="px-4 py-3 font-semibold">Game 3 – Blue</td>
-                    <td className="px-4 py-3">Full house</td>
-                    <td className="px-4 py-3">£10 drink voucher</td>
-                  </tr>
-                  <tr className="bg-anchor-sand/20">
-                    <td className="px-4 py-3 font-semibold" colSpan={3}>10-minute break · push bar & Chip Shop Fridays specials</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="px-4 py-3 font-semibold">Game 4 – Peach</td>
-                    <td className="px-4 py-3">Two lines</td>
-                    <td className="px-4 py-3">Free drink</td>
-                  </tr>
-                  <tr className="bg-white/80">
-                    <td className="px-4 py-3 font-semibold">Game 5 – Yellow</td>
-                    <td className="px-4 py-3">One line / Full house</td>
-                    <td className="px-4 py-3">Chocolate bar / £10 cash</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="px-4 py-3 font-semibold">Game 6 – Red</td>
-                    <td className="px-4 py-3">Full house</td>
-                    <td className="px-4 py-3">£10 food voucher</td>
-                  </tr>
-                  <tr className="bg-anchor-sand/20">
-                    <td className="px-4 py-3 font-semibold" colSpan={3}>10-minute break · announce kitchen last orders (9 pm)</td>
-                  </tr>
-                  <tr className="bg-white/80">
-                    <td className="px-4 py-3 font-semibold">Game 7 – Lilac</td>
-                    <td className="px-4 py-3">One line</td>
-                    <td className="px-4 py-3">Chocolate bar</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="px-4 py-3 font-semibold">Game 8 – Brown</td>
-                    <td className="px-4 py-3">One line / Two lines</td>
-                    <td className="px-4 py-3">Free drink / 4 tickets to quiz night</td>
-                  </tr>
-                  <tr className="bg-white/80">
-                    <td className="px-4 py-3 font-semibold">Game 9 – Pink (Snowball)</td>
-                    <td className="px-4 py-3">Full house within 54 calls</td>
-                    <td className="px-4 py-3">£10 cash + £160 snowball bonus</td>
-                  </tr>
-                  <tr className="bg-white">
-                    <td className="px-4 py-3 font-semibold">Game 10 – Green (Jackpot)</td>
-                    <td className="px-4 py-3">Full house</td>
-                    <td className="px-4 py-3">Cash pot: £10 per book sold (est. £260+)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div className="max-w-4xl mx-auto text-gray-700 space-y-4">
+            <h2 className="text-3xl font-bold text-anchor-charcoal text-center">What’s up for grabs?</h2>
+            <p>
+              We keep prizes fresh so every cash bingo night feels different. Expect a lively mix of free drinks, chocolate bars, quiz night tickets, food vouchers, £10 cash boosts, cheeky spot prizes and a jackpot pot that grows with every £10 book sold. The snowball bonus carries over an extra £20—and two additional calls—each month it survives, so loyal dabbers see the prize get juicier and easier to win.
+            </p>
           </div>
         </Container>
       </Section>
@@ -438,7 +335,7 @@ export default async function CashBingoPage() {
                 <CardBody className="space-y-3">
                   <h3 className="text-xl font-semibold text-anchor-charcoal">Arrive early for the good seats</h3>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Doors open at 6 pm. Turn up early, claim a clear sightline to the caller, order Chip Shop Fridays plates and review the snowball rules before Game 1.
+                    Doors open at 6 pm. Turn up early, claim a clear sightline to the caller, order dinner and review the snowball rules before Game 1.
                   </p>
                 </CardBody>
               </Card>
@@ -454,7 +351,7 @@ export default async function CashBingoPage() {
                 <CardBody className="space-y-3">
                   <h3 className="text-xl font-semibold text-anchor-charcoal">Build your snowball streak</h3>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    Attend each monthly cash bingo night and we tick you off on the Snowball Register. Three consecutive visits unlock the £160 bonus when it hits in 54 calls or fewer.
+                    Attend each cash bingo night and we tick you off on the Snowball Register. Every consecutive month boosts your eligibility when the snowball finally lands.
                   </p>
                 </CardBody>
               </Card>
