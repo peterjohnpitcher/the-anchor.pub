@@ -50,7 +50,15 @@ const defaultTheme = {
 }
 
 const defaultItems: NavigationItem[] = [
-  { label: "What's On", href: '/whats-on' },
+  {
+    label: "What's On",
+    href: '/whats-on',
+    items: [
+      { label: 'Upcoming Events', href: '/whats-on#upcoming-events' },
+      { label: 'Quiz Night', href: '/quiz-night' },
+      { label: 'Drag Shows', href: '/whats-on/drag-shows' }
+    ]
+  },
   { 
     label: 'Food', 
     href: '/food-menu',
