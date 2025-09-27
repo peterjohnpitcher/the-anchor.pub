@@ -304,8 +304,6 @@ export default async function CashBingoPage() {
           </div>
         </Container>
       </Section>
-
-*** End PATCH ***
       <Section spacing="md" background="white">
         <Container>
           <div className="max-w-6xl mx-auto">
@@ -482,7 +480,7 @@ export default async function CashBingoPage() {
       <Section spacing="md" background="white">
         <Container>
           <div className="max-w-4xl mx-auto bg-gradient-to-br from-anchor-green to-anchor-green/80 rounded-2xl p-8 text-white text-center shadow-lg">
-            <h2 className="text-3xl font-bold mb-4">Ready to shout “Bingo”?</h2>
+            <h2 className="text-3xl font-bold mb-4 text-white">Ready to shout “Bingo”?</h2>
             <p className="text-lg mb-6">
               Book your £10 cash book today or call the bar team and we’ll keep seats for your crew.
             </p>
