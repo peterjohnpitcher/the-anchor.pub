@@ -240,7 +240,7 @@ export default async function QuizNightPage() {
               variant="secondary"
               className="w-full sm:w-auto"
             >
-              <Link href="#quiz-dates">📅 See upcoming quiz dates</Link>
+              <a href="#quiz-dates">📅 See upcoming quiz dates</a>
             </Button>
             <PhoneButton
               phone="01753 682707"

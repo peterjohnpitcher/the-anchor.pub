@@ -213,7 +213,7 @@ export default async function CashBingoPage() {
               variant="secondary"
               className="w-full sm:w-auto"
             >
-              <Link href="#bingo-dates">📅 See upcoming bingo dates</Link>
+              <a href="#bingo-dates">📅 See upcoming bingo dates</a>
             </Button>
             <PhoneButton
               phone="01753 682707"
