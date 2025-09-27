@@ -210,7 +210,8 @@ export default async function CashBingoPage() {
             <Button
               size="lg"
               asChild
-              className="w-full sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
+              variant="secondary"
+              className="w-full sm:w-auto"
             >
               <Link href="#bingo-dates">📅 See upcoming bingo dates</Link>
             </Button>
