@@ -101,10 +101,19 @@ describe('Skeleton', () => {
 })
 
 describe('LoadingOverlay', () => {
+  const getOverlay = () => {
+    const overlays = screen.getAllByRole('status')
+    const overlay = overlays.find(element => element.getAttribute('aria-live') === 'polite')
+    if (!overlay) {
+      throw new Error('Overlay element not found')
+    }
+    return overlay
+  }
+
   it('renders when visible', () => {
     render(<LoadingOverlay visible={true} />)
-    
-    expect(screen.getByRole('status')).toBeInTheDocument()
+
+    expect(getOverlay()).toBeInTheDocument()
     expect(screen.getByText('Loading...')).toBeInTheDocument()
   })
 
@@ -122,32 +131,32 @@ describe('LoadingOverlay', () => {
 
   it('applies blur effect by default', () => {
     render(<LoadingOverlay visible={true} />)
-    
-    expect(screen.getByRole('status')).toHaveClass('backdrop-blur-sm')
+
+    expect(getOverlay()).toHaveClass('backdrop-blur-sm')
   })
 
   it('can disable blur effect', () => {
     render(<LoadingOverlay visible={true} blur={false} />)
-    
-    expect(screen.getByRole('status')).not.toHaveClass('backdrop-blur-sm')
+
+    expect(getOverlay()).not.toHaveClass('backdrop-blur-sm')
   })
 
   it('renders fullscreen when specified', () => {
     render(<LoadingOverlay visible={true} fullScreen={true} />)
-    
-    expect(screen.getByRole('status')).toHaveClass('fixed', 'inset-0', 'z-50')
+
+    expect(getOverlay()).toHaveClass('fixed', 'inset-0', 'z-50')
   })
 
   it('renders as absolute overlay by default', () => {
     render(<LoadingOverlay visible={true} fullScreen={false} />)
-    
-    expect(screen.getByRole('status')).toHaveClass('absolute', 'inset-0', 'z-10')
+
+    expect(getOverlay()).toHaveClass('absolute', 'inset-0', 'z-10')
   })
 
   it('has proper ARIA attributes', () => {
     render(<LoadingOverlay visible={true} />)
-    
-    const overlay = screen.getByRole('status')
+
+    const overlay = getOverlay()
     expect(overlay).toHaveAttribute('aria-live', 'polite')
   })
 })
@@ -164,7 +173,7 @@ describe('Skeleton Presets', () => {
     const { container } = render(<SkeletonCard />)
     
     expect(container.querySelector('.rounded-lg.border')).toBeInTheDocument()
-    expect(screen.getAllByRole('status')).toHaveLength(4) // Header + 2 text lines + 2 buttons
+    expect(screen.getAllByRole('status')).toHaveLength(5) // Header + 2 text lines + 2 buttons
   })
 
   it('renders SkeletonTable with correct grid', () => {

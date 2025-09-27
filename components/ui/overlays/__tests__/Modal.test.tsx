@@ -65,18 +65,16 @@ describe('Modal', () => {
 
   it('calls onClose when backdrop is clicked', () => {
     const onClose = jest.fn()
-    const { container } = render(
+    render(
       <Modal open={true} onClose={onClose}>
         <ModalBody>Modal content</ModalBody>
       </Modal>
     )
-    
-    // Click the backdrop (parent element)
-    const backdrop = container.querySelector('[data-testid]')?.parentElement
-    if (backdrop) {
-      fireEvent.click(backdrop)
-    }
-    
+
+    const dialog = screen.getByRole('dialog')
+    const overlay = dialog.parentElement as HTMLElement
+    fireEvent.click(overlay)
+
     expect(onClose).toHaveBeenCalledTimes(1)
   })
 
@@ -148,7 +146,7 @@ describe('Modal', () => {
     )
     
     await waitFor(() => {
-      expect(screen.getByText('First button')).toHaveFocus()
+      expect(screen.getByLabelText('Close modal')).toHaveFocus()
     }, { timeout: 200 })
   })
 

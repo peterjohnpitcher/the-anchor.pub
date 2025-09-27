@@ -28,6 +28,8 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
     testId,
     ...props 
   }, ref) => {
+    const hasExplicitCurrent = items.some(item => item.current === true)
+
     const allItems = showHome 
       ? [{ label: homeLabel, href: '/' }, ...items]
       : items
@@ -43,7 +45,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
         <ol className="flex items-center gap-2">
           {allItems.map((item, index) => {
             const isLast = index === allItems.length - 1
-            const isCurrent = item.current || isLast
+            const isCurrent = hasExplicitCurrent ? item.current === true : isLast
 
             return (
               <li key={index} className="flex items-center gap-2">

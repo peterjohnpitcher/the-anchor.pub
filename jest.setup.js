@@ -1,6 +1,23 @@
 // Learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom'
 import './lib/test-utils/matchers'
+import nodeFetch, { Headers as NodeFetchHeaders, Request as NodeFetchRequest, Response as NodeFetchResponse } from 'next/dist/compiled/node-fetch'
+
+if (!global.fetch) {
+  global.fetch = nodeFetch
+}
+
+if (!global.Request) {
+  global.Request = NodeFetchRequest
+}
+
+if (!global.Response) {
+  global.Response = NodeFetchResponse
+}
+
+if (!global.Headers) {
+  global.Headers = NodeFetchHeaders
+}
 
 // Mock IntersectionObserver
 global.IntersectionObserver = class IntersectionObserver {

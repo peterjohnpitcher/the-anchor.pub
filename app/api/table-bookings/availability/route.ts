@@ -2,11 +2,12 @@ import { NextResponse } from 'next/server'
 import { createApiErrorResponse, logError } from '@/lib/error-handling'
 import { getEffectiveDayHours, isKitchenClosed } from '@/lib/hours-utils'
 
-const API_KEY = process.env.ANCHOR_API_KEY
 const API_BASE_URL = 'https://management.orangejelly.co.uk/api'
 
 export async function GET(request: Request) {
-  if (!API_KEY) {
+  const apiKey = process.env.ANCHOR_API_KEY
+
+  if (!apiKey) {
     console.error('ANCHOR_API_KEY is not set in environment variables')
     return createApiErrorResponse('Service temporarily unavailable. Please try again later.', 503)
   }
@@ -32,7 +33,7 @@ export async function GET(request: Request) {
       `${API_BASE_URL}/business/hours`,
       {
         headers: {
-          'X-API-Key': API_KEY
+          'X-API-Key': apiKey
         }
       }
     )
@@ -79,7 +80,7 @@ export async function GET(request: Request) {
       `${API_BASE_URL}/table-bookings/availability?${query.toString()}`,
       {
         headers: {
-          'X-API-Key': API_KEY
+          'X-API-Key': apiKey
         }
       }
     )

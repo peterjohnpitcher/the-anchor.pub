@@ -20,13 +20,13 @@ describe('Container', () => {
 
   it('applies padding classes correctly', () => {
     const { rerender } = render(<Container padding="none">No padding</Container>)
-    expect(screen.getByText('No padding')).not.toHaveClass('px-')
+    expect(screen.getByText('No padding').className).not.toMatch(/\bpx-\d/)
 
     rerender(<Container padding="sm">Small padding</Container>)
-    expect(screen.getByText('Small padding')).toHaveClass('px-4')
+    expect(screen.getByText('Small padding')).toHaveClass('px-4', 'sm:px-6')
 
     rerender(<Container padding="lg">Large padding</Container>)
-    expect(screen.getByText('Large padding')).toHaveClass('px-6')
+    expect(screen.getByText('Large padding')).toHaveClass('px-6', 'sm:px-8', 'lg:px-12')
   })
 
   it('renders as different HTML elements', () => {
@@ -61,13 +61,13 @@ describe('Section', () => {
 
   it('applies spacing classes correctly', () => {
     const { rerender } = render(<Section spacing="none">No spacing</Section>)
-    expect(screen.getByText('No spacing')).not.toHaveClass('py-')
+    expect(screen.getByText('No spacing').className).not.toMatch(/\bpy-\d/)
 
     rerender(<Section spacing="sm">Small spacing</Section>)
-    expect(screen.getByText('Small spacing')).toHaveClass('py-8')
+    expect(screen.getByText('Small spacing')).toHaveClass('py-8', 'md:py-10')
 
     rerender(<Section spacing="lg">Large spacing</Section>)
-    expect(screen.getByText('Large spacing')).toHaveClass('py-16')
+    expect(screen.getByText('Large spacing')).toHaveClass('py-12', 'md:py-14', 'lg:py-16')
   })
 
   it('inherits Container props', () => {
@@ -80,6 +80,6 @@ describe('Section', () => {
   it('combines spacing and custom className', () => {
     render(<Section spacing="md" className="bg-gray-100">Section</Section>)
     const section = screen.getByText('Section')
-    expect(section).toHaveClass('py-12', 'bg-gray-100')
+    expect(section).toHaveClass('py-10', 'md:py-12', 'lg:py-14', 'bg-gray-100')
   })
 })

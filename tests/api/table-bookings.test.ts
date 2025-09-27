@@ -3,8 +3,6 @@
  * This verifies that all the API routes are correctly configured
  */
 
-import { NextRequest } from 'next/server'
-
 // Test imports to ensure TypeScript compilation
 import { GET as getAvailability } from '@/app/api/table-bookings/availability/route'
 import { POST as createBooking } from '@/app/api/table-bookings/create/route'
@@ -28,7 +26,7 @@ describe('Table Booking API Routes', () => {
     })
 
     it('should require date, time, and party_size parameters', async () => {
-      const request = new NextRequest('http://localhost:3000/api/table-bookings/availability')
+      const request = { url: 'http://localhost:3000/api/table-bookings/availability' } as any
       const response = await getAvailability(request)
       
       expect(response.status).toBe(400)

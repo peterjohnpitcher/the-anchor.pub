@@ -36,7 +36,7 @@ describe('Button', () => {
     render(<Button loading>Loading</Button>)
     
     expect(screen.getByRole('button')).toBeDisabled()
-    expect(screen.getByText('Loading...')).toBeInTheDocument()
+    expect(screen.getByRole('button')).toHaveTextContent('Loading...')
     expect(screen.getByRole('button').querySelector('svg')).toHaveClass('animate-spin')
   })
 
