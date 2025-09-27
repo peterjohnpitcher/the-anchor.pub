@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { Metadata } from 'next'
 import {
@@ -24,6 +23,8 @@ import {
   type Event
 } from '@/lib/api'
 import { staticEvents } from '@/lib/static-events'
+import Link from 'next/link'
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Cash Bingo Near Heathrow | Jackpot Night at The Anchor',
@@ -207,14 +208,14 @@ export default async function CashBingoPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              asChild
-              variant="secondary"
-              className="w-full sm:w-auto"
+            <a
+              href="#bingo-dates"
+              className={cn(
+                'inline-flex items-center justify-center font-semibold text-center transition-all duration-200 rounded-full whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:ring-offset-2 bg-white text-anchor-green border-2 border-anchor-green hover:bg-anchor-green hover:text-white px-8 py-3.5 text-lg min-h-[48px] w-full sm:w-auto'
+              )}
             >
-              <a href="#bingo-dates">📅 See upcoming bingo dates</a>
-            </Button>
+              📅 See upcoming bingo dates
+            </a>
             <PhoneButton
               phone="01753 682707"
               source="cash_bingo_hero"

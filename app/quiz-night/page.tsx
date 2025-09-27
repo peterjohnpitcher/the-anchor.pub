@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { Metadata } from 'next'
 import {
@@ -13,6 +12,8 @@ import {
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { PhoneButton } from '@/components/PhoneButton'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { EventSchema } from '@/components/EventSchema'
 import EventBooking from '@/components/EventBooking'
@@ -234,14 +235,14 @@ export default async function QuizNightPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              asChild
-              variant="secondary"
-              className="w-full sm:w-auto"
+            <a
+              href="#quiz-dates"
+              className={cn(
+                'inline-flex items-center justify-center font-semibold text-center transition-all duration-200 rounded-full whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:ring-offset-2 bg-white text-anchor-green border-2 border-anchor-green hover:bg-anchor-green hover:text-white px-8 py-3.5 text-lg min-h-[48px] w-full sm:w-auto'
+              )}
             >
-              <a href="#quiz-dates">📅 See upcoming quiz dates</a>
-            </Button>
+              📅 See upcoming quiz dates
+            </a>
             <PhoneButton
               phone="01753 682707"
               source="quiz_night_hero"
