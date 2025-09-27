@@ -207,31 +207,35 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
               </Card>
             </Link>
             
-            <Card variant="default" className="h-full bg-gradient-to-br from-blue-50 to-green-50">
-              <CardBody className="text-center p-8">
-                <div className="text-5xl mb-4">🧠</div>
-                <h3 className="text-2xl font-bold text-anchor-green mb-3">
-                  Quiz Night - Just £3 Entry!
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Test your knowledge monthly. Only £3 entry with cash prizes for winners!
-                </p>
-                <p className="text-sm font-bold text-green-600">Great value entertainment</p>
-              </CardBody>
-            </Card>
-            
-            <Card variant="default" className="h-full bg-gradient-to-br from-yellow-50 to-orange-50">
-              <CardBody className="text-center p-8">
-                <div className="text-5xl mb-4">🎱</div>
-                <h3 className="text-2xl font-bold text-anchor-green mb-3">
-                  Cash Prize Bingo
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Monthly bingo with CASH PRIZES! £10 per book gets you all games including jackpot!
-                </p>
-                <p className="text-sm font-bold text-green-600">Win real money!</p>
-              </CardBody>
-            </Card>
+            <Link href="/quiz-night" className="group">
+              <Card variant="default" className="h-full bg-gradient-to-br from-blue-50 to-green-50 transition-all hover:shadow-lg hover:scale-105">
+                <CardBody className="text-center p-8">
+                  <div className="text-5xl mb-4">🧠</div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-3 group-hover:text-anchor-green">
+                    Quiz Night - Just £3 Entry!
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Test your knowledge monthly. Only £3 entry with cash prizes for winners!
+                  </p>
+                  <p className="text-sm font-bold text-green-600 group-hover:text-green-700">Learn more →</p>
+                </CardBody>
+              </Card>
+            </Link>
+
+            <Link href="/cash-bingo" className="group">
+              <Card variant="default" className="h-full bg-gradient-to-br from-yellow-50 to-orange-50 transition-all hover:shadow-lg hover:scale-105">
+                <CardBody className="text-center p-8">
+                  <div className="text-5xl mb-4">🎱</div>
+                  <h3 className="text-2xl font-bold text-anchor-green mb-3 group-hover:text-anchor-green">
+                    Cash Prize Bingo
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    £10 cash-only books, £160 snowball and jackpots that roll to £300+. Reserve your seats early!
+                  </p>
+                  <p className="text-sm font-bold text-green-600 group-hover:text-green-700">Play bingo for cash →</p>
+                </CardBody>
+              </Card>
+            </Link>
           </div>
         </Container>
       </Section>

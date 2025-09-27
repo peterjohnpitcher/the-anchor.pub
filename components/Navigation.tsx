@@ -56,6 +56,7 @@ const defaultItems: NavigationItem[] = [
     items: [
       { label: 'Upcoming Events', href: '/whats-on#upcoming-events' },
       { label: 'Quiz Night', href: '/quiz-night' },
+      { label: 'Cash Bingo', href: '/cash-bingo' },
       { label: 'Drag Shows', href: '/whats-on/drag-shows' }
     ]
   },
