@@ -1,6 +1,13 @@
 'use client'
 
-import { forwardRef, ButtonHTMLAttributes } from 'react'
+import {
+  forwardRef,
+  type ButtonHTMLAttributes,
+  cloneElement,
+  isValidElement,
+  type HTMLAttributes,
+  type ReactNode
+} from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import type { 
@@ -51,6 +58,28 @@ export interface ButtonProps
   asChild?: boolean
 }
 
+type PrimitiveSlotProps = HTMLAttributes<HTMLElement> & {
+  children: ReactNode
+}
+
+const PrimitiveSlot = forwardRef<HTMLElement, PrimitiveSlotProps>(({ children, className, ...props }, ref) => {
+  if (isValidElement(children)) {
+    return cloneElement(children, {
+      ref,
+      ...props,
+      className: cn(className, children.props.className)
+    })
+  }
+
+  return (
+    <span ref={ref as any} className={className} {...props}>
+      {children}
+    </span>
+  )
+})
+
+PrimitiveSlot.displayName = 'PrimitiveSlot'
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ 
     className,
@@ -63,15 +92,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     loading = false,
     disabled = false,
     testId,
+    asChild = false,
     ...props 
   }, ref) => {
+    const Comp = asChild ? PrimitiveSlot : 'button'
+    const isDisabled = disabled || loading
+    const sharedProps = {
+      className: cn(buttonVariants({ variant, size, fullWidth }), className),
+      'data-testid': testId,
+      ...props
+    }
+
     return (
-      <button
+      <Comp
         ref={ref}
-        className={cn(buttonVariants({ variant, size, fullWidth }), className)}
-        disabled={disabled || loading}
-        data-testid={testId}
-        {...props}
+        {...(asChild ? { 'aria-disabled': isDisabled } : { disabled: isDisabled })}
+        {...sharedProps}
       >
         {loading ? (
           <>
@@ -111,7 +147,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             )}
           </>
         )}
-      </button>
+      </Comp>
     )
   }
 )
