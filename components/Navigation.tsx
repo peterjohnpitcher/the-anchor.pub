@@ -66,7 +66,6 @@ const defaultItems: NavigationItem[] = [
     items: [
       { label: 'Full Menu', href: '/food-menu' },
       { label: 'Sunday Lunch', href: '/sunday-lunch' },
-      { label: 'Pizza Menu', href: '/food/pizza' },
       { label: 'Pizza Tuesday Deal', href: '/pizza-tuesday' }
     ]
   },

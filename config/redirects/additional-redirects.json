@@ -5,6 +5,12 @@
     "permanent": true
   },
   {
+    "source": "/food/pizza",
+    "destination": "/pizza-tuesday",
+    "permanent": false,
+    "statusCode": 301
+  },
+  {
     "source": "/contact",
     "destination": "/find-us",
     "permanent": true

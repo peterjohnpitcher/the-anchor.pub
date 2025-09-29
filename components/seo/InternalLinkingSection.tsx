@@ -66,7 +66,7 @@ export const commonLinkGroups = {
   ],
   dining: [
     { href: '/sunday-lunch', title: 'Sunday Lunch', description: 'Traditional roast dinners' },
-    { href: '/food/pizza', title: 'Pizza Menu', description: 'Stone-baked pizzas' },
+    { href: '/pizza-tuesday', title: 'Pizza Tuesday', description: '2 for 1 stone-baked pizzas' },
     { href: '/drinks/managers-special', title: "Manager's Special", description: 'This month\'s featured drink' }
   ]
 }

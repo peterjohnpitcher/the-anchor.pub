@@ -162,7 +162,7 @@ export default function PizzaTuesdayPage() {
             >
               📞 Book Your Table
             </BookTableButton>
-            <Link href="/food/pizza" className="w-full sm:w-auto">
+            <Link href="#pizza-menu" className="w-full sm:w-auto">
               <Button variant="secondary" size="lg" fullWidth className="sm:w-auto">
                 🍕 View Pizza Menu
               </Button>
@@ -181,7 +181,7 @@ export default function PizzaTuesdayPage() {
       </Section>
 
       {/* The Deal Section */}
-      <Section background="gray" spacing="md">
+      <Section background="gray" spacing="md" id="pizza-menu">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -239,7 +239,7 @@ export default function PizzaTuesdayPage() {
                 Perfect for families, date nights, or catching up with friends. 
                 Our stone-baked pizzas are made fresh to order with authentic Italian ingredients.
               </p>
-              <Link href="/food/pizza" className="inline-block">
+              <Link href="#pizza-menu" className="inline-block">
                 <Button 
                   variant="primary"
                   size="lg"
@@ -306,7 +306,7 @@ export default function PizzaTuesdayPage() {
             
             <div className="text-center">
               <p className="text-gray-600 mb-4">Gluten-free bases available on request</p>
-              <Link href="/food/pizza" className="text-anchor-gold hover:text-anchor-green font-semibold">
+              <Link href="#pizza-menu" className="text-anchor-gold hover:text-anchor-green font-semibold">
                 View Full Pizza Menu →
               </Link>
             </div>
@@ -460,7 +460,7 @@ export default function PizzaTuesdayPage() {
           },
           {
             text: "🍕 View Menu",
-            href: "/food/pizza",
+            href: "#pizza-menu",
             variant: "white"
           }
         ]}
