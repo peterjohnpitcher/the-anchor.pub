@@ -22,6 +22,7 @@ import {
   formatDoorTime,
   type Event
 } from '@/lib/api'
+import { getEventWebsiteUrl } from '@/lib/event-url'
 import { staticEvents } from '@/lib/static-events'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
@@ -128,7 +129,7 @@ function BingoEventCards({ events }: { events: Event[] }) {
       {events.map((event, index) => {
         const doorTime = formatDoorTime(event.doorTime)
         const startTime = formatEventTime(event.startDate)
-        const eventUrl = event.url || `/events/${event.slug || event.id}`
+        const eventUrl = getEventWebsiteUrl(event)
         const imageSrc = event.heroImageUrl || event.image?.[0] || null
 
         return (

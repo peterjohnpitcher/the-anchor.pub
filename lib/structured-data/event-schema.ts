@@ -1,5 +1,6 @@
 import { Event } from '@/lib/api'
 import { DEFAULT_EVENT_IMAGE } from '@/lib/image-fallbacks'
+import { getEventWebsiteUrl } from '@/lib/event-url'
 
 function calculateEndDate(startDate: string, duration?: string): string {
   const start = new Date(startDate)
@@ -9,7 +10,7 @@ function calculateEndDate(startDate: string, duration?: string): string {
 }
 
 export function buildEventSchema(event: Event) {
-  const eventUrl = event.url || (event.slug ? `https://www.the-anchor.pub/events/${event.slug}` : `https://www.the-anchor.pub/events/${event.id}`)
+  const eventUrl = getEventWebsiteUrl(event, { absolute: true })
   const eventImage = event.image?.[0] || event.heroImageUrl || event.thumbnailImageUrl || DEFAULT_EVENT_IMAGE
 
   return {
