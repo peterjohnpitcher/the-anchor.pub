@@ -21,6 +21,8 @@ import { getCurrentPromotion as getCurrentManagersSpecial, getPromotionById } fr
 import type { ManagersSpecial } from '@/types/managers-special'
 import { getPromotionImage } from '@/lib/managers-special-utils'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Heathrow Pub Drinks Menu - Real Ale, Cocktails & Wine | The Anchor',
   description: 'Explore The Anchor drinks menu near Heathrow: cask ales, draught lagers, premium spirits, cocktails and wines. Fair pub prices, free parking, warm local welcome.',
@@ -276,13 +278,15 @@ export default async function DrinksMenuPage({ searchParams }: { searchParams: P
   }
 
 
+  const trackerOffer = managersSpecial
+    ? `${managersSpecial.promotion.headline} - ${managersSpecial.spirit.name}`
+    : null
+
   return (
     <>
       <MenuPageTracker 
         menuType="drinks"
-        specialOffers={[
-          "Manager's Special - 25% OFF Redleg Spiced Rum"
-        ]}
+        specialOffers={trackerOffer ? [trackerOffer] : []}
       />
       <ScrollDepthTracker />
       <script

@@ -19,6 +19,8 @@ import { DEFAULT_DRINKS_IMAGE } from '@/lib/image-fallbacks'
 import { getCurrentPromotion as getCurrentManagersSpecial, getPromotionById } from '@/lib/managers-special'
 import type { ManagersSpecial } from '@/types/managers-special'
 
+export const dynamic = 'force-dynamic'
+
 type PageSearchParams = {
   preview?: string | string[]
   token?: string | string[]
