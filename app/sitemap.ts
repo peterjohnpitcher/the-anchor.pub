@@ -28,6 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/private-party-venue',
     '/function-room-hire',
     '/leave-review',
+    '/heathrow-parking',
     '/sitemap-page',
     '/ashford-pub',
     '/bedfont-pub',

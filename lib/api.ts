@@ -474,6 +474,88 @@ export interface TableBookingResponse {
   cancellation_policy?: string
 }
 
+// Parking Booking Types
+export interface ParkingCustomerDetails {
+  first_name: string
+  last_name: string
+  email?: string
+  mobile_number: string
+}
+
+export interface ParkingVehicleDetails {
+  registration: string
+  make?: string
+  model?: string
+  colour?: string
+}
+
+export interface ParkingBookingRequest {
+  customer: ParkingCustomerDetails
+  vehicle: ParkingVehicleDetails
+  start_at: string
+  end_at: string
+  notes?: string
+}
+
+export interface ParkingPricingBreakdownItem {
+  unit: 'hour' | 'day' | 'week' | 'month' | string
+  quantity: number
+  rate: number
+  subtotal: number
+}
+
+export interface ParkingBookingResponse {
+  booking_id: string
+  reference: string
+  amount: number
+  currency: string
+  pricing_breakdown?: ParkingPricingBreakdownItem[]
+  payment_due_at: string
+  paypal_approval_url: string
+}
+
+export interface ParkingBookingDetails {
+  id: string
+  reference: string
+  status: 'pending_payment' | 'confirmed' | 'completed' | 'cancelled' | 'expired'
+  payment_status: 'pending' | 'paid' | 'refunded' | 'failed' | 'expired'
+  customer_first_name: string
+  customer_last_name: string
+  customer_mobile: string
+  customer_email?: string | null
+  vehicle_registration: string
+  vehicle_make?: string | null
+  vehicle_model?: string | null
+  vehicle_colour?: string | null
+  start_at: string
+  end_at: string
+  calculated_price: number
+  override_price?: number | null
+  payment_due_at: string
+  created_at: string
+  updated_at: string
+}
+
+export interface ParkingAvailabilitySlot {
+  start_at: string
+  end_at: string
+  reserved: number
+  remaining: number
+  capacity: number
+}
+
+export interface ParkingRateCard {
+  id: string
+  effective_from: string
+  hourly_rate: number
+  daily_rate: number
+  weekly_rate: number
+  monthly_rate: number
+  capacity_override?: number | null
+  notes?: string | null
+  created_at: string
+}
+
 export interface SundayLunchMenuItem {
   name: string
   description?: string
@@ -762,6 +844,45 @@ export class AnchorAPI {
       method: 'POST',
       body: JSON.stringify({ reason }),
     })
+  }
+
+  // Parking
+  async getParkingRates(): Promise<ParkingRateCard> {
+    return this.request<ParkingRateCard>('/parking/rates')
+  }
+
+  async getParkingAvailability(params: {
+    start?: string
+    end?: string
+    granularity?: 'day' | 'hour'
+  } = {}): Promise<ParkingAvailabilitySlot[]> {
+    const query = new URLSearchParams()
+    if (params.start) query.append('start', params.start)
+    if (params.end) query.append('end', params.end)
+    if (params.granularity) query.append('granularity', params.granularity)
+
+    const endpoint = query.size > 0
+      ? `/parking/availability?${query.toString()}`
+      : '/parking/availability'
+
+    return this.request<ParkingAvailabilitySlot[]>(endpoint)
+  }
+
+  async createParkingBooking(data: ParkingBookingRequest, idempotencyKey?: string): Promise<ParkingBookingResponse> {
+    const headers: Record<string, string> = {}
+    if (idempotencyKey) {
+      headers['Idempotency-Key'] = idempotencyKey
+    }
+
+    return this.request<ParkingBookingResponse>('/parking/bookings', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers
+    })
+  }
+
+  async getParkingBooking(id: string): Promise<ParkingBookingDetails> {
+    return this.request<ParkingBookingDetails>(`/parking/bookings/${id}`)
   }
 
   async getSundayLunchMenu(): Promise<SundayLunchMenuResponse> {

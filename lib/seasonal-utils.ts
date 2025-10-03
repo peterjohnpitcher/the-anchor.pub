@@ -13,9 +13,9 @@ export interface SeasonalImage {
  * - Winter: Jan 1 - Feb 28/29
  * - Spring: Mar 1 - May 31
  * - Summer: Jun 1 - Aug 31
- * - Autumn: Sep 1 - Oct 20
- * - Halloween: Oct 21 - Nov 1
- * - Autumn: Nov 2 - Nov 7
+ * - Autumn: Sep 1 - Sep 30
+ * - Halloween: Oct 1 - Nov 2
+ * - Autumn: Nov 3 - Nov 7
  * - Christmas: Nov 8 - Dec 31
  */
 export function getSeasonalHomepageImage(testDate?: Date): SeasonalImage {
@@ -47,14 +47,14 @@ export function getSeasonalHomepageImage(testDate?: Date): SeasonalImage {
   } else if (month >= 6 && month <= 8) {
     // Summer: June 1 - August 31
     season = 'summer'
-  } else if (month === 9 || (month === 10 && day <= 20)) {
-    // Autumn: September 1 - October 20
+  } else if (month === 9) {
+    // Autumn: September 1 - September 30
     season = 'autumn'
-  } else if ((month === 10 && day >= 21) || (month === 11 && day === 1)) {
-    // Halloween: October 21 - November 1
+  } else if (month === 10 || (month === 11 && day <= 2)) {
+    // Halloween: October 1 - November 2
     season = 'halloween'
-  } else if (month === 11 && day >= 2 && day <= 7) {
-    // Autumn again: November 2 - November 7
+  } else if (month === 11 && day >= 3 && day <= 7) {
+    // Autumn again: November 3 - November 7
     season = 'autumn'
   } else {
     // Christmas: November 8 - December 31

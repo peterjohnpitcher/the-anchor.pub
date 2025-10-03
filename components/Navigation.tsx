@@ -9,6 +9,15 @@ import { useFocusTrap } from '@/hooks/useFocusTrap'
 import { BookTableButton } from '@/components/BookTableButton'
 import { trackNavigationClick, trackTableBookingClick } from '@/lib/gtm-events'
 
+interface HeaderCtaButton {
+  label: string
+  href: string
+  icon?: string
+  external?: boolean
+  variant?: 'primary' | 'secondary'
+  className?: string
+}
+
 interface NavigationProps {
   logo?: {
     src: string
@@ -17,12 +26,8 @@ interface NavigationProps {
     height?: number
   }
   items?: NavigationItem[]
-  ctaButton?: {
-    label: string
-    href: string
-    icon?: string
-    external?: boolean
-  }
+  ctaButton?: HeaderCtaButton
+  secondaryCtaButton?: HeaderCtaButton | null
   theme?: {
     background?: string
     text?: string
@@ -109,9 +114,18 @@ export function Navigation({
   logo = defaultLogo,
   items = defaultItems,
   ctaButton = {
-    label: '📅 Book a Table',
+    label: 'Book a Table',
     href: '/book-table',
-    external: false
+    icon: '📅',
+    external: false,
+    variant: 'primary'
+  },
+  secondaryCtaButton = {
+    label: 'Book Parking',
+    href: '/heathrow-parking',
+    icon: '🚙',
+    external: false,
+    variant: 'secondary'
   },
   theme = defaultTheme,
   sticky = true,
@@ -331,49 +345,52 @@ export function Navigation({
     )
   }
 
-  const renderCTA = (isMobile = false) => {
-    if (!ctaButton) return null
+  const renderSingleCTA = (button: HeaderCtaButton, isMobile: boolean, key: string) => {
+    if (!button) return null
 
-    // Check if this is a booking link
-    if (ctaButton.href.includes('ordertab.menu/theanchor/bookings')) {
+    if (button.href.includes('ordertab.menu/theanchor/bookings')) {
       return (
         <BookTableButton
+          key={key}
           source={isMobile ? 'header_mobile' : 'header_desktop'}
           variant="primary"
           size={isMobile ? 'md' : 'sm'}
-          className={isMobile ? 'block w-full mt-4' : ''}
+          className={cn(isMobile && 'block w-full mt-4')}
           onClickAfterTracking={() => {
             if (isMobile) {
               setIsMobileMenuOpen(false)
             }
           }}
         >
-          <span className="whitespace-nowrap">{ctaButton.icon} {ctaButton.label}</span>
+          <span className="whitespace-nowrap">{button.icon ? `${button.icon} ` : ''}{button.label}</span>
         </BookTableButton>
       )
     }
 
-    // For non-booking CTAs, use the original implementation
+    const baseClasses = 'font-semibold transition-all rounded-full px-4 py-1.5 text-sm xl:px-6 xl:py-2 xl:text-base'
+    const variantClasses = button.variant === 'secondary'
+      ? 'bg-white text-anchor-green hover:bg-white/90 border border-white'
+      : cn(mergedTheme.ctaBackground, mergedTheme.ctaText, mergedTheme.ctaHoverBackground)
+
     const ctaClass = cn(
-      'font-semibold transition-all rounded-full',
-      'px-4 py-1.5 text-sm xl:px-6 xl:py-2 xl:text-base', // Responsive sizing
-      mergedTheme.ctaBackground,
-      mergedTheme.ctaText,
-      mergedTheme.ctaHoverBackground,
+      baseClasses,
+      variantClasses,
+      button.className,
       isMobile && 'block text-center py-3 mt-4 text-base px-6'
     )
 
-    if (ctaButton.external) {
+    if (button.external) {
       return (
         <a
-          href={ctaButton.href}
+          key={key}
+          href={button.href}
           className={ctaClass}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => {
             trackNavigationClick({
-              label: ctaButton.label,
-              url: ctaButton.href,
+              label: button.label,
+              url: button.href,
               level: 'main',
               deviceType: isMobile ? 'mobile' : 'desktop',
               isExternal: true,
@@ -382,19 +399,20 @@ export function Navigation({
             if (isMobile) setIsMobileMenuOpen(false)
           }}
         >
-          <span className="whitespace-nowrap">{ctaButton.icon} {ctaButton.label}</span>
+          <span className="whitespace-nowrap">{button.icon ? `${button.icon} ` : ''}{button.label}</span>
         </a>
       )
     }
 
     return (
       <Link
-        href={ctaButton.href}
+        key={key}
+        href={button.href}
         className={ctaClass}
         onClick={() => {
           trackNavigationClick({
-            label: ctaButton.label,
-            url: ctaButton.href,
+            label: button.label,
+            url: button.href,
             level: 'main',
             deviceType: isMobile ? 'mobile' : 'desktop',
             isExternal: false,
@@ -403,8 +421,17 @@ export function Navigation({
           if (isMobile) setIsMobileMenuOpen(false)
         }}
       >
-        <span className="whitespace-nowrap">{ctaButton.icon} {ctaButton.label}</span>
+        <span className="whitespace-nowrap">{button.icon ? `${button.icon} ` : ''}{button.label}</span>
       </Link>
+    )
+  }
+
+  const renderCTAs = (isMobile = false) => {
+    const buttons = [ctaButton, secondaryCtaButton].filter(Boolean) as HeaderCtaButton[]
+    if (!buttons.length) return null
+
+    return buttons.map((button, index) =>
+      renderSingleCTA(button, isMobile, `${button.href}-${index}`)
     )
   }
 
@@ -466,7 +493,7 @@ export function Navigation({
                 {items.map(item => renderLink(item))}
                 
                 
-                {renderCTA()}
+                {renderCTAs()}
               </div>
             </div>
           </div>
@@ -526,7 +553,7 @@ export function Navigation({
         >
           <div className="container mx-auto px-4 py-6 space-y-4">
             {items.map(item => renderLink(item, true))}
-            {renderCTA(true)}
+            {renderCTAs(true)}
           </div>
         </div>
       )}
