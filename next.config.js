@@ -163,6 +163,8 @@ const nextConfig = {
     ]
   },
   images: {
+    loader: 'custom',
+    loaderFile: './lib/custom-image-loader.js',
     domains: ['the-anchor.pub', 'www.the-anchor.pub', 'management.orangejelly.co.uk', 'example.com', 'openweathermap.org', 'tfcasgxopxegwrabvwat.supabase.co'],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],  // Common device sizes

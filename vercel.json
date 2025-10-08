@@ -12,6 +12,11 @@
       "permanent": true
     }
   ],
+  "functions": {
+    "app/content/blog/[...path]/route.js": {
+      "includeFiles": "content/blog/**"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
