@@ -93,8 +93,11 @@ npm run dev      # Start development server
 npm run build    # Build for production
 npm run start    # Start production server
 npm run lint     # Run ESLint
+npm run optimize:images  # Optimise blog + public imagery
 npm run type     # Type check with TypeScript
 ```
+
+Image optimisation details live in `docs/guides/image-optimization.md`.
 
 ### API Integration
 
