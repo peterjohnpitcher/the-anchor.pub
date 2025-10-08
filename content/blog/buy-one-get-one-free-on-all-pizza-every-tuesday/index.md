@@ -1,13 +1,11 @@
 ---
 title: Pizza Tuesday Deals Near Heathrow | BOGOF at The Anchor
 description: >-
-  Get 2-for-1 pizza every Tuesday at The Anchor pub near Heathrow Airport. Buy
-  one get one free on authentic stone-baked pizzas in Stanwell Moor. Italian
-  ingredients, fresh dough, just 7 minutes from Terminal 5. Book your table for
-  Tuesday pizza deals.
+  Get 2-for-1 pizza every Tuesday at The Anchor pub near Heathrow Airport. Buy one get one free on authentic stone-baked
+  pizzas in Stanwell Moor. Italian ingredients, fresh dough, just 7 minutes from Terminal 5. Book your table for Tuesday
+  pizza deals.
 date: '2020-08-31'
-oldUrl: >-
-  https://www.the-anchor.pub/post/buy-one-get-one-free-on-all-pizza-every-tuesday
+oldUrl: 'https://www.the-anchor.pub/post/buy-one-get-one-free-on-all-pizza-every-tuesday'
 author: Billy
 keywords:
   - pizza deals near heathrow
@@ -28,7 +26,7 @@ hero: hero.png
 images: []
 ---
 
-![Delicious stone-baked pizza at The Anchor pub](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-1.png)
+![Delicious stone-baked pizza at The Anchor pub](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-1.jpg)
 
 Looking for the best **pizza deals near Heathrow**? Every Tuesday at The Anchor, enjoy our famous buy one get one free offer on all stone-baked pizzas! Just 7 minutes from Terminal 5, discover authentic Italian pizzas at unbeatable prices in our traditional Stanwell Moor pub.
 
@@ -45,7 +43,7 @@ Our **Tuesday pizza offers** have become legendary in the local area. Here's why
 - **No vouchers needed** - just mention the offer
 - **Available Tuesday** 6pm-9pm during kitchen hours
 
-![Fresh pizzas from our stone-baked oven](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-2.png)
+![Fresh pizzas from our stone-baked oven](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-2.jpg)
 
 ## Why The Anchor's Pizza Is Worth the Trip
 
@@ -102,7 +100,7 @@ Choose from our delicious selection (all included in the 2-for-1 deal):
 - Hot sauce
 - For heat lovers
 
-![Selection of authentic Italian pizzas](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-3.png)
+![Selection of authentic Italian pizzas](/content/blog/buy-one-get-one-free-on-all-pizza-every-tuesday/image-3.jpg)
 
 ## Quality Partners: Barrel & Stone
 

@@ -2,7 +2,11 @@ import path from 'path'
 import fs from 'fs'
 import { DEFAULT_PAGE_HEADER_IMAGE } from './image-fallbacks'
 
-const BLOG_PUBLIC_DIR = path.join(process.cwd(), 'public', 'content', 'blog')
+const BLOG_ASSET_DIRS = [
+  path.join(process.cwd(), 'content', 'blog'),
+  path.join(process.cwd(), 'content', 'blog', '_archived'),
+  path.join(process.cwd(), 'public', 'content', 'blog')
+]
 
 function isRemoteSource(source?: string): boolean {
   if (!source) return false
@@ -14,12 +18,14 @@ export function blogImageExists(slug: string, imageFile?: string): boolean {
     return Boolean(imageFile && isRemoteSource(imageFile))
   }
 
-  try {
-    const candidate = path.join(BLOG_PUBLIC_DIR, slug, imageFile)
-    return fs.existsSync(candidate)
-  } catch {
-    return false
-  }
+  return BLOG_ASSET_DIRS.some((dir) => {
+    try {
+      const candidate = path.join(dir, slug, imageFile)
+      return fs.existsSync(candidate)
+    } catch {
+      return false
+    }
+  })
 }
 
 export function getBlogHeroUrl(slug: string, hero?: string): string {

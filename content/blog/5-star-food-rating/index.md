@@ -2,14 +2,12 @@
 title: 5 Star Food Hygiene Near Heathrow | The Anchor Pub Excellence
 slug: 5-star-food-rating
 description: >-
-  The Anchor pub near Heathrow Airport maintains 5-star food hygiene rating for
-  over 4 years. Clean, safe dining in Stanwell Moor, just 7 minutes from
-  Terminal 5. Perfect for Heathrow workers seeking quality meals. All staff
-  Level 2 qualified, Spelthorne Council approved. Trusted by Staines locals for
-  safe, delicious pub food. Free parking available.
+  The Anchor pub near Heathrow Airport maintains 5-star food hygiene rating for over 4 years. Clean, safe dining in
+  Stanwell Moor, just 7 minutes from Terminal 5. Perfect for Heathrow workers seeking quality meals. All staff Level 2
+  qualified, Spelthorne Council approved. Trusted by Staines locals for safe, delicious pub food. Free parking
+  available.
 date: '2023-08-22'
-oldUrl: >-
-  https://www.the-anchor.pub/post/the-anchor-celebrates-another-5-star-rating-in-foo
+oldUrl: 'https://www.the-anchor.pub/post/the-anchor-celebrates-another-5-star-rating-in-foo'
 author: Billy
 keywords:
   - 5 star hygiene pub near heathrow
@@ -28,13 +26,13 @@ tags:
   - events
   - food
 featured: false
-hero: hero.png
+hero: hero.jpg
 images: []
 ---
 
   
 
-![5-star food hygiene rating sticker proudly displayed in The Anchor's window.](/content/blog/5-star-food-rating/hero.png)
+![5-star food hygiene rating sticker proudly displayed in The Anchor's window.](/content/blog/5-star-food-rating/hero.jpg)
 
 ## 5-Star Food Hygiene Excellence Near Heathrow Airport
 

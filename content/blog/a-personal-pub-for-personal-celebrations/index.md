@@ -1,11 +1,9 @@
 ---
 title: Best Party Venue Near Heathrow Airport | Private Events Stanwell Moor
 description: >-
-  Book your perfect celebration at The Anchor pub, just 7 minutes from Heathrow
-  Terminal 5. Full party planning service for birthdays, corporate events, baby
-  showers, and weddings. Private dining room, free parking, and trusted catering
-  partners. The ideal party venue near Heathrow for airport staff celebrations
-  and local events in Stanwell Moor.
+  Book your perfect celebration at The Anchor pub, just 7 minutes from Heathrow Terminal 5. Full party planning service
+  for birthdays, corporate events, baby showers, and weddings. Private dining room, free parking, and trusted catering
+  partners. The ideal party venue near Heathrow for airport staff celebrations and local events in Stanwell Moor.
 date: '2025-01-15'
 oldUrl: 'https://www.the-anchor.pub/post/a-personal-pub-for-personal-celebrations'
 author: Billy
@@ -29,7 +27,7 @@ tags:
   - parties
   - private-dining
 featured: true
-hero: hero.png
+hero: hero.jpg
 images: []
 ---
 
@@ -49,7 +47,7 @@ As the premier **party venue near Heathrow Airport**, we offer comprehensive eve
 
 Whether you're celebrating a 21st birthday or your 50th, our **function room near Heathrow** provides the perfect setting. We'll help you find the right DJ or entertainment through our trusted partners, creating unforgettable moments at the best **birthday party venue near Terminal 5**.
 
-![a personal pub for personal celebrations image](/content/blog/a-personal-pub-for-personal-celebrations/image-2.png)
+![a personal pub for personal celebrations image](/content/blog/a-personal-pub-for-personal-celebrations/image-2.jpg)
 
 ### Kids Party Venue Near Heathrow Airport
 
@@ -61,7 +59,7 @@ We love hosting children's celebrations at our **family-friendly pub near Heathr
 - Entertainment coordination
 - Stress-free planning for parents
 
-![a personal pub for personal celebrations image](/content/blog/a-personal-pub-for-personal-celebrations/image-3.png)
+![a personal pub for personal celebrations image](/content/blog/a-personal-pub-for-personal-celebrations/image-3.jpg)
 
 ### Catering Options for Your Event Near Heathrow
 

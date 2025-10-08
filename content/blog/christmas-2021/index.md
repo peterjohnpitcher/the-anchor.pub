@@ -1,10 +1,9 @@
 ---
 title: Christmas Opening Hours Near Heathrow | The Anchor Stanwell Moor
 description: >-
-  Check Christmas and New Year opening hours at The Anchor pub near Heathrow
-  Airport. Special festive events, Christmas Day drinks service, Boxing Day
-  football, and New Year's Eve party in Stanwell Moor. Just 7 minutes from
-  Terminal 5. Plan your holiday visits to our traditional pub.
+  Check Christmas and New Year opening hours at The Anchor pub near Heathrow Airport. Special festive events, Christmas
+  Day drinks service, Boxing Day football, and New Year's Eve party in Stanwell Moor. Just 7 minutes from Terminal 5.
+  Plan your holiday visits to our traditional pub.
 date: '2021-12-03'
 oldUrl: 'https://www.the-anchor.pub/post/christmas-2021'
 author: Billy
@@ -26,7 +25,7 @@ tags:
   - december
   - special-offers
 featured: false
-hero: hero.png
+hero: hero.jpg
 images: []
 ---
 
@@ -66,7 +65,7 @@ Planning your festive season near **Heathrow Airport**? The Anchor in **Stanwell
 - **Location**: Easy taxi ride from Heathrow hotels
     
 
-![christmas 2021 image](/content/blog/christmas-2021/image-1.png)
+![christmas 2021 image](/content/blog/christmas-2021/image-1.jpg)
 
 ### Why Choose The Anchor for Christmas Near Heathrow
 

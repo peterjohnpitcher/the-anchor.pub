@@ -1,13 +1,10 @@
 ---
-title: >-
-  Autumn Internationals Rugby 2024 Near Heathrow | Live Fixtures & Pub Guide
+title: Autumn Internationals Rugby 2024 Near Heathrow | Live Fixtures & Pub Guide
 description: >-
-  Watch the Autumn Internationals rugby 2024 at The Anchor near Heathrow.
-  Follow every November fixture with free parking, big screens and hearty pub
-  food minutes from Terminal 5.
+  Watch the Autumn Internationals rugby 2024 at The Anchor near Heathrow. Follow every November fixture with free
+  parking, big screens and hearty pub food minutes from Terminal 5.
 date: '2024-08-23'
-oldUrl: >-
-  https://www.the-anchor.pub/post/autumn-internationals-2024-full-fixtures-highlight
+oldUrl: 'https://www.the-anchor.pub/post/autumn-internationals-2024-full-fixtures-highlight'
 author: Billy
 keywords:
   - autumn internationals 2024
@@ -24,11 +21,11 @@ tags:
   - rugby
   - sports
 featured: true
-hero: hero.png
+hero: hero.jpg
 images: []
 ---
 
-![Rugby player holding a ball with intense expression, promoting the Autumn Internationals 2024. Exciting fixtures and world-class rugby action from November 2nd to November 30th.](/content/blog/autumn-internationals-2024-full-fixtures-highlight/hero.png)
+![Rugby player holding a ball with intense expression, promoting the Autumn Internationals 2024. Exciting fixtures and world-class rugby action from November 2nd to November 30th.](/content/blog/autumn-internationals-2024-full-fixtures-highlight/hero.jpg)
 
 Looking for the perfect **pub near Heathrow** to watch the **Autumn Internationals 2024**? The Anchor in Stanwell Moor is your go-to sports pub for all the November rugby action. Just 7 minutes from Terminal 5, we're showing every match live on our big screens.
 

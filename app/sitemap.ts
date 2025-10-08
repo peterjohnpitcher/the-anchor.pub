@@ -1,6 +1,14 @@
 import { MetadataRoute } from 'next'
 import { getAllBlogPosts } from '@/lib/markdown'
 
+function getSafeDate(value?: string): Date {
+  if (!value) {
+    return new Date()
+  }
+  const parsed = new Date(value)
+  return Number.isNaN(parsed.getTime()) ? new Date() : parsed
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.the-anchor.pub'
   
@@ -61,12 +69,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // Map blog post routes
-  const blogSitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  const blogSitemap = blogPosts.map((post) => {
+    const lastModified = getSafeDate(post.date)
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }
+  })
 
   // Map tag pages
   const tagSitemap = Array.from(allTags).map((tag) => ({

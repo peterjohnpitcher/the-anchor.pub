@@ -2,14 +2,11 @@
 title: Winter Menu Near Heathrow | Seasonal Food at The Anchor
 slug: autumn-winter-menu
 description: >-
-  Discover hearty winter food at The Anchor pub near Heathrow Airport.
-  Traditional British comfort dishes and seasonal specials in Stanwell Moor,
-  just 7 minutes from Terminal 5. Perfect for Heathrow workers seeking warming
-  meals. Cozy pub atmosphere near Staines with winter warmers and classic
-  favourites.
+  Discover hearty winter food at The Anchor pub near Heathrow Airport. Traditional British comfort dishes and seasonal
+  specials in Stanwell Moor, just 7 minutes from Terminal 5. Perfect for Heathrow workers seeking warming meals. Cozy
+  pub atmosphere near Staines with winter warmers and classic favourites.
 date: '2023-09-13'
-oldUrl: >-
-  https://www.the-anchor.pub/post/dive-into-the-anchor-s-autumn-winter-menu-cozy-del
+oldUrl: 'https://www.the-anchor.pub/post/dive-into-the-anchor-s-autumn-winter-menu-cozy-del'
 author: Billy
 keywords:
   - winter menu near heathrow
@@ -29,7 +26,7 @@ tags:
   - food
   - special-offers
 featured: false
-hero: hero.png
+hero: hero.jpg
 images: []
 ---
 
@@ -58,7 +55,7 @@ Ideal for **Heathrow staff** seeking substantial meals or **Stanwell Moor locals
 
 While we're keeping the names of our dishes under wraps for now, we can't resist sharing a few tantalizing photographs. Each image captures the essence of what's to come: hearty, flavourful, and oh-so-comforting. From rich gravies to succulent meats and delightful vegetarian options, there's something for everyone.
 
-![Another photo of a new dish available on The Anchors Autumn Winter menu](/content/blog/autumn-winter-menu/image-1.png)
+![Another photo of a new dish available on The Anchors Autumn Winter menu](/content/blog/autumn-winter-menu/image-1.jpg)
 
 ### **Year-Round Favourites Plus Seasonal Specials Near Heathrow**
 
@@ -83,7 +80,7 @@ What do you think our new dishes might be? Do you have a winter dish that brings
 
 For the latest updates on our Autumn Winter Menu and other happenings, make sure to follow us on [Facebook](https://www.facebook.com/theanchorpubsm) and [Instagram](https://www.instagram.com/theanchor.pub/). We've got plenty of surprises in store, and you wouldn't want to miss out!
 
-![Another photo of a new delicious dish available on The Anchors Autumn Winter menu](/content/blog/autumn-winter-menu/image-2.png)
+![Another photo of a new delicious dish available on The Anchors Autumn Winter menu](/content/blog/autumn-winter-menu/image-2.jpg)
 
 ## **Visit The Anchor for Winter Comfort Food Near Heathrow**
 
