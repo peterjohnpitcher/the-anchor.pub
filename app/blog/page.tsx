@@ -172,51 +172,59 @@ export default async function BlogPage({
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-anchor-green mb-8">Featured Story</h2>
               <Card variant="elevated" className="bg-gray-50 hover:shadow-xl transition-shadow">
-                <Link href={`/blog/${featuredPost.slug}`}>
-                  <div className="grid md:grid-cols-2 gap-0 overflow-hidden rounded-2xl">
-                    <div className="relative h-64 md:h-full">
-                      <Image
-                        src={getBlogHeroUrl(featuredPost.slug, featuredPost.hero)}
-                        alt={featuredPost.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority
-                      />
+                <div className="grid md:grid-cols-2 gap-0 overflow-hidden rounded-2xl">
+                  <Link
+                    href={`/blog/${featuredPost.slug}`}
+                    className="relative block h-64 md:h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-anchor-gold"
+                  >
+                    <Image
+                      src={getBlogHeroUrl(featuredPost.slug, featuredPost.hero)}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
+                    />
+                    <span className="sr-only">Read {featuredPost.title}</span>
+                  </Link>
+                  <div className="p-8 flex flex-col">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {featuredPost.tags.map(tag => (
+                        <Link key={tag} href={`/blog/tag/${tag}`}>
+                          <Badge 
+                            variant="default"
+                            size="sm"
+                            className="bg-anchor-gold/20 text-anchor-green hover:bg-anchor-gold hover:text-white transition-colours"
+                          >
+                            {tag}
+                          </Badge>
+                        </Link>
+                      ))}
                     </div>
-                    <div className="p-8">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {featuredPost.tags.map(tag => (
-                          <Link key={tag} href={`/blog/tag/${tag}`}>
-                            <Badge 
-                              variant="default"
-                              size="sm"
-                              className="bg-anchor-gold/20 text-anchor-green hover:bg-anchor-gold hover:text-white transition-colours"
-                            >
-                              {tag}
-                            </Badge>
-                          </Link>
-                        ))}
+                    <Link
+                      href={`/blog/${featuredPost.slug}`}
+                      className="text-2xl font-bold text-anchor-green mb-4 hover:text-anchor-gold transition-colours focus:outline-none focus-visible:ring-2 focus-visible:ring-anchor-gold"
+                    >
+                      {featuredPost.title}
+                    </Link>
+                    <p className="text-gray-700 mb-4 line-clamp-3">
+                      {featuredPost.description}
+                    </p>
+                    <div className="mt-auto flex items-center justify-between">
+                      <div className="text-sm text-gray-600">
+                        <span>{featuredPost.author}</span>
+                        <span className="mx-2">•</span>
+                        <time>{new Date(featuredPost.date).toLocaleDateString('en-GB')}</time>
                       </div>
-                      <h3 className="text-2xl font-bold text-anchor-green mb-4">
-                        {featuredPost.title}
-                      </h3>
-                      <p className="text-gray-700 mb-4 line-clamp-3">
-                        {featuredPost.description}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <div className="text-sm text-gray-600">
-                          <span>{featuredPost.author}</span>
-                          <span className="mx-2">•</span>
-                          <time>{new Date(featuredPost.date).toLocaleDateString('en-GB')}</time>
-                        </div>
-                        <span className="text-anchor-gold font-semibold">
-                          Read more →
-                        </span>
-                      </div>
+                      <Link
+                        href={`/blog/${featuredPost.slug}`}
+                        className="text-anchor-gold font-semibold hover:text-anchor-gold-light transition-colours focus:outline-none focus-visible:ring-2 focus-visible:ring-anchor-gold"
+                      >
+                        Read more →
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                </div>
               </Card>
             </div>
           </Container>
@@ -236,42 +244,49 @@ export default async function BlogPage({
                 <Grid cols={3} gap="lg" className="mb-12">
                   {otherPosts.map(post => (
                     <Card key={post.slug} variant="default" className="hover:shadow-lg transition-shadow">
-                      <Link href={`/blog/${post.slug}`}>
-                        <div className="relative h-48">
-                      <Image
-                        src={getBlogHeroUrl(post.slug, post.hero)}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        loading="lazy"
-                      />
+                      <div className="relative h-48">
+                        <Link
+                          href={`/blog/${post.slug}`}
+                          className="block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-anchor-gold rounded-t-2xl"
+                        >
+                          <Image
+                            src={getBlogHeroUrl(post.slug, post.hero)}
+                            alt={post.title}
+                            fill
+                            className="object-cover rounded-t-2xl"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            loading="lazy"
+                          />
+                          <span className="sr-only">Read {post.title}</span>
+                        </Link>
+                      </div>
+                      <div className="p-6 flex flex-col h-full">
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {post.tags.map(tag => (
+                            <Link key={tag} href={`/blog/tag/${tag}`}>
+                              <Badge 
+                                variant="default"
+                                size="sm"
+                                className="bg-gray-100 text-gray-600 hover:bg-anchor-gold hover:text-white transition-colours"
+                              >
+                                {tag}
+                              </Badge>
+                            </Link>
+                          ))}
                         </div>
-                        <div className="p-6">
-                          <div className="flex flex-wrap gap-2 mb-3">
-                            {post.tags.map(tag => (
-                              <Link key={tag} href={`/blog/tag/${tag}`}>
-                                <Badge 
-                                  variant="default"
-                                  size="sm"
-                                  className="bg-gray-100 text-gray-600 hover:bg-anchor-gold hover:text-white transition-colours"
-                                >
-                                  {tag}
-                                </Badge>
-                              </Link>
-                            ))}
-                          </div>
-                          <h3 className="text-lg font-bold text-anchor-green mb-2 line-clamp-2">
-                            {post.title}
-                          </h3>
-                          <p className="text-gray-700 text-sm mb-4 line-clamp-2">
-                            {post.description}
-                          </p>
-                          <div className="text-sm text-gray-600">
-                            <time>{new Date(post.date).toLocaleDateString('en-GB')}</time>
-                          </div>
+                        <Link
+                          href={`/blog/${post.slug}`}
+                          className="text-lg font-bold text-anchor-green mb-2 line-clamp-2 hover:text-anchor-gold transition-colours focus:outline-none focus-visible:ring-2 focus-visible:ring-anchor-gold"
+                        >
+                          {post.title}
+                        </Link>
+                        <p className="text-gray-700 text-sm mb-4 line-clamp-2 flex-1">
+                          {post.description}
+                        </p>
+                        <div className="text-sm text-gray-600">
+                          <time>{new Date(post.date).toLocaleDateString('en-GB')}</time>
                         </div>
-                      </Link>
+                      </div>
                     </Card>
                   ))}
                 </Grid>
