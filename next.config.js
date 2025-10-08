@@ -189,6 +189,9 @@ const nextConfig = {
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
     // Optimize for edge runtime
     serverComponentsExternalPackages: ['sharp'],
+    outputFileTracingIncludes: {
+      '/content/blog/[...path]': ['./content/blog/**/*']
+    }
   },
   webpack: (config, { isServer }) => {
     // Optimize bundle splitting
