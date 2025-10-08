@@ -19,13 +19,24 @@ const TRACKING_PARAMS = [
 ]
 
 export function middleware(request: NextRequest) {
-  // Handle domain redirects (non-www to www)
-  const host = request.headers.get('host')
+  // Handle domain redirects (non-www to www) and force HTTPS for production hostname
+  const host = request.headers.get('host') || ''
   const url = request.nextUrl.clone()
-  
-  // Redirect non-www to www
-  if (host === 'the-anchor.pub') {
+  const protocol = request.headers.get('x-forwarded-proto')
+  const isPrimaryHost = host === 'www.the-anchor.pub'
+  const isApexHost = host === 'the-anchor.pub'
+
+  // Force HTTPS on known production domains
+  if ((isPrimaryHost || isApexHost) && protocol === 'http') {
+    url.protocol = 'https'
     url.host = 'www.the-anchor.pub'
+    return NextResponse.redirect(url, 301)
+  }
+  
+  // Redirect apex domain to canonical www version
+  if (isApexHost) {
+    url.host = 'www.the-anchor.pub'
+    url.protocol = 'https'
     return NextResponse.redirect(url, 301)
   }
 

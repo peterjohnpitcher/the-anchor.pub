@@ -123,6 +123,29 @@ const PERK_OPTIONS = [
   { id: 'mid-week', label: 'Tue-Wed: free coffee & mince pie with dinner' }
 ]
 
+const FESTIVE_PRICING = [
+  {
+    tier: 'Shared party nights (Tue–Thu)',
+    price: '£36.95 per person',
+    includes: 'Three-course menu, festive decor, crackers, background playlist and optional Prosecco upgrade'
+  },
+  {
+    tier: 'Weekend private hire dinners (Fri–Sat)',
+    price: '£39.95 per person',
+    includes: 'Private dining room or main bar layout, late bar option until midnight and support for DJs or entertainment'
+  },
+  {
+    tier: 'Sunday festive lunches',
+    price: '£32.95 adults / £15.95 children',
+    includes: 'Family-style roasts with all the trimmings – ideal for families and community groups'
+  },
+  {
+    tier: 'Festive buffets (26+ guests)',
+    price: 'From £10.95 per person',
+    includes: 'Three buffet tiers with hot finger food, salads and grazing boards refreshed for the first hour'
+  }
+]
+
 const EarlyBirdCountdown = ({ className = '' }: { className?: string }) => {
   const { days, hours, minutes, expired } = useCountdown(EARLY_BIRD_DEADLINE)
 
@@ -146,6 +169,10 @@ const EarlyBirdCountdown = ({ className = '' }: { className?: string }) => {
 
 const FAQ_ITEMS = [
   {
+    question: "Is there a minimum spend for shared party nights or private hire?",
+    answer: "Weeknight shared party nights start at £36.95 per guest with no additional room hire. Weekend private dinners run from £39.95 per guest and we agree a minimum guest count, not a bar spend, so you keep control of the budget."
+  },
+  {
     question: "Is there a hire fee for Christmas parties?",
     answer: "There is no hire fee when you book one of our festive food or buffet packages. Let us know if you need exclusive use of a space and we will talk you through the options."
   },
@@ -164,6 +191,10 @@ const FAQ_ITEMS = [
   {
     question: "Can you run a bar tab for our group?",
     answer: "Yes, we can pre-set a bar tab with your budget and keep you updated throughout the night. Invoicing in advance is also available if preferred."
+  },
+  {
+    question: "How do guests travel from Heathrow hotels or terminals?",
+    answer: "Taxi and rideshare journeys from Heathrow Terminal 5 take around seven minutes and typically cost £18-£22. We are fifteen minutes from the Terminal 2 landside entrance and have space for mini-coaches."
   },
   {
     question: "What entertainment can we have?",
@@ -479,6 +510,73 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
               </div>
             </Card>
           </Grid>
+        </Container>
+      </Section>
+
+      <Section background="gray" spacing="md">
+        <Container>
+          <div className="mx-auto max-w-5xl space-y-4 text-center">
+            <h2 className="text-3xl font-bold text-anchor-charcoal">2025 festive packages &amp; pricing</h2>
+            <p className="text-base text-gray-700">
+              Book shared party nights, private dining and Sunday lunches with transparent per-person pricing. Pick the option that fits your Heathrow Christmas party or Surrey celebration, then submit your enquiry to lock in dates.
+            </p>
+          </div>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+            <table className="w-full text-left text-sm text-gray-700">
+              <thead className="bg-anchor-charcoal text-white text-xs uppercase tracking-wide">
+                <tr>
+                  <th className="px-4 py-3">Package</th>
+                  <th className="px-4 py-3">Pricing</th>
+                  <th className="px-4 py-3">What&apos;s included</th>
+                </tr>
+              </thead>
+              <tbody>
+                {FESTIVE_PRICING.map(row => (
+                  <tr key={row.tier} className="border-t border-gray-100">
+                    <td className="px-4 py-4 font-semibold text-anchor-charcoal">{row.tier}</td>
+                    <td className="px-4 py-4 text-red-700 font-semibold">{row.price}</td>
+                    <td className="px-4 py-4">{row.includes}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-6 flex flex-col items-center gap-3 md:flex-row md:justify-center">
+            <Button
+              variant="primary"
+              size="md"
+              onClick={() => {
+                trackCtaClick({
+                  id: 'christmas_pricing_dinner',
+                  label: 'Request a Christmas Booking (up to 25)',
+                  location: 'pricing_table',
+                  destination: 'enquiry_form',
+                  mode: 'dinner'
+                })
+                handleOpenForm('dinner', {}, 'pricing_table')
+              }}
+              className="w-full md:w-auto"
+            >
+              Request shared or private dinner
+            </Button>
+            <Button
+              variant="secondary"
+              size="md"
+              onClick={() => {
+                trackCtaClick({
+                  id: 'christmas_pricing_buffet',
+                  label: 'Plan a Buffet Party (26+)',
+                  location: 'pricing_table',
+                  destination: 'enquiry_form',
+                  mode: 'buffet'
+                })
+                handleOpenForm('buffet', {}, 'pricing_table')
+              }}
+              className="w-full md:w-auto"
+            >
+              View buffet availability
+            </Button>
+          </div>
         </Container>
       </Section>
 
@@ -903,8 +1001,15 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
               </div>
             </Card>
           </Grid>
-          <div className="mt-10 text-sm text-gray-600 text-center">
-            Free on-site parking for around 20 cars • Five minutes from Heathrow Terminal 5 • Ten minutes to Staines-upon-Thames • Outside the ULEZ • Also a handy Windsor Christmas party venue • Sheltered smoking area available
+          <div className="mt-10 text-sm text-gray-600 text-center space-y-2">
+            <p>Free on-site parking for around 20 cars • Five minutes from Heathrow Terminal 5 • Ten minutes to Staines-upon-Thames • Outside the ULEZ • Also a handy Windsor Christmas party venue • Sheltered smoking area available</p>
+            <p>
+              Driving from farther afield?{' '}
+              <Link href="/blog/cheap-heathrow-parking-alternatives" className="underline decoration-dotted hover:text-anchor-green transition-colors">Read our cheap Heathrow parking guide</Link>{' '}
+              or{' '}
+              <Link href="/heathrow-parking" className="underline decoration-dotted hover:text-anchor-green transition-colors">pre-book parking at The Anchor</Link>{' '}
+              so your guests arrive without stress.
+            </p>
           </div>
         </Container>
       </Section>
@@ -922,6 +1027,10 @@ export function ChristmasPartiesPageClient({ structuredData }: ChristmasPartiesP
               <li className="flex items-start gap-3"><Icon name="check" className="mt-0.5 h-5 w-5 text-green-600" />Standard table time is two hours, with longer sittings available for larger parties.</li>
               <li className="flex items-start gap-3"><Icon name="check" className="mt-0.5 h-5 w-5 text-green-600" />An optional 10% service charge applies to tables of six or more.</li>
               <li className="flex items-start gap-3"><Icon name="check" className="mt-0.5 h-5 w-5 text-green-600" />We happily accommodate dietary requirements - include details on your pre-order.</li>
+              <li className="flex items-start gap-3">
+                <Icon name="check" className="mt-0.5 h-5 w-5 text-green-600" />
+                <span>Need guest parking? Share our <Link href="/blog/cheap-heathrow-parking-alternatives" className="underline decoration-dotted hover:text-anchor-green transition-colors">cheap Heathrow parking tips</Link> or direct drivers to <Link href="/heathrow-parking" className="underline decoration-dotted hover:text-anchor-green transition-colors">pre-booked spaces at The Anchor</Link>.</span>
+              </li>
             </ul>
           </div>
         </Container>

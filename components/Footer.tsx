@@ -74,6 +74,7 @@ const defaultSections: FooterSection[] = [
     titleClass: 'text-anchor-gold',
     items: [
       { label: 'Beer Garden & Plane Spotting', href: '/beer-garden' },
+      { label: 'Plane Spotting Guide', href: '/plane-spotting-heathrow' },
       { label: 'Tuesday Pizza BOGOF', href: '/pizza-tuesday' },
       { label: 'Drag Shows', href: '/whats-on/drag-shows' },
       { label: 'Free Parking', href: '/find-us' }
@@ -87,7 +88,8 @@ const defaultSections: FooterSection[] = [
       { label: 'Terminal 2', href: '/near-heathrow/terminal-2' },
       { label: 'Terminal 3', href: '/near-heathrow/terminal-3' },
       { label: 'Terminal 4', href: '/near-heathrow/terminal-4' },
-      { label: 'Terminal 5', href: '/near-heathrow/terminal-5' }
+      { label: 'Terminal 5', href: '/near-heathrow/terminal-5' },
+      { label: 'Plane Spotting Pub', href: '/plane-spotting-heathrow' }
     ]
   },
   {

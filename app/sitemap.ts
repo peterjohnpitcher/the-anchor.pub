@@ -22,6 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/find-us',
     '/book-event',
     '/beer-garden',
+    '/plane-spotting-heathrow',
     '/pizza-tuesday',
     '/christmas-parties',
     '/corporate-events',

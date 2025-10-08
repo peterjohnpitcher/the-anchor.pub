@@ -21,19 +21,22 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { quizNightEventSeries, dragShowEventSeries, bingoEventSeries } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: "Heathrow Pub Events Tonight - Drag Shows, Quiz, Bingo | The Anchor",
-  description: "See what's on at The Anchor near Heathrow: drag shows, £3 quiz nights, cash bingo, live terrestrial sport, free pool and darts. Reserve a table for headline events.",
-  keywords: "heathrow pub events tonight, drag show near heathrow, quiz night stanwell moor, bingo near terminal 5, whats on the anchor pub",
+  title: "Heathrow Pub Events Tonight - Drag Shows, Quiz & Bingo Near Terminal 5",
+  description: "See what's on at The Anchor near Heathrow Terminal 5: drag shows, £3 quiz nights, cash bingo, live sport, and free pool & darts. Book tables for headline events.",
+  keywords: "heathrow pub events tonight, drag show near heathrow, quiz night stanwell moor, bingo near terminal 5, whats on the anchor pub, heathrow nightlife",
   openGraph: {
-    title: "Heathrow Pub Events Tonight - Drag Shows, Quiz, Bingo",
-    description: "See the live calendar for drag shows, quiz nights, bingo and sport at The Anchor near Heathrow.",
+    title: "Heathrow Pub Events Tonight Near Terminal 5",
+    description: "Live calendar for drag shows, quiz nights, bingo and sport at The Anchor - the Heathrow pub for entertainment seven minutes from Terminal 5.",
     images: ["/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"],
   },
   twitter: getTwitterMetadata({
-    title: "Heathrow Pub Events Tonight - Drag Shows, Quiz, Bingo",
-    description: "See the live calendar for drag shows, quiz nights, bingo and sport at The Anchor near Heathrow.",
+    title: "Heathrow Pub Events Tonight Near Terminal 5",
+    description: "See The Anchor's entertainment diary for drag shows, quiz nights, bingo and live sport close to Heathrow.",
     images: ["/images/events/drag-shows/the-anchor-drag-show-nikki-manfadge-stanwell-moor.jpg"]
-  })
+  }),
+  alternates: {
+    canonical: '/whats-on'
+  }
 }
 
 type WhatsOnPageProps = {
@@ -152,6 +155,54 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
           </div>
         }
       />
+
+      {/* Heathrow Positioning */}
+      <Section background="white" spacing="md" className="bg-anchor-cream/30">
+        <Container>
+          <SectionHeader
+            title="Seven Minutes from Heathrow Terminal 5"
+            subtitle="Ideal for cabin crew socials, airport shift drinks and travellers looking for nightlife outside the terminal."
+          />
+          <InfoBoxGrid
+            columns={3}
+            className="max-w-5xl mx-auto"
+            boxes={[
+              {
+                title: "✈️ Airport-Friendly Timings",
+                content: (
+                  <p className="text-gray-700">
+                    Evening events start after major flight banks. Free parking and late-night snacks make us the go-to Heathrow pub before red-eye departures.
+                  </p>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              },
+              {
+                title: "🎉 Weekly Headliners",
+                content: (
+                  <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+                    <li>Signature drag shows hosted by Nikki Manfadge</li>
+                    <li>£3 quiz night every Thursday for teams up to six</li>
+                    <li>Cash bingo, karaoke & live sport rotations</li>
+                  </ul>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              },
+              {
+                title: "🚕 Easy Transfers",
+                content: (
+                  <p className="text-gray-700">
+                    £18 taxi from Terminal 5 or 15-minute walk from Premier Inn T5. We&apos;re the closest village pub to Heathrow with a proper stage and dancefloor.
+                  </p>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              }
+            ]}
+          />
+        </Container>
+      </Section>
 
       {/* Page Title */}
       <Section background="white" spacing="sm">

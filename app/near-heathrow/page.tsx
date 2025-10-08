@@ -100,7 +100,15 @@ export default function NearHeathrowPage() {
               <h2 className="text-2xl font-bold text-anchor-green mb-3">Free Parking for Patrons</h2>
               <p className="text-gray-700">
                 20 free parking spaces while you're visiting us. No stress, no fees. 
-                Perfect for meeting arriving passengers over a meal or drink.
+                Perfect for meeting arriving passengers over a meal or drink. Staying longer?{' '}
+                <Link href="/heathrow-parking" className="underline decoration-dotted hover:text-anchor-green transition-colors">
+                  Pre-book our cheap Heathrow parking
+                </Link>{' '}
+                or share the{' '}
+                <Link href="/blog/cheap-heathrow-parking-alternatives" className="underline decoration-dotted hover:text-anchor-green transition-colors">
+                  savings guide
+                </Link>{' '}
+                with your travel group.
               </p>
             </div>
 
@@ -149,6 +157,52 @@ export default function NearHeathrowPage() {
                 Dietary requirements catered for. Everyone&apos;s local.
               </p>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Plan Your Visit */}
+      <section className="section-spacing bg-anchor-cream/40">
+        <Container>
+          <SectionHeader
+            title="Plan your Heathrow stopover"
+            subtitle="Make the most of your time near the airport with these quick resources"
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            {[
+              {
+                href: '/heathrow-parking',
+                title: 'Cheapest Heathrow parking',
+                description: 'Reserve secure parking from £15 per day, five minutes from Terminal 5.'
+              },
+              {
+                href: '/blog/cheap-heathrow-parking-alternatives',
+                title: 'Parking comparison guide',
+                description: 'Compare official car parks, meet-and-greet operators and independent deals.'
+              },
+              {
+                href: '/plane-spotting-heathrow',
+                title: 'Plane spotting beer garden',
+                description: 'Watch arrivals every 90 seconds from our garden under the flight path.'
+              },
+              {
+                href: '/christmas-parties',
+                title: 'Christmas party packages',
+                description: 'Shared party nights, private hire and buffets for Heathrow teams & families.'
+              }
+            ].map(card => (
+              <Link key={card.href} href={card.href} className="block h-full group">
+                <div className="card-warm bg-white h-full rounded-2xl p-6 shadow-sm transition group-hover:shadow-lg">
+                  <h3 className="text-xl font-semibold text-anchor-green mb-2 group-hover:text-anchor-gold transition">
+                    {card.title}
+                  </h3>
+                  <p className="text-sm text-gray-700">{card.description}</p>
+                  <span className="mt-4 inline-flex items-center text-sm font-semibold text-anchor-gold group-hover:underline">
+                    Learn more →
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </Container>
       </section>

@@ -21,19 +21,22 @@ import { parkingFacilitySchema } from '@/lib/schemas/parking'
 import { DEFAULT_PAGE_HEADER_IMAGE } from '@/lib/image-fallbacks'
 
 export const metadata: Metadata = {
-  title: 'Find The Anchor Pub - Directions & Free Parking Near Heathrow',
-  description: 'Get directions to The Anchor pub near Heathrow Airport. Horton Road location with free parking, easy access from M25, Staines, Ashford and airport terminals.',
-  keywords: 'find the anchor pub, directions to the anchor heathrow, pub with free parking stanwell moor, horton road pub location',
+  title: 'Find The Anchor Pub - Directions & Free Parking Near Heathrow Terminals',
+  description: 'Get step-by-step directions from Heathrow Terminal 5, Terminal 3, Terminal 2 and Terminal 4 to The Anchor on Horton Road. Seven minutes from T5 with free parking and easy access from M25, Staines and Ashford.',
+  keywords: 'find the anchor pub, directions to the anchor heathrow, heathrow terminal 5 to pub, pub with free parking stanwell moor, horton road pub location',
   openGraph: {
-    title: 'Find The Anchor Pub Near Heathrow',
-    description: 'Directions and free parking details for The Anchor on Horton Road, Stanwell Moor near Heathrow Airport.',
+    title: 'Find The Anchor Pub Near Heathrow Terminals',
+    description: 'Driving and public transport directions from every Heathrow terminal to The Anchor on Horton Road with free parking details.',
     images: [DEFAULT_PAGE_HEADER_IMAGE],
   },
   twitter: getTwitterMetadata({
     title: 'Find The Anchor Pub Near Heathrow',
-    description: 'Directions and free parking details for The Anchor on Horton Road, Stanwell Moor near Heathrow Airport.',
+    description: 'See directions from Heathrow Terminal 5, Terminal 3 and Terminal 4 plus free parking info for The Anchor in Stanwell Moor.',
     images: [DEFAULT_PAGE_HEADER_IMAGE]
-  })
+  }),
+  alternates: {
+    canonical: '/find-us'
+  }
 }
 
 export default function FindUsPage() {
@@ -160,6 +163,75 @@ export default function FindUsPage() {
               <p className="font-bold text-anchor-green">Payment</p>
               <p className="text-sm text-gray-700">Cash & all cards inc. Amex</p>
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Heathrow Terminal Directions */}
+      <Section background="white" spacing="md">
+        <Container>
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="Heathrow Terminal to Pub in Under 12 Minutes"
+              subtitle="Plan your route from any Heathrow terminal with taxi times, parking tips and public transport options."
+            />
+            <FeatureGrid
+              columns={2}
+              features={[
+                {
+                  icon: "✈️",
+                  title: "Terminal 5 → The Anchor (7 mins)",
+                  description: (
+                    <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+                      <li>Follow signs to exit via A3044 (Stanwell Moor Road)</li>
+                      <li>Turn left onto Horton Road; pub is 200 yards on right</li>
+                      <li>Taxi fare ~£18, free parking on arrival saves £20+</li>
+                    </ul>
+                  ),
+                  variant: "default",
+                  className: "bg-white rounded-2xl p-6 shadow-sm"
+                },
+                {
+                  icon: "🧳",
+                  title: "Terminals 2 & 3 (11 mins)",
+                  description: (
+                    <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+                      <li>Head north on Tunnel Road W → M4 Spur → A4 → A3044</li>
+                      <li>Avoid multi-storey car parks; follow sat nav to TW19 6AQ</li>
+                      <li>Ideal for pre-flight meals before security queues</li>
+                    </ul>
+                  ),
+                  variant: "default",
+                  className: "bg-white rounded-2xl p-6 shadow-sm"
+                },
+                {
+                  icon: "🚖",
+                  title: "Terminal 4 (12 mins)",
+                  description: (
+                    <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+                      <li>Take Southern Perimeter Rd → Stanwell Moor Rd</li>
+                      <li>Taxis and rideshares average £22 each way</li>
+                      <li>Plenty of time for a meal before evening departures</li>
+                    </ul>
+                  ),
+                  variant: "default",
+                  className: "bg-white rounded-2xl p-6 shadow-sm"
+                },
+                {
+                  icon: "🚌",
+                  title: "442 Bus & Hotel Shuttles",
+                  description: (
+                    <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+                      <li>442 stops outside the pub connecting Staines ↔ Heathrow</li>
+                      <li>Premier Inn T5 guests can walk in 15 minutes or take local taxi</li>
+                      <li>Ask your driver for The Anchor, Horton Road, Stanwell Moor</li>
+                    </ul>
+                  ),
+                  variant: "default",
+                  className: "bg-white rounded-2xl p-6 shadow-sm"
+                }
+              ]}
+            />
           </div>
         </Container>
       </Section>

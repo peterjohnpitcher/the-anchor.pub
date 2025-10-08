@@ -114,6 +114,14 @@ const faqs = (rateCard: ParkingRateCard | null) => {
 
   return [
   {
+    question: 'Is The Anchor cheaper than Heathrow long stay parking?',
+    answer: `Yes – our daily rate is £${daily} compared to Heathrow short stay at £39 and long stay often £118+ per week. The price comparison table shows real-world savings for 24 hours, one week and two weeks of parking.`
+  },
+  {
+    question: 'Where can I find cheap parking near Heathrow Terminal 5?',
+    answer: 'Park at The Anchor in Stanwell Moor and take a 7-minute taxi to Terminal 5. You pay from £15 per day, keep your keys and avoid airport surcharges. Taxi and rideshare drivers know our postcode TW19 6AQ, making transfers easy even on red-eye flights.'
+  },
+  {
     question: 'How much does Heathrow parking cost at The Anchor?',
     answer: `Our current rate card is £${hourly} per hour, £${daily} per day, £${weekly} per week and £${monthly} per month. The booking wizard locks in the best mix automatically before you pay via PayPal.`
   },
@@ -296,6 +304,51 @@ export default async function HeathrowParkingPage() {
         </div>
       </HeroWrapper>
 
+      <Section background="white" spacing="lg">
+        <Container>
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-3xl font-bold text-anchor-green text-center">
+              Cheap Heathrow Parking Without Hidden Fees
+            </h2>
+            <p className="mt-4 text-center text-lg text-gray-700">
+              Search terms like <strong>cheap parking near Heathrow</strong>, <strong>cheap parking near Heathrow Terminal 5</strong> and <strong>cheap Heathrow airport parking</strong> all point to the same problem: official car parks keep getting pricier. Our Stanwell Moor car park keeps costs simple, publishes prices upfront and still delivers CCTV, lighting and 24/7 access.
+            </p>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              <div className="rounded-2xl bg-anchor-cream/50 p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-anchor-charcoal">Daily price promise</h3>
+                <p className="mt-2 text-sm text-gray-700">
+                  Lock in from £15 per day or £75 per week – no surge pricing, no pre-authorisation. Pay in advance with PayPal and download instant receipts.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-anchor-cream/50 p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-anchor-charcoal">Terminal-specific savings</h3>
+                <p className="mt-2 text-sm text-gray-700">
+                  Beat “cheap parking near Heathrow Terminal 5/3/4/2” searches by parking once and taxiing to any terminal in 7–12 minutes.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-anchor-cream/50 p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-anchor-charcoal">Keep your keys, skip the upsell</h3>
+                <p className="mt-2 text-sm text-gray-700">
+                  No valet upsells or key drops. Park it yourself, keep your keys and enjoy the pub while you wait for your ride.
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 flex flex-col items-center gap-4 md:flex-row md:justify-center">
+              <Link href="#price-comparison">
+                <Button variant="secondary" size="lg">
+                  📉 View the Heathrow price comparison
+                </Button>
+              </Link>
+              <Link href="#book-parking">
+                <Button variant="primary" size="lg">
+                  🚗 Book the cheapest Heathrow parking
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       <Section background="white" spacing="md">
         <Container>
           <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
@@ -362,7 +415,7 @@ export default async function HeathrowParkingPage() {
         </Container>
       </Section>
 
-      <Section background="white" spacing="lg">
+      <Section background="white" spacing="lg" id="price-comparison">
         <Container>
           <div className="overflow-hidden rounded-2xl border border-gray-200">
             <div className="bg-anchor-green px-6 py-4 text-white text-xl font-semibold">

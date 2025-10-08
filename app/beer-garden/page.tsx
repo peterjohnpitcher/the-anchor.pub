@@ -100,6 +100,14 @@ export default function BeerGardenPage() {
               variant="primary"
               size="lg"
             />
+            <Link href="/plane-spotting-heathrow">
+              <Button 
+                variant="secondary"
+                size="lg"
+              >
+                ✈️ Plane Spotting Guide
+              </Button>
+            </Link>
             <Link href="/drinks">
               <Button 
                 variant="secondary"

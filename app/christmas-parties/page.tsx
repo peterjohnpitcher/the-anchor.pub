@@ -2,15 +2,15 @@ import type { Metadata } from 'next'
 import { ChristmasPartiesPageClient } from './client-components'
 
 export const metadata: Metadata = {
-  title: 'Christmas Parties & Dinners 2025 Near Heathrow Terminal 5 | The Anchor',
+  title: 'Christmas Parties, Shared Party Nights & Private Hire Near Heathrow | The Anchor',
   description:
-    'Book your 2025 Christmas celebration at The Anchor, the cosy village pub near Heathrow, Staines and Ashford in Surrey. Three-course festive dinners with Yorkshire puddings and pigs in blankets included, buffets for 26+, free on-site parking outside the ULEZ and five minutes from Heathrow Terminal 5.',
+    'Plan 2025 Christmas parties, shared party nights and private festive hire at The Anchor near Heathrow Terminal 5. Three-course menus from £36.95, buffets for 26+, corporate packages, Prosecco upgrades, free parking outside the ULEZ and rapid rides from airport hotels.',
   keywords:
-    'christmas dinner near heathrow, christmas party venue near heathrow, christmas parties heathrow, christmas party pub staines, christmas party venue surrey, christmas party in ashford, christmas buffet near heathrow, christmas lunch near staines, cheap christmas parties heathrow',
+    'christmas party venue near heathrow, shared christmas party heathrow, corporate christmas party heathrow, christmas dinner staines, christmas party pub surrey, christmas party packages heathrow, cheap christmas parties heathrow, christmas buffet near heathrow, private christmas dining surrey',
   openGraph: {
-    title: 'Christmas Parties 2025 Near Heathrow Terminal 5 | The Anchor',
+    title: 'Christmas Parties 2025 Near Heathrow Terminal 5 | Shared Nights & Private Hire',
     description:
-      'A proper village-pub Christmas with generous roasts, trimmings boards, and buffet options for larger groups. Free parking just minutes from Heathrow Terminal 5 and close to Staines, Ashford and Windsor.',
+      'A proper village-pub Christmas with shared party nights, private hire, generous roasts and buffet options. Free parking minutes from Heathrow Terminal 5 and close to Staines, Ashford and Windsor.',
     images: ['/images/page-headers/christmas-parties/christmas-parties.jpg']
   },
   alternates: {
@@ -109,6 +109,14 @@ const structuredData = {
       priceCurrency: 'GBP',
       availability: 'https://schema.org/InStock',
       description: 'Two or three-course children’s Christmas menu with smaller portions and the same trimmings.'
+    },
+    {
+      '@type': 'Offer',
+      name: 'Shared party night package (Tue–Thu)',
+      price: '36.95',
+      priceCurrency: 'GBP',
+      availability: 'https://schema.org/InStock',
+      description: 'Shared Christmas party nights with crackers, festive playlists and three-course menus – ideal for airport teams and Surrey offices.'
     }
   ],
   addOn: [

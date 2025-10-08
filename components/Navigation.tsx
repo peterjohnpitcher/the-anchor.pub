@@ -98,7 +98,8 @@ const defaultItems: NavigationItem[] = [
       { label: 'Terminal 4', href: '/near-heathrow/terminal-4' },
       { label: 'Terminal 5', href: '/near-heathrow/terminal-5' },
       { label: 'Heathrow Hotels', href: '/heathrow-hotels-pub' },
-      { label: 'M25 Junction 14', href: '/m25-junction-14-pub' }
+      { label: 'M25 Junction 14', href: '/m25-junction-14-pub' },
+      { label: 'Plane Spotting Guide', href: '/plane-spotting-heathrow' }
     ]
   }
 ]

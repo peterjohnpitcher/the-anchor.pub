@@ -24,19 +24,22 @@ import { getPromotionImage } from '@/lib/managers-special-utils'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Heathrow Pub Drinks Menu - Real Ale, Cocktails & Wine | The Anchor',
-  description: 'Explore The Anchor drinks menu near Heathrow: cask ales, draught lagers, premium spirits, cocktails and wines. Fair pub prices, free parking, warm local welcome.',
-  keywords: 'heathrow pub drinks menu, real ale near terminal 5, cocktails stanwell moor, wine bar near heathrow, affordable pub drinks tw19',
+  title: 'Heathrow Pub Drinks Menu - Carling, Cocktails & Wine Near Terminal 5',
+  description: 'Explore The Anchor drinks menu near Heathrow Terminal 5: Carling, Coors Light, Inch’s Cider, draught Guinness, cocktails, premium spirits and wines at local pub prices.',
+  keywords: 'heathrow pub drinks menu, carling near heathrow, coors light pub terminal 5, cocktails stanwell moor, wine bar near heathrow, affordable pub drinks tw19',
   openGraph: {
     title: 'Heathrow Pub Drinks Menu - Real Ale, Cocktails & Wine',
-    description: 'See The Anchor drinks list: cask ales, draught beer, cocktails and wine at fair pub prices near Heathrow.',
+    description: 'See The Anchor drinks list: cask ales, draught beer including Carling & Coors, cocktails and wine at fair pub prices near Heathrow.',
     images: [DEFAULT_DRINKS_IMAGE],
   },
   twitter: getTwitterMetadata({
-    title: 'Heathrow Pub Drinks Menu - Real Ale, Cocktails & Wine',
-    description: 'See The Anchor drinks list: cask ales, draught beer, cocktails and wine at fair pub prices near Heathrow.',
+    title: 'Heathrow Pub Drinks Menu - Carling, Cocktails & Wine',
+    description: 'See The Anchor drinks list: draught Carling, Coors Light, Guinness, cocktails and wine at fair pub prices near Heathrow.',
     images: [DEFAULT_DRINKS_IMAGE]
-  })
+  }),
+  alternates: {
+    canonical: '/drinks'
+  }
 }
 
 type PageSearchParams = {
@@ -346,6 +349,52 @@ export default async function DrinksMenuPage({ searchParams }: { searchParams: P
 
       {/* Manager's Special */}
       <ManagersSpecialHero />
+
+      {/* Popular Draught & Spirits */}
+      <Section background="white" spacing="md" className="bg-anchor-cream/30">
+        <Container>
+          <SectionHeader
+            title="Your Favourite Drinks on Tap Near Heathrow"
+            subtitle="From Carling and Coors Light to Guinness and premium spirits, we pour what travellers and locals ask for most."
+          />
+          <InfoBoxGrid
+            columns={3}
+            className="max-w-5xl mx-auto"
+            boxes={[
+              {
+                title: "🍺 Carling & Coors Light",
+                content: (
+                  <p className="text-gray-700">
+                    Ice-cold Carling and Coors Light served properly every day. Popular with airport crew looking for a familiar pint before or after shifts.
+                  </p>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              },
+              {
+                title: "🍻 Guinness & Inch’s Cider",
+                content: (
+                  <p className="text-gray-700">
+                    Pour-perfect Guinness plus Inch&apos;s Medium Apple Cider for those sunny beer garden sessions under the Heathrow flight path.
+                  </p>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              },
+              {
+                title: "🍸 Premium Spirits & Chambord",
+                content: (
+                  <p className="text-gray-700">
+                    Build cocktails with Chambord, Disaronno, Duppy Share rum and our rotating Manager&apos;s Special spirit offer. Ask for Baby Guinness shots too.
+                  </p>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              }
+            ]}
+          />
+        </Container>
+      </Section>
 
       {/* Page Title */}
       <Section className="py-8 bg-white">

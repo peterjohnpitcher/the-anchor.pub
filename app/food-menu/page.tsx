@@ -73,17 +73,17 @@ function buildKitchenSchedule(hours: BusinessHours): string {
 }
 
 export const metadata: Metadata = {
-  title: 'Heathrow Pub Food Menu - 2-for-1 Pizza Tuesdays | The Anchor',
-  description: "Browse The Anchor's full Heathrow pub menu: stone-baked pizzas, burgers, fish & chips, Sunday roast. 2-for-1 pizzas every Tuesday, free parking, kitchen open Tue-Sun.",
-  keywords: 'heathrow pub food menu, anchor stanwell moor menu, 2 for 1 pizza tuesday, sunday roast near heathrow, family pub dining tw19',
+  title: 'Heathrow Food Menu Near Terminal 5 - 2-for-1 Pizza | The Anchor',
+  description: "Preview The Anchor's Heathrow pub menu 7 minutes from Terminal 5: stone-baked pizzas, fish & chips, burgers and Sunday roasts. Free parking, rapid service, kitchen open Tue-Sun.",
+  keywords: 'heathrow food menu, heathrow terminal 5 restaurant alternative, anchor stanwell moor menu, 2 for 1 pizza tuesday heathrow, sunday roast near heathrow airport',
   openGraph: {
-    title: 'Heathrow Pub Food Menu - 2-for-1 Pizza Tuesdays',
-    description: "See The Anchor's full menu: pizza, burgers, fish & chips, Sunday roast, plus our 2-for-1 Tuesday pizza deal.",
+    title: 'Heathrow Food Menu Near Terminal 5',
+    description: "See The Anchor's full menu before you fly: pizza, burgers, fish & chips, Sunday roast and more just minutes from Heathrow.",
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Heathrow Pub Food Menu - 2-for-1 Pizza Tuesdays',
-    description: "See The Anchor's full menu: pizza, burgers, fish & chips, Sunday roast, plus our 2-for-1 Tuesday pizza deal.",
+    title: 'Heathrow Food Menu Near Terminal 5',
+    description: "See The Anchor's menu: pizza, burgers, fish & chips, Sunday roast plus Tuesday pizza BOGOF before heading to Heathrow.",
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg']
   }),
   alternates: {
@@ -233,6 +233,69 @@ export default async function FoodMenuPage() {
           </div>
         }
       />
+
+      {/* Heathrow & Terminal Messaging */}
+      <Section background="white" spacing="md" className="bg-anchor-cream/40">
+        <Container>
+          <SectionHeader
+            title="Flying from Heathrow? Eat Properly Before You Go"
+            subtitle="Seven minutes from Terminal 5 with free parking, fast service, and prices that beat airport restaurants every time."
+          />
+          <InfoBoxGrid
+            columns={3}
+            className="max-w-6xl mx-auto"
+            boxes={[
+              {
+                title: "🍽️ Better Than Terminal Dining",
+                content: (
+                  <p className="text-gray-700">
+                    Swap food courts for fresh British favourites. Travellers tell us we&apos;re the best alternative to{" "}
+                    <strong>restaurants at Heathrow Terminal 5</strong> thanks to our quick service and proper portions.
+                  </p>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              },
+              {
+                title: "⏱️ Terminal Timings",
+                content: (
+                  <ul className="space-y-2 text-gray-700">
+                    <li><strong>Terminal 5:</strong> 7 minutes door-to-door</li>
+                    <li><strong>Terminals 2 &amp; 3:</strong> 11 minutes avoiding airport car park queues</li>
+                    <li><strong>Terminal 4:</strong> 12 minutes via Stanwell Moor</li>
+                  </ul>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              },
+              {
+                title: "💷 Save £20-£40 Every Visit",
+                content: (
+                  <p className="text-gray-700">
+                    Free on-site parking and local pub prices mean more for your travel budget. Download receipts and eat properly before your flight.
+                  </p>
+                ),
+                variant: "colored",
+                color: "bg-white rounded-2xl p-6 shadow-sm"
+              }
+            ]}
+          />
+          <AlertBox
+            variant="success"
+            title="Need a Heathrow restaurant alternative?"
+            className="mt-10 max-w-3xl mx-auto"
+            content={
+              <p className="text-gray-700">
+                Combine your meal with our{' '}
+                <Link href="/restaurants-near-heathrow" className="text-anchor-gold font-semibold hover:text-anchor-green transition-colors">
+                  Heathrow dining guide
+                </Link>{' '}
+                for tips on timing, taxi fares and flight-ready menu picks.
+              </p>
+            }
+          />
+        </Container>
+      </Section>
 
       {/* Page Title for SEO */}
       <Section background="white" spacing="sm">

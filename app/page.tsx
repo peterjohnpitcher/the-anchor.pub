@@ -378,7 +378,15 @@ export default function HomePage() {
                       <li className="flex gap-3">
                         <span className="text-2xl">🚗</span>
                         <div>
-                          <strong>Free Parking:</strong> No hourly charges, no stress. Stay as long as you like.
+                          <strong>Free Parking:</strong> No hourly charges, no stress. Stay as long as you like. Need longer term parking?{' '}
+                          <Link href="/heathrow-parking" className="text-anchor-gold hover:text-anchor-gold-light underline">
+                            Book our cheap Heathrow parking
+                          </Link>{' '}
+                          or{' '}
+                          <Link href="/blog/cheap-heathrow-parking-alternatives" className="text-anchor-gold hover:text-anchor-gold-light underline">
+                            read the savings guide
+                          </Link>
+                          .
                         </div>
                       </li>
                       <li className="flex gap-3">
