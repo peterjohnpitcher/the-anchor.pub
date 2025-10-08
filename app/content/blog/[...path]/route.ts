@@ -4,7 +4,6 @@ import path from 'path'
 
 const BLOG_ASSET_BASE_DIRS = [
   path.join(process.cwd(), 'content', 'blog'),
-  path.join(process.cwd(), 'content', 'blog', '_archived'),
   path.join(process.cwd(), 'public', 'content', 'blog')
 ]
 
