@@ -563,7 +563,7 @@ interface CtaEvent {
 }
 
 export function trackCtaClick(data: CtaEvent) {
-  pushToDataLayer({
+  const payload = {
     event: 'cta_click',
     event_category: 'CTA',
     event_label: data.label,
@@ -574,7 +574,25 @@ export function trackCtaClick(data: CtaEvent) {
     cta_mode: data.mode,
     cta_context: data.context,
     cta_variant: data.variant
-  })
+  }
+
+  pushToDataLayer(payload)
+
+  const foodContexts = new Set(['food', 'sunday_roast', 'pizza_tuesday', 'heathrow_layover'])
+  if (data.context && foodContexts.has(data.context)) {
+    pushToDataLayer({
+      event: 'food_cta_click',
+      event_category: 'Food CTA',
+      event_label: data.label,
+      cta_id: data.id,
+      cta_label: data.label,
+      cta_location: data.location,
+      cta_destination: data.destination,
+      cta_mode: data.mode,
+      cta_context: data.context,
+      cta_variant: data.variant
+    })
+  }
 }
 
 export function trackBannerEvent(data: {

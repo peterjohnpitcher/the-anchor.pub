@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
-import { Container, Section, SectionHeader, FeatureGrid, InfoBoxGrid, CTASection, Button } from '@/components/ui'
+import { Container, Section, SectionHeader, FeatureGrid, InfoBoxGrid, CTASection, Button, Card, CardBody } from '@/components/ui'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { BookTableButton } from '@/components/BookTableButton'
@@ -120,6 +120,74 @@ export default function PlaneSpottingHeathrowPage() {
           </div>
         }
       />
+
+      <Section background="white" spacing="sm">
+        <Container>
+          <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
+            <Card className="bg-anchor-cream/50 shadow-sm">
+              <CardBody>
+                <h3 className="text-lg font-semibold text-anchor-green mb-2">Sunday Roast Before/After Spotting</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Pre-order by 1pm Saturday and sit down to Yorkshire puddings, crispy potatoes and real gravy after a morning watching arrivals.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="plane_spotting_roast_cta"
+                    variant="primary"
+                    size="sm"
+                  >
+                    Book Sunday Roast
+                  </BookTableButton>
+                  <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Sunday roast menu →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-white shadow-sm">
+              <CardBody>
+                <h3 className="text-lg font-semibold text-anchor-green mb-2">Pizza Tuesday 2-for-1</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Stay for buy-one-get-one-free stone-baked pizzas every Tuesday evening – a favourite with aviation meet-ups and crew nights.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="plane_spotting_pizza_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="sm"
+                  >
+                    Reserve Pizza Tuesday
+                  </BookTableButton>
+                  <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Pizza Tuesday details →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-anchor-cream/50 shadow-sm">
+              <CardBody>
+                <h3 className="text-lg font-semibold text-anchor-green mb-2">Hot Food & Drinks All Day</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Burgers, fish & chips, sharers and a full bar served to the beer garden. Free parking and WiFi keep you comfortable between arrivals.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="plane_spotting_food_cta"
+                    variant="primary"
+                    size="sm"
+                  >
+                    Book a Table
+                  </BookTableButton>
+                  <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Browse food menu →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+          </div>
+        </Container>
+      </Section>
 
       <Section background="white" spacing="sm">
         <Container>
@@ -271,22 +339,22 @@ export default function PlaneSpottingHeathrowPage() {
 
       <CTASection
         title="Ready for Heathrow Plane Spotting?"
-        description="Reserve a table, explore the beer garden or plan your route – everything you need for a memorable aviation session."
+        description="Book a table, grab Pizza Tuesday or Sunday roasts, and plan your route to our beer garden."
         buttons={[
           {
-            text: '🍺 Discover the Beer Garden',
-            href: '/beer-garden',
-            variant: 'white'
+            text: "📅 Book a Table",
+            href: "/book-table",
+            variant: "white"
           },
           {
-            text: '📍 Find Us & Parking Info',
-            href: '/find-us',
-            variant: 'white'
+            text: "🍕 Pizza Tuesday Deal",
+            href: "/pizza-tuesday",
+            variant: "white"
           },
           {
-            text: '📖 View Food & Drinks',
-            href: '/food-menu',
-            variant: 'white'
+            text: "📖 View Food & Drinks",
+            href: "/food-menu",
+            variant: "white"
           }
         ]}
         variant="green"

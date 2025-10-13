@@ -7,7 +7,8 @@ import {
   Card,
   CardBody,
   Grid,
-  GridItem
+  GridItem,
+  SectionHeader
 } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
@@ -17,6 +18,7 @@ import Link from 'next/link'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { EventSchema } from '@/components/EventSchema'
 import EventBooking from '@/components/EventBooking'
+import { BookTableButton } from '@/components/BookTableButton'
 import {
   getUpcomingEvents,
   formatEventDate,
@@ -236,14 +238,42 @@ export default async function QuizNightPage() {
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <BookTableButton
+              source="quiz_night_hero"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              📅 Book Your Quiz Table
+            </BookTableButton>
+            <Link
               href="#quiz-dates"
               className={cn(
                 'inline-flex items-center justify-center font-semibold text-center transition-all duration-200 rounded-full whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-anchor-gold focus:ring-offset-2 bg-white text-anchor-green border-2 border-anchor-green hover:bg-anchor-green hover:text-white px-8 py-3.5 text-lg min-h-[48px] w-full sm:w-auto'
               )}
             >
               📅 See upcoming quiz dates
-            </a>
+            </Link>
+            <Link href="/pizza-tuesday" className="w-full sm:w-auto">
+              <Button
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                🍕 Pizza Tuesday Deal
+              </Button>
+            </Link>
+            <Link href="/sunday-lunch" className="w-full sm:w-auto">
+              <Button
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                🍖 Sunday Roast Info
+              </Button>
+            </Link>
             <PhoneButton
               phone="01753 682707"
               source="quiz_night_hero"
@@ -266,6 +296,77 @@ export default async function QuizNightPage() {
             Looking for a pub quiz near Heathrow that still feels like your local? Every first Wednesday we transform The Anchor into
             a trivia night HQ for Stanwell Moor, Staines, Ashford, Bedfont and stopover crews chasing smart fun. {heroDescription}
           </p>
+        </Container>
+      </Section>
+
+      <Section spacing="sm" background="white">
+        <Container>
+          <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
+            <Card className="bg-anchor-cream/50 shadow-sm">
+              <CardBody>
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Sunday Roast Quiz Warm-Up</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Pre-order Sunday roast by 1pm Saturday and bring the team for a proper pub lunch before quizzing.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="quiz_night_roast_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book Sunday Roast
+                  </BookTableButton>
+                  <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Sunday roast menu →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-white shadow-sm">
+              <CardBody>
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Pizza Tuesday Teams</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Arrive for Pizza Tuesday (BOGOF 6 pm–9 pm) and fuel up on stone-baked pizzas before trivia kicks off.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="quiz_night_pizza_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Reserve Pizza Tuesday
+                  </BookTableButton>
+                  <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Pizza Tuesday details →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-anchor-cream/50 shadow-sm">
+              <CardBody>
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">All-Day Menu & Cocktails</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Order sharers, burgers or themed cocktails delivered to your table during breaks.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="quiz_night_food_menu_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book a Table
+                  </BookTableButton>
+                  <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Browse food & drinks →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+          </div>
         </Container>
       </Section>
 
@@ -447,14 +548,34 @@ export default async function QuizNightPage() {
               Reserve your spot or call the bar team and we’ll make sure your table’s ready.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <PhoneButton
-                phone="01753 682707"
+              <BookTableButton
                 source="quiz_night_cta_bottom"
+                variant="secondary"
                 size="lg"
                 className="w-full sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
               >
-                📞 Call us on 01753 682707
-              </PhoneButton>
+                📅 Book Your Team Table
+              </BookTableButton>
+              <Link href="/pizza-tuesday" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  fullWidth
+                  className="sm:w-auto bg-white/10 text-white hover:bg-white/20"
+                >
+                  🍕 Pizza Tuesday Deal
+                </Button>
+              </Link>
+              <Link href="/sunday-lunch" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  fullWidth
+                  className="sm:w-auto bg-white/10 text-white hover:bg-white/20"
+                >
+                  🍖 Sunday Roast Info
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 asChild

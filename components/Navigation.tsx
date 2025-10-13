@@ -93,6 +93,7 @@ const defaultItems: NavigationItem[] = [
     href: '/near-heathrow',
     items: [
       { label: 'Overview', href: '/near-heathrow' },
+      { label: 'Layover Dining', href: '/heathrow-layover-dining' },
       { label: 'Terminal 2', href: '/near-heathrow/terminal-2' },
       { label: 'Terminal 3', href: '/near-heathrow/terminal-3' },
       { label: 'Terminal 4', href: '/near-heathrow/terminal-4' },

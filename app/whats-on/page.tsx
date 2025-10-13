@@ -131,7 +131,9 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
               size="lg"
               fullWidth
               className="w-full sm:w-auto"
-            />
+            >
+              📅 Reserve a Table
+            </BookTableButton>
             <Link href="#upcoming-events" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
@@ -140,6 +142,26 @@ export default function WhatsOnPage({ searchParams }: WhatsOnPageProps) {
                 className="sm:w-auto"
               >
                 📅 View All Events
+              </Button>
+            </Link>
+            <Link href="/pizza-tuesday" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                🍕 Pizza Tuesday Deal
+              </Button>
+            </Link>
+            <Link href="/sunday-lunch" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                🍖 Sunday Roast Info
               </Button>
             </Link>
             <Link href="/book-event" className="w-full sm:w-auto">

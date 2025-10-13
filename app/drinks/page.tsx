@@ -322,7 +322,9 @@ export default async function DrinksMenuPage({ searchParams }: { searchParams: P
               size="lg"
               fullWidth
               className="w-full sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
-            />
+            >
+              Reserve a Table
+            </BookTableButton>
             <Link href="#menu" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
@@ -333,14 +335,24 @@ export default async function DrinksMenuPage({ searchParams }: { searchParams: P
                 📖 Jump to Menu
               </Button>
             </Link>
-            <Link href="#cocktails" className="w-full sm:w-auto">
+            <Link href="/pizza-tuesday" className="w-full sm:w-auto">
               <Button 
                 variant="secondary"
                 size="lg"
                 fullWidth
                 className="sm:w-auto"
               >
-                🍹 View Our Cocktails
+                🍕 Pizza Tuesday Deal
+              </Button>
+            </Link>
+            <Link href="/sunday-lunch" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                🍖 Sunday Roast Info
               </Button>
             </Link>
           </div>
@@ -351,7 +363,7 @@ export default async function DrinksMenuPage({ searchParams }: { searchParams: P
       <ManagersSpecialHero />
 
       {/* Popular Draught & Spirits */}
-      <Section background="white" spacing="md" className="bg-anchor-cream/30">
+      <Section background="white" spacing="md" className="bg-anchor-cream/30" id="featured-offers">
         <Container>
           <SectionHeader
             title="Your Favourite Drinks on Tap Near Heathrow"
@@ -429,6 +441,18 @@ export default async function DrinksMenuPage({ searchParams }: { searchParams: P
                 {category.title} {category.emoji}
               </Link>
             ))}
+            <Link 
+              href="/pizza-tuesday" 
+              className="rounded-lg bg-white px-6 py-3 shadow transition-shadow hover:shadow-md"
+            >
+              🍕 Pizza Tuesday 2-for-1
+            </Link>
+            <Link 
+              href="/sunday-lunch" 
+              className="rounded-lg bg-white px-6 py-3 shadow transition-shadow hover:shadow-md"
+            >
+              🍖 Sunday Roast Booking
+            </Link>
           </div>
         </Container>
       </Section>
@@ -630,7 +654,7 @@ export default async function DrinksMenuPage({ searchParams }: { searchParams: P
               Join Us for a Drink
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Whether it's a quick pint, tequila tasting, or celebration - we've got you covered
+              Book ahead for Pizza Tuesday, Sunday roast or a post-flight celebration with pints and cocktails.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <BookTableButton
@@ -639,15 +663,22 @@ export default async function DrinksMenuPage({ searchParams }: { searchParams: P
                 variant="secondary"
                 fullWidth
                 className="w-full sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
-              />
+              >
+                Reserve a Table
+              </BookTableButton>
               <Link href="tel:+441753682707" className="w-full sm:w-auto">
                 <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
                   📞 Call Us
                 </Button>
               </Link>
-              <Link href="/food-menu" className="w-full sm:w-auto">
+              <Link href="/pizza-tuesday" className="w-full sm:w-auto">
                 <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
-                  🍔 View Food Menu
+                  🍕 Pizza Tuesday Deal
+                </Button>
+              </Link>
+              <Link href="/sunday-lunch" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" fullWidth className="sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm">
+                  🍖 Sunday Roast Info
                 </Button>
               </Link>
             </div>

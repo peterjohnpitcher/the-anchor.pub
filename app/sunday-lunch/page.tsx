@@ -1,8 +1,7 @@
 import Link from 'next/link'
-import { Button, Container } from '@/components/ui'
+import { Button, Container, Section, Card, CardBody, InfoBoxGrid, SectionHeader, AlertBox, FeatureGrid } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { Metadata } from 'next'
-import { SectionHeader, FeatureGrid, AlertBox } from '@/components/ui'
 import { Icon } from '@/components/ui/Icon'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { ReviewSection } from '@/components/reviews'
@@ -10,23 +9,54 @@ import { MenuPageTracker } from '@/components/MenuPageTracker'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { generateNutritionInfo, generateSuitableForDiet } from '@/lib/schema-utils'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
+import { BookTableButton } from '@/components/BookTableButton'
+import { FoodStickyCtaBar } from '@/components/food/FoodStickyCtaBar'
 
 export const metadata: Metadata = {
-  title: 'Sunday Roast Near Heathrow | The Anchor - Heathrow Pub & Dining',
-  description: 'Award-winning Sunday roast near Heathrow Airport. Traditional British roast dinners with Yorkshire puddings, crispy roast potatoes & homemade gravy. £14.99-£15.99. Pre-order required.',
-  keywords: 'sunday roast near me, sunday lunch near me, roast dinner near me, sunday carvery near me, traditional sunday roast stanwell moor, best sunday lunch near heathrow, sunday roast surrey',
+  title: 'Sunday Roast Near Heathrow Airport | Pre-Order The Anchor',
+  description: 'Traditional Sunday roast with Yorkshire puddings minutes from Heathrow. Pre-order with £5 deposit, family-friendly seating and free parking.',
+  keywords: 'sunday roast near heathrow airport, sunday lunch near me, roast dinner near me, best sunday roast staines, pre order sunday roast the anchor',
   openGraph: {
-    title: 'Famous Sunday Roasts at The Anchor',
-    description: 'Traditional British Sunday roast dinners. Pre-order by 1pm Saturday required. Regular menu also available.',
+    title: 'Sunday Roast Near Heathrow Airport',
+    description: 'Pre-order The Anchor’s Sunday roast close to Heathrow: Yorkshire puddings, crispy potatoes and family seating with free parking.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
-    title: 'Famous Sunday Roasts at The Anchor',
-    description: 'Traditional British Sunday roast dinners. Pre-order by 1pm Saturday required. Regular menu also available.',
+    title: 'Sunday Roast Near Heathrow Airport',
+    description: 'Traditional Sunday roast minutes from Heathrow. Secure your table with a £5 pre-order deposit and enjoy free parking.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg']
-  })
+  }),
+  alternates: {
+    canonical: '/sunday-lunch'
+  }
 }
 
+const sundayRoastItems = [
+  {
+    position: 1,
+    name: 'Roasted Chicken',
+    url: 'https://www.the-anchor.pub/sunday-lunch#menu',
+    description: 'Oven-roasted chicken breast with sage & onion stuffing balls and roast trimmings.'
+  },
+  {
+    position: 2,
+    name: 'Slow-Cooked Lamb Shank',
+    url: 'https://www.the-anchor.pub/sunday-lunch#menu',
+    description: 'Tender lamb shank in red wine gravy with seasonal vegetables and Yorkshire pudding.'
+  },
+  {
+    position: 3,
+    name: 'Crispy Pork Belly',
+    url: 'https://www.the-anchor.pub/sunday-lunch#menu',
+    description: 'Slow-roasted pork belly with crackling, apple sauce and roast accompaniments.'
+  },
+  {
+    position: 4,
+    name: 'Beetroot & Butternut Squash Wellington',
+    url: 'https://www.the-anchor.pub/sunday-lunch#menu',
+    description: 'Plant-based Wellington served with vegetarian gravy and seasonal vegetables.'
+  }
+]
 export default function SundayLunchPage() {
   return (
     <>
@@ -40,25 +70,26 @@ export default function SundayLunchPage() {
       {/* Hero Section */}
       <HeroWrapper
         route="/sunday-lunch"
-        title="Sunday Roast at The Anchor"
-        description="Traditional British roast dinners that locals rave about"
+        title="Sunday Roast Near Heathrow Airport"
+        description="Pre-order by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and proper gravy minutes before your flight."
         size="large"
         tags={[
-          { label: "Every Sunday 12pm - 4:30pm", variant: "warning" }
+          { label: "Served Sundays 12pm–5pm", variant: "warning" },
+          { label: "£5 Deposit Secures Table", variant: "default" },
+          { label: "Free Parking • Family Friendly", variant: "default" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/book-table" className="w-full sm:w-auto">
-              <Button 
-                variant="primary" 
-                size="lg"
-                fullWidth
-                className="sm:w-auto"
-              >
-                <Icon name="calendar" className="mr-2 flex-shrink-0" />
-                <span>Book Your Table Now</span>
-              </Button>
-            </Link>
+            <BookTableButton
+              source="sunday_roast_hero"
+              context="sunday_roast"
+              variant="primary"
+              size="lg"
+              fullWidth
+              className="sm:w-auto"
+            >
+              Book Sunday Roast
+            </BookTableButton>
             
             <Link href="#menu" className="w-full sm:w-auto">
               <Button 
@@ -67,7 +98,7 @@ export default function SundayLunchPage() {
                 fullWidth
                 className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
               >
-                View Sunday Menu
+                View Roast Menu
               </Button>
             </Link>
           </div>
@@ -98,8 +129,31 @@ export default function SundayLunchPage() {
         </Container>
       </section>
 
+      <Section background="white" spacing="sm">
+        <Container>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { href: '#why', label: '⭐ Why Choose Our Roast' },
+              { href: '#heathrow', label: '✈️ Heathrow Timing Guide' },
+              { href: '#families', label: '👨‍👩‍👧 Family-Friendly' },
+              { href: '#menu', label: '🍽️ Roast Menu' },
+              { href: '#pizza', label: '🍕 Pizza Tuesday Deal' },
+              { href: '#faq', label: '❓ Roast FAQ' }
+            ].map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="inline-flex items-center gap-2 rounded-full border border-anchor-green/20 bg-white px-4 py-2 text-sm font-semibold text-anchor-green shadow-sm transition hover:border-anchor-gold hover:text-anchor-gold"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       {/* Why Our Roasts Are Special */}
-      <section className="section-spacing bg-white">
+      <section className="section-spacing bg-white" id="why">
         <Container>
           <SectionHeader
             title="Why Our Sunday Roast Near Me is Special"
@@ -132,6 +186,79 @@ export default function SundayLunchPage() {
           />
         </Container>
       </section>
+
+      <Section background="white" spacing="md" id="heathrow">
+        <Container>
+          <SectionHeader
+            title="Perfect Sunday Lunch Before Heathrow"
+            subtitle="7 minutes from Terminal 5, 11 minutes from Terminals 2 & 3 — enjoy a proper roast before you depart."
+          />
+          <InfoBoxGrid
+            columns={3}
+            className="max-w-5xl mx-auto"
+            items={[
+              {
+                icon: "⏱️",
+                title: "Flight-friendly Timing",
+                subtitle: (
+                  <>
+                    T5: 7 mins • T2 & T3: 11 mins • T4: 12 mins.<br />
+                    Pre-book and we’ll serve within 15 minutes.
+                  </>
+                )
+              },
+              {
+                icon: "🍽️",
+                title: "Proper Portions",
+                subtitle: "Crispy roast potatoes, seasonal veg, giant Yorkies and homemade gravy — with cauliflower cheese add-ons."
+              },
+              {
+                icon: "🚗",
+                title: "Free Parking & Receipts",
+                subtitle: "Park outside, dine in comfort, download your receipt and head straight to departures without airport prices."
+              }
+            ]}
+          />
+        </Container>
+      </Section>
+
+      <Section background="white" spacing="md" id="families">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-[1.2fr_1fr]">
+            <Card className="bg-anchor-cream/60 shadow-md">
+              <CardBody>
+                <h3 className="text-lg font-semibold text-anchor-green mb-3">Bring the Whole Family</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Kids roasts and half portions available.</li>
+                  <li>• High chairs, colouring packs and space for prams.</li>
+                  <li>• Quiet corners for multi-generation gatherings.</li>
+                </ul>
+                <div className="mt-4">
+                  <BookTableButton
+                    source="sunday_roast_family_cta"
+                    context="sunday_roast"
+                    variant="primary"
+                    size="md"
+                  >
+                    Book Family Roast
+                  </BookTableButton>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-white shadow-md">
+              <CardBody>
+                <p className="text-sm uppercase tracking-[0.3em] text-anchor-gold mb-3 text-center">
+                  Guest feedback
+                </p>
+                <blockquote className="text-center text-lg font-semibold text-anchor-green">
+                  “Best Sunday roast near Heathrow — beef was perfect, kids loved the Yorkies and staff kept us on schedule for our flight.”
+                </blockquote>
+                <p className="mt-4 text-center text-sm text-gray-600">— Google Review, August 2025</p>
+              </CardBody>
+            </Card>
+          </div>
+        </Container>
+      </Section>
 
       {/* Sunday Menu */}
       <section id="menu" className="section-spacing bg-anchor-cream">
@@ -569,8 +696,11 @@ export default function SundayLunchPage() {
       </section>
 
       {/* FAQ Section */}
-      <FAQAccordionWithSchema 
-        faqs={[
+      <section id="faq">
+        <FAQAccordionWithSchema
+          className="bg-white"
+          title="Sunday Roast FAQ"
+          faqs={[
           {
             question: "Why do I need to pre-order Sunday roast?",
             answer: "We prepare each Sunday roast fresh to order, ensuring the highest quality. Pre-ordering by 1pm Saturday with a £5 deposit helps us reduce waste, maintain our affordable prices (£14.99-£15.99), and guarantee you get exactly what you want. The deposit is deducted from your final bill."
@@ -600,8 +730,8 @@ export default function SundayLunchPage() {
             answer: "Absolutely! Sunday is perfect for family gatherings. For groups over 10, please call us on 01753 682707 to discuss your requirements. We can accommodate up to 50 diners in our main area."
           }
         ]}
-        className="bg-white"
-      />
+        />
+      </section>
 
       {/* Booking CTA */}
       <section className="section-spacing bg-anchor-green text-white">
@@ -615,18 +745,17 @@ export default function SundayLunchPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Link href="/book-table" className="w-full sm:w-auto">
-                <Button 
-                  variant="secondary" 
-                  size="lg" 
-                  fullWidth
-                  className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100 border-white"
-                >
-                  <Icon name="calendar" className="mr-2" />
-                  Book Your Sunday Roast
-                </Button>
-              </Link>
-              
+              <BookTableButton
+                source="sunday_roast_footer_cta"
+                context="sunday_roast"
+                variant="secondary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100 border-white"
+              >
+                Book Your Sunday Roast
+              </BookTableButton>
+
               <Link href="tel:+441753682707" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
@@ -818,6 +947,18 @@ export default function SundayLunchPage() {
           },
           {
             "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Sunday Roast Options",
+            "itemListElement": sundayRoastItems.map(item => ({
+              "@type": "ListItem",
+              "position": item.position,
+              "name": item.name,
+              "description": item.description,
+              "url": item.url
+            }))
+          },
+          {
+            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
               {
@@ -836,6 +977,16 @@ export default function SundayLunchPage() {
           }
         ])
         }}
+      />
+
+      <FoodStickyCtaBar
+        ctaContext="sunday_roast"
+        whatsapp={{
+          href: 'https://wa.me/441753682707?text=Hi%20Anchor%20Team!%20I%27d%20like%20to%20book%20for%20Sunday%20Roast.',
+          label: 'WhatsApp Roast Team',
+          id: 'whatsapp_sunday_roast'
+        }}
+        label="Book Sunday Roast"
       />
     </>
   )

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Button, Container } from '@/components/ui'
+import { Button, Container, Section, Card, CardBody } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { Metadata } from 'next'
@@ -131,6 +131,75 @@ export default function BeerGardenPage() {
           ✈️ DIRECTLY UNDER THE FLIGHT PATH ✈️
         </div>
       </HeroWrapper>
+
+      {/* Grab Food & Deals */}
+      <Section background="white" spacing="sm">
+        <Container>
+          <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
+            <Card className="bg-anchor-cream/50 shadow-sm">
+              <CardBody>
+                <h3 className="text-lg font-semibold text-anchor-green mb-2">Sunday Roast (Sundays 12–5pm)</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Pre-order by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and proper gravy after your plane-spotting session.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="beer_garden_roast_cta"
+                    variant="primary"
+                    size="sm"
+                  >
+                    Book Sunday Roast
+                  </BookTableButton>
+                  <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    View roast menu →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-white shadow-sm">
+              <CardBody>
+                <h3 className="text-lg font-semibold text-anchor-green mb-2">Pizza Tuesday 2-for-1</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Buy one stone-baked pizza, get one free every Tuesday 6pm–9pm. Perfect for aviation meet-ups or crew nights.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="beer_garden_pizza_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="sm"
+                  >
+                    Reserve Pizza Tuesday
+                  </BookTableButton>
+                  <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Pizza Tuesday details →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-anchor-cream/50 shadow-sm">
+              <CardBody>
+                <h3 className="text-lg font-semibold text-anchor-green mb-2">All-Day Food & Drinks</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Burgers, fish & chips, sharers and a full drinks list served directly to the beer garden during kitchen hours.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="beer_garden_food_menu_cta"
+                    variant="primary"
+                    size="sm"
+                  >
+                    Book a Table
+                  </BookTableButton>
+                  <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Browse full menu →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+          </div>
+        </Container>
+      </Section>
 
       {/* Page Title for SEO */}
       <section className="bg-white py-8">
@@ -358,10 +427,10 @@ export default function BeerGardenPage() {
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Ready for Planes & Pints?
+              Ready for Planes, Pints & Proper Food?
             </h2>
             <p className="text-xl text-white/90 mb-8">
-              Join fellow aviation enthusiasts in our unique beer garden
+              Join fellow aviation enthusiasts, enjoy 2-for-1 Pizza Tuesday or pre-order Sunday roast before wheels-up.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <BookTableButton

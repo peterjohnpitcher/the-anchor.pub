@@ -14,6 +14,7 @@ export function MenuPageTracker({ menuType, specialOffers = [] }: MenuPageTracke
   const pathname = usePathname()
   const mountTimeRef = useRef<number>(Date.now())
   const hasTrackedRef = useRef(false)
+  const isFoodMenu = menuType === 'food' || menuType === 'sunday_lunch' || menuType === 'pizza'
 
   useEffect(() => {
     // Prevent double tracking
@@ -32,6 +33,17 @@ export function MenuPageTracker({ menuType, specialOffers = [] }: MenuPageTracke
       special_offers_count: specialOffers.length,
       has_special_offers: specialOffers.length > 0
     })
+
+    if (isFoodMenu) {
+      pushToDataLayer({
+        event: 'food_menu_view',
+        menu_type: menuType,
+        page_url: pathname,
+        timestamp: new Date().toISOString(),
+        special_offers_visible: specialOffers,
+        special_offers_count: specialOffers.length
+      })
+    }
     
     // Also track in analytics
     analytics.viewItem('menu_item', `${menuType} menu`)
@@ -53,8 +65,18 @@ export function MenuPageTracker({ menuType, specialOffers = [] }: MenuPageTracke
         page_url: pathname,
         special_offers_viewed: specialOffers
       })
+
+      if (isFoodMenu) {
+        pushToDataLayer({
+          event: 'food_menu_exit',
+          menu_type: menuType,
+          page_url: pathname,
+          time_spent_seconds: timeSpent,
+          special_offers_viewed: specialOffers
+        })
+      }
     }
-  }, [menuType, pathname, specialOffers])
+  }, [isFoodMenu, menuType, pathname, specialOffers])
   
   return null
 }

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Button } from '@/components/ui'
+import { Button, SectionHeader } from '@/components/ui'
 import { Metadata } from 'next'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import { EventSchema } from '@/components/EventSchema'
@@ -77,6 +77,78 @@ export default function DragShowsPage() {
           <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
             Drag Shows - Saturday Night Entertainment
           </PageTitle>
+        </div>
+      </section>
+
+      {/* Pre-Show Dining & Drinks */}
+      <section className="section-spacing bg-anchor-cream/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="Make a Night of It"
+              subtitle="Book your table, grab Pizza Tuesday or Sunday roast before the show."
+            />
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Sunday Roast Pre-Show</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Matinee seating from 12pm-5pm every Sunday drag brunch. Pre-order by 1pm Saturday to guarantee roasts for the whole table.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="drag_show_roast_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book Sunday Roast
+                  </BookTableButton>
+                  <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Sunday roast menu →
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Pizza Tuesday Afterparty</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Buy one get one free pizzas every Tuesday 6pm–9pm — perfect for drag troupe rehearsals, crew socials and girls’ nights out.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="drag_show_pizza_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Reserve Pizza Night
+                  </BookTableButton>
+                  <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Pizza Tuesday deal →
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Cocktails & All-Day Menu</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Sip themed cocktails, prosecco towers, and nibble on sharers before the show. Full food menu served until late.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="drag_show_food_menu_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book a Table
+                  </BookTableButton>
+                  <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Browse food & drinks →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -750,6 +822,24 @@ export default function DragShowsPage() {
             >
               👑 Book Your Table
             </BookTableButton>
+            <Link href="/pizza-tuesday" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
+              >
+                🍕 Pizza Tuesday Deal
+              </Button>
+            </Link>
+            <Link href="/sunday-lunch" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm"
+              >
+                🍖 Sunday Roast Info
+              </Button>
+            </Link>
             <PhoneButton
               phone="01753 682707"
               source="drag_shows_cta"
@@ -759,15 +849,15 @@ export default function DragShowsPage() {
             >
               📞 Call: 01753 682707
             </PhoneButton>
-            <Link href="/whats-on">
-      <Button 
-        variant="secondary"
-        size="lg"
-        className="bg-white text-anchor-green hover:bg-gray-100"
-      >
-        View All Events
-      </Button>
-    </Link>
+            <Link href="/whats-on" className="w-full sm:w-auto">
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
+              >
+                View All Events
+              </Button>
+            </Link>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">

@@ -7,7 +7,8 @@ import {
   Card,
   CardBody,
   Grid,
-  GridItem
+  GridItem,
+  SectionHeader
 } from '@/components/ui'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
@@ -26,6 +27,7 @@ import { getEventWebsiteUrl } from '@/lib/event-url'
 import { staticEvents } from '@/lib/static-events'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import { BookTableButton } from '@/components/BookTableButton'
 
 export const metadata: Metadata = {
   title: 'Cash Bingo Near Heathrow | Jackpot Night at The Anchor',
@@ -238,6 +240,77 @@ export default async function CashBingoPage() {
           <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto">
             Searching for cash bingo games near Heathrow? Every few weeks we turn The Anchor into a buzzing bingo hall with cash prizes, hot food from the kitchen and a friendly crowd of locals, cabin crew and Stanwell Moor neighbours. {heroDescription}
           </p>
+        </Container>
+      </Section>
+
+      <Section spacing="sm" background="white">
+        <Container>
+          <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
+            <Card className="bg-anchor-cream/50 shadow-sm">
+              <CardBody>
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Sunday Roast Bingo Weekends</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Pre-order Sunday roast by 1pm Saturday and tuck in before doors open at 6 pm. Perfect for family bingo nights.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="bingo_roast_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book Sunday Roast
+                  </BookTableButton>
+                  <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Sunday roast menu →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-white shadow-sm">
+              <CardBody>
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Pizza Tuesday Warm-Up</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Buy-one-get-one-free pizzas every Tuesday 6 pm–9 pm. Share slices between games without leaving your table.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="bingo_pizza_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Reserve Pizza Tuesday
+                  </BookTableButton>
+                  <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Pizza Tuesday details →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-anchor-cream/50 shadow-sm">
+              <CardBody>
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">All-Day Menu & Cocktails</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Burgers, wings, puddings and themed cocktails delivered direct to your bingo seats throughout the night.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="bingo_food_menu_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book a Table
+                  </BookTableButton>
+                  <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Browse food & drinks →
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+          </div>
         </Container>
       </Section>
 

@@ -52,22 +52,53 @@ export function InfoBox({
   )
 }
 
+interface LegacyInfoBoxItem {
+  title: string
+  description?: React.ReactNode
+  subtitle?: React.ReactNode
+  footnote?: string
+  variant?: 'default' | 'colored'
+  color?: string
+  icon?: string
+  className?: string
+}
+
 interface InfoBoxGridProps {
-  boxes: InfoBoxProps[]
+  boxes?: InfoBoxProps[]
+  items?: LegacyInfoBoxItem[]
   columns?: 1 | 2 | 3
   className?: string
 }
 
-export function InfoBoxGrid({ boxes, columns = 2, className = '' }: InfoBoxGridProps) {
+export function InfoBoxGrid({ boxes, items, columns = 2, className = '' }: InfoBoxGridProps) {
   const gridCols = {
     1: '',
     2: 'md:grid-cols-2',
     3: 'md:grid-cols-3'
   }
 
+  const normalizedBoxes: InfoBoxProps[] = boxes ?? (items
+    ? items.map((item) => {
+        const body = item.description ?? item.subtitle ?? null
+        const renderedContent = typeof body === 'string'
+          ? <p>{body}</p>
+          : body ?? <></>
+
+        return {
+          title: item.title,
+          content: renderedContent,
+          footnote: item.footnote,
+          variant: item.variant,
+          color: item.color,
+          icon: item.icon,
+          className: item.className
+        }
+      })
+    : [])
+
   return (
     <div className={`grid ${gridCols[columns]} gap-6 ${className}`}>
-      {boxes.map((box, index) => (
+      {normalizedBoxes.map((box, index) => (
         <InfoBox key={index} {...box} />
       ))}
     </div>

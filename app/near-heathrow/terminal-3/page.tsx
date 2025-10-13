@@ -108,12 +108,107 @@ export default function Terminal3Page() {
         </div>
       </section>
 
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <CTASection
+            title="Turn Your Terminal 3 Layover into a Meal"
+            description="Follow our Heathrow layover dining plan for 90-minute and 3-hour stopovers with taxis booked both ways."
+            buttons={[
+              {
+                text: "View Layover Dining Guide",
+                href: "/heathrow-layover-dining",
+                variant: "white",
+                size: "lg"
+              },
+              {
+                text: "Chat to Plan Quickly",
+                href: "https://wa.me/441753682707?text=Hi%20Anchor%20Team!%20Flying%20via%20Heathrow%20T3%20-%20need%20a%20layover%20dining%20plan.",
+                variant: "outline",
+                size: "lg"
+              }
+            ]}
+          />
+        </div>
+      </section>
+
       {/* Page Title */}
       <section className="section-spacing bg-white">
         <Container>
           <PageTitle className="text-center text-anchor-green" seo={{ structured: true, speakable: true }}>
             Pub Near Heathrow Terminal 3 - The Anchor
           </PageTitle>
+        </Container>
+      </section>
+
+      {/* Food & Drink Highlights */}
+      <section className="section-spacing bg-anchor-cream/50">
+        <Container>
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="Eat & Drink Before Your Terminal 3 Flight"
+              subtitle="Pre-book to enjoy Sunday roast, Pizza Tuesday or a quick meal before departures."
+            />
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Sunday Roast</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Pre-order by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and homemade gravy with the family.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="terminal3_roast_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book Roast Table
+                  </BookTableButton>
+                  <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Sunday roast menu →
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Pizza Tuesday</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Buy one get one free on stone-baked pizzas every Tuesday 6pm–9pm — ideal for family send-offs and crew nights.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="terminal3_pizza_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Reserve Pizza Night
+                  </BookTableButton>
+                  <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Pizza Tuesday details →
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">All-Day Menu & Drinks</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Burgers, fish & chips, cocktails and draught beers served fast with free parking and space for luggage.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="terminal3_food_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book a Table
+                  </BookTableButton>
+                  <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Browse menus →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -547,14 +642,24 @@ export default function Terminal3Page() {
       {/* CTA Section */}
       <CTASection
         title="See You Soon at The Anchor!"
-        description="Just 11 minutes from Terminal 3 • Free Parking • Family Friendly"
+        description="Just 11 minutes from Terminal 3 • Free Parking • Sunday roast & Pizza Tuesday deals"
         variant="green"
         buttons={[
           {
-            text: "📞 01753 682707",
-            href: "tel:+441753682707",
-            isPhone: true,
-            phoneSource: "terminal_3_cta_section",
+            text: "📅 Book a Table",
+            href: "/book-table",
+            variant: "white",
+            size: "lg"
+          },
+          {
+            text: "🍕 Pizza Tuesday Deal",
+            href: "/pizza-tuesday",
+            variant: "white",
+            size: "lg"
+          },
+          {
+            text: "🍖 Sunday Roast Info",
+            href: "/sunday-lunch",
             variant: "white",
             size: "lg"
           },

@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Icon } from '@/components/ui/Icon'
+import { pushToDataLayer } from '@/lib/gtm-events'
 
 interface MenuSelection {
   guest_name: string
@@ -25,6 +26,7 @@ interface BookingData {
 
 export function BookingDetails({ bookingRef }: { bookingRef: string }) {
   const [bookingData, setBookingData] = useState<BookingData | null>(null)
+  const hasTrackedRef = useRef(false)
   
   useEffect(() => {
     // Try to get booking data from localStorage
@@ -44,6 +46,24 @@ export function BookingDetails({ bookingRef }: { bookingRef: string }) {
       setBookingData(data)
     }
   }, [bookingRef])
+
+  useEffect(() => {
+    if (!bookingData || hasTrackedRef.current) return
+
+    pushToDataLayer({
+      event: 'table_booking_complete',
+      booking_reference: bookingData.reference || bookingRef,
+      booking_date: bookingData.date,
+      booking_time: bookingData.time,
+      party_size: bookingData.partySize,
+      booking_type: bookingData.menuSelections && bookingData.menuSelections.length > 0 ? 'sunday_roast' : 'standard',
+      has_preorder: Boolean(bookingData.menuSelections && bookingData.menuSelections.length > 0),
+      has_total: Boolean(bookingData.totalPrice),
+      booking_value: bookingData.totalPrice || undefined
+    })
+
+    hasTrackedRef.current = true
+  }, [bookingData, bookingRef])
   
   if (!bookingData) {
     return null // Don't show anything if no data

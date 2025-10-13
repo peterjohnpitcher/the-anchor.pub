@@ -86,6 +86,78 @@ export default function NearHeathrowPage() {
         </Container>
       </section>
 
+      {/* Food CTA for Travellers */}
+      <section className="section-spacing bg-anchor-cream/50">
+        <Container>
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="Eat Before You Fly"
+              subtitle="Swap airport fast food for proper pub dining minutes from your terminal."
+            />
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Sunday Roast</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Pre-order by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and homemade gravy before your flight.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="near_heathrow_roast_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book Roast Table
+                  </BookTableButton>
+                  <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    View roast menu →
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Pizza Tuesday</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Buy one stone-baked pizza, get one free every Tuesday from 6pm–9pm. Perfect for crew nights or family send-offs.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="near_heathrow_pizza_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Reserve Pizza Night
+                  </BookTableButton>
+                  <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Pizza Tuesday details →
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">All-Day Menu</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Burgers, fish & chips, veggie options and sharers served fast — great for pre-flight meals or meeting arrivals.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="near_heathrow_food_menu_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book a Table
+                  </BookTableButton>
+                  <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Browse full menu →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Why Choose The Anchor */}
       <section className="section-spacing bg-white">
         <Container>
@@ -168,12 +240,17 @@ export default function NearHeathrowPage() {
             title="Plan your Heathrow stopover"
             subtitle="Make the most of your time near the airport with these quick resources"
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 max-w-6xl mx-auto">
             {[
               {
                 href: '/heathrow-parking',
                 title: 'Cheapest Heathrow parking',
                 description: 'Reserve secure parking from £15 per day, five minutes from Terminal 5.'
+              },
+              {
+                href: '/heathrow-layover-dining',
+                title: 'Layover dining itineraries',
+                description: 'Follow 90-minute and 3-hour plans for proper meals between flights, with taxis timed for departures.'
               },
               {
                 href: '/blog/cheap-heathrow-parking-alternatives',

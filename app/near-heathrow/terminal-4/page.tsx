@@ -106,6 +106,101 @@ export default function Terminal4Page() {
         </div>
       </section>
 
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <CTASection
+            title="Overnight at Terminal 4?"
+            description="Our layover dining guide covers late arrivals, overnight stays, and morning transfers back to T4 with taxis booked."
+            buttons={[
+              {
+                text: "Open Layover Guide",
+                href: "/heathrow-layover-dining",
+                variant: "white",
+                size: "lg"
+              },
+              {
+                text: "WhatsApp the Team",
+                href: "https://wa.me/441753682707?text=Hi%20Anchor%20Team!%20Staying%20near%20Heathrow%20T4%20-%20help%20plan%20a%20layover%20dinner.",
+                variant: "outline",
+                size: "lg"
+              }
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* Food & Drink Highlights */}
+      <section className="section-spacing bg-anchor-cream/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeader
+              title="Eat & Drink Before You Fly"
+              subtitle="Reserve a table so your food and drinks are waiting when you arrive."
+            />
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Sunday Roast</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Pre-order by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and gravy before catching evening departures.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="terminal4_roast_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book Roast Table
+                  </BookTableButton>
+                  <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Sunday roast menu →
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">Pizza Tuesday</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Buy one get one free on stone-baked pizzas every Tuesday evening — ideal for crew nights or family send-offs.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="terminal4_pizza_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Reserve Pizza Night
+                  </BookTableButton>
+                  <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Pizza Tuesday details →
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-anchor-green mb-2">All-Day Menu & Drinks</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Burgers, fish & chips, cocktails and real ales serve fast with free parking — a better alternative to hotel bars.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <BookTableButton
+                    source="terminal4_food_cta"
+                    variant="primary"
+                    size="sm"
+                    className="w-full"
+                  >
+                    Book a Table
+                  </BookTableButton>
+                  <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                    Browse menus →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Page Title */}
       <section className="section-spacing bg-white">
         <Container>
@@ -547,14 +642,24 @@ export default function Terminal4Page() {
       {/* CTA Section */}
       <CTASection
         title="See You Soon at The Anchor!"
-        description="Just 12 minutes from Terminal 4 • Free Parking • Great Value"
+        description="Just 12 minutes from Terminal 4 • Free Parking • Sunday roast & Pizza Tuesday deals"
         variant="green"
         buttons={[
           {
-            text: "📞 01753 682707",
-            href: "tel:+441753682707",
-            isPhone: true,
-            phoneSource: "terminal_4_cta_section",
+            text: "📅 Book a Table",
+            href: "/book-table",
+            variant: "white",
+            size: "lg"
+          },
+          {
+            text: "🍕 Pizza Tuesday Deal",
+            href: "/pizza-tuesday",
+            variant: "white",
+            size: "lg"
+          },
+          {
+            text: "🍖 Sunday Roast Info",
+            href: "/sunday-lunch",
             variant: "white",
             size: "lg"
           },

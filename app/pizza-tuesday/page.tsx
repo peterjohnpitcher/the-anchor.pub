@@ -1,34 +1,38 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { Button, Container, Section } from '@/components/ui'
+import { Button, Container, Section, Card, CardBody } from '@/components/ui'
 import { BusinessHours } from '@/components/BusinessHours'
 import { HeroWrapper } from '@/components/hero/HeroWrapper'
 import { FAQAccordionWithSchema } from '@/components/FAQAccordionWithSchema'
 import { EventSchema } from '@/components/EventSchema'
 import { CONTACT, BRAND, PARKING } from '@/lib/constants'
 import { generateBreadcrumbSchema } from '@/lib/enhanced-schemas'
-import { CTASection, SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
+import { SectionHeader, FeatureGrid, InfoBoxGrid, AlertBox } from '@/components/ui'
 import { getTwitterMetadata } from '@/lib/twitter-metadata'
 import type { Event } from '@/lib/api'
 import { BookTableButton } from '@/components/BookTableButton'
 import { PageTitle } from '@/components/ui/typography/PageTitle'
 import { DEFAULT_PIZZA_IMAGE } from '@/lib/image-fallbacks'
+import { FoodStickyCtaBar } from '@/components/food/FoodStickyCtaBar'
 
 export const metadata: Metadata = {
-  title: 'Pizza Tuesday 2-for-1 Near Heathrow | The Anchor Pub Deal',
-  description: 'Enjoy buy one get one free stone-baked pizzas every Tuesday at The Anchor near Heathrow. Dine in or takeaway, free parking, pizzas from £7.49.',
-  keywords: 'pizza tuesday near heathrow, 2 for 1 pizza deal, bogof pizza stanwell moor, cheap pizza tuesday surrey, anchor pizza tuesday offer',
+  title: 'Heathrow 2-for-1 Pizza Tuesday | Book The Anchor Deal',
+  description: 'Buy one get one free stone-baked pizzas every Tuesday near Heathrow. Reserve your table or takeaway with free parking and night-long pizza specials.',
+  keywords: 'pizza tuesday near heathrow, 2 for 1 pizza deal, bogof pizza stanwell moor, buy one get one free pizza, pizza deals near heathrow',
   openGraph: {
-    title: 'Pizza Tuesday 2-for-1 Deal at The Anchor',
-    description: 'Buy one pizza, get one free every Tuesday near Heathrow. View the offer and menu at The Anchor.',
+    title: 'Heathrow 2-for-1 Pizza Tuesday Deal',
+    description: 'Buy one pizza, get one free every Tuesday at The Anchor near Heathrow. Book a table or order takeaway with free parking.',
     images: [DEFAULT_PIZZA_IMAGE],
     type: 'website',
   },
   twitter: getTwitterMetadata({
-    title: 'Pizza Tuesday 2-for-1 Deal at The Anchor',
-    description: 'Buy one pizza, get one free every Tuesday near Heathrow. View the offer and menu at The Anchor.',
+    title: 'Heathrow 2-for-1 Pizza Tuesday Deal',
+    description: 'Buy one pizza, get one free every Tuesday near Heathrow. Reserve The Anchor table or takeaway with free parking.',
     images: [DEFAULT_PIZZA_IMAGE]
-  })
+  }),
+  alternates: {
+    canonical: '/pizza-tuesday'
+  }
 }
 
 const pizzaOfferSchema = {
@@ -124,6 +128,33 @@ const pizzaTuesdayEvent: Event = {
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode'
 }
 
+const pizzaMenuItems = [
+  {
+    position: 1,
+    name: 'Rustic Classic',
+    description: 'San Marzano tomato base, mozzarella, basil and oregano.',
+    url: 'https://www.the-anchor.pub/pizza-tuesday#menu-preview'
+  },
+  {
+    position: 2,
+    name: 'Speck & Truffle',
+    description: 'Speck ham, truffle cream, rocket and Fior di Latte mozzarella.',
+    url: 'https://www.the-anchor.pub/pizza-tuesday#menu-preview'
+  },
+  {
+    position: 3,
+    name: 'Garden Club (V)',
+    description: 'Roasted vegetables, olives, pesto drizzle and vegan-friendly option.',
+    url: 'https://www.the-anchor.pub/pizza-tuesday#menu-preview'
+  },
+  {
+    position: 4,
+    name: 'Nice & Spicy',
+    description: 'Spicy nduja, jalapeños, chilli flakes and San Marzano sauce.',
+    url: 'https://www.the-anchor.pub/pizza-tuesday#menu-preview'
+  }
+]
+
 export default function PizzaTuesdayPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -136,19 +167,36 @@ export default function PizzaTuesdayPage() {
       <EventSchema event={pizzaTuesdayEvent} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([pizzaOfferSchema, breadcrumbSchema]) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            pizzaOfferSchema,
+            breadcrumbSchema,
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "name": "Pizza Tuesday Menu",
+              "itemListElement": pizzaMenuItems.map(item => ({
+                "@type": "ListItem",
+                "position": item.position,
+                "name": item.name,
+                "description": item.description,
+                "url": item.url
+              }))
+            }
+          ])
+        }}
       />
       
       {/* Hero Section */}
       <HeroWrapper
         route="/pizza-tuesday"
-        title="Pizza Tuesday - BOGOF All Day!"
-        description="Buy One Get One FREE on ALL pizzas, every Tuesday"
+        title="2-for-1 Pizza Tuesday Near Heathrow"
+        description="Hand-stretched pizzas, buy one get one free every Tuesday from 6pm. Dine-in or takeaway with free parking."
         size="large"
         tags={[
-          { label: "🔥 2 FOR 1 ALL DAY", variant: "success" },
+          { label: "🔥 BOGOF 6pm–9pm", variant: "success" },
           { label: "From £7.49 per pizza", variant: "warning" },
-          { label: "6pm-9pm Kitchen Hours", variant: "default" }
+          { label: "7 mins from Heathrow", variant: "default" }
         ]}
         cta={
           <div className="flex flex-col sm:flex-row gap-4">
@@ -158,13 +206,13 @@ export default function PizzaTuesdayPage() {
               variant="primary"
               size="lg"
               fullWidth
-              className="w-full sm:w-auto"
+              className="sm:w-auto"
             >
-              📞 Book Your Table
+              Reserve Pizza Tuesday
             </BookTableButton>
-            <Link href="#pizza-menu" className="w-full sm:w-auto">
-              <Button variant="secondary" size="lg" fullWidth className="sm:w-auto">
-                🍕 View Pizza Menu
+            <Link href="#menu-preview" className="w-full sm:w-auto">
+              <Button variant="secondary" size="lg" fullWidth className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100">
+                View Pizza Line-Up
               </Button>
             </Link>
           </div>
@@ -180,8 +228,118 @@ export default function PizzaTuesdayPage() {
         </Container>
       </Section>
 
+      <Section background="white" spacing="md" id="groups">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-[1.2fr_1fr] max-w-5xl mx-auto">
+            <Card className="bg-anchor-cream/60 shadow-md">
+              <CardBody>
+                <h3 className="text-xl font-semibold text-anchor-green mb-3">Perfect for Groups & Takeaway</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Crew meals, team socials and family nights all love the BOGOF saving.</li>
+                  <li>• Call ahead for takeaway — we’ll time your order for collection.</li>
+                  <li>• Add sharers, wings and desserts to turn it into a full feast.</li>
+                </ul>
+                <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                  <BookTableButton
+                    source="pizza_tuesday_group_cta"
+                    context="pizza_tuesday"
+                    variant="primary"
+                    size="md"
+                    fullWidth
+                    className="sm:w-auto"
+                  >
+                    Book for a Group
+                  </BookTableButton>
+                  <Link href="tel:+441753682707" className="w-full sm:w-auto">
+                    <Button
+                      variant="secondary"
+                      size="md"
+                      fullWidth
+                      className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
+                    >
+                      Call to Pre-Order
+                    </Button>
+                  </Link>
+                </div>
+              </CardBody>
+            </Card>
+            <Card className="bg-white shadow-md">
+              <CardBody>
+                <p className="text-sm uppercase tracking-[0.3em] text-anchor-gold mb-3 text-center">Guest feedback</p>
+                <blockquote className="text-center text-lg font-semibold text-anchor-green">
+                  “Pizza Tuesday is unbeatable value — four of us ate like kings and still spent less than in the airport. Service was super quick.”
+                </blockquote>
+                <p className="mt-4 text-center text-sm text-gray-600">— Google Review, September 2025</p>
+              </CardBody>
+            </Card>
+          </div>
+        </Container>
+      </Section>
+
+      <Section background="white" spacing="md" id="availability">
+        <Container>
+          <div className="max-w-4xl mx-auto space-y-6">
+            <SectionHeader
+              title="Pizza Tuesday Every Week"
+              subtitle="Same unbeatable value every Tuesday evening — we just ask you to book so we can pace the ovens."
+            />
+            <div className="grid gap-4 md:grid-cols-3">
+              <Card className="bg-white shadow-md border border-amber-100">
+                <CardBody>
+                  <h3 className="text-lg font-semibold text-anchor-green">Kitchen Hours</h3>
+                  <p className="mt-2 text-sm text-gray-700">
+                    Pizza Tuesday runs every Tuesday from <strong>6pm – 9pm</strong>. Tell us if you need an earlier collection.
+                  </p>
+                </CardBody>
+              </Card>
+              <Card className="bg-white shadow-md border border-amber-100">
+                <CardBody>
+                  <h3 className="text-lg font-semibold text-anchor-green">No Limited Stock</h3>
+                  <p className="mt-2 text-sm text-gray-700">
+                    We make dough fresh through the evening, so the deal stays live all night. Just book or WhatsApp so we can plan staffing.
+                  </p>
+                </CardBody>
+              </Card>
+              <Card className="bg-white shadow-md border border-amber-100">
+                <CardBody>
+                  <h3 className="text-lg font-semibold text-anchor-green">Group Friendly</h3>
+                  <p className="mt-2 text-sm text-gray-700">
+                    Feeding a crew or ordering takeaway for the office? Let us know numbers and timing and we’ll stage the oven runs.
+                  </p>
+                </CardBody>
+              </Card>
+            </div>
+            <p className="text-sm text-gray-600 text-center">
+              Questions or large orders? WhatsApp +44 1753 682707 and we’ll pre-load the ovens for your arrival.
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      <Section background="white" spacing="sm">
+        <Container>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { href: '#deal', label: '🔥 The Deal' },
+              { href: '#menu-preview', label: '🍕 Pizza Menu' },
+              { href: '#heathrow', label: '✈️ Heathrow Travellers' },
+              { href: '#groups', label: '👨‍👩‍👧 Groups & Takeaway' },
+              { href: '#faq', label: '❓ Pizza FAQ' }
+            ].map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="inline-flex items-center gap-2 rounded-full border border-anchor-green/20 bg-white px-4 py-2 text-sm font-semibold text-anchor-green shadow-sm transition hover:border-anchor-gold hover:text-anchor-gold"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       {/* The Deal Section */}
-      <Section background="gray" spacing="md" id="pizza-menu">
+      <Section background="gray" spacing="md" id="deal">
         <Container>
           <div className="max-w-4xl mx-auto">
             <SectionHeader
@@ -239,7 +397,7 @@ export default function PizzaTuesdayPage() {
                 Perfect for families, date nights, or catching up with friends. 
                 Our stone-baked pizzas are made fresh to order with authentic Italian ingredients.
               </p>
-              <Link href="#pizza-menu" className="inline-block">
+              <Link href="#menu-preview" className="inline-block">
                 <Button 
                   variant="primary"
                   size="lg"
@@ -253,7 +411,7 @@ export default function PizzaTuesdayPage() {
       </Section>
 
       {/* Pizza Menu Preview */}
-      <Section background="gray" spacing="md">
+      <Section background="gray" spacing="md" id="menu-preview">
         <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
@@ -306,7 +464,7 @@ export default function PizzaTuesdayPage() {
             
             <div className="text-center">
               <p className="text-gray-600 mb-4">Gluten-free bases available on request</p>
-              <Link href="#pizza-menu" className="text-anchor-gold hover:text-anchor-green font-semibold">
+              <Link href="#menu-preview" className="text-anchor-gold hover:text-anchor-green font-semibold">
                 View Full Pizza Menu →
               </Link>
             </div>
@@ -362,11 +520,12 @@ export default function PizzaTuesdayPage() {
       </Section>
 
       {/* Location Benefits */}
-      <Section background="gray" spacing="md">
+      <Section background="gray" spacing="md" id="heathrow">
         <Container>
           <div className="max-w-5xl mx-auto">
             <SectionHeader
               title="Perfect Pizza Location Near Heathrow"
+              subtitle="Beat airport queues, eat better food and still make your flight."
             />
             
             <FeatureGrid
@@ -375,28 +534,28 @@ export default function PizzaTuesdayPage() {
                 {
                   icon: "✈️",
                   title: "Terminal 5",
-                  description: "Just 7 minutes",
-                  variant: "default",
-                  className: "bg-white rounded-lg p-6 shadow-md text-center"
-                },
-                {
-                  icon: "🏘️",
-                  title: "Stanwell Moor",
-                  description: "Your local pizzeria",
+                  description: "7 minutes door-to-door",
                   variant: "default",
                   className: "bg-white rounded-lg p-6 shadow-md text-center"
                 },
                 {
                   icon: "🚗",
-                  title: "M25 Junction 14",
-                  description: "5 minutes away",
+                  title: "Free Parking",
+                  description: "Park outside & go",
                   variant: "default",
                   className: "bg-white rounded-lg p-6 shadow-md text-center"
                 },
                 {
                   icon: "🚌",
-                  title: "Bus Route 442",
-                  description: "Stops outside",
+                  title: "Local Bus Links",
+                  description: "442 stops by the door",
+                  variant: "default",
+                  className: "bg-white rounded-lg p-6 shadow-md text-center"
+                },
+                {
+                  icon: "💳",
+                  title: "Receipt Ready",
+                  description: "Download & expense easily",
                   variant: "default",
                   className: "bg-white rounded-lg p-6 shadow-md text-center"
                 }
@@ -405,11 +564,11 @@ export default function PizzaTuesdayPage() {
             
             <AlertBox
               variant="success"
-              title="Save £12.50!"
+              title="Outside the ULEZ Zone"
               className="mt-8 text-center"
               content={
                 <p className="text-lg">
-                  We're outside the ULEZ zone - perfect for diners coming from London
+                  Save £12.50 in charges when you dine with us before or after flying from Heathrow.
                 </p>
               }
             />
@@ -418,6 +577,7 @@ export default function PizzaTuesdayPage() {
       </Section>
 
       {/* FAQs */}
+      <section id="faq">
       <FAQAccordionWithSchema
         faqs={[
           {
@@ -447,25 +607,54 @@ export default function PizzaTuesdayPage() {
         ]}
         className="bg-white"
       />
+      </section>
 
-      {/* CTA Section */}
-      <CTASection
-        title="Ready for Pizza Tuesday?"
-        description="Book your table now and enjoy 2-for-1 pizzas this Tuesday!"
-        buttons={[
-          {
-            text: "📞 Call to Book",
-            href: `${CONTACT.phoneHref}`,
-            variant: "secondary"
-          },
-          {
-            text: "🍕 View Menu",
-            href: "#pizza-menu",
-            variant: "white"
-          }
-        ]}
-        variant="red"
-        footer={`${BRAND.name} • ${CONTACT.address.street}, ${CONTACT.address.town} • Free Parking`}
+      <Section background="dark" spacing="md">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Ready for Pizza Tuesday?
+            </h2>
+            <p className="text-lg text-white/90 mb-8">
+              Book your table now and enjoy buy-one-get-one-free pizzas this Tuesday from 6pm.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <BookTableButton
+                source="pizza_tuesday_footer_cta"
+                context="pizza_tuesday"
+                variant="primary"
+                size="lg"
+                fullWidth
+                className="sm:w-auto"
+              >
+                Reserve Pizza Tuesday
+              </BookTableButton>
+              <Link href={CONTACT.phoneHref} className="w-full sm:w-auto">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  fullWidth
+                  className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
+                >
+                  Call {CONTACT.phone}
+                </Button>
+              </Link>
+            </div>
+            <p className="text-white/80 text-sm">
+              {BRAND.name} • {CONTACT.address.street}, {CONTACT.address.town} • Free Parking
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      <FoodStickyCtaBar
+        ctaContext="pizza_tuesday"
+        whatsapp={{
+          href: 'https://wa.me/441753682707?text=Hi%20Anchor%20Team!%20Please%20book%20me%20for%20Pizza%20Tuesday.',
+          label: 'WhatsApp Pizza Deal',
+          id: 'whatsapp_pizza_tuesday'
+        }}
+        label="Reserve Pizza Tuesday"
       />
     </>
   )

@@ -106,6 +106,96 @@ export default function Terminal5Page() {
         </div>
       </section>
 
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <CTASection
+            title="Plan a 90-Minute Layover Meal"
+            description="Follow our new Heathrow layover dining guide for timed itineraries, taxi tips, and menu ideas between flights."
+            buttons={[
+              {
+                text: "View Layover Guide",
+                href: "/heathrow-layover-dining",
+                variant: "white",
+                size: "lg"
+              },
+              {
+                text: "WhatsApp for Fast Booking",
+                href: "https://wa.me/441753682707?text=Hi%20Anchor%20Team!%20Can%20you%20help%20plan%20a%20Heathrow%20layover%20meal%3F",
+                variant: "outline",
+                size: "lg"
+              }
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* Food Before You Fly */}
+      <section className="section-spacing bg-anchor-cream/40">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Need Food Near Terminal 5?"
+            subtitle="Book ahead so your meal is ready when you arrive — no airport prices, no queues."
+          />
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h3 className="text-lg font-semibold text-anchor-green mb-2">Sunday Roast (Sun 12–5pm)</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Pre-order by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and homemade gravy before your flight.
+              </p>
+              <div className="flex flex-col gap-2">
+                <BookTableButton
+                  source="terminal5_roast_cta"
+                  variant="primary"
+                  size="sm"
+                >
+                  Book Roast Table
+                </BookTableButton>
+                <Link href="/sunday-lunch" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                  Sunday roast menu →
+                </Link>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h3 className="text-lg font-semibold text-anchor-green mb-2">Pizza Tuesday (6–9pm)</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Buy one get one free on all stone-baked pizzas — perfect for crew nights, family send-offs or late layovers.
+              </p>
+              <div className="flex flex-col gap-2">
+                <BookTableButton
+                  source="terminal5_pizza_cta"
+                  context="pizza_tuesday"
+                  variant="primary"
+                  size="sm"
+                >
+                  Reserve Pizza Tuesday
+                </BookTableButton>
+                <Link href="/pizza-tuesday" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                  Pizza Tuesday details →
+                </Link>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h3 className="text-lg font-semibold text-anchor-green mb-2">All-Day Menu</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                Burgers, fish & chips, veggie options and sharers served fast — great for BA crews and Sofitel/Hilton guests.
+              </p>
+              <div className="flex flex-col gap-2">
+                <BookTableButton
+                  source="terminal5_food_cta"
+                  variant="primary"
+                  size="sm"
+                >
+                  Book a Table
+                </BookTableButton>
+                <Link href="/food-menu" className="text-sm text-anchor-gold font-semibold hover:text-anchor-green transition">
+                  Browse full menu →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Page Title */}
       <section className="section-spacing bg-white">
         <Container>
