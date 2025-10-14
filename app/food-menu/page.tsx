@@ -819,7 +819,7 @@ export default async function FoodMenuPage() {
           },
           {
             question: "Do you serve Sunday roast at The Anchor?",
-            answer: "Yes! Our celebrated Sunday roasts are served every Sunday from 12pm-5pm. We offer beef, chicken, lamb, and vegetarian options. Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday. The remaining balance is paid on the day. Booking is essential as we're very popular - many say we serve the best Sunday roast in Surrey!"
+            answer: "Yes! Our celebrated Sunday roasts are served every Sunday from 12pm-5pm. We offer beef, chicken, lamb, and vegetarian options. Sunday roasts require a booking with £5 per person deposit by 1pm Saturday. The remaining balance is paid on the day. Booking is essential as we're very popular - many say we serve the best Sunday roast in Surrey!"
           },
           {
             question: "Is there a children's menu at The Anchor?",

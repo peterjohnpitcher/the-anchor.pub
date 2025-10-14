@@ -179,7 +179,7 @@ export default function FelthamPubPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-anchor-gold mr-3">✓</span>
-                  <span>Our celebrated Sunday roasts - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday</span>
+                  <span>Our celebrated Sunday roasts - Sunday roasts require a booking with £5 per person deposit by 1pm Saturday</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-anchor-gold mr-3">✓</span>
@@ -302,7 +302,7 @@ export default function FelthamPubPage() {
                         </li>
                         <li className="flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          Sunday roasts - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
+                          Sunday roasts - Sunday roasts require a booking with £5 per person deposit by 1pm Saturday
                         </li>
                         <li className="flex items-start">
                           <span className="text-blue-500 mr-2">•</span>

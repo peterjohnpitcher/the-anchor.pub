@@ -11,7 +11,7 @@ Maintains a single source of truth for marketing assumptions that appear in site
 | A-05 | Travel | Taxi times/fares (7–14 mins, £12–£24) are accurate. | ✅ Confirmed Oct ‘25 | Heathrow cluster pages | Keep copy; review quarterly with ops. |
 | A-06 | Pizza Ops | Pizza Tuesday has staged availability (“limited / good / plenty”). | ✅ Resolved Oct ’25 | Pizza Tuesday page | Availability table removed; messaging now reflects all-evening supply. |
 | A-07 | Kids Menu | Children’s roast includes mini desserts & zero-proof cocktails. | ❌ Incorrect | Sunday lunch blogs | Remove from site copy. |
-| A-08 | Sunday Roast | £5pp deposit and advance booking by 1 pm Saturday required. | ⚠️ Confirm with ops | Sunday lunch page, CTA modules | Copy now reflects booking requirement; validate deposit timing with team. |
+| A-08 | Sunday Roast | £5pp deposit and advance booking by 1 pm Saturday required. | ✅ Confirmed Oct ’25 | Sunday lunch page, CTA modules | Keep policy front-and-centre; remind staff to mention deposit during booking calls. |
 | A-09 | Service Speed | Layover diners can pre-order mains / use an “express menu.” | ✅ Resolved Oct ’25 | `app/heathrow-layover-dining/page.tsx` | Copy updated to focus on pacing meals after booking. |
 | A-10 | Pizza Ops | Crew can pre-order Pizza Tuesday takeaway boxes. | ✅ Resolved Oct ’25 | Pizza Tuesday blog, CTA copy | Messaging softened to “let us know your timing” without promising pre-orders. |
 | A-11 | Roast Ops | Quiz night & bingo guests can pre-order roasts same day. | ✅ Resolved Oct ’25 | Quiz night & cash bingo pages | Calls-to-action now ask guests to book tables instead of pre-ordering. |

@@ -113,7 +113,7 @@ export default function BookTablePage({
                     Enjoy our famous Sunday roasts - freshly prepared and served with all the trimmings
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
+                    Sunday roasts require a booking with £5 per person deposit by 1pm Saturday
                   </p>
                 </div>
 

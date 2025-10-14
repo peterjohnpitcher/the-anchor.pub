@@ -112,7 +112,7 @@ export default function SundayLunchPage() {
             Sunday roasts require a booking with £5 per person deposit by 1pm Saturday
           </p>
           <p className="text-white/90 text-sm sm:text-xs mt-2">
-            Regular menu also available on Sundays without pre-order
+            Regular menu also available on Sundays without booking ahead
           </p>
         </div>
       </HeroWrapper>
@@ -269,43 +269,43 @@ export default function SundayLunchPage() {
             />
             <AlertBox
               variant="warning"
-              title="📝 Pre-Order System (New for 2025)"
+              title="📝 Advance Booking (New for 2025)"
               className="mb-8 max-w-3xl mx-auto"
               content={
                 <>
                   <p className="text-gray-700 mb-4">
                     Our Sunday dinners are made from scratch and to order. <strong>Sunday roasts require 
-                    pre-order with £5 per person deposit by 1pm Saturday.</strong> The remaining balance 
+                    a confirmed booking with £5 per person deposit by 1pm Saturday.</strong> The remaining balance 
                     is paid on the day.
                   </p>
                   <div className="bg-green-50 rounded-lg p-4 mb-4">
-                    <h4 className="font-semibold text-green-900 mb-2">🌱 Why We Require Pre-Orders</h4>
+                    <h4 className="font-semibold text-green-900 mb-2">🌱 Why We Book Ahead</h4>
                     <ul className="space-y-2 text-sm text-green-800">
                       <li className="flex items-start gap-2">
                         <span className="text-green-600">✓</span>
-                        <span><strong>Fresh preparation:</strong> We make your gorgeous Sunday lunch from scratch, ready when you sit down</span>
+                        <span><strong>Fresh preparation:</strong> We make your gorgeous Sunday lunch from scratch, ready when you sit down.</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-600">✓</span>
-                        <span><strong>Reduced waste:</strong> Making meals to order helps us minimize food waste and be more sustainable</span>
+                        <span><strong>Reduced waste:</strong> Knowing numbers in advance helps us minimise food waste and stay sustainable.</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-600">✓</span>
-                        <span><strong>Better prices:</strong> Less waste means we can keep our Sunday lunch prices affordable</span>
+                        <span><strong>Better prices:</strong> Less waste means we can keep our Sunday lunch prices affordable.</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-green-600">✓</span>
-                        <span><strong>Guaranteed quality:</strong> Every roast is fresh and delicious, not sitting under heat lamps</span>
+                        <span><strong>Guaranteed quality:</strong> Every roast is fresh and delicious, never held under heat lamps.</span>
                       </li>
                     </ul>
                     <p className="text-xs text-green-700 mt-3 italic">
-                      This system helps us continue offering Sunday lunches close to Heathrow without raising prices.
+                      This booking system helps us continue offering Sunday lunches close to Heathrow without raising prices.
                     </p>
                   </div>
                   <div className="bg-white rounded-lg p-4">
                     <p className="text-sm text-gray-600 text-center">
-                      <strong>Can't pre-order?</strong> No problem! Our regular menu is also available on 
-                      Sundays without pre-order requirement.
+                      <strong>Can't book before Saturday?</strong> No problem! Our regular menu is also available on 
+                      Sundays without any advance booking.
                     </p>
                   </div>
                 </>
@@ -575,7 +575,7 @@ export default function SundayLunchPage() {
                     until golden and crispy. The Yorkshire puddings? Made from scratch, naturally.
                   </p>
                   <p className="mb-4">
-                    This attention to detail is why we introduced our pre-order system. By knowing 
+                    This attention to detail is why we introduced our advance booking system. By knowing 
                     exactly how many roasts we're serving, we can prepare each one fresh to order, 
                     ensuring every plate meets our exacting standards. It's more work for us, but 
                     the results speak for themselves.
@@ -702,7 +702,7 @@ export default function SundayLunchPage() {
           title="Sunday Roast FAQ"
           faqs={[
           {
-            question: "Why do I need to pre-order Sunday roast?",
+            question: "Why do I need to book Sunday roast in advance?",
             answer: "We prepare each Sunday roast fresh to order, ensuring the highest quality. Booking by 1pm Saturday with a £5 deposit helps us reduce waste, maintain our affordable prices (£14.99-£15.99), and guarantee we have your chosen joint ready when you arrive. The deposit is deducted from your final bill."
           },
           {
@@ -710,8 +710,8 @@ export default function SundayLunchPage() {
             answer: "Every roast comes with herb and garlic-crusted roast potatoes, seasonal vegetables, Yorkshire pudding, and red wine gravy (vegetarian gravy available). The portions are generous - you won't leave hungry!"
           },
           {
-            question: "Can I get Sunday roast without pre-ordering?",
-            answer: "Sunday roasts require pre-order, but our regular menu is available on Sundays without pre-order. This includes burgers, fish & chips, pizzas, and other pub classics."
+            question: "Can I get Sunday roast without booking ahead?",
+            answer: "Sunday roasts require an advance booking with deposit, but our regular menu is available on Sundays without any pre-booking. This includes burgers, fish & chips, pizzas, and other pub classics."
           },
           {
             question: "Do you cater for dietary requirements?",
@@ -719,7 +719,7 @@ export default function SundayLunchPage() {
           },
           {
             question: "What time is Sunday lunch served?",
-            answer: "Sunday roast is served from 12pm to 5pm every Sunday, with last orders at 4:30pm. We recommend booking your preferred time slot when pre-ordering."
+            answer: "Sunday roast is served from 12pm to 5pm every Sunday, with last orders at 4:30pm. We recommend booking your preferred time slot when confirming your roast."
           },
           {
             question: "Is there parking available?",
@@ -741,7 +741,7 @@ export default function SundayLunchPage() {
               Don't Miss Out on Sunday Roast
             </h2>
             <p className="text-lg mb-8">
-              Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday.
+              Sunday roasts require a booking with £5 per person deposit by 1pm Saturday.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -770,7 +770,7 @@ export default function SundayLunchPage() {
             </div>
             
             <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
-              Can't pre-order? Our regular menu is available on Sundays too!
+              Can't book ahead? Our regular menu is available on Sundays too!
             </p>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
@@ -817,7 +817,7 @@ export default function SundayLunchPage() {
                 "@type": "QuantitativeValue",
                 "minValue": 1,
                 "unitCode": "DAY",
-                "description": "Sunday roasts must be pre-ordered by 1pm Saturday"
+            "description": "Sunday roasts must be booked by 1pm Saturday"
               },
               "acceptsReservations": "required",
               "reservationPolicy": "Advance booking required by 1pm Saturday. £5 per person deposit required at time of booking, balance due on arrival.",
@@ -889,7 +889,7 @@ export default function SundayLunchPage() {
             "@context": "https://schema.org",
             "@type": "Offer",
             "name": "Sunday Roast Pre-Order Special",
-            "description": "Traditional British Sunday roast dinners with all the trimmings. Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday.",
+            "description": "Traditional British Sunday roast dinners with all the trimmings. Sunday roasts require a booking with £5 per person deposit by 1pm Saturday.",
             "url": "https://www.the-anchor.pub/sunday-lunch",
             "priceCurrency": "GBP",
             "priceRange": "£14.99 - £15.99",

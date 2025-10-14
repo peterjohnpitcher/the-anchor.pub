@@ -235,7 +235,7 @@ export default function WindsorPubPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-anchor-gold text-xl">🥘</span>
                     <div>
-                      <strong>Famous Sunday Roasts</strong> - Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
+                      <strong>Famous Sunday Roasts</strong> - Sunday roasts require a booking with £5 per person deposit by 1pm Saturday
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
