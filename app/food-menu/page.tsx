@@ -295,7 +295,7 @@ export default async function FoodMenuPage() {
                 title: "Signature Sunday Roast",
                 description: (
                   <>
-                    Pre-order by 1pm Saturday, enjoy proper roasts with Yorkshire puddings and crispy potatoes.
+                    Book by 1pm Saturday to guarantee proper roasts with Yorkshire puddings and crispy potatoes.
                     <div className="mt-3">
                       <Link href="/sunday-lunch" className="text-anchor-gold font-semibold hover:text-anchor-green transition">
                         Explore roast menu →
@@ -388,7 +388,7 @@ export default async function FoodMenuPage() {
               <CardBody>
                 <SectionHeader
                   title="Sunday Roast Near Heathrow"
-                  subtitle="Pre-order by 1pm Saturday and we’ll have your roast carved and ready when you arrive."
+                  subtitle="Book by 1pm Saturday to lock in your favourite roast and all the trimmings."
                   align="left"
                   className="mb-6"
                 />

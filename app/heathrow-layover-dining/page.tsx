@@ -137,7 +137,7 @@ export default function HeathrowLayoverDiningPage() {
               {
                 icon: '⏱️',
                 title: 'In & Out in 90 Minutes',
-                description: 'Pre-order or choose from our express menu for a relaxed meal without clock-watching. Tell us your flight time and we pace courses accordingly.'
+                description: 'Let us know your flight time when you book and we’ll pace courses so you can dine without clock-watching.'
               },
               {
                 icon: '🍽️',
@@ -182,7 +182,7 @@ export default function HeathrowLayoverDiningPage() {
               content={
                 <ul className="space-y-2">
                   <li>Taxi from Terminal 5 – 7 minutes</li>
-                  <li>Pre-ordered mains arrive 10 minutes after seating</li>
+                  <li>Let the team know your timing so mains land within minutes of sitting down</li>
                   <li>Coffee &amp; dessert to-go for airport return</li>
                   <li>Taxi booked back 30 minutes before boarding gate closes</li>
                 </ul>
@@ -206,7 +206,7 @@ export default function HeathrowLayoverDiningPage() {
               content={
                 <ul className="space-y-2">
                   <li>Dinner at The Anchor followed by nightcap in the bar</li>
-                  <li>Partner hotel introductions for late check-out</li>
+                  <li>Ask for nearby hotel recommendations that suit your schedule</li>
                   <li>Overnight parking arrangements available</li>
                   <li>Breakfast recommendations before you fly</li>
                 </ul>

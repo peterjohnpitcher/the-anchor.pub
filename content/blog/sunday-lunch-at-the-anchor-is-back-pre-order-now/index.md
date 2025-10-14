@@ -4,7 +4,7 @@ description: >-
   Book your traditional Sunday lunch near Heathrow Airport at The Anchor pub.
   Fresh roast dinners with Yorkshire puddings served 12-5pm. Dog-friendly pub in
   Stanwell Moor offering quality Sunday roasts just 7 minutes from Terminal 5.
-  Pre-order essential.
+  Advance booking strongly recommended.
 date: '2025-02-02'
 oldUrl: >-
   https://www.the-anchor.pub/post/sunday-lunch-at-the-anchor-is-back-pre-order-now
@@ -43,7 +43,7 @@ Unlike chain pubs and airport restaurants, our **traditional roast dinner** phil
 - **Traditional cooking methods** - Just like Sunday lunch at home
 - **Generous portions** - Proper pub-sized servings
 - **Fair prices** - Better value than airport dining
-- **Pre-order only** - Guaranteeing freshness and quality
+- **Advance booking recommended** - Guaranteeing freshness and quality
 
 ## Our Traditional Sunday Lunch Menu
 
@@ -118,11 +118,11 @@ Our **dog friendly Sunday lunch** offers:
 - **Crew favourite** - Where airline staff dine
 - **Hotel alternative** - Escape hotel dining
 
-## Why Pre-Order Your Sunday Lunch
+## Why Book Your Sunday Lunch in Advance
 
 ### Quality Guaranteed System
 
-Our **pre-order only** policy ensures:
+Our **book-ahead** policy ensures:
 
 ✅ **Ultimate freshness** - Your meal starts cooking when you arrive  
 ✅ **No waste** - We prepare exactly what's ordered  
@@ -132,10 +132,10 @@ Our **pre-order only** policy ensures:
 
 ### How to Book Your Sunday Roast
 
-**Pre-ordering is simple:**
+**Booking is simple:**
 
-1. **Visit the bar** any day we're open
-2. **Choose your roasts** from our menu
+1. **Visit the bar** any day we're open or call the team
+2. **Let us know your preferred roasts** so the kitchen can plan portions
 3. **Book your time slot** (12pm-5pm Sundays)
 4. **Mention dietary requirements** when booking
 5. **Deadline: Saturday 1pm** for next day's lunch
@@ -144,7 +144,7 @@ Our **pre-order only** policy ensures:
 - Perfect for home dining
 - Collection times 12pm-5pm
 - Same quality, convenient option
-- Specify collection time when ordering
+- Let us know your collection time when booking
 
 ## Sunday Lunch Service Details
 
@@ -152,7 +152,7 @@ Our **pre-order only** policy ensures:
 
 **Service Hours:**
 - Sundays only: 12pm - 5pm
-- Pre-order essential
+- Advance booking essential
 - Walk-ins can order from regular menu
 
 **Booking Timeline:**

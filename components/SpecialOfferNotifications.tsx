@@ -32,8 +32,8 @@ const specialOffers: SpecialOffer[] = [
   },
   {
     id: 'sunday-lunch-deadline',
-    title: 'Sunday Lunch - Order Deadline Today!',
-    description: 'Pre-order required by 1pm today for tomorrow\'s roast',
+    title: 'Sunday Lunch - Booking Deadline Today!',
+    description: 'Bookings required by 1pm today for tomorrow\'s roast',
     emoji: '🥘',
     dayOfWeek: [6], // Saturday
     showCountdown: true,

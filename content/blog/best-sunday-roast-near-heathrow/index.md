@@ -39,7 +39,7 @@ Looking for the **best Sunday roast near Heathrow Airport**? Skip the terminal f
 ### 3. Family-Friendly & Group Ready
 - High chairs, colouring sheets, and a dedicated children’s roast portion.
 - Dogs welcome in the bar area—ideal for families meeting loved ones with pets in tow.
-- Book the snug or dining room for **10–30 guests**; pre-order platters keep service speedy for large parties.
+- Book the snug or dining room for **10–30 guests**; chat with the team about sharing platters to keep service speedy for large parties.
 
 ## Sunday Roast Menu Highlights
 
@@ -51,12 +51,12 @@ Looking for the **best Sunday roast near Heathrow Airport**? Skip the terminal f
 | **Heritage Veg Wellington (V)** | Roasted squash, spinach, chestnut duxelle, veggie gravy | Vegetarians & flexitarians |
 | **Children’s Roast** | Smaller portion of any roast with veg, gravy & a mini pud | Under 12s |
 
-> **Tip:** Want to guarantee your favourite joint? **Pre-order by 1pm Saturday** and we’ll reserve your chosen roast in the kitchen.
+> **Tip:** Want to guarantee your favourite joint? **Book by 1pm Saturday** and we’ll make sure it’s waiting for you.
 
-## Booking & Pre-Order Guide
+## Booking Guide
 
 1. **Reserve your table** via our [online booking system](/book-table) or call 01753 682707.
-2. **Party of 8 or more?** We’ll send a pre-order form so everyone gets exactly what they fancy.
+2. **Party of 8 or more?** We’ll follow up so the kitchen knows what to expect and can pace service.
 3. **Deposits:** £5pp refundable on the day—keeps your space secure during peak Sundays.
 4. **Need a fast turnaround?** Let us know your flight time; we’ll pace courses accordingly.
 
@@ -73,7 +73,7 @@ Looking for the **best Sunday roast near Heathrow Airport**? Skip the terminal f
 
 - Pair Sunday lunch with a stroll along the **Colne Valley** or plane spotting from our **beer garden**.
 - Bringing kids? The **Stanwell Moor village green** is across the road for pre/post roast energy burning.
-- Staying overnight? Ask about our partner hotels offering late check-outs for Anchor diners.
+- Staying overnight? Ask for nearby hotel recommendations that suit your onward travel plans.
 
 ## Frequently Asked Questions
 

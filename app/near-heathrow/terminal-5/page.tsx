@@ -140,7 +140,7 @@ export default function Terminal5Page() {
             <div className="bg-white rounded-xl shadow-sm p-6">
               <h3 className="text-lg font-semibold text-anchor-green mb-2">Sunday Roast (Sun 12–5pm)</h3>
               <p className="text-sm text-gray-700 mb-4">
-                Pre-order by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and homemade gravy before your flight.
+                Book by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and homemade gravy before your flight.
               </p>
               <div className="flex flex-col gap-2">
                 <BookTableButton

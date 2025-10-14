@@ -262,9 +262,9 @@ export function WizardStep2bMenuSelection({
 
       {/* Important Notice */}
       <Alert variant="info">
-        <p className="font-medium">Pre-order Deadline</p>
+        <p className="font-medium">Booking Deadline</p>
         <p className="text-sm mt-1">
-          Sunday roast orders must be placed by 1pm on Saturday. 
+          Sunday roast bookings must be confirmed by 1pm on Saturday. 
           This ensures we prepare fresh ingredients specifically for your table.
         </p>
       </Alert>

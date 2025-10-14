@@ -128,7 +128,7 @@ export default function PlaneSpottingHeathrowPage() {
               <CardBody>
                 <h3 className="text-lg font-semibold text-anchor-green mb-2">Sunday Roast Before/After Spotting</h3>
                 <p className="text-sm text-gray-700 mb-4">
-                  Pre-order by 1pm Saturday and sit down to Yorkshire puddings, crispy potatoes and real gravy after a morning watching arrivals.
+                  Book by 1pm Saturday and sit down to Yorkshire puddings, crispy potatoes and real gravy after a morning watching arrivals.
                 </p>
                 <div className="flex flex-col gap-2">
                   <BookTableButton

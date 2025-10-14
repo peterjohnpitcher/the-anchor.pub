@@ -47,7 +47,7 @@ Planning a **family Sunday lunch near Heathrow**? Whether you’re welcoming rel
 | --- | --- | --- |
 | 11:45 | Arrive & park | Register number plate for 3 hours free |
 | 12:00 | Welcome drinks & kids’ packs arrive | Order kids’ starters to keep little ones occupied |
-| 12:15 | Mains served fresh from the pass | Pre-order roasts to guarantee favourites |
+| 12:15 | Mains served fresh from the pass | Book by 1pm Saturday to guarantee favourites |
 | 13:00 | Puddings & hot drinks | Ask for take-away boxes for leftovers |
 | 13:30 | Walk to village green | Burn off energy before the drive home |
 - Need airport timing? Consult our [Heathrow layover dining guide](/heathrow-layover-dining) for taxi times and boarding buffers.
@@ -73,7 +73,7 @@ Friendly, well-behaved dogs are welcome in the bar and garden areas. We have wat
 
 1. [Reserve online](/book-table) or WhatsApp **+44 1753 682707** with your party details.
 2. Tell us if you need high chairs, booster seats, or pram space.
-3. For parties of 8+, we’ll share a pre-order form so meals arrive together.
+3. For parties of 8+, we’ll check in ahead of time so meals arrive together.
 4. Want a cake or balloons? Drop them off the day before and we’ll set the table.
 
 ---

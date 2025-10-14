@@ -38,8 +38,8 @@ Searching for the **best Tuesday pizza deals near Heathrow**? Every Tuesday from
 
 ### Dine-In, Takeaway, or Crew Catering
 - Table service in our cosy dining room or beer garden.
-- Call ahead on 01753 682707 for **takeaway collection slots**.
-- Airline or hotel crew? Pre-order for your layover and we’ll have boxes ready.
+- Call 01753 682707 when you’re on the way for direct takeaway.
+- Airline or hotel crew? Let us know your timing and we’ll box everything up as soon as you arrive.
 
 ## Sample Pizza Tuesday Line-Up
 
@@ -57,7 +57,7 @@ Searching for the **best Tuesday pizza deals near Heathrow**? Every Tuesday from
 
 1. **Book a table** via [our booking page](/book-table) or WhatsApp **+44 1753 682707**.
 2. Select “Pizza Tuesday” so the team reserves ovens & dough for your party.
-3. For 6+ guests, we’ll send a pre-order link to speed things up.
+3. For 6+ guests, we’ll touch base ahead of time so the kitchen can pace service for your group.
 4. Arriving from Heathrow? Allow 10 minutes from T5, 15 minutes from T2/T3 traffic permitting—or follow our [Heathrow layover dining guide](/heathrow-layover-dining) for timed itineraries and taxi tips.
 
 ## FAQs About Our Pizza Deal

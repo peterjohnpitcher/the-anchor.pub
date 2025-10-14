@@ -13,17 +13,17 @@ import { BookTableButton } from '@/components/BookTableButton'
 import { FoodStickyCtaBar } from '@/components/food/FoodStickyCtaBar'
 
 export const metadata: Metadata = {
-  title: 'Sunday Roast Near Heathrow Airport | Pre-Order The Anchor',
-  description: 'Traditional Sunday roast with Yorkshire puddings minutes from Heathrow. Pre-order with £5 deposit, family-friendly seating and free parking.',
-  keywords: 'sunday roast near heathrow airport, sunday lunch near me, roast dinner near me, best sunday roast staines, pre order sunday roast the anchor',
+  title: 'Sunday Roast Near Heathrow Airport | Book At The Anchor',
+  description: 'Traditional Sunday roast with Yorkshire puddings minutes from Heathrow. Reserve with a £5 deposit, family-friendly seating and free parking.',
+  keywords: 'sunday roast near heathrow airport, sunday lunch near me, roast dinner near me, best sunday roast staines, book sunday roast the anchor',
   openGraph: {
     title: 'Sunday Roast Near Heathrow Airport',
-    description: 'Pre-order The Anchor’s Sunday roast close to Heathrow: Yorkshire puddings, crispy potatoes and family seating with free parking.',
+    description: 'Reserve The Anchor’s Sunday roast close to Heathrow: Yorkshire puddings, crispy potatoes and family seating with free parking.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg'],
   },
   twitter: getTwitterMetadata({
     title: 'Sunday Roast Near Heathrow Airport',
-    description: 'Traditional Sunday roast minutes from Heathrow. Secure your table with a £5 pre-order deposit and enjoy free parking.',
+    description: 'Traditional Sunday roast minutes from Heathrow. Secure your table with a £5 booking deposit and enjoy free parking.',
     images: ['/images/food/sunday-roast/the-anchor-sunday-roast-stanwell-moor.jpg']
   }),
   alternates: {
@@ -63,7 +63,7 @@ export default function SundayLunchPage() {
       <MenuPageTracker 
         menuType="sunday_lunch"
         specialOffers={[
-          "Pre-order required by 1pm Saturday"
+          "Advance booking required by 1pm Saturday"
         ]}
       />
       
@@ -71,7 +71,7 @@ export default function SundayLunchPage() {
       <HeroWrapper
         route="/sunday-lunch"
         title="Sunday Roast Near Heathrow Airport"
-        description="Pre-order by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and proper gravy minutes before your flight."
+        description="Book by 1pm Saturday and enjoy Yorkshire puddings, crispy potatoes and proper gravy minutes before your flight."
         size="large"
         tags={[
           { label: "Served Sundays 12pm–5pm", variant: "warning" },
@@ -106,10 +106,10 @@ export default function SundayLunchPage() {
       >
         <div className="mt-6 bg-red-600/90 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
           <p className="text-white font-bold text-lg mb-1">
-            ⚠️ IMPORTANT: Pre-order & £5 Deposit Required
+            ⚠️ IMPORTANT: Advance Booking & £5 Deposit Required
           </p>
           <p className="text-white text-sm">
-            Sunday roasts require pre-order with £5 per person deposit by 1pm Saturday
+            Sunday roasts require a booking with £5 per person deposit by 1pm Saturday
           </p>
           <p className="text-white/90 text-sm sm:text-xs mt-2">
             Regular menu also available on Sundays without pre-order
@@ -703,7 +703,7 @@ export default function SundayLunchPage() {
           faqs={[
           {
             question: "Why do I need to pre-order Sunday roast?",
-            answer: "We prepare each Sunday roast fresh to order, ensuring the highest quality. Pre-ordering by 1pm Saturday with a £5 deposit helps us reduce waste, maintain our affordable prices (£14.99-£15.99), and guarantee you get exactly what you want. The deposit is deducted from your final bill."
+            answer: "We prepare each Sunday roast fresh to order, ensuring the highest quality. Booking by 1pm Saturday with a £5 deposit helps us reduce waste, maintain our affordable prices (£14.99-£15.99), and guarantee we have your chosen joint ready when you arrive. The deposit is deducted from your final bill."
           },
           {
             question: "What's included with each Sunday roast?",
@@ -820,7 +820,7 @@ export default function SundayLunchPage() {
                 "description": "Sunday roasts must be pre-ordered by 1pm Saturday"
               },
               "acceptsReservations": "required",
-              "reservationPolicy": "Pre-order required by 1pm Saturday. £5 per person deposit required at time of booking, balance due on arrival.",
+              "reservationPolicy": "Advance booking required by 1pm Saturday. £5 per person deposit required at time of booking, balance due on arrival.",
             "hasMenu": {
               "@type": "Menu",
               "name": "Sunday Roast Menu",

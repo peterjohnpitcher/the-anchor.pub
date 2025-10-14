@@ -236,7 +236,7 @@ export default function PizzaTuesdayPage() {
                 <h3 className="text-xl font-semibold text-anchor-green mb-3">Perfect for Groups & Takeaway</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>• Crew meals, team socials and family nights all love the BOGOF saving.</li>
-                  <li>• Call ahead for takeaway — we’ll time your order for collection.</li>
+                  <li>• Takeaway boxes available — give us a ring when you’re on the way and we’ll get the ovens fired up.</li>
                   <li>• Add sharers, wings and desserts to turn it into a full feast.</li>
                 </ul>
                 <div className="mt-4 flex flex-col sm:flex-row gap-3">
@@ -257,7 +257,7 @@ export default function PizzaTuesdayPage() {
                       fullWidth
                       className="sm:w-auto bg-white text-anchor-green hover:bg-gray-100"
                     >
-                      Call to Pre-Order
+                      Call When You're En Route
                     </Button>
                   </Link>
                 </div>
@@ -310,7 +310,7 @@ export default function PizzaTuesdayPage() {
               </Card>
             </div>
             <p className="text-sm text-gray-600 text-center">
-              Questions or large orders? WhatsApp +44 1753 682707 and we’ll pre-load the ovens for your arrival.
+              Questions or large orders? WhatsApp +44 1753 682707 and we’ll make sure the team is ready when you arrive.
             </p>
           </div>
         </Container>

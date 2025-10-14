@@ -124,7 +124,7 @@ export function DailySpecials({ isOpen }: DailySpecialsProps) {
               Last Chance to Book Tomorrow's Roast!
             </h2>
             <p className="text-xl mb-6 text-white/90">
-              Pre-order required by 1pm today
+              Bookings required by 1pm today
             </p>
             <p className="text-lg mb-8">
               Don't miss out on our famous Sunday roasts

@@ -623,13 +623,13 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
   
   return (
     <form onSubmit={handleSubmit} className={`w-full ${className || ''}`}>
-      {/* Pre-order reminder */}
+      {/* Booking reminder */}
       <Alert variant="warning" className="mb-4">
         <Icon name="alert" className="h-4 w-4" />
         <div>
-          <p className="font-medium">Pre-order Required by 1pm Saturday</p>
+          <p className="font-medium">Advance Booking Required by 1pm Saturday</p>
           <p className="text-sm mt-1">
-            Sunday roasts require pre-order with £{depositAmount.toFixed(2)} deposit (£5 per person) by 1pm Saturday.
+            Sunday roasts require a confirmed booking with £{depositAmount.toFixed(2)} deposit (£5 per person) by 1pm Saturday.
             The remaining balance is due on arrival.
           </p>
           {(() => {
@@ -639,7 +639,7 @@ export default function SundayLunchBookingForm({ className }: SundayLunchBooking
             if (day === 6 && hour >= 13) {
               return (
                 <p className="text-sm mt-1 font-medium">
-                  ⚠️ Orders for tomorrow's Sunday lunch are now closed. Please select a later date.
+                  ⚠️ Bookings for tomorrow's Sunday lunch are now closed. Please select a later date.
                 </p>
               )
             }

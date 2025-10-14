@@ -92,7 +92,7 @@ export default function DragShowsPage() {
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <h3 className="text-xl font-semibold text-anchor-green mb-2">Sunday Roast Pre-Show</h3>
                 <p className="text-sm text-gray-700 mb-4">
-                  Matinee seating from 12pm-5pm every Sunday drag brunch. Pre-order by 1pm Saturday to guarantee roasts for the whole table.
+                  Matinee seating from 12pm-5pm every Sunday drag brunch. Book by 1pm Saturday to guarantee roasts for the whole table.
                 </p>
                 <div className="flex flex-col gap-2">
                   <BookTableButton
