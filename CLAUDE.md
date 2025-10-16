@@ -1270,9 +1270,10 @@ while not_done:
 
 #### Content Verification
 **Single Source of Truth Files:**
-- `/docs/MASTER-FACT-CHECK-REFERENCE.md` - All business facts
-- `/docs/MASTER-OFFERS-AND-CLAIMS.md` - Marketing claims
-- `/docs/COMPLETE_API_DOCUMENTATION.md` - API usage
+- `/docs/copy-assumptions.md` - Verified operational claims that appear in copy
+- `/docs/api-integration.md` - Core management API usage
+- `/docs/parking-api.md` - Parking subsystem contract
+- `/docs/google-places.md` - Google reviews configuration and troubleshooting
 
 #### Business Logic Rules
 1. **Monday Kitchen**: Always closed unless special hours explicitly open it
@@ -1393,7 +1394,7 @@ import { trackEventName } from '@/lib/gtm-events'
 ```
 
 #### Updating Business Information
-1. Update `/docs/MASTER-FACT-CHECK-REFERENCE.md`
+1. Update `/docs/copy-assumptions.md`
 2. Update `/lib/constants.ts` if needed
 3. Search for hardcoded instances
 4. Test build for TypeScript errors
@@ -1441,8 +1442,16 @@ the-anchor.pub/
 │   └── hours-utils.ts    # Business hours logic
 ├── public/               # Static assets
 ├── docs/                 # Documentation
-│   ├── MASTER-FACT-CHECK-REFERENCE.md
-│   └── COMPLETE_API_DOCUMENTATION.md
+│   ├── README.md
+│   ├── api-integration.md
+│   ├── copy-assumptions.md
+│   ├── deployment.md
+│   ├── domain-migration-safe-email.md
+│   ├── domain-migration.md
+│   ├── image-optimization.md
+│   ├── parking-api.md
+│   ├── google-places.md
+│   └── style-guide.md
 └── tests/               # Test files
 ```
 
@@ -1538,8 +1547,10 @@ const HeavyComponent = dynamic(
 
 ### API Documentation Reference
 
-Whenever making changes to API usage, always follow the comprehensive documentation at:
-`/docs/COMPLETE_API_DOCUMENTATION.md`
+Whenever making changes to API usage, consult:
+- `/docs/api-integration.md`
+- `/docs/parking-api.md`
+- `/docs/google-places.md`
 
 ---
 

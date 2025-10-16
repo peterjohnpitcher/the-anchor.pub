@@ -97,7 +97,7 @@ npm run optimize:images  # Optimise blog + public imagery
 npm run type     # Type check with TypeScript
 ```
 
-Image optimisation details live in `docs/guides/image-optimization.md`.
+Image optimisation details live in `docs/image-optimization.md`.
 
 ### API Integration
 

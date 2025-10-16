@@ -112,7 +112,7 @@ echo "Updating medium priority issues..."
 gh issue edit 59 --add-label "P2-Medium,seo,technical-debt" --body "## Priority: P2 (MEDIUM)
 
 ### Discovery Findings
-Comprehensive SEO analysis exists in \`/docs/SEO-NON-INDEXED-URLS-SOLUTION.md\`
+Previous non-indexed URL audit notes were archived; run a fresh crawl before implementing fixes.
 
 **Current State:**
 - Most non-indexed URLs are correct (API endpoints, assets)
@@ -120,7 +120,7 @@ Comprehensive SEO analysis exists in \`/docs/SEO-NON-INDEXED-URLS-SOLUTION.md\`
 - Some duplicate content issues remain
 
 ### Recommended Actions
-1. Implement remaining recommendations from SEO doc
+1. Run a fresh crawl / Search Console export and resolve the flagged canonical & indexing issues
 2. Fix canonical tags for all pages
 3. Update sitemap.xml generation
 4. Configure structured data properly
@@ -169,7 +169,7 @@ gh issue edit 5 --add-label "P3-Low,seo,content,ongoing" --body "## Priority: P3
 
 ### Discovery Findings
 Extensive SEO work already completed:
-- Comprehensive documentation in \`/docs/SEO/\`
+- Earlier audit notes are archived; use live Search Console data as the source of truth.
 - Many location pages created
 - Rich content on key pages
 
